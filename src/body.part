@@ -1,0 +1,131 @@
+
+<div class="wrap">
+  <header class="topbar">
+    <svg class="emblem" viewBox="0 0 44 44" aria-hidden="true">
+      <circle cx="22" cy="22" r="20" fill="none" stroke="#BE1740" stroke-width="2.5"/>
+      <circle cx="22" cy="22" r="15.5" fill="#BE1740" opacity=".12"/>
+      <circle cx="19" cy="20" r="7.5" fill="none" stroke="#BE1740" stroke-width="1.6"/>
+      <circle cx="18" cy="19" r="2.4" fill="#BE1740"/>
+      <rect x="27" y="25" width="8" height="4" rx="2" fill="#C9922E" transform="rotate(-25 31 27)"/>
+      <circle cx="30" cy="15" r="1.4" fill="#C9922E"/><circle cx="14" cy="30" r="1.4" fill="#C9922E"/>
+    </svg>
+    <div class="tt">
+      <h1>Hành Trình Vào <em>Tế Bào</em></h1>
+      <p>Tế bào nhân thực · cắt hở phía trên · đang hoạt động · phóng tới nguyên tử · bản 7</p>
+    </div>
+    <dl class="kpis">
+      <div><dt>Hạt đang chạy</dt><dd id="kParticles">0</dd></div>
+      <div><dt>Nguyên tử thật</dt><dd id="kAtoms" class="hl">–</dd></div>
+      <div><dt>pH bào tương</dt><dd>7,2<small>đã kiểm</small></dd></div>
+      <div><dt>Mô phỏng</dt><dd id="kClock">00:00</dd></div>
+    </dl>
+  </header>
+
+  <div class="ticker"><span class="tk-l">Nhật ký</span><div class="tk-track"><span id="ticker">Tế bào đang khởi động…</span></div></div>
+
+  <div class="main">
+    <section class="stage" aria-label="Khung xem tế bào 3D">
+      <div id="viewport">
+        <div class="ov glass mode-chip"><span class="k">Đang nhìn qua</span><span class="v" id="modeName">Màu minh hoạ</span></div>
+        <div class="ov glass hud" id="hud" aria-live="off">Đang khởi động…</div>
+        <div class="ov glass scalebar" id="scalebar"><span id="scaleTxt">5 µm</span><div class="bar" id="scaleBar" style="width:100px"></div></div>
+        <div class="ov glass illus" id="illusNote">Ribosome, protein màng và lớp lipid vẽ phóng to; chuyển động đã tăng tốc để dễ thấy.</div>
+        <svg class="ov lead" id="lead" aria-hidden="true"><line id="leadLine" x1="0" y1="0" x2="0" y2="0"/><circle id="leadDot" r="3.5" cx="0" cy="0"/></svg>
+        <div class="ov reticle" id="reticle"></div>
+        <div class="ov pins" id="pins"></div>
+        <button type="button" class="pin herotag" id="heroTag" hidden><span class="n">↓</span><span class="t">Ribosome thật · phóng tới nguyên tử</span></button>
+        <div class="callout" id="callout" hidden></div>
+        <div class="ov glass caption" id="caption" hidden></div>
+        <div class="ov glass tline" id="tline" hidden></div>
+        <button type="button" class="drawer-tab" id="drawerTab" aria-controls="aside" aria-expanded="true" title="Ẩn bảng thông tin (phím I)">›</button>
+        <div class="ov toast" id="toast" role="status"></div>
+        <div class="ov loading" id="loading">Đang dựng tế bào…</div>
+      </div>
+      <dl class="status">
+        <div><dt>Trạng thái</dt><dd id="sState" class="hl">Toàn cảnh</dd></div>
+        <div><dt>Mặt cắt</dt><dd id="sCut">y = 1,5 µm</dd></div>
+        <div><dt>Hướng nhìn</dt><dd id="sBearing">0°</dd></div>
+        <div><dt>Thuốc nhuộm</dt><dd id="sStain">Màu</dd></div>
+        <div><dt>Thang</dt><dd id="sScale">5 µm</dd></div>
+        <div><dt>Quá trình bật</dt><dd id="sProcs">5 / 5</dd></div>
+      </dl>
+      <div class="controls">
+        <div class="grp">
+          <span class="lbl" id="stainLbl">Nhuộm</span>
+          <div class="seg" role="group" aria-labelledby="stainLbl" id="stainSeg">
+            <button type="button" data-stain="0" aria-pressed="true">Màu</button>
+            <button type="button" data-stain="1" aria-pressed="false">Osmium</button>
+            <button type="button" data-stain="2" aria-pressed="false">Uranyl</button>
+            <button type="button" data-stain="3" aria-pressed="false">Chì</button>
+          </div>
+        </div>
+        <div class="grp">
+          <button type="button" class="btn" id="playBtn" aria-pressed="false">Tạm dừng</button>
+          <label class="lbl" for="speed">Tốc độ</label>
+          <select id="speed"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select>
+        </div>
+        <div class="grp">
+          <label class="lbl" for="cut">Mặt cắt</label>
+          <input type="range" id="cut" min="-3" max="10.5" step="0.1" value="1.5">
+          <span class="cutval" id="cutVal">y = 1,5 µm</span>
+        </div>
+        <div class="grp">
+          <label class="lbl" for="tier">Chất lượng</label>
+          <select id="tier"><option value="cao">Cao</option><option value="chuan">Chuẩn</option></select>
+        </div>
+        <div class="grp">
+          <button type="button" class="btn gold" id="diveBtn" disabled>Đang tải cấu trúc…</button>
+          <button type="button" class="btn primary" id="tourBtn">Xem phim 45 giây</button>
+          <button type="button" class="btn" id="resetBtn">Về toàn cảnh</button>
+          <button type="button" class="btn" id="fsBtn" title="Phím F">Toàn màn hình</button>
+          <button type="button" class="btn dark" id="benchBtn">Đo cổng 0 · 30 giây</button>
+        </div>
+      </div>
+    </section>
+
+    <aside id="aside">
+      <div class="aside-in" id="asideIn">
+      <div class="card" id="infoCard" aria-live="polite"></div>
+      <div class="card" id="stainCard"><span class="eyebrow">Đang nhìn qua</span><p class="why" id="why"></p></div>
+      <div class="card" id="procCard">
+        <span class="eyebrow">Đang diễn ra trong tế bào</span>
+        <ul class="procs" id="procList"></ul>
+        <p class="small">Tốc độ đã tăng nhiều lần và số lượng hạt là minh hoạ để mắt kịp theo dõi. Bộ đếm chỉ đếm trong mô phỏng này. <kbd>Space</kbd> chạy hoặc dừng.</p>
+      </div>
+      <div class="card">
+        <span class="eyebrow">Bào quan trong cảnh</span>
+        <ul class="legend" id="legend"></ul>
+        <p class="keys">Kéo để xoay, cuộn để phóng. <kbd>I</kbd> ẩn hoặc hiện bảng này, <kbd>F</kbd> toàn màn hình. Bấm một bào quan để bay tới, rồi bấm ghim số để xem từng bộ phận. Bấm hạt vàng trên lưới nội chất hoặc nút <b>Phóng tới nguyên tử</b> để xuống tới từng nguyên tử. <kbd>1</kbd>–<kbd>4</kbd> đổi nhuộm, <kbd>R</kbd> về toàn cảnh, <kbd>Esc</kbd> lùi một bước.</p>
+      </div>
+      <div class="card" id="benchCard" hidden></div>
+      <div class="card">
+        <span class="eyebrow">Cái gì là minh hoạ</span>
+        <p class="small">Hình khối, vị trí, kích thước bào quan và màu là minh hoạ. Lưới vàng trong nhân là lưới lamin, lưới vàng dưới màng là lưới actin vỏ, cả hai đều vẽ cách điệu. Chỉ số có nhãn <span class="badge ok">đã kiểm</span> là đã đối chiếu nguồn. Độ đậm khi nhuộm chờ người làm kính hiển vi điện tử duyệt.</p>
+      </div>
+      </div>
+    </aside>
+  </div>
+
+  <section class="panels" aria-label="Bảng dữ liệu">
+    <article class="pcard">
+      <header><span class="sq"></span><h2>pH · <em>mọi khoang</em></h2><span class="chip ok">Đã kiểm</span></header>
+      <div id="phPanel"></div>
+      <p class="src">Nguồn: <a href="https://bionumbers.hms.harvard.edu/bionumber.aspx?id=115761" target="_blank" rel="noopener">BioNumbers 115761</a>. Dòng sáng là bào quan đang xem.</p>
+    </article>
+    <article class="pcard">
+      <header><span class="sq" style="background:var(--gold)"></span><h2>Dòng vận chuyển · <em>mỗi 2 giây</em></h2><span class="chip sim">Mô phỏng</span></header>
+      <canvas id="flowCanvas" aria-label="Số sự kiện mỗi 2 giây của từng quá trình trong mô phỏng"></canvas>
+      <div class="flowLegend" id="flowLegend"></div>
+    </article>
+    <article class="pcard">
+      <header><span class="sq"></span><h2>Ty thể · <em>ATP toả ra</em></h2><span class="chip sim">Mô phỏng</span></header>
+      <canvas id="mitoCanvas" aria-label="Lượng ATP mỗi ty thể toả ra theo thời gian trong mô phỏng"></canvas>
+      <p class="src">Mỗi hàng là một ty thể đang thấy, mới nhất ở bên phải. Bấm một hàng để bay tới ty thể đó.</p>
+    </article>
+  </section>
+
+  <footer class="foot">
+    <span>Kế hoạch: <a href="https://claude.ai/artifact/EdyMQyM2rYKcfFYwgFisvM" target="_blank" rel="noopener">đồ hoạ 3D và tương tác</a> · Hồ sơ nguồn: <a href="https://claude.ai/artifact/FmWrnRkoZDdedueUbAcUqh" target="_blank" rel="noopener">tinh lọc bài tham khảo</a></span>
+    <span>Pha 0 · cổng 0: hình ảnh và độ mượt</span>
+  </footer>
+</div>

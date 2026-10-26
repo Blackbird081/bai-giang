@@ -1,0 +1,1457 @@
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js",
+  "three/webgpu": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js",
+  "three/tsl": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.tsl.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three/webgpu';
+import { pass, mrt, output, normalView, uniform, float, vec4, mix, pow, clamp, dot, abs, positionViewDirection, screenUV, positionLocal, positionGeometry, sin, vec3, vec2, attribute, normalize, smoothstep, materialColor, emissive, uniformArray, int, sqrt, max, step, positionView, viewZToPerspectiveDepth, cameraNear, cameraFar } from 'three/tsl';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { mergeVertices, mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+
+const $ = (id) => document.getElementById(id);
+
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fmt = (n, d = 1) => n.toLocaleString('vi-VN', { minimumFractionDigits: d, maximumFractionDigits: d });
+const V3 = (a) => new THREE.Vector3(a[0], a[1], a[2]);
+const mergeAll = (gs) => { const mixed = gs.some(g => g.index) && gs.some(g => !g.index); return mergeGeometries(mixed ? gs.map(g => g.index ? g.toNonIndexed() : g) : gs); };
+
+/* ================= Registry: chỉ số đã đối chiếu nguồn ================= */
+const GU = 'https://www.gu.se/en/core-facilities/core-facilities-research-infrastructures/centre-for-cellular-imaging-cci/our-services/electron-microscopy/tem-sample-preparation-techniques';
+const BN = 'https://bionumbers.hms.harvard.edu/bionumber.aspx?id=115761';
+const REG = {
+  'mito.dpsi': { l: 'Điện thế màng trong ΔΨm', v: 'khoảng −180 mV', s: 'NCBI MeSH', u: 'https://www.ncbi.nlm.nih.gov/mesh/68053078' },
+  'mito.ph': { l: 'pH chất nền ty thể', v: '8,0', s: 'BioNumbers 115761', u: BN },
+  'nuc.ph': { l: 'pH trong nhân', v: '7,2', s: 'BioNumbers 115761', u: BN },
+  'cyto.ph': { l: 'pH bào tương', v: '7,2', s: 'BioNumbers 115761', u: BN },
+  'er.ph': { l: 'pH lòng lưới nội chất', v: '7,2', s: 'BioNumbers 115761', u: BN },
+  'golgi.ph': { l: 'pH Golgi, cis → trans', v: '6,7 → 6,0', s: 'BioNumbers 115761', u: BN },
+  'lyso.ph': { l: 'pH lysosome', v: '4,7', s: 'BioNumbers 115761', u: BN },
+  'mcs.gap': { l: 'Khe tiếp xúc ER và ty thể', v: '10–30 nm', s: 'PMC7663704', u: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC7663704' },
+  'tem.slice': { l: 'Độ dày lát cắt TEM', v: '70–90 nm', s: 'SOP SickKids', u: 'https://lab.research.sickkids.ca/nbif/wp-content/uploads/sites/98/2020/11/SOP_Conventional-Tissue-preparation-for-TEM.pdf' },
+  'tem.os': { l: 'Osmium tetroxide bám', v: 'lipid', s: 'Đại học Gothenburg', u: GU },
+  'rnc.atoms': { l: 'Số nguyên tử trong mô hình', v: '222.336', s: 'RCSB PDB 3J7R', u: 'https://www.rcsb.org/structure/3J7R' },
+  'rnc.res': { l: 'Độ phân giải cryo-EM', v: '3,9 Å', s: 'RCSB PDB 3J7R', u: 'https://www.rcsb.org/structure/3J7R' },
+  'rnc.size': { l: 'Kích thước ribosome, đo trên toạ độ', v: '303 × 261 × 234 Å', s: 'tính từ PDB 3J7R', u: 'https://www.rcsb.org/structure/3J7R', b: 'tính từ dữ liệu' },
+  'rnc.ptc': { l: 'Trung tâm nối peptide', v: 'làm bằng rRNA', s: 'Nissen và cs., Science 2000', u: 'https://doi.org/10.1126/science.289.5481.920' },
+  'rnc.mrna': { l: 'mRNA có toạ độ trong mô hình', v: '10 nucleotide', s: 'RCSB PDB 3J7R', u: 'https://www.rcsb.org/structure/3J7R' },
+};
+let molHole = null, aoRef = null;
+const MOL = { ready: false, err: null, meta: null, heroP: null, disp: new THREE.Vector3(), lastDisp: new THREE.Vector3(), inMol: false, atomsOn: false, s: 1, dh: 1e9 };
+
+/* ================= Nội dung bào quan và bộ phận ================= */
+const ORG = {
+  membrane: {
+    name: 'Màng sinh chất', en: 'plasma membrane', gray: [0.12, 0.34, 0.30],
+    what: 'Lớp kép phospholipid bao quanh tế bào, có protein và cholesterol xen giữa.',
+    does: 'Ngăn cách bên trong với bên ngoài, chọn chất nào được đi qua, và nhận tín hiệu từ môi trường.',
+    facts: ['cyto.ph', 'tem.os'],
+    q: 'Vì sao đầu phospholipid quay ra hai phía mà không quay vào giữa lớp màng?',
+    ill: 'Màng được vẽ dày lên nhiều lần; hạt lipid và protein vẽ phóng to.',
+    parts: [
+      { id: 'bilayer', name: 'Lớp kép lipid', en: 'lipid bilayer', body: 'Hai lớp phospholipid xếp đuôi kỵ nước vào giữa, đầu ưa nước quay ra nước ở hai phía. Ở mép cắt, hai hàng hạt là hai lớp đầu phospholipid, dải sáng ở giữa là phần đuôi. Khi nhuộm osmium, màng hiện thành hai vạch đậm kẹp một vạch sáng.', facts: ['tem.os'] },
+      { id: 'protein', name: 'Protein màng', en: 'membrane protein', body: 'Protein cắm xuyên hoặc bám trên màng, làm kênh, bơm và chất vận chuyển cho các chất không tự qua được lớp lipid.', facts: [] },
+      { id: 'receptor', name: 'Thụ thể', en: 'receptor', body: 'Protein nhô ra mặt ngoài, bắt phân tử tín hiệu như hormone rồi truyền thông tin vào trong tế bào.', facts: [] },
+    ],
+  },
+  nucleus: {
+    name: 'Nhân', en: 'nucleus', gray: [0.24, 0.20, 0.24],
+    what: 'Bào quan chứa phần lớn DNA của tế bào, bao bởi màng nhân kép.',
+    does: 'Giữ và sao chép DNA, phiên mã DNA thành RNA, và lắp ráp tiểu phần ribosome ở hạt nhân con.',
+    facts: ['nuc.ph'],
+    q: 'Nếu lỗ nhân bị bịt kín, mRNA sẽ mắc kẹt ở đâu và tế bào sẽ thiếu gì?',
+    ill: 'Cỡ nhân so với tế bào và số lỗ nhân là minh hoạ.',
+    parts: [
+      { id: 'envelope', name: 'Màng nhân kép', en: 'nuclear envelope', body: 'Hai lớp màng bao quanh nhân, giữa là khoang quanh nhân. Màng ngoài nối liền với lưới nội chất hạt. Ở mép cắt có thể thấy rõ hai lớp.', facts: [] },
+      { id: 'pore', name: 'Lỗ nhân', en: 'nuclear pore complex', body: 'Phức hợp protein lớn xuyên qua cả hai lớp màng, kiểm soát RNA và protein đi ra đi vào nhân. Trong cảnh vẽ thành vòng tám khối, theo cấu trúc đối xứng tám của lỗ nhân.', facts: [] },
+      { id: 'nucleolus', name: 'Hạt nhân con', en: 'nucleolus', body: 'Vùng đặc trong nhân, không có màng bao, là nơi tổng hợp RNA ribosome và lắp tiểu phần ribosome trước khi đưa ra bào tương.', facts: [] },
+      { id: 'chromatin', name: 'Chất nhiễm sắc', en: 'chromatin', body: 'DNA quấn quanh protein histone thành chuỗi hạt rồi xếp gọn trong nhân. Uranyl acetate bám acid nucleic nên chất nhiễm sắc đậm lên khi nhuộm uranyl.', facts: [] },
+    ],
+  },
+  mito: {
+    name: 'Ty thể', en: 'mitochondrion', gray: [0.20, 0.32, 0.27],
+    what: 'Bào quan có hai lớp màng và DNA riêng. Trong cảnh mỗi ty thể được cắt hở nửa trên để thấy bên trong.',
+    does: 'Thực hiện hô hấp tế bào, tạo phần lớn ATP từ chất dinh dưỡng và oxy.',
+    facts: ['mito.dpsi', 'mito.ph', 'mcs.gap'],
+    q: 'Vì sao màng trong gấp thành nhiều nếp mà màng ngoài thì không?',
+    ill: 'Cỡ, số mào và số ty thể là minh hoạ.',
+    parts: [
+      { id: 'outer', name: 'Màng ngoài', en: 'outer membrane', body: 'Lớp màng trơn bao toàn bộ ty thể, cho các phân tử nhỏ đi qua tương đối dễ.', facts: [] },
+      { id: 'inner', name: 'Màng trong', en: 'inner membrane', body: 'Lớp màng chọn lọc chặt, mang chuỗi chuyền electron và ATP synthase. Điện thế màng của ty thể hình thành qua lớp màng này.', facts: ['mito.dpsi'] },
+      { id: 'cristae', name: 'Mào ty thể', en: 'cristae', body: 'Các nếp gấp của màng trong thò vào khoang giữa, làm tăng diện tích màng cho các phản ứng tạo ATP.', facts: [] },
+      { id: 'matrix', name: 'Chất nền', en: 'matrix', body: 'Khoang trong cùng, chứa enzyme của chu trình Krebs cùng DNA và ribosome riêng của ty thể.', facts: ['mito.ph'] },
+    ],
+  },
+  er: {
+    name: 'Lưới nội chất', en: 'endoplasmic reticulum', gray: [0.24, 0.32, 0.28],
+    what: 'Mạng lưới túi dẹt và ống màng nối liền với màng ngoài của nhân.',
+    does: 'Lưới nội chất hạt tổng hợp protein tiết và protein màng. Lưới nội chất trơn tổng hợp lipid và dự trữ ion canxi.',
+    facts: ['er.ph', 'mcs.gap'],
+    q: 'Một protein sẽ được tiết ra ngoài tế bào bắt đầu được tổng hợp ở đâu?',
+    ill: 'Hình dạng tấm và ống là minh hoạ.',
+    parts: [
+      { id: 'sheet', name: 'Lưới nội chất hạt', en: 'rough ER', body: 'Các tấm màng xếp lớp quanh nhân, mặt ngoài có ribosome bám nên trông lấm tấm hạt.', facts: ['er.ph'] },
+      { id: 'boundribo', name: 'Ribosome bám màng', en: 'membrane-bound ribosome', body: 'Ribosome dịch mã và đẩy chuỗi protein đang tổng hợp vào lòng lưới nội chất để gấp nếp và vận chuyển tiếp.', facts: [] },
+      { id: 'ser', name: 'Lưới nội chất trơn', en: 'smooth ER', body: 'Mạng ống không có ribosome, tổng hợp lipid và dự trữ ion canxi cho tế bào.', facts: [] },
+    ],
+  },
+  golgi: {
+    name: 'Bộ máy Golgi', en: 'Golgi apparatus', gray: [0.26, 0.38, 0.32],
+    what: 'Chồng túi dẹt nằm gần nhân. Màu trong cảnh chuyển dần từ mặt cis sang mặt trans theo pH giảm dần.',
+    does: 'Nhận protein từ lưới nội chất, sửa đổi như gắn chuỗi đường, phân loại rồi gói vào túi gửi đi.',
+    facts: ['golgi.ph'],
+    q: 'Protein đi qua Golgi theo hướng nào, và màu trong cảnh cho em biết điều gì về hướng đó?',
+    ill: 'Số tầng và độ cong là minh hoạ; màu theo pH đã kiểm.',
+    parts: [
+      { id: 'cis', name: 'Mặt cis', en: 'cis face', body: 'Mặt nhận, quay về phía lưới nội chất. Túi từ ER đến hoà vào đây.', facts: [] },
+      { id: 'trans', name: 'Mặt trans', en: 'trans face', body: 'Mặt gửi, nơi protein đã sửa đổi được gói vào túi để đi tới màng sinh chất, lysosome hoặc ra ngoài tế bào.', facts: [] },
+      { id: 'bud', name: 'Túi nảy chồi', en: 'budding vesicle', body: 'Túi nhỏ tách ra từ mép túi Golgi, chở hàng tới đích tiếp theo.', facts: [] },
+    ],
+  },
+  ribo: {
+    name: 'Ribosome', en: 'ribosome', gray: [0.62, 0.12, 0.08],
+    what: 'Cỗ máy gồm hai tiểu phần lớn và nhỏ, làm từ RNA và protein, không có màng bao.',
+    does: 'Đọc mRNA và nối các amino acid thành chuỗi protein. Chì citrate làm ribosome hiện thành hạt đen trên ảnh TEM.',
+    facts: [],
+    q: 'Ribosome tự do và ribosome bám lưới nội chất khác nhau ở loại protein chúng làm ra. Khác thế nào?',
+    ill: 'Vẽ to gấp nhiều lần để nhìn thấy; kích thước thật chưa đưa vào registry.',
+    parts: [
+      { id: 'large', name: 'Tiểu phần lớn', en: 'large subunit', body: 'Nơi nối các amino acid với nhau bằng liên kết peptide.', facts: [] },
+      { id: 'small', name: 'Tiểu phần nhỏ', en: 'small subunit', body: 'Nơi mRNA được đọc, khớp từng bộ ba với tRNA mang amino acid.', facts: [] },
+    ],
+  },
+  lyso: {
+    name: 'Lysosome', en: 'lysosome', gray: [0.20, 0.28, 0.24],
+    what: 'Túi màng chứa enzyme thuỷ phân.',
+    does: 'Phân giải đại phân tử, bào quan già và vật chất đưa vào từ bên ngoài.',
+    facts: ['lyso.ph'],
+    q: 'Enzyme lysosome làm việc tốt ở môi trường chua. Điều đó bảo vệ tế bào thế nào nếu một lysosome bị rách?',
+    ill: 'Số lượng và cỡ là minh hoạ.', parts: [],
+  },
+  vesicle: {
+    name: 'Túi vận chuyển', en: 'transport vesicle', gray: [0.40, 0.46, 0.42],
+    what: 'Túi màng nhỏ tách ra từ một khoang màng.',
+    does: 'Chở protein và lipid giữa lưới nội chất, Golgi, màng sinh chất và các khoang khác.',
+    facts: [], q: 'Túi vận chuyển "biết" đường tới đích nhờ đâu?', ill: 'Số lượng và cỡ là minh hoạ.', parts: [],
+  },
+  cyto: {
+    name: 'Khung xương tế bào', en: 'cytoskeleton', gray: [0.55, 0.46, 0.40],
+    what: 'Mạng sợi protein gồm vi ống, vi sợi actin và sợi trung gian.',
+    does: 'Giữ hình dạng tế bào, làm đường ray cho túi di chuyển, và kéo nhiễm sắc thể khi phân bào.',
+    facts: [], q: 'Nếu vi ống bị phá, túi từ Golgi sẽ gặp khó khăn gì trên đường tới màng?',
+    ill: 'Chỉ vẽ vi ống, vẽ thưa để không che bào quan.',
+    parts: [
+      { id: 'mt', name: 'Vi ống', en: 'microtubule', body: 'Ống rỗng tỏa ra từ trung thể tới màng, làm đường ray cho protein vận động kéo túi đi.', facts: [] },
+      { id: 'centro', name: 'Trung thể', en: 'centrosome', body: 'Trung tâm tổ chức vi ống, gồm hai trung tử xếp vuông góc; mỗi trung tử gồm chín bộ ba vi ống.', facts: [] },
+    ],
+  },
+  rnc: {
+    name: 'Ribosome nguyên tử', en: 'ribosome · Sec61 · PDB 3J7R', gray: [0.7, 0.15, 0.1],
+    what: 'Mô hình nguyên tử của một ribosome động vật có vú đang dịch mã, gắn trên kênh Sec61 của màng lưới nội chất. Toạ độ lấy nguyên bản từ cấu trúc cryo-EM PDB 3J7R.',
+    does: 'Tiểu phần nhỏ đọc mRNA, tiểu phần lớn nối amino acid. Chuỗi protein mới đi qua đường hầm trong tiểu phần lớn rồi chui thẳng vào kênh Sec61 để vào lòng lưới nội chất.',
+    facts: ['rnc.atoms', 'rnc.res', 'rnc.size'],
+    q: 'Trung tâm nối peptide của ribosome làm bằng RNA chứ không phải protein. Điều đó gợi ý gì về sự sống thời rất sơ khai?',
+    ill: 'Toạ độ nguyên tử là dữ liệu thật. Chuyển động xoay, chuỗi protein mới, màu, từng phân tử lipid, độ phẳng của màng và cách xếp bốn ribosome lân cận (bản sao của cùng mô hình) là minh hoạ. Mẫu là ribosome lợn, rất gần ribosome người.',
+    src: '<div class="sec"><h3>Nguồn cấu trúc</h3><p class="small">PDB <a href="https://www.rcsb.org/structure/3J7R" target="_blank" rel="noopener">3J7R</a> · Voorhees, Fernández, Scheres, Hegde, <i>Cell</i> 2014 · <a href="https://doi.org/10.1016/j.cell.2014.05.024" target="_blank" rel="noopener">doi</a>. Toạ độ tải nguyên bản từ RCSB, xử lý trước bằng gemmi, lượng tử hoá sai số dưới 0,005 Å. Mặt giữa màng đặt theo vành kỵ nước của Sec61 (thang Kyte–Doolittle).</p></div>',
+    parts: [
+      { id: 'lsu', name: 'Tiểu phần lớn 60S', en: 'large subunit', body: 'Ba phân tử rRNA (28S, 5.8S, 5S) cùng {n60} protein. Trung tâm nối peptide nằm sâu bên trong và do rRNA tạo nên, không phải protein, nên ribosome là một ribozyme. Vàng là rRNA, đỏ là protein.', facts: ['rnc.ptc'] },
+      { id: 'ssu', name: 'Tiểu phần nhỏ 40S', en: 'small subunit', body: 'rRNA 18S cùng {n40} protein. Tiểu phần này giữ mRNA và kiểm từng cặp codon với anticodon giữa mRNA và tRNA. Trong cảnh nó xoay qua lại vài độ so với tiểu phần lớn, minh hoạ chuyển động ratchet khi ribosome dịch đi từng codon; biên độ và nhịp là minh hoạ.', facts: [] },
+      { id: 'mrna', name: 'mRNA', en: 'messenger RNA', body: 'Mô hình chỉ có toạ độ cho {nm} nucleotide mRNA nằm trong rãnh của tiểu phần nhỏ; phần còn lại quá linh động nên không hiện trên bản đồ cryo-EM. Sợi tím nối các ribosome là minh hoạ cho phần không có toạ độ.', facts: ['rnc.mrna'] },
+      { id: 'trnaA', name: 'tRNA ở vị trí A/P', en: 'A/P hybrid tRNA', body: 'tRNA ở trạng thái lai A/P: đầu anticodon còn ở vị trí A của tiểu phần nhỏ, đầu mang chuỗi protein đã sang vị trí P của tiểu phần lớn. Trạng thái lai xuất hiện khi ribosome xoay trong lúc dịch đi một codon.', facts: [] },
+      { id: 'trnaP', name: 'tRNA ở vị trí P/E', en: 'P/E hybrid tRNA', body: 'tRNA ở trạng thái lai P/E: anticodon ở vị trí P, đầu kia đã sang vị trí E, lối ra. tRNA này đã trao chuỗi protein và sắp rời ribosome.', facts: [] },
+      { id: 'sec61', name: 'Kênh Sec61', en: 'Sec61 translocon', body: 'Kênh dẫn protein qua màng, gồm ba tiểu đơn vị α, β và γ. Tiểu đơn vị α tạo lỗ xuyên màng ngay dưới lối ra của đường hầm ribosome, nên chuỗi protein mới đi thẳng từ ribosome vào lòng lưới nội chất.', facts: [] },
+      { id: 'nascent', name: 'Chuỗi protein mới', en: 'nascent chain', body: 'Mỗi hạt cam là một amino acid. Chuỗi mọc ra từ trung tâm nối peptide, đi qua đường hầm trong tiểu phần lớn (khoảng 90 Å đo trên mô hình) rồi chui qua lỗ Sec61 vào lòng lưới nội chất. Mô hình 3J7R không có toạ độ của chuỗi này: đường đi là ước lượng từ đầu tRNA và lỗ Sec61, tốc độ là minh hoạ. Cùng màu với đường tiết protein ở toàn cảnh.', facts: [] },
+      { id: 'bilayer', name: 'Màng lưới nội chất', en: 'ER membrane', body: 'Mỗi hạt hồng là đầu ưa nước của một phospholipid; hai lớp đầu kẹp phần đuôi kỵ nước màu kem. Vị trí màng tính từ vành kỵ nước của Sec61, còn từng phân tử lipid là minh hoạ. Lớp đầu chừa lỗ đúng chỗ Sec61 xuyên qua.', facts: [] },
+      { id: 'polysome', name: 'Polysome', en: 'polysome', body: 'Nhiều ribosome cùng đọc một mRNA, nối đuôi nhau trên màng lưới nội chất. Bốn ribosome lân cận là bản sao của cùng mô hình 3J7R, xếp theo cách minh hoạ, vẽ ở mức một hạt mỗi gốc để nhẹ máy.', facts: [] },
+    ],
+  },
+};
+const CELL = { name: 'Tế bào nhân thực', en: 'eukaryotic cell · minh hoạ', what: 'Một tế bào động vật được cắt bỏ phần trên để nhìn vào trong.', does: 'Bấm một bào quan để bay tới. Khi đã bay tới, các ghim số chỉ từng bộ phận để em bấm tiếp.', facts: ['cyto.ph', 'tem.slice'], ill: 'Kích thước vẽ khoảng 28 × 21 µm; cỡ tế bào thật chưa đưa vào registry.' };
+const LEGEND_KEYS = ['membrane', 'nucleus', 'er', 'golgi', 'mito', 'ribo', 'lyso', 'vesicle', 'cyto', 'rnc'];
+
+const STAINS = [
+  { name: 'Màu minh hoạ', why: '<b>Màu minh hoạ:</b> mỗi bào quan một tông màu để phân biệt trên nền mẫu sáng. Đây không phải màu thật của tế bào.' },
+  { name: 'TEM · osmium tetroxide', why: '<b>Osmium tetroxide bám lipid</b>, nên mọi màng đậm lên trên nền nhựa sáng; mép màng hiện hai vạch đậm kẹp một vạch sáng. Ảnh TEM thật là một lát mỏng 70–90 nm; ở đây cả khối được tô như đã nhuộm để thấy thuốc bám vào đâu.' },
+  { name: 'TEM · uranyl acetate', why: '<b>Uranyl acetate bám protein, lipid và acid nucleic</b>, nên chất nhiễm sắc và ribosome đậm hơn hẳn. Độ đậm từng cấu trúc là ánh xạ minh hoạ, chờ người làm TEM duyệt.' },
+  { name: 'TEM · chì citrate', why: '<b>Chì citrate tăng tương phản cho lát cắt</b>; ribosome hiện thành hạt đen. Độ đậm từng cấu trúc là ánh xạ minh hoạ, chờ người làm TEM duyệt.' },
+];
+
+/* ================= Nhiễu, số ngẫu nhiên ================= */
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function h3(x, y, z) { const s = Math.sin(x * 127.1 + y * 311.7 + z * 74.7) * 43758.5453; return s - Math.floor(s); }
+function vn(x, y, z) {
+  const xi = Math.floor(x), yi = Math.floor(y), zi = Math.floor(z), xf = x - xi, yf = y - yi, zf = z - zi;
+  const u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf), w = zf * zf * (3 - 2 * zf), L = (a, b, t) => a + (b - a) * t;
+  return L(L(L(h3(xi, yi, zi), h3(xi + 1, yi, zi), u), L(h3(xi, yi + 1, zi), h3(xi + 1, yi + 1, zi), u), v),
+           L(L(h3(xi, yi, zi + 1), h3(xi + 1, yi, zi + 1), u), L(h3(xi, yi + 1, zi + 1), h3(xi + 1, yi + 1, zi + 1), u), v), w);
+}
+const fbm = (x, y, z) => 0.55 * vn(x, y, z) + 0.30 * vn(x * 2.03, y * 2.03, z * 2.03) + 0.15 * vn(x * 4.1, y * 4.1, z * 4.1);
+const R = rng(20261026);
+
+/* ================= Đồng hồ mô phỏng: tế bào sống ================= */
+const tU = uniform(0); let simT = 0, playing = !reduceMotion, speed = 1;
+const iseed = attribute('iseed', 'float');
+const JIT = (amp, f) => vec3(sin(tU.mul(f).add(iseed.mul(1.37))), sin(tU.mul(f * 1.13).add(iseed.mul(2.11))), sin(tU.mul(f * 0.91).add(iseed.mul(0.73)))).mul(amp);
+const jitJS = (i, amp, f) => new THREE.Vector3(Math.sin(simT * f + i * 1.37), Math.sin(simT * f * 1.13 + i * 2.11), Math.sin(simT * f * 0.91 + i * 0.73)).multiplyScalar(amp);
+const NUC_C = vec3(-1.2, -1.0, 0.6);
+const BREATH_MEM = normalize(positionLocal).mul(sin(tU.mul(0.7).add(positionLocal.x.mul(0.35)).add(positionLocal.z.mul(0.28))).mul(0.07));
+const BREATH_NUC = normalize(positionLocal.sub(NUC_C)).mul(sin(tU.mul(0.9).add(positionLocal.y.mul(0.6))).mul(0.035));
+const WAVE_ER = normalize(positionLocal.sub(NUC_C)).mul(sin(tU.mul(1.1).add(positionLocal.y.mul(1.3)).add(positionLocal.x.mul(0.8))).mul(0.06));
+
+/* ================= Renderer, cảnh, ánh sáng ================= */
+const host = $('viewport');
+let renderer;
+try {
+  renderer = new THREE.WebGPURenderer({ antialias: true, powerPreference: 'high-performance', forceWebGL: location.hash === '#webgl' });
+  await renderer.init();
+} catch (e) { $('loading').textContent = 'Máy này chưa chạy được đồ hoạ 3D (cần WebGPU hoặc WebGL 2).'; throw e; }
+const isWebGPU = !!(renderer.backend && renderer.backend.isWebGPUBackend);
+renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 1.0;
+host.prepend(renderer.domElement);
+renderer.domElement.tabIndex = 0;
+renderer.domElement.setAttribute('aria-label', 'Tế bào 3D. Kéo để xoay, cuộn để phóng, bấm vào bào quan để xem.');
+
+const scene = new THREE.Scene();
+const BG = { colorTop: new THREE.Color('#F7F2EE'), colorBot: new THREE.Color('#F2BDC9'), temTop: new THREE.Color('#D6D6D0'), temBot: new THREE.Color('#EDEDE8') };
+const bgTop = uniform(BG.colorTop.clone()), bgBot = uniform(BG.colorBot.clone());
+scene.backgroundNode = mix(bgTop, bgBot, float(1).sub(smoothstep(0.0, 0.62, screenUV.sub(vec2(0.5, 0.56)).length())).mul(0.85));
+const camera = new THREE.PerspectiveCamera(34, 1, 0.05, 400);
+const HOME = { pos: new THREE.Vector3(21, 27, 31), target: new THREE.Vector3(0, -1.5, 0) };
+camera.position.copy(HOME.pos);
+const hemi = new THREE.HemisphereLight(0xffffff, 0xe7c9cf, 1.0);
+const key = new THREE.DirectionalLight(0xfff1e6, 2.0); key.position.set(18, 34, 16);
+const rimL = new THREE.DirectionalLight(0xffd3dc, 1.1); rimL.position.set(-28, 6, -24);
+scene.add(hemi, key, rimL);
+try {
+  const { RoomEnvironment } = await import('three/addons/environments/RoomEnvironment.js');
+  const pm = new THREE.PMREMGenerator(renderer);
+  const rt = await pm.fromSceneAsync(new RoomEnvironment(), 0.04);
+  scene.environment = rt.texture; scene.environmentIntensity = 0.75;
+} catch (e) { console.warn('Không tạo được ánh sáng môi trường:', e); }
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.copy(HOME.target);
+controls.enableDamping = true; controls.dampingFactor = 0.07;
+controls.minDistance = 1.6; controls.maxDistance = 90; controls.maxPolarAngle = Math.PI * 0.92;
+controls.rotateSpeed = 0.7; controls.zoomSpeed = 0.9; controls.update();
+
+/* ================= Vật liệu: màu theo nhuộm, viền sáng, làm mờ khi tập trung ================= */
+const mats = [];  // {key, m, base, k, glow, rim, rimU, glowU}
+function mat(keyName, hex, o = {}) {
+  const base = new THREE.Color(hex);
+  const m = new THREE.MeshPhysicalNodeMaterial({ color: base.clone(), roughness: o.rough ?? 0.42, metalness: o.metal ?? 0.0, clearcoat: o.coat ?? 0.55, clearcoatRoughness: 0.3, sheen: o.sheen ?? 0.35, sheenRoughness: 0.5, sheenColor: base.clone().lerp(new THREE.Color('#ffffff'), 0.5), side: o.side ?? THREE.FrontSide });
+  const rimU = uniform(new THREE.Color(0, 0, 0)), glowU = uniform(new THREE.Color(0, 0, 0));
+  const fres = pow(float(1).sub(clamp(abs(dot(normalView, positionViewDirection)), 0, 1)), float(2.6));
+  const e = { key: keyName, m, base, k: o.k ?? 1, glow: o.glow ?? 0.06, rim: o.rim ?? 0.9, rimU, glowU, rimBase: base.clone().lerp(new THREE.Color('#ffffff'), 0.35), gray: o.gray, pulseU: null };
+  let em = glowU.add(rimU.mul(fres));
+  if (o.pulse) { e.pulseU = uniform(new THREE.Color(0, 0, 0)); em = em.add(e.pulseU.mul(sin(tU.mul(3.2).sub(positionGeometry.x.mul(4.5))).mul(0.5).add(0.5))); }
+  m.emissiveNode = em;
+  if (o.disp) m.positionNode = positionLocal.add(o.disp);
+  if (o.ridge) m.colorNode = materialColor.mul(float(1).sub(sin(positionGeometry.y.mul(o.rf || 15).add(sin(positionGeometry.x.mul(0.8)).mul(2.5))).mul(0.5).add(0.5).mul(o.ridge)));
+  mats.push(e); return m;
+}
+
+/* ================= Hình học dùng chung ================= */
+function ellPoint(o, th, ph, k = 1) {
+  const st = Math.sin(th), dx = st * Math.cos(ph), dy = Math.cos(th), dz = st * Math.sin(ph);
+  const n = fbm(dx * o.freq + o.seed, dy * o.freq + o.seed * 0.7, dz * o.freq + o.seed * 1.3);
+  const fine = o.fine ? (vn(dx * 9 + o.seed, dy * 9, dz * 9) - 0.5) * o.fine : 0;
+  const s = (1 + o.amp * (n - 0.5) * 2 + fine) * k;
+  return [o.c[0] + dx * o.rx * s, o.c[1] + dy * o.ry * s, o.c[2] + dz * o.rz * s];
+}
+const ellNormal = (o, p) => new THREE.Vector3((p[0] - o.c[0]) / (o.rx * o.rx), (p[1] - o.c[1]) / (o.ry * o.ry), (p[2] - o.c[2]) / (o.rz * o.rz)).normalize();
+function geoFrom(pos, idx, merge = true) {
+  let g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx);
+  if (merge) g = mergeVertices(g, 1e-4); g.computeVertexNormals(); return g;
+}
+// Cắt tam giác theo trường f (giữ f > 0), nội suy cả pháp tuyến: mép mượt
+function clipTris(pos, nor, f, idx) {
+  const P = [], N = [];
+  const at = (a, i) => [a[i * 3], a[i * 3 + 1], a[i * 3 + 2]];
+  const lr = (a, i, j, t) => [a[i * 3] + (a[j * 3] - a[i * 3]) * t, a[i * 3 + 1] + (a[j * 3 + 1] - a[i * 3 + 1]) * t, a[i * 3 + 2] + (a[j * 3 + 2] - a[i * 3 + 2]) * t];
+  for (let k = 0; k < idx.length; k += 3) {
+    const tri = [idx[k], idx[k + 1], idx[k + 2]]; const n = (f[tri[0]] > 0) + (f[tri[1]] > 0) + (f[tri[2]] > 0);
+    if (!n) continue;
+    if (n === 3) { for (const i of tri) { P.push(...at(pos, i)); N.push(...at(nor, i)); } continue; }
+    const pp = [], pn = [];
+    for (let e = 0; e < 3; e++) { const i = tri[e], j = tri[(e + 1) % 3];
+      if (f[i] > 0) { pp.push(at(pos, i)); pn.push(at(nor, i)); }
+      if ((f[i] > 0) !== (f[j] > 0)) { const t = f[i] / (f[i] - f[j]); pp.push(lr(pos, i, j, t)); pn.push(lr(nor, i, j, t)); } }
+    for (let q = 1; q + 1 < pp.length; q++) for (const r of [0, q, q + 1]) { P.push(...pp[r]); N.push(...pn[r]); }
+  }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(N, 3)); return g;
+}
+function clipGeo(g, fOf) { // g: indexed, có normal
+  const pos = g.getAttribute('position').array, nor = g.getAttribute('normal').array, idx = g.index.array, f = [];
+  for (let i = 0; i < pos.length / 3; i++) f.push(fOf(pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]));
+  return clipTris(pos, nor, f, idx);
+}
+function buildShell(o, cutY, W, H) {
+  const rel = (cutY - o.c[1]) / o.ry; const tc = rel >= 0.995 ? 0 : Math.acos(Math.max(-0.9, Math.min(0.995, rel)));
+  const kIn = 1 - o.thick / ((o.rx + o.ry + o.rz) / 3);
+  const out = [], inn = [], io = [], ii = [];
+  for (let i = 0; i <= H; i++) { const th = tc + (Math.PI - tc) * i / H;
+    for (let j = 0; j <= W; j++) { const ph = 2 * Math.PI * j / W; out.push(...ellPoint(o, th, ph, 1)); inn.push(...ellPoint(o, th, ph, kIn)); } }
+  for (let i = 0; i < H; i++) for (let j = 0; j < W; j++) { const a = i * (W + 1) + j, b = a + W + 1, c = b + 1, d = a + 1; io.push(a, d, b, d, c, b); ii.push(a, b, d, d, b, c); }
+  const res = { outer: geoFrom(out, io), inner: geoFrom(inn, ii), rim: null, tc, rowOut: [], rowIn: [] };
+  if (tc > 0.001) {
+    const rp = [], ri = [];
+    for (let j = 0; j <= W; j++) { rp.push(out[j * 3], out[j * 3 + 1], out[j * 3 + 2], inn[j * 3], inn[j * 3 + 1], inn[j * 3 + 2]); res.rowOut.push(out.slice(j * 3, j * 3 + 3)); res.rowIn.push(inn.slice(j * 3, j * 3 + 3)); }
+    for (let j = 0; j < W; j++) { const a = j * 2; ri.push(a, a + 1, a + 2, a + 1, a + 3, a + 2); }
+    res.rim = geoFrom(rp, ri, false);
+  }
+  return res;
+}
+function patchPoint(p, u, v, lift = 0) {
+  const th = p.t0 + (p.t1 - p.t0) * u, ph = p.p0 + (p.p1 - p.p0) * v;
+  const st = Math.sin(th), dx = st * Math.cos(ph), dy = Math.cos(th), dz = st * Math.sin(ph);
+  const r = p.R * (1 + p.amp * (fbm(dx * 2.2 + p.seed, dy * 2.2, dz * 2.2) - 0.5) * 2 + p.wave * Math.sin(ph * p.wf + th * 4 + p.seed)) + lift;
+  const o = [p.c[0] + dx * r, p.c[1] + dy * r, p.c[2] + dz * r];
+  if (p.flat && !lift) { const f = p.flat, ex = o[0] - f.P.x, ey = o[1] - f.P.y, ez = o[2] - f.P.z, dd = Math.hypot(ex, ey, ez);
+    if (dd < f.r1) { const t = Math.max(0, (dd - f.r0) / (f.r1 - f.r0)), w = dd <= f.r0 ? 1 : 1 - t * t * (3 - 2 * t), h = (ex * f.n.x + ey * f.n.y + ez * f.n.z) * w; o[0] -= f.n.x * h; o[1] -= f.n.y * h; o[2] -= f.n.z * h; } }
+  return o;
+}
+const patchField = (p, u, v) => { const x = (u - 0.5) * 2, y = (v - 0.5) * 2; return (1 - 0.35 * fbm(u * 3 + p.seed, v * 3, p.seed)) - x * x - y * y; };
+function buildPatch(p, cutY, W = 110, H = 40) {
+  const pos = [], idx = [], f = [];
+  const mh = molHole && molHole.er && p === MOL.heroPatch ? molHole : null; if (mh) { W *= 4; H *= 4; }
+  for (let i = 0; i <= H; i++) for (let j = 0; j <= W; j++) { const pt = patchPoint(p, i / H, j / W); pos.push(...pt); f.push(Math.min(patchField(p, i / H, j / W) * 4, cutY - pt[1], p.noTunnel ? 1e9 : segDist(pt[0], pt[1], pt[2]) - (tunnel ? tunnel.r : 0), mh ? Math.hypot(pt[0] - mh.p.x, pt[1] - mh.p.y, pt[2] - mh.p.z) - mh.er : 1e9)); }
+  for (let i = 0; i < H; i++) for (let j = 0; j < W; j++) { const a = i * (W + 1) + j, b = a + W + 1, c = b + 1, d = a + 1; idx.push(a, d, b, d, c, b); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
+  return clipTris(pos, g.getAttribute('normal').array, f, idx);
+}
+
+/* ================= Đường hầm nhìn: ẩn vật chắn giữa camera và bào quan đang xem ================= */
+let tunnel = null; // {a, b, r, keep:{sw, i}}
+function segDist(x, y, z) { if (!tunnel) return 1e9; const { a, b } = tunnel; const abx = b.x - a.x, aby = b.y - a.y, abz = b.z - a.z; const t = Math.max(0, Math.min(1, ((x - a.x) * abx + (y - a.y) * aby + (z - a.z) * abz) / (abx * abx + aby * aby + abz * abz))); return Math.hypot(x - a.x - abx * t, y - a.y - aby * t, z - a.z - abz * t); }
+const inTunnel = (x, y, z, pad = 0) => tunnel ? segDist(x, y, z) < tunnel.r + pad : false;
+/* ================= Instancing có lọc mặt cắt ================= */
+const pickables = [];
+const world = new THREE.Group(); scene.add(world);
+const tag = (o, k, part) => { o.userData.key = k; if (part) o.userData.part = part; pickables.push(o); return o; };
+const IDQ = new THREE.Quaternion(), UP = new THREE.Vector3(0, 1, 0);
+class Swarm {
+  constructor(parts, items, opts = {}) { // parts: [{geo, mat, key, part}]
+    this.items = items; this.thin = opts.thin ?? false; this.vis = []; this.mol = opts.mol ?? false; this.lift = opts.lift || 0;
+    this.meshes = parts.map(pt => { const cap = Math.max(1, opts.cap || items.length); const g = pt.geo.clone(); g.setAttribute('iseed', new THREE.InstancedBufferAttribute(new Float32Array(cap), 1)); const m = tag(new THREE.InstancedMesh(g, pt.mat, cap), pt.key, pt.part); m.frustumCulled = false; m.userData.swarm = this; world.add(m); return m; });
+  }
+  apply(cutY, factor) {
+    const m4 = new THREE.Matrix4(), s = new THREE.Vector3(), p = new THREE.Vector3(); this.vis = [];
+    const lim = this.thin ? Math.floor(this.items.length * factor) : this.items.length;
+    for (let i = 0; i < lim; i++) { const it = this.items[i];
+      if (it.p[1] + (it.r || 0) > cutY) continue;
+      if (tunnel && !(tunnel.keep && tunnel.keep.sw === this && tunnel.keep.i === i) && inTunnel(it.p[0], it.p[1], it.p[2], (it.r || 0.15) * (it.s || 1))) continue;
+      let sh = 1; if (this.mol && molHole) { const dd = Math.hypot(it.p[0] - molHole.p.x, it.p[1] - molHole.p.y, it.p[2] - molHole.p.z); if (dd < molHole.skip) continue; if (dd < molHole.r) sh = molHole.s; }
+      p.set(it.p[0], it.p[1], it.p[2]); if (it.sv) s.copy(it.sv); else s.setScalar(it.s || 1);
+      if (sh < 1) { s.multiplyScalar(sh); if (this.lift) { const rx = p.x - NUC.c[0], ry = p.y - NUC.c[1], rz = p.z - NUC.c[2], rl = Math.hypot(rx, ry, rz); p.x -= rx / rl * this.lift * (1 - sh); p.y -= ry / rl * this.lift * (1 - sh); p.z -= rz / rl * this.lift * (1 - sh); } }
+      m4.compose(p, it.q || IDQ, s); for (const m of this.meshes) { m.setMatrixAt(this.vis.length, m4); m.geometry.attributes.iseed.array[this.vis.length] = i; } this.vis.push(i); }
+    for (const m of this.meshes) { m.count = this.vis.length; m.instanceMatrix.needsUpdate = true; m.geometry.attributes.iseed.needsUpdate = true; m.computeBoundingSphere(); }
+  }
+  matrixOf(i) { const it = this.items[i]; const s = it.sv ? it.sv.clone() : new THREE.Vector3().setScalar(it.s || 1); return new THREE.Matrix4().compose(V3(it.p), it.q || IDQ, s); }
+}
+const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(R() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const randQ = () => new THREE.Quaternion().setFromEuler(new THREE.Euler(R() * 6.28, R() * 6.28, R() * 6.28));
+
+/* ================= Tế bào ================= */
+const MEM = { c: [0, 0, 0], rx: 14, ry: 10.5, rz: 12.5, amp: 0.085, freq: 1.25, seed: 3.1, thick: 0.42, fine: 0.006 };
+const NUC1 = { c: [-1.2, -1.0, 0.6], rx: 4.9, ry: 4.4, rz: 4.7, amp: 0.05, freq: 1.6, seed: 7.7, thick: 0.11 };
+const NUC2 = { ...NUC1, rx: 4.9 * 0.94, ry: 4.4 * 0.94, rz: 4.7 * 0.94, thick: 0.1 };
+const NUC = NUC1;
+const inCell = (x, y, z, k) => (x * x) / (MEM.rx * MEM.rx) + (y * y) / (MEM.ry * MEM.ry) + (z * z) / (MEM.rz * MEM.rz) < k * k;
+const nucDist = (x, y, z) => Math.hypot((x - NUC.c[0]) / NUC.rx, (y - NUC.c[1]) / NUC.ry, (z - NUC.c[2]) / NUC.rz);
+function sampleCyto(minNuc, kCell, kMin = 0) { for (let t = 0; t < 500; t++) { const x = (R() * 2 - 1) * MEM.rx, y = (R() * 2 - 1) * MEM.ry, z = (R() * 2 - 1) * MEM.rz; if (inCell(x, y, z, kCell) && !inCell(x, y, z, kMin) && nucDist(x, y, z) > minNuc) return [x, y, z]; } return [0, -6, 0]; }
+
+// Màng sinh chất: mặt ngoài, mặt trong, dải đuôi lipid ở mép cắt
+const memOutM = mat('membrane', '#C21F44', { rough: 0.5, coat: 0.6, sheen: 0.5, rim: 0.45, disp: BREATH_MEM, ridge: 0.22 });
+const memInM = mat('membrane', '#5A0F24', { rough: 0.7, coat: 0.2, k: 0.85, rim: 0.4, disp: BREATH_MEM, ridge: 0.18, rf: 22 });
+const tailM = mat('membrane', '#F6E3C4', { side: THREE.DoubleSide, coat: 0.1, k: 2.6, rim: 0.1, glow: 0.05, disp: BREATH_MEM });
+const headM = mat('membrane', '#FF9DB1', { coat: 0.4, k: 0.55, glow: 0.12, disp: BREATH_MEM });
+const memOut = tag(new THREE.Mesh(new THREE.BufferGeometry(), memOutM), 'membrane');
+const memIn = tag(new THREE.Mesh(new THREE.BufferGeometry(), memInM), 'membrane');
+const memRim = tag(new THREE.Mesh(new THREE.BufferGeometry(), tailM), 'membrane', 'bilayer');
+world.add(memOut, memIn, memRim);
+const headGeo = new THREE.IcosahedronGeometry(0.085, 1);
+const swHeads = new Swarm([{ geo: headGeo, mat: headM, key: 'membrane', part: 'bilayer' }], [], { cap: 1300 });
+
+// Protein màng (cụm 3 khối) và thụ thể (cuống + đầu)
+const blob = mergeAll([new THREE.IcosahedronGeometry(0.16, 1), new THREE.IcosahedronGeometry(0.12, 1).translate(0.14, 0.05, 0.02), new THREE.IcosahedronGeometry(0.1, 1).translate(-0.06, 0.1, 0.12)]);
+const protM = mat('membrane', '#E3A43F', { coat: 0.5, k: 1.4, glow: 0.1, disp: BREATH_MEM });
+const prots = [];
+for (let i = 0; i < 1100; i++) { const th = Math.acos(1 - 2 * R()), ph = R() * 6.283; const p = ellPoint(MEM, th, ph, 1.0); const n = ellNormal(MEM, p); prots.push({ p: [p[0] + n.x * 0.04, p[1] + n.y * 0.04, p[2] + n.z * 0.04], q: new THREE.Quaternion().setFromUnitVectors(UP, n), s: 0.8 + R() * 0.6, r: 0.3 }); }
+const swProt = new Swarm([{ geo: blob, mat: protM, key: 'membrane', part: 'protein' }], shuffle(prots), { thin: true });
+const stalkGeo = new THREE.CylinderGeometry(0.045, 0.06, 0.75, 6).translate(0, 0.37, 0);
+const yHead = mergeAll([new THREE.IcosahedronGeometry(0.12, 1).translate(0, 0.82, 0), new THREE.CapsuleGeometry(0.06, 0.28, 3, 6).rotateZ(0.7).translate(-0.14, 0.98, 0), new THREE.CapsuleGeometry(0.06, 0.28, 3, 6).rotateZ(-0.7).translate(0.14, 0.98, 0)]);
+const recM = mat('membrane', '#E9BE55', { coat: 0.7, metal: 0.15, k: 1.6, glow: 0.14, disp: BREATH_MEM });
+const recs = [];
+for (let i = 0; i < 260; i++) { const th = Math.acos(1 - 2 * R()), ph = R() * 6.283; const p = ellPoint(MEM, th, ph, 1.0); const n = ellNormal(MEM, p); recs.push({ p, q: new THREE.Quaternion().setFromUnitVectors(UP, n).multiply(new THREE.Quaternion().setFromAxisAngle(UP, R() * 6.28)), s: 0.85 + R() * 0.4, r: 1.1 }); }
+const swRec = new Swarm([{ geo: mergeAll([stalkGeo, yHead]), mat: recM, key: 'membrane', part: 'receptor' }], recs);
+
+// Nhân: hai lớp màng, lỗ nhân, hạt nhân con, chất nhiễm sắc dạng chuỗi hạt
+const n1o = mat('nucleus', '#B4345E', { rough: 0.38, disp: BREATH_NUC }), n1i = mat('nucleus', '#5C1630', { rough: 0.6, k: 0.9, rim: 0.4, disp: BREATH_NUC });
+const n2o = mat('nucleus', '#D05A7C', { rough: 0.38, k: 1.1, disp: BREATH_NUC }), n2i = mat('nucleus', '#2E0A17', { rough: 0.7, k: 0.8, rim: 0.3, disp: BREATH_NUC });
+const nRim = mat('nucleus', '#FFD0DA', { side: THREE.DoubleSide, k: 1.25, glow: 0.12, disp: BREATH_NUC });
+const nucMeshes = [[n1o, null], [n1i, null], [nRim, null], [n2o, null], [n2i, null], [nRim, null]].map(([m]) => { const x = tag(new THREE.Mesh(new THREE.BufferGeometry(), m), 'nucleus', 'envelope'); world.add(x); return x; });
+const npcGeo = mergeAll([new THREE.TorusGeometry(0.2, 0.075, 6, 8), new THREE.CylinderGeometry(0.07, 0.07, 0.34, 8).rotateX(Math.PI / 2)]);
+const npcM = mat('nucleus', '#FFF0E4', { k: 1.3, glow: 0.14, coat: 0.6, disp: BREATH_NUC });
+const pores = [];
+for (let i = 0; i < 180; i++) { const th = Math.acos(1 - 2 * R()), ph = R() * 6.283; const p = ellPoint(NUC1, th, ph, 0.975); const n = ellNormal(NUC1, p); pores.push({ p, q: new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), n), r: 0.25 }); }
+const swPores = new Swarm([{ geo: npcGeo, mat: npcM, key: 'nucleus', part: 'pore' }], pores);
+const nlGeo = (() => { const g = mergeVertices(new THREE.IcosahedronGeometry(1.3, 5)); const a = g.getAttribute('position'); for (let i = 0; i < a.count; i++) { const v = new THREE.Vector3().fromBufferAttribute(a, i); const n = fbm(v.x * 2.2 + 5, v.y * 2.2, v.z * 2.2); v.multiplyScalar(1 + (n - 0.5) * 0.35); a.setXYZ(i, v.x, v.y, v.z); } g.computeVertexNormals(); return g; })();
+const nucleolus = tag(new THREE.Mesh(nlGeo, mat('nucleus', '#6E1734', { rough: 0.7, k: 0.55, rim: 0.7, glow: 0.08 })), 'nucleus', 'nucleolus');
+nucleolus.position.set(NUC.c[0] + 1.1, NUC.c[1] - 0.9, NUC.c[2] - 0.6); world.add(nucleolus);
+const beadGeo = new THREE.IcosahedronGeometry(0.1, 1);
+const beads = [];
+for (let c = 0; c < 70; c++) {
+  let p = new THREE.Vector3(NUC.c[0] + (R() - 0.5) * 6, NUC.c[1] + (R() - 0.5) * 5, NUC.c[2] + (R() - 0.5) * 6);
+  if (nucDist(p.x, p.y, p.z) > 0.8) continue;
+  let d = new THREE.Vector3(R() - 0.5, R() - 0.5, R() - 0.5).normalize();
+  for (let b = 0; b < 46; b++) {
+    d.add(new THREE.Vector3(R() - 0.5, R() - 0.5, R() - 0.5).multiplyScalar(0.7)).normalize();
+    const q = p.clone().addScaledVector(d, 0.15);
+    if (nucDist(q.x, q.y, q.z) > 0.86 || q.distanceTo(nucleolus.position) < 1.5) { d.negate(); continue; }
+    p = q; beads.push({ p: [p.x, p.y, p.z], s: 0.8 + R() * 0.5, r: 0.12 });
+  }
+}
+const swChrom = new Swarm([{ geo: beadGeo, mat: mat('nucleus', '#FFC4D2', { k: 0.6, glow: 0.14, coat: 0.3, disp: JIT(0.035, 0.9) }), key: 'nucleus', part: 'chromatin' }], beads, { thin: true });
+ORG.nucleus.gray = [0.24, 0.20, 0.24];
+
+// Lưới nội chất hạt: tấm cong quanh nhân; ribosome bám; lưới trơn: ống
+const ER_PATCHES = [];
+[[0.55, 1.35, 0.2, 1.7], [1.2, 2.2, 2.0, 3.6], [1.0, 1.9, 3.7, 5.0], [1.7, 2.6, 0.4, 1.9], [0.7, 1.6, 4.6, 5.8], [1.9, 2.8, 2.4, 4.0]].forEach((w, wi) => { for (let L = 0; L < 3; L++) ER_PATCHES.push({ c: NUC.c, R: 5.7 + L * 0.62 + wi * 0.05, t0: w[0], t1: w[1], p0: w[2], p1: w[3], amp: 0.035, wave: 0.03, wf: 7, seed: wi * 3.7 + L }); });
+const erM = mat('er', '#E0607E', { side: THREE.DoubleSide, rough: 0.45, coat: 0.6, disp: WAVE_ER, ridge: 0.15, rf: 26 });
+const erMeshes = ER_PATCHES.map(() => { const m = tag(new THREE.Mesh(new THREE.BufferGeometry(), erM), 'er', 'sheet'); world.add(m); return m; });
+const riboGeo = mergeAll([new THREE.IcosahedronGeometry(0.1, 1), new THREE.IcosahedronGeometry(0.072, 0).translate(0.09, 0.06, 0)]);
+const riboM = mat('ribo', '#FFF4EA', { coat: 0.3, glow: 0.2, rim: 0.5, disp: JIT(0.07, 1.6) });
+const riboBM = mat('er', '#FFF7EE', { coat: 0.3, glow: 0.22, rim: 0.5, k: 2.2, disp: WAVE_ER });
+const bound = [];
+ER_PATCHES.forEach(p => { let c = 0; for (let t = 0; t < 1400 && c < 200; t++) { const u = R(), v = R(); if (patchField(p, u, v) <= 0) continue; bound.push({ p: patchPoint(p, u, v, 0.11), q: randQ(), s: 0.95 }); c++; } });
+const swBound = new Swarm([{ geo: riboGeo, mat: riboBM, key: 'er', part: 'boundribo' }], shuffle(bound), { thin: true, mol: true, lift: 0.11 });
+const freeR = Array.from({ length: 3600 }, () => ({ p: sampleCyto(1.12, 0.93), q: randQ(), s: 0.8 + R() * 0.4 }));
+const swFree = new Swarm([{ geo: riboGeo, mat: riboM, key: 'ribo' }], freeR, { thin: true, mol: true });
+const serCurves = [];
+for (let i = 0; i < 34; i++) { const a = V3(sampleCyto(1.6, 0.9, 0.62)); const pts = [a]; for (let k = 0; k < 4; k++) { const last = pts[pts.length - 1]; const n = last.clone().add(new THREE.Vector3(R() - 0.5, R() - 0.5, R() - 0.5).multiplyScalar(2.6)); if (inCell(n.x, n.y, n.z, 0.92) && nucDist(n.x, n.y, n.z) > 1.4) pts.push(n); } if (pts.length > 2) serCurves.push(new THREE.CatmullRomCurve3(pts)); }
+const serBase = mergeVertices(mergeGeometries(serCurves.map(c => new THREE.TubeGeometry(c, 40, 0.075, 6, false))));
+serBase.computeVertexNormals();
+const serMesh = tag(new THREE.Mesh(new THREE.BufferGeometry(), mat('er', '#EE8CA2', { coat: 0.6, k: 1.15 })), 'er', 'ser'); world.add(serMesh);
+
+// Golgi: 6 túi, màu chuyển từ cis sang trans theo pH (6,7 → 6,0)
+const GOLGI = []; for (let L = 0; L < 6; L++) GOLGI.push({ c: NUC.c, R: 7.9 + L * 0.55, t0: 1.28 + L * 0.03, t1: 1.92 - L * 0.035, p0: 5.98 + L * 0.03, p1: 6.92 - L * 0.05, amp: 0.012, wave: 0.012, wf: 5, seed: 40 + L });
+const gA = new THREE.Color('#E2AE45'), gB = new THREE.Color('#C9264A');
+const golgiMeshes = GOLGI.map((p, L) => { const m = tag(new THREE.Mesh(new THREE.BufferGeometry(), mat('golgi', '#' + gA.clone().lerp(gB, L / 5).getHexString(), { side: THREE.DoubleSide, coat: 0.7 })), 'golgi', L === 0 ? 'cis' : L === 5 ? 'trans' : null); world.add(m); return m; });
+const ballGeo = new THREE.IcosahedronGeometry(1, 3);
+const buds = [];
+for (let L = 3; L < 6; L++) { const g = GOLGI[L]; let c = 0; for (let t = 0; t < 600 && c < 9; t++) { const u = R(), v = R(); const f = patchField(g, u, v); if (f < -0.02 || f > 0.06) continue; const s = 0.17 + R() * 0.08; buds.push({ p: patchPoint(g, u, v, 0), s, r: s }); c++; } }
+const swBuds = new Swarm([{ geo: ballGeo, mat: mat('golgi', '#F2A07C', { coat: 0.8, glow: 0.1, disp: JIT(0.05, 1.4) }), key: 'golgi', part: 'bud' }], buds);
+
+// Ty thể: màng ngoài, màng trong, mào; cắt hở nửa trên
+const MA = { rx: 1.35, ry: 0.5, rz: 0.56, bend: 0.16, cut: 0.04 };
+function mitoSurface(k) {
+  const pos = [], idx = [], T = 40, P = 32;
+  for (let i = 0; i <= T; i++) { const t = Math.PI * i / T; for (let j = 0; j <= P; j++) { const ph = 2 * Math.PI * j / P;
+    const dx = Math.cos(t), dy = Math.sin(t) * Math.cos(ph), dz = Math.sin(t) * Math.sin(ph);
+    pos.push(MA.rx * dx * k, MA.ry * dy * k + MA.bend * dx * dx, MA.rz * dz * k); } }
+  for (let i = 0; i < T; i++) for (let j = 0; j < P; j++) { const a = i * (P + 1) + j, b = a + P + 1; idx.push(a, b, a + 1, a + 1, b, b + 1); }
+  const g = geoFrom(pos, idx);
+  return clipGeo(g, (x, y) => MA.cut - (y - MA.bend * (x / MA.rx) ** 2));
+}
+function mitoCristae() {
+  const geos = [], N = 8;
+  for (let i = 0; i < N; i++) {
+    const x0 = -1.0 + 2.0 * i / (N - 1); const s = Math.sqrt(Math.max(0.05, 1 - (x0 / MA.rx) ** 2)) * 0.83;
+    const pos = [], idx = [], f = [], Y = 16, Z = 20;
+    for (let a = 0; a <= Y; a++) for (let b = 0; b <= Z; b++) {
+      const y = (a / Y * 2 - 1) * MA.ry * s, z = (b / Z * 2 - 1) * MA.rz * s;
+      const x = x0 + 0.06 * Math.sin(z * 7 + i) + 0.03 * Math.sin(y * 11 + i * 2);
+      pos.push(x, y + MA.bend * (x / MA.rx) ** 2, z);
+      const inside = 1 - (y / (MA.ry * s)) ** 2 - (z / (MA.rz * s)) ** 2;
+      const side = i % 2 ? (z / MA.rz + 0.38) : (0.38 - z / MA.rz);
+      f.push(Math.min(inside, side, (MA.cut - y) * 4));
+    }
+    for (let a = 0; a < Y; a++) for (let b = 0; b < Z; b++) { const p = a * (Z + 1) + b, q = p + Z + 1; idx.push(p, q, p + 1, p + 1, q, q + 1); }
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
+    geos.push(clipTris(pos, g.getAttribute('normal').array, f, idx));
+  }
+  return mergeGeometries(geos);
+}
+const mitoItems = [];
+for (let i = 0; i < 40 && mitoItems.length < 15; i++) {
+  let p, ok = false;
+  for (let t = 0; t < 300 && !ok; t++) { p = sampleCyto(1.55, 0.8); ok = mitoItems.every(m => Math.hypot(m.p[0] - p[0], m.p[1] - p[1], m.p[2] - p[2]) > 3.2); }
+  if (!ok) continue;
+  const q = new THREE.Quaternion().setFromEuler(new THREE.Euler((R() - 0.5) * 0.4, R() * 6.28, (R() - 0.5) * 0.4, 'YXZ'));
+  mitoItems.push({ p, q, s: 0.9 + R() * 0.35, r: 0.9 });
+}
+const swMito = new Swarm([
+  { geo: mitoSurface(1), mat: mat('mito', '#E7A33A', { side: THREE.DoubleSide, coat: 0.7, sheen: 0.4, disp: JIT(0.12, 0.4) }), key: 'mito', part: 'outer' },
+  { geo: mitoSurface(0.85), mat: mat('mito', '#B0531D', { side: THREE.DoubleSide, coat: 0.4, k: 0.8, disp: JIT(0.12, 0.4), pulse: true }), key: 'mito', part: 'inner' },
+  { geo: mitoCristae(), mat: mat('mito', '#FFE3A6', { side: THREE.DoubleSide, coat: 0.3, k: 0.75, glow: 0.12, disp: JIT(0.12, 0.4), pulse: true }), key: 'mito', part: 'cristae' },
+], mitoItems);
+
+// Lysosome và túi vận chuyển
+const lysoGeo = (() => { const g = mergeVertices(new THREE.IcosahedronGeometry(1, 4)); const a = g.getAttribute('position'); for (let i = 0; i < a.count; i++) { const v = new THREE.Vector3().fromBufferAttribute(a, i); v.multiplyScalar(1 + (vn(v.x * 4 + 2, v.y * 4, v.z * 4) - 0.5) * 0.12); a.setXYZ(i, v.x, v.y, v.z); } g.computeVertexNormals(); return g; })();
+const lysos = Array.from({ length: 12 }, () => { const s = 0.42 + R() * 0.28; return { p: sampleCyto(1.5, 0.82), s, r: s, q: randQ() }; });
+const swLyso = new Swarm([{ geo: lysoGeo, mat: mat('lyso', '#F0D27A', { coat: 0.8, glow: 0.08, disp: JIT(0.08, 0.5) }), key: 'lyso' }], lysos);
+const ves = Array.from({ length: 30 }, () => { const s = 0.17 + R() * 0.14; return { p: sampleCyto(1.6, 0.9), s, r: s }; });
+const swVes = new Swarm([{ geo: ballGeo, mat: mat('vesicle', '#FFC1CE', { coat: 0.9, rough: 0.25, glow: 0.08, disp: JIT(0.09, 0.8) }), key: 'vesicle' }], ves);
+
+// Khung xương: vi ống từ trung thể ra màng; trung thể = hai trung tử vuông góc
+const CENTRO = new THREE.Vector3(...ellPoint(NUC1, 1.75, 2.3, 1.22));
+const mtCurves = [];
+for (let i = 0; i < 64; i++) { const th = Math.acos(1 - 2 * R()), ph = R() * 6.283; const end = V3(ellPoint(MEM, th, ph, 0.94)); const mid = CENTRO.clone().lerp(end, 0.5).add(new THREE.Vector3(R() - 0.5, R() - 0.5, R() - 0.5).multiplyScalar(2.2)); if (nucDist(mid.x, mid.y, mid.z) < 1.15) mid.addScaledVector(mid.clone().sub(V3(NUC.c)).normalize(), 2.5); mtCurves.push(new THREE.CatmullRomCurve3([CENTRO.clone(), mid, end])); }
+const mtBase = mergeVertices(mergeGeometries(mtCurves.map(c => new THREE.TubeGeometry(c, 48, 0.026, 5, false)))); mtBase.computeVertexNormals();
+const mtMesh = tag(new THREE.Mesh(new THREE.BufferGeometry(), mat('cyto', '#D6A445', { coat: 0.3, glow: 0.1, rim: 0.6 })), 'cyto', 'mt'); world.add(mtMesh);
+const centriole = (() => { const rods = []; for (let i = 0; i < 9; i++) { const a = i / 9 * 6.283; for (let k = 0; k < 3; k++) rods.push(new THREE.CylinderGeometry(0.022, 0.022, 0.5, 5).translate(Math.cos(a + k * 0.11) * (0.12 + k * 0.025), 0, Math.sin(a + k * 0.11) * (0.12 + k * 0.025))); } return mergeAll(rods); })();
+const cen = mergeAll([centriole.clone(), centriole.clone().rotateX(Math.PI / 2).translate(0, 0.32, 0.12)]);
+const centroMesh = tag(new THREE.Mesh(cen, mat('cyto', '#F3D79A', { coat: 0.6, k: 1.3, glow: 0.18 })), 'cyto', 'centro');
+centroMesh.position.copy(CENTRO); world.add(centroMesh);
+
+const swarms = [swHeads, swProt, swRec, swPores, swChrom, swBound, swFree, swBuds, swMito, swLyso, swVes];
+
+/* ================= Lưới lamin trong nhân, lưới actin vỏ dưới màng ================= */
+function lineMat(keyName, hex, o = {}) { const base = new THREE.Color(hex); const m = new THREE.LineBasicNodeMaterial({ color: base.clone(), transparent: true, opacity: o.opacity ?? 0.9 }); if (o.disp) m.positionNode = positionLocal.add(o.disp); mats.push({ key: keyName, m, base, rimBase: base, k: o.k ?? 1, line: true, gray: o.gray, glow: 0, rim: 0 }); return m; }
+function geoEdges(detail) {
+  const g0 = new THREE.IcosahedronGeometry(1, detail); g0.deleteAttribute('normal'); g0.deleteAttribute('uv'); const g = mergeVertices(g0);
+  const P = g.getAttribute('position'), I = g.index.array, verts = [];
+  for (let i = 0; i < P.count; i++) verts.push(new THREE.Vector3().fromBufferAttribute(P, i).normalize());
+  const seen = new Set(), edges = [];
+  for (let k = 0; k < I.length; k += 3) for (const [a, b] of [[I[k], I[k + 1]], [I[k + 1], I[k + 2]], [I[k + 2], I[k]]]) { const key2 = a < b ? a * 100000 + b : b * 100000 + a; if (!seen.has(key2)) { seen.add(key2); edges.push([a, b]); } }
+  return { verts, edges };
+}
+const dirPoint = (o, d, k) => ellPoint(o, Math.acos(Math.max(-1, Math.min(1, d.y))), Math.atan2(d.z, d.x), k);
+const LAM = geoEdges(3), LAM_P = LAM.verts.map(d => dirPoint(NUC2, d, 0.972));
+const CTX = geoEdges(4), CTX_P = CTX.verts.map(d => dirPoint(MEM, d, 0.95));
+const lamLines = new THREE.LineSegments(new THREE.BufferGeometry(), lineMat('nucleus', '#E9B44C', { disp: BREATH_NUC, gray: [0.35, 0.25, 0.3] })); world.add(lamLines);
+const ctxLines = new THREE.LineSegments(new THREE.BufferGeometry(), lineMat('membrane', '#E2A640', { disp: BREATH_MEM, opacity: 0.75, gray: [0.4, 0.42, 0.4] })); world.add(ctxLines);
+const knotGeo = new THREE.IcosahedronGeometry(0.055, 1);
+const swLam = new Swarm([{ geo: knotGeo, mat: mat('nucleus', '#FFE7A8', { glow: 0.3, coat: 0.6, k: 1.5, disp: BREATH_NUC }), key: 'nucleus', part: 'lamina' }], LAM_P.map(p => ({ p, s: 1, r: 0.06 })));
+const swCtx = new Swarm([{ geo: knotGeo, mat: mat('membrane', '#FFF1D2', { glow: 0.3, coat: 0.6, k: 1.6, disp: BREATH_MEM }), key: 'membrane', part: 'cortex' }], CTX_P.filter((_, i) => i % 2 === 0).map(p => ({ p, s: 0.9, r: 0.06 })));
+swarms.push(swLam, swCtx);
+function netGeo(P, E, c) { const out = [], nr = []; const push = (p) => { out.push(p[0], p[1], p[2]); const v = new THREE.Vector3(p[0] - c[0], p[1] - c[1], p[2] - c[2]).normalize(); nr.push(v.x, v.y, v.z); }; for (const [a, b] of E) { const p = P[a], q = P[b]; if (p[1] < cutY && q[1] < cutY) { push(p); push(q); } } const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(out, 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(nr, 3)); return g; }
+ORG.nucleus.parts.push({ id: 'lamina', name: 'Lưới lamin', en: 'nuclear lamina', body: 'Mạng sợi protein lamin lót mặt trong màng nhân, giữ hình dạng nhân và neo chất nhiễm sắc. Trong cảnh vẽ thành lưới vàng có hạt ở mỗi nút.', facts: [] });
+ORG.membrane.parts.push({ id: 'cortex', name: 'Lưới actin vỏ', en: 'actin cortex', body: 'Lớp sợi actin dày đặc ngay dưới màng sinh chất, giữ hình tế bào và giúp màng đổi dạng khi nhập bào. Trong cảnh vẽ thành lưới vàng mảnh trên thành trong của tế bào.', facts: [] });
+
+/* ================= Quá trình sống: các dòng vận chuyển chạy liên tục ================= */
+const flowGeo = new THREE.IcosahedronGeometry(1, 3);
+const flowMat = (hex, gray) => mat('flow', hex, { glow: 0.9, rim: 1.0, coat: 0.6, rough: 0.3, gray });
+class Pool {
+  constructor(m, n) { this.mesh = new THREE.InstancedMesh(flowGeo, m, n); this.mesh.frustumCulled = false; this.mesh.count = 0; this.n = n; this.i = 0; world.add(this.mesh); this.m4 = new THREE.Matrix4(); this.sv = new THREE.Vector3(); }
+  begin() { this.i = 0; }
+  put(p, s) { if (this.i >= this.n || s <= 0.002 || p.y > cutY + 0.05) return; this.sv.setScalar(s); this.m4.compose(p, IDQ, this.sv); this.mesh.setMatrixAt(this.i++, this.m4); }
+  end() { this.mesh.count = this.i; this.mesh.instanceMatrix.needsUpdate = true; }
+}
+const below = (p, m = 0.3) => p.y < cutY - m;
+const randVis = (sw) => sw.vis.length ? sw.vis[Math.floor(R() * sw.vis.length)] : null;
+const line = (a, b) => new THREE.LineCurve3(a.clone(), b.clone());
+const spline = (pts) => new THREE.CatmullRomCurve3(pts.map(p => p.clone()), false, 'centripetal');
+const wob = (a, b, amt) => a.clone().lerp(b, 0.5).add(new THREE.Vector3(R() - 0.5, R() - 0.5, R() - 0.5).multiplyScalar(amt));
+function erStart() { for (let t = 0; t < 60; t++) { const p = ER_PATCHES[Math.floor(R() * ER_PATCHES.length)]; const u = R(), v = R(); if (patchField(p, u, v) <= 0.05) continue; const q = V3(patchPoint(p, u, v, 0.14)); if (below(q)) return q; } return null; }
+const gPt = (L) => V3(patchPoint(GOLGI[L], 0.5 + (R() - 0.5) * 0.3, 0.5 + (R() - 0.5) * 0.3, 0.08));
+const MT_SAMPLES = mtCurves.map(c => c.getPoints(36));
+function mtRoute(from) { let best = null, bd = 1e9, bi = 0; MT_SAMPLES.forEach((pts, ci) => { if (!below(pts[pts.length - 1], 0.4)) return; pts.forEach((p, k) => { const d = p.distanceTo(from); if (d < bd) { bd = d; best = ci; bi = k; } }); }); return best == null ? null : MT_SAMPLES[best].slice(bi); }
+function evalAgent(a, t, out) {
+  let acc = 0;
+  for (let k = 0; k < a.segs.length; k++) { const sg = a.segs[k];
+    if (t <= acc + sg.dur || k === a.segs.length - 1) {
+      const u = Math.min(1, Math.max(0, (t - acc) / sg.dur)); let uu = sg.ease === false ? u : u * u * (3 - 2 * u);
+      if (sg.motor) uu = Math.min(1, Math.max(0, uu - 0.012 * Math.sin(uu * 110)));
+      sg.curve.getPoint(uu, out); if (sg.drift) out.add(sg.drift(u));
+      return { k, s: sg.sc ? sg.sc(u) : 1 }; }
+    acc += sg.dur; }
+  return { k: 0, s: 0 };
+}
+const flashes = [];
+const flashPool = new Pool(flowMat('#FFF6E0', [0.95, 0.95, 0.95]), 48);
+function spawnFlash(p, size) { flashes.push({ p: p.clone(), t: 0, size }); if (flashes.length > 48) flashes.shift(); }
+const PROCS = [
+  { id: 'secrete', name: 'Đường tiết protein', color: '#FF5A2E', gray: [0.30, 0.22, 0.20], size: 0.27, n: 10, gap: () => 1 + R() * 3,
+    short: 'Túi chở protein đi từ lưới nội chất qua Golgi, chạy dọc vi ống ra màng.', unit: 'túi đã xuất bào',
+    steps: ['Protein mới gấp nếp trong lòng lưới nội chất được gói vào một túi nhỏ.', 'Túi rời lưới nội chất, đi tới mặt cis của bộ máy Golgi.', 'Protein đi qua các túi Golgi từ mặt cis sang mặt trans và được sửa đổi dần.', 'Túi tách ra ở mặt trans. Protein vận động kéo túi chạy dọc vi ống ra phía màng.', 'Túi hoà vào màng sinh chất và đổ protein ra ngoài tế bào. Đây là xuất bào.'],
+    done: 'Túi đã hoà vào màng sinh chất; protein bên trong đã ra ngoài tế bào.',
+    spawn(a) { const e0 = erStart(); if (!e0) return; const e1 = e0.clone().add(e0.clone().sub(V3(NUC.c)).setLength(0.4));
+      const g = [0, 1, 2, 3, 4, 5].map(gPt); const route = mtRoute(g[5]); if (!route || route.length < 4) return;
+      const last = route[route.length - 1], prev = route[route.length - 2], end = last.clone().add(last.clone().sub(prev).setLength(0.75));
+      a.segs = [{ curve: line(e0, e1), dur: 1.4, step: 0, sc: u => 0.25 + 0.75 * u }, { curve: spline([e1, wob(e1, g[0], 1.2), g[0]]), dur: 3.2, step: 1 }, { curve: spline(g), dur: 5, step: 2 },
+        { curve: spline([g[5], ...route]), dur: Math.max(4, route.length * 0.32), step: 3, motor: true, ease: false }, { curve: line(last, end), dur: 1.4, step: 4, sc: u => 1 - u }];
+      a.end = end; },
+    onDone(a) { spawnFlash(a.end, 0.6); } },
+  { id: 'traffic', hidden: true, parent: 'secrete', color: '#F09A3C', gray: [0.35, 0.3, 0.28], size: 0.12, n: 22, gap: () => R() * 2,
+    spawn(a) { const pts = MT_SAMPLES[Math.floor(R() * MT_SAMPLES.length)]; if (!below(pts[Math.floor(pts.length / 2)], 0.4)) return; const i0 = Math.floor(R() * 12), i1 = Math.min(pts.length - 1, i0 + 12 + Math.floor(R() * 16)); let seq = pts.slice(i0, i1 + 1); if (R() < 0.4) seq = seq.reverse();
+      a.segs = [{ curve: spline(seq), dur: seq.length * 0.3, motor: true, ease: false, step: 0, sc: u => Math.min(1, u * 8, (1 - u) * 8) }]; } },
+  { id: 'mrna', name: 'Xuất mRNA khỏi nhân', color: '#B4007E', gray: [0.5, 0.1, 0.15], size: 0.09, beads: 5, lag: 0.1, n: 8, gap: () => 1.5 + R() * 3,
+    short: 'mRNA chui qua lỗ nhân ra bào tương, tới lưới nội chất hạt.', unit: 'mRNA đã ra khỏi nhân',
+    steps: ['mRNA vừa phiên mã xong trong nhân, đang đi tới một lỗ nhân.', 'mRNA chui qua lỗ nhân ra bào tương.', 'mRNA tới lưới nội chất hạt, nơi ribosome sẽ đọc nó để làm protein.'],
+    done: 'mRNA đã tới ribosome trên lưới nội chất; quá trình dịch mã bắt đầu.',
+    spawn(a) { const i = randVis(swPores); if (i == null) return; const it = swPores.items[i]; const p1 = V3(it.p); if (!below(p1)) return; const n = ellNormal(NUC1, it.p);
+      const p0 = p1.clone().addScaledVector(n, -1.5).add(new THREE.Vector3(R() - 0.5, R() - 0.5, R() - 0.5).multiplyScalar(0.8)), p2 = p1.clone().addScaledVector(n, 0.9);
+      const bi = randVis(swBound); if (bi == null) return; const p3 = V3(swBound.items[bi].p);
+      a.segs = [{ curve: spline([p0, wob(p0, p1, 0.6), p1]), dur: 2.6, step: 0 }, { curve: line(p1, p2), dur: 1.2, step: 1 }, { curve: spline([p2, wob(p2, p3, 1.5), p3]), dur: 4.2, step: 2, sc: u => u > 0.85 ? (1 - u) / 0.15 : 1 }]; a.end = p3; },
+    onDone(a) { spawnFlash(a.end, 0.22); } },
+  { id: 'endo', name: 'Nhập bào và tiêu hoá', color: '#1497C2', gray: [0.32, 0.36, 0.34], size: 0.34, n: 6, gap: () => 2 + R() * 3,
+    short: 'Màng lõm vào thành túi, túi đi sâu vào trong và hoà vào lysosome.', unit: 'lần nhập bào',
+    steps: ['Màng sinh chất lõm vào, bọc lấy vật chất bên ngoài thành một túi.', 'Túi nhập bào tách khỏi màng và đi sâu vào trong tế bào.', 'Túi hoà vào lysosome; enzyme trong môi trường chua phân giải vật chất.'],
+    done: 'Vật chất từ bên ngoài đã được đưa vào lysosome để phân giải.',
+    spawn(a) { let p0 = null, n; for (let t = 0; t < 40 && !p0; t++) { const q = ellPoint(MEM, 1.25 + R() * 1.6, R() * 6.283, 0.985); if (q[1] < cutY - 0.6) { p0 = V3(q); n = ellNormal(MEM, q); } } if (!p0) return;
+      const li = nearestVis(swLyso, p0); if (li == null) return; const L = V3(swLyso.items[li].p), ls = swLyso.items[li].s;
+      const pin = p0.clone().addScaledVector(n, -0.6), stop = L.clone().add(pin.clone().sub(L).setLength(ls * 0.9));
+      a.segs = [{ curve: line(p0.clone().addScaledVector(n, 0.12), pin), dur: 2.2, step: 0, sc: u => 0.2 + 0.8 * u }, { curve: spline([pin, wob(pin, stop, 2), stop]), dur: 5.5, step: 1 }, { curve: line(stop, L), dur: 1.2, step: 2, sc: u => 1 - u }]; a.end = L; },
+    onDone(a) { spawnFlash(a.end, 0.5); } },
+  { id: 'signal', name: 'Tín hiệu qua thụ thể', color: '#2FA552', gray: [0.42, 0.38, 0.34], size: 0.12, n: 24, gap: () => R() * 3,
+    short: 'Phân tử tín hiệu bên ngoài bám vào thụ thể trên màng.', unit: 'lần bám thụ thể',
+    steps: ['Phân tử tín hiệu như hormone trôi tới mặt ngoài tế bào.', 'Phân tử bám vào thụ thể; thụ thể đổi hình dạng và truyền tín hiệu vào trong.'],
+    done: 'Thụ thể đã nhận tín hiệu và chuyển nó vào bên trong tế bào.',
+    spawn(a) { const i = randVis(swRec); if (i == null) return; const it = swRec.items[i]; if (it.p[1] > cutY - 0.8) return; const n = ellNormal(MEM, it.p), head = V3(it.p).addScaledVector(n, 0.95);
+      const start = head.clone().addScaledVector(n, 2.5 + R() * 2).add(new THREE.Vector3(R() - 0.5, R() - 0.5, R() - 0.5).multiplyScalar(2.5));
+      a.segs = [{ curve: spline([start, wob(start, head, 1.2), head]), dur: 4.5, step: 0 }, { curve: line(head, head), dur: 0.6, step: 1, sc: u => 1 - u }]; a.end = head; },
+    onDone(a) { spawnFlash(a.end, 0.32); } },
+  { id: 'atp', name: 'Tạo ATP ở ty thể', color: '#FFB000', gray: [0.55, 0.5, 0.45], size: 0.075, n: 240, gap: () => R() * 2,
+    short: 'Sóng sáng chạy dọc mào ty thể; hạt vàng là ATP toả ra bào tương.', unit: 'ATP đã toả ra',
+    steps: ['Trên mào ty thể, chuỗi chuyền electron bơm proton qua màng trong; sóng sáng là hình minh hoạ cho dòng đó.', 'ATP synthase dùng dòng proton chảy ngược lại để tạo ATP; các hạt vàng là ATP rời ty thể ra bào tương.'],
+    spawn(a) { const i = randVis(swMito); if (i == null) return; a.mito = i; const m = swMito.matrixOf(i), th = R() * Math.PI, ph = R() * 6.283;
+      const p0 = new THREE.Vector3(MA.rx * Math.cos(th) * 0.9, -Math.abs(MA.ry * Math.sin(th) * Math.cos(ph)) * 0.8, MA.rz * Math.sin(th) * Math.sin(ph) * 0.9).applyMatrix4(m).add(jitJS(i, 0.12, 0.4));
+      const v = new THREE.Vector3(R() - 0.5, R() * 0.6, R() - 0.5).normalize().multiplyScalar(1.6 + R() * 1.4), sd = R() * 10;
+      a.segs = [{ curve: line(p0, p0.clone().add(v)), dur: 2.4 + R(), step: 0, ease: false, sc: u => Math.sin(Math.PI * Math.min(1, u * 1.1)), drift: (u) => new THREE.Vector3(Math.sin(u * 13 + sd), Math.sin(u * 11 + sd * 2), Math.cos(u * 9 + sd)).multiplyScalar(0.18 * u) }]; } },
+];
+const procState = { secrete: true, mrna: true, endo: true, signal: true, atp: true };
+const TICK = { secrete: (n) => `<b>Xuất bào</b> túi #${n} hoà vào màng sinh chất`, mrna: (n) => `<b>Xuất mRNA</b> chuỗi #${n} rời lỗ nhân, tới lưới nội chất`, endo: (n) => `<b>Nhập bào</b> túi #${n} hoà vào lysosome`, signal: (n) => `<b>Tín hiệu</b> thụ thể nhận phân tử #${n}`, atp: (n) => n % 60 === 0 ? `<b>ATP</b> ty thể đã toả ra ${n} phân tử` : null };
+for (const pr of PROCS) pr.tick = TICK[pr.id];
+const BINS = 30; let binAcc = 0; const mitoBins = new Map();
+for (const pr of PROCS) { pr.bins = new Array(BINS).fill(0); pr.cur = 0; }
+function rollBins() { for (const pr of PROCS) { pr.bins.push(pr.cur); pr.bins.shift(); pr.cur = 0; } for (const arr of mitoBins.values()) { arr.push(arr.cur); arr.shift(); arr.cur = 0; } }
+const tickLog = []; function pushTick(h) { tickLog.push(h); if (tickLog.length > 10) tickLog.shift(); }
+const procOn = (id) => id === 'traffic' ? procState.secrete : procState[id];
+for (const pr of PROCS) { pr.count = 0; pr.pool = new Pool(flowMat(pr.color, pr.gray), pr.n * (pr.beads || 1)); pr.agents = Array.from({ length: pr.n }, () => ({ alive: false, delay: R() * pr.gap() + R() * 2, t: 0, segs: [], pos: new THREE.Vector3(), step: 0 })); }
+const FP = new THREE.Vector3();
+function updateFlows(dt) {
+  for (const pr of PROCS) {
+    pr.pool.begin(); const on = procOn(pr.id); const lim = pr.id === 'atp' && tierName === 'chuan' ? 110 : pr.agents.length;
+    for (let ai = 0; ai < lim; ai++) { const a = pr.agents[ai];
+      if (!on) { a.alive = false; continue; }
+      if (!a.alive) { a.delay -= dt; if (a.delay > 0) continue; a.segs = []; pr.spawn(a); if (!a.segs.length) { a.delay = 0.4 + R(); continue; } a.alive = true; a.t = 0; a.total = a.segs.reduce((s2, g) => s2 + g.dur, 0); }
+      a.t += dt;
+      if (a.t >= a.total) { pr.count++; pr.cur++; if (pr.tick) { const msg = pr.tick(pr.count); if (msg) pushTick(msg); } if (a.mito != null) { let arr = mitoBins.get(a.mito); if (!arr) { arr = new Array(BINS).fill(0); arr.cur = 0; mitoBins.set(a.mito, arr); } arr.cur++; } if (pr.onDone) pr.onDone(a); a.alive = false; a.delay = pr.gap(); if (follow && follow.a === a && !follow.done) followDone(); continue; }
+      const beads = pr.beads || 1;
+      for (let b = 0; b < beads; b++) { const tt = a.t - b * (pr.lag || 0); if (tt < 0) break; const r = evalAgent(a, tt, FP); if (b === 0) { a.pos.copy(FP); a.step = a.segs[r.k].step; } pr.pool.put(FP, pr.size * r.s * (1 - b * 0.1) * (follow && follow.a === a ? 1.6 : 1)); }
+    }
+    pr.pool.end();
+  }
+  flashPool.begin();
+  for (let i = flashes.length - 1; i >= 0; i--) { const f = flashes[i]; f.t += dt / 0.9; if (f.t >= 1) { flashes.splice(i, 1); continue; } flashPool.put(f.p, f.size * (0.4 + f.t * 1.3) * (1 - f.t)); }
+  flashPool.end();
+}
+
+/* ================= Theo dõi một hành trình ================= */
+let follow = null; // {pr, a, offset, dragging, done, endPos, lastStep}
+function startFollow(id) {
+  if (tour) endTour();
+  const pr = PROCS.find(p => p.id === id); fly = null;
+  if (id === 'atp') { follow = null; renderProcs(); select('mito', chooseInst('mito'), 'cristae'); toast('Ty thể đang tạo ATP: sóng sáng chạy dọc mào, hạt vàng toả ra.'); return; }
+  if (sel) { sel = null; tunnel = null; rebuildTunnelParts(); renderInfo(); renderLegend(); refreshPins(); }
+  const a = pr.agents[0];
+  for (let t = 0; t < 25; t++) { a.segs = []; pr.spawn(a); if (a.segs.length) break; }
+  if (!a.segs.length) { toast('Chưa tìm được hành trình nhìn thấy được với mặt cắt này. Thử kéo mặt cắt thấp xuống.'); return; }
+  a.alive = true; a.t = 0; a.delay = 0; a.total = a.segs.reduce((s2, g) => s2 + g.dur, 0); evalAgent(a, 0, a.pos); a.step = 0;
+  follow = { pr, a, offset: viewDir('mito').multiplyScalar(id === 'mrna' ? 5 : id === 'signal' ? 6 : 7), dragging: false, done: false, endPos: null, lastStep: -1 };
+  if (!playing) setPlaying(true);
+  renderProcs(); renderInfo(); showFollowCallout();
+}
+function stopFollow() { if (!follow) return; follow = null; hideCallout(); renderProcs(); renderInfo(); }
+function followDone() { follow.done = true; follow.endPos = follow.a.pos.clone(); showFollowCallout(); }
+function updateFollow() {
+  if (!follow || bench) return;
+  const p = follow.done ? follow.endPos : follow.a.pos;
+  if (follow.dragging) follow.offset.copy(camera.position).sub(controls.target);
+  const before = controls.target.clone(); controls.target.lerp(p, 0.12);
+  if (follow.dragging) camera.position.add(controls.target.clone().sub(before));
+  else camera.position.lerp(controls.target.clone().add(follow.offset), 0.08);
+  if (!follow.done && follow.a.step !== follow.lastStep) { follow.lastStep = follow.a.step; showFollowCallout(); }
+}
+
+/* ================= Mặt cắt và mức chất lượng ================= */
+let cutY = 1.5, tierName = 'cao';
+const TIERS = { cao: { factor: 1, pr: Math.min(devicePixelRatio || 1, 2), post: true, erW: 80, erH: 30, shell: [168, 104] }, chuan: { factor: 0.45, pr: 1, post: false, erW: 48, erH: 18, shell: [128, 80] } };
+const setGeo = (mesh, g) => { mesh.geometry.dispose(); if (g && g.getAttribute('position') && g.getAttribute('position').count) { mesh.geometry = g; mesh.visible = true; } else { mesh.geometry = new THREE.BufferGeometry(); mesh.visible = false; } };
+let rimRows = null;
+function rebuildTunnelParts() {
+  const T = TIERS[tierName];
+  ER_PATCHES.forEach((p, i) => { p.noTunnel = sel && sel.key === 'er'; setGeo(erMeshes[i], buildPatch(p, cutY, T.erW, T.erH)); });
+  GOLGI.forEach((p, i) => { p.noTunnel = sel && sel.key === 'golgi'; setGeo(golgiMeshes[i], buildPatch(p, cutY, T.erW, T.erH)); });
+  setGeo(serMesh, clipGeo(serBase, (x, y, z) => Math.min(cutY - y, segDist(x, y, z) - (tunnel ? tunnel.r : 0))));
+  setGeo(mtMesh, clipGeo(mtBase, (x, y, z) => Math.min(cutY - y, segDist(x, y, z) - (tunnel ? tunnel.r : 0))));
+  centroMesh.visible = CENTRO.y + 0.4 < cutY && !(tunnel && inTunnel(CENTRO.x, CENTRO.y, CENTRO.z, 0.4) && !(sel && sel.key === 'cyto'));
+  const f = T.factor; for (const s of swarms) s.apply(cutY, f);
+}
+function rebuildCut() {
+  const T = TIERS[tierName]; const ms = buildShell(MEM, cutY, T.shell[0], T.shell[1]);
+  setGeo(memOut, ms.outer); setGeo(memIn, ms.inner); setGeo(memRim, ms.rim);
+  rimRows = ms.rowOut.length ? ms : null;
+  const heads = [];
+  if (rimRows) { const n = ms.rowOut.length - 1; for (let j = 0; j < n; j++) for (let s = 0; s < 3; s++) { const t = s / 3;
+    for (const [row, sign] of [[ms.rowOut, -1], [ms.rowIn, 1]]) { const a = row[j], b = row[j + 1]; const o = ms.rowOut[j], ii = ms.rowIn[j];
+      const dir = [ii[0] - o[0], ii[1] - o[1], ii[2] - o[2]]; const off = sign < 0 ? 0.07 : -0.07;
+      heads.push({ p: [a[0] + (b[0] - a[0]) * t + dir[0] * off, a[1] + (b[1] - a[1]) * t - 0.02, a[2] + (b[2] - a[2]) * t + dir[2] * off], s: 1 }); } } }
+  swHeads.items = heads;
+  [NUC1, NUC2].forEach((o, i) => { const s = buildShell(o, cutY, Math.round(T.shell[0] * 0.6), Math.round(T.shell[1] * 0.6)); setGeo(nucMeshes[i * 3], s.outer); setGeo(nucMeshes[i * 3 + 1], s.inner); setGeo(nucMeshes[i * 3 + 2], s.rim); });
+  ER_PATCHES.forEach((p, i) => setGeo(erMeshes[i], buildPatch(p, cutY, T.erW, T.erH)));
+  GOLGI.forEach((p, i) => setGeo(golgiMeshes[i], buildPatch(p, cutY, T.erW, T.erH)));
+  setGeo(serMesh, clipGeo(serBase, (x, y, z) => Math.min(cutY - y, segDist(x, y, z) - (tunnel ? tunnel.r : 0))));
+  setGeo(mtMesh, clipGeo(mtBase, (x, y, z) => Math.min(cutY - y, segDist(x, y, z) - (tunnel ? tunnel.r : 0))));
+  nucleolus.visible = nucleolus.position.y + 0.5 < cutY;
+  lamLines.geometry.dispose(); lamLines.geometry = netGeo(LAM_P, LAM.edges, NUC.c); ctxLines.geometry.dispose(); ctxLines.geometry = netGeo(CTX_P, CTX.edges, MEM.c);
+  centroMesh.visible = CENTRO.y + 0.4 < cutY;
+  const f = TIERS[tierName].factor;
+  for (const s of swarms) s.apply(cutY, f);
+  if (sel) refreshPins();
+}
+
+/* ================= Hậu kỳ: AO + bloom (mức Cao) ================= */
+let post = null, bloomNode = null, dofNode = null;
+const focusU = uniform(40), focalU = uniform(18), bokehU = uniform(1.3);
+async function setupPost() {
+  try {
+    const { bloom } = await import('three/addons/tsl/display/BloomNode.js');
+    const { ao } = await import('three/addons/tsl/display/GTAONode.js');
+    const p = new THREE.PostProcessing(renderer);
+    const sp = pass(scene, camera);
+    sp.setMRT(mrt({ output, normal: normalView, emissive }));
+    const col = sp.getTextureNode('output');
+    const aoPass = ao(sp.getTextureNode('depth'), sp.getTextureNode('normal'), camera);
+    aoPass.resolutionScale = 0.5; aoRef = aoPass;
+    if (aoPass.radius) aoPass.radius.value = 0.45;
+    if (aoPass.samples) aoPass.samples.value = 12;
+    const aoT = aoPass.getTextureNode().r;
+    const lit = vec4(col.rgb.mul(mix(float(1), aoT, float(0.85))), col.a);
+    let base = lit;
+    try { const { dof } = await import('three/addons/tsl/display/DepthOfFieldNode.js'); dofNode = dof(lit, sp.getViewZNode(), focusU, focalU, bokehU); base = dofNode; } catch (e) { console.warn('Không bật được chiều sâu trường ảnh:', e); }
+    bloomNode = bloom(sp.getTextureNode('emissive'), 0.6, 0.35, 0.0);
+    p.outputNode = base.add(bloomNode);
+    post = p;
+  } catch (e) { post = null; bloomNode = null; console.warn('Không bật được hậu kỳ:', e); }
+}
+
+/* ================= Nhuộm + tập trung: chuyển màu mượt ================= */
+let stain = 0, hoverKey = null;
+let sel = null; // {key, inst, part}
+const tmpC = new THREE.Color(), tmpE = new THREE.Color(), tmpR = new THREE.Color(), bgMid = new THREE.Color();
+const AMBER = new THREE.Color('#E7A93C');
+function grayOf(e) { const g = Math.min(0.95, (0.18 + 0.82 * (e.gray || ORG[e.key].gray)[stain - 1]) * e.k); return g; }
+const tmpP = new THREE.Color();
+function stepLook(dt, instant) {
+  const a = instant ? 1 : 1 - Math.exp(-dt / 0.13);
+  const tem = stain > 0;
+  const fk = sel ? sel.key : (tour && tour.focus) || null;
+  bgMid.copy(tem ? BG.temTop : BG.colorTop).lerp(tem ? BG.temBot : BG.colorBot, 0.5);
+  for (const e of mats) {
+    if (!tem) { tmpC.copy(e.base); tmpE.copy(e.base).multiplyScalar(e.glow); tmpR.copy(e.rimBase).multiplyScalar(e.rim * 0.55); }
+    else { const g = grayOf(e); tmpC.setRGB(g, g, g, THREE.SRGBColorSpace); tmpE.setRGB(0, 0, 0); tmpR.setRGB(0, 0, 0); }
+    if (e.key === 'flow') { /* dòng vận chuyển luôn sáng */ }
+    else if (follow) { tmpC.lerp(bgMid, tem ? 0.4 : 0.55); tmpE.multiplyScalar(0.35); tmpR.multiplyScalar(0.3); }
+    else if (fk && e.key !== fk) { tmpC.lerp(bgMid, tem ? 0.55 : 0.78); tmpE.multiplyScalar(0.2); tmpR.multiplyScalar(0.15); }
+    else if (fk && e.key === fk) { tmpR.lerp(AMBER, tem ? 0.25 : 0.35); }
+    else if (e.key === hoverKey) { tmpR.lerp(AMBER, 0.5); tmpE.lerp(AMBER, 0.06); }
+    e.m.color.lerp(tmpC, a); if (!e.line) { e.glowU.value.lerp(tmpE, a); e.rimU.value.lerp(tmpR, a); }
+    if (e.pulseU) { tmpP.copy(e.base).multiplyScalar(!tem && procState.atp ? 0.55 : 0); e.pulseU.value.lerp(tmpP, a); }
+  }
+  bgTop.value.lerp(tem ? BG.temTop : BG.colorTop, a); bgBot.value.lerp(tem ? BG.temBot : BG.colorBot, a);
+  hemi.intensity += ((tem ? 1.9 : 1.0) - hemi.intensity) * a;
+  key.intensity += ((tem ? 1.5 : 2.0) - key.intensity) * a;
+  rimL.intensity += ((tem ? 0.4 : 1.1) - rimL.intensity) * a;
+  scene.environmentIntensity += ((tem ? 0.8 : 0.75) - scene.environmentIntensity) * a;
+  if (bloomNode) bloomNode.strength.value += ((tem ? 0.0 : 0.6) - bloomNode.strength.value) * a;
+  molLook(a);
+}
+function setStain(i) {
+  stain = i;
+  document.querySelectorAll('#stainSeg button').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.stain === i)));
+  $('modeName').textContent = STAINS[i].name; $('why').innerHTML = STAINS[i].why;
+  host.classList.toggle('tem', i > 0); const sn = ['Màu', 'Osmium', 'Uranyl', 'Chì'][i]; if ($('kStain')) $('kStain').textContent = sn; $('sStain').textContent = sn;
+  renderLegend();
+}
+
+/* ================= Neo 3D cho bào quan và bộ phận ================= */
+const camDir = () => camera.position.clone().sub(controls.target).normalize();
+function nearestVis(sw, ref) { let best = null, bd = 1e9; for (const i of sw.vis) { const d = V3(sw.items[i].p).distanceTo(ref); if (d < bd) { bd = d; best = i; } } return best; }
+function mitoLocal(i, lp) { return lp.clone().applyMatrix4(swMito.matrixOf(i)); }
+const MITO_ANCHOR = { outer: new THREE.Vector3(0.55, 0.0, MA.rz * 0.99), inner: new THREE.Vector3(-0.35, 0.0, -MA.rz * 0.84), cristae: new THREE.Vector3(0.15, -0.12, 0.05), matrix: new THREE.Vector3(-0.86, -0.22, 0.0) };
+function chooseInst(k) {
+  const sw = { mito: swMito, ribo: swFree, lyso: swLyso, vesicle: swVes }[k]; if (!sw) return null;
+  const ref = camera.position; let best = null, bs = 1e9;
+  for (const i of sw.vis) { const p = sw.items[i].p; const rn = Math.hypot(p[0] / MEM.rx, p[2] / MEM.rz);
+    const sc = Math.hypot(p[0] - ref.x, p[2] - ref.z) * 0.3 + Math.abs(cutY - 0.9 - p[1]) * 1.5 + (rn > 0.62 ? 20 : 0) + (nucDist(p[0], p[1], p[2]) < 1.35 ? 20 : 0);
+    if (sc < bs) { bs = sc; best = i; } }
+  return best;
+}
+function anchor(k, inst, part) {
+  if (k === 'rnc') return molAnchor(part);
+  const cd = camDir(), phiCam = Math.atan2(cd.z, cd.x);
+  if (k === 'mito' && inst != null) return mitoLocal(inst, part ? MITO_ANCHOR[part] : new THREE.Vector3(0, -0.1, 0)).add(jitJS(inst, 0.12, 0.4));
+  if (k === 'ribo' && inst != null) { const m = swFree.matrixOf(inst); return (part === 'small' ? new THREE.Vector3(0.09, 0.06, 0) : new THREE.Vector3(-0.02, 0, 0)).applyMatrix4(m).add(jitJS(inst, 0.07, 1.6)); }
+  if (k === 'lyso' && inst != null) return V3(swLyso.items[inst].p).add(jitJS(inst, 0.08, 0.5));
+  if (k === 'vesicle' && inst != null) return V3(swVes.items[inst].p).add(jitJS(inst, 0.09, 0.8));
+  if (k === 'membrane') {
+    if (part === 'cortex') { const i = nearestVis(swCtx, controls.target); if (i != null) return V3(swCtx.items[i].p); }
+    if (part === 'protein') { const i = nearestVis(swProt, camera.position); if (i != null) return V3(swProt.items[i].p); }
+    if (part === 'receptor') { const i = nearestVis(swRec, camera.position); if (i != null) return V3(swRec.items[i].p).addScaledVector(ellNormal(MEM, swRec.items[i].p), 0.85); }
+    if (rimRows) { let best = null, bd = 1e9; for (const p of rimRows.rowOut) { const d = V3(p).distanceTo(camera.position); if (d < bd) { bd = d; best = p; } } if (best) return V3(best); }
+    return V3(ellPoint(MEM, 1.6, phiCam, 1));
+  }
+  if (k === 'nucleus') {
+    if (part === 'lamina') { const i = nearestVis(swLam, camera.position); if (i != null) return V3(swLam.items[i].p); }
+    if (part === 'nucleolus') return nucleolus.position.clone();
+    if (part === 'pore') { const i = nearestVis(swPores, camera.position); if (i != null) return V3(swPores.items[i].p); }
+    if (part === 'chromatin') { const i = nearestVis(swChrom, V3(NUC.c).add(new THREE.Vector3(0, 2, 0))); if (i != null) return V3(swChrom.items[i].p); }
+    const rel = (cutY - NUC1.c[1]) / NUC1.ry; const tc = rel >= 0.995 ? 0.3 : Math.acos(Math.max(-0.9, Math.min(0.995, rel)));
+    return part === 'envelope' ? V3(ellPoint(NUC1, tc + 0.06, phiCam, 0.97)) : V3(NUC.c);
+  }
+  if (k === 'er') {
+    if (part === 'boundribo') { const i = nearestVis(swBound, controls.target); if (i != null) return V3(swBound.items[i].p); }
+    if (part === 'ser') { for (const c of serCurves) { const p = c.getPoint(0.5); if (p.y < cutY - 0.3) return p; } }
+    let best = null, bd = 1e9; for (const p of ER_PATCHES) { const q = V3(patchPoint(p, 0.5, 0.5)); if (q.y > cutY - 0.2) continue; const d = q.distanceTo(camera.position); if (d < bd) { bd = d; best = q; } } return best || V3(patchPoint(ER_PATCHES[0], 0.5, 0.5));
+  }
+  if (k === 'golgi') {
+    if (part === 'bud') { const i = nearestVis(swBuds, camera.position); if (i != null) return V3(swBuds.items[i].p); }
+    const L = part === 'trans' ? 5 : part === 'cis' ? 0 : 3; return V3(patchPoint(GOLGI[L], 0.5, 0.5));
+  }
+  if (k === 'cyto') { if (part === 'mt') { for (const c of mtCurves) { const p = c.getPoint(0.55); if (p.y < cutY - 0.3) return p; } } return CENTRO.clone(); }
+  return new THREE.Vector3();
+}
+const FRAME = { membrane: 7, nucleus: 13, mito: 5.2, er: 9, golgi: 8, ribo: 1.15, lyso: 3.2, vesicle: 2.4, cyto: 7, rnc: 0.075 };
+const FRAME_PART = { membrane: 4.2, nucleus: 6, mito: 3.6, er: 4.5, golgi: 5, ribo: 0.9, cyto: 4 };
+
+/* ================= Chọn, bay tới, ghim, thẻ chú thích ================= */
+let fly = null;
+function viewDir(k) {
+  if (k === 'rnc') return molViewDir(sel && sel.key === 'rnc' ? sel.part : null);
+  const cd = camDir();
+  if (k === 'membrane') { if (cd.y < 0.35) cd.y = 0.35; return cd.normalize(); }
+  if (k === 'golgi') { const c = V3(patchPoint(GOLGI[3], 0.5, 0.5)); const r = c.sub(V3(NUC.c)).normalize(); const side = r.clone().cross(UP).normalize(); if (side.dot(cd) < 0) side.negate(); return side.multiplyScalar(0.75).add(r.multiplyScalar(0.35)).add(UP.clone().multiplyScalar(0.7)).normalize(); }
+  return new THREE.Vector3(cd.x * 0.55, 1, cd.z * 0.55).normalize();
+}
+function flyTo(target, dist, k) {
+  const dir = viewDir(k);
+  const endP = target.clone().addScaledVector(dir, dist);
+  if (reduceMotion) { controls.target.copy(target); camera.position.copy(endP); controls.update(); return endP; }
+  fly = { t: 0, dur: 1.15, p0: camera.position.clone(), t0: controls.target.clone(), p1: endP, t1: target.clone() };
+  return endP;
+}
+const TUN_R = { mito: 1.5, ribo: 0.55, lyso: 0.9, vesicle: 0.7, golgi: 1.6, er: 1.2, cyto: 1.0 };
+function makeTunnel(k, inst, tgt, endP) { const r = TUN_R[k]; if (!r) return null; const keepSw = { mito: swMito, ribo: swFree, lyso: swLyso, vesicle: swVes }[k]; const from = (k === 'mito' && inst != null) ? V3(swMito.items[inst].p) : tgt.clone(); const dir = endP.clone().sub(from).normalize(); return { a: from.clone().addScaledVector(dir, r * 0.9), b: endP.clone().addScaledVector(dir, 3), r, keep: keepSw && inst != null ? { sw: keepSw, i: inst } : null }; }
+function select(k, inst = null, part = null, hitPoint = null, doFly = true) {
+  if (k === 'rnc' && doFly && !part && MOL.ready && MOL.center && camera.position.distanceTo(MOL.center) > 0.6) { startDive(); return; }
+  if (dive) endDive(false);
+  if (tour) endTour();
+  if (follow) { follow = null; renderProcs(); }
+  if (inst == null && ['mito', 'ribo', 'lyso', 'vesicle'].includes(k)) inst = chooseInst(k);
+  sel = { key: k, inst, part };
+  const center = anchor(k, inst, null);
+  const focus = part ? anchor(k, inst, part) : (hitPoint && !['nucleus', 'er', 'golgi', 'membrane', 'cyto'].includes(k) ? center : center);
+  const tgt = part ? focus : center;
+  const endP = doFly ? flyTo(tgt, part ? (k === 'rnc' ? PART_D[part] : FRAME_PART[k] || 4) : (FRAME[k] || 8), k) : camera.position.clone();
+  tunnel = makeTunnel(k, inst, tgt, endP);
+  rebuildTunnelParts();
+  renderInfo(); renderLegend(); refreshPins(); showCallout();
+}
+function selectPart(pid) { if (!sel) return; select(sel.key, sel.inst, sel.part === pid ? null : pid); }
+function back() { if (!sel) return; if (sel.part) select(sel.key, sel.inst, null); else { clearSel(); flyHome(); } }
+function clearSel() { sel = null; tunnel = null; rebuildTunnelParts(); renderInfo(); renderLegend(); refreshPins(); hideCallout(); }
+
+let pinData = [];
+function refreshPins() {
+  const box = $('pins'); box.innerHTML = ''; pinData = [];
+  if (!sel) return;
+  const parts = ORG[sel.key].parts || [];
+  parts.forEach((pt, i) => {
+    const pos = anchor(sel.key, sel.inst, pt.id); if (!pos) return;
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'pin' + (sel.part && sel.part !== pt.id ? ' quiet' : ''); b.setAttribute('aria-pressed', String(sel.part === pt.id));
+    b.setAttribute('aria-label', `${i + 1}. ${pt.name}`);
+    b.innerHTML = `<span class="n">${i + 1}</span><span class="t">${pt.name}</span>`;
+    b.addEventListener('click', (e) => { e.stopPropagation(); selectPart(pt.id); });
+    box.appendChild(b); pinData.push({ el: b, pos, id: pt.id });
+  });
+}
+let typeTimer = null;
+function typeText(text) { const el = $('ctext'); clearInterval(typeTimer); if (!el) return; if (reduceMotion) { el.textContent = text; return; } let n = 0; typeTimer = setInterval(() => { n += 3; el.textContent = text.slice(0, n); if (n >= text.length) clearInterval(typeTimer); }, 16); }
+function showFollowCallout() {
+  const c = $('callout'), pr = follow.pr, st = follow.a.step;
+  const title = follow.done ? 'Xong hành trình' : `Bước ${st + 1}/${pr.steps.length}`, text = follow.done ? pr.done : pr.steps[st];
+  c.innerHTML = `<button type="button" class="cx" aria-label="Dừng theo dõi">×</button><span class="ce">Đang theo dõi · ${pr.name}</span><span class="ct">${title}</span><span class="cd" id="ctext"></span><span class="ch">${follow.done ? '<button type="button" class="btn" id="again">Theo dõi lượt mới</button>' : 'Kéo để xoay quanh trong lúc theo dõi. Bấm × để dừng.'}</span>`;
+  c.querySelector('.cx').addEventListener('click', (e) => { e.stopPropagation(); stopFollow(); });
+  const ag = c.querySelector('#again'); if (ag) ag.addEventListener('click', (e) => { e.stopPropagation(); startFollow(pr.id); });
+  c.hidden = false; typeText(text);
+}
+function showCallout() {
+  const c = $('callout'); const o = ORG[sel.key]; const pt = sel.part ? o.parts.find(p => p.id === sel.part) : null;
+  const facts = (pt ? pt.facts : o.facts).slice(0, 2).map(id => `<span>${REG[id].v}</span>`).join('');
+  const text = pt ? pt.body : o.does;
+  c.innerHTML = `<button type="button" class="cx" aria-label="Đóng">×</button><span class="ce">${pt ? o.name + ' · bộ phận' : o.en}</span><span class="ct">${pt ? pt.name : o.name}</span><span class="cd" id="ctext"></span>${facts ? `<span class="cf">${facts}</span>` : ''}<span class="ch">${!pt && o.parts.length ? 'Bấm các ghim số để xem từng bộ phận.' : pt ? 'Bấm lại ghim để quay về ' + o.name.toLowerCase() + '.' : ''}</span>`;
+  c.querySelector('.cx').addEventListener('click', (e) => { e.stopPropagation(); back(); });
+  c.hidden = false;
+  const el = $('ctext'); clearInterval(typeTimer);
+  const short = text.length > 150 ? text.slice(0, text.indexOf('.', 90) + 1 || 150) : text;
+  if (reduceMotion) { el.textContent = short; return; }
+  let n = 0; typeTimer = setInterval(() => { n += 3; el.textContent = short.slice(0, n); if (n >= short.length) clearInterval(typeTimer); }, 16);
+}
+function hideCallout() { $('callout').hidden = true; clearInterval(typeTimer); }
+
+/* ================= Bảng thông tin bên phải ================= */
+function factHTML(id) { const f = REG[id]; if (!f) return ''; return `<li class="fact"><span class="fl">${f.l}</span><span class="fv">${f.v}</span><span class="fs">${f.b ? `<span class="badge calc">${f.b}</span>` : '<span class="badge ok">đã kiểm</span>'} · <a href="${f.u}" target="_blank" rel="noopener">${f.s}</a></span></li>`; }
+function renderInfo() {
+  if (typeof renderPH === 'function' && document.getElementById('phPanel')) try { renderPH(); } catch (e) {}
+  const card = $('infoCard');
+  if (!sel) {
+    card.innerHTML = `<span class="eyebrow">Toàn cảnh</span><h2>${CELL.name}<small>${CELL.en}</small></h2><p>${CELL.what} ${CELL.does}</p><ul class="facts">${CELL.facts.map(factHTML).join('')}</ul><p class="small"><span class="badge ill">minh hoạ</span> ${CELL.ill}</p>`;
+    return;
+  }
+  const o = ORG[sel.key]; const pt = sel.part ? o.parts.find(p => p.id === sel.part) : null;
+  const partsList = o.parts.length ? `<div class="sec"><h3>Nhìn kỹ</h3><ul class="parts">${o.parts.map((p, i) => `<li><button type="button" data-part="${p.id}" aria-current="${sel.part === p.id}"><span class="n">${i + 1}</span><span>${p.name}</span></button></li>`).join('')}</ul></div>` : '';
+  if (pt) {
+    const f = pt.facts.map(factHTML).join('');
+    card.innerHTML = `<div class="crumb"><button type="button" data-act="cell">Tế bào</button>›<button type="button" data-act="org">${o.name}</button>›<span>${pt.name}</span></div>
+      <h2>${pt.name}<small>${pt.en}</small></h2><p>${pt.body}</p>${f ? `<div class="sec"><h3>Số liệu đã kiểm</h3><ul class="facts">${f}</ul></div>` : ''}${partsList}${o.src || ''}`;
+  } else {
+    const f = o.facts.map(factHTML).join('');
+    card.innerHTML = `<div class="crumb"><button type="button" data-act="cell">Tế bào</button>›<span>${o.name}</span></div>
+      <h2>${o.name}<small>${o.en}</small></h2>
+      <div class="sec"><h3>Là gì</h3><p>${o.what}</p></div>
+      <div class="sec"><h3>Làm gì</h3><p>${o.does}</p></div>
+      ${partsList}
+      ${f ? `<div class="sec"><h3>Số liệu đã kiểm</h3><ul class="facts">${f}</ul></div>` : `<p class="small">Chưa có số liệu đã kiểm cho bào quan này trong registry.</p>`}
+      <p class="q">${o.q}</p>
+      ${o.src || ''}
+      <p class="small"><span class="badge ill">minh hoạ</span> ${o.ill}</p>`;
+  }
+}
+$('infoCard').addEventListener('click', (e) => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.part) selectPart(b.dataset.part);
+  else if (b.dataset.act === 'cell') { clearSel(); flyHome(); }
+  else if (b.dataset.act === 'org') select(sel.key, sel.inst, null);
+});
+function renderLegend() {
+  $('legend').innerHTML = LEGEND_KEYS.map(k => {
+    const e = mats.find(x => x.key === k); let css;
+    if (stain === 0) css = '#' + e.base.getHexString(); else { const g = Math.round(grayOf(e) * 255); css = `rgb(${g},${g},${g})`; }
+    return `<li><button type="button" data-k="${k}" aria-current="${sel?.key === k}"><span class="sw" style="background:${css}"></span>${ORG[k].name}</button></li>`;
+  }).join('');
+}
+$('legend').addEventListener('click', (e) => { const b = e.target.closest('button[data-k]'); if (b) select(b.dataset.k); });
+
+/* ================= Chuột ================= */
+const ray = new THREE.Raycaster(), ndc = new THREE.Vector2(); let ptrMoved = false, ptrIn = false, downAt = null;
+const toNdc = (e) => { const r = renderer.domElement.getBoundingClientRect(); ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1); };
+renderer.domElement.addEventListener('pointermove', (e) => { toNdc(e); ptrMoved = true; ptrIn = true; });
+renderer.domElement.addEventListener('pointerleave', () => { ptrIn = false; hoverKey = null; renderer.domElement.style.cursor = ''; });
+renderer.domElement.addEventListener('pointerdown', (e) => { downAt = [e.clientX, e.clientY]; });
+renderer.domElement.addEventListener('pointerup', (e) => {
+  if (!downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 5) return;
+  toNdc(e);
+  if (MOL.inMol) { const mp = molPick(); if (mp) { select('rnc', null, sel && sel.key === 'rnc' && sel.part === mp ? null : mp); return; } if (sel && sel.key === 'rnc') return; }
+  const hit = pick();
+  if (!hit) { if (sel) back(); return; }
+  const o = hit.object, k = o.userData.key; let inst = null;
+  if (o.isInstancedMesh && o.userData.swarm && ['mito', 'ribo', 'lyso', 'vesicle'].includes(k)) inst = o.userData.swarm.vis[hit.instanceId];
+  const samePart = sel && sel.key === k && sel.inst === inst;
+  const part = o.userData.part && (samePart || ['membrane', 'nucleus', 'er', 'golgi', 'cyto'].includes(k) && sel && sel.key === k) ? o.userData.part : null;
+  if (samePart && !part) return;
+  select(k, inst, part, hit.point);
+});
+function pick() { ray.setFromCamera(ndc, camera); const h = ray.intersectObjects(pickables.filter(o => o.visible && (o.count === undefined || o.count > 0)), false); return h[0] || null; }
+
+/* ================= Thước đo, HUD, đo hiệu năng ================= */
+const NICE = [0.0001, 0.0002, 0.0005, 0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 20];
+const scaleLabel = (b) => b < 0.001 ? `${Math.round(b * 1e4)} Å` : b < 1 ? `${Math.round(b * 1000)} nm` : `${b} µm`;
+function updateScale() { const d = camera.position.distanceTo(controls.target); const ppu = host.clientHeight / (2 * d * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2))); let best = NICE[0]; for (const n of NICE) if (n * ppu <= 150) best = n; $('scaleBar').style.width = Math.round(best * ppu) + 'px'; $('scaleTxt').textContent = scaleLabel(best); }
+const dts = []; let lastT = performance.now(), fpsEma = 60, slowStreak = 0, lastHud = 0, lastCheck = 0;
+function p95(a) { if (!a.length) return 0; const s = [...a].sort((x, y) => x - y); return s[Math.min(s.length - 1, Math.floor(s.length * 0.95))]; }
+function hud() { const info = renderer.info?.render || {}; const calls = info.drawCalls ?? info.calls ?? '–', tris = info.triangles ?? 0;
+  $('hud').innerHTML = `<span class="${isWebGPU ? 'gpu' : 'gl'}">${isWebGPU ? 'WebGPU' : 'WebGL 2 (dự phòng)'}</span> · mức ${tierName === 'cao' ? 'Cao' : 'Chuẩn'}<br><b>${fmt(fpsEma, 0)}</b> fps · p95 <b>${fmt(p95(dts), 1)}</b> ms<span class="hx"><br>${calls} lệnh vẽ · ${fmt(tris / 1000, 0)}k tam giác</span>`; }
+let bench = null;
+function startBench() { fly = null; if (dive) endDive(false); if (tour) endTour(); stopFollow(); clearSel(); const off = camera.position.clone().sub(HOME.target); bench = { t0: performance.now(), dur: 30000, frames: [], tier: tierName, r: Math.hypot(off.x, off.z), y: off.y, a0: Math.atan2(off.z, off.x), last: -1 }; controls.target.copy(HOME.target); $('benchBtn').disabled = true; toast('Đang đo: camera tự bay một vòng và đổi nhuộm 4 lần. Kéo chuột để huỷ.'); }
+function benchStep(now, dt) {
+  const t = (now - bench.t0) / bench.dur; if (now - bench.t0 > 500) bench.frames.push(dt);
+  const a = bench.a0 + t * Math.PI * 2, z = 1 - 0.5 * Math.sin(t * Math.PI);
+  camera.position.set(HOME.target.x + Math.cos(a) * bench.r * z, HOME.target.y + bench.y * z, HOME.target.z + Math.sin(a) * bench.r * z);
+  const si = Math.min(3, Math.floor(t * 4)); if (si !== bench.last) { bench.last = si; setStain([1, 2, 3, 0][si]); }
+  $('benchBtn').textContent = `Đang đo… ${Math.max(0, Math.ceil((1 - t) * 30))} giây`; if (t >= 1) endBench(false);
+}
+function endBench(cancelled) {
+  const b = bench; bench = null; $('benchBtn').disabled = false; $('benchBtn').textContent = 'Đo cổng 0 · 30 giây';
+  if (cancelled || !b) { toast('Đã huỷ bài đo.'); return; }
+  const f = b.frames, n = f.length, mean = f.reduce((s, x) => s + x, 0) / Math.max(1, n), so = [...f].sort((x, y) => x - y), q = (p) => so[Math.min(n - 1, Math.floor(n * p))] || 0;
+  const res = { pha: 0, ban: 2, ngay: new Date().toISOString(), backend: isWebGPU ? 'WebGPU' : 'WebGL2', muc: b.tier, khung: n, fps_tb: +(1000 / mean).toFixed(1), p95_ms: +q(0.95).toFixed(2), p99_ms: +q(0.99).toFixed(2), max_ms: +(so[n - 1] || 0).toFixed(1), khung_tren_50ms: f.filter(x => x > 50).length, khung_tren_100ms: f.filter(x => x > 100).length, man_hinh: `${host.clientWidth}×${host.clientHeight}@${renderer.getPixelRatio()}`, trinh_duyet: navigator.userAgent };
+  const pc = res.p95_ms <= 16.7 && res.khung_tren_50ms === 0, ps = res.p95_ms <= 33 && res.khung_tren_100ms === 0; res.dat_cao = pc; res.dat_chuan = ps;
+  const c = $('benchCard'); c.hidden = false;
+  c.innerHTML = `<span class="eyebrow">Kết quả đo cổng 0</span><div class="bench-res"><div class="kv"><span>Mức Cao: p95 ≤ 16,7 ms, không khung &gt; 50 ms</span><span class="verdict ${pc ? 'pass' : 'fail'}">${pc ? 'ĐẠT' : 'CHƯA ĐẠT'}</span><span>Mức Chuẩn: p95 ≤ 33 ms, không khung &gt; 100 ms</span><span class="verdict ${ps ? 'pass' : 'fail'}">${ps ? 'ĐẠT' : 'CHƯA ĐẠT'}</span></div>
+    <div class="kv"><span>Đồ hoạ</span><span>${res.backend}, mức ${b.tier === 'cao' ? 'Cao' : 'Chuẩn'}</span><span>Số khung</span><span>${n}</span><span>fps trung bình</span><span>${fmt(res.fps_tb, 1)}</span><span>Khung p95 / p99</span><span>${fmt(res.p95_ms, 1)} / ${fmt(res.p99_ms, 1)} ms</span><span>Khung chậm nhất</span><span>${fmt(res.max_ms, 1)} ms</span><span>Khung &gt; 50 ms</span><span>${res.khung_tren_50ms}</span></div>
+    <p class="small">Đo đúng máy ở lớp học mới có giá trị cho cổng 0. Gửi kết quả này kèm tên máy.</p><button type="button" class="btn" id="copyRes">Sao chép kết quả</button><textarea class="copybox" id="resBox" readonly hidden></textarea></div>`;
+  const json = JSON.stringify(res, null, 1);
+  $('copyRes').addEventListener('click', async () => { try { await navigator.clipboard.writeText(json); toast('Đã sao chép kết quả.'); } catch { const t = $('resBox'); t.hidden = false; t.value = json; t.select(); toast('Chọn sẵn kết quả, nhấn Ctrl+C để sao chép.'); } });
+  setStain(0); c.scrollIntoView({ block: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+let toastTimer; function toast(m) { const t = $('toast'); t.textContent = m; t.classList.add('on'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('on'), 3200); }
+
+/* ================= Kích thước, điều khiển ================= */
+function resize() { const w = host.clientWidth, h = host.clientHeight; if (!w || !h) return; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); updateScale(); }
+new ResizeObserver(resize).observe(host);
+function applyTier(name, announce) { tierName = name; $('tier').value = name; renderer.setPixelRatio(TIERS[name].pr); resize(); rebuildCut(); if (announce) toast(name === 'chuan' ? 'Đã chuyển sang mức Chuẩn để giữ khung hình mượt.' : 'Đã chuyển sang mức Cao.'); }
+document.querySelectorAll('#stainSeg button').forEach(b => b.addEventListener('click', () => setStain(+b.dataset.stain)));
+let cutTimer; $('cut').addEventListener('input', (e) => { cutY = +e.target.value; $('cutVal').textContent = cutY >= 10.4 ? 'đóng kín' : `y = ${fmt(cutY, 1)} µm`; clearTimeout(cutTimer); cutTimer = setTimeout(rebuildCut, 30); });
+$('tier').addEventListener('change', (e) => applyTier(e.target.value, false));
+$('resetBtn').addEventListener('click', () => { clearSel(); flyHome(); });
+$('benchBtn').addEventListener('click', startBench);
+function flyHome() { if (reduceMotion) { camera.position.copy(HOME.pos); controls.target.copy(HOME.target); return; } fly = { t: 0, dur: 1.2, p0: camera.position.clone(), t0: controls.target.clone(), p1: HOME.pos.clone(), t1: HOME.target.clone() }; }
+controls.addEventListener('start', () => { fly = null; if (dive) endDive(false); if (bench) endBench(true); if (tour) endTour(); if (follow) follow.dragging = true; });
+controls.addEventListener('end', () => { if (follow) follow.dragging = false; });
+addEventListener('keydown', (e) => { if (e.target.closest('input,select,textarea')) return; if (e.key >= '1' && e.key <= '4') setStain(+e.key - 1); else if (e.key === 'r' || e.key === 'R') { clearSel(); flyHome(); } else if (e.key === 'Escape') { if (dive) endDive(false); else if (tour) endTour(); else if (follow) stopFollow(); else back(); } else if (e.key === ' ') { e.preventDefault(); setPlaying(!playing); } });
+
+/* ================= Vòng vẽ ================= */
+const ease = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const proj = new THREE.Vector3();
+function toScreen(p) { proj.copy(p).project(camera); return { x: (proj.x * 0.5 + 0.5) * host.clientWidth, y: (-proj.y * 0.5 + 0.5) * host.clientHeight, ok: proj.z < 1 && Math.abs(proj.x) < 1.2 && Math.abs(proj.y) < 1.2 }; }
+let frame = 0;
+function placeOverlays() {
+  const W = host.clientWidth, H = host.clientHeight, ret = $('reticle'), line = $('leadLine'), dot = $('leadDot'), c = $('callout');
+  if (!sel && !follow) { ret.style.display = 'none'; line.setAttribute('x2', 0); line.setAttribute('x1', 0); dot.setAttribute('r', 0); return; }
+  const focus = follow ? (follow.done ? follow.endPos : follow.a.pos) : anchor(sel.key, sel.inst, sel.part);
+  const s = toScreen(focus);
+  if (s.ok) { ret.style.display = 'block'; ret.style.transform = `translate(${s.x}px, ${s.y}px)`; } else ret.style.display = 'none';
+  const placed = [];
+  for (const pd of pinData) { const q = toScreen(sel && sel.key === 'rnc' ? anchor('rnc', null, pd.id) : pd.pos); pd.el.style.display = q.ok ? 'flex' : 'none'; if (!q.ok) continue;
+    let y = q.y; for (let guard = 0; guard < 6; guard++) { const hit = placed.find(p => Math.abs(p.y - y) < 28 && Math.abs(p.x - q.x) < 150); if (!hit) break; y = hit.y + 30; }
+    y = Math.max(78, Math.min(H - 56, y)); const x = Math.max(14, Math.min(W - 160, q.x));
+    placed.push({ x, y }); pd.el.style.transform = `translate(${x - 13}px, ${y - 13}px)`; }
+  if (!c.hidden && s.ok) {
+    const cw = c.offsetWidth, ch = c.offsetHeight; let x = s.x + 70, y = s.y - ch - 40;
+    if (x + cw > W - 12) x = s.x - 70 - cw; if (x < 12) x = 12; if (y < 12) y = Math.min(H - ch - 12, s.y + 40);
+    c.style.transform = `translate(${x}px, ${y}px)`;
+    const ax = x > s.x ? x : x + cw, ay = Math.max(y + 12, Math.min(y + ch - 12, s.y));
+    line.setAttribute('x1', s.x); line.setAttribute('y1', s.y); line.setAttribute('x2', ax); line.setAttribute('y2', ay); dot.setAttribute('cx', s.x); dot.setAttribute('cy', s.y); dot.setAttribute('r', 3.5);
+  } else { line.setAttribute('x1', 0); line.setAttribute('x2', 0); dot.setAttribute('r', 0); }
+}
+function loop(now) {
+  const rawDt = now - lastT, dt = Math.min(250, rawDt); lastT = now;
+  dts.push(dt); if (dts.length > 240) dts.shift(); fpsEma += (1000 / Math.max(1, dt) - fpsEma) * 0.05;
+  if (bench) benchStep(now, rawDt);
+  else if (tour) stepTour(dt / 1000);
+  else if (dive) stepDive(dt / 1000);
+  else if (fly) { fly.t += dt / 1000 / fly.dur; const k = ease(Math.min(1, fly.t)); camera.position.lerpVectors(fly.p0, fly.p1, k); controls.target.lerpVectors(fly.t0, fly.t1, k); if (fly.t >= 1) fly = null; }
+  { const d = camera.position.distanceTo(controls.target); controls.minDistance = (sel && sel.key === 'rnc') || dive ? 0.0025 : Math.min(1.6, Math.max(0.0025, d * 0.999)); }
+  controls.update();
+  const sdt = bench ? dt / 1000 : playing ? dt / 1000 * speed : 0;
+  simT += sdt; tU.value = simT; updateFlows(sdt); updateFollow();
+  binAcc += sdt; if (binAcc >= 2) { binAcc -= 2; rollBins(); }
+  molUpdate();
+  { const d = camera.position.distanceTo(controls.target); focusU.value = d; focalU.value = d < 2 ? d * 1.2 : Math.max(2.4, d * 0.65);
+    if (aoRef) { aoRef.radius.value = Math.min(0.45, d * 0.05); aoRef.thickness.value = Math.min(1, d * 0.1); }
+    const dn = Math.min(d, MOL.dh); const nn = Math.min(0.05, Math.max(1e-5, dn * 0.02)); if (Math.abs(nn - camera.near) > camera.near * 0.04) { camera.near = nn; camera.updateProjectionMatrix(); } }
+  stepLook(dt / 1000, false);
+  if (ptrIn && ptrMoved && frame % 2 === 0 && !bench) { ptrMoved = false; const h = pick(); const k = h ? h.object.userData.key : null; if (k !== hoverKey) { hoverKey = k; renderer.domElement.style.cursor = k ? 'pointer' : ''; } }
+  if (post && TIERS[tierName].post) post.render(); else renderer.render(scene, camera);
+  placeOverlays();
+  if (now - lastHud > 250) { lastHud = now; hud(); updateScale(); }
+  if (now - lastCheck > 1000) { lastCheck = now; if (!bench && tierName === 'cao' && frame > 150 && p95(dts) > 21) { if (++slowStreak >= 3) { slowStreak = 0; applyTier('chuan', true); } } else slowStreak = 0; }
+  if (frame === 2) $('loading').hidden = true;
+  frame++;
+}
+
+/* ================= Phim 45 giây ================= */
+let tour = null;
+const D2R = THREE.MathUtils.degToRad, R2D = THREE.MathUtils.radToDeg;
+const sph = (t, az, el, d) => ({ t: t.clone(), az: D2R(az), el: D2R(el), d });
+const camOf = (p) => p.t.clone().add(new THREE.Vector3(Math.sin(p.az) * Math.cos(p.el), Math.sin(p.el), Math.cos(p.az) * Math.cos(p.el)).multiplyScalar(p.d));
+const angLerp = (a, b, k) => { const dd = Math.atan2(Math.sin(b - a), Math.cos(b - a)); return a + dd * k; };
+const lerpPose = (a, b, k) => ({ t: a.t.clone().lerp(b.t, k), az: angLerp(a.az, b.az, k), el: a.el + (b.el - a.el) * k, d: a.d + (b.d - a.d) * k });
+function poseNow() { const off = camera.position.clone().sub(controls.target), d = off.length(); return { t: controls.target.clone(), az: Math.atan2(off.x, off.z), el: Math.asin(Math.max(-1, Math.min(1, off.y / d))), d }; }
+const azOf = (v) => R2D(Math.atan2(v.x, v.z));
+function buildShots() {
+  const home = HOME.target, a0 = azOf(HOME.pos.clone().sub(home));
+  const mi = chooseInst('mito'), mt = mi != null ? V3(swMito.items[mi].p) : V3(NUC.c);
+  const gC = V3(patchPoint(GOLGI[3], 0.5, 0.5)), gd = viewDir('golgi'), gAz = azOf(gd), gEl = R2D(Math.asin(gd.y));
+  const rim = anchor('membrane', null, 'bilayer'), rAz = azOf(rim.clone().sub(home).setY(0));
+  return [
+    { dur: 7, cap: ['Toàn cảnh', 'Một tế bào nhân thực được cắt hở phía trên. Mọi quá trình bên trong đang chạy.'], a: sph(home, a0 - 25, 42, 46), b: sph(home, a0 + 15, 34, 39) },
+    { dur: 7, cap: ['Nhân', 'Lưới lamin vàng lót trong màng nhân kép; DNA cuộn thành những chuỗi hạt.'], focus: 'nucleus', a: sph(V3(NUC.c), a0 + 30, 66, 15), b: sph(V3(NUC.c), a0 + 62, 58, 11) },
+    { dur: 7, cap: ['Ty thể', 'Sóng sáng chạy dọc mào ty thể; hạt vàng là ATP toả ra bào tương.'], focus: 'mito', mito: mi, a: sph(mt, a0 + 70, 68, 7.5), b: sph(mt, a0 + 108, 62, 5) },
+    { dur: 7, cap: ['Bộ máy Golgi', 'Túi từ lưới nội chất vào mặt cis, đi qua từng tầng rồi tách ra ở mặt trans.'], focus: 'golgi', a: sph(gC, gAz - 18, gEl, 10), b: sph(gC, gAz + 14, gEl - 4, 7.5) },
+    { dur: 8, cap: ['Màng sinh chất', 'Lớp kép lipid ở mép cắt và lưới actin vàng bên trong. Nhuộm osmium: màng hiện hai vạch đậm kẹp một vạch sáng.'], focus: 'membrane', stains: [[3.8, 1]], a: sph(rim, rAz + 25, 36, 7.5), b: sph(rim, rAz - 5, 26, 4.4) },
+    { dur: 6, cap: ['Uranyl, rồi chì', 'Uranyl làm đậm DNA và ribosome; chì làm ribosome thành hạt đen.'], stains: [[0.2, 2], [3.2, 3]], a: sph(home, a0 + 140, 52, 30), b: sph(home, a0 + 172, 46, 34) },
+    { dur: 6, cap: ['Trở lại màu', 'Tiết protein, xuất mRNA, nhập bào, tín hiệu và ATP vẫn đang chạy trong tế bào.'], stains: [[0.3, 0]], a: sph(home, a0 + 205, 42, 40), b: sph(home, a0 + 330, 38, 44) },
+  ];
+}
+function startTour() {
+  if (bench) return; stopFollow(); if (sel) clearSel(); fly = null;
+  tour = { i: 0, t: 0, shots: buildShots(), from: poseNow(), focus: null, fired: new Set() };
+  setPlaying(true); $('tourBtn').textContent = 'Dừng phim'; const tl = $('tline'); tl.hidden = false; tl.innerHTML = tour.shots.map(() => '<span><i></i></span>').join('');
+  enterShot();
+}
+function enterShot() {
+  const sh = tour.shots[tour.i]; tour.t = 0; tour.from = poseNow(); tour.focus = sh.focus || null; tour.fired = new Set();
+  const had = !!tunnel; tunnel = sh.mito != null ? makeTunnel('mito', sh.mito, sh.b.t, camOf(sh.b)) : null; if (had || tunnel) rebuildTunnelParts();
+  const c = $('caption'); c.hidden = false; c.innerHTML = `<b>${tour.i + 1}/${tour.shots.length} · ${sh.cap[0]}</b>${sh.cap[1]}`;
+}
+function stepTour(dt) {
+  const sh = tour.shots[tour.i]; tour.t += dt; const u = Math.min(1, tour.t / sh.dur);
+  const desired = lerpPose(sh.a, sh.b, u * u * (3 - 2 * u)); const k = ease(Math.min(1, tour.t / 1.8)); const p = lerpPose(tour.from, desired, k);
+  camera.position.copy(camOf(p)); controls.target.copy(p.t);
+  for (const [at, st] of sh.stains || []) if (tour.t >= at && !tour.fired.has(at)) { tour.fired.add(at); setStain(st); }
+  const bars = $('tline').querySelectorAll('i'); bars.forEach((b, i) => { b.style.transform = `scaleX(${i < tour.i ? 1 : i === tour.i ? u : 0})`; });
+  if (u >= 1) { tour.i++; if (tour.i >= tour.shots.length) endTour(); else enterShot(); }
+}
+function endTour() { if (!tour) return; tour = null; $('caption').hidden = true; $('tline').hidden = true; $('tourBtn').textContent = 'Xem phim 45 giây'; if (tunnel) { tunnel = null; rebuildTunnelParts(); } }
+$('tourBtn').addEventListener('click', () => tour ? endTour() : startTour());
+
+/* ================= Bảng dữ liệu, nhật ký, số liệu đầu trang ================= */
+const PH_ROWS = [['Lysosome', 4.7, 4.7, 'lyso'], ['Endosome muộn', 5.5, 5.5, null], ['Golgi, trans → cis', 6.0, 6.7, 'golgi'], ['Lưới nội chất', 7.2, 7.2, 'er'], ['Bào tương', 7.2, 7.2, null], ['Nhân', 7.2, 7.2, 'nucleus'], ['Ty thể', 8.0, 8.0, 'mito']];
+function renderPH() {
+  const W = 360, rowH = 24, top = 20, L = 122, Rr = 316, X = (v) => L + (v - 4) / 4 * (Rr - L), k = sel ? sel.key : null, H = top + PH_ROWS.length * rowH + 6;
+  let o = `<svg class="phsvg" viewBox="0 0 ${W} ${H}" role="img" aria-label="pH các khoang tế bào trên thang 4 đến 8"><defs><linearGradient id="phg" x1="0" x2="1"><stop offset="0" stop-color="#BE1740"/><stop offset="1" stop-color="#C9922E"/></linearGradient></defs>`;
+  for (const v of [4, 5, 6, 7, 8]) o += `<line x1="${X(v)}" x2="${X(v)}" y1="${top - 4}" y2="${H - 4}" style="stroke:var(--line)"/><text x="${X(v)}" y="11" text-anchor="middle" style="fill:var(--muted);font:10px 'IBM Plex Mono',monospace">${v}</text>`;
+  PH_ROWS.forEach(([name, a, b, key2], i) => { const y = top + i * rowH + rowH / 2, on = key2 && key2 === k;
+    if (on) o += `<rect x="0" y="${y - rowH / 2 + 1}" width="${W}" height="${rowH - 2}" rx="5" style="fill:var(--crimson-soft)"/>`;
+    o += `<text x="6" y="${y + 4}" style="fill:var(--ink);font:${on ? 600 : 400} 12px 'Be Vietnam Pro',sans-serif">${name}</text><line x1="${L}" x2="${Rr}" y1="${y}" y2="${y}" style="stroke:var(--line)" stroke-dasharray="2 3"/>`;
+    if (b > a) o += `<line x1="${X(a)}" x2="${X(b)}" y1="${y}" y2="${y}" stroke="url(#phg)" stroke-width="5" stroke-linecap="round"/>`;
+    o += `<circle cx="${X(a)}" cy="${y}" r="4.5" fill="#BE1740"/>${b > a ? `<circle cx="${X(b)}" cy="${y}" r="4.5" fill="#C9922E"/>` : ''}<text x="${X(b) + 9}" y="${y + 4}" style="fill:var(--muted);font:11px 'IBM Plex Mono',monospace">${fmt(a, 1)}${b > a ? '–' + fmt(b, 1) : ''}</text>`; });
+  $('phPanel').innerHTML = o + '</svg>';
+}
+const cssv = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function sizeCanvas(c) { const dpr = Math.min(2, devicePixelRatio || 1), w = c.clientWidth, h = c.clientHeight; if (c.width !== Math.round(w * dpr)) { c.width = Math.round(w * dpr); c.height = Math.round(h * dpr); } const g = c.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); return { g, w, h }; }
+function drawFlow() {
+  const { g, w, h } = sizeCanvas($('flowCanvas')); g.clearRect(0, 0, w, h);
+  const ps = PROCS.filter(p => !p.hidden && p.id !== 'atp'); const mx = Math.max(2, ...ps.flatMap(p => p.bins));
+  g.strokeStyle = cssv('--line'); g.lineWidth = 1; for (let i = 0; i <= 3; i++) { const y = 8 + (h - 22) * i / 3; g.beginPath(); g.moveTo(0, y); g.lineTo(w, y); g.stroke(); }
+  g.fillStyle = cssv('--muted'); g.font = "10px 'IBM Plex Mono', monospace"; g.fillText(String(mx), 2, 18); g.fillText('60 giây trước', 2, h - 3); const nowTxt = 'bây giờ'; g.fillText(nowTxt, w - g.measureText(nowTxt).width - 2, h - 3);
+  for (const p of ps) { g.strokeStyle = p.color; g.lineWidth = 2; g.beginPath(); p.bins.forEach((v, i) => { const x = i / (BINS - 1) * (w - 4) + 2, y = 8 + (h - 22) * (1 - v / mx); i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.stroke(); const lx = w - 2, ly = 8 + (h - 22) * (1 - p.bins[BINS - 1] / mx); g.fillStyle = p.color; g.beginPath(); g.arc(lx, ly, 3, 0, 6.283); g.fill(); }
+  $('flowLegend').innerHTML = ps.map(p => `<span><i style="background:${p.color}"></i>${p.name.split(' ').slice(0, 2).join(' ')} · ${p.bins[BINS - 1]}</span>`).join('');
+}
+let mitoRows = [];
+function drawMito() {
+  const { g, w, h } = sizeCanvas($('mitoCanvas')); g.clearRect(0, 0, w, h);
+  mitoRows = swMito.vis.slice(0, 10); const n = Math.max(1, mitoRows.length), rh = (h - 16) / n, lw = 34, cw = (w - lw) / BINS;
+  let mx = 1; for (const i of mitoRows) { const arr = mitoBins.get(i); if (arr) mx = Math.max(mx, ...arr); }
+  const c0 = new THREE.Color(cssv('--panel') || '#ffffff'), c1 = new THREE.Color('#E8B24A'), c2 = new THREE.Color('#BE1740'), cc = new THREE.Color();
+  g.font = "10px 'IBM Plex Mono', monospace";
+  mitoRows.forEach((i, r) => { const arr = mitoBins.get(i) || new Array(BINS).fill(0); g.fillStyle = cssv('--muted'); g.fillText('TT' + (r + 1), 2, r * rh + rh / 2 + 4);
+    arr.forEach((v, b) => { const t = v / mx; cc.copy(c0).lerp(t < 0.5 ? c1 : c2, t < 0.5 ? t * 2 : 1); if (t >= 0.5) cc.copy(c1).lerp(c2, (t - 0.5) * 2); g.fillStyle = '#' + cc.getHexString(); g.fillRect(lw + b * cw, r * rh + 1, cw - 1, rh - 2); }); });
+  g.fillStyle = cssv('--muted'); g.fillText('60 giây trước', lw, h - 2); const t2 = 'bây giờ'; g.fillText(t2, w - g.measureText(t2).width, h - 2);
+}
+$('mitoCanvas').addEventListener('click', (e) => { const r = e.target.getBoundingClientRect(); const row = Math.floor((e.clientY - r.top) / ((r.height - 16) / Math.max(1, mitoRows.length))); if (mitoRows[row] != null) select('mito', mitoRows[row]); });
+function renderTicker() { $('ticker').innerHTML = tickLog.length ? tickLog.slice(-7).reverse().join('&nbsp;&nbsp;·&nbsp;&nbsp;') : 'Tế bào đang chạy: túi tiết, mRNA, nhập bào, tín hiệu và ATP.'; }
+$('ticker').addEventListener('animationiteration', renderTicker);
+if (reduceMotion) setInterval(renderTicker, 6000);
+setTimeout(renderTicker, 2500);
+function stateText() { return bench ? 'Đang đo' : dive ? 'Đang phóng' : MOL.atomsOn ? 'Nguyên tử' : tour ? 'Phim' : follow ? 'Theo dõi' : sel ? (sel.part ? 'Xem bộ phận' : 'Xem bào quan') : 'Toàn cảnh'; }
+setInterval(() => {
+  let n = flashPool.mesh.count; for (const p of PROCS) n += p.pool.mesh.count; $('kParticles').textContent = n.toLocaleString('vi-VN');
+  const sec = Math.floor(simT); $('kClock').textContent = `${String(Math.floor(sec / 60)).padStart(2, '0')}:${String(sec % 60).padStart(2, '0')}`;
+  $('sState').textContent = stateText(); $('sCut').textContent = $('cutVal').textContent; $('sScale').textContent = $('scaleTxt').textContent;
+  const off = camera.position.clone().sub(controls.target); $('sBearing').textContent = Math.round((R2D(Math.atan2(off.x, off.z)) + 360) % 360) + '°';
+  $('sProcs').textContent = `${Object.values(procState).filter(Boolean).length} / 5`;
+}, 500);
+setInterval(() => { drawFlow(); drawMito(); }, 1000);
+
+/* ================= Bảng quá trình, chạy và dừng ================= */
+function countText(p) { return `${p.count.toLocaleString('vi-VN')} ${p.unit}`; }
+function renderProcs() {
+  $('procList').innerHTML = PROCS.filter(p => !p.hidden).map(p => { const on = follow && follow.pr.id === p.id;
+    return `<li class="proc"><span class="pd" style="background:${p.color};box-shadow:0 0 8px ${p.color}"></span><div class="pt"><b>${p.name}</b><span>${p.short}</span><span class="pc" data-c="${p.id}">${countText(p)}</span></div><div class="pa"><button type="button" class="btn sm" data-follow="${p.id}" aria-pressed="${on}">${on ? 'Đang theo dõi' : 'Theo dõi'}</button><label class="sw2"><input type="checkbox" id="on-${p.id}" data-on="${p.id}" ${procState[p.id] ? 'checked' : ''}>Hiện</label></div></li>`; }).join('');
+}
+setInterval(() => { for (const p of PROCS) { if (p.hidden) continue; const el = document.querySelector(`[data-c="${p.id}"]`); if (el) el.textContent = countText(p); } }, 500);
+$('procList').addEventListener('click', (e) => { const b = e.target.closest('button[data-follow]'); if (!b) return; if (follow && follow.pr.id === b.dataset.follow) stopFollow(); else startFollow(b.dataset.follow); });
+$('procList').addEventListener('change', (e) => { const c = e.target.closest('input[data-on]'); if (!c) return; procState[c.dataset.on] = c.checked; if (!c.checked && follow && follow.pr.id === c.dataset.on) stopFollow(); });
+function setPlaying(v) { playing = v; $('playBtn').textContent = v ? 'Tạm dừng' : 'Chạy'; $('playBtn').setAttribute('aria-pressed', String(v)); }
+$('playBtn').addEventListener('click', () => setPlaying(!playing));
+$('speed').addEventListener('change', (e) => { speed = +e.target.value; });
+
+
+/* ================= Phân tử thật: ribosome PDB 3J7R trên lưới nội chất ================= */
+const A2U = 1e-4; // 1 Å = 1e-4 µm
+const MOL_COL = ['#E8B04B', '#C8264C', '#F2D48E', '#E2728C', '#B4007E', '#14A3A3', '#1F6FB2', '#5B3FC4', '#FFFFFF', '#EC93A9', '#FF5A2E'].map(h => new THREE.Color(h));
+const MOL_GRAY = [[0.70, 0.12, 0.08], [0.72, 0.42, 0.35], [0.70, 0.12, 0.08], [0.72, 0.42, 0.35], [0.70, 0.15, 0.10], [0.70, 0.15, 0.10], [0.70, 0.15, 0.10], [0.60, 0.45, 0.40], [0.80, 0.60, 0.50], [0.12, 0.45, 0.50], [0.55, 0.40, 0.35]];
+const ELEM_R = [1.7, 1.55, 1.52, 1.8, 1.8, 1.73, 1.39];
+const PART_CATS = { lsu: [0, 1], ssu: [2, 3], mrna: [4], trnaA: [5], trnaP: [6], sec61: [7], nascent: [10, 7], bilayer: [9], polysome: null };
+const PART_D = { lsu: 0.062, ssu: 0.06, mrna: 0.028, trnaA: 0.03, trnaP: 0.03, sec61: 0.036, nascent: 0.07, bilayer: 0.05, polysome: 0.17 };
+const COPIES = [{ x: 0, z: 0, a: 0 }, { x: -385, z: 90, a: 0.55 }, { x: 385, z: -70, a: -0.5 }, { x: 760, z: 30, a: -1.0 }, { x: -760, z: 230, a: 1.05 }];
+const LIP = { R: 1000, y: 19.5, r: 4.6, step: 8.6, slab: 17 };
+const camRightU = uniform(new THREE.Vector3(1, 0, 0)), camUpU = uniform(new THREE.Vector3(0, 1, 0)), hideHeroU = uniform(0);
+const molColU = uniformArray(MOL_COL.map(c => c.clone()), 'color');
+const molEmU = uniformArray(MOL_COL.map(() => new THREE.Color(0, 0, 0)), 'color');
+const molScaleU = uniformArray(MOL_COL.map(() => 1), 'float');
+const ratchetU = uniform(new THREE.Matrix3()), pivotU = uniform(new THREE.Vector3()), lipXU = uniform(new THREE.Vector3(1, 0, 0)), lipZU = uniform(new THREE.Vector3(0, 0, 1));
+const NAS = { n: 96, rate: 6, pause: 5, step: 3.8 };
+
+function impostorMat() {
+  const aP = attribute('apos', 'vec4'), aI = attribute('ainfo', 'vec4');
+  const ci = int(aI.x.add(0.5)), r = aP.w.mul(molScaleU.element(ci)), q = positionGeometry.xy.mul(1.06);
+  const m = new THREE.MeshStandardNodeMaterial({ roughness: 0.52, metalness: 0 });
+  // Tiểu phần nhỏ và mRNA của ribosome chính xoay qua lại (ratchet); đầu lipid rung nhẹ trong mặt màng
+  const ssu = step(float(1.5), aI.x).mul(step(aI.x, float(4.5))).mul(step(aI.z, float(0.5)));
+  const c0 = mix(aP.xyz, pivotU.add(ratchetU.mul(aP.xyz.sub(pivotU))), ssu);
+  const lip = step(float(8.5), aI.x).mul(step(aI.x, float(9.5))), sd = aI.y.mul(97.0);
+  const c1 = c0.add(lipXU.mul(sin(tU.mul(2.3).add(sd.mul(13.0)))).add(lipZU.mul(sin(tU.mul(1.9).add(sd.mul(29.0)).add(1.57)))).mul(lip.mul(1.3e-4)));
+  m.positionNode = c1.add(camRightU.mul(q.x.mul(r))).add(camUpU.mul(q.y.mul(r)));
+  const r2 = dot(q, q), nz = sqrt(max(float(1).sub(r2), float(0)));
+  m.normalNode = vec3(q.x, q.y, nz);
+  const isHero = float(1).sub(step(float(0.5), abs(aI.z)));
+  m.opacityNode = step(r2, float(1)).mul(float(1).sub(hideHeroU.mul(isHero)));
+  m.alphaTest = 0.5;
+  m.colorNode = molColU.element(ci).mul(aI.y).mul(mix(float(0.58), float(1), smoothstep(float(0), float(0.5), nz)));
+  m.emissiveNode = molEmU.element(ci).mul(pow(float(1).sub(nz), float(1.4)));
+  m.depthNode = viewZToPerspectiveDepth(positionView.z.add(nz.mul(r)), cameraNear, cameraFar);
+  return m;
+}
+function impostorMesh(pos4, info4, mat) {
+  const g = new THREE.InstancedBufferGeometry(), base = new THREE.PlaneGeometry(2, 2);
+  g.index = base.index; for (const k of ['position', 'normal', 'uv']) g.setAttribute(k, base.getAttribute(k));
+  g.setAttribute('apos', new THREE.InstancedBufferAttribute(pos4, 4)); g.setAttribute('ainfo', new THREE.InstancedBufferAttribute(info4, 4));
+  g.instanceCount = pos4.length / 4; g.boundingSphere = new THREE.Sphere(new THREE.Vector3(), 0.25);
+  const mesh = new THREE.Mesh(g, mat); mesh.frustumCulled = false; mesh.visible = false; return mesh;
+}
+
+// Chọn chỗ đặt: tấm lưới nội chất ngoài cùng, sát dưới mặt cắt, mặt hướng lên và hướng về camera mặc định
+function chooseHero() {
+  let best = null, bs = -1e9;
+  ER_PATCHES.forEach((p, pi) => { if (pi % 3 !== 2) return;
+    for (let u = 0.15; u <= 0.85; u += 0.035) for (let v = 0.15; v <= 0.85; v += 0.035) {
+      if (patchField(p, u, v) < 0.35) continue;
+      const P = V3(patchPoint(p, u, v)); if (P.y > cutY - 0.4 || P.y < cutY - 1.3) continue;
+      const e = 0.004, Pu = V3(patchPoint(p, u + e, v)).sub(V3(patchPoint(p, u - e, v))), Pv = V3(patchPoint(p, u, v + e)).sub(V3(patchPoint(p, u, v - e)));
+      const n = Pu.clone().cross(Pv).normalize(); const rad = P.clone().sub(V3(NUC.c)).normalize(); if (n.dot(rad) < 0) n.negate();
+      if (n.y < 0.3) continue;
+      const sc = n.dot(HOME.pos.clone().sub(P).normalize()) * 2 + n.y - Math.abs(P.y - (cutY - 0.7)) * 0.6;
+      if (sc > bs) { bs = sc; best = { p, P, n, rad }; } } });
+  return best;
+}
+const molLocal = (v) => new THREE.Vector3(v.dot(MOL.X), v.dot(MOL.Y), v.dot(MOL.Z));
+const molWorld = (x, y, z) => MOL.X.clone().multiplyScalar(x).addScaledVector(MOL.Y, y).addScaledVector(MOL.Z, z);
+function copyXf(c, x, y, z) { const ca = Math.cos(c.a), sa = Math.sin(c.a); return [x * ca + z * sa + c.x, y, -x * sa + z * ca + c.z]; }
+
+function setupHero() {
+  const h = chooseHero(); if (!h) { console.warn('Không tìm được chỗ đặt ribosome thật'); return; }
+  MOL.heroPatch = h.p; MOL.heroP = h.P; MOL.heroN = h.n; MOL.radial = h.rad;
+  const t = h.n.clone().cross(Math.abs(h.n.y) > 0.95 ? new THREE.Vector3(1, 0, 0) : UP).normalize();
+  MOL.X = t; MOL.Y = h.n.clone(); MOL.Z = t.clone().cross(h.n).normalize();
+  h.p.flat = { P: h.P.clone(), n: h.n.clone(), r0: 0.13, r1: 0.24 };
+  MOL.group = new THREE.Group(); MOL.group.position.copy(h.P); world.add(MOL.group);
+  MOL.beadMat = mat('rnc', '#FFC24A', { coat: 0.6, glow: 0.3, rim: 1.1, k: 1.3 });
+  MOL.bead = tag(new THREE.Mesh(riboGeo, MOL.beadMat), 'rnc'); world.add(MOL.bead);
+  MOL.bead.quaternion.setFromUnitVectors(UP, h.n);
+}
+
+async function loadMol() {
+  try {
+    const res = await fetch('ribosome.b64.txt'); if (!res.ok) throw new Error('HTTP ' + res.status);
+    const b64 = (await res.text()).trim(), bin = atob(b64); let buf = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+    if (buf[0] === 0x1f && buf[1] === 0x8b) buf = new Uint8Array(await new Response(new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer());
+    const dv = new DataView(buf.buffer, buf.byteOffset, buf.byteLength), n = dv.getUint32(0, true);
+    const meta = JSON.parse(new TextDecoder().decode(buf.subarray(4, 4 + n))); let off = 4 + n; off += (4 - off % 4) % 4;
+    const S = meta.scale, NA = meta.so_nguyen_tu, NG = meta.so_hat_tho;
+    const rd = (o) => [dv.getInt16(o, true) / S, dv.getInt16(o + 2, true) / S, dv.getInt16(o + 4, true) / S, dv.getUint8(o + 6), dv.getUint8(o + 7), dv.getUint8(o + 8)];
+    const shade = meta.chuoi.map((c, i) => c.nhom.startsWith('prot') ? 0.84 + 0.26 * h3(i * 1.7, 3.1, 0.4) : 0.95 + 0.08 * h3(i, 7.7, 1.3));
+    MOL.meta = meta;
+    { const cnt = (g) => meta.chuoi.filter(c => c.nhom === g).length, nm = meta.chuoi.filter(c => c.nhom === 'mrna').reduce((s, c) => s + c.so_goc, 0);
+      for (const pt of ORG.rnc.parts) pt.body = pt.body.replace('{n60}', cnt('prot60')).replace('{n40}', cnt('prot40')).replace('{nm}', nm); }
+    // Nguyên tử: chỉ bản chính
+    const pa = new Float32Array(NA * 4), ia = new Float32Array(NA * 4), secLocal = [];
+    for (let i = 0; i < NA; i++) { const [x, y, z, c, ch, e] = rd(off + i * 10); const w = molWorld(x * A2U, y * A2U, z * A2U);
+      pa.set([w.x, w.y, w.z, (c === 8 ? 1.2 : ELEM_R[e] || 1.7) * A2U], i * 4); ia.set([c, shade[ch], -1, ch], i * 4); if (c === 7) secLocal.push([x, y, z]); }
+    off += NA * 10;
+    // Hạt thô: bản chính và bốn bản sao polysome
+    const g0 = []; for (let i = 0; i < NG; i++) g0.push(rd(off + i * 10));
+    const pg = new Float32Array(NG * COPIES.length * 4), ig = new Float32Array(NG * COPIES.length * 4), cgL = new Float32Array(NG * COPIES.length * 4);
+    COPIES.forEach((cp, k) => { for (let i = 0; i < NG; i++) { const [x, y, z, c, ch, kind] = g0[i]; const [X, Y, Z] = copyXf(cp, x, y, z); const w = molWorld(X * A2U, Y * A2U, Z * A2U); const j = (k * NG + i) * 4;
+      pg.set([w.x, w.y, w.z, (kind ? 5.4 : 3.9) * A2U], j); ig.set([c, shade[ch] * (k ? 0.96 : 1), k, ch], j); cgL.set([X, Y, Z, c], j); } });
+    MOL.cgL = cgL; MOL.cgN = NG * COPIES.length;
+    // Lớp đầu lipid: lưới lục giác, chừa lỗ nơi Sec61 xuyên màng
+    const cell = 6, hole = new Set(), key = (a, b) => (Math.floor(a / cell) + 4096) * 8192 + Math.floor(b / cell) + 4096;
+    for (const cp of COPIES) for (const [x, y, z] of secLocal) { if (Math.abs(y) > LIP.y + 9) continue; const [X, , Z] = copyXf(cp, x, y, z); hole.add(key(X, Z) * 2 + (y > 0 ? 1 : 0)); }
+    const near = (X, Z, up) => { const cx = Math.floor(X / cell), cz = Math.floor(Z / cell); for (let a = -1; a <= 1; a++) for (let b = -1; b <= 1; b++) if (hole.has(((cx + a + 4096) * 8192 + cz + b + 4096) * 2 + up)) return true; return false; };
+    const lp = [], li = [], rr = rng(77);
+    for (const [ly, up] of [[LIP.y, 1], [-LIP.y, 0]]) for (let row = -Math.ceil(LIP.R / (LIP.step * 0.866)); row * LIP.step * 0.866 <= LIP.R; row++) {
+      const Z0 = row * LIP.step * 0.866; for (let X0 = -LIP.R + (row & 1) * LIP.step / 2; X0 <= LIP.R; X0 += LIP.step) {
+        const X = X0 + (rr() - 0.5) * 1.6, Z = Z0 + (rr() - 0.5) * 1.6; if (X * X + Z * Z > LIP.R * LIP.R) continue; if (near(X, Z, up)) continue;
+        const w = molWorld(X * A2U, (ly + (rr() - 0.5) * 1.2) * A2U, Z * A2U); lp.push(w.x, w.y, w.z, LIP.r * A2U); li.push(9, 0.9 + rr() * 0.14, -1, 0); } }
+    const imat = impostorMat();
+    MOL.atoms = impostorMesh(pa, ia, imat); MOL.cg = impostorMesh(pg, ig, imat); MOL.lip = impostorMesh(new Float32Array(lp), new Float32Array(li), imat);
+    MOL.group.add(MOL.atoms, MOL.cg, MOL.lip);
+    // Phần đuôi lipid: khối kem giữa hai lớp đầu
+    const slab = new THREE.Mesh(new THREE.CylinderGeometry(LIP.R * A2U, LIP.R * A2U, LIP.slab * 2 * A2U, 120, 1), [mat('rnc', '#F6E3C4', { coat: 0.2, k: 1.1, rim: 0.2, glow: 0.04, gray: [0.85, 0.6, 0.62] }), mat('rnc', '#DE7891', { coat: 0.3, rim: 0.1, glow: 0.03, gray: [0.2, 0.5, 0.55] }), mat('rnc', '#DE7891', { coat: 0.3, rim: 0.1, glow: 0.03, gray: [0.2, 0.5, 0.55] })]);
+    slab.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(MOL.X, MOL.Y, MOL.Z)); slab.visible = false; MOL.slab = slab; MOL.group.add(slab);
+    // mRNA nối các ribosome (minh hoạ phần không có toạ độ)
+    const ends = meta.mrna_dau_cuoi, order = COPIES.map((c, k) => k).sort((a, b) => COPIES[a].x - COPIES[b].x), pts = [];
+    const wpt = (k, e) => { const [x, y, z] = copyXf(COPIES[k], ...ends[e]); return [x, y, z]; };
+    const tubes = [];
+    for (let s = 0; s < order.length - 1; s++) { const a = wpt(order[s], 1), b = wpt(order[s + 1], 0); const mid = [(a[0] + b[0]) / 2, Math.max(a[1], b[1]) + 70, (a[2] + b[2]) / 2];
+      const curve = new THREE.CatmullRomCurve3([a, [a[0] + (b[0] - a[0]) * 0.2, a[1] + 45, a[2] + (b[2] - a[2]) * 0.2], mid, [b[0] - (b[0] - a[0]) * 0.2, b[1] + 45, b[2] - (b[2] - a[2]) * 0.2], b].map(([x, y, z]) => molWorld(x * A2U, y * A2U, z * A2U)));
+      tubes.push(new THREE.TubeGeometry(curve, 48, 6 * A2U, 8, false)); }
+    { const a0 = wpt(order[0], 0), b0 = wpt(order[order.length - 1], 1);
+      tubes.push(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([a0, [a0[0] - 120, a0[1] + 40, a0[2] + 60], [a0[0] - 260, a0[1] + 10, a0[2] + 160]].map(([x, y, z]) => molWorld(x * A2U, y * A2U, z * A2U))), 24, 6 * A2U, 8, false));
+      tubes.push(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([b0, [b0[0] + 120, b0[1] + 40, b0[2] - 50], [b0[0] + 250, b0[1] + 5, b0[2] - 150]].map(([x, y, z]) => molWorld(x * A2U, y * A2U, z * A2U))), 24, 6 * A2U, 8, false)); }
+    MOL.tube = new THREE.Mesh(mergeGeometries(tubes), mat('rnc', '#B4007E', { coat: 0.5, glow: 0.12, rim: 0.6, gray: [0.7, 0.15, 0.1] })); MOL.tube.visible = false; MOL.group.add(MOL.tube);
+    // Chuỗi protein mới (minh hoạ): trung tâm nối peptide -> đường hầm -> lỗ Sec61 -> lòng lưới nội chất
+    { const [px, pz] = meta.lo_sec61, P0 = meta.ptc, pts = [new THREE.Vector3(...P0), new THREE.Vector3((P0[0] + px) / 2 + 5, (P0[1] + 36) / 2, (P0[2] + pz) / 2 - 3), new THREE.Vector3(px, 36, pz), new THREE.Vector3(px, 0, pz), new THREE.Vector3(px, -28, pz)];
+      const rw = rng(99); let dir = new THREE.Vector3(0, -1, 0), cur = pts[pts.length - 1].clone();
+      for (let i = 0; i < 90; i++) { dir.multiplyScalar(0.72).add(new THREE.Vector3(rw() - 0.5, rw() - 0.62, rw() - 0.5).multiplyScalar(0.9)).normalize(); cur = cur.clone().addScaledVector(dir, NAS.step); if (cur.y > -30) { cur.y = -30; dir.y = -Math.abs(dir.y); } pts.push(cur); }
+      const cum = [0]; for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + pts[i].distanceTo(pts[i - 1]));
+      NAS.pts = pts; NAS.cum = cum; NAS.len = cum[cum.length - 1];
+      const pn = new Float32Array(NAS.n * 4), inf = new Float32Array(NAS.n * 4); for (let i = 0; i < NAS.n; i++) inf.set([10, i % 2 ? 0.9 : 1.05, -1, 0], i * 4);
+      MOL.nas = impostorMesh(pn, inf, imat); MOL.group.add(MOL.nas); }
+    { const bp = meta.bo_phan, a = molWorld(...bp.lsu.tam.map(v => v * A2U)), c = molWorld(...bp.ssu.tam.map(v => v * A2U)); MOL.ratchetAxis = a.clone().sub(c).normalize(); pivotU.value.copy(a.add(c).multiplyScalar(0.5)); lipXU.value.copy(MOL.X); lipZU.value.copy(MOL.Z); }
+    MOL.ready = true; MOL.counts = { atoms: NA, cg: NG, lipids: lp.length / 4 };
+    $('kAtoms').textContent = NA.toLocaleString('vi-VN'); $('diveBtn').disabled = false; $('diveBtn').textContent = 'Phóng tới nguyên tử';
+    if (sel && sel.key === 'rnc') { renderInfo(); refreshPins(); }
+  } catch (e) { MOL.err = e; console.warn('Không tải được cấu trúc ribosome:', e); $('diveBtn').textContent = 'Chưa tải được cấu trúc'; }
+}
+
+// Màu, cỡ và viền sáng theo nhuộm và theo bộ phận đang xem
+const molTmp = new THREE.Color(), molTmpE = new THREE.Color();
+function molLook(a) {
+  if (!MOL.ready) return;
+  const tem = stain > 0, part = sel && sel.key === 'rnc' ? sel.part : null, foc = part ? PART_CATS[part] : null;
+  for (let i = 0; i < MOL_COL.length; i++) {
+    if (!tem) molTmp.copy(MOL_COL[i]); else { const g = Math.min(0.95, 0.18 + 0.82 * MOL_GRAY[i][stain - 1]); molTmp.setRGB(g, g, g, THREE.SRGBColorSpace); }
+    const out = foc && !foc.includes(i); molTmpE.setRGB(0, 0, 0);
+    if (out) molTmp.lerp(bgMid, tem ? 0.5 : 0.62); else if (foc && !tem) molTmpE.copy(AMBER).multiplyScalar(0.35);
+    if (i === 10 && !tem) molTmpE.copy(MOL_COL[10]).multiplyScalar(out ? 0.15 : 0.6);
+    molColU.array[i].lerp(molTmp, a); molEmU.array[i].lerp(molTmpE, a);
+    molScaleU.array[i] += ((out ? 0.3 : 1) - molScaleU.array[i]) * a;
+  }
+  if (MOL.slab) MOL.slab.visible = MOL.inMol && !(part && ['sec61', 'mrna', 'trnaA', 'trnaP', 'nascent'].includes(part));
+}
+
+function molAnchor(part) {
+  if (!MOL.heroP) return HOME.target.clone();
+  const base = MOL.heroP.clone().add(MOL.disp);
+  const bp = MOL.meta ? MOL.meta.bo_phan : null;
+  let L = [0, 130, 0];
+  if (bp) { if (!part) L = bp.ribo.tam; else if (bp[part]) L = bp[part].tam; else if (part === 'bilayer') L = [-60, LIP.y + 4, 560]; else if (part === 'nascent') L = [MOL.meta.lo_sec61[0], -5, MOL.meta.lo_sec61[1]]; else if (part === 'polysome') L = copyXf(COPIES[2], ...bp.ribo.tam); }
+  return base.add(molWorld(L[0] * A2U, L[1] * A2U, L[2] * A2U));
+}
+function molViewDir(part) {
+  const n = MOL.heroN || UP, cd = camDir(); const side = cd.clone().addScaledVector(n, -cd.dot(n)); if (side.length() < 0.1) side.copy(MOL.X || new THREE.Vector3(1, 0, 0)); side.normalize();
+  const el = part === 'nascent' ? 0.2 : part === 'sec61' ? 0.3 : part === 'bilayer' ? 0.55 : part === 'polysome' ? 0.85 : part ? 0.7 : 0.5;
+  return n.clone().multiplyScalar(el).addScaledVector(side, Math.sqrt(1 - el * el)).normalize();
+}
+
+// Bấm chọn trong chế độ phân tử: tia cắt hạt thô (mọi bản) và lớp đầu lipid
+function molPick() {
+  if (!MOL.ready || !MOL.inMol) return null;
+  ray.setFromCamera(ndc, camera);
+  const lo = molLocal(ray.ray.origin.clone().sub(MOL.group.position)).divideScalar(A2U), ld = molLocal(ray.ray.direction).normalize();
+  const P = MOL.cgL; let best = -1, bt = 1e18; const rr = 6.5 * 6.5;
+  for (let j = 0; j < MOL.cgN; j++) { const o = j * 4, ox = P[o] - lo.x, oy = P[o + 1] - lo.y, oz = P[o + 2] - lo.z, t = ox * ld.x + oy * ld.y + oz * ld.z; if (t < 0 || t > bt) continue;
+    const d2 = ox * ox + oy * oy + oz * oz - t * t; if (d2 < rr) { bt = t; best = j; } }
+  const tl = ld.y !== 0 ? (LIP.y - lo.y) / ld.y : -1;
+  if (tl > 0 && tl < bt) { const x = lo.x + ld.x * tl, z = lo.z + ld.z * tl; if (x * x + z * z < LIP.R * LIP.R) return 'bilayer'; }
+  if (best < 0) return null;
+  const copy = Math.floor(best / MOL.meta.so_hat_tho), c = P[best * 4 + 3];
+  if (copy > 0) return 'polysome';
+  return ['lsu', 'lsu', 'ssu', 'ssu', 'mrna', 'trnaA', 'trnaP', 'sec61'][c] || 'lsu';
+}
+
+// Mỗi khung: theo sóng của lưới nội chất, đổi mức chi tiết, thu nhỏ hạt lân cận, ghim tên
+function molUpdate() {
+  const e = camera.matrixWorld.elements; camRightU.value.set(e[0], e[1], e[2]); camUpU.value.set(e[4], e[5], e[6]);
+  if (!MOL.heroP) return;
+  const p = MOL.heroP, w = Math.sin(simT * 1.1 + p.y * 1.3 + p.x * 0.8) * 0.06;
+  MOL.disp.copy(MOL.radial).multiplyScalar(w);
+  const delta = MOL.disp.clone().sub(MOL.lastDisp); MOL.lastDisp.copy(MOL.disp);
+  if (sel && sel.key === 'rnc' && !dive) { camera.position.add(delta); controls.target.add(delta); if (fly) { fly.p0.add(delta); fly.p1.add(delta); fly.t0.add(delta); fly.t1.add(delta); } }
+  const base = p.clone().add(MOL.disp); MOL.group.position.copy(base);
+  const hcL = MOL.meta ? MOL.meta.bo_phan.ribo.tam : [0, 130, 0];
+  MOL.center = base.clone().add(molWorld(hcL[0] * A2U, hcL[1] * A2U, hcL[2] * A2U));
+  const visible = MOL.center.y < cutY - 0.03, dh = camera.position.distanceTo(MOL.center); MOL.dh = dh;
+  const s = dh > 1.2 ? 1 : dh < 0.3 ? 0.15 : 0.15 + 0.85 * (dh - 0.3) / 0.9;
+  MOL.bead.visible = visible && (!MOL.ready || dh > 0.3);
+  MOL.bead.position.copy(base).addScaledVector(MOL.heroN, 0.11 * s); MOL.bead.scale.setScalar(0.95 * s);
+  MOL.beadMat && (mats.find(x => x.m === MOL.beadMat).glow = 0.22 + 0.16 * Math.sin(performance.now() / 380));
+  const want = MOL.ready && visible && dh < (MOL.inMol ? 0.5 : 0.4);
+  const needHole = dh < 1.3 && visible;
+  if (want !== MOL.inMol || (needHole && Math.abs(s - MOL.s) > 0.01) || (!needHole && molHole)) {
+    const erChanged = want !== MOL.inMol; MOL.inMol = want; MOL.s = s;
+    molHole = needHole ? { p: p.clone(), r: 0.6, s, skip: want ? 0.125 : 0, er: want ? 0.092 : 0 } : null;
+    if (erChanged) rebuildTunnelParts(); else { const f = TIERS[tierName].factor; swBound.apply(cutY, f); swFree.apply(cutY, f); }
+  }
+  for (const m of [MOL.cg, MOL.lip, MOL.tube, MOL.nas]) if (m) m.visible = MOL.inMol;
+  if (MOL.inMol && MOL.ratchetAxis) {
+    ratchetU.value.setFromMatrix4(new THREE.Matrix4().makeRotationAxis(MOL.ratchetAxis, 0.045 * Math.sin(simT * 2.1)));
+    const C = NAS.n / NAS.rate + NAS.pause, k = Math.min(NAS.n, Math.floor((simT % C) * NAS.rate)), arr = MOL.nas.geometry.attributes.apos.array;
+    for (let i = 0; i < k; i++) { let d = Math.min(NAS.len, (k - 1 - i) * NAS.step), j = 1; while (j < NAS.cum.length - 1 && NAS.cum[j] < d) j++;
+      const t = (d - NAS.cum[j - 1]) / Math.max(1e-6, NAS.cum[j] - NAS.cum[j - 1]), a = NAS.pts[j - 1], b = NAS.pts[j];
+      const w = molWorld((a.x + (b.x - a.x) * t) * A2U, (a.y + (b.y - a.y) * t) * A2U, (a.z + (b.z - a.z) * t) * A2U); arr[i * 4] = w.x; arr[i * 4 + 1] = w.y; arr[i * 4 + 2] = w.z; arr[i * 4 + 3] = 5.6 * A2U; }
+    MOL.nas.geometry.instanceCount = Math.max(1, k); MOL.nas.visible = k > 0; MOL.nas.geometry.attributes.apos.needsUpdate = true; MOL.nasK = k;
+  }
+  const atomsOn = MOL.inMol && dh < 0.075; if (MOL.atoms) MOL.atoms.visible = atomsOn; hideHeroU.value = atomsOn ? 1 : 0; MOL.atomsOn = atomsOn;
+  if (MOL.noteIn !== MOL.inMol) { MOL.noteIn = MOL.inMol; $('illusNote').textContent = MOL.inMol ? 'Đúng kích thước thật: toạ độ nguyên tử từ PDB 3J7R. Màu, lipid, polysome và chuyển động là minh hoạ.' : 'Ribosome, protein màng và lớp lipid vẽ phóng to; chuyển động đã tăng tốc để dễ thấy.'; }
+  const tg = $('heroTag');
+  if (MOL.ready && visible && !sel && !dive && !tour && !bench && dh > 1.6) { const q = toScreen(MOL.bead.position); if (q.ok) { tg.hidden = false; tg.style.transform = `translate(${Math.min(host.clientWidth - 200, q.x + 10)}px, ${q.y - 34}px)`; } else tg.hidden = true; } else tg.hidden = true;
+}
+
+// Phóng liền mạch từ toàn cảnh xuống nguyên tử
+const DIVE_CAPS = [
+  [1e9, 'Toàn cảnh tế bào', 'Tế bào vẽ rộng khoảng 28 µm. Camera sẽ phóng xuống một ribosome trên lưới nội chất hạt.'],
+  [7, 'Lưới nội chất hạt', 'Các tấm màng quanh nhân, lấm tấm ribosome. Ở thang này ribosome còn được vẽ phóng to để nhìn thấy.'],
+  [1.1, 'Một ribosome bám màng', 'Hạt vàng là ribosome dựng từ dữ liệu thật. Phóng gần hơn, nó thu về đúng kích thước thật.'],
+  [0.3, 'Kích thước thật, khoảng 30 nm', 'Mỗi hạt là một amino acid hoặc một nucleotide. Bên cạnh là các ribosome khác cùng đọc một sợi mRNA.'],
+  [0.085, 'Từng nguyên tử', '222.336 nguyên tử từ cấu trúc cryo-EM PDB 3J7R. Vàng là rRNA, đỏ là protein, phía dưới là kênh Sec61 trong màng.'],
+];
+let dive = null, capTimer = null;
+function slerpDir(a, b, k) { const q = new THREE.Quaternion().setFromUnitVectors(a, b); return a.clone().applyQuaternion(new THREE.Quaternion().slerp(q, k)); }
+function startDive(dur) {
+  if (!MOL.ready || !MOL.heroP) { toast(MOL.err ? 'Chưa tải được cấu trúc ribosome.' : 'Đang tải cấu trúc ribosome…'); return; }
+  if (bench) return; if (tour) endTour(); stopFollow(); fly = null;
+  if (cutY < MOL.heroP.y + 0.3 || cutY > 4) { cutY = 1.5; $('cut').value = 1.5; $('cutVal').textContent = 'y = 1,5 µm'; rebuildCut(); }
+  if (sel) { sel = null; tunnel = null; rebuildTunnelParts(); hideCallout(); refreshPins(); renderInfo(); renderLegend(); }
+  const off = camera.position.clone().sub(controls.target);
+  controls.minDistance = 0.0025;
+  dive = { t: 0, dur: reduceMotion ? 0.05 : (dur || 11), t0: controls.target.clone(), d0: Math.max(0.2, off.length()), dir0: off.normalize(), d1: 0.058, dir1: null, cap: -1 };
+  dive.dir1 = molViewDir(null);
+  $('diveBtn').textContent = 'Dừng phóng'; clearTimeout(capTimer);
+}
+function showCap(i) { const c = $('caption'); c.hidden = false; c.innerHTML = `<b>${DIVE_CAPS[i][1]}</b>${DIVE_CAPS[i][2]} <span class="capscale">${$('scaleTxt').textContent}</span>`; }
+function stepDive(dt) {
+  dive.t += dt; const u = Math.min(1, dive.t / dive.dur), k = u * u * u * (u * (u * 6 - 15) + 10);
+  const tgt = dive.t0.clone().lerp(MOL.center, ease(Math.min(1, u * 1.6)));
+  const d = Math.exp(Math.log(dive.d0) + (Math.log(dive.d1) - Math.log(dive.d0)) * k);
+  const dir = slerpDir(dive.dir0, dive.dir1, ease(Math.min(1, u * 1.25)));
+  controls.target.copy(tgt); camera.position.copy(tgt).addScaledVector(dir, d);
+  let ci = 0; for (let i = 0; i < DIVE_CAPS.length; i++) if (d < DIVE_CAPS[i][0]) ci = i;
+  if (ci !== dive.cap) { dive.cap = ci; showCap(ci); }
+  if (u >= 1) endDive(true);
+}
+function endDive(done) {
+  if (!dive) return; dive = null; $('diveBtn').textContent = 'Phóng tới nguyên tử';
+  if (done) { select('rnc', null, null, null, false); capTimer = setTimeout(() => { if (!tour && !dive) $('caption').hidden = true; }, 3500); }
+  else $('caption').hidden = true;
+}
+$('diveBtn').addEventListener('click', () => dive ? endDive(false) : startDive());
+$('heroTag').addEventListener('click', (e) => { e.stopPropagation(); startDive(); });
+setupHero();
+loadMol();
+
+await setupPost();
+applyTier('cao', false);
+setStain(0); renderInfo(); renderLegend(); renderProcs(); setPlaying(playing); stepLook(0, true); renderPH(); drawFlow(); drawMito();
+resize();
+renderer.setAnimationLoop(loop);
+window.__cell = { startTour, endTour, startFollow, stopFollow, setPlaying, get follow() { return follow; }, setStain, select, selectPart, back, setCut: (y) => { cutY = y; rebuildCut(); }, isWebGPU, setTier: (t) => applyTier(t, false), get sel() { return sel; }, startDive, endDive, get dive() { return dive; }, mol: MOL, look: () => ({ pos: camera.position.toArray(), tgt: controls.target.toArray(), near: camera.near }) };
+
+// Ngăn kéo bên phải và chế độ toàn màn hình
+{ const main = document.querySelector('.main'), tab = $('drawerTab'), stage = document.querySelector('.stage');
+  const setDrawer = (open) => { main.classList.toggle('wide', !open); tab.setAttribute('aria-expanded', String(open)); tab.textContent = open ? '›' : '‹'; tab.title = open ? 'Ẩn bảng thông tin (phím I)' : 'Hiện bảng thông tin (phím I)'; try { localStorage.setItem('cell.drawer', open ? '1' : '0'); } catch (e) {} };
+  let open = true; try { open = localStorage.getItem('cell.drawer') !== '0'; } catch (e) {}
+  setDrawer(open);
+  const fit = () => document.documentElement.style.setProperty('--st', Math.round(stage.getBoundingClientRect().top + scrollY) + 'px');
+  fit(); addEventListener('resize', fit); new ResizeObserver(fit).observe(document.querySelector('.topbar'));
+  const toggleFs = async () => { try { if (document.fullscreenElement) await document.exitFullscreen(); else await stage.requestFullscreen(); } catch (e) { toast('Trình xem này chặn chế độ toàn màn hình. Hãy mở trang ở tab riêng hoặc nhấn F11.'); } };
+  tab.addEventListener('click', (e) => { e.stopPropagation(); setDrawer(main.classList.contains('wide')); });
+  $('fsBtn').addEventListener('click', toggleFs);
+  document.addEventListener('fullscreenchange', () => { $('fsBtn').textContent = document.fullscreenElement ? 'Thoát toàn màn hình' : 'Toàn màn hình'; });
+  addEventListener('keydown', (e) => { if (e.target.closest('input,select,textarea') || e.ctrlKey || e.metaKey || e.altKey) return; if (e.key === 'i' || e.key === 'I') setDrawer(main.classList.contains('wide')); else if (e.key === 'f' || e.key === 'F') toggleFs(); });
+}
+
+// Cột phải: ẩn dải mờ khi đã cuộn tới đáy
+{ const ai = document.getElementById('asideIn'), as = document.getElementById('aside'); const upd = () => as.classList.toggle('end', ai.scrollTop + ai.clientHeight >= ai.scrollHeight - 4); ai.addEventListener('scroll', upd, { passive: true }); new ResizeObserver(upd).observe(ai); upd(); }
+</script>
