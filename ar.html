@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ribosome trên bàn</title>
+<meta name="description" content="Đặt ribosome thật (PDB 3J7R) lên bàn học bằng AR, phóng to 10 triệu lần.">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<style>
+:root{--bg:#F7F2EE;--panel:rgba(255,252,250,.92);--ink:#1B1416;--ink2:#5B4B50;--line:rgba(27,20,22,.12);--accent:#BE1740;--gold:#E8B04B;--f:"Segoe UI","Roboto","Helvetica Neue","Noto Sans",Arial,system-ui,sans-serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#15100F;--panel:rgba(30,23,24,.9);--ink:#F2E9E7;--ink2:#CDBEC0;--line:rgba(242,233,231,.14)}}
+:root[data-theme="dark"]{--bg:#15100F;--panel:rgba(30,23,24,.9);--ink:#F2E9E7;--ink2:#CDBEC0;--line:rgba(242,233,231,.14)}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(--f)}
+model-viewer{width:100%;height:100dvh;height:100vh;--poster-color:transparent;background:radial-gradient(circle at 50% 55%,#FFFFFF 0%,var(--bg) 70%)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) model-viewer{background:radial-gradient(circle at 50% 55%,#2A1F20 0%,var(--bg) 70%)}}
+.top{position:fixed;left:12px;right:12px;top:max(12px,env(safe-area-inset-top));display:flex;gap:10px;align-items:flex-start;justify-content:space-between;pointer-events:none;z-index:5}
+.card{pointer-events:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 14px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(60,10,25,.10)}
+.title h1{margin:0;font-size:18px;line-height:1.25}
+.title p{margin:2px 0 0;font-size:13px;color:var(--ink2)}
+.title a{color:var(--accent);font-weight:600;text-decoration:none;font-size:13px}
+.side{display:grid;gap:8px;width:min(300px,42vw)}
+.side h2{margin:0 0 6px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.legend{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:13px}
+.legend li{display:flex;gap:8px;align-items:center}
+.legend i{width:12px;height:12px;border-radius:3px;flex:none}
+.tg{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.btn{pointer-events:auto;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:10px;padding:8px 12px;font:600 13px var(--f);cursor:pointer}
+.btn[aria-pressed="true"]{background:var(--ink);color:var(--panel)}
+.qr{display:grid;gap:6px;justify-items:center;text-align:center;font-size:12.5px;color:var(--ink2)}
+.qr svg{width:150px;height:150px;background:#fff;border-radius:8px;padding:6px}
+.arbtn{position:fixed;left:50%;transform:translateX(-50%);bottom:max(18px,env(safe-area-inset-bottom));z-index:6;background:var(--accent);color:#fff;border:0;border-radius:999px;padding:14px 22px;font:700 16px var(--f);box-shadow:0 10px 28px rgba(190,23,64,.35);cursor:pointer}
+.hs{pointer-events:none;background:rgba(255,252,250,.9);color:#1B1416;border:1px solid rgba(190,23,64,.35);border-radius:999px;padding:3px 9px;font:600 12px var(--f);white-space:nowrap;transform:translateY(-14px)}
+.hs[data-visible="false"]{opacity:.35}
+.note{position:fixed;left:12px;bottom:max(12px,env(safe-area-inset-bottom));max-width:min(420px,60vw);font-size:12px;color:var(--ink2);z-index:4}
+@media (max-width:760px){.side{display:none}.note{display:none}.title p{font-size:12px}}
+</style>
+</head>
+<body>
+<model-viewer id="mv" src="assets/ribosome-3j7r.glb" alt="Mô hình bề mặt phân tử của ribosome động vật có vú gắn trên kênh Sec61, đặt trên một mảnh màng lưới nội chất"
+  ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" ar-placement="floor" camera-controls touch-action="pan-y"
+  auto-rotate auto-rotate-delay="2500" rotation-per-second="12deg" shadow-intensity="1" shadow-softness="0.8" exposure="1.0" tone-mapping="neutral"
+  environment-image="neutral" camera-orbit="35deg 68deg 0.95m" min-camera-orbit="auto auto 0.25m" max-camera-orbit="auto auto 2.5m" interaction-prompt="auto">
+  <button slot="hotspot-lsu" class="hs" data-position="0.0307 0.2237 0" data-normal="0 1 0">Tiểu phần lớn 60S</button>
+  <button slot="hotspot-ssu" class="hs" data-position="-0.0567 0.2874 0" data-normal="0 1 0">Tiểu phần nhỏ 40S</button>
+  <button slot="hotspot-trna" class="hs" data-position="0.0098 0.1907 -0.0135" data-normal="0 1 0">tRNA</button>
+  <button slot="hotspot-sec61" class="hs" data-position="0 0.0436 0" data-normal="1 0 0">Kênh Sec61</button>
+  <button slot="hotspot-mem" class="hs" data-position="0.2 0.04 0.1" data-normal="0 1 0">Màng lưới nội chất</button>
+  <button slot="ar-button" class="arbtn">Đặt lên bàn (AR)</button>
+</model-viewer>
+
+<div class="top">
+  <div class="card title">
+    <h1>Ribosome thật trên bàn của em</h1>
+    <p>PDB 3J7R · phóng to 10 triệu lần: 30 nm thành khoảng 30 cm</p>
+    <a href="index.html">← Về Hành Trình Vào Tế Bào</a>
+  </div>
+  <div class="side">
+    <div class="card">
+      <h2>Màu</h2>
+      <ul class="legend">
+        <li><i style="background:#E8B04B"></i>rRNA tiểu phần lớn 60S</li>
+        <li><i style="background:#C8264C"></i>Protein tiểu phần lớn</li>
+        <li><i style="background:#F2D48E"></i>rRNA tiểu phần nhỏ 40S</li>
+        <li><i style="background:#E2728C"></i>Protein tiểu phần nhỏ</li>
+        <li><i style="background:#14A3A3"></i>tRNA ở vị trí A/P</li>
+        <li><i style="background:#1F6FB2"></i>tRNA ở vị trí P/E</li>
+        <li><i style="background:#B4007E"></i>mRNA</li>
+        <li><i style="background:#5B3FC4"></i>Kênh Sec61</li>
+      </ul>
+      <div class="tg">
+        <button class="btn" id="ghost40" aria-pressed="false">Làm mờ 40S</button>
+        <button class="btn" id="ghost60" aria-pressed="false">Làm mờ 60S</button>
+        <button class="btn" id="labels" aria-pressed="true">Nhãn</button>
+      </div>
+    </div>
+    <div class="card qr" id="qrBox" hidden>
+      <div id="qr"></div>
+      <div>Quét bằng điện thoại, bấm <b>Đặt lên bàn</b> để đặt ribosome lên mặt bàn thật.</div>
+    </div>
+  </div>
+</div>
+<div class="note card">Bề mặt tính từ 222.336 toạ độ nguyên tử của cấu trúc cryo-EM 3J7R (Voorhees và cs., Cell 2014). Màu và mảnh màng là minh hoạ. AR cần điện thoại hỗ trợ ARCore (Android) hoặc ARKit (iPhone).</div>
+
+<script type="module">
+const mv = document.getElementById('mv');
+// Mã QR cho máy tính: học sinh quét để mở trang trên điện thoại
+const touch = matchMedia('(pointer: coarse)').matches;
+if (!touch && window.qrcode) { try { const q = qrcode(0, 'M'); q.addData(location.href.split('#')[0]); q.make(); document.getElementById('qr').innerHTML = q.createSvgTag({ cellSize: 4, margin: 0, scalable: true }); document.getElementById('qrBox').hidden = false; } catch (e) {} }
+// Làm mờ một tiểu phần để lộ tRNA và mRNA nằm bên trong
+const GROUPS = { ghost40: ['rRNA tiểu phần nhỏ', 'Protein tiểu phần nhỏ'], ghost60: ['rRNA tiểu phần lớn', 'Protein tiểu phần lớn'] };
+const base = new Map();
+function setGhost(names, on) {
+  if (!mv.model) return;
+  for (const m of mv.model.materials) if (names.includes(m.name)) {
+    const pbr = m.pbrMetallicRoughness; if (!base.has(m.name)) base.set(m.name, [...pbr.baseColorFactor]);
+    const c = base.get(m.name); m.setAlphaMode(on ? 'BLEND' : 'OPAQUE'); pbr.setBaseColorFactor([c[0], c[1], c[2], on ? 0.12 : 1]);
+  }
+}
+for (const id of Object.keys(GROUPS)) { const b = document.getElementById(id); b.addEventListener('click', () => { const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(on)); setGhost(GROUPS[id], on); }); }
+document.getElementById('labels').addEventListener('click', (e) => { const b = e.currentTarget, on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(on)); document.querySelectorAll('.hs').forEach(h => h.style.display = on ? '' : 'none'); });
+mv.addEventListener('error', () => { document.querySelector('.note').textContent = 'Chưa tải được mô hình. Trang cần được mở qua địa chỉ web (ví dụ GitHub Pages), không mở trực tiếp từ tệp.'; });
+window.__ar = { mv, setGhost };
+</script>
+</body>
+</html>

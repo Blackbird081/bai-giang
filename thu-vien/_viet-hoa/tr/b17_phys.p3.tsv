@@ -1,0 +1,199 @@
+de1b4d6c8eff	I càng lớn thì U càng nhỏ, vì Ir trên điện trở trong tăng lên.
+3cb4e0a591d8	Bỏ bước này: chỉ đo hai lượt rồi giải hệ phương trình, sai số sẽ bị khuếch đại tới 0.06 Ω (bước 6).
+100493dcf240	Chắc chắn thi: vì sao đo nhiều lượt giảm được sai số; cách ghi bảng số liệu đúng quy cách.
+5d16a7fe82db	5 lượt: R 20.0 → 2.0 Ω \xB7 I 0.07~0.58 A \xB7 U 1.15~1.46 V
+e65ed694abb8	5 lượt
+676f9a2d8827	Số đọc 2 chữ số
+5e926498be16	Vẽ đồ thị U-I
+22570310886f	Vẽ 5 điểm này lên đồ thị U-I thì thu được gì?
+8bb0b4c8afc3	Nhìn kĩ đường thẳng khớp, E đo ở tung độ gốc, r đo cạnh hệ số góc
+816e120d6fec	Lưới và cách chấm điểm theo hình 12.3-2 SGK (tr. 90), số liệu lấy 5 hàng của bảng 1: 5 điểm nằm trên một đường thẳng có hệ số góc âm; khớp được E đo = 1.50 V (tung độ gốc), hệ số góc
+02327be89b92	0.61, r đo = 0.61 Ω, I ngắn mạch = 1.50/0.61 = 2.46 A.
+dfa0f74a851d	Viết lại công thức (1) thành U =
+7ae141811ffd	Ir + E (công thức 2 SGK): tung độ gốc = hiệu điện thế mạch ngoài khi hở mạch = E, độ lớn hệ số góc = r; giao điểm tại U = 0 cho dòng ngắn mạch, r = E/I ngắn mạch là cách thứ hai, hai cách cho cùng một r.
+762cb89a3a26	Dữ kiện A2.1–A2.5, A2.8, B2.1 mục 5, 7; khớp bảng 1, hàng 2 bảng 6; hình 12.3-2 (tr. 90)
+75842af77d69	Trục tung là U, trục hoành là I, hệ số góc của đường thẳng là âm.
+1dbe15c70519	Tung độ gốc = hiệu điện thế mạch ngoài khi hở mạch = E; độ lớn hệ số góc = r.
+1d442a6e8a54	Giao điểm tại U = 0 là dòng ngắn mạch, r = E/I ngắn mạch cho cùng một r.
+9bb886943938	Bỏ bước này: E, r chỉ còn cách giải phương trình cứng nhắc, phương pháp đồ thị mà SGK yêu cầu không thực sự được làm.
+428475b66806	Chắc chắn thi: tìm E và r từ đồ thị U-I (ví dụ 3 trong chuẩn chương trình “cảm nhận vai trò của phương pháp đồ thị”).
+70a3d5a2290c	E đo 1.50 V \xB7 r đo 0.61 Ω \xB7 hệ số góc
+e1fe22b22ca3	0.61 \xB7 I ngắn mạch 2.46 A
+db0d44ac6b10	Hình 12.3-2
+2ad3acc92ece	Tung độ gốc = E
+744331a942a4	Độ lớn hệ số góc = r
+088767e380a0	Gốc trục tung
+d4874986832c	Trục tung bắt đầu từ 0 thì đồ thị thành ra sao? Tung độ gốc có đổi không?
+b876a209c82a	Gạt công tắc “trục tung” từ bắt đầu ở 0 về “không bắt đầu từ 0” (mép dưới số liệu 1.15 V)
+21396ea67ac2	Khi bắt đầu từ 0, 5 điểm bị dồn thành một cụm nhỏ ở dưới màn hình (U chỉ nằm trong 1.15~1.46 V, chưa tới một phần ba thang đo 3 V); gạt về gốc 1.15 V ở mép dưới số liệu thì các điểm giãn ra, hệ số góc đọc rõ; với cả hai gốc, tung độ gốc đều là E đo = 1.50 V, hệ số góc đều là
+a5c91c086606	0.61, bản thân đường thẳng không hề dịch chuyển.
+b32551af060e	Pin khô có điện trở trong nhỏ, U thay đổi ít, nên khi vẽ đồ thị “toạ độ gốc của trục điện áp thường không bắt đầu từ 0”, phải chọn gốc theo số liệu (tr. 91); chỉ đổi phạm vi toạ độ chứ không đổi đường thẳng, nên tr. 90 hỏi “giao điểm có thay đổi không” — không thay đổi (tr. 90 chỉ hỏi không đáp, suy ra từ phương trình), tung độ gốc vẫn là E.
+a0bc05adef93	Dữ kiện A2.9, A7.3, A7.11, A2.3; bảng 1 (U nhỏ nhất 1.15 V)
+76142d2c3bc1	Pin khô có điện trở trong nhỏ, U thay đổi ít, gốc trục tung thường không bắt đầu từ 0.
+69b32af9be9c	Gốc trục chỉ đổi phạm vi toạ độ, đường thẳng và tung độ gốc đều không đổi.
+34d56c79954a	Khi số liệu dồn thành một cụm nhỏ, phải biết nói “chỉnh phạm vi trục toạ độ”, chứ không phải “số liệu hỏng”.
+837b0934c5a2	Bỏ bước này: học sinh sẽ tưởng “đổi gốc là đổi luôn E”.
+0e79dc15f2ec	Chắc chắn thi: mối liên hệ giữa gốc trục tung và tung độ gốc (câu hỏi ở SGK tr. 90).
+8801da9f2d83	E đo = a (không phụ thuộc phạm vi toạ độ)
+26773a0b1076	Gốc 0 / 1.15 V \xB7 tung độ gốc đều 1.50 V \xB7 hệ số góc đều
+8cce4a5ca90f	Giao điểm không đổi
+791da44921a6	Chỉ đo hai lượt
+886bf82f6416	Chỉ ghi hai lượt đầu, dùng hai điểm giải hệ phương trình thì sai lệch bao nhiêu?
+1261a8565964	Xoá bảng ghi, chỉ ghi lại hai lượt R = 20.0, 14.0
+48b4d063c354	Hai hàng đầu bảng 1 (0.07 A, 1.46 V), (0.10 A, 1.44 V): phương pháp hai điểm cho E đo = 1.51 V, r đo = 0.67 Ω; so với 1.50 V / 0.61 Ω khi khớp 5 lượt, r lớn hơn 0.06 Ω (khoảng 6 đơn vị chữ số cuối). Đổi sang dùng lượt đầu và lượt cuối thì về lại 1.50 V / 0.61 Ω.
+664a4749a1a6	Giải hệ hai điểm đúng về mặt toán học, nhưng số đọc chỉ tới 0.01, giữa hai lượt I chỉ chênh 0.03 A, ΔU chỉ có 2 đơn vị chữ số cuối, chia ra thì sai số bị khuếch đại — vì vậy SGK yêu cầu đo nhiều lần; hai điểm chọn càng cách xa, phương pháp hai điểm càng gần phương pháp năm điểm.
+78d97464a503	Dữ kiện A2.6, A2.7, A7.1, B2.1 mục 6; hai hàng đầu bảng 1
+7e0f7fa20ea3	Phương pháp hai điểm đúng về toán, nhưng số đọc chỉ có 0.01, ΔU chỉ có 2 đơn vị chữ số cuối.
+14ec07cd6d68	Hai lượt đầu I chỉ chênh 0.03 A → r lệch lên 0.67 Ω (+0.06 Ω).
+e3016b28f890	Lấy lượt đầu và lượt cuối (I chênh 0.51 A) → về lại 0.61 Ω: khoảng cách giữa hai điểm mới là mấu chốt.
+ee8583eaea89	Bỏ bước này: học sinh sẽ tưởng “giải hệ hai điểm là đủ”, lời cảnh báo ở SGK tr. 89 không đi vào thực tế.
+ad97673ddfff	Chắc chắn thi: vì sao bắt buộc đo nhiều lần (nguyên văn tr. 89); ảnh hưởng của khoảng cách giữa các điểm chọn tới kết quả.
+7dc1468b98af	Hai điểm 1.51 V / 0.67 Ω \xB7 năm điểm 1.50 V / 0.61 Ω \xB7 chênh 0.06 Ω
+6b11bef80ba4	Phương pháp hai điểm
+36a3da90d017	Hai lượt đầu
+26c7452e94a2	Chênh 0.06 Ω
+d35d4b2eb539	Đổi cách mắc
+b0bd1b7c6630	Mắc ampe kế nối tiếp vào nhánh nguồn, vôn kế chỉ mắc qua biến trở, thì r đo được có còn như cũ không?
+265619b12d42	Gạt “cách mắc” sang cách mắc đối chứng (ampe kế mắc trong), rồi ở đúng 5 nấc như trước mỗi nấc bấm “ghi một lượt” một lần
+d8ea05c8d5e4	Cách mắc đối chứng + đồng hồ thật: số đọc chính đổi thành “hiệu điện thế hai đầu biến trở”; 5 hàng (0.07 A, 1.45 V), (0.10, 1.43), (0.14, 1.40), (0.22, 1.34), (0.56, 1.11) (bảng 3), U ở mỗi hàng đều thấp hơn cách mắc SGK 0.01~0.06 V; khớp được E đo = 1.50 V (không lệch), r đo = 0.69 Ω, I ngắn mạch = 2.17 A.
+f777a1270746	Đổi cách mắc thì E đo vẫn là 1.50 V, còn r tăng từ 0.59 / 0.61 lên 0.69 Ω (+0.09 Ω, +15 %, 9 đơn vị chữ số cuối) — vôn kế đã đọc thiếu phần hiệu điện thế I\xB7R_A trên ampe kế, phần thiếu này bị tính hết vào hệ số góc, nên r lớn hơn, mà lượng lớn hơn đúng bằng điện trở trong của ampe kế (bài này trong SGK không bàn, thuộc suy luận biểu thức giải tích mức L3).
+d884c15afd6d	Dữ kiện A3.1, A8.2, A7.13, B2.1 mục 2, 9; bảng 2 (0.59), bảng 3, hàng 3, 4 bảng 6; câu 3 luyện tập, hình 12.3-5 (tr. 92)
+2657d7c852f0	Cách mắc quyết định chiều của sai số hệ thống, không phải “chỉ là số đọc khác nhau”.
+e4208d59231c	Cách mắc đối chứng: E không lệch, r lớn hơn thêm +R_A (cỡ số đọc +0.09 Ω, 9 đơn vị chữ số cuối, đo là thấy ngay).
+9b776a87e01f	Ở nấc này số đọc chính là hiệu điện thế hai đầu biến trở, không phải hiệu điện thế mạch ngoài — tên số đọc cũng phải đổi theo.
+05fe4935cd57	Bỏ bước này: học sinh sẽ tưởng “đổi cách mắc chỉ là đổi số đọc”, lỗi A7.8 trong SGK không gỡ được.
+88a817eb6908	Chắc chắn thi: chiều sai số hệ thống của hai cách mắc; câu 3 luyện tập SGK tr. 92 (điện trở trong 100 Ω của ampe kế lẫn vào r) chính là ví dụ.
+52d5c17729fb	E đo = E, r đo = r + R_A (cách mắc đối chứng)
+387b87bc1586	r đo 0.69 Ω (giá trị thật 0.60) \xB7 E đo 1.50 V \xB7 I ngắn mạch 2.17 A
+645976af2cd1	Cách mắc đối chứng
+d475b40df781	Đồng hồ thật
+8d06eaf276fb	Phân tích sai số
+540f06c8866d	Cách mắc của SGK đo E, r lớn hơn hay nhỏ hơn giá trị thật? Vì sao nhìn số đọc không thấy?
+91c9c1aadf3a	Gạt “đồng hồ” sang thật (3 kΩ / 0.1 Ω), ghi lại theo 5 nấc (mỗi nấc bấm “ghi một lượt” một lần), rồi so với biểu thức giải tích
+e9c2969360da	Cách mắc SGK + đồng hồ thật, con chạy 2.0 Ω: khi đồng hồ ở nấc lí tưởng U = 1.15 V, I = 0.58 A; gạt sang thật thì U = 1.17 V, I = 0.56 A (chênh 0.02 V, chính là do 0.1 Ω điện trở trong của ampe kế); r đo từ 0.61 Ω thành 0.59 Ω (chỉ chênh 1 đơn vị chữ số cuối). Biểu thức giải tích k = 3000/3000.6 = 0.99980 → E đo = 1.49970 V, r đo = 0.59988 Ω, cùng nhỏ hơn theo một tỉ lệ 0.0200 %.
+1dcea9665be7	Độ lệch của cách mắc SGK là E đo, r đo đều nhỏ hơn, cùng tỉ lệ; độ lệch nhỏ hơn chữ số cuối 0.01 của số đọc tới 33 / 83 lần, số đọc 2 chữ số hoàn toàn không thấy được — nên phần chính SGK không bàn đến, mà dồn sức vào đo nhiều lần, vẽ đồ thị, gốc trục tung. Chiều lệch chỉ tính được bằng biểu thức giải tích, không nhìn số đọc mà thấy (suy luận biểu thức giải tích, bài này trong SGK không bàn, L3).
+20054a75dd11	Dữ kiện A8.1, A8.3, A7.9, B2.1 mục 8 (D2/D3/D4a); hàng 5 bảng 1, hàng 5 bảng 2; tr. 76
+273533f1800f	Đồng hồ không lí tưởng: R_V phân dòng, R_A chia áp (tr. 76 cho giá trị khoảng 3 kΩ / 0.1 Ω).
+d48ca81d33c7	Độ lệch của cách mắc SGK là E đo, r đo cùng nhỏ hơn theo một tỉ lệ 0.0200 % (k = R_V/(R_V+r)).
+6626a72c28a7	Độ lệch này nhỏ hơn chữ số cuối của số đọc 33 / 83 lần, nhìn số đọc không thấy — chiều lệch chỉ có thể tính ra.
+070bcfdb7001	Bỏ bước này: học sinh sẽ coi “0.59 nhỏ hơn 0.61” là chiều của sai số hệ thống, nhưng 1 đơn vị chữ số cuối đó là do làm tròn.
+95b0381f1cb3	Yêu cầu học tập trong chuẩn chương trình “phân tích được sai số trong thí nghiệm và đề xuất được cách giảm sai số” (tr. 22).
+5433ef8aa2af	k = R_V/(R_V + r); E đo = E\xB7k, r đo = r\xB7k
+7a6d00a2f53f	k 0.99980 \xB7 E đo 1.49970 V \xB7 r đo 0.59988 Ω \xB7
+2464b689a30a	Lí tưởng / thật
+08b6281498bc	Biểu thức giải tích L3
+2873bbb3a541	Cách mắc trên bàn này đo E, r có đạt không?
+cc5778c77a34	Xét xem cách mắc này có nộp bài được không: muốn đạt thì đổi về cách mắc SGK, để E đo lệch 1.50 V ≤ 0.01 V, r đo lệch 0.60 Ω ≤ 0.02 Ω, và giữ 10 s
+b050bf6b6884	Lúc vào là đồng hồ thật + cách mắc đối chứng, con chạy 8.0 Ω: U = 1.38 V, I = 0.17 A; với cách mắc này ghi đủ 5 lượt được r đo = 0.69 Ω, lệch 0.60 Ω là 0.09
+86d828eced4b	0.02, không đạt. Đổi về cách mắc SGK: nấc đồng hồ thật r đo = 0.59 Ω, nấc đồng hồ lí tưởng 0.61 Ω, cả hai nấc đều đạt, E đo = 1.50 V.
+7bc62e47a64d	Tiêu chí chỉ xét kết quả: 5 lượt cùng chế độ, E đo lệch 1.50 V ≤ 0.01 V, r đo lệch 0.60 Ω ≤ 0.02 Ω. Bản thân cách mắc không phải tiêu chí, nhưng nó quyết định kết quả — cách mắc đối chứng tính cả điện trở trong của ampe kế vào r (0.69 Ω), còn độ lệch của cách mắc SGK chỉ 0.0200 %, nhìn số đọc không thấy.
+b647cdd90072	Dữ kiện A2.3, A2.4, A2.6, B2.1 mục 15 + bảng giá trị chuẩn 7; bảng 1, bảng 2, bảng 3
+6b1681c35c03	Tiêu chí chỉ có ba điều: 5 lượt cùng chế độ, E đo lệch 1.50 V ≤ 0.01 V, r đo lệch 0.60 Ω ≤ 0.02 Ω.
+493576763578	Lúc vào, cách mắc đang là đối chứng: cứ thế ghi 5 lượt được 0.69 Ω, lệch 0.09 → em phải tự nghĩ ra việc đổi về cách mắc SGK.
+c71fa98ca9eb	Ghi chưa đủ 5 lượt cũng không đạt: số lượt cũng là một phần của “đo ra”.
+bde252a116a0	Không có kết luận mới: ba tiêu chí lần lượt ứng với “đo nhiều lượt”, “đọc tung độ gốc và hệ số góc”, “cách mắc quyết định chiều sai số”.
+e95d2ffcba0e	Tổng hợp: tự đánh giá ảnh hưởng của cách mắc tới kết quả; từ tung độ gốc và hệ số góc của đồ thị U-I tìm đồng thời E, r.
+6bacf1896107	E đo = a, r đo =
+b7797337c8a2	b; |E đo
+fdb9b2b64b09	1.50| ≤ 0.01 V, |r đo
+20f7ff23e6b4	Tiêu chí: n ≥ 5 \xB7 \xB10.01 V \xB7 \xB10.02 Ω
+b0e9ea22dd03	Xuất phát từ cách mắc đối chứng
+737423988bbd	Tiêu chí chỉ xét kết quả
+a0d2999ad52a	Hiệu điện thế mạch ngoài U
+077bd2143dd3	Hiệu điện thế hai đầu biến trở
+45af824d54ea	Điện trở mắc vào R
+bb8d27c7f6fc	Số lượt đã ghi
+b66e47797158	Điện trở biến trở mắc vào R
+51fa31860b6f	Cách mắc
+379fc8e343a7	Trục tung
+4993e3c904c8	Cách mắc SGK (hình 12.3-1)
+52067b50a670	Đồng hồ thật (3 kΩ / 0.1 Ω)
+d34828c9c3f4	Không bắt đầu từ 0 (mép dưới số liệu 1.15 V)
+f73dde796d94	Bắt đầu từ 0
+c1b767f8b09c	Giá trị theo công thức \xB7 cách mắc SGK
+c34ceab7fbf3	Giá trị theo công thức \xB7 cách mắc đối chứng
+89029ace8fbb	Vị trí con chạy
+e8effd1670a2	Bảng ghi
+63eb5deba2b0	Khoá đóng: trước hết xác nhận con chạy ở vị trí điện trở khá lớn, rồi giảm dần.
+67b9bbd0208f	Khoá mở: hai đồng hồ đều chỉ 0.00 (vôn kế mắc qua pin + khoá, không phải chỉ qua pin).
+6692602b824e	Đổi sang cách mắc đối chứng: ampe kế nối tiếp vào nhánh nguồn, vôn kế chỉ mắc qua biến trở — số đọc chính thành “hiệu điện thế hai đầu biến trở”.
+a9a70ffcc0cf	Về lại cách mắc SGK (hình 12.3-1): vôn kế mắc qua pin và khoá, số đọc chính là hiệu điện thế mạch ngoài.
+5e0f8f1ebb13	Đồng hồ thật: điện trở trong vôn kế 3 kΩ, điện trở trong ampe kế 0.1 Ω (SGK tr. 76 ghi “khoảng”).
+32c69cb4821f	Đồng hồ lí tưởng: điện trở trong vôn kế vô cùng lớn, điện trở trong ampe kế bằng không.
+2eefefd7dcdd	Trục tung bắt đầu từ 0: các điểm dồn thành một cụm nhỏ, tung độ gốc vẫn là 1.50 V, hệ số góc vẫn là
+b532ed66f102	0.61.
+bfb3210bb70a	Trục tung không bắt đầu từ 0 (mép dưới số liệu 1.15 V): các điểm giãn ra, hệ số góc đọc rõ.
+6a16de0779e7	R đã tới 2.0 Ω: chỉnh xuống nữa là gần ngắn mạch — điện trở trong của pin khô chưa tới 1 Ω, dòng ngắn mạch tới 2.50 A, đồng hồ sẽ kịch kim, nguồn sẽ nóng lên.
+d1e8eccf0265	Ampe kế sắp tới 0.6 A rồi, đổi sang điện trở lớn hơn một chút rồi hãy đọc.
+636b33fe5d1f	Khoá mở (hai đồng hồ đều chỉ 0.00)
+39fea4da2ea9	Cách mắc SGK \xB7 đồng hồ lí tưởng
+e67dd2a5c840	Cách mắc SGK \xB7 đồng hồ thật
+e03064332088	Cách mắc đối chứng \xB7 đồng hồ thật
+0cdc5489d441	Cách mắc đối chứng \xB7 đồng hồ lí tưởng
+bffa6455f386	Điểm số liệu U-I (lưới 0.02 A \xD7 0.1 V, hình 12.3-2 SGK)
+96987092068d	Đường khớp = bình phương tối thiểu \xB7 tung độ gốc E đo, độ lớn hệ số góc r đo
+3eb09bf6f8b0	Ghi số liệu (I, U)
+206f231aa0ae	Chế độ đã đổi, hãy ghi lại (hàng cũ hiện màu xám, không tính vào đường khớp)
+c62dd82f9703	Xét xem cách mắc này có nộp bài được không
+8adff3f512c2	Ghi đủ 5 lượt cùng chế độ → xem độ lệch của E đo so với 1.50 V, r đo so với 0.60 Ω; không đạt thì đổi về cách mắc SGK
+6a838ac090f3	Cách mắc này có nộp bài được không
+b00586f3325c	Chỉ 0 chứ không phải chỉ E
+a35b7c12ae69	Với cách mắc ở hình 12.3-1, khi khoá mở số chỉ của vôn kế là
+f685fa42e733	Bằng E (1.50 V)
+856b08d6ef10	Bằng hiệu điện thế trên điện trở trong của ampe kế
+e9f48440c70e	Không xác định được
+9712f618a065	Vôn kế mắc qua “pin + khoá”, khoá mở thì phía bên nó không có nguồn, hai đồng hồ đều chỉ 0.00. Câu “khi hở mạch hiệu điện thế mạch ngoài bằng E” ở tr. 87 nói về trường hợp vôn kế mắc song song trực tiếp vào hai cực pin.
+85bb2deed1d8	Tung độ gốc
+6da31ff44c76	Giao điểm của đường thẳng U-I với trục U biểu thị
+479a1d670ddf	Dòng ngắn mạch
+6c04fc873a87	Hiệu điện thế mạch ngoài khi hở mạch, bằng E
+9fc149fae39c	Điện trở trong r
+dc6e44800926	Điện trở mạch ngoài R
+37e72421845c	SGK tr. 90: giá trị tại giao điểm của đường thẳng với trục toạ độ U biểu thị hiệu điện thế mạch ngoài khi hở mạch, lúc này U bằng suất điện động E của nguồn.
+dbcd2f502603	Ý nghĩa hệ số góc
+2745726551f6	Dùng đường thẳng U-I để tìm điện trở trong, cách đúng là
+c6c0cbefa68a	r = U/I (tại một điểm)
+75bf975bfd04	r = |ΔU/ΔI| (độ lớn hệ số góc)
+555fbba7a188	Hệ số góc của công thức (2) U =
+6e797b72d7cb	Ir + E là
+9dade17d06bf	r, nên độ lớn hệ số góc mới là điện trở trong; U/I là điện trở mạch ngoài tại điểm đó.
+6dfa1ee9e2f2	Mắc ampe kế nối tiếp vào nhánh nguồn (vôn kế chỉ mắc qua biến trở) thì kết quả đo được là
+25e548f5f9a7	E, r đều lớn hơn
+048fccaca7d6	E không lệch, r lớn hơn
+4377d7d2f882	E lớn hơn, r nhỏ hơn
+5a2e9956cd02	Cả hai đều không lệch
+2ab1aa805a76	U thiếu phần hiệu điện thế I\xB7R_A trên ampe kế, phần này bị tính vào hệ số góc: r đo = r + R_A, E không lệch (bài này trong SGK không bàn, thuộc suy luận biểu thức giải tích).
+6b08d3c762c2	Dùng một vôn kế, một ampe kế và một biến trở để đo E và điện trở trong r của một pin khô cũ, và nói được sai số lệch về phía nào.
+f89385349ef7	Lưu ý minh hoạ: hình dáng dụng cụ và số đọc làm theo phương án tham khảo 1 ở SGK Nhân Giáo bắt buộc tập 3 tr. 89–92 để minh hoạ dạy học; thang đo biến trở, điện trở trong đồng hồ và số đọc là giá trị đặt cho bài (SGK ghi “khoảng”).
+589af65bc6bf	Toàn cảnh \xB7 cách mắc ở hình 12.3-1 SGK
+fed73a56c810	Số đọc = hiệu điện thế biến trở
+fed6316306e9	Số đọc = hiệu điện thế mạch ngoài
+8e662a5618f9	An toàn
+79537e4fb6c0	Hở mạch \xB7 bình thường \xB7 sắp kịch thang \xB7 gần ngắn mạch
+51706724447e	(
+ad2353211c82	Pin + khoá
+1a3b50fcabad	Đo suất điện động và điện trở trong của nguồn · Bài giảng tương tác 3D
+bcd592de8483	${b.t}: ${x}
+7b6b9f46fe73	Thí nghiệm: kiểm chứng định luật bảo toàn cơ năng
+96b74eda156f	SGK bắt buộc tập 2 \xB7 chương 8, bài 5 (bản in tr. 95–98)
+bca94babc9cc	\xBDv\xB2 = gh (đo tốc độ bằng băng giấy)
+377dae2f1cb8	Khi vật nặng rơi, thế năng trọng trường giảm đi có đúng bằng động năng tăng thêm không? Một băng giấy có đo được điều này không?
+170fd7204725	Chỉ khi chỉ có trọng lực sinh công (băng giấy thẳng đứng, lỗ giới hạn thẳng hàng) thì cơ năng mới bảo toàn
+549e700bdcaf	Bật nguồn trước, thả vật nặng sau, băng giấy ghi lại một chuỗi điểm O, A, B, C
+530e158d98d1	Đo v
+a6ba9e4f1393	Tốc độ tại thời điểm giữa = tốc độ trung bình của đoạn đó: v_B = (h_C
+0a6aff47ba8f	So năng lượng
+9621c267e335	So trực tiếp \xBDv\xB2 với gh — triệt tiêu khối lượng, cả hai vế đều đo từ băng giấy
+72b9e3e33b94	\xBDv\xB2–h qua gốc toạ độ, hệ số góc ≈ g; chênh lệch do lực cản: ΔEp hơi lớn hơn ΔEk
+a47cd8111717	Giá sắt và bộ gõ nhịp
+be22e43f1c6d	Giá\xB7bộ gõ nhịp
+0e778d6dca47	Giá sắt, bộ gõ nhịp, nguồn điện học sinh, dây nối
+9d1cc2ef7017	Vật nặng và cân
+52fbc6a78e47	Vật nặng\xB7cân
+dc03cfcc6c04	Kẹp và vật nặng, ô hiển thị số đọc của cân
+992cfc582003	Băng giấy và thước
+7c1efa460112	Băng giấy\xB7thước
+1f2cf653091f	Băng giấy luồn qua lỗ giới hạn, các điểm trên băng giấy, thước đo khoảng cách
+3098bb9171e6	Bảng giấy kẻ ô dựng đứng và đồ thị \xBDv\xB2–h
+3c0835e653ab	Các dụng cụ trên bàn mỗi thứ làm gì? Các điểm trên băng giấy do cái gì gõ ra? Vì sao vật nặng lại treo dưới băng giấy?
+aacbbaa197a2	Kéo góc nhìn đi một vòng quanh bàn thí nghiệm: đi một lượt theo “thanh đứng giá sắt → bộ gõ nhịp → băng giấy → kẹp → vật nặng”

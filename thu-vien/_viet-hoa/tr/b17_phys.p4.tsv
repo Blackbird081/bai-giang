@@ -1,0 +1,200 @@
+538797a1e9f4	Chế độ mặc định (0.200 kg, B lấy điểm thứ 10, đã bật nguồn, nấc lí tưởng): v = 1.9600 m/s, h_B = 196.00 mm, ΔEp = ΔEk = 0.3842 J; bộ gõ nhịp kẹp ở đầu trên thanh đứng, băng giấy luồn qua lỗ giới hạn, đầu dưới dùng kẹp treo vật nặng (cách bố trí ở hình 8.5-2 SGK).
+254e34c13203	SGK tr. 96: dùng bộ gõ nhịp ghi lại quá trình rơi tự do của vật nặng. Ba đại lượng mỗi thứ có cách đo riêng — khối lượng dùng cân (tr. 96), độ cao dùng thước đo khoảng cách từ hai điểm trên băng giấy đến O (tr. 98 hình 8.5-5), tốc độ tính từ ba điểm liền nhau (tr. 97 hình 8.5-3); còn tiền đề của bảo toàn cơ năng là chỉ có trọng lực sinh công (tr. 95).
+c093071305ee	Dữ kiện A2.11, A3.2, A6; hình 8.5-1 (tr. 95), hình 8.5-2 (tr. 96), hình 8.5-3 (tr. 97)
+e8459e8c348a	Nhận ra dụng cụ: đầu trên thanh đứng giá sắt kẹp bộ gõ nhịp, băng giấy luồn qua lỗ giới hạn, đầu dưới dùng kẹp treo vật nặng.
+e4419ecafc1d	Ba đại lượng, ba cách: khối lượng dùng cân, độ cao đo bằng thước trên băng giấy, tốc độ tính từ băng giấy.
+eb2f53c00077	Phương án tham khảo 2 (đệm không khí + cổng quang điện) cũng kiểm chứng được, nhưng đó là bộ dụng cụ khác, bài này không làm.
+563fd251324e	Bỏ bước này: học sinh không biết số nào là “đo ra”, số nào là “tính ra”.
+ddd46c1757e1	Nhận biết dụng cụ là năng lực đầu tiên của thí nghiệm bắt buộc (chuẩn chương trình tr. 16 “biết dùng dụng cụ thí nghiệm được cung cấp để tiến hành thí nghiệm và thu số liệu”).
+2b62d239cb85	ΔEp = mgh_B, ΔEk = \xBDmv_B\xB2
+9b567b8cbd97	m đọc từ cân \xB7 h đo bằng thước \xB7 v tính từ băng giấy
+2d5cd5c29442	Hình 8.5-2
+dbbe3907bffe	Bật nguồn trước, thả sau
+0f5920637533	Bước này làm việc gì trước? Nếu buông tay trước rồi mới bật nguồn, băng giấy sẽ thiếu gì?
+8b9b5a4806ab	Băng giấy đã treo xong: gạt nguồn bộ gõ nhịp sang bật, bật nguồn trước rồi mới thả vật nặng
+f7d72126183b	Khi nguồn tắt, băng giấy không có điểm nào, v, h, ΔEp, ΔEk đều hiện “—” (không phải 0); gạt sang bật thì băng giấy có 15 điểm, v = 1.9600 m/s. Khi sai thứ tự (buông tay trước, bật nguồn sau) thì 49.0 mm đầu là giấy trắng (nấc thật 48.4 mm), thiếu 5 điểm, mọi h đo từ O đều bị loại.
+bcfa85c04663	Nguyên văn SGK tr. 98 “trong thí nghiệm, bật nguồn điện trước, rồi mới thả vật nặng”; bộ gõ nhịp dùng nguồn xoay chiều 50 Hz, cứ 0.02 s gõ một điểm (bắt buộc tập 1 tr. 18), nên khoảng thời gian giữa hai điểm liền nhau là T = 0.02 s.
+94e903bffb82	Dữ kiện A2.9, A2.16, A4.4, A7.1; tr. 98, bắt buộc tập 1 tr. 18; B2.1 mục 10, 11
+fcc62c88cf53	Thứ tự là “bật nguồn điện trước, rồi mới thả vật nặng”, gõ xong ngắt điện ngay.
+fc851f40c317	Cứ 0.02 s gõ một điểm, hai điểm liền nhau cách nhau T = 0.02 s.
+e9d443b36638	Hậu quả của sai thứ tự tính được bằng số: 49.0 mm đầu là giấy trắng, thiếu 5 điểm, mọi h đo từ O đều bị loại.
+c2dcde1000fd	Bỏ bước này: học sinh nhận ngay một băng giấy “đã gõ sẵn”, không biết vì sao nó đáng tin.
+dff31bb55945	Chắc chắn thi: thứ tự thao tác và “vì sao” (chuẩn chương trình tr. 16 “xác định rõ được các đại lượng vật lí cần đo trong thí nghiệm”).
+a159ac5a8f89	T = 0.02 s (50 Hz) \xB7 khoảng trắng = \xBDg(0.10 s)\xB2 = 49.0 mm
+72b9fc9dd024	Xoay chiều 8 V \xB7 bật nguồn trước, thả sau
+0fae1570bbab	15 điểm = 0.28 s
+324d96fa65f5	Chọn điểm
+b56f2366094b	Bắt đầu đo từ đâu? Chuỗi điểm dồn sát nhau cạnh điểm O có dùng ngay được không? Lấy điểm thứ mấy làm B thì đo mới chính xác?
+43e54be4be5c	Điểm B trước hết lấy điểm thứ 4 (điểm quá dày, sai số tương đối của số đọc lớn), rồi gạt “điểm B lấy điểm thứ mấy” sang từ điểm thứ 10 trở đi
+8943459145d4	Bốn điểm đo (nấc lí tưởng, 0.200 kg): điểm thứ 4 → h_B = 31.36 mm, v = 0.7840 m/s, sai số tương đối một lần đọc 0.32 % (nhãn “điểm quá dày”); điểm thứ 7 → 96.04 mm, 1.3720 m/s, 0.10 %; điểm thứ 10 → 196.00 mm, 1.9600 m/s, 0.05 %; điểm thứ 13 → 331.24 mm, 2.5480 m/s, 0.03 %.
+d84be02dea51	Ngay cạnh điểm O ở hình 8.5-5 SGK tr. 98 là một chuỗi điểm dày đặc, đo thẳng từ O thì số đọc không chính xác; câu hỏi ở SGK tr. 96 “tốt nhất nên chọn hai vị trí nào làm vị trí đầu và cuối của quá trình” có đáp án là: hai vị trí cách xa nhau, vết điểm rõ ràng — h càng lớn, sai số tương đối do 0.1 mm càng nhỏ.
+9b2d35bd9a42	Dữ kiện A2.17, A4.5, A7.2; hình 8.5-5 (tr. 98); B1.5, bảng giá trị chuẩn B
+4dc69480c008	Cạnh điểm O ở hình 8.5-5 là một chuỗi điểm dày đặc, đo thẳng từ O thì sai số tương đối lớn.
+ae41d2b4a7c5	Lấy ba điểm liền nhau ở xa, vết điểm rõ ràng; h càng lớn, sai số tương đối do 0.1 mm càng nhỏ.
+3df4fdc78558	Chọn điểm B xong thì ba điểm A, B, C cũng đồng thời được xác định (A, C là hai điểm kề trái phải của nó).
+65a05e21e55c	Bỏ bước này: học sinh sẽ đo từ chỗ dày nhất, sai số còn lớn hơn cả sai số do lực cản.
+402b536f4714	Chắc chắn thi: lí do chọn vị trí đo (chuẩn chương trình tr. 16 “xác định rõ được vấn đề mà thí nghiệm khám phá khoa học cần giải quyết”).
+f852818739e0	Bỏ các điểm dày ở đầu
+e6107e48d01b	Ba điểm liền nhau
+be89aa7ff675	Đo h, tính v
+85971c47cbd5	v_B tính từ hai điểm nào? Vì sao không phải (h_C
+1f078d21c523	h_B)/T?
+07e4076403fb	Nhìn kĩ ba điểm A, B, C trên băng giấy và h_A, h_C đo bằng thước
+7fd7bed418fa	Chế độ mặc định (B lấy điểm thứ 10): h_A = 158.76 mm, h_B = 196.00 mm, h_C = 237.16 mm → v_B = (237.16
+46d8ae6fb807	158.76) mm \xF7 (2 \xD7 0.02 s) = 1.9600 m/s; ΔEp = 0.3842 J, ΔEk = 0.3842 J; \xBDv\xB2 = gh = 1.9208 m\xB2\xB7s⁻\xB2.
+6253387cccda	Nguyên văn hình 8.5-3 SGK tr. 97 “tốc độ tức thời tại điểm B bằng tốc độ trung bình giữa hai điểm A, C” — tốc độ tại thời điểm giữa bằng tốc độ trung bình trong khoảng thời gian đó, nên lấy độ dịch chuyển giữa hai điểm A, C chia cho 2T; đáp án câu 1 luyện tập SGK tr. 98 chính là ΔEp = mgh_B, ΔEk = \xBDmv_B\xB2 (không cần tính gia tốc trước, cũng không được dùng (h_C
+cc3450c21d06	h_B)/T làm tốc độ tại B).
+ab14fdf844c9	Dữ kiện A2.5, A2.6, A2.15, A7.3; hình 8.5-3 (tr. 97), hình 8.5-5 (tr. 98); B2.1 mục 3, 4, 6, 7
+ec893832dca0	v_B lấy độ dịch chuyển giữa hai điểm A, C chia cho 2T, không phải (h_C
+b93ff885cc12	h_B)/T.
+ef997f8c867c	ΔEp dùng h_B (khoảng cách đến O), ΔEk dùng v_B\xB2, mỗi vế dùng giá trị đo riêng của mình.
+eaf35fa3ff1f	Việc \xBDv\xB2 bằng gh không cần biết khối lượng, bước 6 còn dùng đến điều này.
+babb2e448b17	Bỏ bước này: v thành một con số từ đâu nhảy ra trên giấy, học sinh không có cách “đo ra” nó.
+5bc45d5f3913	Chắc chắn thi: tìm tốc độ tức thời từ băng giấy (chuẩn chương trình tr. 16 “dùng được đồ thị vật lí để mô tả số liệu thí nghiệm”).
+dd8c20cff0e4	Hình 8.5-3
+4b293a230e83	Tốc độ thời điểm giữa
+8480e5f51808	Ghi và vẽ đồ thị
+cf0cbba6e8c7	Bốn điểm đo vẽ lên đồ thị \xBDv\xB2–h có hình dạng gì? Hệ số góc bằng bao nhiêu? So với g thì sao?
+d99c1bd093be	Đổi điểm B từ điểm thứ 4 đến điểm thứ 13, mỗi điểm đo bấm “ghi một lượt” lưu một hàng, ghi đủ 4 hàng
+16c28fd21762	Bốn hàng ghi: (0.200, 31.36, 0.7840, 0.3073), (0.200, 96.04, 1.3720, 0.9412), (0.200, 196.00, 1.9600, 1.9208), (0.200, 331.24, 2.5480, 3.2462); bốn điểm nằm trên đường thẳng qua gốc toạ độ, hệ số góc qua gốc k = 9.80 m/s\xB2 (lệch so với g 0.00 %).
+a9c90f62acce	Vẽ \xBDv\xB2 theo h, đi qua gốc toạ độ, chính là hệ quả trực tiếp của việc triệt tiêu khối lượng trong hai biểu thức bảo toàn ở mục “phân tích số liệu” SGK tr. 96 (\xBDv\xB2 = gh); hệ số góc chính là g đo được từ băng giấy này, đem so với 9.8 m/s\xB2 chính là “kiểm chứng”. Nguyên văn SGK tr. 96: căn cứ phương án thí nghiệm đã chọn để thiết kế bảng tương ứng ghi số liệu thí nghiệm.
+b7aa586da871	Dữ kiện A2.2, A2.3, A2.7, A2.14; tr. 91, tr. 96; B2.1 mục 9, bảng giá trị chuẩn E
+f08b87e00996	Bốn điểm phải nằm trên đường thẳng qua gốc toạ độ, hệ số góc chính là g — không phải “trông giống đường thẳng”.
+f2cbae1e6b98	Các điểm được lưu bằng “ghi một lượt”, không phải tự vẽ trên giấy: ghi 4 lượt là đủ.
+0d7822dcab9a	Trong bảng, cột \xBDv\xB2 và cột gh ở mỗi hàng đều phải bằng nhau (chênh lệch là do lực cản và sai số đọc).
+0f425da5a51e	Bỏ bước này: \xBDv\xB2 = gh thành kết luận học thuộc, học sinh không có bằng chứng.
+a9600e88dfa6	Chắc chắn thi: xử lí số liệu bằng đồ thị, đọc đại lượng vật lí từ hệ số góc (chuẩn chương trình tr. 16 “phân tích số liệu để phát hiện đặc điểm, từ đó rút ra kết luận thí nghiệm”).
+47a31c000461	\xBDv\xB2 = k\xB7h, k =
+261d10d41226	k 9.80 m/s\xB2 (lệch 0.00 %)
+4a160c5c1bf2	Hệ số góc = g
+07deba8cb0fa	Điểm đo ở hình 8.5-5
+dc6ea6378838	Đổi vật nặng
+4b2fe6e76df8	Đổi vật nặng từ 0.050 kg sang 0.500 kg, h, v trên băng giấy có đổi không? Có bắt buộc phải dùng cân không?
+9e0823fd37f5	Vật nặng trước hết lấy loại nhẹ nhất 0.050 kg, rồi gạt “khối lượng vật nặng” sang 0.500 kg, xem h, v trên băng giấy và hệ số góc có đổi không
+bd86078dba4d	Ở nấc lí tưởng, đổi khối lượng thì h và v trên băng giấy không đổi một chữ số nào (v luôn là 1.9600 m/s, h_B luôn là 196.00 mm, hệ số góc luôn là 9.80); chỉ ΔEp và ΔEk đổi (0.0960 ↔ 0.9604 J, tỉ lệ với khối lượng). Chỉ ở nấc thật mới đổi theo khối lượng: δ từ
+dd87f5b16f37	5.10 % (0.050 kg) đến
+b55997050703	2.55 % (0.100 kg),
+a378df34403f	1.28 % (0.200 kg),
+696e793b35c9	0.51 % (0.500 kg).
+a9108cee7b9e	Ghi chú bên lề SGK tr. 96 hỏi “khi làm thí nghiệm, thực ra có thể không đo khối lượng của vật. Hãy nghĩ xem, vì sao?” — vì hai vế của \xBDmv\xB2 = mgh đều có m, so là triệt tiêu, chỉ cần so \xBDv\xB2 với gh, không bắt buộc phải dùng cân. Ở nấc thật, vật nặng càng nặng thì tỉ lệ lực cản càng nhỏ (δ =
+5ad59b51b9e7	f/(mg)), đây là đáp án thứ nhất cho câu hỏi 1 ở SGK tr. 96 “làm thế nào để giảm ảnh hưởng của lực cản”.
+16b37687bde0	Dữ kiện A2.7, A2.19, A2.13, A4.3, A7.5; ghi chú bên lề và câu hỏi 1 tr. 96; B3 mục 1; bảng giá trị chuẩn A4, A5, C
+3e999ddd5b70	Ở nấc lí tưởng đổi khối lượng thì không gì đổi: h, v, hệ số góc không đổi một chữ số, đây là bằng chứng trực tiếp cho “có thể không đo khối lượng”.
+b163a25b59c9	Chỉ ở nấc thật mới đổi theo khối lượng: δ =
+b67ca35d5430	f/(mg), vật nặng càng nặng càng gần g.
+92d7eb18d19a	Bước này chỉ được gạt mỗi nấc “khối lượng vật nặng”, không được động vào điểm đo nào (kiểm soát biến).
+c6816d4c4e16	Bỏ bước này: học sinh sẽ coi “bắt buộc dùng cân” là quy tắc, cũng không giải thích được vì sao tỉ lệ lực cản liên quan đến khối lượng.
+3a5932ec51e1	Chắc chắn thi: kiểm soát biến + ghi chú bên lề SGK “thực ra có thể không đo khối lượng của vật” (A7.5, A2.19).
+9d03eaa0ce0f	\xBDv\xB2 = gh (triệt tiêu m) \xB7 δ =
+3d2ad5a9cb04	Có thể không đo khối lượng
+a166fc094a26	“Thế năng giảm hơi lớn hơn động năng tăng” là do tính sai hay do thiết bị? Băng giấy đặt không thẳng thì sao?
+787eb2401b4d	Gạt công tắc ba nấc từ “lí tưởng” sang “thật\xB7băng giấy thẳng đứng” xem một lượt, rồi gạt sang “thật\xB7băng giấy lệch” xem lượt thứ hai
+08529b6d25fd	Lí tưởng: δ = 0, k = 9.80.
+dce93a33556c	Thật\xB7băng giấy thẳng đứng: δ =
+cd80328e3bc6	1.28 %, k = 9.68, ΔEp
+4c9af7694a3c	ΔEk = 0.0048 J, lực cản f = 0.025 N.
+c3c63c31860d	Thật\xB7băng giấy lệch: δ =
+cda43aeb0fdf	3.21 %, k = 9.49, f = 0.0625 N. Cả ba đều là đường thẳng qua gốc toạ độ, chỉ có hệ số góc nhỏ đi — không phải tịnh tiến, cũng không phải cong.
+891124904406	Đáp án cho nguyên văn câu 1(3) luyện tập SGK tr. 98 “nhiều kết quả thí nghiệm cho thấy độ giảm thế năng trọng trường hơi lớn hơn độ tăng động năng, em cho rằng nguyên nhân là gì?”: khi rơi vật nặng chịu lực cản không khí và ma sát giữa băng giấy với lỗ giới hạn, lực cản sinh công âm
+5db69158c2c5	f\xB7h, δ =
+7c18f8588d40	0 (chiều luôn là âm); cách giảm: dùng vật nặng nặng hơn (bước 6), để công tắc ba nấc ở “thật\xB7băng giấy thẳng đứng”, chỉnh lỗ giới hạn thẳng hàng.
+8cc9bc9f85d6	Dữ kiện A2.13, A2.18, A2.20, A4.2, A7.4; câu hỏi 1 tr. 96, câu 1(3) luyện tập tr. 98; B3 mục 1, 2; bảng giá trị chuẩn A, C, D, E
+f4ccfd0a1ec8	Cả hai lỗi đều không làm mất tính qua gốc toạ độ, chỉ làm đổi hệ số góc (khác với kiểu sai số tịnh tiến như “tấm ván kê chưa đúng”).
+a8874e806c35	Chiều luôn cố định: ΔEp
+0c6f7c8438f8	ΔEk, k
+3806f7b3c6c5	g, δ
+40c07dda61dd	0, không phải “lúc lớn lúc nhỏ”.
+ea1798fe7753	Nấc cuối của công tắc ba nấc (băng giấy lệch) khuếch đại ma sát lên 2.5 lần, δ từ
+375def56f0cb	1.28 % tụt xuống
+9fdf85f4765e	3.21 %.
+8aedd9278232	Năng lực thực nghiệm: nêu được nguồn và chiều của sai số (chuẩn chương trình tr. 16 “biết thí nghiệm có sai số”; A7.4).
+4ef9675a3ddd	Lực cản sinh công âm
+ff72e428d49a	Hệ số góc nhỏ hơn
+bb5bf2e80144	Công tắc ba nấc
+24a313aa1e74	Cho em một băng giấy đã gõ sẵn, không tra bảng, không tính gia tốc, có đo được g tại nơi đó không?
+1d8fa6381da6	Ghi đủ từ 3 lượt trở lên, điểm đo khác nhau, cùng một vật nặng, sao cho hệ số góc qua gốc của \xBDv\xB2–h lệch so với 9.8 m/s\xB2 ≤ 2 %
+ff1e41334470	Mỗi lượt lấy một điểm đo khác nhau;
+14b9abcd2cc9	Ba lần ghi cùng một vật nặng;
+d349eff0804b	Độ lệch tương đối của hệ số góc qua gốc so với 9.8 m/s\xB2 ≤ 2 %. Một lời giải hợp lệ: 0.200 kg, nấc lí tưởng, ghi bốn điểm thứ 4/7/10/13 → k = 9.80, lệch 0.00 % (thật\xB7thẳng đứng\xB70.200 kg cũng đạt: k = 9.68,
+801bae233eba	1.18 %). Phản ví dụ: 0.050 kg nấc thật k = 9.31,
+7b7430389c71	5.00 %; băng giấy lệch k = 9.49,
+9ee37ecfd8e4	3.17 %.
+fabf92296617	Không có kết luận mới: nối bảy bước trước lại dùng một lượt — chọn điểm, đo h, tính v, vẽ đồ thị, hệ số góc chính là g. Đây đúng là phép kiểm chứng định lượng định luật bảo toàn cơ năng ở SGK tr. 92.
+9ceee52cebb6	Dữ kiện A2.7, A2.14, A7.4, A7.5; tr. 92, tr. 96; B3 mục 4, bảng giá trị chuẩn E, F
+86e8aca763de	Ước lượng hệ số góc theo k ≈ 9.8 trước, rồi xem số lượt đã ghi có đủ không (≥ 3 lượt, điểm đo khác nhau).
+4d94a87e4998	Ba lượt phải cùng một vật nặng, giữa chừng đổi khối lượng sẽ làm rối hệ số góc (tiêu chí sẽ báo không đạt).
+697214b426a3	Nấc thật cũng có thể đạt, nhưng phải chọn vật nặng nặng hơn + băng giấy thẳng đứng.
+5b199f477710	Không có kết luận mới: nối bảy bước trước lại dùng một lượt chính là bài kiểm tra.
+4fc4075a4de4	Tổng hợp: chọn điểm + đo h + tính v + hệ số góc qua gốc = g.
+c8a3e61bdb13	Lí tưởng 9.80 (0.00 %) / thật thẳng đứng 9.68 (
+08dcce46a003	1.18 %)
+cb4dbf04f059	Đo g bằng băng giấy
+fb455855ba1f	Dung sai 2 %
+2c12d92bce4a	Tốc độ tại B v
+bec0f6263f07	Độ cao h_B
+88498771f5f4	Hệ số góc k
+82f516820cfe	Khối lượng
+8cff1c902ddf	Điểm đo
+8468d686e862	Tính theo công thức vật lí \xB7 dụng cụ lí tưởng (không lực cản, số đọc không có sai số độ phân giải)
+2d81325b0605	Tính theo công thức vật lí \xB7 dụng cụ thật, băng giấy thẳng đứng (0.025 N + 0.1 mm)
+4a42c72be515	Tính theo công thức vật lí \xB7 dụng cụ thật, băng giấy lệch (0.0625 N)
+d15cf656922a	Thước
+1ce7c21913a4	Bảo toàn (trong phạm vi sai số)
+fdc64be46381	Điểm quá dày \xB7 sai số tương đối của số đọc lớn
+9680a604ce03	Lí tưởng
+d79e9f10725d	Thật\xB7thẳng đứng
+bf4b0c8ee142	Thật\xB7lệch
+85a4edfa0bd7	Đã bật nguồn: bộ gõ nhịp cứ 0.02 s gõ một điểm, băng giấy bắt đầu ghi.
+2573a8f26a8c	Đã tắt nguồn: băng giấy không có điểm, các số đọc đo đều hiện “—”.
+bd2dda8d789a	Dụng cụ lí tưởng: không có lực cản, ΔEp và ΔEk bằng nhau tuyệt đối (trường hợp lí tưởng của SGK).
+e938eba1988e	Dụng cụ thật, băng giấy luồn thẳng đứng qua lỗ giới hạn: lực cản không khí và ma sát băng giấy tổng cộng 0.025 N, ΔEp nhiều hơn ΔEk một chút.
+5693195c9227	Băng giấy lệch: ma sát khuếch đại lên 2.5 lần (0.0625 N), độ lệch từ
+546af2e57209	1.28 % tăng lên
+6adb437d4beb	Điểm thứ 4
+a1a307cfa0bb	Điểm thứ 7
+85251d4efe63	Điểm thứ 10
+46b4eb8d35a7	Điểm thứ 13
+1c7957aa77ce	Đồ thị \xBDv\xB2–h (qua gốc toạ độ, hệ số góc = g)
+5ca1ce428dc1	Tham chiếu k = g \xB7
+943ed0e99463	điểm đã ghi \xB7 — đường khớp qua gốc
+27c02f8babed	Ghi số liệu (các điểm đo của cùng một vật nặng)
+d065a939383a	Dùng một băng giấy đo g tại nơi làm thí nghiệm
+24d7860f0209	Đổi điểm đo, ghi đủ từ 3 lượt trở lên (cùng một vật nặng) → xem hệ số góc qua gốc của \xBDv\xB2–h, lệch so với 9.8 m/s\xB2 ≤ 2 %
+1341be372a7a	Đo g bằng băng giấy
+5d0485ac9742	Giá sắt
+7f6102c06772	Băng giấy
+dae771043d83	Vật nặng
+36e1ad372f31	Chỗ thả
+3490575f8af7	Bấm “ghi một lượt” để bắt đầu vẽ
+1516f3da879e	Băng giấy thẳng đứng
+9796520af467	Băng giấy lệch
+b7b90711269f	Khoảng trắng đầu
+9719e374ad94	Chiếu chậm \xD70.15
+7b87ca33fbce	Thứ tự đúng khi gõ băng giấy là
+9c11dd1f539f	Thả vật nặng trước, rồi mới bật nguồn
+8dfa7a0adec8	Bật nguồn trước, rồi mới thả vật nặng
+7de7461c63b0	Làm đồng thời, không khác gì nhau
+bfc867c6336a	Ngắt điện trước rồi mới thả vật nặng
+04fff5cb29c7	Nguyên văn SGK tr. 98 “trong thí nghiệm, bật nguồn điện trước, rồi mới thả vật nặng”: buông tay trước sẽ mất trắng đoạn đầu.
+3915609c70e2	Tìm v
+2f7cf708b0d3	Ba điểm liền nhau trên băng giấy là A, B, C, chu kì gõ T, tốc độ tức thời tại điểm B là
+d07ae16a84f6	Hình 8.5-3 SGK tr. 97: tốc độ tại thời điểm giữa bằng tốc độ trung bình trong khoảng thời gian đó, nên lấy độ dịch chuyển giữa hai điểm A, C chia cho 2T.
+0a0ce84ddefc	Đồ thị
+75e0503b4cae	Vẽ đồ thị với h trên trục hoành, \xBDv\xB2 trên trục tung; nếu cơ năng bảo toàn thì đồ thị phải là
+5fb7f758413d	Một đường thẳng qua gốc toạ độ, hệ số góc ≈ g
+3c9ba76e754c	Một đường thẳng không qua gốc toạ độ
+2d99200b2c91	Một đường cong võng xuống
+0ccbd4827af8	Một đường nằm ngang
+3daf758bb6bb	\xBDv\xB2 = gh (triệt tiêu m): qua gốc toạ độ, hệ số góc chính là g; chênh lệch (hệ số góc nhỏ hơn) là do lực cản.
+3cb18ae2d3b3	Trong thí nghiệm thật, độ giảm thế năng trọng trường hơi lớn hơn độ tăng động năng, nguyên nhân chủ yếu là
+4a10122834f7	Đo sai khối lượng vật nặng
+1894ee3ad875	Lấy sai chu kì gõ
+d97aac4b0844	Lực cản không khí và ma sát giữa băng giấy với lỗ giới hạn sinh công âm
+488fb400956b	Số đọc trên thước bị nhỏ hơn
+9616db83b6ed	Câu 1(3) luyện tập SGK tr. 98 hỏi chính điều này: lực cản sinh công âm
+a9e50574359f	f\xB7h, chiều luôn là âm.
+3f7ed80c109a	Dùng một băng giấy gõ điểm đo tốc độ và độ cao khi vật nặng rơi, kiểm chứng \xBDv\xB2 = gh, và nói được lực cản làm kết quả lệch về phía nào.
+ff19db4de31f	Lưu ý minh hoạ: hình dáng dụng cụ và số đọc làm theo phương án tham khảo 1 ở SGK Nhân Giáo bắt buộc tập 2 tr. 95–98 để minh hoạ dạy học; khối lượng vật nặng, lực cản và độ phân giải số đọc là giá trị đặt cho bài.
+a06e590673eb	Chưa bật nguồn \xB7 không có số đọc
+ca8992cc3176	Động năng ít hơn thế năng ${(-t.delta*100).toFixed(2)} %
+ee0e5ba502d4	Thí nghiệm: kiểm chứng định luật bảo toàn cơ năng · Bài giảng tương tác 3D

@@ -1,0 +1,234 @@
+a0367942339a	${I.unitOf} bước ${oe.no}:
+ddf5902d1fb9	CAMERA.focusY=${JSON.stringify(o)}: phải viết thành khoảng [dưới, trên] (độ cao điểm nhìn của bước được kẹp trong khoảng này; muốn cố định một độ cao thì viết [h, h])
+7b8dda95a66b	Các nhân tố hình thành đất chủ yếu và quan sát phẫu diện đất
+271774da6c84	Bắt buộc tập 1 \xB7 Chương 5, bài 2 “Đất”
+df8f37b97427	Đất: nhân tố hình thành và phẫu diện
+b244dfc2dd7f	Đất = chất khoáng + chất hữu cơ + nước + không khí
+eab1ae518403	Đất vùng Đông Bắc Trung Quốc vừa đen vừa màu mỡ, vì sao đất phương nam lại tương đối nghèo?
+941c2a5aeb4b	Đá mẹ
+57eba3c45831	Đá mẹ: sản phẩm phong hoá của đá, quyết định chất khoáng, chất dinh dưỡng và thành phần cơ giới
+3eb31f888c66	Sinh vật
+c68b0ac0f9c3	Sinh vật: cơ bản nhất, tích cực nhất, cung cấp chất hữu cơ; không có sinh vật thì không có đất
+b08d2c770a33	Khí hậu
+c4c0c0226735	Khí hậu: nhiệt, ẩm quyết định tốc độ phong hoá và rửa trôi, lượng hạt sét, sự tích luỹ chất hữu cơ
+08cc91b97f41	Địa hình
+fce805478565	Địa hình: từ đỉnh núi đến vùng trũng thấp, hạt từ thô đến mịn
+a34801ad9c10	Thời gian
+d9eb392edde0	Thời gian: càng lâu càng dày, phân tầng càng rõ; 20 cm cần 100—1000 năm
+4912771a4216	Con người
+4e04763ab156	Hoạt động của con người: canh tác tạo thành ba tầng; dùng đi đôi với dưỡng giữ được độ phì
+b60ec01cc450	Thực vật và vật rơi rụng trên mặt đất
+e493929c6de2	Thực vật
+859c283efa33	Cỏ cây và cành khô lá rụng trên đỉnh cột: chất hữu cơ đến từ đây
+a17c155303de	Phẫu diện đất (các tầng phát sinh)
+ba2469ee7be2	Tầng hữu cơ → tầng mùn → tầng rửa trôi → tầng tích tụ → tầng đá mẹ
+498389f5e735	Tầng đá mẹ và tầng đá gốc
+f9cb8ab32790	Đá mẹ
+a7fbb6c43ea2	Tầng đá gốc dưới đáy: đá mẹ được phong hoá từ đây mà ra
+661ccd89a319	Mẫu đất này từ trên xuống dưới chia được thành mấy tầng?
+f497b209a926	Kéo góc nhìn quanh cột một vòng: mặt trên, mặt bên, ranh giới các tầng
+261c157d4060	Sáu tầng từ trên xuống: tầng hữu cơ 1.6, tầng mùn 5.9, tầng rửa trôi 7.0, tầng tích tụ 5.6, tầng đá mẹ 32.1, tầng đá gốc 47.8 cm; chất hữu cơ 1.46 → 0.80 → 0.44 → 0.18 → 0.06 → 0 %
+09bac0f20798	Tầng hữu cơ → tầng mùn → tầng rửa trôi → tầng tích tụ → tầng đá mẹ → tầng đá gốc
+db45f2fb9b3f	Phẫu diện đất rừng (hình 5.17 trong SGK) \xB7 thứ tự tầng theo SGK, độ dày là giá trị đặt cho bài
+14b1050bf2f4	6 tầng \xB7 từ trên xuống
+9f445d2fabfa	Đất rừng phức tạp nhất
+cbb42bc981f4	Đất gồm bốn thành phần: chất khoáng, chất hữu cơ, nước và không khí; quan sát ngoài thực địa xem màu sắc, thành phần cơ giới, cấu tạo phẫu diện (SGK tr. 88).
+e9c3625b6f98	Phẫu diện là mặt cắt dọc từ mặt đất thẳng xuống dưới, các tầng đất trải gần như nằm ngang, là kết quả của quá trình chuyển hoá, di chuyển, tích luỹ vật chất.
+64ac8c83e814	Phẫu diện đất rừng phức tạp nhất, sáu tầng từ trên xuống: tầng hữu cơ → tầng mùn → tầng rửa trôi → tầng tích tụ → tầng đá mẹ → tầng đá gốc; càng xuống sâu chất hữu cơ càng ít.
+1cfbd75f98a3	Nếu bỏ bước này: học sinh sẽ nói phẫu diện chỉ có ba tầng “đất mặt / đất giữa / đất đáy”, cũng không phân biệt được tầng rửa trôi mất đi, tầng tích tụ nhận vào.
+d096048ef31e	Trọng tâm thi: tên và thứ tự sáu tầng của phẫu diện đất rừng từ trên xuống; tầng nào màu nhạt nhất (tầng rửa trôi), tầng nào nặng và chặt (tầng tích tụ).
+c0be104302af	Phẫu diện đất là mặt cắt dọc từ mặt đất thẳng xuống dưới, gồm các tầng đất có đặc điểm hình thái khác nhau, trải gần như nằm ngang; trong đất tự nhiên, phẫu diện đất rừng phức tạp nhất, từ trên xuống là tầng hữu cơ, tầng mùn, tầng rửa trôi, tầng tích tụ, tầng đá mẹ, tầng đá gốc.
+71e86cccedb8	A2.3 #1 #3 (tr. 89, chú thích hình 5.17)
+73f886d4fa01	Đá mẹ khác nhau thì thành phần cơ giới của đất thay đổi thế nào?
+4204c93da8ea	Kéo “Đá mẹ” từ chất thịt sang chất sét, xem cỡ hạt và thành phần cơ giới
+d14726d3b63b	Chỉ số cỡ hạt 0.56 → 0.86; thành phần cơ giới đất thịt → đất sét; hạt sét 33.3 → 42.3 %; ở đầu đá mẹ chất cát: cỡ hạt 0.26, đất sỏi sạn, hạt sét 24.3 %
+7e0ab9ff7a59	Đá mẹ → thành phần khoáng \xB7 tình trạng dinh dưỡng \xB7 thành phần cơ giới
+e2473566745c	Đá mẹ là cơ sở vật chất cho sự phát triển của đất (SGK tr. 91)
+b6a5c04d9e53	Chất cát → chất sét
+0160d5f37454	Đất tím = bằng chứng về đá mẹ
+c493645b53d6	Đá mẹ là sản phẩm phong hoá của đá, là cơ sở vật chất cho sự phát triển của đất.
+985c58fd5c23	Nó quyết định thành phần khoáng và tình trạng dinh dưỡng của đất, ảnh hưởng đến thành phần cơ giới: đá mẹ chất cát → đất sỏi sạn / đất cát, đá mẹ chất sét → đất sét.
+c6ffaa5c5e30	Đá ở bồn địa Tứ Xuyên có màu tím, đất cũng có màu tím: nhân tố chủ đạo của hiện tượng này chính là đá mẹ.
+635642345cd0	Nếu bỏ bước này: học sinh sẽ tưởng thành phần cơ giới chỉ do “trồng cây gì” quyết định, cũng không giải thích được đất tím.
+e4b8193b1b51	Trọng tâm thi: nhân tố hình thành chủ đạo của đất tím là đá mẹ; đá mẹ chủ yếu ảnh hưởng đến thành phần cơ giới, chất khoáng và dinh dưỡng, không trực tiếp quyết định lượng chất hữu cơ.
+47cd27de42fa	Đá mẹ là sản phẩm phong hoá của đá, là cơ sở vật chất cho sự phát triển của đất; nó quyết định thành phần khoáng và tình trạng dinh dưỡng của đất, ảnh hưởng đến thành phần cơ giới của đất.
+f95a95f55b21	A2.6 #2 (tr. 91), A2.7 #1 (tr. 92)
+91c58d0ee68d	Sinh vật
+09dbc20e60a7	Bỏ thảm thực vật đi, khối này còn là đất nữa không?
+775e6c734b5f	Kéo “Độ che phủ thực vật” từ 60 % lên 100 %, rồi đặt sinh vật về 0 % xem điều gì xảy ra
+e70c6200d6ad	Chất hữu cơ tầng mặt 1.46 → 2.44 %; tầng hữu cơ 1.6 → 2.6 cm, tầng mùn 5.9 → 9.8 cm; khi sinh vật 0 %, tầng hữu cơ và tầng mùn đều bằng 0, chất hữu cơ 0 %, các tầng phát sinh chỉ còn 3 tầng
+45c6a6a39622	Không có tác động của sinh vật thì không thể hình thành đất
+2dfd070ef0f4	Sinh vật là nhân tố hình thành đất cơ bản nhất và tích cực nhất (SGK tr. 91)
+010c59087803	Xác sinh vật → chất hữu cơ
+fd7a1acafe45	Chất dinh dưỡng tập trung ở tầng mặt
+9a7fdc170160	Sinh vật là nhân tố cơ bản nhất và tích cực nhất ảnh hưởng đến sự phát triển của đất: không có tác động của sinh vật thì không thể hình thành đất.
+03bbef8e45ac	Xác sinh vật cung cấp chất hữu cơ cho đất, chất hữu cơ dưới tác động của vi sinh vật chuyển hoá thành mùn.
+723f55d61810	Vòng tuần hoàn sinh vật đưa các nguyên tố dinh dưỡng như nitrogen, phosphorus, potassium lên tập trung ở tầng mặt: khi sinh vật 0 %, tầng hữu cơ và tầng mùn đều biến mất, chất hữu cơ bằng 0.
+ba8abb40e4f9	Nếu bỏ bước này: học sinh chỉ coi sinh vật như “bón phân”, không biết nó là tiền đề của sự hình thành đất.
+7cb7aceba4c2	Trọng tâm thi: vì sao nói “không có tác động của sinh vật thì không thể hình thành đất”; khi sinh vật 0 %, hai tầng nào của phẫu diện biến mất (tầng hữu cơ, tầng mùn).
+cf137b17646a	Sinh vật là nhân tố cơ bản nhất và tích cực nhất ảnh hưởng đến sự phát triển của đất; xác sinh vật cung cấp chất hữu cơ, vi sinh vật biến chất hữu cơ thành mùn, vòng tuần hoàn sinh vật làm các nguyên tố dinh dưỡng tập trung ở tầng mặt của đất.
+5a69780be9d4	A2.6 #3 (tr. 91)
+c12708db88ac	Cùng một loại đá mẹ, khí hậu nóng ẩm và khí hậu lạnh khô có tạo ra đất giống nhau không?
+8ed7364e852c	Trước tiên đặt lượng mưa năm 2000 mm, rồi kéo nhiệt độ trung bình năm từ 15 ℃ lên 25 ℃
+8a7ebbfe7e0d	Tốc độ hình thành đất 1.12 → 2.00 mm/a; hình thành 20 cm chỉ cần 177.8 → 100.0 a; rửa trôi trung bình → mạnh; hạt sét 43.3 → 50.8 %; chất hữu cơ tầng mặt 3.37 → 1.35 %; tầng rửa trôi 17.6 → 21.6 cm, tầng tích tụ 14.4 → 18.0 cm
+daec5edb9ae9	Phong hoá \xB7 rửa trôi ∝ nhiệt độ \xD7 lượng mưa
+efe4e5570971	Nóng ẩm: đất hình thành nhanh, nhiều hạt sét, chất hữu cơ phân giải nhanh (SGK tr. 91)
+176bc45387ec	Nóng ẩm → nhanh và nhiều sét
+0e5495c94794	Lạnh ẩm → nhiều chất hữu cơ
+b11d5806cc3c	Cường độ và tốc độ phong hoá đá tương quan thuận với nhiệt độ, lượng mưa, nên đất ở vùng nóng ẩm hình thành nhanh hơn nhiều so với vùng lạnh khô.
+9d912cd2c4b0	Vùng nóng ẩm phong hoá hoá học và rửa trôi mạnh, tỉ trọng hạt sét trong đất cao; môi trường lạnh ẩm thuận lợi cho tích luỹ chất hữu cơ, vùng khô hạn, nhiệt độ cao tích luỹ ít chất hữu cơ.
+3a9decb31848	Chú ý: lượng mưa và nhiệt độ chỉ thay đổi tỉ lệ hạt sét, không đổi tên thành phần cơ giới; thành phần cơ giới do đá mẹ và địa hình quyết định.
+13a12d7d9c1c	Nếu bỏ bước này: học sinh sẽ rút ra kết luận ngược “càng nóng càng màu mỡ”.
+383db97b506c	Trọng tâm thi: vì sao đất vùng nóng ẩm nhiều hạt sét, tầng đất dày lên nhanh, nhưng chất hữu cơ lại ít; sự khác nhau về tích luỹ chất hữu cơ giữa vùng lạnh ẩm và vùng khô hạn, nhiệt độ cao.
+4ffe18b8f40b	Điều kiện nhiệt, ẩm quyết định tốc độ phong hoá và rửa trôi: vùng nóng ẩm đất hình thành nhanh, nhiều hạt sét, rửa trôi mạnh, chất hữu cơ phân giải nhanh; môi trường lạnh ẩm thuận lợi cho tích luỹ chất hữu cơ, vùng khô hạn, nhiệt độ cao tích luỹ ít.
+87cf7a1ca716	A2.6 #4 (tr. 91)
+2c97df545a03	Địa hình
+f7dd3a290272	Đất ở đỉnh núi và ở đồng bằng chân núi có hạt thô như nhau không?
+7e885753f55b	Kéo “Vị trí địa hình” từ đỉnh núi xuống tận vùng trũng thấp
+bde891dcbea4	Chỉ số cỡ hạt 0.32 → 0.44 → 0.56 → 0.68; thành phần cơ giới lần lượt là đất sỏi sạn → đất cát → đất thịt → đất sét; hạt sét 26.1 → 29.7 → 33.3 → 36.9 %
+aaac8b87cd3d	Đất sỏi sạn → đất cát → đất thịt → đất sét
+a5caea37ed26	Từ đỉnh núi đến vùng trũng thấp, hạt đá mẹ từ thô đến mịn (SGK tr. 91)
+4801d876565b	Đỉnh núi thô → vùng trũng mịn
+5ba394bf64aa	Đất thịt hợp canh tác nhất
+52aaa4821230	Địa hình ảnh hưởng đến sự phát triển của đất thông qua điều kiện nhiệt, ẩm và sự phân loại hạt của đá mẹ.
+0c0fb1d1f575	Từ đỉnh núi đến vùng trũng thấp, hạt của đá mẹ biến đổi có quy luật từ thô đến mịn: đất sỏi sạn → đất cát → đất thịt → đất sét.
+ec720be40623	Đất thịt có tỉ lệ hạt cát, hạt bụi, hạt sét vừa phải, vừa thoáng khí thấm nước vừa giữ nước giữ phân, là thành phần cơ giới lí tưởng cho sản xuất nông nghiệp.
+5ca901033811	Nếu bỏ bước này: học sinh sẽ coi “đất trên núi” là đất màu mỡ hơn.
+ad3641aed3b2	Trọng tâm thi: nguyên nhân đất ở đỉnh núi hạt thô hơn, ở đồng bằng chân núi mịn hơn; thứ tự bốn loại thành phần cơ giới từ thô đến mịn.
+1cc1f16f70cf	Từ đỉnh núi đến vùng trũng thấp, hạt của đá mẹ từ thô đến mịn, lần lượt phân bố đất sỏi sạn, đất cát, đất thịt và đất sét; vì vậy đất ở đỉnh núi hạt thô hơn, ở đồng bằng chân núi mịn hơn.
+99c0e1af315d	A2.6 #5 (tr. 91), A2.7 #1 (tr. 92), A2.2 #3 (tr. 89)
+89b4aa6364ce	Thời gian
+a45fdb105929	Lớp đất dày 20 cm em đào lên, phải mất bao lâu mới hình thành?
+e4e5d68e0306	Kéo “Thời gian hình thành đất” từ 1000 năm lên 2000 năm, rồi kéo ngược về 0 để thấy khác biệt
+e2772d0db0d8	Tổng độ dày tầng đất 52.2 → 90.0 cm; tầng đá gốc 47.8 → 10.0 cm; tầng mùn 5.9 → 10.1 cm; 0 năm có 0 tầng, 200 năm có 4 tầng; hình thành 20 cm đất canh tác cần 383.1 a (khoảng trong SGK 100—1000 năm)
+eed4f00f47ba	Thời gian càng dài → tầng đất càng dày \xB7 phân tầng càng rõ
+3d3c408a9093	20 cm đất canh tác cần 100—1 000 năm (SGK tr. 92)
+126624a561c9	20 cm cần 100—1000 năm
+9c5857573cb1	Tầng đá gốc bị ép ngày càng mỏng
+a761b975e3fc	Thời gian phát triển của đất càng dài, tầng đất càng dày, sự phân hoá tầng đất càng rõ.
+e7cbf32f91c8	Trong điều kiện tự nhiên, để hình thành lớp đất dày 20 cm có thể canh tác, thường cần 100—1 000 năm.
+44a449572d0b	Vì vậy mỗi centimet đất trong cột đều được “tích góp” mà thành: tầng đá gốc bị phong hoá mất một lớp thì tầng đất dày thêm một lớp.
+9bc2dba38a83	Nếu bỏ bước này: học sinh sẽ tưởng đất “vốn đã có sẵn”, và không hiểu ý nghĩa của việc bảo vệ lớp đất mặt.
+6b9893c26750	Trọng tâm thi: tác dụng của thời gian đối với độ dày tầng đất và mức độ phân tầng; khoảng số năm thường cần để hình thành 20 cm đất có thể canh tác.
+1f16325fb91c	Thời gian phát triển của đất càng dài, tầng đất càng dày, sự phân hoá tầng đất càng rõ; trong điều kiện tự nhiên, hình thành lớp đất dày 20 cm có thể canh tác thường cần 100—1 000 năm.
+8cb2373ccb8c	A2.6 #6 (tr. 92)
+18802f335809	Một mảnh đất được canh tác lâu dài, phẫu diện sẽ biến thành thế nào?
+38f792ac9c75	Gạt “Hoạt động của con người” sang dùng đi đôi với dưỡng, ở giữa xem trước mức “chỉ dùng không dưỡng”
+07883b069932	Thứ tự tầng đổi thành tầng canh tác 20.9 / tầng đế cày 8.0 / tầng đất tự nhiên 23.3 cm; chất hữu cơ tầng mặt 1.46 → (chỉ dùng không dưỡng) 1.10 → (dùng đi đôi với dưỡng) 1.61 %
+9d27f56bfe93	Tầng canh tác \xB7 tầng đế cày \xB7 tầng đất tự nhiên
+dc66c9dcc8ee	Phẫu diện đất canh tác (hình 5.18 trong SGK) \xB7 dùng đi đôi với dưỡng giữ được độ phì
+0b519b366ca3	Tầng canh tác tơi xốp \xB7 tầng đế cày chặt
+3b2570398337	Chỉ dùng không dưỡng → chất hữu cơ giảm
+8f108435e327	Đất tự nhiên qua thời gian dài canh tác, bồi dưỡng thì trở thành đất canh tác, phẫu diện gồm tầng canh tác, tầng đế cày và tầng đất tự nhiên.
+5e176bd7529e	Tầng canh tác còn gọi là tầng đất mặt hay tầng đất thuần thục: đất tơi xốp, tỉ lệ chất hữu cơ cao, màu sẫm; tầng đế cày còn gọi là tầng dưới đất mặt: chặt, màu nhạt hơn, giữ được phân và nước; tầng đất tự nhiên chưa được thuần thục, không thuận lợi cho cây trồng phát triển.
+d308cd5e7f06	Chỉ dùng không dưỡng, chất hữu cơ tầng mặt giảm còn 1.10 %; dùng đi đôi với dưỡng (bỏ hoá, trồng cây phân xanh, luân canh, bón nhiều phân chuồng) thì tăng trở lại 1.61 %.
+788b83ec25b6	Nếu bỏ bước này: học sinh chỉ biết “dùng đất” mà không biết “dưỡng đất”.
+290f192e005a	Trọng tâm thi: tên và đặc điểm ba tầng của phẫu diện đất canh tác; vì sao dùng đi đôi với dưỡng (bỏ hoá, phân xanh, luân canh, phân chuồng) giữ được độ phì.
+97105b5e4e7d	Đất tự nhiên qua canh tác lâu dài trở thành đất canh tác, phẫu diện gồm tầng canh tác, tầng đế cày, tầng đất tự nhiên; dùng đi đôi với dưỡng (bỏ hoá, phân xanh, luân canh, bón nhiều phân chuồng) giữ được khả năng cung cấp độ phì cao một cách bền vững.
+2328d4e6b314	A2.4 (tr. 90, hình 5.18), A2.8 #4 #5 (tr. 93–94)
+a795b7420bed	Kiểm tra cuối bài: cải tạo mảnh đất này thành đất canh tác màu mỡ
+30dd1cbcb0ca	Chỉnh đến đất thịt + chất hữu cơ tầng mặt ≥ 3 % + dùng đi đôi với dưỡng, giữ trong 15 s
+e84225fc9bf8	Một lời giải đạt: sinh vật 100 %, nhiệt độ trung bình năm 10 ℃, lượng mưa năm 1200 mm, đá mẹ chất thịt, chân núi, 1000 a, dùng đi đôi với dưỡng → đất thịt, chất hữu cơ tầng mặt 5.01 %, tầng canh tác 20.2 cm
+1ebde3f16efc	Đất thịt + chất hữu cơ ≥ 3 % + dùng đi đôi với dưỡng
+4ac3651fe9e2	Thanh mục tiêu: ba điều cùng đạt mới chuyển xanh
+7ca24fa5032e	Chấp nhận nhiều lời giải
+e888f9c746ad	Chất hữu cơ không phải càng nóng càng nhiều
+e20cfe7214a1	Chất hữu cơ phải “có nguồn”: sinh khối phải đủ, sinh vật 0 % thì tầng hữu cơ biến mất ngay.
+26e7abee844e	Còn phải “giữ được”: lạnh ẩm dễ tích luỹ hơn nóng ẩm; nhiệt độ cao, mưa nhiều thì chất hữu cơ lại bị phân giải mất.
+5f33b0b61c0f	Thành phần cơ giới xem đá mẹ và địa hình: đá mẹ chất thịt + chân núi vừa đúng là đất thịt; lượng mưa chỉ đổi tỉ lệ hạt sét, không đổi được tên thành phần cơ giới.
+760168f0a844	Nếu bỏ bước này: học sinh sẽ coi “bón nhiều phân” là cách duy nhất, bỏ qua nhiệt ẩm và thành phần cơ giới.
+3a90b1ac18da	Trọng tâm thi: nhân tố ảnh hưởng đến độ phì của đất không chỉ có một; sinh khối, điều kiện nhiệt ẩm, thành phần cơ giới và cách canh tác đều phải phù hợp.
+c8d5574356a7	Đất canh tác màu mỡ phải đồng thời thoả mãn: đất thịt (đá mẹ và địa hình phù hợp), chất hữu cơ tầng mặt ≥ 3 % (đủ sinh khối + điều kiện tích luỹ tốt), và kiên trì dùng đi đôi với dưỡng.
+f11682783534	facts B3 dòng 21 (lời giải kiểm tra cuối bài)
+9944292e9fdb	Tầng hữu cơ
+83715cfbb733	Tầng mùn
+b8d044837dd2	Tầng rửa trôi
+e913abf26734	Tầng tích tụ
+a21a0e42b3d5	Tầng đá mẹ
+feab9dae9f78	Tầng đá gốc
+1483d7704956	Tầng canh tác
+9d37ea172c80	Tầng đế cày
+986b6fbf3d11	Tầng đất tự nhiên
+5585ffb5f1c4	Thành phần cơ giới
+94a34924c7ba	Minh hoạ: độ dày tầng và hàm lượng là giá trị đặt cho bài
+c9908b6d83b3	Rửa trôi: chất khoáng theo nước thấm xuống
+6d9480993b4b	Thực vật và cành khô lá rụng
+c4f8799f47eb	Vị trí địa hình: đỉnh núi → vùng trũng thấp
+1c19f8c20498	Tổng độ dày tầng đất
+f66f50c839d2	Chất hữu cơ tầng mặt
+a0c1a2626049	Hình thành 20 cm
+941f85bad6de	Độ che phủ thực vật
+5d08902291b5	Đá mẹ
+af3d9b7f1b63	Vị trí địa hình
+5db9b5cdfcf3	Thời gian hình thành đất
+a57cc09baa1f	Hoạt động của con người
+6f14c2641c25	năm
+e326caa990c3	cm \xB7 minh hoạ
+cba6206a6fb9	% \xB7 minh hoạ
+48f4986b55c1	năm \xB7 SGK
+684ed04c27b6	Đất sỏi sạn
+ec968929b45d	Đất cát
+3391bf6161e1	Đất thịt
+aac76a60b862	Đất sét
+0869071c92c0	trung bình
+ecc90c7bca7f	Đá mẹ chất cát
+86eec67ae33b	Đá mẹ chất thịt
+f6e6779da53f	Đá mẹ chất sét
+a4a3c0f03b0f	Đỉnh núi
+f91712f31b1a	Sườn núi
+e3fe0bc1327a	Chân núi
+a3cf694d7f0d	Vùng trũng thấp
+90f536e722e8	Đất tự nhiên
+284dff7ae11c	Canh tác\xB7chỉ dùng không dưỡng
+dc0ab1f4a96f	Canh tác\xB7dùng đi đôi với dưỡng
+f4fdd7d9902f	Cải tạo thành đất canh tác: đất thịt \xB7 chất hữu cơ ≥ 3 % \xB7 dùng đi đôi với dưỡng
+96155c2f2c44	Chất hữu cơ vừa cần sinh khối, vừa cần điều kiện nhiệt ẩm để “tích luỹ nhanh hơn phân giải”, không phải càng nóng càng tốt; thành phần cơ giới xem đá mẹ và địa hình, không xem lượng mưa
+97f1096a65b2	Đất thịt + chất hữu cơ ≥ 3 %
+a145198cf89f	Trong phẫu diện đất rừng từ trên xuống, tầng có màu nhạt, chất khoáng bị rửa trôi đi là
+2423c2caa7a8	Tầng rửa trôi: chất khoáng hoà tan trong nước theo nước thấm xuống dưới, tầng này mất chất khoáng, màu nhạt (SGK tr. 89, hình 5.17).
+5b54ae027edc	Vật chất bị rửa trôi từ tầng trên lắng đọng, tích luỹ ở tầng nào, khiến tầng đó nặng và chặt?
+ecfb17cbf906	Tầng tích tụ: vật chất bị rửa trôi từ tầng trên lắng đọng, tích luỹ ở đây, đất nặng, chặt, có màu nâu hoặc nâu đỏ.
+f47b94d117ea	Ở một số nơi thuộc bồn địa Tứ Xuyên, đá có màu tím, đất cũng có màu tím; nhân tố hình thành đất chủ đạo của hiện tượng này là
+503faaae3ca7	Đá mẹ quyết định thành phần khoáng và tình trạng dinh dưỡng của đất, cũng ảnh hưởng đến thành phần cơ giới; màu tím đến từ sản phẩm phong hoá của đá màu tím.
+2ca77f642442	Về vai trò của sinh vật trong quá trình hình thành đất, nhận định đúng là
+0bb706165fdb	Sinh vật chỉ bón phân cho đất
+cfdd9e076146	Không có tác động của sinh vật thì không thể hình thành đất
+de3ac9acf840	Sinh vật chỉ ảnh hưởng đến màu đất
+5df3543b67ec	Lượng sinh vật không liên quan đến chất hữu cơ
+07864bb9bb02	SGK tr. 91: sinh vật là nhân tố cơ bản nhất và tích cực nhất ảnh hưởng đến sự phát triển của đất, không có tác động của sinh vật thì không thể hình thành đất.
+e9bcba2ba997	So với vùng lạnh khô, đặc điểm của đất vùng nóng ẩm là
+21bf4fbbf6af	Tỉ trọng hạt sét cao, rửa trôi mạnh
+00c0ac71d488	Tỉ trọng hạt sét thấp, rửa trôi yếu
+26dca65c815a	Tích luỹ nhiều chất hữu cơ, tầng đất mỏng
+6391104d8111	Đất hình thành chậm, tầng đất dày
+e98293a3a7da	SGK tr. 91: vùng nóng ẩm phong hoá hoá học và rửa trôi mạnh, tỉ trọng hạt sét trong đất cao; nhưng chất hữu cơ phân giải nhanh, tích luỹ ít.
+e6c640d68dc7	Từ đỉnh núi đến vùng trũng thấp, cỡ hạt và thành phần cơ giới của đất thay đổi theo hướng
+9307533bbe54	Từ mịn đến thô: đất sét → đất thịt → đất cát → đất sỏi sạn
+a77dfd1aef2b	Từ thô đến mịn: đất sỏi sạn → đất cát → đất thịt → đất sét
+bb317e2b21b9	Không có quy luật
+479d05b2d073	Thô rồi mịn rồi lại thô
+045cbc5b1c6e	SGK tr. 91: từ đỉnh núi đến vùng trũng thấp, hạt của đá mẹ biến đổi có quy luật từ thô đến mịn, lần lượt phân bố đất sỏi sạn, đất cát, đất thịt và đất sét.
+5b34a701a67e	Trong điều kiện tự nhiên, để hình thành lớp đất dày 20 cm có thể canh tác thường cần
+5db8480c76bf	10—100 năm
+e0e3eee35872	100—1 000 năm
+ba8cccd3bb98	1 000—10 000 năm
+5d58bf84cead	1—10 năm
+ce2b536a674c	SGK tr. 92: để hình thành lớp đất dày 20 cm có thể canh tác, thường cần 100—1 000 năm.
+659579fc38cd	Ba tầng của phẫu diện đất canh tác từ trên xuống là
+12249a93f4c6	Tầng hữu cơ → tầng mùn → tầng đá mẹ
+0e8ada5b32d6	Tầng canh tác → tầng đế cày → tầng đất tự nhiên
+efd7212ff972	Tầng rửa trôi → tầng tích tụ → tầng đá gốc
+abe43a647eb9	Tầng canh tác → tầng đất tự nhiên → tầng đế cày
+b83857304da8	SGK tr. 89–90, hình 5.18: phẫu diện đất canh tác thường gồm tầng canh tác, tầng đế cày và tầng đất tự nhiên; tầng canh tác còn gọi là tầng đất mặt hay tầng đất thuần thục, tầng đế cày còn gọi là tầng dưới đất mặt.
+6c2e338a0da8	Xoay, phóng to cột phẫu diện
+60ccf3f720de	Hiện tên thiết bị
+b49e76474603	Hiểu phẫu diện đất phân tầng ra sao, và đá mẹ, sinh vật, khí hậu, địa hình, thời gian, hoạt động của con người mỗi nhân tố đã làm phẫu diện thay đổi thế nào.
+d2345eea6b0d	Lưu ý minh hoạ: độ dày tầng, tốc độ hình thành đất, hàm lượng chất hữu cơ, tỉ lệ hạt sét đều là minh hoạ dạy học; tên tầng và thứ tự tầng theo hình 5.17 / 5.18 trong SGK.
+c0748ec07642	Phím tắt ← → chuyển bước \xB7 phím cách chạy/dừng \xB7 Q kiểm tra \xB7 F toàn màn hình
+b614affca8aa	Đất
+6e403270f8df	Tổng thể \xB7 cột phẫu diện và mặt đất
+2831aebc1ff9	Rửa trôi ${sn.leach[Ru[i.leachKey]]}
+4200f8cec731	${io(i)} năm
+9be5287ea77b	Không có thực vật
+fe7d6b62957a	Che phủ hoàn toàn
+c6252d7eff26	Các nhân tố hình thành đất chủ yếu và quan sát phẫu diện đất · Bài giảng 3D tương tác

@@ -205,6 +205,7 @@ kbd{font-family:var(--f-mono);font-size:11px;border:1px solid var(--hair);border
 @keyframes hpulse{0%,100%{box-shadow:0 0 0 0 rgba(232,176,75,.6)}50%{box-shadow:0 0 0 8px rgba(232,176,75,0)}}
 .capscale{display:inline-block;margin-left:6px;font-family:var(--f-mono);font-size:11px;padding:1px 6px;border-radius:5px;background:rgba(232,176,75,.2);color:inherit}
 @media (prefers-reduced-motion: reduce){.herotag .n{animation:none}}
+a.btn{text-decoration:none;display:inline-block}
 /* Chế độ lên lớp */
 .lesson{left:12px;top:64px;width:min(380px,34%);max-height:calc(100% - 128px);overflow:auto;pointer-events:auto;z-index:6;padding:12px 16px 12px;font-family:var(--f-body);color:#1B1416;background:rgba(255,252,250,.9);border:1px solid rgba(190,23,64,.25);border-radius:12px;box-shadow:0 12px 34px rgba(60,10,25,.16);display:grid;gap:6px}
 .lesson[hidden]{display:none!important}

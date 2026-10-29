@@ -1,0 +1,249 @@
+37c6980665ef	C.steps[${N}].cam.pitch=${k.cam.pitch}\xB0 không nằm trong CAMERA.polar ${f.polar[0]}–${f.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+b193cfacca04	world.build() trả về ${w.length} đơn vị, C.units có ${i.units.length}, phải tương ứng một–một
+3deb0e6d0d72	${k.unitOf} bước ${pe.no}:
+780e24c095e0	${d}.act.want=${JSON.stringify(c.act.want)} không phải một nấc của công tắc nhiều nấc ${p.key}
+945ce296e2d9	${d}.start.${u}=${JSON.stringify(f)} không phải một nấc của công tắc nhiều nấc
+e2c24fbbfeb6	CONSOLE.exam.solve[${d}].${p} không phải điều khiển trên bảng điều khiển
+07716de44409	Khai thác bromine từ nước biển: phương pháp thổi khí
+606dd23b90b9	SGK Nhân Giáo bắt buộc tập 2 \xB7 Chương 8, bài 1 \xB7 Khai thác, sử dụng tài nguyên nước biển
+d6df60db502f	Bromine trong nước biển chỉ có 65 mg/L, làm sao biến nó thành một bình bromine lỏng?
+d1beec72fe33	Loãng
+edce1f90b50b	Br⁻ trong nước biển chỉ 65 mg/L
+58663835da4e	Acid
+16e94c78d23c	Acid hoá tới pH 3.5, kìm hãm tự oxi hoá – khử
+bb37f775beb2	Oxi hoá
+70dc008c7f54	Sục Cl₂: Br⁻(
+5e437005800b	Làm giàu
+784d8c4bb8e4	Thổi khí + hấp thụ bằng SO₂, cô đặc 255 lần
+61ff7218d11c	Tinh chế
+265c6d77cbc9	Chlorine hoá lại + chưng cất được bromine lỏng
+03b33c6a3e61	Bể trộn acid hoá
+9c6ac9b4490b	Acid hoá
+e4235363a2b2	Thêm H₂SO₄ đưa nước biển về pH 3.5
+6879b7b5c6d7	Tháp oxi hoá
+5e7a01f271f7	Sục Cl₂ oxi hoá Br⁻ thành Br₂
+294866c84275	Tháp thổi khí
+cb870a829caa	Thổi khí
+dadc4c216a46	80 ℃, tỉ lệ khí/nước 300:1, thổi Br₂ ngược chiều
+9a2fbc7ddc36	Tháp hấp thụ
+34884378f28f	Hấp thụ
+27e876df6e79	Dung dịch SO₂ hấp thụ làm giàu, cô đặc 255 lần
+933c65af5e25	Tháp chưng cất
+3b0c20f87dc5	Chưng cất
+25b4f9c00e8e	Chlorine hoá lần hai + chưng cất được bromine lỏng
+75fff1fee46b	Acid hoá chưa đủ: Br₂ và Cl₂ đều tự oxi hoá – khử, hiệu suất thổi giảm một nửa
+0da8620f95ee	Br⁻(
+f2a171c010d1	1) → Br₂(0): Cl₂ là chất oxi hoá
+1d65caa7c444	Tỉ lệ khí/nước 300:1 \xB7 thổi ngược chiều
+f9573e21c53a	Br₂(0) → HBr(
+0466213ba72d	1): làm giàu 255 lần
+004f34304c59	Br₂ sôi ở 58.8 ℃: tách bằng chưng cất
+ee404e38a732	Toàn cảnh
+7a02c0a79c92	Nước biển chỉ có 65 mg/L bromine, sao không chưng cất thẳng ra?
+6067bb2cd57e	Em kéo góc nhìn, xem một vòng qua năm công đoạn
+8e871d897dc4	Chế độ tham chiếu đang chạy: thu hồi bromine 84.2 %, bromine lỏng 54.7 kg/h
+0880d481f6fd	Bromine quá loãng (65 mg/L), cho bay hơi cả vùng nước biển là không thực tế; công nghiệp dùng chuỗi “oxi hoá – thổi khí – hấp thụ” để làm giàu bromine 255 lần trước, rồi mới chlorine hoá và chưng cất.
+07880aa0ca52	A3.1.1, A1.9, B2.1 dòng 1, B2.3
+f0df80026be4	Br⁻ trong nước biển chỉ có 65 mg/L, 1 m\xB3 nước biển chỉ chứa 65 g bromine.
+8d56b6cfb9fb	Toàn quy trình có hai lần chlorine hoá, một lần hấp thụ: số oxi hoá của bromine đi theo
+712a2b9efdcf	1 → 0.
+a04d41135438	Làm giàu xảy ra ở công đoạn hấp thụ (cô đặc 255 lần), không nhờ chưng cất.
+46e8f8743238	Bỏ bước làm giàu: 1 L bromine lỏng phải lấy từ 57 m\xB3 nước biển, chẳng khác gì chuyển đi chuyển lại hàng chục nghìn tấn nước.
+012fc24de56f	Trọng tâm thi: năm công đoạn khai thác bromine từ nước biển và thứ tự của chúng.
+e3f5b77fed3d	Br⁻ → Br₂ → HBr → Br₂ → bromine lỏng
+beb29ec22a81	Bốn bậc số oxi hoá: oxi hoá – thổi khí – hấp thụ – oxi hoá lại + chưng cất
+6258b24dac4d	Làm giàu 255 lần
+a90d4ce86bc7	Khí/nước 300:1
+654cd91a877f	Nước biển gần trung tính, vì sao nhất định phải acid hoá bằng sulfuric acid trước?
+69a0196c8053	Kéo pH acid hoá từ 3.5 lên 7 (coi như không thêm sulfuric acid)
+4321109760c1	Hiệu suất thổi 88.5 → 39.8 %, thu hồi 84.2 → 37.9 %, làm giàu 255 → 115 lần
+5074ca897741	Nước biển gần trung tính, Br₂ và Cl₂ đều tự oxi hoá – khử, mất bromine, phí chlorine; acid hoá tới pH 3.5 để bromine tồn tại dạng phân tử Br₂ thì mới thổi ra được.
+557ec4e6a02f	A4, R5, R6, B2.1 dòng 5
+5a7286da8062	Nước biển gần trung tính, Br₂ tự oxi hoá – khử trong môi trường kiềm: Br₂ + 2OH⁻ = Br⁻ + BrO⁻ + H₂O.
+1dd7e2a5fec5	Cl₂ trong môi trường kiềm cũng tự oxi hoá – khử, tức là phí chlorine.
+6ac06d059f40	Acid hoá tới pH 3.5, bromine tồn tại dạng phân tử Br₂ mới dễ bị không khí cuốn đi.
+6665db352ea2	Bỏ acid hoá: hiệu suất thổi tụt từ 88.5 % xuống 39.8 %.
+6a81dcd4bfcb	Trọng tâm thi: vì sao phải acid hoá trước rồi mới sục chlorine (kìm hãm tự oxi hoá – khử, giảm tiêu hao chlorine).
+242be5fe27ed	Xảy ra khi không thêm acid (cần tránh)
+dfad0639306d	Acid hoá bằng H₂SO₄
+f23ae138860d	Bước sục chlorine thực chất biến bromine thành gì?
+96487746c316	Kéo tỉ lệ Cl₂ từ 0.6 lên 1.1 (gấp 1.1 lần lượng lí thuyết)
+7b6bbf72342a	Hiệu suất oxi hoá 59.4 → 99.0 %, thu hồi 50.5 → 84.2 %, làm giàu 153 → 255 lần
+a12b424c1d09	Cl₂ có tính oxi hoá mạnh hơn Br₂ (trong nhóm halogen, tính phi kim giảm dần từ trên xuống), 2Br⁻ + Cl₂ = Br₂ + 2Cl⁻, Br từ
+00910d447ec9	1 tăng lên 0; sục chlorine gấp 1.1 lần lượng lí thuyết, dư sẽ làm bromine lỏng lẫn chlorine (độ tinh khiết 95.0 → 72.5 %).
+294ec1bef0e2	R1, A1.7, A2.1, B2.1 dòng 1/2/7
+33bdccf9a0d5	Cl₂ có tính oxi hoá mạnh hơn Br₂ (trong cùng nhóm, tính phi kim giảm dần từ trên xuống), nên oxi hoá được Br⁻.
+24cbc357c7f0	Br từ
+96dc4cc78ada	1 tăng lên 0, Cl từ 0 giảm xuống
+a82d771a3332	1, trao đổi 2 mol electron / mol Br₂.
+373893c869d6	Sục chlorine gấp 1.1 lần lượng lí thuyết; dư sẽ làm bromine lỏng lẫn chlorine, độ tinh khiết tụt xuống 72.5 %.
+a28db8c77b90	Bỏ oxi hoá: Br⁻ vẫn là Br⁻, bước sau cũng không thổi ra được gì.
+daddc390088a	Trọng tâm thi: phương trình ion 2Br⁻ + Cl₂ = Br₂ + 2Cl⁻, và “vì sao chlorine oxi hoá được ion bromide”.
+d7071f2de7cd	Nước biển đã acid hoá \xB7 Cl₂ dư 10 %
+eca2fa5bf1c8	Tỉ lệ Cl₂ 1.1
+324d1e0bfc86	Bromine đã tạo ra rồi, sao còn dùng lượng lớn không khí thổi nó đi?
+dd4492d92259	Nâng nhiệt độ không khí tháp thổi từ 40 ℃ lên 80 ℃, xem khí và lỏng tiếp xúc thế nào trong tháp đã cắt dọc
+26d877758140	Hiệu suất thổi 47.7 → 88.5 %, thu hồi 45.3 → 84.2 %
+cd6cfecd8f6c	Br₂ sôi ở chỉ 58.8 ℃, rất dễ bay hơi; nước biển được làm nóng tới 80 ℃, không khí đi từ dưới lên ngược chiều với tỉ lệ khí/nước 300:1, bromine chuyển từ pha lỏng sang pha khí. Nhiệt độ thấp thì không thổi ra được.
+158e2e884aa2	A3.2.1, A5.1, A4, B2.1 dòng 1/3
+6201045a8a7a	Br₂ sôi ở 58.8 ℃, là đơn chất phi kim duy nhất ở thể lỏng ở nhiệt độ thường, rất dễ bay hơi.
+e1f19f738761	Thổi khí là quá trình vật lí: bromine từ pha lỏng sang pha khí, số oxi hoá vẫn là 0.
+e80f203076d8	Làm nóng tới 80 ℃ + tỉ lệ khí/nước 300:1 ngược chiều, hiệu suất thổi mới đạt 88.5 %.
+52d5224e0ffd	Bỏ thổi khí: bromine nằm lại trong hàng chục nghìn tấn nước biển, bước làm giàu phía sau không thể thực hiện.
+223561d98eeb	Trọng tâm thi: thổi khí là biến đổi vật lí, và “vì sao phải đun nóng, vì sao lượng khí phải lớn”.
+cdb4d08fbdad	Br₂(dung dịch) → Br₂(g) (thổi bằng không khí)
+7cb7e14864ba	80 ℃ \xB7 khí/nước 300:1 \xB7 ngược chiều
+e17da09f8215	58.8 ℃ dễ bay hơi
+5138a4bdbccb	Hơi bromine thổi ra loãng như vậy, làm sao thành dung dịch đặc để chưng cất?
+68d6e1461524	Mở tháp hấp thụ SO₂ (xem hậu quả khi đóng trước)
+db8a599fc2b6	Thu hồi 0.0 → 84.2 %, độ làm giàu 0 → 255 lần
+e52e2938b3ca	Dùng dung dịch SO₂ khử và hấp thụ Br₂: Br₂ + SO₂ + 2H₂O = 2HBr + H₂SO₄ (Br 0→
+a3328fc7b22a	1, S +4→+6); dung dịch hấp thụ chỉ bằng 1/300 lượng nước biển, nồng độ bromine tăng 255 lần, bước này mới là “làm giàu”.
+67e0a456ae15	R2, A2.1, A5.2, B2.1 dòng 1/6
+63e30887535c	SO₂ là chất khử, khử Br₂ thành HBr tan vào nước.
+766651eabcd4	Br từ 0 giảm xuống
+209f08ed31ae	1, S từ +4 tăng lên +6, bảo toàn electron 2 mol e⁻ / mol Br₂.
+ff9d9bad5f1c	Dung dịch hấp thụ chỉ bằng 1/300 lượng nước biển, nồng độ bromine tăng 255 lần.
+16ba7e5227d4	Bỏ hấp thụ: bromine theo khí thải ra ngoài, thu hồi về 0, còn gây ô nhiễm không khí.
+608e614d4ac2	Trọng tâm thi: phương trình ở công đoạn hấp thụ, và “vì sao bước này gọi là làm giàu”.
+4165c378a9b8	Hấp thụ bằng dung dịch SO₂
+d7d3d90b6ca0	Dung dịch hấp thụ chứa HBr, làm sao biến lại thành bromine lỏng và thu lấy?
+5dc224957c1a	Cho chạy chlorine hoá lần hai và chưng cất (dung dịch hấp thụ → Br₂ → bromine lỏng)
+395880d64975	Sản lượng bromine lỏng 0.0 → 54.7 kg/h, độ tinh khiết 95.0 %
+4ea974a2641c	Sục chlorine lại vào dung dịch hấp thụ: 2HBr + Cl₂ = Br₂ + 2HCl (Br
+63250ec52c5e	1→0), rồi chưng cất (Br₂ sôi ở 58.8 ℃) tách khỏi H₂SO₄/nước được bromine lỏng; toàn quy trình theo lí thuyết tốn 2 mol Cl₂, 1 mol SO₂ cho mỗi mol Br₂.
+22e44ca6a0b6	R3, R4, A2.1, B2.1 dòng 1
+e9beaf8725ad	Chlorine hoá lần hai: Br từ
+532ab57d44ed	1 trở về 0, lại thu được Br₂.
+351c4e1f7120	Chưng cất tách nhờ chênh lệch nhiệt độ sôi: Br₂ 58.8 ℃, nước 100 ℃, H₂SO₄ khó bay hơi.
+ebc698cc12de	Tỉ lệ mol lí thuyết Cl₂ : SO₂ : Br₂ = 2 : 1 : 1, mỗi phản ứng trong ba công đoạn trao đổi 2 mol electron.
+76953ba44bd3	Bỏ chưng cất: chỉ có dung dịch hấp thụ, không lấy được sản phẩm.
+d3b177657c39	Trọng tâm thi: vai trò của chlorine hoá lần hai, và ứng dụng “nhiệt độ sôi của bromine thấp” trong tách chất.
+1e59b54c9050	2HBr + Cl₂ = Br₂ + 2HCl → chưng cất 58.8 ℃
+72c84a5424df	Chlorine hoá lần hai + chưng cất
+d40a91bd2fc0	Tỉ lệ mol 2 : 1
+7c1f9f4c40d5	Chưng cất 58.8 ℃
+fa71f0a3d0cd	Kiểm tra cuối bài: em làm trưởng ca
+0a3664125d2b	Đưa thu hồi bromine lên ≥ 78 %, độ tinh khiết ≥ 93 %, giữ trong 15 s
+a92f0d6232ec	Đạt thì hiện băng rôn; vượt ngưỡng thì chạy “đếm ngược 3 giây → sự cố → xem lại”
+097667158692	Đặt điều kiện mỗi bước vào trong khoảng: pH 3.5, tỉ lệ Cl₂ 1.05, thổi 85 ℃, khí/nước 350.
+81e213621d43	B2.2, B2.1 dòng 10
+b3b054f10a7e	Hiệu suất thu hồi = oxi hoá \xD7 thổi khí \xD7 hấp thụ \xD7 chưng cất, một khâu tụt là cả chuỗi tụt.
+d623b2908c9b	Độ tinh khiết do tỉ lệ Cl₂ quyết định: dư chlorine thì bromine lẫn chlorine.
+568df525f4a8	Nhiệt độ, tỉ lệ khí/nước, pH ràng buộc lẫn nhau, phải lo cùng lúc.
+5042ddba6eb4	Bỏ bất kì công đoạn nào: hoặc không có sản phẩm, hoặc sản phẩm không đạt.
+dbe6b6aee878	Trọng tâm thi: đánh giá tổng hợp một phương án khai thác bromine (thu hồi, độ tinh khiết, tiêu hao chlorine).
+a18e713a9f1f	Thu hồi =
+bdfa7a2191c7	Oxi hoá \xD7
+d700cb12f9d1	Thổi \xD7
+daa0d35613a4	Hấp thụ \xD7
+9b98fffce075	Ngưỡng đạt 78 % \xB7 tinh khiết 93 %
+bbd3d17f86a8	Thu hồi ≥ 78 %
+39bed3ece2e5	Tinh khiết ≥ 93 %
+a47e573c78f5	Dung dịch SO₂
+aefcb6a413ff	Bồn bromine lỏng
+9cf34d785326	Sulfuric acid
+bf480c8bf722	Hấp thụ bằng kiềm
+9fd105907305	Ống khói khí thải
+aa5dc0e38190	Thu hồi bromine
+7c567f002de2	% \xB7 ngưỡng đạt 78 %
+17a6cfd31103	Hiệu suất thổi
+00fed23dd1a9	Độ làm giàu
+a1f58208a2e2	lần
+d85c619931f3	Sản lượng bromine lỏng
+b454e589b77c	Độ tinh khiết bromine
+6e819c810730	% minh hoạ
+295cdda2afa4	Chế độ vận hành
+c071c0f2c31f	pH acid hoá
+680eefbd3efe	Tỉ lệ Cl₂
+9cac371ee337	Nhiệt độ thổi
+d52a2ddac08b	Tỉ lệ khí/nước
+a94a7f5f484f	Hấp thụ SO₂
+2a937536164c	Đang chạy
+5ede350c71fb	Đã ngắt
+43ab17ff771a	Tháp hấp thụ đang chạy: bromine bị SO₂ khử và hấp thụ, bắt đầu làm giàu
+ca8c5a56b21d	Tháp hấp thụ đã ngắt: bromine theo khí thải ra ngoài
+94e6a34c0a58	Đã dừng
+f9b8e10cb54b	Chlorine hoá lần hai và chưng cất đang chạy: dung dịch hấp thụ thành bromine lỏng
+1b259f36153c	Chưng cất đã dừng: chỉ có dung dịch hấp thụ, không lấy được bromine lỏng
+8fcd7edde059	Hiệu suất thổi – nhiệt độ không khí tháp thổi
+e77e774b113a	— Hiệu suất thổi \xB7
+15284fefae51	Chế độ hiện tại \xB7 khoảng đặt 70–90 ℃
+662774b661fd	Rủi ro công nghệ
+4149cdc79c71	Dư chlorine / ngắt hấp thụ / acid hoá thiếu
+70146b621315	Ngắt hấp thụ
+907cfc1e1478	Dư chlorine
+3a0f6b0f125c	Acid hoá thiếu
+502b4f284e34	Thổi khí thấp
+c2b657130088	Nhiệt độ tháp thổi tụt đột ngột, hiệu suất thổi giảm: hãy chỉnh nhiệt độ về lại
+6733586239b0	Mục tiêu ca này
+511694de372c	Thu hồi ≥ 78 % và tinh khiết ≥ 93 %, giữ 15 s
+efd401ff7a36	≥78 % \xB7 tinh khiết ≥ 93 %
+4fc338f5e501	Chlorine dư nghiêm trọng: bromine lẫn chlorine, phải dừng thiết bị
+57d5ecbdc1fb	Trước khi khai thác bromine từ nước biển phải acid hoá bằng sulfuric acid, mục đích chính là
+76346a3de1e8	Giúp chlorine tan nhanh hơn
+7cd304e3ec74	Kìm hãm Br₂ và Cl₂ tự oxi hoá – khử
+4065220ab9c1	Oxi hoá trực tiếp Br⁻ thành Br₂
+4920868c1be6	Biến bromine thành ion
+e39c55502b41	Trong môi trường gần trung tính/kiềm yếu, Br₂ và Cl₂ đều tự oxi hoá – khử; acid hoá tới pH 3.5 mới giữ được bromine ở dạng phân tử Br₂ để thổi ra.
+0930182757ca	Sau khi sục chlorine, số oxi hoá của nguyên tố bromine
+2b86dd4507bc	Từ
+cdeba8d5f24a	1 tăng lên 0
+e0d3fdfb88ea	Từ 0 giảm xuống
+2678a5564b7d	1 tăng lên +5
+1cb0516068f2	2Br⁻ + Cl₂ = Br₂ + 2Cl⁻: Br từ
+6616a58f92b6	Bước thổi bromine bằng không khí thuộc loại
+06aa2b233475	Phản ứng oxi hoá – khử
+5bc1b0471fa6	Biến đổi vật lí
+5af520706502	Phản ứng trao đổi
+2c7294c2611c	Phản ứng thuỷ phân
+96c9c074f17d	Bromine từ pha lỏng sang pha khí, số oxi hoá không đổi, là quá trình vật lí; nhờ Br₂ sôi ở chỉ 58.8 ℃.
+2b519e520fbd	Ở công đoạn hấp thụ, SO₂ đóng vai trò
+5bbeb49b485a	Chất oxi hoá
+79512dfdf046	Chất khử
+6ff768135055	Chất xúc tác
+063890da3095	Không tham gia phản ứng
+c1946a66ed1d	Br₂ + SO₂ + 2H₂O = 2HBr + H₂SO₄: S từ +4 tăng lên +6, SO₂ là chất khử.
+ce92726289c2	“Làm giàu” chủ yếu xảy ra ở công đoạn nào?
+6c6350224737	Thổi khí + hấp thụ
+4a65eb64a3b3	Thổi khí chuyển bromine từ lượng lớn nước biển vào không khí, hấp thụ lại chuyển bromine vào một ít dung dịch SO₂, nồng độ tăng 255 lần.
+2aa118d43496	Cuối cùng tách bromine lỏng bằng chưng cất, dựa vào
+5e15d199c1d4	Bromine có khối lượng riêng lớn
+3376810de2fb	Bromine có nhiệt độ sôi thấp (58.8 ℃)
+ee56de9fcec6	Bromine không tan trong nước
+2609ae6c96b3	Bromine có màu
+314d6dd6252b	Br₂ sôi ở 58.8 ℃, thấp hơn nhiều so với nước, khi đun sẽ hoá hơi trước, ngưng tụ là được bromine lỏng.
+795ccbb682b9	Dư chlorine: bromine lỏng lẫn chlorine
+27d781d8133b	Tỉ lệ Cl₂ vượt 1.7
+58c194e783f5	Sục chlorine gấp 1.85 lần lượng lí thuyết
+69ed7c72c301	Cl₂ dư tan vào pha bromine
+357eab369e65	Tạo BrCl…, nhiệt độ sôi gần Br₂
+ac8f86fdf156	Chưng cất không tách được
+f5d94ef1dd9e	Độ tinh khiết bromine lỏng tụt dưới 72.5 %
+2bc946a9b57b	Sản phẩm không đạt
+8d11c16186c5	Phải tinh chế lại
+e87e9a6ba356	Sục chlorine gấp 1.05–1.2 lần lượng lí thuyết, giám sát trực tuyến bằng máy đo chlorine dư
+71877b44a7f7	Đặt cảnh báo chlorine dư ở cửa ra tháp oxi hoá, vượt ngưỡng tự giảm lượng
+7033b3f9e496	Đo trực tuyến độ tinh khiết bromine lỏng, không đạt thì hồi lưu chưng cất lại
+c811cc6ae511	Chlorine không phải càng nhiều càng tốt: chlorine dư vừa phí nguyên liệu, vừa đưa tạp chất vào sản phẩm.
+159a4caf0078	Xoay, thu phóng cảnh
+445dd83d4281	Mục tiêu: thu hồi bromine trong 1000 m\xB3/h nước biển thành bromine lỏng đạt chuẩn (thu hồi ≥ 78 %, tinh khiết ≥ 93 %).
+53f6fdb7e7e2	Đã về chế độ tham chiếu: pH 3.5, tỉ lệ Cl₂ 1.10, thổi 80 ℃, khí/nước 300, hấp thụ và chưng cất đang chạy
+306120e0a8d3	Đạt! Thu hồi bromine và độ tinh khiết đều trên ngưỡng mục tiêu
+dd5446e32ee3	Sửa chữa xong, chế độ vận hành đã về giá trị tham chiếu
+971aa569c569	Lưu ý minh hoạ: hình dáng thiết bị, bố trí nhà máy và một số thông số công nghệ là minh hoạ dạy học; ống dẫn bromine vẽ trong suốt để thấy vật liệu bên trong; số liệu lấy theo bảng dữ kiện (SGK + giá trị đặt cho bài).
+a6f2f7bcc0c2	Phím tắt ← → chuyển bước \xB7 Q kiểm tra \xB7 Space chạy/dừng máy \xB7 F toàn màn hình
+a62a85f172eb	Công đoạn
+49cf8725a16b	Toàn thể \xB7 dây chuyền khai thác bromine 5 công đoạn
+37009383c8ba	Thân bể (có độ dày thành)
+39dd995d3551	Nắp trên và đáy
+679cd6f2fc5f	Máy khuấy (trục + hai tầng cánh)
+1d7fdff03000	Bốn tấm chắn dòng
+ee3a078aade2	Hộp giảm tốc và động cơ khuấy
+90e7c9dc88cc	Cửa vào nước biển N1
+2ac6e1b58a30	Cửa ra dung dịch acid hoá N2
+3ef8846c8d5d	Cửa xả N4
+291ec53460b3	Vành móng và bu lông neo
+9d6937d91c76	Chân váy đỡ
+10a0087aa81e	Thang leo và lồng bảo vệ
+da2b669c146f	Sàn thao tác và lan can

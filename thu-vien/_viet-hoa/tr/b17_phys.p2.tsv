@@ -1,0 +1,229 @@
+cda59acb8ca0	Hay thi: chiều từ trường ở tâm dòng điện tròn xác định bằng quy tắc nắm tay phải (nắm vòng dây) (A7.6).
+528f582fe48e	Chồng nhiều vòng
+029473eb521c	Đổi một vòng thành mười vòng, từ trường ở giữa tăng mấy lần?
+8240dd000037	Gạt cuộn dây sang 10 vòng
+77d0052a0e4e	Số đọc ở tâm 25.1 → 251 μT (so với mức tham chiếu 1.00 → 10.00); hình dạng đường sức từ không đổi chút nào, chỉ mau hơn và sáng hơn
+a09040e04769	Nguyên văn SGK A4.5 “ống dây có dòng điện có thể xem như gồm nhiều vòng dòng điện tròn mắc nối tiếp”: đóng góp của mỗi vòng vào tâm cộng cùng chiều, nên B tỉ lệ thuận với số vòng (B₀ = μ0NI/(2R), mức mở rộng), còn hình dạng đường sức từ không đổi.
+416f71b8a7cd	A4.5, A2.11, B2.1 mục 2, 6
+0a31f6262081	Mở rộng \xB7 1 → 10 vòng
+d143331cf50f	Hình dạng không đổi
+9590a3776d55	Nhiều vòng = nhiều vòng đơn mắc nối tiếp, đóng góp của mỗi vòng cùng chiều.
+3a8e8d737d86	B ∝ N: 1 → 10 vòng, 25.1 → 251 μT.
+b1a082ff99cd	Hình dạng không đổi, chỉ độ mau thưa đổi — mạnh yếu đổi, hình học không đổi.
+0dcb5be90b85	Bỏ bước này: học sinh lẫn lộn “số vòng” với “hình dạng”, tưởng quấn thêm vài vòng thì đường sức từ biến dạng.
+3bdbd98556ed	Hay thi: số vòng gấp đôi, dòng điện không đổi thì B ở tâm gấp đôi.
+a6fd4f42cbb5	Suy giảm dọc trục
+50ca84cb6831	Đi dọc trục ra ngoài, từ trường yếu dần thế nào?
+a210f0c5f268	Kéo điểm dò dọc trục đến z = 5.0 cm (đúng bằng bán kính vòng)
+fd13341b86b7	Số đọc 25.1 → 8.89 μT (so với mức tham chiếu 0.35): tại z = R chỉ còn 0.354 lần giá trị ở tâm; số đọc chiều vẫn là “về phía đầu +x”, mũi tên chỉ ngắn lại
+63fd8e2fa4f2	Trên trục, B tại mọi điểm
+c08394c70996	(cùng một chiều, chỉ yếu đi): B(z) = B₀/(1+(z/R)\xB2)^
+e55298c4f058	. Tại z = R hệ số là 0.354 (25.13 → 8.89 μT), tại z = 2R chỉ còn 0.089 lần.
+4286cec4d172	A2.11, A5.2, B2.1 mục 3, B3-D3
+edad4eb54b1d	Mở rộng \xB7 R = 5.0 cm
+0e604f2e57c5	Chiều không đổi
+ce418d665eb7	Trên trục, B tại mọi điểm đều dọc trục: chiều không đổi, chỉ yếu đi.
+f95d64129509	Tại z = R còn 0.354 lần: 25.13 → 8.89 μT.
+c466dad9b5b5	Tại z = 2R chỉ còn 0.089 lần (2.25 μT).
+7ce9ca8a991e	Bỏ bước này: học sinh tưởng “ra khỏi vòng dây là hết từ trường”.
+5e61cb999bf7	Hay thi: từ chiều dòng điện suy ra chiều từ trường tại các điểm trên trục (A7.14
+8befd627337d	Bên trong đều
+b8bfb5476306	Vì sao bên trong ống dây từ trường gần như đều? Ra ngoài miệng ống thì yếu đến mức nào?
+c5feebc4299e	Kéo điểm dò đến miệng ống z = 6.0 cm, rồi kéo đến 10.0 cm để xem bên ngoài ống
+5d6274f337ba	Ở tâm 8128 μT, tại miệng ống z = 6.0 cm khoảng 4160 μT (lí thuyết 4156, khoảng một nửa), ngoài ống 10.0 cm chỉ còn 248 μT; bên trong đường sức từ gần như song song cách đều, gần miệng ống thưa nhanh; cực N ở đầu +x
+1d6508679109	SGK A2.8 + A2.15 + câu 6 luyện tập: từ trường bên ngoài ống dây có dòng điện rất giống của nam châm thẳng, bên trong gần như đều (đường sức từ là các đường thẳng song song cách đều); bên trong đường sức từ đi từ cực S sang cực N, nên chiều ngón cái (đầu +x) chính là cực N. Tại miệng ống chỉ còn một nửa số vòng đóng góp, nên khoảng bằng một nửa bên trong (0.51).
+f9c8aa77d85d	A2.8, A2.15, A5.3, A7.7, A7.9, A7.14
+916efcca8ac8	, B2.1 mục 4
+12492a853ba7	B trong = μ0 n I (n = N/L)
+edf7a73b3abc	Mở rộng \xB7 400 vòng \xB7 L = 12.0 cm
+8aab594c80f2	Bên trong gần như đều
+18c7940588dc	Miệng ống ≈ một nửa
+9481d8a3b617	Bên trong gần như đều: đường sức từ song song, cách đều (tiêu chí từ trường đều ở bài 2 SGK).
+bd8ad72ec001	Ở tâm 8128 μT, miệng ống 4156 μT (0.51 lần), ngoài ống 10.0 cm chỉ còn 248 μT.
+f10fa10a41f3	Bên trong đường sức từ đi từ cực S sang cực N, chiều ngón cái (đầu +x) chính là cực N — bên ngoài rất giống nam châm thẳng.
+97b05b7c6c0c	Bỏ bước này: “bên trong đều” và “bên ngoài giống nam châm thẳng” thành hai câu chẳng liên quan gì nhau.
+8327819b7004	Chắc chắn thi (câu 6 luyện tập SGK): bên trong mạnh hơn ngoài miệng ống, căn cứ vào độ mau thưa của đường sức từ.
+7391a36bfa9e	Kiểm tra cuối bài \xB7 tìm miệng ống
+42d77ab247ba	Kiểm tra cuối bài: tìm trên ống dây vị trí có số đọc đúng bằng một nửa bên trong
+acde1d43a679	Kéo điểm dò từ tâm ra ngoài, để số đọc rơi vào khoảng 4160 μT (một nửa của 8128 bên trong), giữ 10 s
+14d46b0d90b4	Khi số đọc giảm còn khoảng 4160 μT (lí thuyết 4156) thì z = 6.0 cm, đúng ở miệng ống; số đọc chiều vẫn là “hướng về cực N (đầu +x)”
+3bbe25df7b29	Kiểm tra cuối bài không có kết luận mới: vị trí nửa giá trị chính là miệng ống — ba điều “bên trong đều, miệng ống một nửa, bên ngoài giống nam châm thẳng” hợp lại trên cùng một thiết bị; xét mạnh yếu luôn quay về độ mau thưa của đường sức từ (câu 6 luyện tập SGK).
+bf087e1575f9	B2.1 mục 4, A5.3, A7.14
+8af63af0fa09	B(miệng ống) / B(tâm) = 0.51
+4aba4d37b775	Giá trị đặt cho bài \xB7 miệng ống z = 6.0 cm
+58f00051b808	Mục tiêu 4160 μT
+bcd111d6897c	Trước hết cố định dòng điện ở 2.0 A: B ∝ I, dòng điện đổi thì mốc cũng đổi.
+f183ae46cedd	Một nửa số đọc 8128 μT ở tâm là 4156 μT.
+e90a36123992	Khi số đọc giảm còn một nửa thì z = 6.0 cm — đúng ở miệng ống, ra xa nữa thì suy giảm nhanh.
+d6c39b1b0911	Không có kết luận mới: dùng tám bước trước trên cùng một thiết bị là đủ.
+5b6c2d954cbe	Cách trả lời trọn điểm trong bài thi: đường sức từ bên trong mau hơn → bên trong mạnh hơn; cực N = đầu mà từ trường bên trong hướng tới.
+378e52562a5c	Các vòng tròn đồng tâm đều nằm trong mặt phẳng vuông góc với dây dẫn
+f12a88833e12	Miệng ống z = 6.0 cm
+81c8abef2c00	Cực N (đầu +x)
+d99728319ef0	Minh hoạ tay phải: ngón cái theo dòng điện / bốn ngón theo đường sức
+ecd0ddd70afe	Điểm dò
+2d46a0486b5f	Trục vòng dây (đầu +x)
+6d0ff72d982f	400 vòng \xB7 L = 12.0 cm
+8b7b048916aa	Điểm dò r =
+03178f3f6182	Điểm dò z =
+a2cd5694b581	Tay phải nắm dây: ngón cái theo dòng điện, bốn ngón theo đường sức
+615a48e55885	Tay phải nắm vòng dây: bốn ngón theo dòng điện, ngón cái theo trục
+f6a30f7fe3f3	Phân bố mạt sắt chỉ là minh hoạ (biểu diễn thật cần dòng điện lớn)
+39c6bf311a67	vòng
+a67bb5a20ae7	Cảm ứng từ B
+3bd410512730	So với tham chiếu
+444ca1094b25	So với từ trường Trái Đất
+def984b61e23	Chiều từ trường
+e5e97ecedc13	μT \xB7 mức mở rộng
+a1049f8c7977	B / tham chiếu
+1a8c04461a11	Nhìn từ trên
+08fb82673855	Đầu +x
+215b76b3f14d	x
+9d82da43dc32	Đầu cực N
+a9ce478e9f9c	Đầu cực S
+f0652e71c331	Không có từ trường
+a3bbf08dd751	Dòng điện I
+997afbee1b22	Khoảng cách dò r
+b104ebaa0f8b	Vị trí trên trục z
+11138da7823b	Số vòng dây
+82cd92729385	Mạt sắt
+54cb499390f3	Đã rắc mạt sắt
+ceed6ccf1277	Chưa rắc
+8c853f707a37	B thay đổi theo vị trí
+b30e3f20f396	Có dòng điện
+f19ab263f43f	Hở mạch
+8586454cc0b1	Đường sức từ quanh dây dẫn thẳng có dòng điện là
+3fd06e8c5a0a	Các đường thẳng từ dây dẫn hướng ra theo bán kính
+d56be4e87511	Các vòng tròn đồng tâm trong mặt phẳng vuông góc với dây dẫn
+83c7debf81ce	Các đường cong đi từ cực N đến cực S
+d53fb4d60bc6	Các đường thẳng dọc theo dây dẫn
+d33f21d652b1	SGK tr. 106: đường sức từ của dòng điện thẳng là những vòng tròn đồng tâm, các vòng tròn này đều nằm trong mặt phẳng vuông góc với dây dẫn.
+8442f2dcb43d	Đảo chiều dòng điện
+b10b49d13847	Chỉ đảo chiều dòng điện trong dây dẫn thẳng, điều nào sau đây thay đổi?
+cbab711d4629	Độ lớn cảm ứng từ
+46fa2b4553e2	Hình dạng đường sức từ
+b0516e74c9e2	Chiều từ trường tại mỗi điểm
+1279abd59fc8	Không điều nào thay đổi
+59b70c00cda2	SGK tr. 106: đổi chiều dòng điện thì chiều từ trường tại mọi điểm đều đổi ngược lại; độ lớn và hình dạng không đổi (B
+fb1a14bd3865	Kim nam châm trong vòng
+695f136050b7	Trong vòng dây có dòng điện chạy ngược chiều kim đồng hồ (nhìn từ trên xuống), kim nam châm nhỏ trong vòng khi đứng yên có cực N chỉ
+e38024412084	Dọc trục hướng lên (về phía em)
+f8da19c4a2ec	Dọc trục hướng xuống
+bff3d5c46db1	Hướng ra theo bán kính
+08bd103bd988	Không có chiều xác định
+47aaab5bf16b	Tay phải nắm vòng dây: bốn ngón theo dòng điện ngược chiều kim đồng hồ, ngón cái dọc trục chỉ về phía em — cách xét ở câu 5 luyện tập SGK (A7.14
+28c10b25801c	Suy ngược dòng điện
+2162988eddb0	Kim nam châm nhỏ cạnh dây dẫn thẳng có dòng điện bị lệch cực N xuống dưới, nhìn từ trên đường sức từ là vòng tròn cùng chiều kim đồng hồ, vậy chiều dòng điện trong dây dẫn là
+94392d529d16	Hướng lên (+z)
+c020044dbc0d	Hướng xuống (
+61cc75e7e9bc	z)
+0546c5be3e87	Vòng theo đường tròn
+8e51253abfdd	Tay phải nắm dây dẫn: chiều vòng cùng chiều kim đồng hồ khi nhìn từ trên ứng với ngón cái hướng xuống, tức dòng điện theo chiều
+7586a4de6759	z (cách suy ngược ở câu 4 luyện tập SGK, A7.14
+769ed9c62f96	Bên trong vs miệng ống
+443015d425fe	So sánh bên trong ống dây có dòng điện với bên ngoài miệng ống, chỗ nào từ trường mạnh hơn? Căn cứ vào đâu?
+84769bc50ec5	Ngoài miệng ống mạnh hơn, vì gần cuộn dây
+be421dbc2044	Bên trong mạnh hơn, vì đường sức từ bên trong mau hơn
+632e76a1b5cc	Hai chỗ mạnh như nhau
+c96360e88c4c	Không so sánh được
+fbbb9f1da561	Câu 6 luyện tập SGK: bên trong đường sức từ mau, gần miệng ống thưa nhanh, độ mau thưa biểu thị mạnh yếu (số đọc trong bài là 8128 μT so với 4156 μT).
+27cf78c27adc	Từ trường Trái Đất
+c6fd070979dd	Ampère giả thuyết từ trường Trái Đất do dòng điện tròn chạy vòng quanh tâm Trái Đất gây ra; nhìn từ trên cực Bắc địa lí xuống, chiều dòng điện này phải là
+cb89bc7d8e68	Dọc kinh tuyến về phía bắc
+329b024b333d	Không xác định được
+573128ddcb6b	Cực N địa từ nằm gần cực Nam địa lí; theo quy tắc nắm tay phải với vòng dây (ngón cái theo chiều từ trường bên trong), nhìn từ trên cực Bắc xuống thì dòng điện cùng chiều kim đồng hồ (cách xét ở câu 7 luyện tập SGK, A7.14
+3dadcb3d4b96	Tạm dừng / tiếp tục
+e8d27b133638	Vẽ từ trường ra và xác định đúng chiều tại từng điểm của nó.
+db6c2b83eb27	Lưu ý minh hoạ: hình dáng thiết bị, số đường sức từ và phân bố mạt sắt là minh hoạ dạy học; số đọc μT tính theo định luật Biot–Savart (mức mở rộng, SGK bắt buộc tập 3 không có μ0); không dùng kim nam châm nhỏ — với 2.0 A, 2.0 cm thì dây thẳng chỉ có 20 μT, bằng khoảng 0.40 lần giá trị trung bình 50 μT của từ trường Trái Đất (SGK tr. 110), kim nam châm thật sẽ bị từ trường Trái Đất lấn át.
+b9aea0c9f19a	Phím tắt ← → chuyển bước \xB7 Q kiểm tra \xB7 phím cách tạm dừng \xB7 Esc bảng điều khiển \xB7 F toàn màn hình
+d8d5174b9524	Toàn cảnh \xB7 ba dụng cụ mắc nối tiếp trong cùng một mạch
+39e81aa22648	(hiện tại ${e})
+ff20f02759e0	centerZeroMeter: ${ut}=${Ft} phải là bội nguyên của minor=${e}
+8a6d73d105fb	centerZeroMeter: range / minor = ${i/e}, vạch chia quá dày (mỗi bên ≤ 80 ô nhỏ), hãy tăng minor
+6d88bfac6d18	Ngược chiều 5
+7d8f5dce56e6	0 hở mạch
+cdcca0b0e325	Thuận chiều 5
+a2fd3f0abbce	1 vòng
+84401b2b006b	2 vòng
+5ebd866b315e	5 vòng
+5f7839715965	10 vòng
+d229d62dcf72	Kiểm tra cuối bài \xB7 tìm miệng ống
+de0e2a72ab11	Kéo điểm dò ra ngoài, số đọc giảm còn một nửa thì dừng
+70117cadd49e	Từ trường của dòng điện · Bài giảng tương tác 3D
+1f4825c93d24	C.steps[${U}].cam.pitch=${k.cam.pitch}\xB0 không nằm trong CAMERA.polar ${p.polar[0]}–${p.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+51527bb5288a	${k.unitOf} bước ${ct.no}:
+0046750066ce	Đo suất điện động và điện trở trong của nguồn điện
+b999a126e4a1	SGK bắt buộc tập 3 \xB7 chương 12, bài 3 (bản in tr. 89–92)
+7674ee66f4f4	Ir (tung độ gốc là E, độ lớn hệ số góc là r)
+82c9771a779a	Suất điện động và điện trở trong của một pin khô cũ, làm sao “đo” được bằng một vôn kế, một ampe kế và một biến trở con chạy? Đổi cách mắc khác thì kết quả đo có còn như cũ không?
+535ca84a9b9a	Đóng khoá, con chạy đặt trước ở vị trí điện trở lớn nhất, trong mạch có dòng điện: I nhỏ nhất, U lớn nhất
+6ae40c69ef94	Mỗi cặp U, I đều thoả mãn U = E
+32e819bcc7ba	Ir: I càng lớn thì U càng nhỏ
+a7b23fabc158	Đo nhiều lần
+c594d230436e	Con chạy giảm từ 20.0 Ω xuống 2.0 Ω, ghi 5 lượt (cùng cỡ với bảng 1 SGK)
+251f230648e7	Vẽ đồ thị
+02045800e090	Đường thẳng U-I: tung độ gốc = E, độ lớn hệ số góc = r; hai cách đọc đồ thị cho cùng một r
+ca323052d837	Đồng hồ đo có điện trở trong, cách mắc quyết định E đo, r đo lớn hơn hay nhỏ hơn
+57b4c9b0cb11	Một pin khô cũ, khoá một cực, thẻ sơ đồ mạch
+ba7e415a4804	Hai đồng hồ đo
+1311499e2093	Vôn kế mắc qua hai đầu pin và khoá, ampe kế mắc nối tiếp ở nhánh biến trở
+b4d6add2952d	Biến trở con chạy
+3a4a3cc927d9	Biến trở
+f80e3bea6076	Biến trở dây quấn trên ống sứ, vị trí con chạy chính là điện trở R mắc vào mạch
+749b4c60b94f	Bảng ghi và đồ thị U-I
+441ec79c53fe	Bảng ghi
+42c20cae0043	Bảng ghi, điểm số liệu và đường thẳng khớp (tung độ gốc E, hệ số góc r)
+8e3f965c2057	Pin khô (một viên)
+d3240b06240d	Khoá K
+3c5060f34f94	Vôn kế 0~3 V
+f5cded0c75bd	Ampe kế 0~0.6 A
+f683295fe5e1	Con chạy (đầu trái đến con chạy = điện trở R mắc vào mạch)
+a48cf40a19f9	Phạm vi mắc vôn kế
+4ebcd0e9d13e	Cách mắc SGK hình 12.3-1
+158f88992921	Cách mắc đối chứng (ampe kế mắc trong)
+0ac77cf4a3d2	E đo
+f371ea60cd1c	r đo
+ef56e8a385fd	I ngắn mạch
+075da063a844	Màu xám = chế độ khác (không tính vào đường khớp)
+a4f86d9059c4	Trục tung bắt đầu từ 1.10 V (không phải từ 0)
+186300198bf4	Trục tung bắt đầu từ 0
+5b1c14e7258b	0~20 Ω
+20a149822468	Làm quen cách mắc
+3306ee0ec907	Trên bàn có những gì? Mạch điện ở hình 12.3-1 SGK mắc thế nào?
+8b9a5176cf94	Kéo góc nhìn đi một vòng quanh bàn thí nghiệm: lần theo dây dẫn hết một vòng “pin → khoá → ampe kế → biến trở → về pin”
+193c1daeff59	Vôn kế thang đo 0~3 V, ampe kế 0~0.6 A, biến trở 0~20 Ω; khi khoá mở hai đồng hồ đều chỉ 0.00 (U = 0.00 V, I = 0.00 A, kim đều ở vạch 0); con chạy ở 8.0 Ω (khoảng giữa).
+6ac63f863543	Vôn kế mắc vào hai đầu “pin + khoá”, ampe kế mắc nối tiếp trong nhánh “biến trở” (hình 12.3-1 SGK); biến trở dùng để hạn chế dòng, chỉ nối hai chốt là một đầu + con chạy. Khi khoá mở vôn kế chỉ 0.00 V, không phải chỉ E — E phải ngoại suy từ tung độ gốc của đường thẳng U-I.
+72fbd54950bd	Dữ kiện A6.1–A6.7, A3.1, A3.2, B2.1 mục 0; hình 12.3-1 (tr. 89), hình 12.3-4 (tr. 92)
+1f987e9eb6d7	Vôn kế mắc qua “pin + khoá”, khoá nằm trong phạm vi mắc của nó — đó chính là cách mắc ở hình 12.3-1.
+59b9d27dfb7d	Ampe kế mắc nối tiếp trong nhánh “ampe kế + biến trở”, biến trở dùng để hạn chế dòng (chỉ dùng hai chốt là một đầu + con chạy).
+2c308171a2b0	Khi khoá mở vôn kế chỉ 0.00 V, không phải chỉ E (hay thi).
+96d4f46f2f6c	Bỏ bước này: học sinh không biết đồng hồ nào đo đoạn nào, còn tưởng “khoá mở mà đồng hồ chỉ 0” là đồng hồ hỏng.
+20628d8222b1	Nhận biết dụng cụ và mắc mạch là năng lực đầu tiên của thí nghiệm bắt buộc 12 (chuẩn chương trình tr. 42); biết đọc thang đo của đồng hồ kim hai thang đo.
+fc7170d2b80d	E = U + Ir (công thức 1 SGK, tr. 89)
+e13e34151029	0~3 V \xB7 0~0.6 A \xB7 0~20 Ω \xB7 khoá mở \xB7 R 8.0 Ω
+cd7f58b38cb7	Hình 12.3-1
+0161922c9934	Cách mắc SGK
+5437c760c25f	Khoá mở chỉ 0.00
+258399dccc60	Trước hết để lớn nhất
+7cd485371dda	Vì sao SGK mắc mạch trước, chỉnh điện trở về khá lớn, cuối cùng mới đóng khoá?
+944cdffa6c3a	Kéo con chạy đến 20.0 Ω trước, rồi mới đóng cầu dao
+8fe8befc420b	Con chạy ở 20.0 Ω, khoá đóng (hình 12.3-1 SGK + bước 1, 2 phương án tham khảo 1 tr. 91): U = 1.46 V, I = 0.07 A (hàng 1 bảng 1, đồng hồ lí tưởng); dòng ngắn mạch E/r = 2.50 A, gấp 4 lần thang đo 0.6 A của ampe kế.
+ab5586922157	Thứ tự thao tác của SGK: mắc mạch theo hình, chỉnh điện trở về khá lớn, rồi đóng khoá, giảm dần (tr. 91); lí do là “tuyệt đối không được dùng dây dẫn nối trực tiếp hai cực của nguồn điện” (tr. 87) — khi R nhỏ đến 0 thì dòng ngắn mạch 2.50 A, đồng hồ sẽ vượt kịch thang, nguồn sẽ nóng lên.
+4a15720de7ba	Dữ kiện A3.2 bước 1, 2, A2.15, A2.11, B1.1; hàng 1 bảng 1; hình 12.3-1 (tr. 89)
+3c47984fa056	Thứ tự là điểm thi: mắc mạch → con chạy về lớn nhất → đóng khoá → giảm dần.
+0ff8d0c6b455	R càng nhỏ thì I càng lớn, U càng nhỏ, hai số đọc phải đọc cùng lúc.
+807b67b497fd	R không được về 0: dòng ngắn mạch 2.50 A gấp 4 lần thang đo, tr. 87 cấm nối tắt.
+6bee4bfd9bcf	Bỏ bước này: học sinh đóng khoá trước rồi mới chỉnh con chạy, lượt đọc đầu tiên đã là điện trở nhỏ dòng lớn, thậm chí kịch kim.
+48c191f0d227	Chắc chắn thi: vì sao phải chỉnh điện trở về lớn nhất trước; vì sao dòng ngắn mạch nguy hiểm.
+5ac97c0aae9b	R 20.0 Ω \xB7 U 1.46 V \xB7 I 0.07 A \xB7 ngắn mạch 2.50 A
+e6dd5cc70654	Con chạy về lớn nhất trước
+37d3f73af515	Rồi mới đóng khoá
+d2e15d9f38ca	Đồng hồ lí tưởng
+d4cb1ab06055	Đo thêm vài lượt
+4c26444990f3	Vì sao không được chỉ đọc một lượt? Con chạy giảm dần từ lớn xuống nhỏ thì hai đồng hồ thay đổi thế nào?
+1c0303f7f822	Giảm con chạy lần lượt 20.0 → 14.0 → 10.0 → 6.0 → 2.0 Ω, mỗi nấc bấm “ghi một lượt” một lần
+df3291ad192a	Năm lượt ghi (hình 12.3-1 + bước 3 tr. 91): (0.07 A, 1.46 V), (0.10, 1.44), (0.14, 1.42), (0.23, 1.36), (0.58, 1.15) (bảng 1); I càng lớn thì U càng nhỏ; khi con chạy đến 2.0 Ω có nhắc “chỉnh xuống nữa là gần ngắn mạch, dòng ngắn mạch tới 2.50 A”.
+f0edf5e77e8d	Chỉ đo hai lượt thì “trông có vẻ đơn giản nhưng sai số có thể khá lớn; chỉ có đo nhiều lần và xử lí số liệu mới giảm được sai số” (tr. 89) — vì vậy dùng biến trở con chạy để thay đổi điện trở mạch ngoài, đo nhiều lượt. U giảm khi I tăng là vì độ giảm điện thế Ir trên điện trở trong tăng lên (tr. 86).
+de1b8df97365	Dữ kiện A2.6, A2.12, A3.2 bước 3, B1.1, B2.1 mục 11; bảng 1
+63a09cbc4c63	5 lượt phải thay đổi điện trở từ lớn đến nhỏ, để khoảng biến thiên của I càng rộng càng tốt (0.07 → 0.58 A).
+744a19571bf7	Ghi số đọc trên đồng hồ (U, I), không phải số tính ra từ E, r.

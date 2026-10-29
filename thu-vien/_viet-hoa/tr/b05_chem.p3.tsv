@@ -1,0 +1,220 @@
+4b29f3b5d23d	Tổng hợp methanol: mỗi mol CO tiêu tốn 2 mol H₂ (CO + 2H₂ → CH₃OH), CO₂ cũng tham gia.
+522a647431e4	Tổng hợp ammonia 3H₂ + N₂ ⇌ 2NH₃, tỉ lệ 3 : 1, nitrogen lấy từ tách không khí.
+108f8b906ece	Giá trị đặt cho bài: tuyến methanol φ = 0.55 (phối khí qua đường vòng); tuyến ammonia φ = 1.00 (chuyển hoá toàn bộ), ở 200 ℃ CO đầu ra 1.16 %.
+c59d665b8b2d	Bỏ bước này (không chỉnh thành phần): khí tổng hợp sai tỉ lệ chỉ đem đốt làm nhiên liệu, không làm được methanol cũng không làm được ammonia.
+c459bc417ceb	“Vì sao tổng hợp ammonia phải bổ sung nitrogen còn methanol thì không”: nitrogen là chất phản ứng của tổng hợp ammonia, còn carbon của methanol lấy từ CO.
+f851ce7081a7	Methanol cần H₂/CO ≈ 2, tổng hợp ammonia cần H₂/N₂ = 3. Methanol dùng chuyển hoá một phần + phối khí qua đường vòng (55 % đi qua lò chuyển hoá); ammonia dùng chuyển hoá sâu + bổ sung nitrogen (nitrogen từ tách không khí). Cùng một cụm khí hoá, thứ thay đổi là độ sâu chuyển hoá và cách phối khí, bổ sung nitrogen.
+beb8c682078e	A7.1–A7.3, A8-E7, B2.1 biểu thức (5), giá trị chuẩn S9
+4d8245a75d35	Kiểm tra cuối bài: em làm trưởng ca, liệu có chỉnh khí đúng tỉ lệ methanol cần mà không làm hỏng lò?
+bc96e3d22ae6	Chỉnh H₂/CO về 2.00 \xB1 0.08, đồng thời khí hữu hiệu ≥ 79.0 %, hiệu suất chuyển hoá carbon ≥ 92 %, tổng sulfur ≤ 1 ppm, nhiệt độ lò trong khoảng 1300–1500 ℃, duy trì 15 s
+af101f72ab35	Băng rôn đạt; lời giải tham chiếu: tỉ lệ oxygen/than 0.26 / tỉ lệ hơi nước/than 0.55 / chuyển hoá 400 ℃ → H₂/CO 2.01, khí hữu hiệu 79.5 %, hiệu suất chuyển hoá carbon 94.7 % (S10)
+c6f0fc14631d	Tổng hợp toàn quy trình: khí hoá → chuyển hoá chịu sulfur → làm sạch → đầu ra
+da506c72852e	0.23–0.30 \xB7 0.40–0.70 \xB7 200–450 ℃ \xB7 tổng sulfur ≤ 1 ppm
+5c37fc0b4bd7	Ngưỡng đạt 79.0 %
+c5f447147d55	Nhiệt độ lò 1300–1500 ℃
+bd5baf7df901	Cả ba thanh trượt đều phải trong dải vận hành: tỉ lệ oxygen/than 0.23–0.30, tỉ lệ hơi nước/than 0.40–0.70, chuyển hoá 200–450 ℃.
+900779ae16ac	Nhiệt độ lò ≥ 1550 ℃ (đẩy tỉ lệ oxygen/than quá cao) sẽ đi theo chuỗi “đếm ngược 3 giây → quá nhiệt → rà soát”; ≤ 1200 ℃ (đẩy hơi nước quá nhiều) đi theo chuỗi nhiệt độ thấp.
+2ee323ad1e6b	H₂/CO chỉnh bằng nhiệt độ chuyển hoá: ở 400 ℃ là 2.01, ở 320 ℃ là 2.33.
+fc7f4a4e40c5	Không có kết luận mới: lo đủ cùng lúc các điều kiện của bảy bước trước là xong.
+b62a9a1eeae0	Bài công nghiệp hay hỏi “vì sao lò khí hoá phải đưa vào cả oxygen lẫn hơi nước”: một bên cấp nhiệt, một bên tạo hydrogen, không bên nào thay được bên nào.
+0580b78a2400	Kiểm tra cuối bài không có kết luận mới: tỉ lệ oxygen/than quyết định nhiệt độ và độ tinh khiết, tỉ lệ hơi nước/than quyết định hydrogen và nhiệt độ, nhiệt độ chuyển hoá quyết định tỉ lệ, khử sulfur quyết định xúc tác tổng hợp có sống được không. Bốn núm vặn mỗi cái lo một việc, gộp lại mới ra khí nguyên liệu đạt chuẩn.
+8dc8ba380e66	B3.1, B3.2, giá trị chuẩn S10
+876d10e3354e	Chuẩn bị than, pha bùn
+6c1567372dd6	Chuẩn bị than
+a5fccca8410b	Nghiền thành bột than, thêm nước làm bùn than mới bơm được vào lò áp suất cao
+dee1d672a8aa	Lò khí hoá
+02a802e96820	Bùn than và oxygen cháy cùng chiều, carbon thành CO + H₂, tro chảy thành xỉ thải ra
+f530853a8a0e	Chuyển hoá chịu sulfur
+c8501cab5fc3	Có sulfur cũng không ngộ độc: xúc tác Co-Mo đổi CO thành H₂, còn biến COS thành H₂S
+24ab23f3c98b	Làm sạch và thu hồi sulfur
+3ad3b21cab82	Đầu ra khí sản phẩm
+b1c56298ff74	Xuống hạ nguồn
+e569929e1149	Methanol cần H₂/CO ≈ 2, tổng hợp ammonia cần H₂/N₂ = 3 (bổ sung nitrogen)
+2c3a2e70ffee	Phối khí đường vòng (tuyến methanol)
+6d92067d65a8	Sulfur rắn (thu hồi Claus)
+3e9d798fdf91	Vùng cháy khoảng 1600 ℃
+60c099d24e31	Vùng khí hoá khoảng 1400 ℃
+f10c50447fe5	Đoạn làm lạnh nhanh
+37f9863bd192	Bể xỉ, xỉ nóng chảy thoát ra
+e5a3e388086c	Bổ sung nitrogen (từ tách không khí)
+3a639ec3d5e0	Tách không khí
+86720bf3be21	Cấp O₂ / N₂
+eee0d0a2b413	Lò dòng cuốn huyền phù than–nước \xB7 tỉ lệ minh hoạ 1.2\xD7
+91e38815ce5e	Máy nghiền than
+7f3b3ea52e85	Than → bột than (khoảng 0.1 mm)
+fda19e858608	Bể bùn than
+83e91aa64c35	Bột than + nước → bùn than
+a9a0489d9cb0	Bơm bùn than
+b65c3ec8b588	Nén lên áp suất lò khí hoá
+c350d59a728a	Lò chuyển hoá chịu sulfur
+fc819075816e	Co-Mo \xB7 chuyển hoá có sulfur 200–450 ℃
+1ccc894ffb1b	Thiết bị trao đổi nhiệt chuyển hoá
+8ab5e5ea2a8a	Khí sau chuyển hoá được hạ nhiệt rồi đưa đi làm sạch
+1212704fca31	Tháp rửa
+3ac80ce84dbb	Rửa trước bụi và một phần H₂S
+257208f7584f	40 ℃ methanol \xB7 3.0 MPa
+2712662462c5	Lò Claus
+6c21415ca601	Đoạn phản ứng nhiệt
+2e997cf1728a	850 ℃ thu hồi sulfur
+e1d62190b1da	Tạo hình sulfur
+a544f27aa62a	Sulfur bán ra ngoài
+7dc77588b3f9	Tháp tổng hợp methanol
+70e47a41548a	Tháp tổng hợp ammonia
+49cb0afe030a	H₂/N₂ = 3 \xB7 bổ sung nitrogen
+edc95545da7c	Máy nén khí nguyên liệu
+415705fc6fdf	Tăng áp rồi vào tổng hợp
+24cc10fd9ca2	Đuốc đốt
+e111c3c69c77	Xả khi chạy/dừng máy
+be7faf81a0ea	Tỉ lệ oxygen/than O₂/C
+5e22c2c22b65	Tỉ lệ hơi nước/than H₂O/C
+977076473563	Nhiệt độ đầu ra lò chuyển hoá
+bec72b50a195	Khử sulfur bằng methanol lạnh
+14c69bb41b46	Đã ngắt (sulfur vào hết hạ nguồn)
+75d044c81491	Methanol (H₂/CO 2)
+8f889209fe3c	Ammonia (H₂/N₂ 3)
+73399ce3ba10	Hàm lượng khí hữu hiệu
+5797d2353f1d	Hiệu suất chuyển hoá carbon
+0e722a511eec	Tổng sulfur
+613bfc9fe7f8	CO + H₂ \xB7 khí khô
+e8385b466dff	Mục tiêu 2.00
+16286c8f2e1d	Mục tiêu 3.00
+0f8b556ea9a9	Carbon vào lò
+74aacfbef624	Nhiệt độ lò và khí hữu hiệu – tỉ lệ oxygen/than
+45e5eafb84f3	— nhiệt độ lò \xB7 -- khí hữu hiệu \xB7
+198b5930141d	Mục tiêu ca H₂/CO = 2.00
+8afc47d6a81f	Mục tiêu ca: H₂/CO 2.00 \xB1 0.08 duy trì 15 giây, khí hữu hiệu ≥ 79.0 %, tổng sulfur ≤ 1 ppm
+dbf15b575dd1	(dải vận hành)
+9050c59a2a3e	Sau bổ sung nitrogen H₂/N₂ = 3.00
+4b69b7eeff29	Lò khí hoá quá nhiệt → cháy hỏng lớp lót lò và vách làm mát
+c80c983e9012	A. Để tăng hiệu suất chuyển hoá carbon, đẩy tỉ lệ oxygen/than lên mãi
+b43872eb402d	Nhiệt độ lò vượt 1500 ℃ vẫn tiếp tục tăng, hiệu suất chuyển hoá carbon đã chạm trần, khí hữu hiệu lại bị CO₂ pha loãng.
+2a7100019a47	B. Lớp xỉ bám trên vách làm mát bị xói, lớp chịu lửa quá nhiệt
+3bf3362f6cea	Nhiệt độ cục bộ vượt giới hạn vật liệu, ống làm mát và lớp lót lò bắt đầu hư hại.
+2506203ee3c2	C. Xỉ lỏng loãng ra, cửa xỉ quá tải
+ee12bbe06c39	Mất kiểm soát thải xỉ, nước làm lạnh nhanh tiếp xúc mạnh với xỉ nóng, hơi nước sôi bùng.
+1ebd59c3c5a2	D. Khoá liên động dừng máy, lò bảo dưỡng nhiều ngày
+1b72c8955560	Sản lượng ca về 0, hạ nguồn methanol / ammonia dừng toàn tuyến.
+83a841c82775	Khoá liên động nhiệt độ lò (giá trị đặt cho bài 1550 ℃) tự giảm oxygen
+c88ece1ce416	Giám sát nhiệt độ vách nhiều điểm + bảo vệ lớp xỉ bám
+6c13deb0220c	Điều khiển kết hợp tỉ lệ oxygen/than và hơi nước/than, đặt giới hạn trên theo loại than
+fd72579e4664	Kiểm tra định kì cửa xỉ và buồng làm lạnh nhanh, chống tắc xỉ
+4c1f283c562c	Nhớ chuỗi này: oxygen nhiều → quá nhiệt → cháy hỏng lớp lót lò → dừng máy. Hiệu suất chuyển hoá carbon đã chạm trần từ lâu, oxygen cho thêm chỉ đốt khí hữu hiệu thành CO₂.
+33105da851ee	Lò khí hoá nhiệt độ thấp → khí hoá không hoàn toàn, tắc cửa xỉ
+1e259e1ed683	A. Để tạo nhiều hydrogen, tăng tỉ lệ hơi nước/than quá mức
+5c7cac70370b	Nhiệt thu vào vượt nhiệt cấp, nhiệt độ lò tụt dưới 1200 ℃.
+2f2191ebdd7d	B. Hiệu suất chuyển hoá carbon giảm, tro xỉ dính
+7a7646e64ae1	Carbon chưa chuyển hoá bị xỉ cuốn đi, xỉ lỏng chảy kém đi.
+4fde31c0cd7c	C. Cửa xỉ đóng xỉ, thải xỉ không thông
+4d4059d50757	Bể xỉ ứ đọng, mức chất lỏng và chênh áp buồng làm lạnh nhanh bất thường.
+1f7db9315944	D. Buộc giảm tải, dừng máy dọn xỉ
+f58b16defb09	Lò khí hoá và hạ nguồn cùng dừng.
+dee518021a36	Khoá liên động giới hạn dưới nhiệt độ lò (giá trị đặt cho bài 1200 ℃)
+cee318c5b2ba	Đặt giới hạn trên tỉ lệ hơi nước/than theo loại than và tải
+d89a3aac90bf	Giám sát trực tuyến chênh áp cửa xỉ và mẫu xỉ
+0250f79750b7	Thấy xỉ dính thì tăng oxygen nâng nhiệt trước, rồi giảm hơi nước
+535c434326e5	Hơi nước không phải càng nhiều càng tốt: nó vừa là nguồn hydrogen vừa là chất thu nhiệt. Nhiệt độ lò tụt gần nhiệt độ nóng chảy của tro thì xỉ không thải ra được.
+d2318dfe6058	Nhấp thiết bị hoặc số ở cột trái
+ba4af97d0e44	Camera bay tới công đoạn đó
+ab9b5e2f491e	Về bảng điều khiển
+8d46769cd228	Mục tiêu bài: chỉnh H₂/CO về 2.00 và duy trì 15 giây; đẩy tỉ lệ oxygen/than quá 0.30 hoặc tỉ lệ hơi nước/than lên trên 0.70 sẽ gây sự cố, gặp sự cố phải xem hiểu phần rà soát rồi mới sửa chữa khẩn cấp.
+2b396587bc50	Khí hoá than thuộc loại
+d47d73accafe	Biến đổi vật lí, chỉ là nghiền nhỏ than
+5c3fdf932371	Biến đổi hoá học, carbon trong than thành CO và H₂
+2f31891647e3	Biến đổi vật lí, chỉ là đun nóng than
+bf9f47b9a005	Biến đổi hoá học, nhưng sản phẩm chỉ có CO₂
+111f700ebc6a	Khí hoá là quá trình chế biến hoá học dùng tác nhân khí hoá (hơi nước, oxygen) chuyển chất hữu cơ trong than thành khí tổng hợp, phản ứng chính C + H₂O(g) → CO + H₂; chưng khô, khí hoá, hoá lỏng đều là biến đổi hoá học.
+ceaeea4f74d8	Vì sao lò khí hoá phải thổi đồng thời oxygen và hơi nước?
+b9016a386e0a	Oxygen tạo hydrogen, hơi nước cấp nhiệt
+4bbaf98d7584	Phản ứng của hơi nước với carbon thu nhiệt, cần đốt một phần carbon để cấp nhiệt; hơi nước đồng thời là nguồn hydrogen
+f9ff32d4aa14	Chỉ để thổi bột than vào lò
+aa2a9cf9e3f4	Oxygen dùng để hạ nhiệt
+32f4528e5723	C + H₂O(g) → CO + H₂ thu nhiệt (+131.3 kJ\xB7mol⁻\xB9), nhiệt lấy từ việc đốt một phần carbon (C + O₂ → CO₂ toả nhiệt); hơi nước lại là nguồn của H₂ trong sản phẩm.
+acf4b4fb5060	Tỉ lệ oxygen/than
+06606a26c36d	Tăng tỉ lệ oxygen/than, trong lò khí hoá sẽ xảy ra
+d976370858a1	Nhiệt độ lò tăng, hiệu suất chuyển hoá carbon tăng, nhưng hàm lượng khí hữu hiệu giảm
+ceb6e55b9ea1	Nhiệt độ lò giảm, hàm lượng khí hữu hiệu tăng
+a0efecf63359	Không có gì thay đổi
+c2f320e139ed	Nhiệt độ lò tăng, hàm lượng khí hữu hiệu cũng tăng
+6dd3c6c6641d	Oxygen cho thêm oxi hoá hoàn toàn nhiều carbon hơn thành CO₂: nhiệt độ tăng, hiệu suất chuyển hoá carbon tăng, nhưng CO + H₂ (khí hữu hiệu) bị CO₂ pha loãng, hàm lượng lại giảm.
+3fdb05409493	Trong lò
+62a35d4d4d25	Vì sao nhiệt độ lò khí hoá dòng cuốn phải cao hơn nhiệt độ nóng chảy của tro?
+cb8fd1e37c92	Để tăng tốc độ phản ứng
+fae65fef8cf3	Để tro thoát ra ở dạng xỉ lỏng, không tắc cửa xỉ
+319af22f4d90	Để bùn than dễ bơm
+e91824bb4b3c	Để tăng nhiệt trị khí tổng hợp
+bffce61c25c0	Trên nhiệt độ nóng chảy của tro thì tro mới chảy thành xỉ lỏng, thoát qua cửa xỉ; thấp hơn thì tro dính, đóng xỉ, thải xỉ không thông, chỉ còn cách dừng máy.
+5b5a97a7432c	Hơi nước
+3ebf5681d645	Tăng mãi tỉ lệ hơi nước/than, cái giá chủ yếu nhất là
+7c157c06fbd6	Nhiệt độ lò giảm, hiệu suất chuyển hoá carbon giảm
+c7df172974e4	Tỉ lệ H₂/CO giảm
+6104eadefa12	CO₂ trong khí tổng hợp biến mất
+9cfdc8d3dc35	Áp suất lò khí hoá tăng
+2b8add570422	Phản ứng của hơi nước với carbon thu nhiệt: thêm càng nhiều thu nhiệt càng nhiều, lò càng nguội; nhiệt độ hạ thì hiệu suất chuyển hoá carbon giảm theo (còn H₂/CO lại tăng).
+be95956ec454	Tăng nhiệt độ lò chuyển hoá, hàm lượng CO đầu ra
+00af386b7c92	Giảm, vì phản ứng nhanh hơn
+c4495f79c199	Tăng, vì chuyển hoá CO là phản ứng toả nhiệt thuận nghịch, tăng nhiệt độ làm cân bằng chuyển dịch sang trái
+d440277119c9	Giảm rồi tăng
+193b805516cb	CO + H₂O ⇌ CO₂ + H₂ là phản ứng toả nhiệt (
+2dd8cb7227d9	41.2 kJ\xB7mol⁻\xB9), nhiệt độ càng cao hằng số cân bằng càng nhỏ: ở 200 ℃ Kp ≈ 210, ở 450 ℃ chỉ còn khoảng 7.4, CO đầu ra tăng từ 1.16 % lên 13.54 %.
+1d482ee31712	Khử sulfur
+60ea4418f563	Vì sao trước khi tổng hợp phải khử sulfur sâu?
+9a82f5788315	Để bảo vệ xúc tác chịu sulfur của lò chuyển hoá
+12eb652b2408	Để H₂S không làm ngộ độc xúc tác tổng hợp methanol (gốc đồng), tổng hợp ammonia (gốc sắt), đồng thời tránh phát thải SO₂
+30ec451b5303	Để tăng nhiệt trị khí tổng hợp
+0208969e3171	Để CO₂ dễ loại bỏ hơn
+d9de12a6ab5e	Khí hoá than dùng chuyển hoá chịu sulfur (Co-Mo), có sulfur vẫn làm việc được; thứ thật sự sợ sulfur là xúc tác tổng hợp ở hạ nguồn. Rửa bằng methanol lạnh hấp thụ cùng lúc H₂S và CO₂, sulfur đưa sang Claus thu hồi.
+3b9d174badf0	Yêu cầu đối với khí nguyên liệu khi sản xuất methanol và tổng hợp ammonia lần lượt là
+5000d8ed69ce	Đều cần H₂/CO = 2
+9204224fb907	Methanol cần H₂/CO ≈ 2, ammonia cần H₂/N₂ = 3
+20c9517e9752	Methanol cần H₂/N₂ = 3, ammonia cần H₂/CO ≈ 2
+8288b4268476	Đều không cần điều chỉnh
+ca32012905d9	Tổng hợp methanol mỗi mol CO tiêu tốn 2 mol H₂; tổng hợp ammonia 3H₂ + N₂ ⇌ 2NH₃ cần H₂ và N₂ theo tỉ lệ 3 : 1, nitrogen lấy từ tách không khí. Vì vậy methanol dùng chuyển hoá một phần + phối khí, ammonia dùng chuyển hoá sâu + bổ sung nitrogen.
+05edc1e8d96b	Đạt sản lượng: H₂/CO ổn định ở 2.00, khí hữu hiệu và sulfur còn lại đều đạt
+dbd06a15b635	Đã về chế độ tham chiếu: tỉ lệ oxygen/than 0.26 / hơi nước/than 0.55 / chuyển hoá 320 ℃, khử sulfur đang vận hành
+565a7d8d0297	Đã ngắt khử sulfur: tổng sulfur tăng từ 0.1 ppm lên 6000 ppm, xúc tác tổng hợp ở hạ nguồn đang bị ngộ độc
+ef7d106497b1	Khử sulfur đang vận hành: H₂S và CO₂ bị methanol
+cfe8087ef07c	40 ℃ hấp thụ, sulfur đưa sang Claus thu hồi
+b1ef6e17de0b	Bất thường: nhiệt độ lò chuyển hoá bị kéo xuống 260 ℃, H₂/CO đã lệch mục tiêu; hãy chỉnh lại quanh 400 ℃
+afaff5619436	Sửa chữa xong: thay lớp lót lò / đặt lại thông số, chạy máy lại
+19f88d9e6c79	Dừng máy khẩn cấp: ngắt bùn than và oxygen, thổi nitrogen thay thế, gỡ khoá liên động
+cf41388a2334	Lưu ý minh hoạ: hình dáng thiết bị và hướng đi đường ống, 4 dải nhiệt độ trong lò, tỉ lệ phối khí và sulfur còn lại là minh hoạ; số liệu nhiệt hoá học lấy từ tài liệu NIST và NETL (xem bảng dữ kiện), số đọc do mô hình của bài tính ra.
+ce971ff43336	Phím tắt 1–8 công đoạn \xB7 Q kiểm tra \xB7 Space chạy/dừng \xB7 N tên thiết bị \xB7 F toàn màn hình \xB7 Esc về bảng điều khiển
+5f52cababc5e	Lò khí hoá huyền phù than–nước kiểu làm lạnh nhanh
+1a01f44c1809	Thành vỏ chịu áp được làm dày để minh hoạ; 4 dải nhiệt độ (1600/1400/300/80 ℃), độ dài ngọn lửa theo nhiệt độ lò, mức đỏ của gạch lót là minh hoạ; nhiệt độ thật trong lò không đo trực tiếp được.
+43fbaefe58a9	Thân chịu áp (có độ dày thành)
+7b7bce7f55fe	Nắp trên hình cầu
+afaf3f22459e	Buồng phản ứng lót gạch chịu lửa
+247976282934	Đáy gạch thu hẹp và cổ lò
+66dc171806a8	Vòi đốt công nghệ đặt trên đỉnh
+8e4f986631a9	Ống nối đầu vào oxygen
+0b05746d92b5	Ống nối đầu ra khí tổng hợp
+48c9e73f3806	Vòng làm lạnh nhanh và lỗ phun nước
+4f0e3d34bc47	Ống dẫn xuống
+7011af337b27	Chân đế váy và bu lông móng
+8456d19d643e	Sàn bảo dưỡng và lan can
+fa8ccf83b421	Lỗ người chui bảo dưỡng
+49f1311e63ff	Đồng hồ nhiệt độ và áp suất tại chỗ
+e41ee5e957eb	Van an toàn
+262d6f97ba91	Biển tên thiết bị
+5b8093b409ed	Vòng bu lông móng
+1915e4031b16	Ngọn lửa cháy và khí nóng trong buồng phản ứng (thấy khi bổ ra)
+b69cfd4520a7	Nước làm lạnh nhanh và hạt xỉ ở đáy côn (thấy khi bổ ra)
+a55416a93e64	Lò khí hoá huyền phù than–nước là thiết bị tĩnh, nhiệt trong lò do đốt một phần cung cấp, không có động cơ điện hay xi lanh; bơm bùn than và máy nghiền than ở công đoạn bên cạnh
+8dc1d4a096dc	Như trên: thiết bị này không có bộ phận quay, không cần khớp nối và hộp giảm tốc
+ce095203ca33	Vỏ chịu áp
+42074be0d9b3	Đường kính ngoài 3.8 m
+a5252a459f94	Vòi đốt công nghệ
+95adc7afdfe8	Bùn than + oxygen + hơi nước
+1c6117aa02c4	Đầu ra khí tổng hợp
+7fe1005c3b39	Sàn bảo dưỡng
+ea4fd2cb9cad	Vùng cháy 1600 ℃ (minh hoạ)
+dfdfba038771	Lớp lót gạch chịu lửa
+cff6f0a9e22d	Vòng làm lạnh nhanh
+86152c12cec5	Nước làm lạnh nhanh
+3b900907edfa	Hạt xỉ
+06d35be13bde	Lối bảo dưỡng 1.4 m
+58a14ce324b2	Rút vòi đốt 1.4 m
+e6368f8a590d	Nhiệt độ buồng lò
+13bc36b48877	Nhiệt độ lò ${e.toFixed(0)} ℃ ≥ 1550 ℃ \xB7 3 giây không giảm oxygen sẽ cháy hỏng lớp lót lò và vách làm mát
+9c0d3e62f9d3	Nhiệt độ lò ${e.toFixed(0)} ℃ ≤ 1200 ℃ \xB7 3 giây không tăng oxygen nâng nhiệt sẽ đóng xỉ, tắc cửa xỉ
+d5b5bc664334	Sử dụng tổng hợp than: lấy khí hoá than làm mạch chính · Bài giảng tương tác 3D

@@ -1,0 +1,345 @@
+8e625a7eb58c	C.steps[${F}].cam.pitch=${k.cam.pitch}\xB0 không nằm trong CAMERA.polar ${p.polar[0]}–${p.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+b64910622f25	world.build() trả về ${M.length} đơn vị, C.units có ${i.units.length}, phải khớp một–một
+7b9e61045ef1	${k.unitOf} bước ${me.no}:
+4a55d317222f	Quy trình công nghiệp
+f913db4671f7	Lựa chọn bắt buộc tập 1, tư liệu tình huống “Hệ phản ứng thuận nghịch” (chuẩn chương trình tr. 32) \xB7 Bắt buộc tập 2, chương 8 bài 1 (SGK không có mục quy trình công nghệ)
+ee2577dfcdc8	Luyện gang trong lò cao
+8cbda2b093e1	Một đống quặng đổ từ đỉnh lò xuống, sao vài giờ sau đã thành dòng gang lỏng, lại còn càng chạy càng tiết kiệm?
+193aea7810a0	Ngược dòng
+7d833b9ab494	Liệu đi xuống, khí đi lên, mới khử được theo từng cấp
+dd75cc071660	Mắt gió
+b4944799301e	Than cốc cháy thành CO₂, rồi bị khử thành CO (thu nhiệt, thuận nghịch)
+0e88923ae64b	Khử từng cấp
+ec78b14479a1	Tạo xỉ
+07da205893a3	CaCO₃ → CaO, CaO kéo SiO₂ đi
+e84f8cce5b4c	Bài toán
+749a8092aac1	Nhiệt độ gió↑ tiết kiệm cốc \xB7 Độ base chỉ có cửa sổ 1.0–1.3
+14b46fd907c7	Quy trình các công đoạn
+1af9ff3df940	Toàn nhà máy \xB7 Năm công đoạn
+338c5d29408b	Động vào một nút điều khiển, cái giá về suất cốc, độ base và sản lượng hiện ra cùng lúc
+1792c9ece477	Đúng hết! Em đã nắm rõ chuỗi từ mắt gió đến suất cốc.
+406a8d7ca096	Em nên quay lại bước 4, 5, 6, 7, xem lại mắt gió, khử từng cấp, tạo xỉ và bài toán nhiệt độ gió.
+e4fd7ddaa049	Liệu đi từ trên xuống
+3f64f2c5ed1d	Khí lò đi từ dưới lên
+35412eaf1438	Hạt quặng (bóc oxygen từng cấp)
+1b4cd480f190	Lớp xỉ nổi trên gang lỏng
+e21d5bb882af	Nạp liệu
+c8af817f4d4a	Bunke quặng, bunke cốc, bunke trợ dung → cân → cầu nghiêng → đỉnh lò
+8757543bd31a	Thân lò cao
+f9df61e46fdc	Thân lò
+48661d09c04e	Năm vùng từ họng lò đến nồi lò; mắt gió, lỗ ra gang, lỗ ra xỉ
+944bd33625a0	Gió nóng
+1ebd48602c18	Lò gió nóng kiểu hồi nhiệt → gió lạnh thành gió nóng 1100–1250 ℃
+17cfdf28b90f	Xỉ và gang
+211ccb190a63	Gang ra ở lỗ ra gang, xỉ ra ở lỗ ra xỉ, xỉ và gang đi riêng
+ac23bb49892d	Khí lò
+2ce7f40275e7	Khí lò ở đỉnh được lọc bụi, làm sạch; hiệu suất sử dụng CO chính là bảng điểm
+066cd58f1590	Quặng thành gang
+aae10a2b5708	Một đống quặng đổ từ đỉnh lò xuống, vì sao ra lò đã là gang lỏng?
+743ff91c73c5	Kéo góc nhìn, xem lò cao này từ trái sang phải: nạp liệu, thân lò, gió nóng, xỉ và gang, khí lò
+26adb946fbd4	Chế độ tham chiếu 1200 ℃, đá vôi 180 kg/t, làm giàu oxygen 3 %: suất cốc 350 kg/t, sản lượng gang lỏng 10000 t/d, hiệu suất sử dụng CO 50.0 % đang chạy; cột liệu đang đi xuống, khí lò đang đi lên.
+941582b98971	Nhiệt độ cao \xB7 Than cốc cấp nhiệt và tạo CO (đây là phương trình tổng giản lược)
+c140a549ac4b	Ngược dòng: liệu đi xuống, khí đi lên
+c0d7bdaa456e	Năm công đoạn
+76256ed51ea4	Phương trình tổng là dạng giản lược
+715992c05805	Toàn nhà máy có năm công đoạn: nạp liệu → thân lò cao → gió nóng → xỉ và gang → làm sạch khí lò; liệu và khí chạy ngược chiều nhau trong thân lò.
+55c979a811b7	Phương trình Fe₂O₃ + 3CO → 2Fe + 3CO₂ ở thanh trên cùng là phương trình tổng giản lược, quá trình thực còn chia ra khử từng cấp, tạo xỉ, thấm carbon.
+dcdb70870ede	Ngược dòng là then chốt: khí lò đi lên bị tiêu hao và trao đổi nhiệt dọc đường, mới tạo ra gradient nhiệt độ phía trên thấp, phía dưới cao.
+531850127e03	Bỏ nạp liệu và ngược dòng: liệu không chuyển động, khí lò không có đường đi, cả lò dừng ngay.
+528bd40c493e	Hay thi “chất khử chính trong lò cao là CO chứ không phải than cốc”: than cốc phải biến thành CO trước rồi mới đi khử.
+7d2e10a77267	Đây là một lò khử ngược dòng: liệu đi từ trên xuống, gió nóng đi từ dưới lên, hai bên chạy ngược chiều nhau, mới có khử từng cấp “phía trên nhiệt độ thấp, phía dưới nhiệt độ cao”.
+73c9b9d8ce38	A4.2, A5.1, B2.1
+d710c58c30fe	Nạp liệu phân lớp
+01bb93d1d825	Quặng, than cốc, đá vôi sao không trộn thành một đống mà phải trải từng lớp?
+32d53fbfb4c6	Xoay lên đỉnh lò, xem các mẻ liệu rơi từng lớp lên cột liệu
+057fbec7990d	Một mẻ liệu rơi xuống: lớp cốc và lớp quặng trải xen kẽ, lớp cốc là đường cho khí lò xuyên lên; bước này chỉ xem cách nạp liệu, số đọc không đổi (suất cốc 350 kg/t).
+954c1cf228ed	Mẻ quặng / mẻ cốc / mẻ trợ dung nạp xen kẽ
+917c6db562fc	Cột liệu phải thông khí \xB7 Than cốc kiêm khung đỡ cột liệu
+2252b0752303	Lớp cốc = cửa thông khí
+8c4d097f4c0e	Đá vôi nạp cùng mẻ quặng
+7a845a521565	Than cốc phải bền
+6989b3c0836b	Nạp liệu theo “mẻ”: mẻ quặng, mẻ cốc, mẻ trợ dung nạp xen kẽ, tạo thành các lớp liệu.
+15cad55014c9	Than cốc phải có độ bền cao, cỡ cục phù hợp, ít sulfur, phosphorus và tro; nếu không, bị nén vỡ sẽ làm nghẽn cột liệu.
+8ae4c647e046	Đá vôi nạp cùng mẻ quặng, vào lò rồi mới phân huỷ thành CaO; ở khâu nạp liệu nó chưa làm việc.
+ba4507b3f7cf	Bỏ nạp liệu phân lớp: cột liệu nghẽn, khí lò không xuyên qua được, chỉ còn cách ngừng gió.
+9c4498916e74	Hay thi “vì sao than cốc phải bền, cỡ cục phù hợp”: nó đồng thời là khung đỡ, liệu vỡ vụn sẽ làm nghẽn đường thông khí.
+8d742afff67c	Phân lớp không phải cho đẹp: lớp cốc là khung đỡ kiêm cửa thông khí của cột liệu, lớp quặng kẹp giữa được khí lò đi lên khử từng lớp; trộn thành một đống thì khí lò không xuyên qua được.
+d1ed102ef237	A4.3, A5.3, A7-E7
+be3e166b9601	Bổ ra xem các vùng
+c6492ea8ed8f	Trong cùng một lò, vì sao từ trên xuống dưới không đồng một màu?
+4902931fa31b	Lò đã được bổ ra, kéo góc nhìn xem năm vùng này từ trên xuống
+828142c70abc	Sau khi bổ, từ trên xuống: họng lò 200–700 ℃, thân lò 700–1000 ℃ (khoảng 850 ℃ thì Fe₃O₄ → FeO, đá vôi bắt đầu phân huỷ ở 800–1000 ℃), bụng lò là vùng mềm chảy khoảng 1100–1400 ℃, hông lò là vùng nhỏ giọt, vùng xoáy trước mắt gió 1500–1600 ℃, nồi lò xỉ và gang tách lớp.
+d78751ef7802	200–700 ℃ → 700–1000 ℃ → vùng mềm chảy khoảng 1100–1400 ℃ → vùng xoáy mắt gió 1500–1600 ℃
+2d548825286a	Nhiệt độ tăng dần từ đỉnh lò xuống nồi lò (ranh giới vùng mềm chảy, vùng nhỏ giọt là minh hoạ)
+d03c3d248abc	Vùng cục từ 200–700 ℃
+2e66c0699dcf	Vùng mềm chảy khoảng 1100–1400 ℃ (minh hoạ)
+65502c881b90	Vùng xoáy mắt gió 1500–1600 ℃
+815662e87186	Vùng cục chiếm hơn nửa thân lò, là chiến trường chính của khử gián tiếp.
+ba8f59a1dbbb	Vùng mềm chảy (khoảng 1100–1400 ℃) là khoảng liệu từ mềm đến chảy, xỉ đầu tiên hình thành; vị trí của nó quyết định cột liệu thông khí tốt hay xấu; đá vôi đã phân huỷ thành CaO từ trước, ở vùng 800–1000 ℃ phía trên nó.
+1f4963df86ef	Vùng xoáy mắt gió 1500–1600 ℃, nhiệt độ cháy lí thuyết 2000–2300 ℃, là nguồn nhiệt duy nhất của cả lò.
+26dc65005b83	Bỏ phần “nhìn vào trong”: học sinh chỉ thuộc “khử ở nhiệt độ cao”, không biết nhiệt độ biến đổi liên tục.
+421472849649	Hay thi “vì sao nhiệt độ trong lò cao tăng từ trên xuống”: trao đổi nhiệt ngược dòng + đốt cháy ở mắt gió cấp nhiệt, không phải cả lò nóng đều.
+ed0cafd025b1	Năm vùng không phải vẽ cho có: nhiệt độ tăng dần từ đỉnh lò xuống nồi lò, mỗi vùng chỉ làm một việc, nên sắt cũng chỉ được khử từng cấp một.
+b2ffd0325aa8	A3, A5.1, B4
+b50f21b7f984	Mắt gió đốt cốc
+c1d52fdc74b9	Than cốc cháy ở mắt gió tạo ra CO hay CO₂?
+802039b0cdcd	Nhìn vào mặt cắt 5 giây: hàng ở mép trên nồi lò chính là mắt gió, những khối sáng trong mặt cắt chính là vùng xoáy đang cháy
+35d2d002bdc2	Trước mắt gió 1500–1600 ℃, nhiệt độ cháy lí thuyết 2000–2300 ℃; mấy khối sáng ở mép trên nồi lò trong mặt cắt chính là vùng xoáy (các mắt gió khác bị thân lò che). Cách nói của SGK là hai bước: than cốc cháy trước ở mắt gió tạo CO₂ (toả nhiệt), CO₂ đi lên xuyên qua lớp cốc nóng đỏ bị khử thành CO (thu nhiệt).
+4c607e478370	C(than cốc) + O₂(không khí) =t° CO₂ (toả nhiệt) → C(than cốc) + CO₂ =t° 2CO (thu nhiệt)
+cff7c3ebedbd	Cách nói hai bước của SGK \xB7 Trước mắt gió 1500–1600 ℃, nhiệt độ cháy lí thuyết 2000–2300 ℃; khi carbon dư, kết quả tổng tương đương 2C + O₂ → 2CO
+b7e33bd2d36d	Cháy trước tạo CO₂
+82dc91dd78d6	Rồi bị cốc khử thành CO
+b1223cf70271	C + CO₂ ⇌ 2CO từ dưới lên
+2dbb661c6b46	Cách nói của SGK là hai bước: than cốc cháy trước ở mắt gió tạo CO₂ (toả nhiệt), CO₂ đi lên xuyên qua lớp cốc nóng đỏ rồi bị khử thành CO (thu nhiệt).
+5a6aa52cf47b	Gộp hai bước này lại, khi carbon dư kết quả tổng tương đương 2C + O₂ → 2CO; nhưng đừng vì thế mà coi C + O₂ → CO₂ trong SGK là sai.
+68138e1a28a4	Nguyên văn SGK còn ghi rõ: C + CO₂ ⇌ 2CO là phản ứng thuận nghịch, xảy ra từ dưới lên ở nơi có than cốc; đó là lí do trong khí lò ở đỉnh luôn có CO chưa được sử dụng (mục sau “Bí ẩn khí thải”).
+d47f95e146e5	Bỏ bước này: không có CO, không có nguồn nhiệt, khử và nóng chảy đều không xảy ra.
+ebf82922e655	Hay thi “CO trong lò cao từ đâu ra”: theo SGK phải trả lời hai bước: than cốc cháy tạo CO₂ (toả nhiệt), CO₂ lại phản ứng với than cốc tạo CO (thu nhiệt, thuận nghịch); tuỳ đề cũng có thể nói khi carbon dư kết quả tổng tương đương 2C + O₂ → 2CO.
+a4af6b80962a	CO không phải cháy một bước mà ra: than cốc cháy trước ở mắt gió thành CO₂ (toả nhiệt), CO₂ đi lên xuyên qua lớp cốc nóng đỏ bị khử thành CO (thu nhiệt, thuận nghịch); mắt gió là nguồn nhiệt duy nhất của cả lò và là nguồn gốc của CO.
+f016a96c6ccb	A2.2, A2.6, A3, A7-E1 (Nhân Giáo bắt buộc tập 2 tr. 48)
+ea47a1ca5e16	CO cứ đi lên, dựa vào đâu mà bóc được sắt ra khỏi oxide từng lớp một?
+bc3bef15cdef	Xem ba vòng nhãn trong lò: CO đi từ dưới lên, oxide đi từ số oxi hoá cao xuống thấp
+19965193350e	Ba cấp khử mỗi cấp có nhiệt độ riêng: Fe₂O₃ → Fe₃O₄ ở 200–700 ℃, Fe₃O₄ → FeO ở khoảng 850 ℃, FeO → Fe hoàn tất ở khoảng 1200 ℃.
+9fea087b478a	Fe₂O₃ → Fe₃O₄ → FeO → Fe; C(s) + CO₂(g) ⇌ 2CO(g) (thu nhiệt)
+70bc87b24be3	Điều kiện: vùng nhiệt độ cao trên khoảng 1000 ℃
+f7ccf5df204a	Ba cấp khử 200–700 / 850 / 1200 ℃
+4234470795bb	C + CO₂ ⇌ 2CO thu nhiệt
+aa160bf4c2bb	CO đi lên, oxide giảm số oxi hoá
+ad1335c63d9c	Ba cấp khử mỗi cấp có nhiệt độ riêng: 200–700 ℃ → khoảng 850 ℃ → khoảng 1200 ℃.
+f59b98e2574f	Vùng nhiệt độ cao dựa vào C + CO₂ ⇌ 2CO để đổi CO₂ trở lại thành CO; đây là phản ứng thu nhiệt, tăng nhiệt độ có lợi cho việc tạo CO, nối với phản ứng thuận nghịch ở lựa chọn bắt buộc tập 1 (đừng viết thành chiều ngược 2CO ⇌ CO₂ + C, đó là chiều toả nhiệt).
+6a84a57acef2	Khử trực tiếp và khử gián tiếp cùng tồn tại: than cốc vừa là nhiên liệu, vừa là chất khử, lại là khung đỡ cột liệu.
+c6784a8282a8	Bỏ khử từng cấp: học sinh chỉ biết viết phương trình tổng, không giải thích được vì sao trong lò chia vùng, vì sao suất cốc cao như vậy.
+86a467c07caa	Hay thi “C + CO₂ ⇌ 2CO thu nhiệt hay toả nhiệt, tăng nhiệt độ thì chuyển dịch về đâu”: thu nhiệt, tăng nhiệt độ thì chuyển dịch theo chiều tạo CO.
+3e47d0ec20a7	Khử từng cấp: mỗi cấp hoàn tất trong vùng nhiệt độ riêng; nơi đủ nóng thì C + CO₂ ⇌ 2CO bổ sung CO (thu nhiệt, thuận nghịch, nối đúng vào kiến thức cân bằng).
+0763219aa6ab	A2.3–A2.6, A5.1, A5.2, A7-E10
+b93d6a8ad242	Đá vôi tạo xỉ
+c4f3cc88550b	SiO₂ trong quặng là tạp chất, dựa vào đâu mà đuổi được nó ra?
+3e3d9b9677c6	Chuyển “đá vôi” sang ngắt, xem độ base và lượng xỉ thay đổi thế nào
+f9321be67a0c	Độ base tụt từ 1.150 xuống 0.279 (không phải 0: đất đá trong quặng và tro cốc tự mang theo khoảng 30 kg/t CaO), lượng xỉ 330 → 240 kg/t, suất cốc 350 → 332 kg/t (tiết kiệm cốc, nhưng xỉ đặc quánh, không khử được sulfur); nạp lại thì độ base về 1.150.
+2f5e32528649	CaCO₃(s) → CaO(s) + CO₂(g); SiO₂(s) + CaO(s) → CaSiO₃(l)
+dead36230879	Đá vôi phân huỷ ở 800–1000 ℃ \xB7 Cửa sổ độ base 1.00–1.30
+88ee815d640f	Phân huỷ trước, tạo xỉ sau
+afac428bd213	Độ base 1.0–1.3 \xB7 Đá vôi 150–210 kg/t
+41db8333998b	Xỉ nổi trên gang lỏng
+b6c80b93acd8	Tạo xỉ gồm hai bước: CaCO₃ phân huỷ trước thành CaO (thu nhiệt), CaO lại cùng SiO₂ tạo xỉ lỏng CaSiO₃; đừng viết thành một bước.
+21b3a95aff50	Độ base R = CaO/SiO₂, cửa sổ 1.0–1.3, ứng với dải 150–210 kg/t trên thanh trượt; tắt đá vôi không phải “không có xỉ” mà là “xỉ không đủ base”.
+2427d0ab6a9f	Xỉ nổi trên gang lỏng, ra ở lỗ ra xỉ; gang lỏng ra ở lỗ ra gang đặt thấp hơn; đừng làm ngược hướng.
+74b7a3ba1407	Bỏ đá vôi: xỉ không thải ra được, sulfur đi vào gang, gang lỏng vừa bẩn vừa giòn.
+4db914e049f1	Hay thi “tác dụng của việc thêm đá vôi”: không phải để cung cấp CO₂, mà để phân huỷ ra CaO tạo xỉ loại bỏ SiO₂.
+7b2608e148f6	CaCO₃ phân huỷ trước ra CaO (thu nhiệt), CaO lại kéo SiO₂ đi thành xỉ lỏng CaSiO₃ nổi trên gang lỏng: xỉ loãng thì gang mới sạch; không thêm đá vôi thì đỡ tốn cốc nhưng không thải được tạp chất.
+cb2241b58084	A2.7, A2.8, A5.4, B1.3
+a6142df90ab2	Bài toán nhiệt độ gió
+35223dd5b9f4	Tăng nhiệt độ gió lên một chút, có thật sự tiết kiệm được than cốc?
+5cae622d29ea	Kéo nhiệt độ gió nóng từ 1200 xuống 1100 ℃, xem suất cốc và sản lượng
+5cfa703585b9	Nhiệt độ gió 1200 → 1100 ℃: suất cốc 350 → 370 kg/t (+20), sản lượng gang lỏng 10000 → 9459 t/d, hiệu suất sử dụng CO 50.0 % → 48.0 %, lượng xỉ vẫn là 330 kg/t.
+1243f4a92f1a	Giá trị đặt cho bài: hệ số nhiệt độ gió 0.20 kg/(t\xB7℃), tức mỗi lần giảm 100 ℃ suất cốc tăng khoảng 20 kg/t
+17902dd13d17	Dải công nghiệp 1100–1250 ℃
+0a47e7340111	Vượt giới hạn 1300 ℃ / 950 ℃
+7749c1cde0d6	Suất cốc 350 → 370
+20b2a726ba52	Nhiệt độ gió thay thế trực tiếp lượng cốc bị đốt nhờ “mang nhiệt hiện vào”, là chiêu rẻ nhất của bài này.
+704788233e3a	Suất cốc giảm thì lượng gang ra trong một đơn vị thời gian cũng tăng theo (bài này mô hình hoá sản lượng ∝ 1/suất cốc, là giá trị đặt cho bài, không phải quy luật trong SGK).
+282e887d7289	Nhiệt độ gió không phải càng cao càng tốt: vượt 1300 ℃ thì mắt gió và ống vòng gió bị cháy thủng, dưới 950 ℃ nồi lò thiếu nhiệt sẽ làm lò nguội.
+3a2a905b5da7	Bỏ bước này: học sinh sẽ tưởng “đốt thêm cốc là xong”, không thấy được khoản lợi miễn phí từ nhiệt độ gió.
+c12b235e9aca	Hay thi “vì sao tăng nhiệt độ gió giảm được suất cốc”: nhiệt hiện do gió mang vào qua mắt gió thay thế nhiệt từ đốt cốc; nhưng bị giới hạn bởi tuổi thọ lò gió nóng và mắt gió.
+fed79230c3fc	Nhiệt độ gió mỗi lần giảm 100 ℃, suất cốc tăng khoảng 20 kg/t, sản lượng giảm theo; ngược lại, tăng nhiệt độ gió là cách tiết kiệm cốc trực tiếp nhất, cái giá là sức chịu đựng của gạch ô lò gió nóng và mắt gió (dải công nghiệp 1100–1250 ℃).
+7eea3ffe4e8c	A4.1, B2, B2.1
+ed6ac187ee24	, B1.1
+dedb8ed5a938	Kiểm tra trực ca
+76e5be5658e3	Khi suất cốc, độ base, sản lượng cùng mắc kẹt, em động vào cái nào trước?
+051568b0e5da	Ép suất cốc ≤ 360 kg/t, độ base 1.00–1.30, sản lượng ≥ 10000 t/d, và giữ 15 s
+24f048eb3331	Vào được 5 s, ca đêm hạ nhiệt độ gió hai nấc (suất cốc lên 366 kg/t, sản lượng 9563 t/d), em phải tự kéo lại; đạt thì thanh mục tiêu chuyển xanh.
+70dcff901a81	Giữ 15 s \xB7 Lời giải tham khảo 1250 / 180 / 4 → 336 kg/t, 1.150, 51.4 %, 10938 t/d
+22de123c0802	Nhiệt độ gió ≤ 1250 ℃
+a18f204dca64	Cửa sổ độ base 150–210 kg/t
+2960fc879df4	Vượt giới hạn là sự cố
+5e4c17d38e17	Suất cốc ≤ 360 kg/t buộc nhiệt độ gió phải ≥ khoảng 1150 ℃, phần thiếu hụt sản lượng bù bằng làm giàu oxygen.
+eaa54aeda35d	Cửa sổ độ base khoá đá vôi trong 150–210 kg/t, dùng nhiều thì lượng xỉ lớn, suất cốc lại tăng.
+5df60e5f4e98	Nhiệt độ gió
+a942081ac486	950 ℃ dẫn đến “đếm ngược 3 s → lò nguội, đông cứng”,
+61d68a5b68cb	1300 ℃ dẫn đến “cháy thủng mắt gió”; cần hiểu cả hai chuỗi sự cố.
+528d3f55e447	Bỏ kiểm tra cuối bài: học sinh chỉ thuộc “tăng nhiệt độ gió giảm suất cốc”, không biết cân nhắc giữa nhiều ràng buộc.
+8a21798c0ed7	Hay thi “vì sao không chọn điểm suất cốc thấp nhất”: nhiệt độ gió bị giới hạn trên bởi thiết bị, muốn ép suất cốc tới cùng phải nhờ làm giàu oxygen và chất lượng liệu; công nghiệp chọn dải dung hoà 1100–1250 ℃.
+4831eb024714	Suất cốc ≤ 360 kg/t buộc nhiệt độ gió ≥ khoảng 1150 ℃, cửa sổ độ base khoá đá vôi trong 150–210 kg/t, sản lượng còn phải nhờ làm giàu oxygen bù vào; vùng khả thi chỉ là một mảng nhỏ nhiệt độ gió 1150–1250 ℃, điểm dung hoà là tính ra được.
+6fd190a96212	B2, B2.1
+28165c8f7420	Nhiệt độ gió nóng
+33f583b074d5	Lượng đá vôi
+672bdfa64a53	Mức làm giàu oxygen
+5b25c423ad43	Lò gió nóng
+7fb246f4c232	Đá vôi
+b0999c9357ab	Đang dùng (gió nóng 1200 ℃)
+a7b56b239bb8	Thổi gió lạnh
+0d8f4104c557	Đã nạp
+822c66badc9f	Đã ngắt
+b02ff6f83c5b	Sản lượng gang lỏng
+313d70a89450	Suất cốc
+972c51ac8066	Hiệu suất sử dụng CO
+9001b7465c3a	Độ base của xỉ
+a73f02faadb0	Đạt ≥ 10000 t/d
+03df99b1a47a	Đạt ≤ 360
+83caad3e0178	Khí lò đỉnh
+942c073cb094	Suất cốc / sản lượng — nhiệt độ gió nóng
+1d342ea5a3c1	— suất cốc \xB7 -- sản lượng \xB7
+45cd11a891d9	Hiện tại \xB7
+7bb44e19e9ce	Dải công nghiệp
+442cb438bc68	Rủi ro tình trạng lò
+26f96b1af7a0	Tính từ suất cốc 360; vượt giới hạn 1300 ℃ / 950 ℃
+45618e17d053	Mục tiêu ca này: suất cốc ≤ 360 kg/t, độ base 1.00–1.30, sản lượng ≥ 10000 t/d, hiệu suất sử dụng CO ≥ 47 %, nhiệt độ gió ≤ 1250 ℃, giữ 15 s
+73af56bcaca5	Suất cốc ≤ 360, độ base 1.00–1.30
+1fc12ea59ea9	Sản lượng ≥ 10000 \xB7 Nhiệt độ gió ≤ 1250 ℃
+f66b1dde14df	Nhiệt độ gió quá thấp → nồi lò thiếu nhiệt → nồi lò đông cứng
+70ff0d361460	A. Để tiết kiệm cốc, hạ nhiệt độ gió nóng mãi xuống
+a4f3738b7034	Nhiệt hiện do gió mang vào qua mắt gió ít đi, chỉ còn cách đốt thêm cốc bù vào, suất cốc vọt lên (410 kg/t).
+aadd89bf7a75	B. Nhiệt vẫn không đủ, nhiệt độ nồi lò tụt xuống
+150526424532	Độ nhớt của xỉ tăng, nhỏ giọt không thông, trước mắt gió bắt đầu tối lại.
+e9f0085c7e89	C. Xỉ và gang dính trong nồi lò không thải ra được
+b43c71cb196d	Nồi lò đông cứng, mắt gió không đốt được nữa, chỉ còn cách ngừng gió xử lí.
+0c895173df19	D. Cách làm thực tế là giữ nhiệt độ gió và suất cốc ở mức sàn
+17a2c5a1b59e	Điều tiết bằng làm giàu oxygen, phun than, không để xảy ra lò nguội.
+f9c4d42c4d2e	Phòng ngừa trong thực tế
+866f0758cf03	Giữ nhiệt độ gió không dưới mức sàn theo năng lực lò gió nóng (dải công nghiệp 1100–1250 ℃)
+a8e6cc73e119	Đặt mức sàn cho suất cốc, điều tiết bằng làm giàu oxygen và phun than
+94ac69d2398d	Theo dõi độ sáng mắt gió và nhiệt độ xỉ để đoán xu hướng nhiệt độ lò
+c756365b6436	Khi lò nguội thì giảm gió, thêm cốc trước, đừng cố kéo
+60d76ebab096	Nhớ chuỗi này: nhiệt độ gió thấp → suất cốc cao → nồi lò thiếu nhiệt → xỉ và gang đặc quánh → đông cứng. Cốc tiết kiệm được, cuối cùng phải trả lại bằng ngừng gió.
+29a5cc40c505	Nhiệt độ gió vượt giới hạn → mắt gió và ống vòng gió quá nhiệt → cháy thủng mắt gió
+b7510e10d5b9	A. Để tăng nhiệt độ gió, đốt lò gió nóng vượt quá giới hạn trên
+1d12519218db	Nhiệt độ gió đúng là cao hơn, suất cốc thấp hơn (330 kg/t).
+d2e0041f176e	B. Vượt 1300 ℃, mắt gió và ống vòng gió nóng quá mức chịu đựng
+d31824082030	Giới hạn của mắt gió đồng làm mát bằng nước và vật liệu chịu lửa bị vượt qua.
+cd0fba68c180	C. Mắt gió cháy thủng, khí lò nóng phụt ra từ chỗ thủng
+1390f14cb573	Sàn mắt gió và sàn ra gang bị đe doạ trực tiếp.
+2c7855555f03	D. Cách làm thực tế là định giới hạn trên của nhiệt độ gió theo tuổi thọ gạch ô và mắt gió, và đặt khoá liên động
+69bf58e82356	Mô phỏng này đặt sẵn con đường xấu nhất: khoá liên động mất tác dụng.
+83e615521759	Định giới hạn trên của nhiệt độ gió theo tuổi thọ gạch ô lò gió nóng và mắt gió
+1b0cbffa6087	Giám sát trực tuyến chênh lệch nhiệt độ nước và dòng nhiệt ở mắt gió, vượt ngưỡng thì cảnh báo
+a2a30f8067a2	Khoá liên động nhiệt độ gió: vượt ngưỡng tự động về giá trị an toàn
+ccfb7b7624f2	Kiểm tra định kì ống mắt gió nhỏ và ống mắt gió lớn
+4cf543b745a6	Giới hạn trên của bài toán nhiệt độ gió không tính ra được mà do thiết bị quyết định: vượt 1300 ℃ thì phải trả học phí bằng một mắt gió cháy.
+6eb0b8a7c292	Bước trước, bước sau
+600fea75d7c5	Kiểm tra tại lớp (8 câu)
+b4c2a0b3f04a	Chạy / dừng máy
+666238944063	Bật/tắt tên thiết bị
+99b4739a8721	Mục tiêu bài: hiểu mắt gió tạo CO thế nào, oxide sắt bị khử từng cấp ra sao, vì sao phải thêm đá vôi, cuối cùng giữ ổn định tình trạng lò trong cửa sổ suất cốc và độ base 15 giây.
+5f827d1f5ea7	Theo cách nói của SGK, CO trong lò cao từ đâu ra
+eee5281a4fb5	Than cốc cháy một bước ở mắt gió thành CO
+99b5c34bcd14	Than cốc cháy trước ở mắt gió tạo CO₂ (toả nhiệt), CO₂ lại bị than cốc khử thành CO (thu nhiệt, thuận nghịch)
+b8e6cf92eb76	Do đá vôi phân huỷ sinh ra
+d7cde19a9a6d	Do quặng sắt phản ứng với hơi nước sinh ra
+54d069a745dd	Câu gốc ở Nhân Giáo bắt buộc tập 2 tr. 48 là: C(than cốc) + O₂(không khí) = CO₂ (toả nhiệt), C(than cốc) + CO₂ = 2CO (thu nhiệt), và nói rõ C + CO₂ ⇌ 2CO là phản ứng thuận nghịch, xảy ra từ dưới lên ở nơi có than cốc. Khi carbon dư, kết quả tổng tương đương 2C + O₂ → 2CO, nhưng đó chỉ là kết quả cộng hai bước.
+66bc7de23444	Chất khử chính đối với sắt trong lò cao là
+8ebbff649f18	Than cốc phản ứng trực tiếp với Fe₂O₃
+8055bece0ba9	CO (than cốc biến thành CO trước)
+72fc1a3521c5	Hydrogen
+b810edf390d3	Than cốc ở mắt gió và vùng nhiệt độ cao biến thành CO trước, CO đi lấy oxygen từng cấp: Fe₂O₃ → Fe₃O₄ → FeO → Fe. Vai trò trực tiếp của than cốc là cấp nhiệt, cung cấp chất khử, làm khung đỡ.
+a507ca8cc637	Tác dụng của việc thêm đá vôi là
+c978071ec845	Cung cấp CO₂ tham gia khử
+e9a77bc7afbb	Phân huỷ ra CaO, cùng SiO₂ tạo xỉ mang tạp chất đi
+ffd04ed4f3bc	Hạ nhiệt độ đỉnh lò
+8e34d9a70413	Tăng hàm lượng carbon trong gang lỏng
+4ca136fcdc4a	CaCO₃ phân huỷ trước thành CaO (thu nhiệt), CaO lại cùng tạp chất có tính acid SiO₂ tạo xỉ lỏng CaSiO₃, nổi trên gang lỏng và thải ra ở lỗ ra xỉ.
+1c50828c8f68	Ngắt hẳn đá vôi thì độ base của xỉ
+15ae1501402f	Về 0
+dc9370c99760	Tụt xuống khoảng 0.28, xỉ đặc quánh
+abdb0612c76b	Tăng lên
+99a9e5e7c649	Đất đá trong quặng và tro cốc tự mang vào khoảng 30 kg/t CaO, nên độ base không về 0 mà tụt xuống 0.279: xỉ không đủ base, đặc quánh, không khử được sulfur.
+03ea8aa3cdba	Thứ tự đúng của quá trình khử từng cấp các oxide sắt là
+eff248daa461	Theo hàm lượng oxygen từ cao xuống thấp: Fe₂O₃ (200–700 ℃) → Fe₃O₄ (khoảng 850 ℃) → FeO (hoàn tất ở khoảng 1200 ℃) → Fe.
+d90c510d4d92	Tăng nhiệt độ gió nóng giảm được suất cốc, vì
+53ce91f7e897	Nhiệt độ gió làm quặng dễ nóng chảy hơn
+84e25f610105	Nhiệt hiện do gió mang vào qua mắt gió thay thế nhiệt từ đốt cốc
+16cc08d568ef	Nhiệt độ gió tăng hiệu suất sử dụng CO mà không có cái giá nào
+33065aea1a58	Nhiệt độ gió làm tăng lượng khí lò
+e95992e8f4b8	Nhiệt cần cho mỗi đơn vị gang do “đốt cốc + nhiệt hiện của gió nóng” cùng cung cấp; nhiệt độ gió càng cao, nhiệt hiện mang vào càng nhiều, cốc phải đốt càng ít. Cái giá là sức chịu đựng của lò gió nóng và mắt gió.
+153d963ec6ca	Liệu phải nạp phân lớp xen kẽ, chủ yếu vì
+4e07b2e247b7	Tiện cân đong
+ff117becf9c8	Khung đỡ của lớp cốc giữ cho cột liệu thông khí, khí lò mới xuyên lên được
+da200871a94d	Để liệu nóng chảy nhanh hơn
+ad214958d4e1	Tránh đá vôi phân huỷ sớm
+6a8cdd45c00e	Khí lò phải xuyên qua cả cột liệu từ dưới lên; lớp cốc là cửa thông khí và khung đỡ. Trộn thành một đống hoặc cốc bị nén vỡ thì cột liệu nghẽn, chỉ còn cách ngừng gió.
+e15bbb69d56f	Vì sao lò cao công nghiệp giữ nhiệt độ gió ở 1100–1250 ℃ mà không kéo lên mãi
+a73d843c37c6	Nhiệt độ gió càng cao suất cốc càng cao
+6777f2b3d09d	Tuổi thọ gạch ô lò gió nóng và mắt gió đặt ra giới hạn trên, vượt 1300 ℃ sẽ cháy mắt gió
+05556e780458	Nhiệt độ gió không liên quan đến suất cốc
+4f5ba414937a	Nhiệt độ gió cao thì độ base giảm
+43e5b22f49f2	Trong phạm vi năng lực thiết bị, nhiệt độ gió càng cao suất cốc càng thấp; nhưng vượt nhiệt độ chịu đựng của lò gió nóng và mắt gió thì sẽ cháy thủng mắt gió. Vì vậy đó là dải dung hoà do giới hạn thiết bị quyết định, không phải điểm tối ưu tính ra.
+9415283a81c7	Đã cắt lò gió nóng: thổi gió lạnh, suất cốc vọt lên 568 kg/t
+abcf8262e07b	Lò gió nóng đã dùng lại: gió nóng về 1200 ℃
+b5cf1162f7d2	Đá vôi đã ngắt: độ base tụt xuống 0.279, xỉ đặc quánh, không khử được sulfur
+84e274860466	Đá vôi đã nạp lại: độ base về 1.150
+2f20378af1af	Bất thường: ca đêm hạ nhiệt độ gió hai nấc (suất cốc 366 kg/t, sản lượng 9459 t/d), em tự kéo lại
+3d2883fc8f4c	Đạt: giữ được cả suất cốc, độ base, sản lượng, trong 15 s
+f32c17d82011	Đã về chế độ tham chiếu: 1200 ℃, 180 kg/t, làm giàu oxygen 3 %
+5abc775e7c41	Đã dừng máy (ngừng gió)
+3ae804dfe4e2	Ngừng gió khẩn cấp: nhiệt độ gió đã về chế độ tham chiếu, gỡ khoá liên động
+c56969de94f9	Sửa chữa xong: mắt gió đã xử lí, thông số đặt lại, thổi gió trở lại
+ee83d4ca4dae	Lưu ý minh hoạ: hình dạng thiết bị, hướng đường ống và vị trí các vùng trong lò là minh hoạ dạy học; giá trị suất cốc, độ base, hiệu suất sử dụng CO, sản lượng do mô hình đặt cho bài tính ra (facts B2.1, đánh dấu est), ngưỡng đạt và ngưỡng vượt giới hạn là giá trị đặt cho bài.
+34027a535917	Phím tắt ← → chuyển bước \xB7 1–8 nhảy bước \xB7 Q kiểm tra \xB7 Space chạy/dừng máy \xB7 N tên thiết bị \xB7 F toàn màn hình \xB7 Esc về bảng điều khiển
+55b0faa23674	${l.id} lỗi contract:
+ec7a4847349f	Lớp minh hoạ: độ dày thành hiển thị (vỏ lò 0.45 m / lớp lót 0.90 m), độ dày và số cặp lớp liệu, hình chữ V ngược của vùng mềm chảy, ranh giới năm vùng, 12 mắt gió, kích thước vùng xoáy, độ dày lớp xỉ đều là minh hoạ; nhiệt độ xem facts A3
+500d0ac799ee	Vỏ lò (vỏ đổi tiết diện từ họng lò đến nồi lò + đai tấm làm nguội)
+b2c4a15b61fd	Lớp lót chịu lửa (có độ dày thành)
+af730496e9ee	Vùng cục: lớp liệu hình V xen kẽ cốc / quặng
+ac5d32b01a82	Vùng mềm chảy (V ngược) và cửa sổ cốc
+3207640fb2dc	Vùng nhỏ giọt (lớp cốc)
+ccf3619d49f1	Vùng xoáy mắt gió (vùng cháy)
+408d8fceed83	Xỉ và gang trong nồi lò (xỉ nổi trên gang lỏng)
+95ceae2b908e	Mắt gió, ống thổi và ống cổ ngỗng
+40f2f6f2af4f	Ống vòng gió nóng (phía trên mắt gió)
+8f13d2fdd20c	Lỗ ra gang
+7e7c517f9ea9	Lỗ ra xỉ (cao hơn lỗ ra gang)
+9285a804db02	Phễu nhận liệu đỉnh lò
+479cc1560360	Ống dẫn khí lò đi lên
+74425dd1a32d	Cột và dầm khung lò
+907dec8dd7f7	Móng lò cao
+3605f8cede46	Lan can sàn thao tác
+749f53b3b3f7	Van xả khí lò đỉnh
+65e490aa1e90	Biển tên
+eb8e169c2fae	Que đo nhiệt thân lò (có ống bảo vệ)
+42f0d0e1ee05	Vòng bu lông mặt bích đỉnh lò
+e8115474ce08	Gió nóng do lò gió nóng bên ngoài cung cấp, thân lò cao không có động cơ
+35ac661abd08	Thân lò không có bộ phận truyền động; chuông nạp liệu do tời đỉnh lò kéo qua cáp thép, thuộc thiết bị nạp liệu đỉnh lò
+cdf7547a4ef1	Vỏ lò
+3190355cdd43	Cao toàn bộ 23.0 m \xB7 Bụng lò
+5e10b067c631	Vùng cục
+c4d3724a38b1	Cốc / quặng xen kẽ thành lớp (minh hoạ)
+71107bbc4eae	Vùng mềm chảy
+499f136ca3f9	Khoảng 1100–1400 ℃ (minh hoạ)
+8a09dc563d4c	Vùng nhỏ giọt
+ebbb8ce7b5e0	1400–1500 ℃ (minh hoạ)
+a19a8a31fb6f	Vùng xoáy mắt gió
+c3621e60bbd7	Lớp xỉ
+f1dc0a7b3941	Nổi trên gang lỏng
+acf51c35cf8e	Gang lỏng
+61c05ca043e1	Ra ở lỗ ra gang (đặt thấp hơn)
+c4f6d4053833	Lớp lót chịu lửa
+2ec5aec4747f	Vẽ dày thêm 0.9 m (minh hoạ)
+3eb72e7c4cb9	Ống vòng gió nóng
+25eb2efc4d3f	12 mắt gió (minh hoạ)
+22b5dd1aa13c	Phễu nhận liệu
+100588a3b97b	Quặng / cốc / trợ dung nạp phân lớp
+7b904659f86c	Lỗ ra xỉ
+d960b7564cf0	Cao hơn lỗ ra gang
+40c410bfb9e5	Khung lò
+64159fdb226b	Ống đi lên
+57414f24dbd9	Lỗ ra xỉ nằm phía trên
+c0d50f1b01c4	Cửa vào gió nóng
+fcea04b81fd0	Ống cổ ngỗng
+24766136aae2	Ống vòng → mắt gió
+be8bc5e1b9ea	Khu sàn ra gang 6 m
+2a69bd099257	Vùng cục 200–1100 ℃
+a0a82c4844a9	Vùng mềm chảy khoảng 1100–1400 ℃ (minh hoạ)
+13de1db1301d	Vùng nhỏ giọt 1400–1500 ℃ (minh hoạ)
+83c197468554	Vùng xoáy mắt gió 1500–1600 ℃
+9924a4480edc	Nồi lò: xỉ nổi trên gang lỏng
+aaa749723dad	Liệu đi xuống
+95cab0acd036	Khí lò đi lên
+1fb07f976df0	Fe₂O₃ → Fe₃O₄ khoảng 200–700 ℃
+11c1dbc81586	Fe₃O₄ → FeO khoảng 850 ℃
+f09f12582de4	FeO → Fe khoảng 1200 ℃
+e5b6c910c6f9	Hạt quặng (phóng to minh hoạ)
+71896b445075	Lớp xỉ (nổi trên gang lỏng)
+2da9ee757117	Gạch ô tích nhiệt
+3928ead54c87	Gió nóng tới ống vòng
+5c42f023ad01	Nhiệt độ gió nóng ${t.Tb.toFixed(0)} ℃ ≥ 1300 ℃ \xB7 Không hạ trong 3 giây sẽ cháy thủng mắt gió (mô phỏng này đặt sẵn khoá liên động mất tác dụng)
+922307866c11	Nhiệt độ gió nóng ${t.Tb.toFixed(0)} ℃ ≤ 950 ℃ \xB7 Không kéo lại trong 3 giây sẽ lò nguội, đông cứng (mô phỏng này đặt sẵn khoá liên động mất tác dụng)
+914c2281e1f3	Luyện gang trong lò cao · Bài giảng 3D tương tác

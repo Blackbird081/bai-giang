@@ -1,0 +1,279 @@
+92cc2b4dad0c	C.steps[${D}].cam.pitch=${B.cam.pitch}\xB0 nằm ngoài khoảng CAMERA.polar ${m.polar[0]}–${m.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp trở lại)
+b6728f0bc605	Lỗi hợp đồng vỏ thanh bước: units[${B}].labelVisible phải là hàm ctx =
+7b7a2a197ce3	Lỗi hợp đồng vỏ thanh bước: units[${B}].realBox phải là true / false
+cf5e77c234d2	${B.unitOf} bước ${he.no}:
+be3ef6ef8cc8	SGK Nhân Giáo (Trung Quốc) 2019, lựa chọn bắt buộc tập 1 \xB7 Chương 1 “Chuyển động của Trái Đất” (Bài 1 tr. 2–6, Bài 2 tr. 7–14)
+6a3d65b690d0	Hệ quả địa lí của chuyển động Trái Đất
+c560bead6456	Tự quay → ngày đêm luân phiên \xB7 Quay quanh Mặt Trời → điểm thiên đỉnh dịch chuyển
+f51ae12659f3	Cùng một thời điểm, vì sao Bắc Kinh đang giữa trưa mà New York lại nửa đêm, và vì sao ban ngày mùa hạ dài hơn mùa đông?
+f955e4a992d5	Tự quay
+652115f6c19c	Quay từ tây sang đông 1 ngày Mặt Trời → ngày đêm luân phiên
+5ee2c2fd1473	Quanh Mặt Trời
+3b10acc47058	Đi hết quỹ đạo elip trong 1 năm → điểm thiên đỉnh di chuyển qua lại bắc – nam
+2d99c23f49aa	Chênh giờ
+c42cc599b41e	Phía đông thấy Mặt Trời mọc trước → lệch 15\xB0 chênh 1 giờ
+fb2a23dc1601	Múi giờ
+f7e0573c644b	Giờ địa phương quá lẻ → 24 múi giờ + đường chuyển ngày
+aaa58ce7adb9	Khác biệt
+015675f83c77	Điểm thiên đỉnh + đường sáng tối → ngày đêm dài ngắn và độ cao Mặt Trời chính trưa
+a04d7faed1e8	Trái Đất
+23f5827a8805	Trục Trái Đất, lưới kinh vĩ tuyến, đường phân chia sáng tối, cung ngày cung đêm
+5d7ea933056b	Mỗi ngày Trái Đất quay một vòng, vòng ấy quay như thế nào?
+b707d3b6d112	Em kéo góc nhìn đi nửa vòng quanh Trái Đất: trục Trái Đất nghiêng, bề mặt quay bên dưới nó
+4698cef6761a	Trái Đất tự quay quanh trục từ tây sang đông (nhìn từ trên cực Bắc thấy ngược chiều kim đồng hồ); kéo giờ quốc tế từ 0 đến 24, Trái Đất quay vừa tròn một vòng = 1 ngày Mặt Trời 24 giờ
+1c5e87b15c1b	Từ tây sang đông \xB7 1 ngày Mặt Trời = 24 giờ \xB7 tốc độ góc 15\xB0/giờ
+349bbad65fed	Ngày sao 23 giờ 56 phút 4 giây mới là chu kì tự quay thực sự
+20566ba3e184	Từ tây sang đông
+8e1943ec32c0	Ngày Mặt Trời 24 giờ
+96ec91606c2f	15\xB0/giờ
+3f62f6f4d655	Trái Đất quay quanh trục theo hướng từ tây sang đông; nhìn từ trên cực Bắc thấy ngược chiều kim đồng hồ, nhìn từ trên cực Nam thấy cùng chiều kim đồng hồ.
+c51a69dc668f	Quay một vòng là 1 ngày Mặt Trời = 24 giờ; lấy các ngôi sao ở rất xa làm mốc thì là 23 giờ 56 phút 4 giây (ngày sao), đó mới là chu kì tự quay thực sự.
+58b984dc53de	Tốc độ góc như nhau ở mọi vĩ độ, trừ hai điểm cực Bắc và Nam, khoảng 15\xB0/giờ; tốc độ dài giảm dần từ xích đạo về hai cực, tại hai điểm cực cả tốc độ góc và tốc độ dài đều bằng 0.
+e059b9fbb057	Bỏ bước này: em sẽ không hiểu vì sao đường phân chia sáng tối quét qua mặt đất từ đông sang tây, cũng không hiểu vì sao giờ địa phương phía đông sớm, phía tây muộn.
+db9865c04100	Hay thi: nhìn từ trên cực Bắc thấy ngược chiều kim đồng hồ, từ trên cực Nam thấy cùng chiều kim đồng hồ; tốc độ dài tự quay giảm dần từ xích đạo về hai cực, ở hai cực bằng 0.
+ebd1a7bf8ad6	Trái Đất tự quay quanh trục từ tây sang đông, chu kì 1 ngày Mặt Trời = 24 giờ (ngày sao 23 giờ 56 phút 4 giây mới là chu kì thực sự), tốc độ góc khoảng 15\xB0/giờ, tốc độ dài giảm dần từ xích đạo về hai cực.
+1017af2e701b	facts A2.1 mục 3–6 (SGK tr. 2–3), A2.7 ý chính 1 (tr. 14)
+4fedd593848e	Trái Đất đi một vòng quanh Mặt Trời: quỹ đạo và tốc độ có gì đáng chú ý?
+a76f5fa63296	Em kéo ngày từ Hạ chí (ngày 172) đến Đông chí (ngày 356), xem Trái Đất sang phía bên kia quỹ đạo, khoảng cách Trái Đất – Mặt Trời rút xuống 1.472 × 10⁸ km
+8a2b00dad274	Trái Đất chuyển động quanh Mặt Trời từ tây sang đông theo quỹ đạo elip gần tròn, Mặt Trời ở một tiêu điểm; từ Hạ chí (1.520 × 10⁸ km, 29.3 km/s) đến Đông chí (1.472 × 10⁸ km, 30.3 km/s), trục Trái Đất luôn nghiêng 23\xB026′ và giữ nguyên hướng trong không gian
+243eb658c044	Cận nhật (đầu tháng 1) nhanh \xB7 Viễn nhật (đầu tháng 7) chậm
+5c367134e188	Trục nghiêng 23\xB026′, hướng trong không gian không đổi
+d278e3c68abc	Quỹ đạo elip
+5c03529f1726	Cận nhật đầu tháng 1
+1b0199ec39ab	Viễn nhật đầu tháng 7
+ce28d240a436	Hướng chuyển động quanh Mặt Trời cũng từ tây sang đông, trùng với hướng tự quay; một vòng là 1 năm (năm chí tuyến 365 ngày 5 giờ 48 phút 46 giây).
+40e10b10e375	Quỹ đạo là elip gần tròn, Mặt Trời nằm ở một tiêu điểm của elip; đầu tháng 1 Trái Đất qua điểm cận nhật (1.471 × 10⁸ km), đầu tháng 7 qua điểm viễn nhật (1.521 × 10⁸ km).
+bcdf017a5030	Khoảng cách Trái Đất – Mặt Trời chỉ thay đổi khoảng 3 %, nhưng tốc độ chuyển động thay đổi theo: ở cận nhật tốc độ dài 30.3 km/s, tốc độ góc 61′/ngày; ở viễn nhật 29.3 km/s, 57′/ngày; trục Trái Đất giữ nguyên hướng trong không gian.
+1f3a294ee8db	Bỏ bước này: không giải thích được vì sao nửa năm mùa hạ ở bán cầu Bắc (186 ngày) dài hơn nửa năm mùa đông (179 ngày) — nửa năm mùa đông Trái Đất đi qua cận nhật nên chạy nhanh hơn.
+1d5b0b8d7caa	Hay thi: đầu tháng 1 ở cận nhật, đầu tháng 7 ở viễn nhật; ở cận nhật tốc độ chuyển động (cả tốc độ dài và tốc độ góc) đều lớn.
+406e90cd8463	Hướng chuyển động quanh Mặt Trời trùng hướng tự quay (từ tây sang đông), quỹ đạo là elip gần tròn, Mặt Trời ở một tiêu điểm; đầu tháng 1 ở cận nhật, đầu tháng 7 ở viễn nhật, ở cận nhật chuyển động nhanh, nên nửa năm mùa hạ của bán cầu Bắc dài hơn nửa năm mùa đông 7 ngày.
+7a111fa0c5ad	facts A2.2 mục 1, 2, 4, 6, 7 (SGK tr. 3–4, tr. 14), mục 8 (chú thích hình 1.4, L1)
+a45935ac68c0	Nửa cầu ngày đêm
+e5d76af1d666	Cùng một thời điểm, vì sao một nửa là ban ngày, một nửa là ban đêm?
+8dd23b9e8059	Em kéo giờ quốc tế từ 0 đến 12, xem Trái Đất quay bên dưới đường phân chia sáng tối
+0019a7e22402	Mặt Trời chỉ chiếu sáng được một nửa Trái Đất: nửa hướng về Mặt Trời là nửa cầu ngày, nửa quay lưng là nửa cầu đêm, ranh giới chính là vòng phân chia sáng tối; ngày Hạ chí vòng này vừa tiếp xúc vòng cực Bắc, toàn bộ vùng trong vòng cực Bắc đều thuộc nửa cầu ngày
+684c7f294c92	Nửa cầu ngày | Nửa cầu đêm
+dcb0e72b29a4	Ranh giới = đường sáng tối \xB7 chu kì 1 ngày Mặt Trời
+64d08ea9db6c	Nửa cầu ngày
+19b8ee136633	Nửa cầu đêm
+dbaddc9d283f	Đường sáng tối
+0a428a5e60a4	Cùng một thời điểm, Mặt Trời chỉ chiếu sáng được một nửa bề mặt Trái Đất: nửa cầu hướng về Mặt Trời là ban ngày (nửa cầu ngày), nửa cầu quay lưng với Mặt Trời là ban đêm (nửa cầu đêm).
+948a56a80dc4	Đường (vòng) ranh giới giữa nửa cầu ngày và nửa cầu đêm gọi là đường (vòng) phân chia sáng tối. Mặt phẳng chứa vòng này luôn hướng thẳng về Mặt Trời, nên nó không quay theo Trái Đất, mà Trái Đất quay bên dưới nó.
+d85654499eb1	Chu kì ngày đêm luân phiên là 1 ngày Mặt Trời; chu kì dài ngắn vừa phải như vậy nên ban ngày không quá nóng, ban đêm không quá lạnh.
+3f6215e6374f	Bỏ bước này: em chỉ nói được “trời sáng rồi, trời tối rồi”, không nói được đường đó là gì, vì sao nó di chuyển.
+67cefb05d3ae	Dễ sai: ngày đêm luân phiên là do Trái Đất tự quay, chu kì 1 ngày Mặt Trời (không phải do chuyển động quanh Mặt Trời, không phải 1 năm).
+35a28374ad10	Mặt Trời chỉ chiếu sáng được một nửa bề mặt Trái Đất, đường (vòng) ranh giới giữa nửa cầu ngày và nửa cầu đêm gọi là đường (vòng) phân chia sáng tối; Trái Đất tự quay làm ngày đêm luân phiên liên tục, chu kì 1 ngày Mặt Trời.
+74acf903c747	facts A2.3 mục 1–2 (SGK tr. 7), hình 1.10
+cf1752e2c532	Bình minh – hoàng hôn
+8045cbd2b022	Trên đường phân chia sáng tối, nửa nào là đường bình minh, nửa nào là đường hoàng hôn?
+ad2ec0f56070	Em bấm vào nửa vòng màu hổ phách trên Trái Đất (nửa vòng đi từ đêm sang ngày theo chiều tự quay)
+dc2ce8c67b77	Theo chiều tự quay (từ tây sang đông), nửa vòng đi từ nửa cầu đêm sang nửa cầu ngày là đường bình minh (màu hổ phách), nửa vòng đi từ nửa cầu ngày sang nửa cầu đêm là đường hoàng hôn (màu chàm); mọi điểm trên hai nửa vòng này đều có độ cao Mặt Trời 0\xB0
+eb22d2798cf6	Theo chiều tự quay: từ đêm sang ngày = đường bình minh; từ ngày sang đêm = đường hoàng hôn
+c19aa4e1069b	Trên đường sáng tối độ cao Mặt Trời 0\xB0; tại điểm thiên đỉnh là 90\xB0
+86d9ab698cce	Đường bình minh
+c34373fb0d58	Đường hoàng hôn
+3b48f44848a8	Độ cao Mặt Trời 0\xB0
+4440582a8fbf	Trên một vòng phân chia sáng tối, một nửa là đường bình minh, một nửa là đường hoàng hôn; căn cứ là chiều tự quay: theo chiều tự quay, nửa đi từ đêm sang ngày là đường bình minh.
+1a6f585a913d	Nửa còn lại đi từ ngày sang đêm là đường hoàng hôn; Trái Đất quay tiếp, nơi nằm trên đường bình minh đón Mặt Trời mọc, nơi nằm trên đường hoàng hôn đón Mặt Trời lặn.
+c6615f8902c5	Mọi điểm trên đường phân chia sáng tối đều có độ cao Mặt Trời 0\xB0 (Mặt Trời vừa ở đường chân trời); tại điểm Mặt Trời lên thiên đỉnh, độ cao Mặt Trời là 90\xB0.
+c11bbdd50755	Bỏ bước này: thấy một đường mà không phân biệt được bình minh hay hoàng hôn, không xác định được một nơi đang lúc Mặt Trời mọc hay lặn.
+44435b5a3d80	Dễ sai: xác định bình minh, hoàng hôn phải nhìn theo chiều tự quay (từ tây sang đông), không phải nhìn dọc kinh tuyến lên phía bắc; phía đông đường bình minh là nửa cầu ngày.
+3cc3c031caf8	Theo chiều tự quay, nửa vòng đi từ nửa cầu đêm sang nửa cầu ngày là đường bình minh, nửa vòng đi từ nửa cầu ngày sang nửa cầu đêm là đường hoàng hôn; trên đường phân chia sáng tối độ cao Mặt Trời bằng 0\xB0.
+9c62c36aa6df	facts A2.3 mục 1 (tr. 7), A2.6 mục 1 (tr. 11), B2.9 cách xác định
+90a28db40624	Giờ địa phương
+9b5e1ca59b84	Vì sao thành phố ở phía đông thấy Mặt Trời mọc trước?
+c1438da9409e	Em kéo kinh độ từ 180\xB0W sang 180\xB0E, theo dõi số đọc giờ địa phương trên bảng điều khiển
+b00f72503543	Giờ địa phương 04:00 → 08:00 (kinh tuyến 0\xB0) → 16:00 (180\xB0E): cứ sang đông 15\xB0, giờ địa phương sớm hơn 1 giờ; cùng một thời điểm, các kinh độ khác nhau có giờ địa phương khác nhau
+97d23c54c4ee	Phía đông sớm hơn phía tây \xB7 cứ cách 15\xB0 kinh độ, giờ địa phương chênh 1 giờ
+2cbbd0bface4	1\xB0 = 4 phút
+98720b5fed2a	15\xB0 = 1 giờ
+8b0f8d7634cd	Đông sớm, tây muộn
+eb509dd9bb1d	Trái Đất quay từ tây sang đông, trên cùng một vĩ tuyến, nơi ở phía đông thấy Mặt Trời mọc trước nơi ở phía tây, nên thời gian cũng có sớm muộn khác nhau.
+c8236bf8da7e	Cứ cách 15\xB0 kinh độ, giờ địa phương chênh nhau 1 giờ (1\xB0 = 4 phút); càng về phía đông, giờ càng sớm.
+22c4c2544c24	Giờ địa phương chỉ phụ thuộc kinh độ, không phụ thuộc vĩ độ: các nơi trên cùng một kinh tuyến có cùng giờ địa phương.
+48900a9ff768	Bỏ bước này: em không tính được chênh lệch giờ giữa hai nơi, các phần múi giờ, giờ khu vực, đường chuyển ngày phía sau đều không nối được.
+c0d9008cf76b	Hay thi: cho kinh độ hai nơi, tính chênh lệch giờ địa phương; “giờ Bắc Kinh” là giờ khu vực của múi Đông 8 (giờ địa phương của kinh tuyến 120\xB0E), không phải giờ địa phương của Bắc Kinh (116\xB0E).
+2608640c27fb	Trái Đất quay từ tây sang đông, nơi ở phía đông thấy Mặt Trời mọc trước nơi ở phía tây, giờ sớm hơn; cứ cách 15\xB0 kinh độ, giờ địa phương chênh 1 giờ.
+6839fc2cd00e	facts A2.4 mục 1, 7 (SGK tr. 8–10), B2.5
+3cab30f30546	Múi giờ, đường chuyển ngày
+834e6dae75d1	Cả thế giới đều dùng giờ địa phương thì không ổn, làm thế nào? Vì sao đi qua kinh tuyến 180\xB0 lại quay về hôm qua?
+9dc5b05eff14	Em kéo kinh độ từ 180\xB0E vượt qua 180\xB0 sang 180\xB0W, theo dõi giờ khu vực và ngày ở dòng chú thích trên bảng điều khiển
+418e8cfb912d	Kinh tuyến 180\xB0E (múi Đông 12) và 180\xB0W (múi Tây 12) đồng hồ đều chỉ 16:00, nhưng ngày lệch nhau một ngày: múi Đông 12 là ngày 21/6, múi Tây 12 là ngày 20/6
+43d12bc58136	Toàn cầu 24 múi giờ \xB7 mỗi múi 15\xB0 \xB7 hai múi liền kề chênh 1 giờ
+b4be3bce85a6	Giờ Bắc Kinh = giờ khu vực múi Đông 8 = giờ địa phương kinh tuyến 120\xB0E
+fa48f5cb2021	Giờ khu vực
+63d98e4770c1	Đường chuyển ngày quốc tế
+1df05982bf9b	Giờ địa phương quá lẻ, không dùng được: toàn cầu chia 24 múi giờ, mỗi múi rộng 15\xB0, lấy giờ địa phương của kinh tuyến giữa làm giờ khu vực; hai múi liền kề chênh 1 giờ, phía đông sớm hơn.
+7c798294728d	Múi Đông 12 và múi Tây 12 mỗi múi rộng 7.5\xB0, hợp thành một múi giờ: giờ khu vực như nhau, nhưng ngày lệch nhau một ngày (múi Đông 12 sớm hơn múi Tây 12 một ngày).
+711eaab3aadf	Về nguyên tắc, lấy kinh tuyến 180\xB0 làm ranh giới giữa “hôm nay” và “hôm qua”: đi từ múi Đông 12 sang phía đông vào múi Tây 12, giờ giữ nguyên, ngày lùi một ngày; đi theo chiều ngược lại thì ngày tăng một ngày.
+abec6046140f	Bỏ bước này: tính ngày khi vượt đường chuyển ngày sẽ sai — trong SGK, hệ thống dẫn đường của máy bay chiến đấu F-22 bị hỏng chính vì hệ thống điện tử bỏ qua việc đổi ngày trên đường chuyển ngày.
+b6fb1f34aaf5	Dễ sai: vượt kinh tuyến 180\xB0 theo hướng từ tây sang đông thì ngày lùi một ngày (nhiều bạn nhớ ngược); múi Đông 12 sớm hơn múi Tây 12 một ngày.
+49b25c6e62bb	Toàn cầu chia 24 múi giờ, mỗi múi rộng 15\xB0, giờ khu vực lấy theo giờ địa phương của kinh tuyến giữa; lấy kinh tuyến 180\xB0 làm đường chuyển ngày quốc tế, đi từ múi Đông 12 sang phía đông vào múi Tây 12 thì giờ giữ nguyên, ngày lùi một ngày.
+0b9ec0002127	facts A2.4 mục 2–4, 7–8 (SGK tr. 8–10), B2.6, B2.7
+ffd22c35c3d1	Ngày đêm dài ngắn
+a5eed496d2af	Ngày Hạ chí, càng lên phía bắc ban ngày càng dài, dài đến đâu thì thôi?
+064c0ba5be1e	Em kéo vĩ độ từ 40\xB0N lên vòng cực Bắc (66\xB034′N), theo dõi số đọc độ dài ban ngày
+eee89cb8d846	Ngày dài 14.84 h (40\xB0N) → 24.00 h (vòng cực Bắc, ngày địa cực); cung ngày ngày càng dài, cung đêm ngày càng ngắn; ở xích đạo ngày nào cũng là 12.00 h
+82f3ed8a9bac	Độ dài ngày = 24\xB7arccos(
+dbc6223692d6	Hạ chí: 40\xB0N 14.84 h, từ vòng cực trở lên ngày địa cực
+66a3c7c763fc	Cung ngày
+681861e2e916	Cung đêm
+679ead686b3b	Ngày địa cực
+c01c8c3f71c7	Đường phân chia sáng tối chia mỗi vĩ tuyến nó cắt qua thành cung ngày và cung đêm: cung ngày dài hơn cung đêm thì ngày dài đêm ngắn, ngược lại thì ngày ngắn đêm dài.
+9a34867f98e5	Ngày Hạ chí Mặt Trời lên thiên đỉnh ở chí tuyến Bắc: bán cầu Bắc có ngày dài nhất, đêm ngắn nhất, vĩ độ càng cao ngày càng dài, từ vòng cực Bắc trở lên đều có ngày địa cực; bán cầu Nam ngược lại.
+c29bb91eedd4	Ngày Đông chí thì ngược lại: bán cầu Bắc có ngày ngắn nhất, đêm dài nhất, từ vòng cực Bắc trở lên có đêm địa cực. Em kéo ngày sang Xuân phân để so sánh: đường phân chia sáng tối đi qua hai cực, toàn cầu đều 12 giờ.
+880fd63606e7	Bỏ bước này: không giải thích được vì sao mùa hạ ở Cáp Nhĩ Tân ban ngày dài hơn ở Quảng Châu, còn mùa đông thì ngược lại.
+d024ac6dd5a3	Dễ sai: ở xích đạo cũng có ngày đêm luân phiên, nhưng quanh năm độ dài ngày đêm không đổi; ngày địa cực là ban ngày kéo dài 24 giờ.
+33b986f35558	Độ dài ngày thay đổi theo vĩ độ và mùa: Hạ chí bán cầu Bắc ngày dài đêm ngắn, vĩ độ càng cao ngày càng dài, từ vòng cực Bắc trở lên có ngày địa cực; ở xích đạo và vào hai ngày phân, ngày đêm dài bằng nhau 12 giờ.
+c9dbbc907bc6	facts A2.5 mục 1–4 (SGK tr. 11), B2.4, B2.12, hình 1.16
+7efe7e6c8edc	Độ cao Mặt Trời chính trưa
+202cd9bb9eb8	Mặt Trời lúc chính trưa cao bao nhiêu, có lên tới đỉnh đầu không?
+3bcfe33961f3	Em kéo ngày từ Hạ chí (ngày 172) đến Đông chí (ngày 356), theo dõi số đọc độ cao Mặt Trời chính trưa
+348eea30c4da	Bắc Kinh (40\xB0N) độ cao Mặt Trời chính trưa 73.4\xB0 (Hạ chí 73\xB026′) → 26.6\xB0 (Đông chí 26\xB034′); điểm thiên đỉnh dịch từ chí tuyến Bắc xuống chí tuyến Nam
+398fa5222ac7	40\xB0N: Hạ chí 73\xB026′, Đông chí 26\xB034′
+95c42f8005d1	Hướng Mặt Trời chính trưa
+51df38c79524	Điểm thiên đỉnh
+cd713d3db09b	Độ cao Mặt Trời là góc giữa tia sáng Mặt Trời và mặt phẳng chân trời: tại điểm thiên đỉnh là 90\xB0, trên đường phân chia sáng tối là 0\xB0; độ cao Mặt Trời chính trưa là độ cao lớn nhất trong ngày.
+e5719fd0fdb4	δ|, càng gần vĩ độ của điểm thiên đỉnh càng lớn; 40\xB0N Hạ chí 73\xB026′, Đông chí 26\xB034′.
+3859b1776176	Phân bố theo vĩ độ: hai ngày phân giảm dần từ xích đạo về hai phía bắc, nam; Hạ chí giảm dần từ chí tuyến Bắc, Đông chí giảm dần từ chí tuyến Nam; từ chí tuyến Bắc trở lên, quanh năm Mặt Trời chính trưa đều ở phía nam.
+83fac8640d82	Bỏ bước này: không nói được vì sao cùng mùa hạ mà Quảng Châu nắng gắt hơn Bắc Kinh, cũng không giải thích được vì sao khoảng cách giữa các toà nhà được tính theo ngày Đông chí.
+2ce1bf3dab3a	Hay thi: dùng H = 90\xB0
+496bce96f300	δ| để tính độ cao Mặt Trời chính trưa; từ chí tuyến Bắc trở lên, Mặt Trời chính trưa quanh năm ở phía nam, bóng ngả về phía bắc.
+6dc9ba3131d4	Độ cao Mặt Trời chính trưa H = 90\xB0
+444e836374f4	δ|, càng gần điểm thiên đỉnh càng lớn; 40\xB0N Hạ chí 73\xB026′, Đông chí 26\xB034′; từ chí tuyến Bắc trở lên, quanh năm Mặt Trời chính trưa ở phía nam.
+9295ab99306e	facts A2.6 mục 1–4 (SGK tr. 11–12), B2.8
+9065d0daa88d	Kiểm tra \xB7 Chênh giờ
+2047c37f8414	Kiểm tra cuối bài: World Cup khai mạc ở Moskva, lúc đó giờ Bắc Kinh là mấy giờ?
+b7fe1d8a580d	Em chỉnh kinh độ về 120\xB0E, giờ quốc tế về 14.5 giờ, ngày về 14/6, để giờ địa phương Bắc Kinh dừng ở 22:30
+1167a1195a6e	Đạt: giờ địa phương Bắc Kinh 22:30, múi Đông 8, ngày 14/6; giữa chừng giờ quốc tế sẽ bị đặt lại về 08:00, em phải chỉnh lại
+8c7927fb19d7	Moskva múi Đông 3 17:30 → Bắc Kinh 22:30
+13851f2efaad	Chênh múi giờ
+a11448ddea97	Trước hết xem hai nơi cách nhau mấy múi giờ: Moskva ở múi Đông 3, Bắc Kinh ở múi Đông 8, cách nhau 5 múi.
+7988d4fa88fb	Càng về phía đông giờ càng sớm, nên giờ Bắc Kinh = 17:30 + 5 giờ = 22:30.
+71e0f939a62c	Giờ Bắc Kinh là giờ khu vực của múi Đông 8, tức giờ địa phương của kinh tuyến 120\xB0E, không phải giờ địa phương của Bắc Kinh (116\xB0E).
+57340fb2d079	Bỏ bước này: đi du lịch, xem giờ thi đấu quốc tế, tính ngày của chuyến bay vượt đường chuyển ngày đều sẽ sai.
+d061369f6720	Hay thi: cho múi giờ của hai nơi, tính giờ khu vực; vượt đường chuyển ngày thì “giờ giữ nguyên, ngày thay đổi”.
+f48f6cadb2d4	Moskva ở múi Đông 3 khai mạc lúc 17:30 giờ địa phương, Bắc Kinh ở múi Đông 8, cách nhau 5 múi giờ, nên giờ Bắc Kinh là 22:30.
+95babcb477e3	facts A2.4 mục 7, 9 (tr. 9–10), B2.5, B2.6, B2.7
+89da31469ce6	Mặt Trời
+fce45f715f22	Trục Trái Đất \xB7 hướng về gần sao Bắc Cực, hướng trong không gian không đổi
+692580a354c2	Nơi này
+58ae097b7c57	Đường bình minh: từ đêm sang ngày
+2d6541f13d75	Đường hoàng hôn: từ ngày sang đêm (ở mặt sau)
+386d819a800e	Cận nhật đầu tháng 1 \xB7 1.471 × 10⁸ km
+14f7dcca57eb	Viễn nhật đầu tháng 7 \xB7 1.521 × 10⁸ km
+92ac19ae0567	Đường chuyển ngày quốc tế 180\xB0
+db965a8fdd95	Tia sáng Mặt Trời (song song)
+2162ec2cab58	Chiều tự quay: từ tây sang đông
+0f43730610ca	Vòng cực Bắc 66\xB034′N
+26ac98b1b9d0	Chiều quay quanh Mặt Trời: từ tây sang đông
+445efa5822da	Xuân phân 21/3
+9cc780a3485d	Hạ chí 21/6
+3a26e5151c57	Thu phân 23/9
+49323ebec2b9	Đông chí 22/12
+e8377b7567ee	Múi Đông 12
+c439822f6521	Múi Tây 12
+217712ba1716	Đường chân trời
+7289e0574036	Độ cao Mặt Trời lúc này
+f87eca619003	Độ dài ngày
+c89a8c879d84	Vĩ độ này, hôm nay
+b0154bc92361	Độ cao chính trưa
+c57707956f4b	15\xB0=1 giờ
+b6fed9af8313	Ngày
+4cb8d409d636	Giờ quốc tế (giờ địa phương kinh tuyến 0\xB0)
+7cfa2fed1015	Kinh độ
+7e9f778711d4	Vĩ độ
+0e777b63461f	Lưới kinh vĩ tuyến, chí tuyến và vòng cực
+1af10c2c12bf	Cung ngày và cung đêm
+862d536d4621	Múi giờ và đường chuyển ngày
+5c8a380e34cf	Quỹ đạo và vị trí hai phân, hai chí
+3f76b300505b	Độ dài ngày theo vĩ độ (giờ)
+185b1486f7b6	— Hạ chí \xB7
+c662b73d91ae	Đông chí \xB7
+67fc2bd0b11a	Toàn bộ quỹ đạo \xB7 một Trái Đất
+66381226d551	Trong các khoảng thời gian Trái Đất tự quay một vòng, khoảng được coi là chu kì tự quay thực sự là
+13cdd9bed3de	1 ngày Mặt Trời = 24 giờ
+43f872e08226	Ngày sao = 23 giờ 56 phút 4 giây
+a98e1d7e2f9a	1 năm chí tuyến
+934848f5cba7	1 năm sao
+2ece2e1ce7cb	SGK tr. 2: lấy Mặt Trời làm mốc là ngày Mặt Trời 24 giờ, lấy các ngôi sao ở rất xa làm mốc là 23 giờ 56 phút 4 giây; ngày sao là chu kì tự quay thực sự của Trái Đất.
+9c23352914ea	Về tốc độ góc và tốc độ dài của chuyển động tự quay, phát biểu đúng là
+6e6a787a37f0	Mọi vĩ độ có tốc độ góc như nhau, tốc độ dài cũng như nhau
+730be146078b	Tốc độ góc như nhau ở mọi vĩ độ trừ hai điểm cực, tốc độ dài giảm dần từ xích đạo về hai cực
+d17ceb8d5830	Tốc độ góc lớn nhất ở xích đạo, tốc độ dài như nhau ở mọi vĩ độ
+630259398003	Tốc độ góc lớn nhất ở hai điểm cực
+dd61e4621f40	SGK tr. 3 và tr. 14 ý chính 1: tốc độ góc bằng nhau ở mọi vĩ độ trừ hai điểm cực Bắc, Nam (khoảng 15\xB0/giờ); tốc độ dài giảm dần từ xích đạo về hai cực.
+6711519a4018	Về điểm cận nhật và viễn nhật, phát biểu đúng là
+8ef7fe39b89b	Đầu tháng 7 ở cận nhật, chuyển động nhanh
+723e14af2af0	Đầu tháng 1 ở cận nhật, chuyển động nhanh
+ab8aaded14f8	Đầu tháng 1 ở viễn nhật, chuyển động chậm
+164783898907	Khoảng cách Trái Đất – Mặt Trời không liên quan tới tốc độ chuyển động
+fc27690a912b	SGK tr. 3: hằng năm vào đầu tháng 1 Trái Đất gần Mặt Trời nhất (cận nhật), đầu tháng 7 xa nhất (viễn nhật); tr. 14 ý chính 2: ở cận nhật Trái Đất chuyển động nhanh hơn.
+48efd8321ca5	Ngày đêm
+bc1f9b4a45d3	Chu kì và nguyên nhân của ngày đêm luân phiên là
+9776c30b4b07	1 ngày Mặt Trời; Trái Đất tự quay
+767ce043961d	1 năm; Trái Đất quay quanh Mặt Trời
+ac16e95ebac5	1 ngày sao; Trái Đất tự quay
+2dc90079ffbc	24 giờ; Trái Đất quay quanh Mặt Trời
+aeffbf039453	SGK tr. 7: Trái Đất tự quay không ngừng, ngày đêm cũng luân phiên không ngừng, chu kì là 1 ngày Mặt Trời.
+3ecd3f2c26ae	Sáng tối
+2c4df5959c32	Theo chiều tự quay của Trái Đất, nửa vòng phân chia sáng tối đi từ nửa cầu đêm sang nửa cầu ngày là
+e631b35213ae	Đường chuyển ngày
+6712252e16ab	Chí tuyến
+0c2ebd4720ac	Theo chiều tự quay (từ tây sang đông), nửa vòng đi từ đêm sang ngày là đường bình minh; nửa đi từ ngày sang đêm là đường hoàng hôn.
+a6973cc6d6ee	Cứ cách 15\xB0 kinh độ, giờ địa phương chênh nhau
+b323fbf0f271	4 phút
+cfc1d0a5c73d	15 phút
+c8fb1c7a7e08	1 giờ
+11f478b6c1c4	1 ngày
+6ab5a5b14eff	SGK tr. 8: cùng một thời điểm, các kinh độ khác nhau có giờ địa phương khác nhau; cứ cách 15\xB0 kinh độ, giờ địa phương chênh nhau 1 giờ.
+c6c04b038068	Đi từ múi Đông 12 sang phía đông vào múi Tây 12, giờ và ngày thay đổi thế nào
+01e2d44d88c2	Giờ giữ nguyên, ngày lùi một ngày
+3b98de13b9e8	Giờ giữ nguyên, ngày tăng một ngày
+bcc3351c707b	Giờ tăng 1 giờ, ngày giữ nguyên
+89f79fbbeb80	Giờ và ngày đều giữ nguyên
+7cb0460d0811	SGK tr. 10: đi từ múi Đông 12 sang phía đông vào múi Tây 12, giờ giữ nguyên, ngày lùi một ngày; theo chiều ngược lại thì ngày tăng một ngày.
+3e50654f40cd	Ngày Hạ chí, tình trạng ngày đêm ở vòng cực Bắc và vùng phía bắc vòng cực là
+322133b66f82	Ngày đêm dài bằng nhau
+085566e62ce9	Ngày ngắn đêm dài
+1bb871635078	Đêm địa cực
+a8d35293b4bf	SGK tr. 11: ngày Hạ chí Mặt Trời lên thiên đỉnh ở chí tuyến Bắc, bán cầu Bắc ngày dài nhất, đêm ngắn nhất, vòng cực Bắc và vùng phía bắc vòng cực đều có ngày địa cực.
+a3c6ff41c9ef	Quay / Dừng
+a58cab1f9007	Theo một Trái Đất quay trọn một vòng: hiểu rõ đường phân chia sáng tối, giờ địa phương và múi giờ, rồi thấy rõ ngày đêm dài ngắn và độ cao Mặt Trời chính trưa thay đổi theo vĩ độ và mùa như thế nào.
+fd0e590a7bff	Đúng: theo chiều tự quay, nửa vòng đi từ đêm sang ngày chính là đường bình minh
+dd3c497ff958	Đây là đường hoàng hôn — theo chiều tự quay, nó là nửa vòng đi từ nửa cầu ngày sang nửa cầu đêm
+cf5fea989279	Lưu ý minh hoạ: khoảng cách Trái Đất – Mặt Trời, kích thước Mặt Trời, bán kính Trái Đất và hình dạng quỹ đạo (tâm sai thực 0.0167, hình vẽ dùng 0.08) đều là minh hoạ; vĩ độ điểm thiên đỉnh và độ dài ngày là giá trị tính theo mô hình (gần đúng). Ảnh nền: NASA Blue Marble.
+723ac4a5c6c2	Phím tắt ← → chuyển bước \xB7 1–9 nhảy bước \xB7 Space quay/dừng Trái Đất \xB7 Q kiểm tra \xB7 F toàn màn hình
+27b9912e5e4c	// Thêm chút sắc ấm ở dải chuyển tiếp sáng tối, một đốm phản chiếu Mặt Trời trên mặt biển ban ngày, một viền khí quyển xanh nhạt quanh rìa cầu phía ban ngày (bước dải màu múi giờ không thêm phản chiếu)
+e0d763a9ee39	0
+d274eee8a175	1
+1d5639f716b6	2
+49ddb069d5b8	3
+4f88740b3480	4
+8f07f53d63e1	5
+3d72c724e03b	6
+7db1eeb5c374	7
+2142fb62fd47	8
+27a2b9f17bea	9
+aa107f05b677	10
+747c8a337a8b	11
+08fdd3fc4243	12
+05c9944ecfcb	Múi giờ 0
+520b46a5cd19	Đông
+2f64b5a67e10	Tây
+726cd3f3c97b	 ${r1[Math.abs(i)]||Math.abs(i)}
+ce51b79f7ad2	${o1(t.zone)} ${od(t.zoneTime)} \xB7 ngày ${t.date.day}/${t.date.month} \xB7 thiên đỉnh tại ${s1(t.decl)}
+4c0bb3a359e1	ngày ${Math.round(i)}
+f19a64fb3b28	Xuân phân
+853b670127ba	Hạ chí
+ef88432d4553	Thu phân
+7d12251b52ec	Đông chí
+ced283dc3e6b	0 giờ
+53dbad1e20e1	6 giờ
+a20e6b7ef5bf	12 giờ
+16240b39db41	18 giờ
+0269ac2ab20c	Giờ quốc tế bị đặt lại về 08:00 rồi, em chỉnh giờ quốc tế về lại nhé
+ab94fae31dee	Đổi giờ khai mạc sang giờ Bắc Kinh
+50af69b77bed	Moskva ở múi Đông 3, Bắc Kinh ở múi Đông 8, trước hết tính xem chênh mấy múi giờ
+3cffee534389	Giờ địa phương Bắc Kinh 22:30
+2498ab9eabbf	Hệ quả địa lí của chuyển động Trái Đất · Bài giảng tương tác 3D

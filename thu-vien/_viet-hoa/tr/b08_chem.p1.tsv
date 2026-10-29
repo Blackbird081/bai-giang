@@ -1,0 +1,253 @@
+aa262691c640	C.steps[${N}].cam.pitch=${P.cam.pitch}\xB0 không nằm trong CAMERA.polar ${p.polar[0]}–${p.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+baa748f63035	SGK Nhân Giáo (Trung Quốc) 2019, bắt buộc tập 1, chương 2 bài 1 “Sodium và hợp chất của sodium” (phương pháp Hầu làm tư liệu tình huống \xB7 chuẩn chương trình tr. 26: thành tựu khoa học – công nghệ hoá học của Trung Quốc)
+152ae58e1b2a	Phương pháp Hầu sản xuất soda
+ab971191c59a	Làm sao từ muối ăn và ammonia tạo ra soda, lại thu thêm được phân đạm?
+0a58bc2e7625	Sục NH₃ trước → dung dịch có tính base, mới hấp thụ được CO₂
+43127f200bcf	Tách tinh thể
+2bf0745683f7	NaHCO₃ quá bão hoà → tách ra khỏi dung dịch
+dbad069227a7	Lọc tách NaHCO₃ thô và nước cái thành hai dòng
+a8c51eb560ef	Nung
+b82f6935b13b	Liên hợp
+3cfea38909fb	CO₂ quay về carbonat hoá + nước cái tách NH₄Cl
+a0f14716120d	Đúng hết! Em đã nắm chắc cả bốn mạch: thứ tự, quá bão hoà, phân huỷ, tuần hoàn.
+5c5e97c3b82f	Nên xem lại mạch chính: ammonia trước, CO₂ sau → quá bão hoà rồi tách tinh thể → lọc → nung → tuần hoàn nước cái và CO₂.
+55357d6d5312	Tháp ammonia hoá
+c9d6e85e076b	Nước muối hấp thụ no NH₃
+22859bd70496	Tháp carbonat hoá
+fdb3b482f086	Tách NaHCO₃
+05096dd1fd1c	Máy lọc
+f519a825477f	NaHCO₃ thô / nước cái
+250a161b83be	Lò nung
+1972b7d2f044	NaHCO₃ thô → soda
+cdebbc12d1af	Thiết bị kết tinh lạnh
+3ea6ea0fe931	Tách NH₄Cl
+0401fba8ed4b	Bể hoà muối
+bd40fbbeedce	Nước muối tinh chế
+5d9804d99802	Bể nước cái
+5e6cbb917dc2	Tuần hoàn nước cái
+bc9bc9677fd4	Kho soda
+97ef01f3af81	Hấp thụ NH₃
+cdb09ebf005f	Tháp ammonia hoá \xB7 nước muối hấp thụ no NH₃
+ad6cf5423c54	Carbonat hoá
+777d4e4f0fbf	Tháp carbonat hoá \xB7 CO₂ đi ngược chiều, NaHCO₃ tách ra
+5270860ef02c	Lọc
+88ed8aaa794d	Máy lọc \xB7 huyền phù tinh thể tách thành NaHCO₃ thô và nước cái
+dee670ddebf9	Lò nung \xB7 160~230 ℃ thu được soda
+bd4020e6018f	Kết tinh lạnh
+5d64c83892ea	Thiết bị kết tinh lạnh \xB7 thêm muối, hạ nhiệt để vớt NH₄Cl
+7f9fa09226ca	Không có NH₃: dung dịch không có tính base, không giữ được CO₂, tỉ lệ tách chỉ còn 2 %
+dcce9471bafa	Nước cái thêm muối + hạ nhiệt → NH₄Cl tách ra
+a2b158cf9f79	Từ muối đến soda
+b7041cb01520	Muối ăn, ammonia và CO₂ đi vào, soda đi ra bằng cách nào?
+95394debbacd	Chế độ tham chiếu: sản lượng soda 24.0 t/h, tỉ lệ tách 32.6 %, tỉ lệ phân huỷ 100 %, tỉ lệ kết tinh 44.0 %; dòng vật liệu đi từ bể hoà muối đến kho soda
+2b9948abf6b4	Công đoạn sau: 2NaHCO₃
+954060aa8da2	Sục NH₃ trước, CO₂ sau
+d2acf2ec91ba	Carbonat hoá 25~40 ℃
+5bb3cb3c4680	Nung 160~230 ℃
+0eab628c1714	Kết tinh lạnh nước cái ≤ 10 ℃
+9c6d3d54d9e3	Công đoạn đầu: hoà muối + hấp thụ ammonia + carbonat hoá, tạo NaHCO₃ và tách tinh thể; công đoạn sau: lọc, nung thu soda, nước cái được vớt tiếp NH₄Cl.
+a3137f65e160	Mỗi công đoạn trong năm công đoạn giải quyết một vấn đề: thứ tự sục khí, quá bão hoà để tách tinh thể, tách rắn – lỏng, phân huỷ khi đun nóng, thu hồi nước cái và CO₂.
+dbd6c948e60d	So với phương pháp Solvay, phương pháp Hầu bỏ được lò vôi và tháp chưng ammonia, sản phẩm phụ NH₄Cl dùng làm phân đạm, hiệu suất sử dụng muối ăn tăng mạnh.
+2ba704e65c36	Bỏ bất kỳ công đoạn nào trong năm công đoạn này thì không ra được soda, hoặc độ tinh khiết, giá thành không đạt.
+6f9db3126126	Hay thi “Liên hợp trong sản xuất soda liên hợp nghĩa là gì”: dùng CO₂ phụ phẩm của tổng hợp ammonia để sản xuất soda, NH₄Cl trong nước cái thành phân đạm.
+cb01c5a1d8f9	Muối + ammonia + CO₂ tạo NaHCO₃ trong dung dịch và tách ra, nung thu soda; nước cái thêm muối, hạ nhiệt còn vớt được NH₄Cl. Nhờ vậy phương pháp Hầu bỏ được lò vôi và tháp chưng ammonia của phương pháp Solvay.
+4902ddc1749e	Ammonia trước, CO₂ sau
+6ea6d592ca08	Vì sao nhất định phải biến nước muối thành nước muối ammonia trước?
+588f88b38963	Tắt công tắc “Hấp thụ NH₃”, xem trong tháp và số đọc thay đổi thế nào
+d3126b36db79	Tỉ lệ tách 32.6 % → 2.0 %, sản lượng 24.0 → 0.1 t/h (chưa làm tròn 0.14): tinh thể trong tháp gần như không lớn, dòng vật liệu loãng đi
+990827dda923	Dung dịch có tính base mới hấp thụ được nhiều CO₂; không có NH₃ thì tỉ lệ tách chỉ còn 2 % (giá trị đặt cho bài)
+db9209c57021	Sục NH₃ trước
+0119b305c9bc	Dung dịch có tính base
+290a0d52b7af	HCO₃⁻ mới đủ nhiều
+cd2cb455793e	NH₃ rất dễ tan trong nước, dung dịch ammonia có tính base, CO₂ bị hấp thụ nhiều và tồn tại ở dạng HCO₃⁻.
+4d670bae52e1	Sục CO₂ trước thì dung dịch hơi acid, HCO₃⁻ quá ít, phần lớn CO₂ thoát theo khí thải.
+323e9cabb75f	Bài này chỉ minh hoạ một tình huống “ngắt hấp thụ NH₃” (mô hình không có lượng khí tích luỹ và trạng thái thứ tự), không đánh đồng với “sục CO₂ trước, bổ sung NH₃ sau”.
+f4fdeaa64a6b	Bỏ hấp thụ NH₃: sản lượng 24.0 → 0.1 t/h (chưa làm tròn 0.14), chỉ còn sản xuất dư.
+14b7364090f4	Hay thi “Vì sao sục NH₃ trước rồi mới sục CO₂”: dung dịch ammonia có tính base, lượng CO₂ hấp thụ tăng mạnh và tồn tại ở dạng HCO₃⁻.
+559807db1de2	NH₃ làm dung dịch có tính base, CO₂ mới bị hấp thụ nhiều và tồn tại ở dạng HCO₃⁻; không có ammonia thì độ quá bão hoà không tăng được, gần như không tách ra được gì.
+e98c98cd5b05	A4, A5.2, B5.2 R1
+a213060c33b2	Vì sao nó tự tách ra
+2f923389abf5	NaHCO₃ tạo thành vì sao tự tách ra khỏi dung dịch?
+1409207b28e1	Xoay góc nhìn, xem đĩa tháp, cột bọt CO₂ đi từ dưới lên và huyền phù tinh thể ở đáy tháp; đồng thời xem điểm 20 ℃ trên đồ thị
+c81559844d34	Con trỏ đồ thị dừng ở 20 ℃: NaHCO₃ 9.6, NH₄HCO₃ 21.7, NaCl 35.9, NH₄Cl 37.2, trong bốn chất NaHCO₃ thấp nhất; tinh thể trong huyền phù ở đáy tháp đang lớn dần
+e518bc1e89e9	Tiêu chí: NaHCO₃ đạt quá bão hoà (thứ tự độ tan chỉ để tham khảo định tính)
+62c8fbc8ecfa	Ở 20 ℃ độ tan nhỏ nhất 9.6
+43c03bc2b4ab	Quá bão hoà mới tách ra
+fbcafb5bbc6d	Mầm tinh thể lớn dần
+08720c466af1	Ở 20 ℃ độ tan của NaHCO₃ là 9.6 g/100 g nước, nhỏ nhất trong bốn chất (NH₄HCO₃ 21.7, NaCl 35.9, NH₄Cl 37.2).
+c48924909088	Điều thật sự quyết định việc tách ra là quá bão hoà: NaHCO₃ tạo ra trong nước muối ammonia vượt quá giới hạn độ tan của nó, mới tách ra ở dạng tinh thể.
+b98708797f2e	“Độ tan nhỏ nhất” chỉ cho thấy nó dễ đạt tới bước đó trước nhất, là tham khảo định tính, không phải điều kiện đủ.
+b2676e96981d	Bỏ bước này: học sinh sẽ coi “thứ tự độ tan = tiêu chí tách ra” là kết luận. Bản cũ sửa mạch chính này 5 lần cũng chính vì điều đó.
+7b0d8410c7b5	Hay thi “NaHCO₃ tách ra có nghĩa là nó khó tan không”: không, nó vẫn là muối tan (20 ℃ 9.6 g/100 g nước), chỉ là đạt quá bão hoà trước trong dung dịch của quy trình này.
+d1c488256ece	Ở 20 ℃ độ tan của NaHCO₃ là 9.6 g/100 g nước, nhỏ nhất trong bốn chất; trong nước muối ammonia nó lại nhanh chóng đạt quá bão hoà. Quá bão hoà mới là tiêu chí tách ra, thứ tự độ tan chỉ để tham khảo định tính.
+64c73cb3fe6b	A3 kết luận 1, A5.1, A7-E2
+757af0008e9a	Nhiệt độ carbonat hoá
+7338c7f7783d	Đã biết nhiệt độ càng thấp càng dễ tách ra, sao công nghiệp vẫn giữ ở 25~40 ℃?
+c99a7f630fb9	Kéo nhiệt độ carbonat hoá lên 45 ℃, xem tỉ lệ tách và sản lượng
+acabc78424fa	Độ tan 11.1 → 13.5, tỉ lệ tách 32.6 % → 21.1 %, sản lượng 24.0 → 20.5 t/h; tinh thể ở đáy tháp nhỏ đi
+1f24d768ab22	S(NaHCO₃): 10 ℃ 8.1 → 30 ℃ 11.1 → 45 ℃ 13.5
+189da21082f1	Tỉ lệ tách = 0.85\xB7(18.0
+b93918647318	S)/18.0 (B2.1 toán tử 1, giá trị đặt cho bài)
+89f00c654410	Công nghiệp 25~40 ℃
+0e4c4a75033b	Làm mát giữ nhiệt
+3bf7763aa87c	45 ℃ chỉ còn 20.5 t/h
+ac7fa9d28373	Độ tan của NaHCO₃ tăng theo nhiệt độ: 10 ℃ 8.1, 30 ℃ 11.1, 45 ℃ 13.5 g/100 g nước.
+9f90b6f5b6d5	Nhiệt độ càng cao, độ quá bão hoà càng nhỏ, tỉ lệ tách giảm đều từ 32.6 % xuống 21.1 %.
+133d0ce00d6d	Nhiệt độ quá thấp thì phản ứng lại quá chậm (10 ℃ chỉ được 15.95 t/h), nên công nghiệp giữ carbonat hoá ở 25~40 ℃ và làm mát để lấy bớt nhiệt.
+60ea1b885c40	Không kiểm soát nhiệt độ: trong tháp tăng dần tới 55 ℃, sản lượng chỉ còn 13.81 t/h (khoảng 58 % định mức).
+f8546358a499	Hay thi “Vì sao nhiệt độ carbonat hoá không được quá cao”: độ tan tăng, độ quá bão hoà giảm, tỉ lệ tách giảm; đồng thời ammonia bay hơi nhiều hơn.
+408dbd391032	Tăng nhiệt thì độ tan tăng, độ quá bão hoà giảm, tỉ lệ tách giảm đều; nhưng nhiệt độ quá thấp thì động học không theo kịp (10 ℃ chỉ được 15.95 t/h), nên công nghiệp chọn 25~40 ℃ và làm mát giữ nhiệt.
+1e432ff4e115	A3 kết luận 3, A4, B1.2, B5.2 R2/R9
+1bcafa613e32	Lọc tách hai dòng
+1aa6f8ce2bc6	Huyền phù tinh thể ra từ đáy tháp biến thành hai thứ bằng cách nào?
+3d7206d21a89	Bấm vào máy lọc, xem huyền phù tách thành hai dòng nào
+6bf4aade145f	Máy lọc được chọn, hai mũi tên ra liệu sáng lên: NaHCO₃ thô đi nung, nước cái đi kết tinh lạnh; sản lượng vẫn 24.0 t/h, lọc không làm thay đổi cân bằng
+37bb5883c110	Huyền phù → NaHCO₃ thô (rắn) + nước cái (lỏng)
+6ee13d9c370a	Lọc không làm thay đổi lượng tách ra, chỉ chia hai dòng: NaHCO₃ thô đi nung, nước cái đi kết tinh lạnh rồi tuần hoàn
+5b437d96a0e8	Lọc chân không thùng quay
+76ab9e1889a5	NaHCO₃ thô → nung
+767679350f18	Nước cái → kết tinh lạnh rồi tuần hoàn
+34e817c57011	Thứ ra từ đáy tháp carbonat hoá là huyền phù tinh thể: tinh thể NaHCO₃ lơ lửng trong nước cái.
+28fe6c60f0e6	Lọc chân không thùng quay tách chất rắn (NaHCO₃ thô) khỏi chất lỏng (nước cái); bước này không làm thay đổi cân bằng, cũng không đổi lượng tách ra.
+bb94358db381	Mỗi dòng có nơi đến riêng: NaHCO₃ thô đi nung, nước cái vào thiết bị kết tinh lạnh để vớt NH₄Cl, phần nước cái còn lại tuần hoàn về ammonia hoá.
+65b69e5034b2	Bỏ bước lọc: tinh thể lẫn trong nước cái cùng vào lò nung, sản phẩm lẫn NH₄Cl và các tạp chất khác, soda không tinh khiết.
+0daa543b24ee	Hay thi “Sau khi lọc, nước cái đi đâu”: vào thiết bị kết tinh lạnh, thêm muối và hạ nhiệt để tách NH₄Cl, rồi tuần hoàn về ammonia hoá, không thải ra.
+44843bd64fd6	Lọc tách NaHCO₃ thô (đi nung) khỏi nước cái (vào thiết bị kết tinh lạnh); nước cái sau xử lí tuần hoàn về ammonia hoá, bước này không làm thay đổi lượng tách ra.
+8fb346393b41	A2.1(3), A4
+0f75d85ddb5a	Nung thành soda
+e4539d4ab7b5	NaHCO₃ thô phải nung đến mức nào mới thành soda?
+fc3be69dfe9f	Kéo nhiệt độ nung từ 200 ℃ xuống 120 ℃, xem tỉ lệ phân huỷ và sản lượng
+8e68105a9c22	Tỉ lệ phân huỷ 100 % → 33.3 %, sản lượng 24.0 → 8.00 t/h; kéo tiếp xuống 100 ℃ thì sản lượng bằng 0
+8e55771c7a95	Công nghiệp 160~230 ℃; mô hình của bài: 100 ℃ là 0, từ 160 ℃ là 100 % (quy tắc phân đoạn)
+56d9e229cacb	Tỉ lệ phân huỷ 100 %
+cafea3c6aa91	CO₂ về carbonat hoá
+986c3523fb9e	320 ℃ nóng chảy kết khối (giá trị đặt)
+048394ac4679	Nung làm NaHCO₃ phân huỷ: 2NaHCO₃ → Na₂CO₃ + H₂O + CO₂↑, CO₂ thoát ra được thu hồi dùng lại.
+ad558d08d94b	Khoảng công nghiệp 160~230 ℃; trong mô hình của bài, 100 ℃ tỉ lệ phân huỷ bằng 0, từ 160 ℃ là 100 % (quy tắc phân đoạn, không phải ngưỡng đo thực).
+460b516d3860	Nhiệt độ chưa đủ thì sản phẩm vẫn là baking soda, sản lượng chỉ 8.00 t/h (tỉ lệ phân huỷ 33.3 %); nhiệt độ quá cao (
+ca3b09196701	320 ℃) sẽ nóng chảy kết khối và phải dừng máy.
+880ac34bb2ce	Bỏ bước nung: thu được baking soda chứ không phải soda, CO₂ cũng không quay về được tháp carbonat hoá.
+3424414d96d1	Hay thi “Hậu quả khi nhiệt độ nung quá thấp / quá cao”: quá thấp thì phân huỷ không hoàn toàn, sản phẩm còn baking soda; quá cao thì vật liệu nóng chảy kết khối, bám thành lò, buộc phải dừng máy.
+dda6d6bac805	→ Na₂CO₃ + CO₂↑ + H₂O, trên 160 ℃ mới phân huỷ hoàn toàn; nhiệt độ quá thấp thì sản phẩm vẫn là baking soda, quá cao (
+8b072e6fb3ce	A2.1(4), A4, B1.1, B5.2 R4/R5
+8fa3f1743d3b	Nước cái và tuần hoàn
+b355eac953e7	Phần còn lại trong nước cái biến thành phân đạm bằng cách nào?
+5df4daef9dff	Hạ nhiệt độ kết tinh lạnh xuống 10 ℃ và bật thu hồi CO₂
+65a582caeb99	Tỉ lệ kết tinh 15.4 % → 44.0 %; bật thu hồi thì mức đáp ứng CO₂ 30 % → 62 %, sản lượng 17.3 → 24.0 t/h
+f42efddfb35e	Thêm NaCl đến bão hoà + hạ nhiệt xuống dưới 10 ℃ (hiệu ứng ion chung → quá bão hoà, kết tinh vật lí)
+71207987b81c	Thêm muối đến bão hoà
+fdb9f86b364b	Kết tinh lạnh ≤ 10 ℃
+fcd906c26c72	Thu phân đạm NH₄Cl
+e4d817937a1f	Đáp ứng CO₂ 62 %
+a79de58b3baa	Trong nước cái còn NH₄Cl: thêm NaCl đến bão hoà (hiệu ứng ion chung) rồi hạ xuống dưới 10 ℃, nó mới quá bão hoà và kết tinh ra.
+2764860536f6	Nhiệt độ kết tinh lạnh càng thấp, tỉ lệ kết tinh càng cao: 30 ℃ 15.4 %, 20 ℃ 30.0 %, 10 ℃ 44.0 %.
+911d0a1e3489	NH₄Cl tách ra là phân đạm; CO₂ thu hồi khi nung cùng với CO₂ phụ phẩm của tổng hợp ammonia cấp cho carbonat hoá, mức đáp ứng 62 %, tắt thu hồi chỉ còn 30 %.
+982568a5de92	Không thu hồi nước cái: NH₄Cl theo nước thải ra ngoài, vừa lãng phí nitrogen vừa ô nhiễm nguồn nước. Đây chính là khoản lợi mà phương pháp Hầu có thêm so với phương pháp Solvay.
+846b03a4e196	Hay thi “Vì sao nước cái vừa thêm muối vừa hạ nhiệt”, “CO₂ lấy từ đâu”: hiệu ứng ion chung + hạ nhiệt gây quá bão hoà; CO₂ từ phụ phẩm tổng hợp ammonia và thu hồi khi nung NaHCO₃ thô.
+a5f12af71873	Nước cái thêm NaCl đến bão hoà (hiệu ứng ion chung) rồi hạ xuống dưới 10 ℃, NH₄Cl mới quá bão hoà và tách ra, làm phân đạm; CO₂ thu hồi khi nung cùng CO₂ phụ phẩm tổng hợp ammonia cấp cho carbonat hoá. Đó chính là “liên hợp”.
+d40015238541	A2.2, A4, A5.3, B5.2 R7/R8
+533bf3902efd	Em làm trưởng ca
+51a02f38f618	Em làm trưởng ca: có giữ được ca này đạt sản lượng ổn định không?
+22c0f6cb3db9	Trong dải tham chiếu, giữ sản lượng soda ≥ 22 t/h trong 15 s; giữa chừng sẽ có một sự cố nhiệt độ carbonat hoá tăng cao
+b5e8dd9b021e	Băng rôn đạt: soda ≥ 22 t/h giữ 15 s (carbonat hoá 25~40 ℃, nung 160~230 ℃, kết tinh lạnh ≤ 15 ℃, bật cả hấp thụ NH₃ lẫn tuần hoàn)
+f8e98d9b1b38	Đạt: soda ≥ 22 t/h giữ 15 s; tiêu chí kết tinh lạnh nới lên ≤ 15 ℃ (đặt theo facts B2, cho dễ thao tác)
+b0cbbe0c20f4	Kết tinh lạnh ≤ 15 ℃
+4a945968d52f	Bật hấp thụ NH₃ và tuần hoàn
+1c1975870dec	Muốn đạt phải giữ cả năm công đoạn cùng lúc: bật hấp thụ NH₃, carbonat hoá 25~40 ℃, nung 160~230 ℃, kết tinh lạnh ≤ 15 ℃ (bài nới lên 15 ℃ cho dễ thao tác, giá trị đặt), bật tuần hoàn.
+044189dace34	Sản lượng = tỉ lệ tách \xD7 mức carbonat hoá \xD7 tuần hoàn \xD7 tỉ lệ phân huỷ, chỉ cần một thừa số sụt là sản lượng tụt một bậc.
+1ed751799192	Giữa chừng sẽ có một sự cố nhiệt độ carbonat hoá tăng cao, em phải tự kéo về, đừng để kéo dài quá 15 s.
+452acb91636e	Đạt sản lượng không phải chuyện của một núm vặn: chỉnh một thanh trượt thì không đạt được 22 t/h.
+2f61b880f0e6	Trọng tâm tổng hợp: nối bốn mạch “thứ tự, quá bão hoà, phân huỷ, tuần hoàn” để giải thích vì sao ca này đạt (hoặc không đạt) sản lượng.
+0e7b8d6e7165	Đạt sản lượng = mọi công đoạn đều nằm trong khoảng: đúng thứ tự, đúng nhiệt độ, phân huỷ hoàn toàn, nước cái và CO₂ đều được tuần hoàn.
+60751d7420ce	B2, B2.1 toán tử 3, B3.1 tờ 4
+a8256ef08b80	Sản lượng soda
+deaef694f37d	Tỉ lệ tách
+dd66c1eccb44	Tỉ lệ phân huỷ
+57ae40ef7f27	Tỉ lệ kết tinh
+5bba605c743e	Đặt theo nội suy
+91de9514c888	Đặt theo phân đoạn
+2e4163eccdea	Đặt theo ion chung
+5583d68a3d6c	Nhiệt độ nung
+3b800806a9c2	Nhiệt độ kết tinh lạnh
+fa99613fb408	Đang hấp thụ NH₃
+8dd5ad764e4b	Đã ngắt
+2393c1c5e1e7	Thu hồi CO₂
+1025478ac39a	Bật tuần hoàn \xB7 đáp ứng 62 %
+755beca3f5ba	Tắt tuần hoàn \xB7 đáp ứng 30 %
+89667ef81060	Đường độ tan
+1bc31281d3a3	Đường NaHCO₃/NH₄Cl\xB7điểm NaCl/NH₄HCO₃
+9d6bb3dd9b29	Nguy cơ vượt ngưỡng
+70e6c49c3bb1	320 ℃ mới nóng chảy kết khối, dừng máy
+f6376133786f	Mục tiêu ca \xB7 22 t/h
+a54c84f10a2b	Giữ sản lượng soda ≥ 22 t/h trong 15 s (carbonat hoá 25~40 ℃, nung 160~230 ℃, kết tinh lạnh ≤ 15 ℃, bật cả hấp thụ NH₃ lẫn tuần hoàn)
+39b56afb601f	Ngắt hấp thụ NH₃: nước muối ammonia không còn NH₃, không giữ được CO₂, tỉ lệ tách chỉ còn 2 %
+e69fdf5f4fa4	Khôi phục hấp thụ NH₃: dung dịch lại có tính base, hấp thụ CO₂ và tách tinh thể trở lại bình thường
+a56d738cd42a	Bật thu hồi CO₂: khí lò nung quay về carbonat hoá, mức đáp ứng 62 %
+afb312fcce43	Tắt thu hồi CO₂: chỉ còn phụ phẩm tổng hợp ammonia, mức đáp ứng 30 %
+81e933f7488a	Sự cố: nhiệt độ carbonat hoá bị đẩy lên 41 ℃, sản lượng sắp tụt, kéo nó về 25~40 ℃
+7f3d2646066f	Vì sao phương pháp Hầu biến nước muối thành nước muối ammonia trước rồi mới sục CO₂?
+98f41cd13d0a	Dung dịch ammonia có tính base, lượng CO₂ hấp thụ tăng mạnh và tồn tại ở dạng HCO₃⁻
+051e66a865b0	NH₃ biến thẳng NaCl thành NaHCO₃
+f3ee7d762bce	Để kết tủa ion calcium, magnesium trong nước muối
+ca013ac47b44	Để làm nguội dung dịch, dễ tách tinh thể
+252625390f52	NH₃ làm dung dịch có tính base, CO₂ bị hấp thụ nhiều và tồn tại ở dạng HCO₃⁻, NaHCO₃ mới có thể quá bão hoà và tách ra (A4, A5.2).
+ef765015feb4	So sánh
+a404eda8505e	So với phương pháp Solvay, phương pháp Hầu bỏ được hai bước nào?
+0fad7d8c0e33	Nung đá vôi và chưng ammonia
+779b045b53a1	Hấp thụ NH₃ và carbonat hoá
+98cfb312523c	Lọc và nung
+6a365892fb0d	Kết tinh lạnh và thêm muối
+d10e06684bbb	Phương pháp Hầu không dùng lò vôi để lấy CO₂, cũng không dùng sữa vôi để chưng ammonia, nên không sinh nước thải chưng ammonia chứa CaCl₂ (A2.2).
+913e4573d16e	Trong tháp
+ee6a89e5688e	Vì sao trong tháp carbonat hoá khí và lỏng đi ngược chiều (CO₂ từ đáy lên, nước muối ammonia từ đỉnh xuống)?
+536adb7ea60f	Chênh lệch nồng độ lớn nhất, CO₂ hấp thụ triệt để hơn
+c68d2867c805	Để nhiệt độ trong tháp thấp hơn
+4fb3ed0f3f45	Để độ tan của NaHCO₃ nhỏ đi
+3f4cd6f3d4cb	Để tinh thể lớn hơn
+4d537fb2fb76	Khi tiếp xúc ngược chiều, chênh lệch nồng độ giữa pha khí và pha lỏng lớn nhất, động lực hấp thụ lớn nhất (A5.1).
+e23d6e87ca75	Sau carbonat hoá, vì sao NaHCO₃ tách ra?
+e7601f52595d	Đạt quá bão hoà trong nước muối ammonia thực tế
+027dca94450f	Vì nó hoàn toàn không tan trong nước
+93d4dd59923d	Vì nhiệt độ tăng lên 60 ℃
+bc0d1d56b7c3	Vì nó tạo kết tủa với NH₄Cl
+76cddb4deee8	Tiêu chí là quá bão hoà; việc độ tan tuyệt đối của nó nhỏ nhất ở cùng nhiệt độ chỉ để tham khảo định tính (A3 kết luận 1, A7-E2/E13).
+54b8a90b3ce6	Số liệu
+67395e0001cf	Ở 20 ℃, trong bốn chất, chất nào có độ tan trong nước nhỏ nhất?
+6ba04468f601	NaHCO₃ (9.6)
+505debc6ed57	NH₄HCO₃ (21.7)
+eb0500e33804	NaCl (35.9)
+d6aff8d420b1	NH₄Cl (37.2)
+1e1abc6903cd	Bảng số liệu A3: ở 20 ℃ NaHCO₃ là 9.6 g/100 g nước, nhỏ nhất trong bốn chất.
+53bd00e57b59	Sau khi lọc, nước cái đi đâu?
+64efff451a8f	Vào thiết bị kết tinh lạnh, thêm muối và hạ nhiệt để tách NH₄Cl, rồi tuần hoàn về ammonia hoá
+916240425379	Thải thẳng ra ngoài
+062a99db21bd	Quay lại tháp carbonat hoá sục tiếp CO₂
+c2e4cef171ff	Đưa vào lò nung đốt bỏ
+8f875089fcdb	Nước cái thêm NaCl đến bão hoà rồi hạ nhiệt, tách ra NH₄Cl dùng làm phân đạm, nước cái được tuần hoàn (A4, A5.3, A7-E10).
+6847c32d29d6	Nhiệt độ nung quá thấp thì sao?
+6a09daa60fbd	NaHCO₃ phân huỷ không hoàn toàn, sản phẩm còn lẫn baking soda
+7f014338dcc5	Soda phân huỷ thành baking soda
+34d0a209bd73	Vật liệu trong lò nóng chảy kết khối, bám thành lò
+c389b2768340	Mức đáp ứng CO₂ giảm
+b199839029a0	Trên 160 ℃ mới phân huỷ hoàn toàn; nhiệt độ quá thấp thì phân huỷ không hoàn toàn, sản phẩm vẫn là baking soda (A4, A7-E8).
+0abed0f111ee	Trong các nhận định sau, nhận định nào không phải ưu điểm của phương pháp Hầu?
+0e5a0b2c02e2	Dùng ít ammonia hơn phương pháp Solvay
+de509d8bc98c	Sản phẩm phụ là phân đạm NH₄Cl
+a4dd0e421431	Không còn sinh nước thải chưng ammonia chứa CaCl₂
+60928cd28109	Hiệu suất sử dụng muối ăn tăng mạnh
+e75ed5ff0898	Thực ra phương pháp Hầu dùng nhiều ammonia hơn (nitrogen đi vào sản phẩm NH₄Cl, nhưng tổng lượng ammonia đưa vào lớn hơn), trong một số trường hợp không phù hợp (A7-E4).
+577e8f1c137c	Lò nung quá nhiệt, kết khối \xB7 dừng máy dọn lò
+66014bbde613	Người vận hành liên tục tăng nhiệt để dập cảnh báo “tỉ lệ phân huỷ chưa đủ”
+623a95b8fc1e	Vượt quá 320 ℃, vật liệu cục bộ trong lò nóng chảy kết thành khối, bám vào tấm nâng liệu
+2e25da68be1c	Truyền nhiệt kém đi, thân lò quá nhiệt cục bộ và biến dạng, dòng điện truyền động vượt ngưỡng làm nhảy aptomat
+7d2127838186	Dừng máy dọn lò: đập bỏ khối kết, kiểm tra lớp lót lò rồi mới khởi động lại được (tình huống hư cấu của bài)
+e902af34672a	Khoá liên động nhiệt độ: vượt giới hạn trên của khoảng công nghiệp thì tự động giảm tải, cắt nhiên liệu, chứ không dựa vào người canh đồng hồ.
+152594ca7b5c	Đun nóng đều, kiểm soát thời gian lưu của vật liệu, tránh quá nhiệt cục bộ.
+3790eac4c49f	Định kì dọn lò, kiểm tra lớp lót lò, dọn khối kết trước khi nó thành sự cố.
+94cb12251a27	Nhiệt độ là phương tiện, không phải mục đích: tỉ lệ phân huỷ đạt 100 % là đủ, nhiệt cấp thêm chỉ làm hỏng thiết bị.
+d651fd5581c3	Tám bước: dòng vật liệu từ muối đến soda → ammonia trước, CO₂ sau → quá bão hoà tách tinh thể → nhiệt độ carbonat hoá → lọc tách hai dòng → nung thành soda → tuần hoàn nước cái và CO₂ → em làm trưởng ca.
+a3e180d74b64	Lưu ý minh hoạ: bố trí nhà máy, hình dạng thiết bị và một phần chế độ vận hành là minh hoạ dạy học; độ tan lấy từ bảng số liệu facts.md (L3), sản lượng và các số khác là giá trị đặt cho bài, giao diện đã ghi chú riêng.
+815df0d98ff3	Phím tắt ← → chuyển bước \xB7 1–8 nhảy bước \xB7 Q kiểm tra \xB7 Space chạy/dừng máy \xB7 F toàn màn hình
+0f11469007be	Nung ${t.Tk.toFixed(0)} ℃
+0a23a9fc1d70	320 ℃ \xB7 không hạ nhiệt trong 3 giây sẽ kết khối và dừng máy
+6c74e4f4250d	Phương pháp Hầu sản xuất soda · Bài giảng 3D tương tác

@@ -1,0 +1,310 @@
+7a6bcad595db	${y.t}: ${_}
+84e46762d24c	C.steps[${U}].cam.pitch=${L.cam.pitch}\xB0 không nằm trong CAMERA.polar ${f.polar[0]}–${f.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+7986b8151392	${p}.act.n=${c.act.n}: phải là số nguyên 1–${e.record.max??8} (ghi đủ n dòng là xong)
+1dc24eeab044	Tự cảm và dòng điện Foucault
+59918d1226cc	Lựa chọn bắt buộc tập 2 \xB7 Chương 2, bài 3–4 (PHYS-31)
+ee8181ffc13a	E = L\xB7ΔI/Δt  \xB7  ρ = I_L0 / I_đèn0
+a6cc5c61fa16	Cuộn dây chỉ là quấn thêm mấy vòng dây đồng, sao hai bóng đèn lại sáng khác nhau? Khoá đã ngắt rồi, bóng đèn dựa vào đâu mà còn loé sáng thêm một cái?
+73f5374683ed	Tự cảm
+d0e759ab6190	Dòng trong cuộn dây vừa biến thiên, từ trường biến thiên của nó liền gây ra suất điện động ngay trong chính cuộn dây, cản trở sự biến thiên đó
+25cda83d5704	Dòng điện không thể biến đổi đột ngột: A₁ sáng dần từ 0, A₂ sáng ngay một lần, còn hơi quá sáng lúc đầu
+9a5e16637253	Ổn định
+a6020d3f205b	E_L = 0, cuộn dây chỉ còn 6.0 Ω: R = R_L thì hai đèn sáng như nhau
+523c0c217f60	Ngắt mạch
+abf80704772d	Cuộn dây thành nguồn điện: dòng qua đèn đổi chiều, nhảy lên gấp 2.0 lần ban đầu
+35d3dfd6fae6	ρ = I_L0/I_đèn0 = R_đèn/R_L: ρ
+e5cd9b94653b	1 mới loé, không phụ thuộc U
+931064aa7c56	Dòng Foucault
+051c409e4577	Cùng hiện tượng đó xảy ra trong cả khối kim loại: ghép lá cắt đứt mạch, hao phí giảm còn 1/n\xB2
+8c35da04183f	Nguồn điện học sinh một chiều + khoá một cực S
+b229fc085e2d	Cuộn dây và bóng đèn
+d2caf1e432ee	Cuộn dây\xB7Bóng đèn
+2b9e68e1b3a1	Cuộn tự cảm (có thể lồng lõi sắt) + hai bóng đèn + hai biến trở
+00cf57ec3a93	Cảm biến và màn hình
+f2d0447c3448	Cảm biến\xB7Màn hình
+ddc0f13e767d	Cảm biến dòng điện + đường I-t trên máy tính
+01ff57f81da5	Lõi sắt và lá thép silic
+6280fe3d4115	Lõi sắt\xB7Ghép lá
+4cde7492e030	Lõi sắt nguyên khối vs một chồng lá thép silic cách điện với nhau
+a191ea5a446c	Ống nhôm và nam châm
+1a916b30eb54	Ống nhôm\xB7Nam châm
+df0aca8cbb9c	Ống nhôm rỗng 1 m (thêm một ống có khe hở) + nam châm hình trụ nhỏ
+5738163ab66c	Các dụng cụ trên bàn mỗi thứ dùng làm gì? Cách mắc ở hình 2.4-1 và hình 2.4-3 SGK khác nhau ở đâu?
+4e92bcc8c882	Khoá ngắt: cả hai bóng đều không sáng, tỉ số độ sáng 0.00, i_L = 0.000 A. Nguồn 6.0 V, R₁ 3.0 Ω, R 6.0 Ω, cuộn dây B (nhãn 2.0 H / 6.0 Ω), bóng đèn 3 V 0.25 A (R_đèn = 12.0 Ω), thang đo cảm biến \xB12.00 A. Lần theo dây dẫn đi được trọn vòng “nguồn → R₁ → điểm rẽ nhánh → (nhánh
+0412ad4d6776	cuộn dây L + A₁ | nhánh
+6af4f2c1ea6a	R + A₂) → về nguồn”; trong hình này không có ampe kế. Cách mắc ở hình 2.4-3 không có R, không có R₁, bóng đèn mắc song song với cuộn dây.
+9e92f30e4a78	Hai thí nghiệm biểu diễn trong SGK mắc khác nhau: hình 2.4-1 là hai bóng đèn lần lượt nối tiếp với cuộn dây và biến trở rồi mắc song song, sau đó nối tiếp với R₁ ở mạch chính; hình 2.4-3 là bóng đèn mắc song song với cuộn dây, trong mạch chỉ có khoá và nguồn. Bài này dựng cả hai hình, dùng công tắc “Cách mắc” để chuyển cả hình. Tự cảm: khi dòng điện trong chính cuộn dây biến thiên, từ trường biến thiên do nó sinh ra gây ra suất điện động cảm ứng ngay trong chính nó.
+6d152833853e	facts A2.1, A3.1, A3.2, A6.1–A6.7; hình 2.4-1, hình 2.4-3 (tr. 41); B2.1 mục 0, 15, 16
+e5d458e4b8e2	U 6.0 V \xB7 R₁ 3.0 Ω \xB7 R 6.0 Ω \xB7 cuộn dây B (2.0 H / 6.0 Ω)
+f3960982e75e	Hình 2.4-1
+d43b0b7ff9e9	Không đồng hồ đo (như SGK)
+2fa14477ac93	Ba cuộn dây chỉ khác nhau số vòng và lõi sắt: A 0.2 H / 2.0 Ω, B 2.0 H / 6.0 Ω, C 0.5 H / 30.0 Ω.
+a8158cb6f2fd	Hai hình SGK mắc khác nhau: hình 2.4-1 có R và R₁, hình 2.4-3 đều không có — bài này dựng cả hai, dùng công tắc “Cách mắc” để chuyển cả hình.
+2da825525612	Cả hai thí nghiệm biểu diễn đều không có đồng hồ đo, chỉ dựa vào nhìn độ sáng; muốn đọc số thì phải mắc thêm cảm biến dòng điện nối tiếp vào nhánh bóng đèn cần quan sát (bước 4).
+1aeeee0cf739	Nếu bỏ bước này: học sinh không biết nên gạt khoá về phía nào, cũng không biết bóng đèn mắc nối tiếp trong nhánh cuộn dây (hình 2.4-1) hay mắc song song với cuộn dây (hình 2.4-3).
+4c3bd38e5d74	Nhận biết dụng cụ là năng lực đầu tiên của thí nghiệm bắt buộc (chuẩn chương trình 2.2.3 “Thông qua thí nghiệm, tìm hiểu hiện tượng tự cảm”); nêu được chỗ khác nhau về cách mắc giữa hai hình SGK.
+13041ad58ae6	Tự cảm khi đóng mạch
+f9fd760478eb	Hai bóng đèn cùng loại, vì sao khi đóng khoá A₁ sáng chậm hơn A₂? Vì sao SGK chỉnh R trước rồi mới chỉnh R₁?
+498a6cf587b1	Em chỉnh R trước cho hai đèn sáng như nhau (6.0 Ω), rồi chỉnh R₁ cho hai đèn sáng bình thường (3.0 Ω), sau đó đóng khoá chờ ổn định
+cf8c0fa489f0	Bước này chiếu chậm 1/10 để thấy rõ “A₁ sáng dần”; các số dưới đây đều theo thời gian thực. Khi vào, khoá ngắt, R = 10.0 Ω (chưa cân bằng), R₁ = 0.0 Ω: đóng khoá thì hai đèn sáng khác hẳn nhau. Cân bằng tới R = 6.0 Ω (= R_L của cuộn B) → dòng hai nhánh chênh 0.000 A, hai đèn sáng như nhau; sau khi R₁ = 3.0 Ω thì cả hai đèn đều đạt 0.2500 A (định mức 0.25 A). Ngay lúc đóng khoá: A₂ lập tức đạt 0.2857 A (bằng 1.1429 lần giá trị ổn định của A₁, rồi giảm về 0.2500 A, sáng hơn lúc ổn định khoảng 30 %), tỉ số độ sáng của A₁ vẫn là 0.00, E_L =
+30a24e41ea65	5.1429 V; t = 1τ = 0.0972 s: tỉ số độ sáng 0.40, E_L =
+ace7d02c7f85	1.8920 V; 3τ = 0.2917 s: 0.90 /
+8bbe7dcf0bce	0.2560 V; 5τ = 0.4861 s: 0.99 /
+caee8de24ebb	0.0347 V.
+a6bc43e34a5b	Suất điện động tự cảm cản trở (không phải ngăn cản) dòng điện tăng: dòng trong cuộn dây tăng dần từ 0 tới giá trị ổn định I∞ = 0.2500 A (τ = 0.0972 s, mở rộng); nhánh A₂ không có cuộn dây, đạt ngay một lần, còn hơi quá sáng lúc đầu. Ở trạng thái ổn định di/dt = 0, E_L = 0, cuộn dây chỉ còn điện trở một chiều 6.0 Ω — nên “hai đèn sáng như nhau” tương đương R = R_L, “hai đèn sáng bình thường” tương đương R₁ = 3.0 Ω.
+a02d4896880e	facts A2.3, A2.4, A2.23, A3.1, A4.2–A4.4, A7.1, A7.7, A7.8; hình 2.4-1, hình 2.4-2 (tr. 41); B1.3; B2.1 mục 0–2, 4, 6, 7, 16; bảng 1, bảng 5
+0f3e4935d8ac	τ 0.0972 s (mở rộng) \xB7 I∞ 0.2500 A \xB7 E_L(0⁺)
+b700109d792c	Cân bằng R = R_L
+6f8360fe9703	Chiếu chậm 1/10
+568c9164518a	Thứ tự điều chỉnh của SGK là điểm thi: chỉnh R trước cho hai đèn sáng như nhau (điện trở hai nhánh bằng nhau), rồi chỉnh R₁ cho hai đèn sáng bình thường; làm ngược thứ tự thì không giải thích được độ sáng.
+bccabfe045ec	Ngay lúc đóng khoá A₂ quá sáng trước rồi giảm (0.2857 → 0.2500 A), A₁ sáng dần từ 0 — đó chính là ý nghĩa của hai đường sức từ ngược chiều ở hình 2.4-2.
+587593d17032	“Chậm” không phải là “không tới”: giá trị ổn định 0.2500 A giống như khi không có cuộn dây, ở trạng thái ổn định E_L = 0, cuộn dây chỉ là một đoạn dây dẫn có điện trở 6.0 Ω.
+5ae1b80f7f45	Nếu bỏ bước này: học sinh sẽ học thuộc “cản trở” thành “ngăn cản”, tưởng rằng sau khi đóng khoá A₁ mãi không sáng được.
+ceb5c8db70d7	Trọng tâm thi: vì sao ngay lúc đóng khoá A₁ sáng chậm, A₂ quá sáng trước (A7.8); “cản trở” không phải “ngăn cản” (A7.1); thứ tự điều chỉnh (A7.7).
+4330968b81df	Tự cảm khi ngắt mạch
+1d889eec2830	Khoá đã ngắt rồi, điện của bóng đèn từ đâu ra? Vì sao lại còn sáng hơn? Bốn câu hỏi ở SGK tr. 41 trả lời thế nào?
+62bb4ff755da	Em chuyển cách mắc sang hình 2.4-3, đóng khoá cho bóng đèn sáng bình thường, rồi ngắt khoá
+7c364bdacb74	Bước này chiếu chậm 1/10 để thấy rõ “loé một cái”. Khi vào đã ở hình 2.4-3, khoá đóng, đèn sáng ổn định (i_đèn = +0.2500 A, i_L = 0.5000 A). Ngay lúc ngắt: tỉ số độ sáng nhảy lên 4.00 (sáng gấp 4 lần trước khi ngắt; vừa đúng ngưỡng cảnh báo 4.0, tiêu chí dùng “lớn hơn”, nên chế độ mặc định không cảnh báo), E_L = +9.0000 V (gấp 3.00 lần nguồn 3.0 V), i_đèn đổi ngay thành
+f9d9a4c9505d	0.5000 A (chiều đã đảo); t = 1τ = 0.1111 s: tỉ số độ sáng 0.54, E_L 3.3109 V, i_đèn
+08add6f8b570	0.1839 A; 2τ: 0.07 / 1.2180 V; 3τ: 0.01 / 0.4481 V. “Loé” chỉ kéo dài 0.0770 s (tới khi độ sáng giảm về mức trước khi ngắt), tới 0.5887 s chỉ còn 1 %.
+cb0184ba6819	Sau khi ngắt, chính cuộn dây là một nguồn điện, dòng điện tiếp tục chạy theo mạch kín duy nhất còn lại “cuộn dây → bóng đèn”: dòng qua đèn nhảy từ +0.2500 A thành
+c80e4978ff37	0.5000 A (độ lớn = dòng cũ trong cuộn dây, chiều ngược lại); điện trở 6.0 Ω của cuộn dây nhỏ hơn 12.0 Ω của bóng đèn, nên I_L0
+85280e9c036e	I_đèn0, bóng đèn sáng hơn trước (SGK tr. 43 “có khi còn sáng hơn cả trước khi ngắt khoá”); năng lượng của lần loé này hoàn toàn lấy từ năng lượng từ trường tích trữ trong cuộn dây.
+d9fd55be3903	facts A2.5, A2.13, A2.17, A2.19, A3.2, A4.5, A4.6, A7.2–A7.5, A7.12; hình 2.4-3 (tr. 41), phần chính văn tr. 43; B1.1; B2.1 mục 1, 2, 5, 6, 16; bảng 3, bảng 4
+175c5e51b74a	i_đèn(0⁺) =
+74525c01626b	U 3.0 V \xB7 cuộn B 6.0 Ω \xB7 bóng đèn 12.0 Ω
+f6cffd0129d0	Hình 2.4-3
+0979b1a2623e	Ngắt rồi cuộn dây thành nguồn
+e4c0e1c8d1a3	i_đèn(0⁺) đổi chiều
+f86594c1b3ca	Bốn câu hỏi suy nghĩ ở SGK tr. 41 chỉ hỏi mà không cho đáp án: bài này suy ra theo nguyên văn — chậm hơn / theo “cuộn dây → bóng đèn” / ngược chiều / có thể (điều kiện R_L
+ca631b8b80af	R_đèn).
+bd6227102a05	Sau khi ngắt, cuộn dây và bóng đèn nối tiếp thành cùng một mạch, dòng điện qua hai cái bằng nhau về độ lớn, ngược chiều nhau (i_đèn + i_L = 0).
+e9b756dcb3a7	L lớn chỉ quyết định “sáng bao lâu”, không quyết định “có loé hay không” — τ khi ngắt của cuộn A, B, C là 0.0143 / 0.1111 / 0.0119 s (mở rộng).
+db24c9d3ee4c	Nếu bỏ bước này: học sinh sẽ coi “loé sáng” là hiện tượng tất yếu của bài, cũng không biết điện của bóng đèn hoàn toàn lấy từ năng lượng từ trường.
+2797cb926bce	Bẫy thi: khi loé sáng, dòng qua đèn chắc chắn đổi chiều (A7.3); sau khi ngắt ai cấp điện (A7.5); câu hỏi suy nghĩ 1–4 SGK tr. 41.
+1cd0a28e2f6d	Đường I-t
+3167bc993c2b	Loé sáng chỉ có 0.0770 s, mắt thấy được “loé”, nhưng có thấy được “chiều” không? Làm sao lưu lại quá trình này?
+3b6e81264b43	Em mắc cảm biến dòng điện nối tiếp vào nhánh bóng đèn, đóng khoá chờ số đọc ổn định, rồi ngắt khoá xem đường cong
+29d8f4cc78c9	Bước này chiếu chậm 1/10 để đường cong mọc ra từng đoạn. Trên màn có hai đường: i_L nét liền, i_đèn nét đứt, trục hoành 0 → 5.5τ (theo thời gian thực), trục tung có cả nửa âm. Trước khi ngắt i_đèn = +0.2500 A, i_L = +0.5000 A; ngay lúc ngắt i_đèn nhảy ngay xuống
+20ba70a9d216	0.5000 A (nằm dưới trục), i_L giảm theo hàm mũ từ +0.5000 A; hai đường đối xứng gương trên dưới, i_đèn + i_L = 0.000 A. Đọc từ đường cong: đỉnh 0.5000 A \xF7 trước khi ngắt 0.2500 A → ρ = 2.0000, đỉnh tỉ số độ sáng 4.0000. Lấy mẫu 1000 Hz, độ phân giải 0.01 A, thang đo \xB12.00 A — lần loé 0.0770 s trên đồ thị không phải một điểm, mà là cả một đoạn khoảng 77 điểm mẫu nối liền.
+5efdc1580d5f	Đồng hồ kim không đọc được quá trình cỡ 0.1 s, cảm biến cùng máy tính thì đọc được (SGK tr. 42); đảo chiều không phải “tối đi”, mà là dòng điện thực sự đổi chiều — đó chính là điều mà mục 2 phần “Thử làm” SGK tr. 42 dùng “đo dòng qua điện trở R” để chỉ ra riêng.
+8ad62674f399	facts A2.13, A2.17, A2.19, A3.3, A7.13; hình 2.4-4 a/b, hình 2.4-5 (tr. 42); B2 dòng 10; B2.1 mục 2, 9, 10, 15, 16; bảng 3
+c1f6164a1182	i_đèn(t) =
+01cccd2211fe	Lấy mẫu 1000 Hz \xB7 độ phân giải 0.01 A \xB7 thang đo \xB12.00 A
+63c119119cbd	Hình 2.4-4 (Thử làm)
+ecf8ba9c21db	Cảm biến nối tiếp ở nhánh bóng đèn
+2688f1a18ab2	i_đèn xuống nửa trục âm
+02f552db89c8	Đường cong, số đọc và màn hình 3D cùng nguồn cùng nhịp: cùng một tRun, cùng một đỉnh của đoạn này.
+f5dc226a3295	Hai đường đối xứng gương trên dưới chính là hình ảnh của “nối tiếp trong cùng một mạch, ngược chiều nhau”.
+6ea0b4e700a9	Diện tích và năng lượng chỉ giữ ở mức định tính như tr. 43, bước này không lượng hoá.
+9942744982ab	Nếu bỏ bước này: i_đèn(0⁺) =
+0bdd9b1bf51f	0.5000 A chỉ là một con số, học sinh không thấy được động tác “nhảy vọt sang”.
+2b2ba7cb8d08	Trọng tâm thi: đọc đồ thị I-t để xác định chiều (SGK tr. 42 Thử làm mục 2, A7.13).
+4a50ee5e6798	Đổi cuộn dây
+f809753a55e8	Đổi cuộn dây khác, bóng đèn còn loé không? Loé mạnh cỡ nào? Tăng hiệu điện thế có “cứu” được một cuộn dây không loé không?
+959d8d061c32	Em lần lượt đổi cuộn dây (A / B / C), mỗi cuộn đều đóng khoá cho dòng ổn định rồi ngắt, bấm “Ghi một lượt” lưu một dòng; ghi đủ 3 dòng
+5183fe24a826	Bảng ghi ba dòng (trước khi ngắt i_đèn(0⁻) / ngay lúc ngắt i_đèn(0⁺) / ρ / tỉ số độ sáng): A: +0.2500 /
+df493ea70713	1.5000 / 6.0000 / 36.0000, loé nhưng vượt 4.0 lần nên cảnh báo; B: +0.2500 /
+7a757c7b3a61	0.5000 / 2.0000 / 4.0000, loé, đúng bằng 4.0 lần; C: +0.2500 /
+8db4ce38ede3	0.1000 / 0.4000 / 0.1600, không loé (vừa ngắt là tối đi). Lại dùng C, chỉnh U từ 3.0 V lên 12.0 V: ρ vẫn là 0.4000. Quy tắc đổi cuộn dây: đổi khi khoá đang đóng → tính ngay theo cuộn mới; đổi sau khi đã ngắt → đoạn này không có đỉnh, phải đóng lại rồi ngắt lần nữa.
+77720bc05e66	Tiêu chí ρ = I_L0/I_đèn0 = R_đèn/R_L: ρ
+a946ffc47ccf	1 mới loé. R_L = 2.0 / 6.0 / 30.0 Ω so với bóng đèn 12.0 Ω là biết ngay. Tăng hiệu điện thế không đổi được tiêu chí (hai nhánh mắc song song trên cùng một nguồn, tỉ số không phụ thuộc U). L chỉ quyết định “sáng bao lâu”: τ khi ngắt là 0.0143 / 0.1111 / 0.0119 s (mở rộng).
+120f839bc5e1	facts A2.7, A2.14, A4.5, A4.6, A7.2, A7.4; câu hỏi suy nghĩ 3, 4 tr. 42, bài tập 3 tr. 44; B1.1, B1.2; B2.1 mục 5, 8, 16; bảng 2, bảng 4
+e395a1113ca5	ρ = R_đèn / R_L
+02e26d4f945c	R_L của cuộn A/B/C 2.0 / 6.0 / 30.0 Ω \xB7 bóng đèn 12.0 Ω
+2562392cbafb	Tiêu chí chỉ xét tỉ số điện trở
+a203ffd8c908	Không phụ thuộc U
+4ae6889e7e89	Cuộn A vượt 4.0 lần, cảnh báo
+8ffda3d0fe97	Tiêu chí chỉ dùng tỉ số điện trở, nên “tăng hiệu điện thế” không biến không loé thành loé.
+48fae46a9525	36.0000 lần của cuộn A phải bật cảnh báo: bóng đèn thật loé như vậy vài lần là cháy dây tóc — bước này chính là mắt xích “thao tác sai → hậu quả → yêu cầu giải thích” của bài.
+3823a9d70d6a	Cuộn C là phản ví dụ “dây mảnh nhiều vòng”: L chỉ 0.5 H, R_L 30 Ω, τ lại còn nhỏ hơn cả A.
+c70053763481	Nếu bỏ bước này: học sinh sẽ dựa vào “sáng lâu hay không” để xét “L lớn hay không”, cũng sẽ tưởng “loé càng mạnh chứng tỏ L càng lớn”.
+c937175dfe7e	Trọng tâm thi: sau khi ngắt có chắc chắn loé sáng không? (A7.2) R_L
+3779872f4292	R_đèn mới loé; L lớn chỉ quyết định sáng bao lâu (A7.4).
+a81b4447328c	Nhãn ghi 2.0 H, sao đo ra lại không phải 2.0 H? Đây là “đo sai” hay “linh kiện vốn không đúng giá trị danh định”?
+118f9d07668d	Em đổi “Dụng cụ lí tưởng” thành “Dụng cụ thực”, quay về hình 2.4-1 đọc đoạn đóng mạch
+418d13b37ffe	Sau khi bật, linh kiện lấy giá trị thật: L′ = 2.2629 H (nhãn 2.0 H, +13.14 %, trong dung sai \xB115 %), R_L′ = 5.8851 Ω, R_đèn′ = 11.9869 Ω. Đóng mạch (U 6.0 V, R₁ 3.0 Ω, R 6.0 Ω): τ′ = 0.1107 s (danh định 0.0972 s), tại 1τ i_L = 0.1590 A (sau khi lượng tử hoá theo 0.01 A hiển thị 0.16 A), A₁ ổn định 0.2515 A, A₂ ổn định 0.2499 A (chênh 0.0016 A, mắt thường không thấy, chỉ thấy qua số đọc). Gạt sang hình 2.4-3 rồi ngắt: I_L0′ = 0.5098 A, ρ′ = 2.0368, đỉnh tỉ số độ sáng 4.1487 (đã vượt 4.0), E_L(0⁺)′ = 9.1105 V.
+03b430a4ca6e	Hai chuyện khác nhau:
+1ba9f3b7d0f6	Danh định không bằng thực tế (dung sai linh kiện +13.14 %, không phải đo sai) → vì thế độ tự cảm phải đo (SGK tr. 42 dùng cảm biến đo đường I-t chính vì lí do này);
+6038c83f1d52	Bản thân phép đo có hai loại sai số: độ phân giải 0.01 A là “nhảy lên xuống \xB10.01 A”, chỉ xét được “chính xác hay không”, không xét được “lớn hơn hay nhỏ hơn”; lấy mẫu thì có chiều — ở 1000 Hz điểm mẫu đầu tiên ở 0.001 s, số đọc đỉnh chắc chắn nhỏ hơn (B 0.9 %, A 6.8 %, C 8.1 %, τ càng nhỏ lệch càng nhiều). Cùng một seed luôn cho cùng một bộ số đọc chỉ là tính chất phần mềm, không phải căn cứ phân loại sai số.
+b8df268b26ca	facts B2 dòng 9, B2.1 mục 10, 16, B3 mục 3, B1.1; bảng 8, bảng 9; A2.7, A7.4; SGK tr. 42, chú thích bên lề tr. 43
+9a392b08c698	SEED 20261026 \xB7 cuộn B \xB7 nhãn 2.0 H / 6.0 Ω
+54bf4eb6ba41	Dung sai \xB115 % (lit)
+bbec35864136	Cảm biến 0.01 A
+522331f65222	Danh định không bằng thực tế là do dung sai linh kiện (+13.14 %, trong \xB115 %), phải đo, không được coi là tính sai.
+b8e11a480aef	Hai loại độ lệch nói riêng: độ phân giải là dao động \xB1 (chỉ xét được chính xác hay không); đỉnh lấy mẫu có chiều, chắc chắn nhỏ hơn (B 0.9 %, A 6.8 %, C 8.1 %).
+d053e6ef4350	Hai đèn ổn định 0.2515 / 0.2499 A chênh 0.0016 A: với dụng cụ thực, ngay cả “sáng như nhau” cũng không chỉnh được — nhưng chênh lệch này mắt thường không thấy, phải nhờ số đọc.
+27cfdce37179	Nếu bỏ bước này: học sinh sẽ coi “đo ra khác nhãn” là mình tính sai.
+e07598f16d08	Năng lực thực nghiệm: nêu được hai loại độ lệch (\xB1 không có chiều / nhỏ hơn có chiều), và giải thích vì sao “đúng bằng 1.0 lần” không kết luận được.
+6db4e08fb086	Trong lõi sắt không có dây dẫn, sao lại có dòng điện, còn nóng lên? Cắt khối lõi sắt thành một chồng lá mỏng, sao lại tiết kiệm điện?
+a01da60d7c3d	Em bấm vào lõi sắt trong cảnh 3D để đổi số lá: 1 lá (nguyên khối) → 5 lá → 10 lá
+0e97a9e97b75	Trong mặt cắt lõi sắt vẽ các vòng dòng Foucault nét đứt, số lớp bằng số lá, mỗi lớp một vòng (nguyên khối 1 lá = một vòng lớn, theo hình gốc 2.3-2); số đọc hao phí tương đối: 1 lá → 1.00, 5 lá → 0.04, 10 lá → 0.01 (1/n\xB2, mở rộng); khi từ thông tăng, từ trường của dòng Foucault ngược chiều từ trường ban đầu (B
+f06f9ff877de	_F\xB7B
+9a5285f1a9ab	Từ trường biến thiên trực tiếp gây ra dòng điện khép kín bên trong vật dẫn (không cần dây dẫn); kim loại có điện trở nên nóng lên (P = I\xB2R) — lò luyện kim, bếp từ cần chính lượng nhiệt này. Muốn giảm nó có hai cách: tăng điện trở suất (thép silic), và dùng các lá thép silic cách điện với nhau ghép lại (cắt đứt mạch dòng Foucault, mạch trong mỗi lá nhỏ đi).
+ef02f65e38c6	facts A2.10, A2.11, A2.20, A2.22, A3.4, A7.9, A7.10; hình 2.3-2, hình 2.3-5 (tr. 36); B2.1 mục 11; bảng 6
+48c7e52513a7	P_F ∝ độ dày\xB2 (mở rộng)
+059181c33a41	n = 1 / 5 / 10 (giá trị đặt cho bài) \xB7 hao phí tương đối 1/n\xB2
+5757cd689d08	Hình 2.3-2 / hình 2.3-5
+61b4b3309b87	Mở rộng
+0f1834e89a21	Nấc số lá
+b1f9ab8bb934	Dòng Foucault không cần dây dẫn: với bất kì khối vật dẫn nào, từ thông qua nó biến thiên là có dòng Foucault.
+95964d0ae6d5	Giảm dòng Foucault là nhờ lá mỏng kèm lớp cách điện cắt đứt mạch, không phải vì “thép silic không dẫn điện”.
+786550615571	1/n\xB2 là cách lượng hoá theo công thức kĩ thuật thông dụng, SGK bài này không cho → đều ghi là mở rộng.
+211482793961	Nếu bỏ bước này: học sinh chỉ biết “dòng Foucault có hại”, không biết “vì sao cắt mỏng lại có hiệu quả”.
+75232b6687f1	Trọng tâm thi: vì sao mặt bếp từ không nóng mà nồi lại nóng; vì sao lá thép silic giảm được dòng Foucault.
+a13018e3fe3c	Hãm điện từ
+96947199412d	Ống nhôm không hút nam châm, vậy sao nam châm rơi chậm thế? Cưa ống một đường khe, sẽ nhanh hơn hay chậm hơn?
+ccebe4094b8c	Em đổi ống từ ống nguyên sang ống có khe, rồi sang không có ống, mỗi lần xem thời gian rơi 1 m
+51d6f4b8737b	Số đọc thời gian rơi 1 m: ống nhôm nguyên 3.3639 s (tốc độ giới hạn 0.3000 m/s, τ_v = 0.0306 s); ống nhôm có khe 0.9557 s (tốc độ giới hạn 1.2000 m/s); không có ống nhôm (rơi tự do) 0.4518 s (= √(2h/g), tính tay được). Nam châm vừa đi xuống là chậm lại, gần như đều; lực từ luôn ngược chiều chuyển động (F
+156d54540591	1.000).
+6f4bd20c2e40	Nam châm chuyển động trong vật dẫn → từ thông biến thiên → dòng Foucault → lực từ, mà lực từ luôn cản trở chuyển động (nguyên văn SGK tr. 37). Khe hở cắt đứt mạch vòng của dòng Foucault, lực hãm gần như mất hết nên rơi nhanh (SGK tr. 39 bài tập 3, hình 2.3-15 a/b). SGK chỉ cho hai lượng định tính “1 m không quá 0.5 s” và “rất lâu sau”, còn 3.3639 / 0.9557 s của bài này là giá trị đặt cho bài (mở rộng).
+b9a0d381eddf	facts A2.12, A2.21, A3.4, A4.9, A7.11; nguyên văn tr. 37, Thử làm tr. 38, bài tập 3 tr. 39; B2.1 mục 12, 13; bảng 7
+2b314e2b8398	b\xB7v (mở rộng)
+cd2f39f22a1c	Hình 2.3-15 a/b
+5a508abef25b	Nấc ống nhôm
+475f50825d90	Hãm không phải là “làm vật dừng lại”, mà luôn ngược chiều chuyển động; không có chuyển động tương đối thì không có hãm.
+30f5a12220ef	Rơi tự do 0.4518 s phù hợp với “không quá 0.5 s” của SGK, ống nhôm 3.3639 s phù hợp với “rất lâu” (các số là giá trị đặt).
+f87b39e8fa03	Ống nhôm không hút nam châm, cái có tác dụng là dòng điện cảm ứng, không phải lực hút từ.
+cd217954d6b0	Nếu bỏ bước này: ngoài “dòng Foucault có hại cần giảm”, học sinh không thấy được mặt “dòng Foucault có ích”.
+ef0dc739ddae	Trọng tâm thi: đối chiếu hình 2.3-15 a/b (bài tập 3 tr. 39); nối tắt hai cực của micro-ampe kế thì kim dao động chậm (Thử làm tr. 38).
+c8b705c93d6d	Trong ba cuộn dây em được chọn lắp một cuộn, phải làm sao để “khi ngắt bóng đèn loé một cái, nhưng không đến mức cháy” — em chọn cuộn nào? Vì sao tăng hiệu điện thế không có tác dụng?
+69f41ab0bf78	Em đổi một cuộn dây, đóng khoá cho dòng ổn định rồi ngắt, sao cho ba tiêu chí cùng thoả mãn và giữ 10 s
+ed5f125bf392	Ba tiêu chí (phải cùng thoả mãn trong đoạn ngắt mạch):
+59ed100f4ce3	cách mắc là hình 2.4-3 và khoá đã ngắt;
+97cf865a649e	1 (thật sự loé);
+cd439c7189b0	đỉnh tỉ số độ sáng ≤ 4.0 (không quá mạnh). Cuộn B: ρ = 2.0000, đỉnh tỉ số độ sáng 4.0000 → cả ba đều thoả (U lấy 3.0 V hay 6.0 V đều được, ρ không đổi); cuộn A: ρ = 6.0000, đỉnh 36.0000 → loé quá mạnh, cảnh báo, không đạt; cuộn C: ρ = 0.4000, đỉnh 0.1600 → không loé, không đạt; cuộn B ở chế độ thực: ρ′ = 2.0368, đỉnh 4.1487 → vừa vượt 4.0, cảnh báo sẽ kêu. Một lời giải hợp lệ: hình 2.4-3, U 3.0 V, cuộn B.
+9c6f46366180	Không có kết luận mới: nối liền tám bước trước dùng một lượt — tiêu chí ρ = R_đèn/R_L, tỉ số độ sáng = ρ\xB2, không phụ thuộc U, vượt 4.0 lần phải cảnh báo. Trong ba cuộn dây chỉ có ρ của B rơi vào khoảng 1
+cce4c0f82b37	ρ ≤ 2.
+826a26abd755	facts A2.14, B1.1, B2.1 mục 5, 16, 17; bài tập 3 tr. 44; bảng 4, bảng 10
+965c19db2c79	ρ ≤ 2 (tức 1
+49285a3c49e4	R_đèn/R_L ≤ 2)
+402a4aede204	Bóng đèn 12.0 Ω \xB7 R_L của cuộn A/B/C 2.0 / 6.0 / 30.0 Ω
+ff496a8368e0	Tính ρ trước rồi mới lắp: ρ = R_đèn/R_L, lớn hơn 2 là vượt 4.0 lần.
+f1aa1665898c	Đổi cuộn dây phải đóng khoá lại cho dòng ổn định rồi ngắt (ngắt rồi mới đổi cuộn → đoạn này không có đỉnh, tiêu chí không thoả).
+7e7bd8f7e486	Tiêu chí không phụ thuộc U, nên “chỉnh hiệu điện thế” không phải lời giải (kết luận ở bước 5).
+0cd4cb4dfb81	Không có kết luận mới: kiểm tra cuối bài chính là nối ba điều tiêu chí, độ sáng, không phụ thuộc hiệu điện thế lại để dùng.
+61151ee48f77	Tổng hợp: ρ = R_đèn/R_L (tiêu chí) + tỉ số độ sáng = ρ\xB2 (ngưỡng 4.0 lần) + không phụ thuộc U.
+50d21c35eca9	Từ trường B₀ của dòng điện trong cuộn dây và từ trường của dòng điện cảm ứng B
+9ce9dfdf9f0d	ngược chiều nhau (hình 2.4-2)
+0e3950eff658	Dòng qua cuộn dây
+c09c4a1f899e	Dòng qua đèn
+06acff0f07ef	Suất điện động tự cảm
+8d0acd32166c	Tỉ số độ sáng
+a561a61eb5ad	Hiệu điện thế
+21205862d038	Điện trở R₁
+39d576600d2b	Điện trở R
+01fe644141c6	Số lá
+30269bd9f1b8	Ống nhôm
+d7716c4a8f03	Khoá
+23362670e490	Cảm biến
+4478619262f5	Chiếu chậm
+d5ab4bdfeb04	A dây to ít vòng
+6a138f2b2179	B nhiều vòng có lõi sắt
+7b20c043b070	C dây mảnh nhiều vòng
+afd051345256	Không ống (rơi tự do)
+96b58db4c62b	Ống nhôm nguyên
+c040cc0e9871	Ống nhôm có khe
+a18ad19fd9af	1 lá (nguyên khối)
+7e5a8698494e	5 lá
+d41d6c5f1c66	10 lá
+ec8332d497d8	i_L nét liền \xB7 i_đèn nét đứt
+6b0be8c5cdda	SGK tr. 41–43
+734491d9d601	Đoạn này đã đổi cuộn dây: đóng lại rồi ngắt
+f11b6a32b597	Dòng hai đèn chênh ${i} A: cân bằng trước (R = 6.0 Ω) rồi mới chỉnh R₁
+a20cc3b0a29b	Loé quá mạnh: điện trở một chiều của cuộn này nhỏ hơn bóng đèn nhiều, bóng đèn thật loé như vậy vài lần là cháy dây tóc
+1762f7f39d4e	Hiệu điện thế cao quá: bóng đèn này định mức 3 V, ở trạng thái ổn định đã vượt định mức
+cc02af6891b6	Tiêu chí loé sáng
+8e29558d3351	i_đèn(0⁻)
+e08fa3edeba9	i_đèn(0⁺)
+66dae984440a	Hình 2.4-3 không có
+185d674a6643	1 và tỉ số độ sáng ≤ 4.0, giữ 10 s
+4758fb94aa38	Chỉ có B đạt; đổi cuộn xong phải cho dòng ổn định rồi mới ngắt, chỉnh hiệu điện thế không có tác dụng.
+3b88d7314792	1 \xB7 tỉ số độ sáng ≤ 4.0
+adeae851515c	Khoá một cực S
+b08fb887fdd5	Cuộn tự cảm L
+ea4a39445666	Bóng đèn A₁ / A₂
+9adfea20b824	Biến trở R / R₁
+1cfa24f07123	Màn đường I-t
+8a2f3b4e12c6	Lõi sắt / lá thép silic
+88e2d29f6d52	Ống nhôm (1 m)
+c00cd54ee7df	Nam châm nhỏ
+23c514da4fc1	i_đèn / A
+5603e10a6a13	Biến trở mạch chính R₁
+983deaf98e3d	Cuộn tự cảm L (có thể lồng lõi sắt)
+b036e05bee76	Bóng đèn A₁ (nối tiếp cuộn dây)
+6412668d8822	Bóng đèn A₂ (nối tiếp R)
+91286a13742a	Bóng đèn A
+9e3df4886f43	Biến trở nhánh A₂ R
+675dd6622bf9	Máy tính \xB7 đường I-t
+1d4e6ce5e58b	Ống nhôm (SGK 1 m \xB7 hình chỉ vẽ một đoạn)
+292e345ef9b2	Thẻ thí nghiệm \xB7 cách mắc hiện tại
+2b427db9a7d9	Lõi sắt nguyên khối
+545069bc83fd	Một chồng lá thép silic
+47f4ecf8ac65	Hao phí tương đối
+deb9a7ef9afc	Thời gian rơi 1 m
+ccdc5993b9d5	Hình 2.4-1
+2a570ee60731	Hình 2.4-3
+2421512d7398	i_đèn
+901db7e25835	Ngay lúc đóng khoá, bóng đèn A₁ mắc nối tiếp với cuộn dây sáng chậm hơn A₂, nguyên nhân là
+cf373444137d	Cuộn dây có điện trở, làm dòng điện nhỏ đi
+4e80e9a601bd	Suất điện động tự cảm của cuộn dây cản trở dòng điện tăng
+55f5c60d6c61	Cuộn dây tích dòng điện lại, dùng hết mới nhả ra
+1b427ecc9ab4	Dây tóc của A₁ to hơn của A₂
+a5ac74288042	Khi dòng điện từ không tới có, di/dt lớn nhất, suất điện động tự cảm ngược chiều dòng điện, cản trở dòng tăng; ở trạng thái ổn định E_L = 0, hai đèn sáng như nhau (A2.3, A2.4).
+8cbbfcde573b	Sau khi ngắt khoá, bóng đèn còn sáng thêm một lúc ngắn, trong khoảng thời gian này dòng điện qua đèn
+13b1628c37ce	Không đổi chiều, giảm dần
+a314a031d0b1	Ngược chiều ban đầu, độ lớn nhảy tới dòng cũ của cuộn dây
+4f7d388ff964	Không đổi chiều, độ lớn nhảy tới dòng cũ của cuộn dây
+6069398ecc5b	Lập tức bằng 0
+b88ffc0f7951	Sau khi ngắt, cuộn dây thành nguồn, dòng điện tiếp tục chạy theo “cuộn dây → bóng đèn”: i_đèn(0⁺) =
+f0ffab0655f3	I_L0, ngược chiều, độ lớn bằng dòng cũ của cuộn dây (A2.17, A2.19).
+eb69fe30655e	Điều kiện để bóng đèn “loé một cái” (sáng hơn trước) sau khi ngắt mạch là
+97125fdf8079	Hiệu điện thế U đủ lớn
+9d5cbed6e61d	Độ tự cảm L đủ lớn
+9479a76ea041	Điện trở cuộn dây nhỏ hơn điện trở bóng đèn
+15e4e89ecbdf	Điện trở cuộn dây lớn hơn điện trở bóng đèn
+0852c205c9c5	ρ = I_L0/I_đèn0 = R_đèn/R_L, ρ
+50f2c7ef002d	1 mới loé; không phụ thuộc U, L chỉ quyết định sáng bao lâu (A2.14, A7.4).
+a6aa795aaffc	Thay lõi sắt nguyên khối bằng một chồng lá thép silic cách điện với nhau, hao phí do dòng Foucault trong lõi sắt
+2cb5b24b044b	Tăng lên
+f1ec0ac78a74	Gần như không đổi
+5cd9c3b65ad9	Giảm rõ rệt
+faa50f2d099f	Tăng trước rồi giảm
+bec9badf01db	Lá mỏng kèm lớp cách điện cắt đứt mạch dòng Foucault, mạch trong mỗi lá nhỏ đi, hao phí tương đối giảm theo 1/n\xB2 (mở rộng, A2.11, A2.22).
+b24ae7c71dbd	→ / PageDown / phím cách
+c5aeb7133f98	Chế độ tham chiếu (start của bước này)
+fddba365da9d	Đóng kiểm tra / về bảng điều khiển
+e5bcd221f99d	Bài học này chỉ làm hai việc: nói rõ “cuộn dây chống lại sự biến thiên của dòng điện”, rồi dùng một tỉ số ρ để xét sau khi ngắt mạch rốt cuộc có loé hay không.
+aa2efae06b9a	Đã về chế độ tham chiếu của bước này
+826964564368	Đã tạm dừng trình diễn
+3f480f04c888	Tiếp tục trình diễn
+1980735c0c13	Đã đóng lớp phủ
+960e8b19d7ce	Đã đặt lại
+9e3da052224c	Đã đặt lại bước này
+da8d257f20d9	Loé quá mạnh: bóng đèn thật loé như vậy vài lần là cháy dây tóc
+a01e9aa5d902	Hiệu điện thế cao quá: đèn định mức 3 V, trạng thái ổn định đã vượt định mức
+bfd3a6291e29	Đoạn này đã đổi cuộn dây, đóng lại rồi ngắt
+17e16522b6a2	Số đọc tính theo công thức vật lí; độ sáng bóng đèn là minh hoạ (mỗi tỉ số độ sáng chỉ ứng với một độ sáng). Dụng cụ và mặt bàn là hình minh hoạ, kích thước theo bậc độ lớn thực.
+d011ede4c937	Phím tắt: ← → chuyển bước \xB7 1–9 nhảy bước \xB7 R chế độ tham chiếu \xB7 Q kiểm tra \xB7 F toàn màn hình
+04cfff0fd9ac	Toàn cảnh \xB7 một bàn năm khu
+e4a0674d8eab	Công thức cốt lõi
+bd97760641ab	Đúng cả bốn câu: cái “chậm” của tự cảm, sự đảo chiều khi ngắt mạch, tiêu chí loé sáng, việc cắt đứt dòng Foucault, đều nằm trên trang này.
+33f49b4c382d	Chưa đóng điện
+54ad05fe5b5f	Đèn sáng ổn định
+4dec8a69ff9d	Đang sáng dần
+79520bd05934	Đã ổn định
+abf235e99625	Đang loé sáng
+ef8dae7e6289	Đang tối dần
+70871381d39c	A \xB7 ngắt thì âm
+26f0544126fe	lần \xB7 tức thời
+f6ade21a4cd9	3.0 (sáng bình thường)
+79425a628037	SGK 6.0
+c770e69b688e	A dây to
+7c6a94d2a7d0	B có lõi sắt
+9b4f10c3be70	C dây mảnh
+b265d9375c04	Không ống
+9a0169abe385	Ống nguyên
+e5302c9c588c	Có khe
+0f40eecaaa12	Nối tiếp ở nhánh đèn
+9a4f1471f329	Không mắc (như SGK)
+34fb8505c22d	Tự cảm và dòng điện Foucault · Bài giảng 3D tương tác

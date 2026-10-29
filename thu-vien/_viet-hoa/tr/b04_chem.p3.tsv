@@ -1,0 +1,206 @@
+9c0adfc5aada	Thêm thạch cao
+0db3c239e7d7	Thạch cao chẳng phải đá cũng chẳng phải nhiên liệu, vì sao bắt buộc phải thêm? Thêm nhiều, thêm ít sẽ ra sao?
+0bbe53ef4a26	Kéo lượng thạch cao từ 4.0 % xuống 0.5 %, xem thời gian bắt đầu đông kết tụt còn bao nhiêu
+aa9161180f09	Thạch cao 4.0 → 0.5 %: thời gian bắt đầu đông kết 148 → 36 min (dưới giới hạn 45 min, đông kết nhanh); kéo lên 8 % thì SO₃ 3.72 % vượt giới hạn trên 3.5 % (thời gian bắt đầu đông kết đồng thời kéo dài tới 276 min, chỉ để tham khảo, không coi là giới hạn trên).
+a4623bc66170	CaSO₄\xB72H₂O + C₃A → ettringite (làm chậm đông kết)
+49bb1d9897c8	Lượng thạch cao 3.0–5.0 % \xB7 bắt đầu đông kết ≥ 45 min (GB 175-2023) \xB7 SO₃ ≤ 3.5 % (theo GB 175-2007)
+4768920b9370	Thạch cao là chất điều chỉnh đông kết
+d4bab05be8af	Ít: đông kết nhanh 36 min
+ab6f7004b78a	Nhiều: SO₃ 3.72 %
+c1626ec5c6bf	Câu gốc SGK: “thêm lượng thạch cao thích hợp để điều chỉnh tốc độ đóng rắn của xi măng”; thạch cao thêm ở máy nghiền, không vào lò cùng phối liệu.
+72b43d0d8756	Ít thì đông kết nhanh (36 min đã đông, không kịp thi công), nhiều thì SO₃ vượt giới hạn, có thể gây nở.
+2c7d250af7de	“Thích hợp” là một khoảng tính được: bắt đầu đông kết ≥ 45 min chặn dưới, SO₃ ≤ 3.5 % chặn trên (390 min là giới hạn trên của thời gian kết thúc đông kết, không phải của bắt đầu đông kết).
+3669945a097c	Bỏ thạch cao: xi măng vừa trộn đã đông, công trường không kịp đổ.
+896a904d5691	Thường thi “vai trò của thạch cao trong xi măng”: điều chỉnh thời gian đông kết (làm chậm), không phải tạo cường độ.
+0da67c6a3a0a	Thạch cao là chất điều chỉnh đông kết: nó cùng sản phẩm thuỷ hoá của C₃A tạo ettringite, bọc C₃A lại, làm chậm đông kết. Ít thì đông kết nhanh, nhiều thì SO₃ vượt giới hạn; chữ “thích hợp” trong câu SGK “thêm lượng thạch cao thích hợp” chính là khoảng này.
+8a46e9cc7302	A2.3, A4.8, A6.6, B2.1
+91f28a2e1f36	Khi f-CaO, bắt đầu đông kết, SO₃, tiêu hao nhiệt cùng vướng, em chỉnh cái nào trước?
+98378f393be5	Ép f-CaO xuống ≤ 1.5 %, bắt đầu đông kết ≥ 45 min, SO₃ ≤ 3.5 %, tiêu hao nhiệt ≤ 3400 kJ/kg, giữ 15 s
+0dfda6bcea76	Vào được 5 s, ca đêm hạ nhiệt độ lò hai nấc (1360 ℃): f-CaO lên 1.95 %, vượt chuẩn; em tự kéo lại và giữ cả bốn chỉ tiêu cùng đạt đủ 15 s.
+fa079a905020	f-CaO ≤ 1.5 % \xB7 bắt đầu đông kết ≥ 45 min \xB7 SO₃ ≤ 3.5 % \xB7 tiêu hao nhiệt ≤ 3400 kJ/kg \xB7 phân huỷ ≥ 85 %
+dcb4614fe4c1	Giữ 15 s \xB7 lời giải tham khảo 1420 / 880 / 4.0 → 0.75 % \xB7 148 min \xB7 3100 kJ/kg
+0bb8f670f35f	Nhiệt độ lò 1350–1450 ℃
+47f5aac4e9a6	Phân huỷ ≥ 85 %
+92ab659e656d	f-CaO phụ thuộc ba thứ: nhiệt độ lò + tỉ lệ phân huỷ + độ mịn phối liệu, chỉ chỉnh nhiệt độ lò chưa chắc đủ.
+b0a6c4d796ad	Tiêu hao nhiệt do tỉ lệ phân huỷ, máy làm nguội ghi, độ mịn phối liệu cùng quyết định, nhiệt độ lò chỉ là phần nhỏ.
+b3853e40113f	Nhiệt độ lò
+c1c233bfdfca	1260 ℃ dẫn tới “nung non”, ≥ 1480 ℃ dẫn tới “đóng vòng, đỏ vỏ lò”, phải hiểu cả hai chuỗi sự cố.
+d67d64cdfa25	Bỏ kiểm tra cuối bài: học sinh chỉ thuộc “nung ở nhiệt độ cao”, không biết cân nhắc giữa nhiều ràng buộc.
+70fbcc8b853b	Thường thi “vì sao nhiệt độ lò công nghiệp lấy 1350–1450 ℃ mà không cao hơn”: đủ tạo pha lỏng sinh C₃S, cao hơn sẽ đóng vòng, sập lớp áo lò, tiêu hao nhiệt tăng.
+73068a82e707	Lời giải khả thi là một vùng nhỏ chứ không phải một điểm: giữ nhiệt độ lò 1350–1450 ℃ để f-CaO ≤ 1.5 %, giữ lò phân huỷ 860–900 ℃ để tiêu hao nhiệt ≤ 3400, khoá thạch cao ở 3.0–5.0 % để bắt đầu đông kết ≥ 45 min, SO₃ ≤ 3.5 %; điểm dung hoà là tính ra được.
+53ef9c9a515f	Nhiệt độ vùng nung kết
+c59d99ec0cf8	Nhiệt độ ra lò phân huỷ
+2d2710e663ff	Lượng thạch cao
+e0721de241c4	Nghiền mịn, đồng nhất phối liệu
+55886af8bb4e	Đã nghiền mịn, đồng nhất
+1f8268331c39	Liệu thô vào thẳng
+821074412377	Chưa chạy
+616ce98e2f16	f-CaO clinker (CaO tự do)
+2f5633e62949	Tỉ lệ phân huỷ phối liệu
+5c6eefc169e7	Tiêu hao nhiệt clinker
+6f7d356b8ea8	Bắt đầu đông kết
+32f3421d59ac	Đạt ≤ 1.5 %
+ebbc92e5785f	Đạt ≥ 85 %
+1fe86db996bf	f-CaO / tiêu hao nhiệt – nhiệt độ vùng nung kết
+7b02919a1049	— f-CaO \xB7 -- tiêu hao nhiệt \xB7
+7c9310fc5535	Rủi ro lò
+18281f67552c	Nhiệt độ lò ngoài 1350–1450 ℃, phối liệu thô, máy làm nguội ghi dừng đều đẩy rủi ro lên
+deb3fdc19b85	Mục tiêu ca này: f-CaO ≤ 1.5 %, bắt đầu đông kết ≥ 45 min, SO₃ ≤ 3.5 %, tiêu hao nhiệt ≤ 3400 kJ/kg, phân huỷ ≥ 85 %, giữ 15 s
+3c9a16b9cc19	f-CaO ≤ 1.5 %, bắt đầu đông kết ≥ 45 min
+6d135a7b088f	SO₃ ≤ 3.5 % \xB7 tiêu hao nhiệt ≤ 3400
+7c7c82ca21ba	Nhiệt độ lò quá thấp → clinker nung non → f-CaO vượt chuẩn
+c9299eb2156f	A. Để tiết kiệm nhiên liệu, hạ dần nhiệt độ vùng nung kết
+353a29d30eda	Thiếu pha lỏng, C₃S không tạo được, f-CaO vọt lên.
+fdbe80666f0c	B. CaO không đi vào khoáng clinker, nằm lại ở dạng tự do
+00092f289df7	Clinker lõi vàng, gặp nước sẽ tôi và nở.
+7cd13f5592f6	C. Xi măng kém ổn định thể tích, cường độ và độ bền đều giảm
+93030ff13ce6	Chỉ có thể hạ cấp hoặc nung lại, dừng lò xử lí.
+2b48f33ded58	D. Cách làm thực tế là giữ nhiệt độ vùng nung kết, để lò phân huỷ gánh thêm tải
+c5b2edbaa4b6	Nâng tỉ lệ phân huỷ vào lò lên trên 85 %, lò quay chỉ lo nung kết.
+7ac5dbdcfc18	Giữ nhiệt độ vùng nung kết 1350–1450 ℃, không hạ nhiệt để tiết kiệm nhiên liệu
+eccaf8b1987a	Tỉ lệ phân huỷ phối liệu vào lò ≥ 85 %, giao tải cho lò phân huỷ
+62ab6dd0fe92	Độ mịn và đồng nhất phối liệu ổn định, đừng để liệu thô vào lò
+e91eead91141	Dựa vào màu clinker, kết quả phân tích f-CaO và dòng điện lò để đánh giá nung kết
+0be93582aeee	Cần nhớ chuỗi này: nhiệt độ lò thấp → thiếu pha lỏng → ít C₃S → f-CaO cao → kém ổn định thể tích. Chút than tiết kiệm được, cuối cùng phải trả lại bằng việc nung lại.
+4da45721fba6	Nhiệt độ lò vượt ngưỡng → pha lỏng quá nhiều → đóng vòng, sập lớp áo lò, đỏ vỏ lò
+bff622cffda4	A. Để tăng sản lượng, nâng nhiệt độ lò lên trên 1480 ℃
+4796e50a30da	Lượng pha lỏng trong liệu tăng nhanh, dính lên lớp áo lò.
+99742ff4d840	B. Vòng đóng ngày càng to
+d98789c92a15	Liệu đi không nổi, thông gió kém đi, chế độ trong lò bắt đầu dao động.
+ff6f7c89d00c	C. Lớp áo lò bị kéo sập, thép vỏ lò chịu nhiệt trực tiếp, đỏ rực
+f1ab0cef484c	Chỉ có thể dừng lò khẩn cấp, thay gạch.
+74628bb3a8f6	D. Cách làm thực tế là giữ giới hạn trên của nhiệt độ, nhờ lò phân huỷ chia tải và giám sát lớp áo lò
+c05e9683273a	Bản trình diễn này giả định khoá liên động hỏng, theo đường tệ nhất.
+3526eb9aa407	Đặt giới hạn trên cho nhiệt độ vùng nung kết (bài này lấy 1480 ℃ làm ngưỡng vượt)
+b65e5a48f5bb	Dùng lò phân huỷ chia tải, không nâng nhiệt độ lò để tăng sản lượng
+3c51bac1243c	Giám sát trực tuyến độ dày lớp áo lò và nhiệt độ vỏ lò, vượt ngưỡng thì cảnh báo
+d5d9a7a31983	Thấy dấu hiệu đóng vòng là chỉnh phối liệu và hình dạng ngọn lửa
+d3ba6e429731	Giới hạn trên của nhiệt độ lò không phải tính ra, mà do lớp áo lò và gạch chịu lửa quy định: vượt 1480 ℃ là phải trả giá bằng dừng lò thay gạch.
+9944e8a07806	Mục tiêu bài: nói rõ dây chuyền “nghiền – nung – nghiền”, hiểu mối quan hệ giữa nhiệt độ lò và f-CaO, vai trò chia tải của lò phân huỷ, và khoảng “không nhiều không ít” của thạch cao.
+19ebea7478d0	Theo SGK, nguyên liệu của xi măng Portland thông thường là
+b8b2d67764d8	Soda, đá vôi và cát thạch anh
+1ae5521cd37b	Đất sét và đá vôi (thêm lượng thạch cao thích hợp để điều chỉnh đông kết)
+b10ec1a4d053	Clinker và cát đá
+5d4e1b8ae1f4	Cát thạch anh và than cốc
+50b664238951	Câu gốc SGK Nhân Giáo bắt buộc tập 2, bản in tr. 21: “Sản xuất xi măng Portland thông thường dùng đất sét và đá vôi làm nguyên liệu chính… thêm lượng thạch cao thích hợp để điều chỉnh tốc độ đóng rắn của xi măng, rồi nghiền thành bột mịn”. Soda + đá vôi + cát thạch anh là nguyên liệu làm thuỷ tinh.
+4ba77257da20	Thêm thạch cao trong máy nghiền xi măng nhằm
+da29a05ae3dc	Tăng cường độ
+df0f79909abb	Điều chỉnh thời gian đông kết (làm chậm), tránh đông kết nhanh
+8b8f586d5309	Cung cấp CaO
+b9e119e2827c	Hạ nhiệt độ nung
+1cba95883e76	Thạch cao cùng sản phẩm thuỷ hoá của C₃A tạo ettringite, bọc C₃A lại, làm chậm đông kết. Ít thì đông kết nhanh (mô hình bài này ở 0.5 % chỉ 36 min đã bắt đầu đông kết), nhiều thì SO₃ vượt giới hạn.
+179489a9fa08	Phối liệu phải nghiền mịn, trộn đều, chủ yếu vì
+5020ec7c1c54	Tiện vận chuyển
+4a3f5794d350	Hạt mịn, thành phần đều thì vào lò mới nung chín, f-CaO mới không cao
+607a48a3056f	Để nhiệt độ lò cao hơn
+a1f8186b518d	Giảm lượng thạch cao
+c037d47bac4d	Phản ứng trong lò nhờ các hạt tiếp xúc; hạt thô bề mặt đã nung tới, lõi chưa phân huỷ, CaO nằm lại ở dạng tự do, f-CaO tăng, kém ổn định thể tích.
+4e72c2adf70f	Phản ứng chủ yếu xảy ra trong lò phân huỷ là
+f5c0ea31d0db	CaSO₄\xB72H₂O mất nước
+1c30c5e7c6a6	Lò phân huỷ ở 850–900 ℃ phân huỷ CaCO₃ thành CaO và giải phóng CO₂ (thu nhiệt), tỉ lệ phân huỷ vào lò có thể đạt 90 %, lò quay chỉ lo nung kết.
+46edbeca6eba	Chiều đi của liệu và dòng khí nóng trong lò quay là
+bb3d191e650a	Đều từ đuôi lò tới đầu lò
+4e8a324ac5b6	Đều từ đầu lò tới đuôi lò
+d9faaaa867a6	Liệu đuôi lò→đầu lò, khí nóng đầu lò→đuôi lò (ngược chiều)
+5cbd4fdbd9a0	Liệu đầu lò→đuôi lò, khí nóng đuôi lò→đầu lò
+cf35260da8c2	Liệu vào từ đuôi lò (đầu nguội), ra ở đầu lò (đầu nóng); vòi đốt ở đầu lò, dòng khí nóng đi ngược về đuôi lò, hai dòng trao đổi nhiệt ngược chiều.
+2f47522525c3	Nhiệt độ vùng nung kết không đủ sẽ trực tiếp dẫn tới
+231250c00e70	C₃S tạo ra không đủ, f-CaO tăng
+888030c2f23a	SO₃ vượt chuẩn
+de7cbda72e95	Thời gian bắt đầu đông kết dài ra
+c5f497ee0ad5	Liệu đi quá nhanh
+ab61aa416e91	Thiếu pha lỏng, phản ứng C₂S kết hợp CaO thành C₃S không tiến được, CaO nằm lại ở dạng tự do (mô hình bài này ở 1350 ℃ f-CaO là 2.15 %).
+2bb893a14328	Clinker ra lò phải làm nguội nhanh (máy làm nguội ghi), vì
+d516819e9a90	Làm clinker cứng hơn
+fd34313f3b1f	Giữ C₃S và hoạt tính, đồng thời biến nhiệt thành khí cấp hai để thu hồi
+f6af4dac0ae7	Làm giảm f-CaO
+c04bbfd7f69c	Làm nguội nhanh tránh C₃S phân huỷ, giảm hoạt tính; đồng thời khí lạnh xuyên qua lớp liệu thành khí cấp hai khoảng 1000 ℃ về lò, tiết kiệm thẳng tiêu hao nhiệt.
+c998dfcc5089	Công nghiệp giữ nhiệt độ vùng nung kết ở 1350–1450 ℃, không phải càng cao càng tốt, vì
+983dafec1463	Nhiệt độ lò càng cao f-CaO càng cao
+279900f31385	Đủ tạo pha lỏng sinh C₃S là được, cao hơn sẽ đóng vòng, sập lớp áo lò, tiêu hao nhiệt tăng
+9aeff18bda21	Nhiệt độ lò không liên quan chất lượng clinker
+63c2e83a6c7b	Nhiệt độ lò cao thì thời gian bắt đầu đông kết ngắn lại
+483fdf4bdffd	Pha lỏng xuất hiện từ khoảng 1280 ℃, tới 1350–1450 ℃ lượng pha lỏng mới đủ tạo C₃S; vượt 1480 ℃ pha lỏng quá nhiều, lớp áo lò không bám được, đóng vòng, đỏ vỏ lò.
+15cf681934ba	Máy nghiền phối liệu đã dừng: liệu thô vào thẳng, f-CaO lên 1.35 %, tiêu hao nhiệt 3280 kJ/kg
+c3510a52fdbb	Phối liệu đã nghiền mịn, đồng nhất: f-CaO về 0.75 %
+00f74c1c5994	Máy làm nguội ghi đã dừng: tiêu hao nhiệt lên 3360 kJ/kg, CO₂ 0.83 kg/kg
+8db691d16e2d	Máy làm nguội ghi đang chạy: tiêu hao nhiệt về 3100 kJ/kg
+c31c6b25305b	Bất thường: ca đêm hạ nhiệt độ lò hai nấc (f-CaO 1.95 %), em tự kéo lại
+82c9dae326ff	Đạt: f-CaO, bắt đầu đông kết, SO₃, tiêu hao nhiệt cùng giữ được, đủ 15 s
+cc1fdb50dd43	Đã về chế độ tham chiếu: 1420 ℃, lò phân huỷ 880 ℃, thạch cao 4.0 %
+f1c237ea737d	Đã dừng lò (trong bản trình diễn: dừng cả cấp liệu và vòi đốt)
+d8d001e9cffc	Dừng lò khẩn cấp: nhiệt độ lò đã về chế độ tham chiếu, giải trừ khoá liên động
+9c29876781ee	Sửa chữa xong: lò ổn định, thông số đặt lại, cấp liệu trở lại
+ad1f5669910c	Lưu ý minh hoạ: hình dáng thiết bị, phân bốn vùng trong lò, độ dày lớp liệu và chiều dài ngọn lửa là minh hoạ dạy học; giá trị f-CaO, tỉ lệ phân huỷ, tiêu hao nhiệt, CO₂, thời gian bắt đầu đông kết do mô hình đặt cho bài tính ra (facts B2.1, ghi est / giá trị tiêu chuẩn), ngưỡng đạt và ngưỡng vượt là giá trị đặt cho bài hoặc giới hạn tiêu chuẩn (GB 175-2023 về bắt đầu đông kết, GB/T 21372-2008 về f-CaO). Ống gió vẽ trong suốt để thấy vật liệu bên trong; tốc độ hạt và mũi tên được tăng nhanh để minh hoạ.
+b22d44c4226f	${c.id} có vấn đề hợp đồng:
+b56f460856b3	Lò quay xi măng
+f59d4f2df648	Minh hoạ: gạch chịu lửa hiển thị dày 0.25 m (thực tế 0.20–0.22); độ điền đầy lớp liệu, ranh giới bốn vùng, chiều dài ngọn lửa đều là minh hoạ; nhiệt độ lò và độ dốc xem facts A4.2 / B4
+c45c764352b5	Ống lò (có độ dày thành, đổi đường kính ở vùng nung kết)
+1aef9bad5c55	Lớp lót gạch chịu lửa
+86a1ab6dbea4	Lớp liệu trong lò (bốn vùng)
+053c45b584cd	Ngọn lửa than mịn (nguồn nhiệt vùng nung kết)
+424d96566a40	Băng đa (ba vành)
+2e76cddc72b7	Con lăn đỡ (ba cụm, sáu con)
+d0d8035dc85a	Vành răng lớn (vòng chia
+460a0d6525c7	5.6)
+9c0a36ecb721	Răng của vành răng
+c755ed105215	Bánh răng nhỏ và hộp giảm tốc
+48eb62da9a15	Động cơ truyền động chính
+0e46a8aaeda0	Vòi đốt than mịn và ống dẫn than
+784a44e4b33f	Chụp đầu lò (đầu ra liệu)
+df24ca82fe8d	Chụp đuôi lò và máng cấp liệu (đầu vào liệu)
+6521794db095	Tấm làm kín đuôi lò
+eb696a050010	Sàn kiểm tra và lan can
+b5f0e9c06262	Điểm đo nhiệt hồng ngoại vùng nung kết
+4aa9a29d2736	Mối hàn vòng ống lò
+05a780583298	Đế con lăn và bu lông neo
+d319fecc312c	Cửa người
+08f292c6c38c	Ống lò hàn từng đoạn, không nối bu lông; bu lông chỉ có ở đế và nắp đầu, đã liệt kê anchorBolts / manhole
+e91203501ba7	Ống lò quay
+1261c474e92f	4.2 \xD7 60 m \xB7 độ dốc 3.5 %
+ecdfe4a439d4	Băng đa + con lăn
+8307666df92c	Ba vành băng đa đỡ cả ống lò
+0cc712f05896	Vành răng lớn và truyền động chính
+c9b92756a513	Chụp đầu lò
+ba8e9fc65f63	Đầu ra liệu \xB7 clinker sang máy làm nguội ghi
+75d462257f85	Chụp đuôi lò + máng cấp liệu
+0c5a7af9a4e3	Đầu nguội nạp liệu
+5e34fd9b4ab8	Vòi đốt than mịn
+9c69a0fb27a4	Ngọn lửa vươn vào vùng nung kết
+68e451cf7cc6	0.25 m (vẽ dày để minh hoạ)
+31a028c574cb	800–1000 ℃ (minh hoạ)
+d6a4e1352c23	1350–1450 ℃ \xB7 tạo pha lỏng sinh C₃S
+86967ebb4eb5	Ngọn lửa
+3b816647f24d	1700–1900 ℃ (minh hoạ)
+e4eef764c670	1200–1300 ℃ (minh hoạ)
+8212dae846f0	Con lăn đỡ
+3010d5d8661c	Đỡ băng đa, cho phép quay
+29c1a997c5ba	Động cơ chính + hộp giảm tốc
+aa49dfe4e2f2	Qua bánh răng nhỏ dẫn động vành răng lớn
+f4bd0f89f7fb	Vành răng lớn
+aa26de946553	5.6 vòng chia (minh hoạ)
+9236c3d600e3	Bánh răng nhỏ
+2b4467aa26b3	Ăn khớp với vành răng lớn, quay ngược chiều
+f899c15df3fd	Đế con lăn + bu lông neo
+4924e083fcb8	Dưới mỗi vành băng đa có hai cụm con lăn
+6dd0ce04584e	Sàn kiểm tra
+dcaf77a8595d	Đo nhiệt và quan sát lửa vùng nung kết
+c13edcdb5a07	Đo nhiệt hồng ngoại
+44830c8f5100	Điểm đo nhiệt độ vùng nung kết
+374a52fc0eee	Khu bảo trì truyền động 3 m
+12c2589ef832	Liệu (hạt): đuôi lò → đầu lò
+bdd5e0d5dc4b	Khí nóng (mũi tên): đầu lò → đuôi lò
+77977bf9a1f0	Vùng gia nhiệt 800–1000 ℃ (minh hoạ)
+cd4bd634c29d	Vùng phân huỷ 1000–1300 ℃ (minh hoạ)
+1205082c7960	Vùng làm nguội 1200–1300 ℃ (minh hoạ)
+ad60f4f5ede0	Mặt cắt phóng to \xD73 (minh hoạ) \xB7 tốc độ quay minh hoạ
+e915979779fe	Đuôi lò cao, đầu lò thấp (độ dốc 3.5 %)
+4ea49bbc5eb6	Liệu đi xuống, khí đi lên (trao đổi nhiệt ngược chiều)
+4451e618f928	CO₂ thoát ra theo khí thải ra khỏi tháp
+84ddaadadcf4	Khí làm nguội → khí cấp hai về lò
+8de8089e5dfb	Thạch cao (hạt trắng)
+02341135b05a	Clinker (hạt xám đậm)
+0ba5bee03035	Bắt đầu đông kết ${i.t.toFixed(0)} min
+34392ee5b27f	Vùng nung kết ${t.Tb.toFixed(0)} ℃ ≥ 1480 ℃ \xB7 không hạ lại trong 3 giây sẽ đóng vòng, sập lớp áo lò (bản trình diễn giả định khoá liên động hỏng)
+c83c448d295d	Vùng nung kết ${t.Tb.toFixed(0)} ℃ ≤ 1260 ℃ \xB7 không kéo lại trong 3 giây sẽ nung non, f-CaO vượt chuẩn (bản trình diễn giả định khoá liên động hỏng)
+62da5ebb45fb	Sản xuất xi măng · Bài giảng 3D tương tác

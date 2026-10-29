@@ -1,0 +1,290 @@
+c289e5241f59	C.steps[${F}].cam.pitch=${L.cam.pitch}\xB0 không nằm trong CAMERA.polar ${f.polar[0]}–${f.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+dd644e1f3edb	${p}.unit=${c.unit} không nằm trong -1…${i.units.length-1}
+b1f578cbab92	${p}.act.text chưa viết (kind nào cũng cần, thẻ “Tự tay thử” hiển thị nó)
+4265074e6445	${p}.act.want=${JSON.stringify(c.act.want)} không phải một nấc của công tắc nhiều nấc ${h.key}
+181bee811bc5	${p}.start.${u}=${JSON.stringify(f)} không phải một nấc của công tắc nhiều nấc
+f16e34412634	${p}.act: custom phải có ok(ctx) và demo(ctx)
+bf26d977192c	${p}.act: bước record phải có CONSOLE.record.row (kiểu rows tính lại cả bảng, không có “ghi một lượt”)
+f3253fa4f94e	${p}.act.n=${c.act.n}: phải là số nguyên 1–${t.record.max??8} (ghi đủ n dòng là xong)
+d1801d4ca6eb	${p}.act: bước record phải có states (mảng chế độ đặt sẵn hoặc (S, R) =
+d958cedd0f41	${p}.start.${u} không phải điều khiển của bảng điều khiển
+d68c888456a0	${p}.prep phải là hàm (ctx, want) =
+e4283b3f1f3b	${p}.subSeq.keys phải gồm ≥ 2 key của CONSOLE.subs (theo thứ tự sáng lên)
+6012251d6895	${p}.subSeq.every phải là số dương (giây)
+683875775a05	${p}.cam chỉ được viết
+062c2b69c2aa	${p}.cam.box phải viết dạng
+5139d4121f38	${p}.cam.pitch phải tính bằng độ
+dde4ffe3ab55	${p}.cam.yaw phải tính bằng radian (giống CAMERA.yaw)
+a66574a84f31	phần tử trong ${p}.layers
+1e2cace8ed2d	CONSOLE.exam.solve[${p}] phải là
+93bdc002f9a9	CONSOLE.exam.solve[${p}].${h} không phải điều khiển của bảng điều khiển
+80ef79d34382	CONSOLE.exam.solve[${p}].record: muốn ghi số liệu trong kiểm tra cuối bài thì phải viết CONSOLE.exam.record: true trước
+f9baff424bff	Hiện tượng quang điện
+fe77ec7dc681	Lựa chọn bắt buộc tập 3 \xB7 Chương 4, bài 2 (tr. 71–77)
+099112654d99	W₀  \xB7  U_c = (h/e)ν
+db8888ea1d9b	Cùng một chùm sáng, vì sao đổi sang kim loại khác thì không bật ra nổi một electron? Năng lượng của quang electron rốt cuộc do yếu tố nào của ánh sáng quyết định?
+95055817a155	Photon
+6f0f705034f3	Chùm sáng gồm từng photon riêng lẻ; chỉ cần ν
+dcc8f228620d	νc thì dù ánh sáng yếu đến mấy electron cũng bật ra ngay
+9ef4cf584319	Một photon trao toàn bộ hν cho một electron; cường độ sáng chỉ tăng số photon
+b56270e9d0e8	Phí ra cửa
+b5db0c19b100	Electron phải nộp công thoát W₀ mới ra được, phần còn lại Ek = hν
+18a4cbad6ccc	Chặn lại được
+7acd97e5ff9c	Hiệu điện thế ngược đẩy electron trở lại, tại Uc dòng về 0 thì eUc = Ek — nên Uc không phụ thuộc cường độ sáng
+927207525b5c	Đo h
+f6e484a58242	Đổi tần số rồi đo Uc: Uc-ν là đường thẳng có hệ số góc h/e → đo được hằng số Planck
+071a30c167dd	Nguồn điện và khoá đảo chiều
+45a9376a2645	Nguồn\xB7Đảo chiều
+e0d8ca5317f4	Nguồn một chiều + khoá đảo chiều (thuận / ngược) + thanh dẫn phía A
+0a573a60607a	Bộ chia áp và vôn kế
+d5a87e3e6add	Chia áp\xB7Vôn kế
+f21e401ec788	Biến trở con chạy ba đầu + vôn kế V
+656ca67beb2a	Tế bào quang điện và nguồn sáng
+3f50316162f6	Tế bào quang điện
+c0b02d70136b	Tế bào quang điện chân không (K bên phải, A bên trái) + đèn thuỷ ngân và kính lọc sắc + tấm che sáng
+9561afef02af	Micro-ampe kế và màn đồ thị
+b5bcd46bdcd0	Màn số đọc
+2ce1985e4710	Đồng hồ μA (3 chữ số thập phân) + đường I-U trên máy tính
+bd361d09d57b	Làm quen mạch điện
+d94588307ea6	Trên bàn có những gì? Dòng điện từ đâu tới, đi về đâu?
+5c75297b96c5	Em kéo góc nhìn đi một vòng quanh bàn thí nghiệm: K bên phải, A bên trái, đồng hồ μA ở nhánh K, vôn kế mắc song song hai đầu tế bào
+050a52188dac	Ở khung hình nâng tấm che sáng lên: U = 0.00 V, I = 0.294 μA; ô Uc và ô I_sat đều là “—” (chưa quét tới điểm 0, cũng chưa tăng tới 6.00 V). Đậy tấm che lại, khung hình kế tiếp I = 0.000 μA — chuyển ngay trong cùng một khung, không thấy chút trễ nào. Lần theo dây dẫn đi được trọn một vòng “cực dương nguồn → bộ chia áp → vôn kế → A…K → đồng hồ μA → con chạy → cực âm nguồn”; khoá đảo chiều ở “thuận”, kính lọc là 365.0 nm, nhãn cathode ghi “Sodium \xB7 W₀ 2.29 eV”.
+8ecf51d30169	Ánh sáng vừa chiếu tới, cathode K liền phát ra quang electron, anode A thu chúng lại, trong mạch hình thành dòng quang điện; khi U = 0 dòng điện vẫn khác 0 (electron vốn đã có động năng ban đầu); dòng điện này xuất hiện gần như tức thời — SGK chỉ nói “ngay lập tức / gần như xảy ra tức thời”, không cho bậc độ lớn, nên bài này cũng không hiển thị thời gian thiết lập nào.
+dcc8272169a3	facts A2.1, A2.6, A2.27, A3.1, A6.1–A6.7, B2.1 mục 0, 8, 9, 13
+aeb47d9e8204	Sodium \xB7 365.0 nm (hν/e 3.3992 eV) \xB7 U 0.00 V \xB7 P 200 μW
+f1b6cc662d67	Chiếu sáng
+e9792d2a2815	Trong tế bào quang điện K ở bên phải, A ở bên trái, ánh sáng từ cửa sổ trên đỉnh ống chiếu vào K (theo hình gốc 4.2-1, không được vẽ ngược).
+a3dcf0fc2896	Đồng hồ μA mắc nối tiếp ở nhánh cathode K, vôn kế mắc song song hai đầu tế bào; bộ chia áp cho 0…6.00 V, khoá đảo chiều quyết định dấu.
+2892a0428848	Chiếu sáng là có dòng, che lại là mất (công tắc “Tấm che sáng” trên bảng điều khiển); bài này không hiển thị thời gian thiết lập nào.
+24ccd6bd95d5	Nếu bỏ bước này: học sinh không biết đồng hồ nào đo đoạn nào, cũng không biết “che sáng” là một thao tác làm được.
+5f8d53336378	Nhận biết dụng cụ là năng lực đầu tiên của thí nghiệm này (chuẩn chương trình 3.4.1 “Thông qua thí nghiệm, tìm hiểu hiện tượng quang điện”; đây không phải thí nghiệm bắt buộc, facts A1 đã ghi rõ). Thứ tự thao tác: xem thang đo trước rồi mới đọc số.
+cf5c062bf4d8	Tăng tới bão hoà
+6aeb19cd8580	Tăng hiệu điện thế từng nấc, dòng điện có tăng mãi không?
+e8a94809d56c	Em tăng hiệu điện thế từng nấc từ 0 lên +6.00 V, xem dòng điện tăng rồi đi ngang
+551d130bb1e2	Sodium \xB7 365.0 nm \xB7 P 200 μW: U = 0.00 → I = 0.294 μA; +1.00 V → 1.968; +2.00 V → 2.584 (đạt 87.8 % giá trị bão hoà); +4.00 → 2.893; +6.00 V → 2.935 μA (99.78 % giá trị bão hoà, tăng hiệu điện thế nữa cũng không tăng) — ô I_sat chỉ sáng lên 2.935 μA ở khung này (lúc +5.99 V vẫn là “—”; giá trị thật 2.9419, nhỏ hơn 0.2 % vì 6 V chưa đạt 100 %). Ô Uc suốt quá trình là “—” (chiều thuận không về 0). Tiện tay tắt “Tấm che sáng” rồi bật lại: I đổi 0.294 ↔ 0.000 ngay trong cùng một khung.
+99c93ecd69af	SGK tr. 72: khi hiệu điện thế tăng, dòng quang điện tiến tới giá trị bão hoà, tăng hiệu điện thế nữa cũng không tăng, vì số electron thoát ra trong một đơn vị thời gian là xác định, khi hiệu điện thế đủ lớn thì A thu hết; khi U = 0 dòng điện khác 0.
+dc67ebe393da	facts A2.3, A2.27, B2.1 mục 6, 9; D8, D10
+e47005cb4192	I_s ∝ số photon/s
+14a168620b91	Sodium \xB7 365.0 nm \xB7 P 200 μW \xB7 U 0 → +6.00 V
+5961673527e2	Sáng vừa
+b2c9617cd904	Khi U = 0 dòng điện khác 0 (0.294 μA): electron khi thoát ra vốn đã mang động năng ban đầu.
+61b8525335f9	Dòng bão hoà do cường độ sáng quyết định, không do hiệu điện thế; ô I_sat phải tăng tới 6.00 V mới sáng, và nhỏ hơn giá trị thật 0.0069 μA (chiều lệch tính lại được).
+3d5b031b140a	Hình dạng đường cong ở đoạn thuận là minh hoạ của bài (SGK chỉ có đường cong minh hoạ ở hình 4.2-2); hai câu “tiến tới bão hoà” và “khi U = 0 dòng điện khác 0” là nguyên văn SGK, còn đường cong tăng thế nào thì không.
+c6870e136281	Nếu bỏ bước này: học sinh sẽ coi “tăng hiệu điện thế thì dòng còn lớn nữa” là quy luật, cũng không biết “bão hoà” trông ra sao.
+a4753da93bea	Trọng tâm thi: vì sao tăng hiệu điện thế thì dòng tiến tới bão hoà (nguyên văn SGK tr. 72); “dòng bão hoà càng lớn thì Uc càng lớn” là sai (A7.10).
+126ffa82079e	Quét chiều ngược
+951988c8d6b6	Đảo cực nguồn thì dòng điện sẽ ra sao? Tăng tới đâu thì dòng vừa hết?
+64a5f9a8f012	Em gạt khoá đảo chiều sang “ngược”, rồi tăng hiệu điện thế ngược từng nấc 0.01 V cho tới khi số đọc lần đầu thành 0.000 thì dừng lại
+7e23491c2a5f	Sodium \xB7 365.0 nm \xB7 P 200 μW, chiều ngược: U =
+80ce9020f10e	0.20 → 0.241 μA;
+f73243d57669	0.50 → 0.162;
+2297129418c5	0.80 → 0.082;
+92cb1a090a93	1.10 → 0.002 (ô Uc vẫn là “—”);
+298b3cd4e6b0	1.11 V → 0.000 và nấc trước là 0.002
+20110d2c4c06	0 → ô Uc sáng lên 1.11 V;
+d9dd68c757d8	1.12 V → 0.000 nhưng nấc trước đã là 0 → “—”; tăng tiếp tới
+b6b72a6ea4c3	1.20 V vẫn là 0.000 (không chạy ngược chiều). Trong khung phóng to, electron bị đẩy trở lại, số tới được A ngày càng ít.
+d5128537abea	SGK tr. 72: hiệu điện thế ngược làm dòng quang điện giảm về 0 gọi là hiệu điện thế hãm Uc, và \xBDm
+1a044eb7b553	v_c\xB2 = eU_c. SGK chỉ cho định nghĩa “hiệu điện thế ngược làm dòng quang điện giảm về 0”; câu “trong khoảng từ
+ed1a0f05ae6b	Uc đến 0, dòng giảm dần về 0” là câu bài này suy ra từ nguyên văn (vc là tốc độ cực đại), không phải nguyên văn SGK.
+fe4bf3e6848d	facts A2.4, A2.26, A2.24, B2.1 mục 8; D1, D2
+30f6180b7707	Sodium \xB7 365.0 nm \xB7 P 200 μW \xB7 ngược 0 → 1.11 V
+d036db74e2f8	Ngược
+eb4216b5578c	Dừng ở điểm 0
+2def932a2aa9	Uc được định nghĩa là hiệu điện thế ngược “làm dòng quang điện giảm về 0” — chỉ nhìn “giảm đi” sẽ đo Uc nhỏ đi (A4.4, A7.8).
+14f0a897d6d2	Ô số đọc chỉ hiện khi em dừng đúng ở nấc đó:
+0b77fea23586	1.10 V (0.002) là “—”,
+f2b893522338	1.11 V (lần đầu về 0) mới sáng 1.11,
+649a54883551	1.12 V (nấc trước đã là 0) lại về “—”.
+4b9b207041f1	Uc ≥ 0 chỉ là độ lớn; khi đảo chiều U =
+a1ec08514fed	Uc mang giá trị âm (A7.7).
+e321525aea03	Nếu bỏ bước này: Uc chỉ tính được từ công thức, học sinh không có cách “đo ra”.
+95d899529afe	Bẫy thi: định nghĩa hiệu điện thế hãm và U_c = E_k/e (A7.7, A7.8). Thứ tự thao tác: đảo cực nguồn trước, rồi tăng từng nấc từ 0, tới đúng nấc vừa về 0 thì dừng.
+efb7c9b35b0d	Đổi cường độ sáng
+92812f95b7de	Cùng một màu, ánh sáng mạnh hơn thì dòng điện và hiệu điện thế hãm thay đổi thế nào?
+a1efe71cfc3b	Đổi sang cathode rubidium + 577.0 nm: ở 200 μW quét tới điểm 0 đọc Uc, rồi gạt về 100 μW quét lại, so đỉnh và Uc của hai đường cong
+fc9eed58c6ac	Rubidium \xB7 577.0 nm (chính là hai đường ánh sáng vàng ở hình 4.2-2 SGK): mạnh 200 μW → thuận 6.00 V thì ô I_sat 4.640 μA, I(0) 0.465 μA, ngược dừng ở 0.03 V thì ô Uc 0.03 V; yếu 100 μW → 2.320 μA, 0.233 μA, Uc vẫn là 0.03 V. Hai đường cong “cao lên mà không béo ra”: tỉ số đỉnh 4.640 : 2.320 = 2.000, Uc ở cùng một vị trí. 4.640 μA đã tới 92.8 % thang đo (hiện nhắc “Gần hết thang đo”).
+abb034c1f704	SGK tr. 72: khi tần số không đổi, ánh sáng tới càng mạnh thì dòng bão hoà càng lớn (nhiều photon → nhiều electron); dù ánh sáng mạnh hay yếu, hiệu điện thế hãm đều như nhau — cường độ sáng chỉ đổi số electron, không đổi năng lượng của mỗi electron.
+6f36abf9a18d	facts A2.3, A2.5, A2.13, B2.1 bảng 3b, B1.1; D4
+e90c179e1a6a	I_s ∝ P (ν không đổi)
+6420f6be19a5	Rubidium \xB7 577.0 nm \xB7 P 200 → 100 μW
+c20950e97ba4	Thuận + ngược
+ac4c820efe3b	Cathode rubidium
+acba799f18d4	Cùng tần số
+d22a0c93d9c1	Khi tần số không đổi, I_sat ∝ cường độ sáng (4.640 : 2.320 = 2.000).
+822a820b73d2	Uc không phụ thuộc cường độ sáng (hai đường ánh sáng vàng đều 0.03 V; ba nấc của sodium 365 cũng đều 1.11 V, khẳng định D4 “hiệu = 0.00 V”).
+2e917d87888b	4.640 μA đã tới 92.8 % thang đo, ánh sáng mạnh hơn nữa sẽ vượt thang, dòng bão hoà bị đo nhỏ đi (B1.1) — giữ lại nấc này chính là để thấy lời nhắc ấy.
+0bd0328781aa	Nếu bỏ bước này: không xoá được quan niệm sai “ánh sáng càng mạnh thì động năng càng lớn” (A7.1, A7.2).
+891a9572b28e	Trọng tâm thi: cường độ sáng thay đổi cái gì, không thay đổi cái gì (SGK tr. 77 bài tập 1, A7.13). Thứ tự thao tác: mỗi lần đổi cường độ sáng phải quét lại điểm 0 (ô Uc không giữ hộ em số của nấc trước).
+b5d2cd3a91c6	Đổi tần số
+b52a3128462c	Thay một kính lọc khác, hiệu điện thế hãm có đổi không? Tần số quá thấp thì sao?
+53f4329861b4	Với cathode rubidium, đổi sang ánh sáng lam 435.8 nm, quét tới điểm 0 đọc Uc; rồi đổi sang cathode sodium, hạ tần số xuống 546.1 và 577.0 nm, mỗi lần quét một lượt
+530133c2e563	Rubidium \xB7 ánh sáng lam 435.8 nm \xB7 P 200 → ngược dừng ở 0.72 V thì ô Uc 0.72 V, thuận 6.00 V thì ô I_sat 3.505 μA, I(0) 0.351 μA; so với 0.03 V của ánh sáng vàng 577.0 nm chênh 0.69 V. Ba đường cong (vàng mạnh 4.640 / lam 3.505 / vàng yếu 2.320) gộp lại chính là hình 4.2-2 SGK. Hạ tiếp xuống dưới tần số giới hạn: sodium 546.1 / 577.0 nm → I = 0.000 μA (+6.00 / 0.00 /
+7edef7be6013	6.00 V đều như nhau, ba nấc cường độ sáng cũng vậy), quét thế nào cũng không tới điểm 0, ô Uc luôn là “—”, trạng thái ghi “Không có quang electron (tần số thấp hơn tần số giới hạn)”.
+2c881762493a	SGK tr. 72: khi tần số ánh sáng thay đổi thì Uc cũng thay đổi; khi tần số giảm tới một giá trị νc thì dòng quang điện biến mất, dưới tần số giới hạn thì không xảy ra hiện tượng quang điện (không phụ thuộc cường độ sáng, cũng không phụ thuộc hiệu điện thế).
+a9cdaf3e99a7	facts A2.2, A2.5, B2.1 bảng 2, bảng 3b; D3, D5
+cae3840ac672	Rubidium 435.8 nm → Uc 0.72 V; sodium 546.1 nm → I 0.000 μA
+e77cc100c4bc	Đổi kính lọc
+8a2b1a568496	Cùng cathode
+da39dc2e72e4	Uc tăng đơn điệu theo ν (sodium: 0.56 → 0.78 → 1.11, hiệu liên tiếp
+df7a4946336d	0.33 V).
+181e21b9f112	Tần số giới hạn do chính kim loại quyết định: sodium 546.1 nm (5.4935
+aea1549c953d	5.53) không có lấy một electron, quét thế nào cũng không tới điểm 0.
+4090c5537005	Dưới νc thì ánh sáng mạnh mấy cũng vô ích (ba nấc cường độ sáng, ba mức hiệu điện thế đều 0.000, khẳng định D3).
+367aaa7454bd	Nếu bỏ bước này: học sinh sẽ nghĩ “ánh sáng đủ mạnh thì thế nào cũng có lúc bật ra được” (A7.3).
+6db2a4a71b39	Trọng tâm thi: ν
+e2f51a92ced1	νc thì không xảy ra hiện tượng quang điện, không phụ thuộc cường độ sáng; cách đọc bài tập 2 SGK tr. 77 (A7.14).
+9895b9b84ea3	Đổi kim loại
+11060678c751	Cùng chùm sáng mà đổi sang cathode khác, vì sao không có lấy một electron?
+40761f5f8eae	Để kính lọc ở 546.1 nm, đổi cathode sodium → potassium → rubidium, mỗi loại quét điểm 0 một lượt; rồi đổi sang 577.0 nm lặp lại
+6b9a9bab5a69	546.1 nm (P 200): sodium → I = 0.000 μA (ν = 5.4935
+0fb0639c1d79	νc = 5.53, không có lấy một electron, ô Uc “—”), potassium → dừng ở 0.03 V thì ô Uc 0.03 V, rubidium → 0.15 V; 577.0 nm: sodium —, potassium — (5.1993
+af958a1f3d4e	5.44), chỉ rubidium 0.03 V. Cùng tế bào ấy đổi sang 365.0 nm để nhìn ngược lại: sodium 1.11 V
+92edf91b8d51	potassium 1.15 V
+4b8f2a383e0e	rubidium 1.27 V (W₀ 2.29
+e1718ccf3af1	2.13, W₀ càng lớn thì Uc càng nhỏ).
+aac94687f05b	Bảng SGK tr. 73 + tr. 72: tần số giới hạn liên quan tới tính chất của chính kim loại (νc = W₀/h). Vì thế cùng một chùm sáng, đổi sang cathode khác có thể không có lấy một quang electron; cùng một tần số thì kim loại có W₀ càng lớn, Uc càng nhỏ.
+af36dbad34ab	facts A2.2, A2.7, A2.9, A2.17, B2 dòng 1, B2.1 bảng 2; D9
+cb6bd9058392	546.1 nm: sodium — \xB7 potassium 0.03 V \xB7 rubidium 0.15 V; 577.0 nm: chỉ rubidium 0.03 V
+8bdb975e7295	Đổi cathode
+b5a02db6ed1b	Cùng chùm sáng
+fe1141ec6c52	Tần số giới hạn là tính chất của chính kim loại (sodium 5.53 / potassium 5.44 / rubidium 5.15\xD710\xB9⁴ Hz, bảng SGK tr. 73).
+67497fdfbdbf	Cùng tần số thì W₀ càng lớn, Uc càng nhỏ (1.11
+1d3f782ee89a	1.27).
+0504ccbed0bf	Dòng bão hoà của ba cathode bằng nhau (ở P 200 đều 2.935 μA) chỉ vì bài này lấy hiệu suất lượng tử như nhau — đây là giá trị đặt cho bài (minh hoạ), SGK không có kết luận này.
+c619e5878e63	Nếu bỏ bước này: học sinh sẽ nhớ “tần số giới hạn” là tính chất của ánh sáng, chứ không phải của kim loại (A7.3, A7.11).
+2d4fe4d2346b	Trọng tâm thi: đổi kim loại chỉ đổi giao điểm với trục tung và trục hoành, không đổi hệ số góc (A7.11). Thứ tự thao tác: xét quan hệ giữa ν và νc trước rồi mới bàn số đọc — quét không tới điểm 0 tức là không có quang electron, không phải đồng hồ hỏng.
+d081e40e7610	Vẽ đồ thị đo h
+70c6e031ba3c	Vẽ từng tần số cùng Uc tương ứng lên đồ thị, sẽ được gì?
+d9c96bc19c97	Cùng một cathode sodium: quét 365.0 / 404.7 / 435.8 nm tới điểm 0, mỗi lần ghi số trên ô Uc thành một dòng (tổng 3 dòng), rồi xem đường khớp
+42ce1e87cb24	Sodium \xB7 P 200 μW, ba điểm (đều lấy từ “nấc dừng ở điểm 0”): (8.2192, 1.11), (7.4129, 0.78), (6.8839, 0.56) nằm trên một đường thẳng; hệ số góc đường khớp a = 0.4117 V/(10\xB9⁴ Hz) → h_đo = 6.596\xD710⁻\xB3⁴ J\xB7s, so với h = 6.626 070 15\xD710⁻\xB3⁴ J\xB7s trong SGK chênh
+cad858d5a8d0	0.46 % (SGK tr. 75 nói Millikan phù hợp trong cỡ 0.5 %); giao điểm với trục tung
+6fcab581bee1	2.2731 V → W₀ đo được 2.2731 eV (bảng SGK 2.29); giao điểm với trục hoành 5.5216\xD710\xB9⁴ Hz (bảng SGK νc 5.53).
+2f140d796280	SGK tr. 75: U_c = (h/e)ν
+bd581750088c	W₀/e, Uc-ν là đường thẳng có hệ số góc h/e → h = e\xB7hệ số góc. Đây chính là cách làm bài tập 4 SGK tr. 77: cùng một tế bào, từ hai ánh sáng đã biết tần số trở lên. Hình 4.2-5 chỉ mượn dạng “điểm + đường thẳng đỏ”: chú thích hình chỉ nói “một kim loại nào đó”, hệ số góc của nó nhỏ hơn h/e khoảng 5 %, nên bài này không lấy giá trị các điểm trên hình.
+bc59cad30dae	facts A2.10, A2.11, A3.3, B2.1 mục 10; D6
+45e0b950b8e0	Sodium \xB7 365.0 / 404.7 / 435.8 nm \xB7 P 200 μW \xB7 khớp ba điểm
+42431fd959dd	Ghi ba điểm
+db77df2a8a00	Bình phương tối thiểu
+045db2cd27b8	Cùng một tế bào
+d9208a72cc6f	Hệ số góc chỉ do h/e quyết định, đổi kim loại chỉ đổi giao điểm với trục tung và giao điểm với trục hoành νc (A7.11, A7.12).
+439caaaa4aae	h_đo chênh
+c97b7032e689	0.46 %, nằm trong cỡ 0.5 % mà SGK nói (A2.11, D6).
+5484dfe38e41	Dòng ghi chỉ ghi Uc của nấc dừng ở điểm 0 (addRow từ chối khi Uc là “—”); vạch phổ mà Uc chỉ có hai ba nấc thì không đưa vào khớp được.
+25002e77cb52	Nếu bỏ bước này: h chỉ là một hằng số học thuộc, học sinh không biết nó được đo ra thế nào.
+dcc5ddea499f	Trọng tâm thi: từ đồ thị Uc-ν tìm h (hệ số góc) cùng W₀, νc (hai giao điểm với trục); nguyên đề bài tập 4 SGK tr. 77. Thứ tự thao tác: cùng một tế bào, ít nhất hai tần số (A4.5).
+a51151ad11e7	Nhãn ghi 2.29 eV, sao đo ra lại không khớp?
+6bfc7ac1344a	Em bật “Dụng cụ thực”, quét lại điểm 0; rồi gạt cường độ sáng lên 400 μW xem I_sat vượt thang
+bddf7f2d13b6	Sodium \xB7 365.0 nm \xB7 P 200 μW (chế độ thực): ngược dừng ở nấc 1.09 V → ô Uc 1.09 V (chế độ lí tưởng cùng nấc là 1.11; giá trị thật 1.0942); thuận 6.00 V → ô I_sat 2.994 μA (lí tưởng 2.935, công suất thực của nguồn sáng cao hơn 2.0 %); đổi 435.8 nm: Uc 0.54 V, I_sat 3.575 μA. Gạt cường độ sáng lên 400 μW: thuận 6.00 V thì ô I_sat chạm trần 5.000 μA (dòng bão hoà thật của nấc này 5.8838) → 5.000 / 2.935 = 1.7037
+44ebb6003063	2.000.
+467daea6fa9c	Hai chuyện phải nói riêng:
+9e35b3ed27fb	Danh định ≠ thực tế — 2.29 eV trong bảng SGK tr. 73 là giá trị của “kim loại sodium”; bề mặt cathode của tế bào này có trạng thái khác, W₀ thực = 2.305 eV, nên cùng tần số thì Uc nhỏ hơn 0.015 V. Đó mới là lí do “phải đo, không thể chỉ tra bảng”.
+58768f892a2b	Hai sai số đo đều có chiều riêng, phải tính riêng rồi gộp: độ chia 0.01 V khiến Uc_đo chỉ rơi vào các nấc, làm tròn lên (chế độ lí tưởng +0.0008 V, luôn trong khoảng 0~+0.01 V); thang hiệu điện thế ở chế độ thực lệch +0.4 % làm hiệu điện thế thực lớn hơn số đọc, điểm 0 rơi vào số đọc nhỏ hơn (giá trị thật quy ra số đọc là 1.0898 V, số đọc nhỏ hơn 0.0044 V); gộp hai chỗ = đo được 1.09 V, nhỏ hơn giá trị thật 1.0942 là 0.0042 V — nên 1.09
+820df0d2b201	1.0942 không phải do tính sai. Ngoài ra I_sat_đo nhỏ hơn 0.0069 μA vì 6.00 V chưa đạt 100 %; khi cường độ sáng vượt thang, số đọc bị cắt phẳng ở 5.000 → dòng bão hoà chắc chắn bị đo nhỏ đi (Uc không bị ảnh hưởng).
+2005ee86af39	facts B2.1 mục 12, B3 mục 3, B1.1; D7
+c963be38810f	Sodium \xB7 365.0 nm \xB7 dụng cụ thực \xB7 Uc 1.11 → 1.09 V \xB7 I_sat 2.935 → 2.994 μA
+f3c1aeeb7ab8	Cathode lệch riêng
+9e90bec03034	Công suất +2.0 %
+0dc40deb8dea	Ba độ lệch ở chế độ thực là hằng số cố định, cùng một chế độ vận hành thì luôn cho cùng một bộ số đọc (tất định, không phải sai số ngẫu nhiên).
+f52b09a27615	Hai sai số ngược chiều nhau, phải tính riêng rồi gộp: độ chia làm Uc_đo lớn hơn 0~+0.01 V (lần này +0.0008), thang lệch +0.4 % làm nó nhỏ hơn 0.0044 V, gộp lại là 1.09 V.
+ae8f14e83d23	Vượt thang chỉ làm I_sat bị đo nhỏ, Uc không bị ảnh hưởng (dòng ở đoạn ngược chỉ 0.1–0.6 μA).
+5476a745c4b4	Nếu bỏ bước này: học sinh sẽ coi “đo ra khác bảng SGK” là mình tính sai.
+2dfbcfaa9236	Năng lực thực nghiệm: nêu được nguồn và chiều sai số của dụng cụ thực (chuẩn chương trình “tìm tòi khoa học”); trọng tâm thi: vì sao phải đo W₀ — 2.29 eV trong bảng SGK là giá trị danh định của “kim loại sodium”, bề mặt cathode của tế bào này có trạng thái khác.
+49398af91811	Kiểm tra cuối bài: cho một tế bào thực chưa hiệu chuẩn, em nên chọn vạch phổ nào, mạnh bao nhiêu, tăng tới đâu thì mới coi là đo được một Uc đạt yêu cầu?
+af0b78172fd9	Chọn một vạch phổ kích thích được nó, cường độ sáng đừng quá lớn, rồi quét ngược tới nấc số đọc lần đầu về 0 thì dừng, giữ 10 s
+92f80a988259	Khi vào (chế độ thực \xB7 sodium \xB7 577.0 nm \xB7 400 μW \xB7 thuận U = 0.00): I = 0.000 μA, ô Uc “—”, trạng thái “Không có quang electron (tần số thấp hơn tần số giới hạn)” — chùm sáng này không kích thích được tế bào; nếu gạt sang thuận 6.00 V, ô I_sat sẽ chạm trần 5.000 μA (dòng bão hoà của nấc này vượt 80 % thang đo). Một lời giải đạt: sodium \xB7 365.0 nm \xB7 200 μW, ngược dừng ở nấc 1.09 V → ô Uc 1.09 V, dòng bão hoà của nấc này 2.994 μA; từ W₀ = hν/e
+3f795eda96e4	Uc ta được 3.3992
+916a39a57b02	1.09 = 2.31 eV (tế bào này thực tế 2.305 eV, bảng SGK danh định 2.29 eV).
+b3dbeb867fe1	Không có kết luận mới: ν
+920d27129bfc	νc mới có electron, chiều ngược phải tăng tới khi số đọc đúng bằng 0.000 và là lần đầu về 0 mới là Uc, Uc quá nhỏ (
+4cc26abf3a83	0.10 V) thì chỉ hai ba nấc nên đo không chính xác, cường độ sáng không được lớn tới mức dòng bão hoà của nấc đó vượt thang — cả bốn điều đều có ở các bước trước; W₀ = hν/e
+e1423d421c3a	Uc chính là cách dùng một điểm của đường thẳng ở bước 7 trên cùng một tế bào.
+d3093321b9f5	facts A2.2, A2.4, A2.10, A4.4, A7.8, B1.1, B2.1 mục 8, 12, 16
+d810ebee5709	Dụng cụ thực \xB7 sodium \xB7 365.0 nm \xB7 200 μW \xB7 Uc_đo 1.09 V
+d8c69cd6fe1b	80 % thang đo
+a7de566f3ef4	Xét trước chùm sáng có kích thích được tế bào này không (ν so với νc), rồi mới bàn tới đo.
+7bc8efdec168	Chiều ngược phải quét tới khi số đọc đúng bằng 0.000 và là lần đầu về 0; dừng ở 0.002 sẽ đo Uc nhỏ đi một nấc, dừng ở nấc đã qua điểm 0 thì không lấy được số đọc.
+9ba882fd7737	Chế độ mà Uc chỉ có hai ba nấc (
+5f8c10b17070	0.10 V) thì đo không chính xác; cường độ sáng phải chọn sao cho dòng bão hoà của nấc đó ≤ 4.000 μA (80 % thang đo).
+f1c2e5ea11d8	Nếu bỏ bước này: ba quy luật đều dừng ở mức “biết”, không có chế độ nào do học sinh tự tay xác định.
+cc5fcaef0d26	Tổng hợp: tần số giới hạn (ν
+01b1ed981b39	νc) + chuỗi đo Uc (quét tới điểm 0 và dừng lại) + ý thức về thang đo. Thứ tự thao tác: chọn vạch phổ và cường độ sáng trước, rồi mới quét ngược.
+6d81ee14725d	Nguồn một chiều 6 V
+a34750250c52	Khoá đảo chiều (thuận / ngược)
+251381163430	Bộ chia áp (ba đầu)
+5e1ba292bd89	Vôn kế V
+9f695d60ca3c	Tế bào quang điện (K phải, A trái)
+63297c201d2e	Đèn thuỷ ngân + bộ kính lọc
+e6e65b08a08c	Tấm che sáng
+dc3b505f21b7	Micro-ampe kế μA
+6f41b805e6f5	Máy tính \xB7 đường I-U
+928222138e51	Mặt cắt tế bào quang điện (minh hoạ)
+8435ce059ad3	Vỏ ống và điện cực là mặt cắt minh hoạ \xB7 chấm electron chỉ để minh hoạ
+21310afdaecf	Không có quang electron
+7ae46d0273be	Đường I-U (minh hoạ)
+bf52531c10fd	Đồ thị Uc-ν
+2ae7d0f7fe01	Điểm ghi + đường thẳng khớp
+e829772f8a5b	Hình 4.2-1
+137348a1fbd2	Kim loại cathode
+01aa930ccd61	Cường độ sáng
+01d1b9d14834	Hiệu điện thế U
+0d71a1cd04e1	Cực tính
+c93132364723	Dòng quang điện I
+2591341bef7d	Hãm Uc
+6f64c2bb8b19	Bão hoà Isat
+e82662eb1d31	Sodium
+c8e7f8c2caa9	Potassium
+03d1b7d3fb7f	Rubidium
+0aac23d5caee	Yếu 100 μW
+f8c7f941d0ee	Vừa 200 μW
+88ce32033001	Mạnh 400 μW
+db3e4d319dc4	Che sáng
+bf3d98c8bb4e	Thực
+49ece5c0d1d4	Đường I-U (bảng điều khiển)
+b8198cb4f61f	Điểm làm việc hiện tại \xB7
+22fb037574bf	Điểm Uc
+55fb9bd93dfb	V \xB7 dừng ở điểm 0
+464f387e075b	μA \xB7 đầy thang
+918b85634a54	Không có quang electron (ν
+9598aa1c2ff2	νc)
+4c869e520004	Gần hết thang đo
+964b73147c71	Đã bão hoà
+583377267ca8	Dòng điện đã về 0
+16a259711c59	Có dòng quang điện
+b2dd9574951b	Ghi Uc-ν (cùng một tế bào)
+66e230b91b91	Đo Uc của nó
+457b78204864	Gạt cường độ sáng về 200 μW (400 μW vượt thang); chọn một vạch phổ kích thích được nó; rồi tăng hiệu điện thế ngược từng nấc tới khi số đọc lần đầu về 0.
+cd3d8e2735e3	Dừng ở điểm 0 \xB7 Uc ≥ 0.10 V
+3464f590f93d	Tần số giới hạn
+f4c7de69b8c5	Dùng ánh sáng lục 546.1 nm chiếu vào ba cathode: sodium (νc = 5.53\xD710\xB9⁴ Hz), potassium (5.44), rubidium (5.15). Cathode nào không có quang electron?
+6db50702a2ca	Cả ba đều có
+beea79aca328	Tần số của 546.1 nm là 5.4935\xD710\xB9⁴ Hz, chỉ tần số giới hạn của sodium cao hơn nó, nên sodium không có lấy một quang electron (facts A2.2, B2.1 bảng 2).
+c97552937bee	Cùng tần số, tăng cường độ sáng lên gấp đôi thì đại lượng nào dưới đây thay đổi?
+6f5ffbcdf384	Dòng bão hoà
+de361782e7e3	Hiệu điện thế hãm
+4e83324e9a5f	Động năng ban đầu cực đại của quang electron
+39e86737e387	Cường độ sáng chỉ tăng số photon trong một đơn vị thời gian → số electron nhiều hơn → dòng bão hoà lớn hơn; hiệu điện thế hãm, động năng ban đầu cực đại, tần số giới hạn đều do tần số và kim loại quyết định (facts A2.3, A2.5, khẳng định D4).
+4dd87fd08ac1	Tăng dần hiệu điện thế ngược từ 0, khi số đọc ampe kế lần đầu thành 0.000 μA thì hiệu điện thế ngược là 1.11 V. Ô Uc của bài này
+1db7c271162f	Dừng ở nấc 1.11 V thì hiện 1.11 V, tăng tiếp thì trở lại “—”
+debea57b4782	Luôn hiện 1.11 V
+ad2df1d072d8	Phải đợi 5 s mới hiện
+712f2bd1c0c6	Chỉ hiện ở chiều thuận
+7c3ba222e5e8	Ô Uc chỉ hiện khi “dừng ở nấc lần đầu về 0 theo chiều ngược”; tăng tiếp tới nấc mà nấc trước cũng là 0 thì không còn là “lần đầu về 0” nữa (facts B2.1 mục 8, cửa A M1).
+6b545e057451	Cùng một chùm tử ngoại 365.0 nm lần lượt chiếu vào sodium (W₀ 2.29 eV), potassium (2.25), rubidium (2.13). Thứ tự độ lớn của hiệu điện thế hãm đo được là
+3b12f2702236	Cả ba bằng nhau
+25d89c4d9f99	Cùng tần số thì W₀ càng lớn, Ek = hν
+af6290041d3a	W₀ càng nhỏ, Uc = Ek/e cũng càng nhỏ; đo thực tế 1.11 V (sodium)
+2cdae7882b36	1.15 (potassium)
+1ca0154e836c	1.27 (rubidium), nên thứ tự độ lớn là sodium
+4fcfb5ac9445	rubidium (facts A2.9, B2.1 bảng 1).
+d45d1780a442	Đo h
+98962572764e	Dùng cùng một tế bào quang điện đo được ba điểm (8.2192, 1.11), (7.4129, 0.78), (6.8839, 0.56), hệ số góc đường thẳng khớp a = 0.4117 V/(10\xB9⁴ Hz). Hằng số Planck đo được h_đo xấp xỉ
+3daeffa1a1b8	6.6\xD710⁻\xB3⁴ J\xB7s, chênh với giá trị SGK khoảng
+66fd6a4edfd1	h = a \xD7 10⁻\xB9⁴ \xD7 e = 0.4117 \xD7 10⁻\xB9⁴ \xD7 1.602\xD710⁻\xB9⁹ = 6.596\xD710⁻\xB3⁴ J\xB7s, nhỏ hơn giá trị SGK 6.626\xD710⁻\xB3⁴ là 0.46 % (facts B2.1 mục 10, A2.11).
+a492a520e09f	Gạt cường độ sáng lên 400 μW, số đọc micro-ampe kế chạm trần 5.000 μA. Lúc này dòng bão hoà đo được
+10498abb2080	Lúc lớn lúc nhỏ
+96b03b3c5268	Khi vượt thang đo, số đọc bị cắt phẳng ở 5.000 μA (giá trị thật 5.8838), nên dòng bão hoà chắc chắn bị đo nhỏ đi; còn dòng ở đoạn ngược chỉ 0.1–0.6 μA, Uc không bị ảnh hưởng (facts B1.1, B2.1 mục 12, khẳng định D7).
+21b40ea54f59	Học xong bài này: dùng quét ngược đo được hiệu điện thế hãm, nói rõ cường độ sáng chỉ đổi dòng bão hoà, còn tần số và kim loại đổi Uc, và dùng đồ thị Uc-ν tìm ra hằng số Planck.
+849e0ef9c496	Tuyên bố minh hoạ: hình dạng dụng cụ, mặt cắt tế bào quang điện và chấm electron, hình dạng đường I-U, mũi tên chiều dòng điện trên dây dẫn đều là minh hoạ; I, U, Uc, I_sat được tính theo toán tử ở cột B của bảng dữ kiện, Uc chỉ được cho khi quét ngược tới nấc lần đầu về 0, I_sat chỉ được cho ở chiều thuận 6.00 V; hiệu suất lượng tử không phụ thuộc kim loại là giá trị đặt cho bài.
+94561611b876	Trên màn hình chỉ có một loại số đọc dòng điện (micro-ampe kế μA, 3 chữ số thập phân)
+efc36733295a	Hiện tượng quang điện · Bài giảng 3D tương tác

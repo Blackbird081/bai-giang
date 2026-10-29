@@ -1,0 +1,328 @@
+5809fe420504	Tìm hiểu mối liên hệ giữa độ lớn lực hướng tâm với bán kính, tốc độ góc và khối lượng
+ae6c27fcdf50	SGK bắt buộc tập 2 \xB7 chương 6, bài 2 (bản in tr. 27–29)
+ded7ec5a6576	Fn = mω\xB2r (kiểm soát biến)
+e7cebdac1276	Thiết bị quay tay này chỉ cho em số vạch trên hai thước — liệu có dùng nó đo được mối liên hệ định lượng giữa F với m, r, ω không?
+5ea342f302b8	Cho quay
+9bf4eff992f3	Tay quay → puli bậc → dây đai → mâm quay: hai quả cầu quay cùng tốc độ, hoặc nhanh gấp bội theo nấc dây đai
+93445fe499b9	Đổi thành số vạch
+bde2e162dc3c	Lực ép lên tấm chắn → đòn bẩy tay ngang → ống trượt hạ xuống → thước lộ vạch đỏ trắng (đếm từng vạch)
+f58bf967690a	Chỉ đổi một
+8ef0082fc97c	Mỗi lần chỉ đổi một trong m, r, ω, khoá cố định hai đại lượng còn lại (kiểm soát biến)
+6f807d867b59	Đọc tỉ số
+c518d5263821	Số vạch hai thước chia cho nhau = tỉ số lực hướng tâm của hai quả cầu (SGK nói là “gần đúng”)
+73a6f0612bd8	Rút kết luận
+65fb4538b031	Ba đường thẳng qua gốc toạ độ → Fn = mω\xB2r = m v\xB2/r
+da4c469d340e	Thân máy và tay quay
+d4ce07862252	Thân máy\xB7tay quay
+d6c068da61b9	Bệ màu xanh, bốn chân, hai trục quay, tay quay
+063b1884c68d	Puli bậc và dây đai
+376c8590546b	Puli bậc\xB7dây đai
+f7233a70c914	Puli ba bậc + dây đai, tỉ số tốc độ góc đến từ đây
+cab93af661e0	Rãnh dài và thước trái
+eea407f789da	Rãnh dài\xB7thước trái
+c84d0074d69a	Cầu ở rãnh dài, tấm chắn tay ngang, ống trượt, thước vạch
+e48bcea11e40	Rãnh ngắn và thước phải
+6170b747ef4b	Rãnh ngắn\xB7thước phải
+2eb8a3c79e05	Cầu ở rãnh ngắn, tấm chắn tay ngang, ống trượt, thước vạch
+e62e9c4d4f4e	Làm quen thiết bị
+c1561f0488cf	Thiết bị này tên là gì? Tay quay, puli bậc, rãnh dài, tay ngang, ống trượt, thước vạch mỗi thứ làm gì? Vì sao đọc ra là “số vạch” chứ không phải “newton”?
+31c81248ebec	Kéo góc nhìn đi một vòng quanh bàn thí nghiệm: nhận ra các bộ phận số 1–8 ở hình 6.2-4, đi một lượt theo “tay quay → puli bậc → dây đai → mâm quay → quả cầu → tấm chắn → ống trượt → thước vạch”
+a419355f8e50	Chế độ mặc định (khối lượng bằng nhau, hai quả cầu đều ở 4.0 cm, dây đai I, 60 r/min): hai mâm quay cùng tốc độ, thước trái lộ 8 vạch, thước phải lộ 8 vạch, tỉ số vạch 1.00.
+9326af5f7fe7	Quả cầu chuyển động tròn đều, lực hướng tâm do lực ép của tấm chắn tay ngang lên quả cầu cung cấp; phản lực của quả cầu lên tấm chắn qua đòn bẩy làm ống trượt hạ xuống, lộ ra thước vạch. Nguyên văn SGK tr. 29 là “căn cứ vào các vạch chia đều xen kẽ đỏ trắng lộ ra trên thước, có thể tính gần đúng tỉ số lực hướng tâm tác dụng lên hai quả cầu” — thiết bị này cho tỉ số, không cho biết mỗi lực bao nhiêu newton.
+dc2520344656	Dữ kiện A2.5, A2.6, A5.1, A6; hình 6.2-4 (tr. 29), nguyên văn tr. 28–29; B3.2
+dfb2f3c6b476	Tám bộ phận mỗi thứ một việc: tay quay tạo tốc độ quay, puli bậc tạo tỉ số tốc độ góc, rãnh dài tạo bán kính, tấm chắn tay ngang tạo lực ép, ống trượt và thước vạch đổi lực ép thành số vạch; các con số trên nhãn tên (tay quay 1, rãnh dài 4, rãnh ngắn 5, puli bậc 2\xB73) là số hiệu bộ phận ở hình 6.2-4 trong SGK, không phải vạch chia hay nấc.
+a6f4df5f9666	Đọc ra tỉ số chứ không phải newton: chính SGK viết “tính gần đúng tỉ số lực hướng tâm tác dụng lên hai quả cầu”, thước chỉ đếm được vạch nguyên.
+557a3dd344a1	Lực hướng tâm không phải loại lực thứ tư: ở đây nó là “lực ép của tấm chắn lên quả cầu”, đừng vẽ thêm một “lực li tâm” hướng ra ngoài.
+13c330f3b61c	Bỏ bước này: học sinh không hiểu 8 vạch nghĩa là gì, mọi số đọc phía sau đều thành hộp đen.
+91e46f0a5727	Nhận biết dụng cụ + “lực hướng tâm được gọi tên theo tác dụng” (chuẩn chương trình tr. 16 “biết dùng dụng cụ thí nghiệm được cung cấp để tiến hành thí nghiệm và thu số liệu”; SGK tr. 27).
+b76af7774f26	Trái 8 vạch \xB7 phải 8 vạch \xB7 tỉ số vạch 1.00
+677dd9b80f7e	Hình 6.2-4
+87a99f8df390	8 bộ phận
+54b01c08f68c	Tỉ số vạch 1.00
+80fb92d66a19	Tự kiểm thiết bị
+fe88ccda7c40	Vì sao phải chỉnh hai quả cầu về “cùng khối lượng, cùng bán kính, cùng tốc độ góc” trước? Khi đó hai thước phải lộ bằng nhau; lộ không bằng nhau thì nói lên điều gì?
+1fdd4eed3cea	Chỉnh lần lượt hai quả cầu, rãnh dài, dây đai về cùng một chế độ: khối lượng bằng nhau, đều 4.0 cm, dây đai I
+f84e31029a07	Điểm xuất phát lệch (rãnh dài 6.0 cm + dây đai II): trái 12 vạch, phải 32 vạch, tỉ số vạch 0.38 — quả cầu phải quay nhanh gấp đôi, thước vọt cao hẳn; sau khi chỉnh đủ bốn mục: 8 vạch đối 8 vạch, tỉ số vạch 1.00, hai thước cao bằng nhau.
+5c20b594a511	Thí nghiệm ở SGK tr. 29 cho hai quả cầu cùng quay, cùng đọc, nên chỉ cần một đại lượng lệch là số đọc không còn là ảnh hưởng của riêng đại lượng đang xét; bốn mục khớp hết thì hai thước cao bằng nhau (tỉ số vạch 1.00), thiết bị mới coi là “đã chỉnh xong” — đây cũng là tiền đề để ba bước sau đứng vững.
+44e8238fb5e4	Dữ kiện A2.6, A2.19, A2.21, A7.7; B3.2; bảng giá trị chuẩn A, D, F
+409d3f6915c0	Thiết bị cho hai quả cầu cùng quay, cùng đọc: chỉ cần một đại lượng khác nhau, chênh lệch trên thước không còn là “công” của riêng đại lượng đang xét.
+efc5aeb25f80	“Tự kiểm thiết bị” = khớp bốn mục (cùng khối lượng, cùng bán kính, cùng tốc độ góc, cùng tốc độ quay), tiêu chí là hai thước cao bằng nhau (tỉ số vạch 1.00).
+85db3f82c147	Phải quay tay quay đều (nguyên văn SGK tr. 28), tốc độ quay dao động thì ống trượt tự nhấp nhô.
+d637390a3f46	Bỏ bước này: tỉ số đọc ở ba bước sau đều lẫn biến khác, kết luận hoàn toàn sai.
+d76f9813e7ea	Chắc chắn thi: bước chỉnh khớp trước khi kiểm soát biến và tiêu chí “hai thước cao bằng nhau”.
+109bd31cb099	Tỉ số m = tỉ số r = tỉ số ω = 1
+862287321b9f	Tỉ số vạch phải là 1.00
+c95d70c1a788	Hai thước cao bằng nhau
+b378867d262e	Khối lượng
+c0e3fc40cb42	Chỉ thay quả cầu, giữ nguyên mọi thứ khác: số vạch lộ ra có gấp đôi không? Vì sao không được đồng thời dời quả cầu ra xa hơn?
+7a787d1c56ad	Bấm “ghi một lượt” 3 lượt: trái nhỏ phải lớn / khối lượng bằng nhau / trái lớn phải nhỏ (giữ nguyên các thứ khác)
+f049f4cef5c2	Ba lượt (quả cầu trái ở 4.0 cm, dây đai I, 60 r/min, chỉ đổi quả cầu): tỉ số khối lượng 0.50 → 8 vạch / 16 vạch → 0.50; 1.00 → 8 / 8 → 1.00; 2.00 → 16 / 8 → 2.00. Ba điểm nằm trên đường thẳng qua gốc toạ độ, hệ số góc 1.000.
+52b3a1b7a507	Khi chỉ đổi khối lượng, tỉ số vạch bằng tỉ số khối lượng
+3af9bdf58932	F ∝ m. Câu hỏi ở SGK tr. 29 “làm thế nào để khi thay đổi một đại lượng vật lí thì các đại lượng khác vẫn giữ không đổi” có lời đáp ở đây: đã thay quả cầu thì nấc bán kính và nấc dây đai đều không được động vào.
+805861b573b3	Dữ kiện A2.7, A2.9, A2.14; bắt buộc tập 1 tr. 92; bảng giá trị chuẩn B, C, bảng B (hàng khối lượng)
+3345538f14c4	Xác nhận “chỉ đổi một đại lượng”: nấc bán kính, nấc dây đai, nấc tốc độ quay đều không được động vào.
+d363e47de766	Ba lượt phải nằm trên đường thẳng qua gốc toạ độ (hệ số góc 1.000), không phải “trông có vẻ giống”.
+68948579fa03	Khối lượng gấp đôi, số vạch gấp đôi
+78adaa217c8e	F ∝ m (bậc nhất).
+b539faad34dd	Bỏ bước này: chữ m trong Fn = mω\xB2r chỉ là học thuộc.
+fce1d4398338	Chắc chắn thi: kiểm soát biến + suy ra tỉ lệ thuận từ đường thẳng qua gốc toạ độ (câu hỏi SGK tr. 29 + phương pháp ở bắt buộc tập 1 tr. 92).
+c6af86465448	F ∝ m (r, ω không đổi)
+3aa8a1cd321f	Tỉ số khối lượng 0.5\xB71\xB72
+8536095bce40	Bán kính
+f51c67eceffc	Dời quả cầu ở rãnh dài ra 6.0 cm, 8.0 cm thì số vạch tăng mấy lần? Tỉ lệ thuận với bán kính hay với bình phương bán kính?
+e3576b94f2e4	Dời quả cầu ở rãnh dài từ 4.0 cm ra 6.0 cm (12 vạch) rồi ra 8.0 cm (16 vạch)
+4b4ffe015abd	Khối lượng bằng nhau, dây đai I, 60 r/min, chỉ dời rãnh dài: tỉ số bán kính 1.00 → 8 vạch / 8 vạch → 1.00; 1.50 (6.0 cm) → 12 / 8 → 1.50; 2.00 (8.0 cm) → 16 / 8 → 2.00. Cùng lúc đó tốc độ dài của quả cầu trái là 0.251 / 0.377 / 0.503 m/s.
+6064354cff91	Khi chỉ đổi bán kính, tỉ số vạch bằng tỉ số bán kính
+52ae5a8a3b73	F ∝ r (bậc nhất, không phải bình phương); bán kính gấp đôi thì lực gấp đôi, mà tốc độ dài cũng gấp đôi (v = ωr) — nên “F ∝ v\xB2” và “F ∝ r” không mâu thuẫn: khi v tăng thì r cũng tăng.
+7ff01a9b3b1e	Dữ kiện A2.5, A2.8, A2.11, A2.14; hình 6.2-4 (tr. 29); bảng giá trị chuẩn D, E
+8620009ad2cd	Bán kính là bậc nhất: 8.0 cm xa gấp đôi 4.0 cm, số vạch cũng chỉ gấp đôi.
+dc8c91ac57a4	Cùng lúc đó tốc độ dài cũng đổi (v = ωr), nên “F tỉ lệ với bình phương v” và “F tỉ lệ thuận với r” không phải hai chuyện khác nhau.
+a50f046ae66f	Ba vạch nấc trên rãnh dài phải thẳng tâm quả cầu, vị trí quả cầu chính là bán kính.
+7a7b87503d28	Bỏ bước này: học sinh sẽ coi r cũng là quan hệ bình phương, nhớ mω\xB2r thành mω\xB2r\xB2.
+bb3a607d2f0e	Chắc chắn thi: số mũ của bán kính (bậc nhất), mối liên động v = ωr.
+d0f71dece6a3	F ∝ r (m, ω không đổi)
+38da13733775	12 \xF7 8 = 1.50; 16 \xF7 8 = 2.00
+2cd100568313	Tốc độ góc
+80e7d0faf8d6	Dời dây đai từ cùng bậc sang lệch một bậc, lệch hai bậc, quả cầu phải quay nhanh gấp 2, gấp 3 lần — số vạch có tăng gấp 2, gấp 3 không?
+2a890d21524e	Bấm “ghi một lượt” 3 lượt: dây đai I / II / III (giữ nguyên khối lượng và bán kính)
+8d94ec87abe1	Ba lượt (khối lượng bằng nhau, đều 4.0 cm, 60 r/min): dây đai I → 8 / 8 → 1.00; II (tỉ số ω là 2) → 8 / 32 → 0.25; III (tỉ số ω là 3) → 8 / 72 → 0.11 (= 1/9 = 0.1111 lấy hai chữ số thập phân). Hệ số góc qua gốc toạ độ 1.000.
+6277ca28fe64	Tốc độ góc quả cầu phải gấp 2, lực hướng tâm gấp 4; gấp 3 thì gấp 9
+bcf6a5313060	F ∝ ω\xB2 (không phải bậc nhất theo ω). Câu 3 phần luyện tập SGK tr. 26 nói “truyền động ma sát không trượt → ω tỉ lệ nghịch với r”, đó chính là nguồn gốc của tỉ số puli 1:2:3 ở bước này.
+59f0d568b161	Dữ kiện A2.12, A2.8, A2.14; hình 6.2-4 (tr. 29), câu 3 luyện tập tr. 26; bảng giá trị chuẩn F, G
+6b782f8cbd12	Đổi bậc puli làm đổi tỉ số tốc độ góc hai bên (1 : 2 : 3); tốc độ tay quay đổi đồng thời cả hai bên, không tạo chênh lệch tỉ số.
+a730aa09471e	Tỉ số vạch đổi theo bình phương ω: gấp 2 → gấp 4, gấp 3 → gấp 9.
+7e2bb7141cce	8/72 = 0.11 chính là 1/9; số đọc ở cả ba nấc đều chính xác, sai số làm tròn chỉ xuất hiện ở chế độ thật (bước 7).
+167ac8e129e6	Bỏ bước này: học sinh sẽ coi F tỉ lệ thuận với ω, lỗi phổ biến nhất.
+e3c6acedf733	Chắc chắn thi: số mũ của ω (bình phương), truyền động ma sát không trượt
+32fde0013039	ω tỉ lệ nghịch với r (câu 3 luyện tập SGK tr. 26).
+e71e5f6cef8b	F ∝ ω\xB2 (m, r không đổi)
+e38b00967466	8 \xF7 32 = 0.25; 8 \xF7 72 = 0.11
+3d5b27d36c88	Dây đai I\xB7II\xB7III
+ccb8976dc3c4	Tỉ số ω 1\xB72\xB73
+213d5f3eb761	Gộp ba thành một công thức
+82877b317ac5	Gộp ba đại lượng lại thì viết thế nào? Cả ba đại lượng cùng khác nhau, tỉ số vạch có thể vẫn bằng 1.00 không?
+2d087b1926ba	Cho tích các tỉ số của ba đại lượng bằng 1: ít nhất hai nấc không ở mức chuẩn, mà tỉ số vạch vẫn đúng bằng 1.00
+b6825fecd649	Cách thứ nhất (quả cầu lớn + rãnh dài 8.0 cm + dây đai II): tỉ số khối lượng 2, tỉ số bán kính 2, tỉ số tốc độ góc\xB2 1/4 → tích bằng 1 → hai bên đều lộ 32 vạch, tỉ số vạch 1.00. Cách thứ hai (quả cầu phải đổi sang quả lớn + rãnh dài 8.0 cm + dây đai I): 0.5 \xD7 2 \xD7 1 = 1 → 16 vạch / 16 vạch → 1.00.
+6c255adb1913	Gộp ba đại lượng chính là Fn = mω\xB2r; kết hợp với v = ωr đổi ngay ra Fn = m v\xB2/r (hai công thức đóng khung đỏ trên cùng trang SGK tr. 29). Hai chế độ khác nhau cho cùng một tỉ số vạch, điều này chỉ xảy ra được khi “số mũ của ba đại lượng lần lượt là 1, 1, 2” — đây là bằng chứng chắc nhất của bài.
+ea9d5510949d	Dữ kiện A2.8, A2.11, A2.14, A5.3; hình 6.2-4 (tr. 29), câu 3 luyện tập tr. 30; bảng giá trị chuẩn D, J
+b96a1b7ad87f	Gộp ba đại lượng: Fn = mω\xB2r, rồi dùng v = ωr đổi thành Fn = m v\xB2/r (hai khung đỏ cùng trang, là cùng một quy luật).
+4cd6069ca5f7	“Hai chế độ khác nhau cho cùng một tỉ số vạch” là bằng chứng trực tiếp cho số mũ 1, 1, 2.
+6e3006c372aa	Tính được câu 3 SGK tr. 30: 0.10 kg, 0.10 m, 4 rad/s → 0.16 N (SGK không in đáp án, đây là kết quả thay số vào công thức tr. 29).
+87f201626469	Bỏ bước này: học sinh chỉ nhớ rời từng tỉ lệ, gặp đề ra cả hai công thức là rối.
+1df8f917f503	Tổng hợp: suy qua lại hai công thức + tính lại bằng số liệu bài tập SGK (0.16 N là đáp án bài tập, không phải số đọc của bài này).
+e9027b3b1fb8	32 \xF7 32 = 1.00 \xB7 hai cách cùng giá trị
+29388e32c653	Ba đại lượng bù trừ
+20ed2f504fe4	Bài tập SGK 0.16 N
+457a8e110db0	Vì sao khi tháo dây đai thì thước phải không lộ vạch nào? Vì sao bật nấc “thiết bị thật” thì tỉ số vạch thành 0.29 chứ không phải 0.25?
+edea694173ba	Trước hết gạt dây đai sang tháo ra xem một lượt (quả cầu phải không quay), rồi bật “thiết bị thật” xem lượt thứ hai (dây đai trượt)
+af4ecab3862d	Tháo dây đai: quả cầu phải không quay, thước phải 0 vạch, tỉ số vạch “—”;
+cf568e34e070	Chế độ thật (dây đai II, 60 r/min): thước phải tụt từ 32 vạch xuống 28 vạch (
+7f9b4c2a3a9d	12.5 %), tỉ số vạch 0.29 chứ không phải 0.25 (+14.3 %; đại lượng liên tục +13.2 %);
+580157268a63	Quá thang đo (120 r/min + dây đai III): thước phải cần 288 vạch, thang đo chỉ có 80 vạch, ống trượt chạm chặn, số đọc bên phải là “quá thang đo”.
+13d04b4a75c7	Dây đai trượt làm quả cầu phải quay chậm hơn danh định → lực hướng tâm bên phải nhỏ hơn → tỉ số vạch lớn hơn (chiều đã ghi rõ ở A2.18, tính lại được); vài phần trăm chênh của tỉ số vạch không có nghĩa quy luật sai, mà là cái “gần đúng” chính SGK đã nói: thước chỉ đếm được vạch nguyên (mỗi bên \xB10.5 vạch, cận trên sai số tỉ số là 0.5/trái + 0.5/phải).
+64131bd9740f	Dữ kiện A2.6, A2.18, A7.2, A7.6; B1.1, B1.5, B1.6; bảng giá trị chuẩn C, K, L, M
+d51e8e22f7ac	Chiều sai lệch do dây đai trượt tính được: (1/0.94)\xB2
+7c20a0c051a4	1 = +13.2 %, tỉ số vạch lớn hơn.
+a1bdeb0c2f16	Thước chỉ đếm vạch nguyên → cận trên sai số tỉ số vạch là 0.5/số vạch trái + 0.5/số vạch phải (12.5 % khi 8/8).
+885cdbcc62cf	Tốc độ quay quá cao sẽ quá thang đo (quả cầu phải 288 vạch
+01b13650bc39	80 vạch), số đọc bị loại chứ không phải “lớn hơn”.
+48876274d285	Bỏ bước này: học sinh coi sai số hệ thống của dụng cụ là quy luật thí nghiệm, còn lấy chênh lệch 1 % để kết luận.
+845ddc813e67	Năng lực thực nghiệm: nêu được nguồn và chiều của sai số (chuẩn chương trình tr. 16 “biết thí nghiệm có sai số”).
+59057e92697f	Tỉ số vạch_thật = tỉ số vạch_danh định \xF7 0.94\xB2
+26b27b9a3e53	0.29 vs 0.25 (+14.3 %)
+1762966cab6f	Dây đai trượt
+7e0cde67b93b	\xB1nửa vạch
+e965d8d91936	Quá thang đo
+2987529ff6e0	Kiểm tra cuối bài \xB7 ω là bình phương
+b0d13c01df7d	Hai quả cầu cùng khối lượng, cùng bán kính, chỉ đổi nấc dây đai — ghi 3 lượt bằng thước vạch, có kết luận ngay được tỉ số vạch tỉ lệ thuận với (tỉ số tốc độ góc)\xB2 không?
+c7e4075180eb	Chỉ đổi nấc dây đai, ghi đủ 3 lượt (I / II / III), cuối cùng dừng ở dây đai III để tiêu chí thoả liên tục 10 s
+8aee0055b7bc	Hai quả cầu cùng khối lượng;
+39bbb2bd7754	Rãnh dài về lại 4.0 cm (hai bên cùng bán kính);
+fc0f1f1eae0c	Hiện đang dừng ở dây đai III;
+1885f758fcba	Bảng ghi đã đủ 3 lượt;
+46b69bc9aa83	Mỗi hàng tỉ số vạch = (tỉ số ω)\xB2 (dung sai 0.02);
+7330a7be117d	Hệ số góc khớp đường thẳng qua gốc toạ độ theo (tỉ số ω)\xB2 là 1.00 \xB1 0.10. Lời giải hợp lệ: 8/8 = 1.00, 8/32 = 0.25, 8/72 = 0.11, hệ số góc 1.000.
+a5a31c2d9e34	Không có kết luận mới: dùng lại phương pháp của bước 5 — chỉ đổi một đại lượng + tỉ số vạch hai thước + đường thẳng qua gốc toạ độ. Kiểm tra bình phương của ω chứ không phải bậc nhất của r, vì học sinh dễ sai nhất ở đây (tưởng nhanh gấp 2 thì vạch gấp 2).
+d9193b200dc6	Dữ kiện A2.12, A2.8, A2.14; hình 6.2-4 (tr. 29), câu 3 luyện tập tr. 26; B3.6; bảng giá trị chuẩn A, F, G
+5129ce604ff6	Kiểm tra cuối bài chỉ đổi nấc dây đai, khối lượng và bán kính (4.0 cm) giữ nguyên.
+dd273af2310e	3 lượt số liệu phải vẽ được đường thẳng qua gốc toạ độ theo (tỉ số ω)\xB2, hệ số góc ≈ 1.
+ff76c596a6e5	Lượt dây đai III đọc được 8 / 72 = 0.11, tức là 1/9 — nhanh gấp 3, số vạch chênh 9 lần.
+172a4687c022	Bỏ bước này: học sinh sẽ “chỉnh cả ba đại lượng cùng lúc” để mò ra một con số đẹp, và mãi không nhớ ω là bình phương.
+092044b38c09	Kiểm tra tổng hợp: kiểm soát biến + đọc thước vạch + hệ số góc qua gốc, nhắm vào lỗi dễ sai nhất “ω là bình phương”.
+2c2712d29be1	F ∝ ω\xB2: hệ số góc = 1
+4d76e6024965	Dây đai III: 8 \xF7 72 = 0.11
+c9a101b9e3e8	Ghi 3 lượt
+598615645a9e	(tỉ số ω)\xB2
+5f6662111f7a	Tỉ số vạch
+797f0b6aad43	Số vạch thước trái
+8af2bcdf8eea	Số vạch thước phải
+b77e351bb0eb	Tốc độ góc cầu trái
+0a4fac401cfb	Trái\xF7phải
+452463f58021	vạch
+1e9e4a7a55e8	Tốc độ tay quay
+d93a34eb9aff	Puli bậc
+fe2d9d2faf19	Bán kính rãnh dài
+888685e7c5d3	Cầu trái
+a999b8388e2d	Cầu phải
+ca0a1603f147	Dây đai
+611e7ccceca3	Đã lắp
+bd40c449e93f	Tháo ra
+ca2bf6b156a7	I cùng bậc
+4e36872e6d85	II lệch 1 bậc
+29d32e2bb625	III lệch 2 bậc
+499082bfed1a	Bi thép nhỏ 50 g
+a6596befdd09	Bi thép lớn 100 g
+9af805c5592d	Tỉ số vạch theo tỉ số biến độc lập
+3f16bc6e8506	Tham chiếu y = x \xB7 điểm = lượt ghi \xB7 nét đứt = đường khớp
+26b2c2144237	Bảng ghi số liệu
+900f831e4704	Tỉ số biến độc lập
+ed284768b55b	Vạch trái
+ffcdf4ff9d92	Vạch phải
+1a569fe9195b	Lượt
+82a3585f1351	Chỉ đổi dây đai, xác nhận F ∝ ω\xB2
+8c1955839617	Cùng khối lượng, đều 4.0 cm, chỉ đổi nấc dây đai ghi 3 lượt, cuối cùng dừng ở dây đai III
+fe1d9af3106e	3 lượt \xB7 hệ số góc 1.00 \xB1 0.10
+cbda3766e5ea	Hai bên lệch nhau
+f996715b093b	Đang so sánh
+a6e130825243	Cầu phải không quay
+2092b1734d2a	Thước trái 8 vạch
+aac1162d6640	Thước phải 8 vạch
+6810ffafd343	Vạch chia đều đỏ trắng xen kẽ \xB7 thang đo 80 vạch
+43d3f428fd14	Thiết bị biểu diễn lực hướng tâm
+eab5042b1a25	Tay quay 1
+b8d653c017ef	Puli bậc 2\xB73
+fa1dcf5fe7d0	Rãnh dài 4
+9a67582c90ef	Rãnh ngắn 5
+df3ee667608c	Trái
+851cdd609190	Phải
+f676c04dd7fa	Toàn cảnh \xB7 một thiết bị
+460e708338a7	Tỉ số
+b18dae7b3f33	Hai quả cầu cùng khối lượng, cùng bán kính, dây đai lệch một bậc (tốc độ góc quả cầu phải gấp đôi quả cầu trái). Thước trái lộ 8 vạch, thước phải lộ mấy vạch?
+e6ba2fb6acdd	16 vạch
+abcad918755c	32 vạch
+aaa26f23ab12	64 vạch
+04fc3a7e65fd	8 vạch
+002942cb69b8	Tỉ số vạch = tỉ số khối lượng \xD7 tỉ số bán kính \xD7 (tỉ số tốc độ góc)\xB2 = 1 \xD7 1 \xD7 4 → quả cầu phải gấp 4 lần quả cầu trái: 8 \xD7 4 = 32 vạch.
+a9bb5c1c37b9	Dây đai III
+3150e7e6e9df	Dây đai lệch hai bậc (tốc độ góc quả cầu phải gấp ba quả cầu trái), thước trái lộ 8 vạch, thước phải lộ mấy vạch?
+acd4631522d7	24 vạch
+79982cbb6c83	48 vạch
+042f9bc2f704	72 vạch
+fcd3d4514d18	9 vạch
+6559ef647924	Tỉ số tốc độ góc 3 → tỉ số vạch 3\xB2 = 9: 8 \xD7 9 = 72 vạch (không phải 71, cũng không phải 24).
+b29ee13085ed	Bán kính
+1a6cf205793c	Chỉ dời quả cầu ở rãnh dài từ 4.0 cm ra 8.0 cm (giữ nguyên khối lượng, tốc độ góc), số vạch sẽ gấp mấy lần lúc đầu?
+dc2ee1239121	1 lần (không đổi)
+03dc424f34a7	2 lần
+e4ee8efbc7ce	4 lần
+5d3bb14591fb	8 lần
+f20dc47e7bff	Bán kính là bậc nhất: tỉ số r bằng 2 → tỉ số vạch bằng 2 (16 vạch / 8 vạch). Nếu là quan hệ bình phương thì mới gấp 4.
+a857068ede5e	Bài tập SGK
+b061c2154b12	Một vật nhỏ 0.10 kg đặt cách tâm đĩa 0.10 m quay cùng đĩa, tốc độ góc 4 rad/s, lực hướng tâm của nó bằng bao nhiêu? (câu 3 luyện tập SGK tr. 30)
+20cf380483ba	Fn = mω\xB2r = 0.10 \xD7 4\xB2 \xD7 0.10 = 0.16 N (đáp án tính theo số liệu bài tập SGK).
+e160c8a96848	Thao tác sai
+28b9645d2c46	Sau khi tháo dây đai, thước phải không lộ vạch nào, nguyên nhân trực tiếp nhất là
+11dfb8e287fb	Quả cầu phải quá nặng
+78033c320a2a	Quả cầu phải không quay, không có lực hướng tâm
+4f57e93e8bc5	Thước vạch bị hỏng
+42e49eb1d269	Quay tay quay ngược chiều
+f54390b95029	Lực ép lên tấm chắn có được là do quả cầu chuyển động tròn; puli bên phải được dây đai kéo quay, tháo dây đai thì không có lực hướng tâm, ống trượt không hạ xuống, thước không lộ vạch.
+4cc6de4cd0da	← → / phím cách
+ae5bc9d667de	Dùng một thiết bị biểu diễn lực hướng tâm, dựa vào số vạch trên hai thước để đo ra Fn = mω\xB2r.
+bf37e2ba856d	Lưu ý minh hoạ: hình dáng thiết bị, số bậc puli và số vạch trên thước đều là minh hoạ dạy học, chỉ đọc số vạch và tỉ số.
+4d073e665bd3	Lực hướng tâm phụ thuộc bán kính, tốc độ góc, khối lượng · Bài giảng tương tác 3D
+3aec57ad3636	Từ trường của dòng điện
+a33ade739b37	SGK bắt buộc tập 3 \xB7 chương 13, bài 1 “Từ trường. Đường sức từ” (bản in tr. 104–108)
+a1b5e5311d3c	\xB7 vòng dây và ống dây B
+4d30c9a878b0	Từ trường không nhìn thấy, không sờ được, làm sao vẽ nó ra và xác định chiều của nó?
+235575a44327	Tác dụng từ
+f2ade72b4542	Xung quanh dây dẫn có dòng điện có từ trường
+e29443ed1d20	Đường sức từ
+3cdb08d7fae3	Mạt sắt sắp xếp → vẽ đường cong, tiếp tuyến = chiều
+efbdc142465e	Dây thẳng
+b93712e13cde	Những vòng tròn đồng tâm; tay phải nắm dây dẫn
+f019ca4b0e6a	Vòng dây
+470e74c601bc	Đường cong khép kín xuyên qua vòng rồi vòng lại; tay phải nắm vòng dây
+f7a3b709062a	Độ mau thưa biểu thị mạnh yếu: ∝ I, N, 1/r
+06096693bd97	Dây dẫn thẳng có dòng điện
+0d964c4d29e1	Quanh dây dẫn thẳng đứng là những vòng tròn đồng tâm
+014e1a9c9ccb	Dòng điện tròn
+cce49aff7256	Đường cong khép kín xuyên qua vòng rồi vòng lại, ở giữa mạnh nhất
+d8f41eccc18c	Ống dây có dòng điện
+b890c031f5f8	Ống dây
+01bada19c7ea	Bên trong gần như từ trường đều, bên ngoài giống nam châm thẳng
+4639b750b9cd	Mạt sắt hiện hình
+ba2e3d81eafa	Không nhìn thấy, không sờ được, dựa vào đâu mà nói xung quanh dây dẫn có dòng điện có từ trường?
+e6819faa4b4a	Rắc mạt sắt lên ba tấm kính
+4b0e21505862	Trên ba tấm kính đồng thời hiện một lớp mạt sắt, xếp thành chuỗi theo chiều từ trường: quanh dây thẳng xếp thành những vòng tròn; số đọc 20.0 μT (I = 2.0 A, r = 2.0 cm)
+59a9bbda2ffa	SGK A2.1 + A2.2 + A2.3: xung quanh dây dẫn có dòng điện tồn tại từ trường (Oersted 1820), từ trường không nhìn thấy nhưng tồn tại khách quan; mạt sắt trong từ trường bị từ hoá thành từng kim nam châm nhỏ, gõ nhẹ tấm kính thì chúng xếp thành chuỗi dọc đường sức từ — vì vậy có thể dùng nó để làm hiện từ trường.
+4d38fcae1f0e	A2.1, A2.2, A2.3, A2.6, A6.1, A7.11, B4.8
+07316accc0fc	Dây có dòng điện → từ trường
+74b5babe4466	Oersted 1820 \xB7 mạt sắt + tấm kính
+ee271fd050e9	Tác dụng từ của dòng điện
+69732851c1b0	Phân bố mạt sắt chỉ là minh hoạ
+7cda8b4f95fa	Oersted 1820: dây dẫn có dòng điện làm kim nam châm nhỏ lệch đi, lần đầu tiên hé lộ mối liên hệ giữa điện và từ (SGK tr. 104–105).
+d1056b9d0db3	Từ trường tồn tại khách quan, tác dụng không cần tiếp xúc; mạt sắt trong từ trường bị từ hoá thành kim nam châm nhỏ, gõ nhẹ tấm kính thì xếp thành chuỗi dọc đường sức từ (cách biểu diễn ở tr. 106).
+df76907f18ba	Phân bố mạt sắt chỉ là minh hoạ: biểu diễn thật cần dòng điện rất lớn (hoặc cuộn dây nhiều vòng) mới xếp được, số đọc trong bài đều tính theo 2 A; SGK làm đối chứng bằng nam châm thẳng trước rồi mới đổi sang dây dẫn thẳng có dòng điện, bài này xem thẳng ba dụng cụ có dòng điện.
+eb8d15698562	Bỏ bước này: từ trường thành câu nói suông “không nhìn thấy, cũng không nói rõ được là có”, mọi đường sức từ phía sau đều không có căn cứ.
+4d6aa3333d48	Hay thi: thí nghiệm Oersted cho thấy xung quanh dòng điện có từ trường (tác dụng từ của dòng điện).
+84c0bdbace0e	Những vòng tròn đồng tâm
+661792468cd7	Đường sức từ quanh dây thẳng có hình dạng gì?
+72525eb8915b	Kéo góc nhìn đi một vòng quanh dây dẫn, xem cả họ vòng tròn đồng tâm
+484cd5519719	Đường sức từ là những vòng tròn đồng tâm, tất cả nằm trong mặt phẳng ngang vuông góc với dây dẫn; xoay quanh dây sang bên nào cũng vẫn là những vòng tròn đồng tâm như vậy; số đọc 20.0 μT
+68e097a59b86	Nguyên văn SGK A2.7: đường sức từ của dòng điện thẳng là những vòng tròn đồng tâm, các vòng tròn này đều nằm trong mặt phẳng vuông góc với dây dẫn; đường sức từ nối đầu với đuôi (khép kín), hình vẽ trên mặt giấy chỉ là một mặt phẳng trong họ vòng tròn này.
+52e2514196a2	A2.7, A2.5, A4.4, A5.1, A5.9
+cd7011b58363	, B
+5b469ef8a518	Dọc vòng tròn quanh trục
+b38e76b65d57	Quy tắc Ampère (quy tắc nắm tay phải)
+250428d3bd95	Vòng tròn đồng tâm
+e75a5ad44fe2	Mặt giấy chỉ là mặt cắt
+73aca5919255	Vòng tròn đồng tâm, và đều nằm trong mặt phẳng vuông góc với dây dẫn (nguyên văn SGK tr. 106).
+070b3b4be570	Không phải toả ra từ dây dẫn theo phương bán kính — đó là điện trường của điện tích điểm (cách sai A7.2).
+083f07b9192a	Hình trên mặt giấy chỉ là một mặt cắt của họ vòng tròn ba chiều này, xoay quanh trục một vòng mới thấy hết.
+2cad8e337ccf	Bỏ bước này: học sinh sẽ vẽ đường sức từ toả tia theo kiểu điện tích điểm.
+d96d75eccd24	Bẫy hay gặp: đường sức từ quanh dây thẳng hướng ra ngoài theo bán kính (A7.2).
+1d3c679d53a1	Nắm dây xác định chiều
+9ecb8e239eec	Đảo chiều dòng điện thì chiều đường sức từ thay đổi thế nào?
+514b4db42934	Kéo dòng điện đến
+88faaa683480	2.0 A (ngược chiều), nhìn kĩ mũi tên và số đọc chiều
+192d2447b225	Số đọc vẫn là 20.0 μT (độ lớn không đổi), số đọc chiều đổi từ “nhìn từ trên: ngược chiều kim đồng hồ” thành “nhìn từ trên: cùng chiều kim đồng hồ”, mũi tên trên các vòng tròn đều đổi dấu; mũi tên B ở điểm dò quay ngược lại
+487f8de2ba6a	Nguyên văn SGK A2.7: dùng tay phải nắm dây dẫn sao cho ngón cái choãi ra chỉ theo chiều dòng điện, thì chiều khum của bốn ngón tay chính là chiều vòng của đường sức từ; đổi chiều dòng điện thì chiều từ trường tại mọi điểm đều đổi ngược lại. Viết tiêu chí thành tích vô hướng: B
+25d4ff1710bd	) từ +1 chuyển thành
+cca26beba98a	A2.7, A2.6, A2.13, A7.3, A7.4, B3-D1
+b541d1fe3424	Tay phải nắm dây \xB7 hình 13.1-7
+4923693681d2	Ngón cái theo dòng điện
+dbd45fd60fb2	Bốn ngón theo đường sức
+d935265b103d	Tay phải nắm dây dẫn: ngón cái theo dòng điện, bốn ngón theo chiều vòng của đường sức từ.
+f06e3c6ba2e6	Dòng điện đổi chiều → chiều vòng của mọi vòng tròn đều đổi, còn số đọc 20.0 μT không đổi chút nào.
+2c5246467f84	Tiêu chí là B
+79d4de6213bc	): trước khi đảo là +1, sau khi đảo là
+a56b6d8af758	1, không đơn giản chỉ là “mũi tên quay ngược”.
+0fe1d0c2e0f3	Bỏ bước này: học sinh tưởng đảo chiều chỉ đổi hướng từ trường mà không đổi chiều vòng (cách sai A7.4).
+01282227a50d	Hay thi: quy tắc nắm tay phải dùng tay phải; hai tư thế “nắm dây dẫn” và “nắm vòng dây” đổi vai trò các ngón tay cho nhau (A7.3, A7.12).
+703fb43ce5c7	Mau thưa là mạnh yếu
+35ed48d7ac55	Càng xa dây dẫn, vì sao từ trường càng yếu?
+e4112d039e24	Kéo điểm dò đến 4.0 cm, so sánh độ mau thưa và số đọc ở hai chỗ
+66b65ca2b0d8	Số đọc 20.0 → 10.0 μT (so với mức tham chiếu 1.00 → 0.50), so với từ trường Trái Đất 0.40 → 0.20; các vòng quanh điểm dò thưa hẳn
+f830e1764716	SGK A2.4: chỗ đường sức từ mau thì từ trường mạnh, chỗ thưa thì yếu; B của dây thẳng tỉ lệ nghịch với khoảng cách đến dây (mức mở rộng), r gấp đôi → B giảm một nửa. Số đọc này còn đối chiếu được với bảng cảm ứng từ ở SGK tr. 110: 20 μT chỉ bằng 0.40 lần giá trị trung bình 50 μT của từ trường Trái Đất.
+5a0fadbe57a4	A2.4, A2.14, A3, A7.16, B2.1 mục 1, 6, 10
+1e28014d10aa	Mở rộng \xB7 tính theo định luật Biot–Savart
+5122a69fd276	Mau thưa = mạnh yếu
+dbf8349b384b	Mau thưa biểu thị mạnh yếu: chỗ mau thì mạnh, chỗ thưa thì yếu (nguyên văn SGK tr. 106).
+992ee809c9bf	r từ 2.0 lên 4.0 cm, B từ 20.0 xuống 10.0 μT — còn 1/2, không phải 1/4.
+f5bdfbe85f96	20 μT chỉ bằng 0.40 lần giá trị trung bình 50 μT của từ trường Trái Đất (SGK tr. 110), kim nam châm thật sẽ bị từ trường Trái Đất lấn át, nên bài này dùng mạt sắt.
+3e40bdb12933	Bỏ bước này: “mau thưa biểu thị mạnh yếu” thành một câu học thuộc lòng.
+7edf7208f22e	Hay thi: khoảng cách gấp 2, B của dây thẳng còn 1/2.
+3d16a17828c9	Xuyên qua rồi vòng lại
+0a0ebf4255da	Đường sức từ của dòng điện tròn xuyên vào từ đâu và vòng lại từ đâu?
+f9c031a9dce6	Kéo góc nhìn đi một vòng quanh vòng dây, xem đường sức từ xuyên qua rồi vòng lại thế nào
+033fcdb035e4	Trong mỗi mặt phẳng chứa trục vòng dây đều là một họ đường cong khép kín: trong vòng thì xuyên qua mặt vòng, ngoài vòng thì vòng lại, không có chỗ hở nào; số đọc ở tâm 25.1 μT, số đọc chiều “về phía đầu +x”
+ef8a8457cc94	SGK A2.8 + hình 13.1-9: đường sức từ của dòng điện tròn là một họ đường cong khép kín, đi ra từ một phía của vòng và vòng lại về phía kia; dùng một dạng khác của quy tắc nắm tay phải — bốn ngón tay phải khum theo chiều dòng điện chạy vòng, ngón cái choãi ra chỉ chiều từ trường trên trục (bài này lấy đầu +x).
+fa8b1604691f	A2.8, A2.5, A5.2, A6.2, A7.1
+fa451d2b7b39	= +1 (tâm vòng)
+fbb8dcc8aa15	Tay phải nắm vòng dây \xB7 hình 13.1-10
+16329725cc41	Đường cong khép kín
+dde51aec332f	Mỗi đường đều khép kín: trong vòng đi ra, ngoài vòng vòng lại.
+f454da11dc25	Cả họ đường cong xoay quanh trục vòng một vòng mới là toàn bộ, mặt giấy chỉ có một mặt kinh tuyến.
+614803594207	Tay phải nắm vòng dây: bốn ngón theo dòng điện, ngón cái theo trục — vai trò các ngón vừa đúng đổi chỗ so với khi nắm dây thẳng.
+35c9f017d28e	Bỏ bước này: học sinh sẽ vẽ đường sức của vòng dây thành hai đường thẳng trên dưới, hoặc quên rằng nó phải vòng lại.

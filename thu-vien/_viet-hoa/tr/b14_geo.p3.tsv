@@ -1,0 +1,237 @@
+b47d3a3b5dda	C.steps[${k}].cam.pitch=${D.cam.pitch}\xB0 nằm ngoài CAMERA.polar ${p.polar[0]}–${p.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+73d27cc1716b	world.build() trả về ${C.length} khối, C.units có ${i.units.length} khối, phải khớp từng cái
+b4e9a15aa9a9	${D.unitOf} bước ${fe.no}:
+b5c2f2f58c03	Sự phát triển của địa hình do sông tạo thành
+1b3a4d7d4965	Lựa chọn bắt buộc tập 1 \xB7 Chương 2, bài 3
+b798861efa5f	Thung lũng sông sâu thêm, rộng ra, dài ra: dạng chữ V → dạng lòng máng
+06e6addde6c5	Vì sao đường bờ sông Trường Giang ở đoạn Trấn Giang liên tục dịch về phía bắc?
+908fb21dc6c2	Chênh cao
+4fd11a2586c4	Vùng núi chênh cao lớn → nước chảy nhanh → chủ yếu xâm thực sâu
+660842de36cc	Mở rộng
+0ba7916c653f	Chênh cao giảm → xâm thực ngang mạnh lên → thung lũng mở rộng
+4d79645c0c10	Khúc uốn
+ef59f088398e	Bờ lõm xâm thực, bờ lồi bồi tụ → dòng sông càng uốn khúc
+e387e3774b0c	Bồi tụ
+2672b745706c	Nước chảy chậm lại → khả năng vận chuyển yếu đi → ba loại đồng bằng phù sa
+6a05ed4daf70	Thung lũng sông vùng núi
+07e58bec59cb	Chênh cao lớn, nước chảy nhanh, chủ yếu xâm thực sâu, mặt cắt ngang dạng chữ V
+7b0531a1dcbe	Quạt phù sa chân núi
+cb346acb99d9	Quạt phù sa
+a7b84cd4443f	Ra khỏi cửa núi, độ dốc giảm đột ngột, nước chảy chậm lại, hạt thô bồi tụ ngay tại chỗ thành hình quạt
+d841ee86845e	Khúc uốn và bãi bồi
+bfd89c5afa5a	Khúc uốn, bãi bồi
+12cbd26d961e	Lòng sông uốn khúc, bờ lõm xâm thực, bờ lồi bồi tụ, mùa cạn lộ ra thành bãi bồi
+84c70514481f	Châu thổ cửa sông
+5c161dc86fd1	Châu thổ
+889ae6ef727a	Nơi đổ ra biển đáy nước thoải, nước chảy chậm lại, phù sa bồi tụ ở phía trước cửa sông và lấn dần ra biển
+74a7d2df5d17	Làm quen sa bàn
+5245b743ed6e	Một con sông chảy từ núi ra biển, dọc đường để lại những gì?
+c3c3fdfef129	Kéo góc nhìn, xoay cả sa bàn một vòng
+ff3fc93d0000	Biển tên của bốn bộ phận lần lượt sáng lên; đường đồng mức cho thấy vùng núi cao nhất, cửa sông thấp nhất; trên đồng bằng phù sa có 3 làng, thị trấn
+d4f42199f97d	Sông: xâm thực → vận chuyển → bồi tụ
+8eecef319b77	SGK từ tr. 33
+966c0f7fe30e	Từ nguồn → cửa sông 40 km (minh hoạ)
+467f47067a0b	Phóng đại chiều đứng \xD76
+84a49063103d	Cả sa bàn là một con sông dài 40 km, chảy từ vùng núi ra tận biển.
+f3bf5f583f62	Bốn bộ phận xếp từ thượng lưu xuống hạ lưu: thung lũng sông vùng núi → quạt phù sa chân núi → khúc uốn và bãi bồi → châu thổ cửa sông.
+d6a60fb78691	Làng, thị trấn đều nằm trên đồng bằng phù sa, ở nơi lũ không ngập tới (SGK tr. 37).
+a2ff0d327865	Nếu bỏ khoảnh khắc này: không biết ba loại đồng bằng phù sa nằm ở đoạn nào, ba bước sau sẽ nhớ ngược thứ tự.
+a2c5009854ae	Trọng tâm thi: vị trí và điều kiện hình thành của ba loại đồng bằng phù sa.
+0134bd3ad870	Sông là ngoại lực quan trọng tạo nên địa hình bề mặt: dọc đường nó xâm thực, vận chuyển, bồi tụ, làm thung lũng sông sâu thêm, rộng ra, dài ra, còn tạo nên ba loại đồng bằng phù sa ở chân núi, ở trung và hạ lưu, ở cửa sông.
+64426bd0b6e1	A2.1, A6.1, A6.2
+792b32b5fc2a	Thung lũng chữ V vùng núi
+b49b8929ec0c	Vì sao thung lũng sông trong núi vừa sâu vừa hẹp, lại có dạng chữ V?
+7a90316ff3ee	Kéo giai đoạn phát triển về giai đoạn trẻ, xem tốc độ dòng chảy ở thung lũng vùng núi và cỡ đá nó cuốn đi được
+601469124bd6	Tốc độ dòng chảy 3.38 m/s; cuốn được cuội cỡ 152.0 mm; tiêu chí xói – bồi = “chủ yếu xâm thực sâu”
+3055f24da508	Chênh cao lớn + nước chảy nhanh → xâm thực sâu, xâm thực giật lùi
+8734c8e3aa87	Giai đoạn trẻ trắc diện dọc dốc nhất (chênh cao 145 m)
+11765ec05d13	Dạng chữ V: sâu và hẹp, sườn thung lũng dốc đứng
+52dc5d6e5be0	Cuốn được cuội cỡ 152.0 mm
+a7804fe46dd7	Giai đoạn trẻ, trắc diện dọc của lòng sông dốc nhất, chênh cao lòng sông 145 m (minh hoạ).
+30188bca8191	Với tốc độ 3.38 m/s, nước cuốn được cuội cỡ 152.0 mm — dòng chảy rất mạnh.
+24ff2e458519	“Cuốn được hạt cỡ bao nhiêu” cho thấy khả năng vận chuyển trực quan hơn chỉ nhìn tốc độ dòng chảy.
+b8feacf7ae94	Nếu bỏ bước này: em sẽ coi thung lũng chữ V là “rãnh nông do nước xói ra”, không biết nó chủ yếu do xâm thực sâu, cũng không biết thung lũng sẽ kéo dài ngược về thượng nguồn.
+ecd1a5fb250c	Trọng tâm thi: thung lũng chữ V = chênh cao lớn, nước chảy nhanh → chủ yếu xâm thực sâu và xâm thực giật lùi.
+209a7b806bb6	Giai đoạn trẻ chênh cao lớn, nước chảy nhanh, năng lượng tập trung, xâm thực chủ yếu theo chiều sâu và về phía nguồn, thung lũng không ngừng sâu thêm, dài ra, nên sâu và hẹp, sườn dốc đứng, mặt cắt ngang dạng chữ V (trên khối cắt, đầu thung lũng lùi dần về thượng nguồn theo giai đoạn, đó chính là xâm thực giật lùi).
+1e0188a7a108	A2.2, A5.2, B2.1
+66d28649fa86	Mặt cắt thung lũng
+5c7bfe4dafe0	Về sau thung lũng sông rộng ra, nông đi như thế nào?
+54194c7f49cd	Kéo giai đoạn phát triển từ giai đoạn trẻ đến giai đoạn già, xem mặt cắt phía trước của khối cắt thung lũng
+2e258b10b3c7	Tỉ số rộng/sâu 10.0 → 60.0 → 200.0; mặt cắt từ dạng chữ V hẹp và sâu biến thành dạng lòng máng rộng và nông
+7bd2b2f91cb9	Tỉ số rộng/sâu = bề rộng \xF7 độ sâu thung lũng: 10 → 60 → 200
+9b401558488b	Khối cắt lấy từ thung lũng vùng núi, đối chiếu hình 2.27 a/b/c trong SGK
+81b4da527c85	Khối cắt \xB7 phóng đại chiều đứng \xD710
+eca8dbce3765	Dạng chữ V → dạng lòng máng
+b5014fd11ea2	Nét đứt xám: đường viền các giai đoạn khác
+17b97ad7e264	Phần dưới mặt cắt là các lớp đá
+e68448b26278	Tỉ số rộng/sâu là “bề rộng \xF7 độ sâu thung lũng”: 10 là thung lũng chữ V, 200 là dạng lòng máng rộng và nông.
+23e03a958fbc	Trên mặt cắt thấy sườn thung lũng từ dốc chuyển sang thoải, đáy từ rãnh hẹp thành đáy rộng phẳng; nét đứt xám là đường viền các giai đoạn khác, có thể so sánh trực tiếp.
+a12e25722bc6	Mặt cắt đồng thời lộ ra các lớp đá, cho thấy thung lũng sông được “cắt” vào mặt đất ban đầu.
+ae93d62987c6	Nếu bỏ bước này: chỉ biết thung lũng “rộng ra”, không nói được tiêu chí đo được là tỉ số rộng/sâu, cũng không ghép được dạng chữ V với dạng lòng máng.
+0854b29fec4c	Trọng tâm thi: mặt cắt ngang thung lũng sông phát triển từ dạng chữ V sang dạng lòng máng (ý chính 8 của chương).
+382071368a04	Khi chênh cao giảm, xâm thực sâu yếu đi, xâm thực ngang mạnh lên, thung lũng không ngừng mở rộng; trải qua quá trình lâu dài, mặt cắt ngang trở thành dạng lòng máng rộng và nông.
+c06c6383110c	A2.3, A2.5, A6.1, B2.1
+8716523c7bdd	Vì sao nước vừa ra khỏi núi đã thả những hòn đá to xuống trước?
+7307619b3c19	Kéo đoạn sông quan sát từ vùng núi đến cửa núi, xem tốc độ dòng chảy và cỡ hạt lớn nhất cuốn được
+a76842fdbc20	Tốc độ dòng chảy 2.90 → 1.45 m/s; cỡ hạt lớn nhất cuốn được 106.3 → 25.7 mm; tiêu chí xói – bồi = “khả năng vận chuyển yếu đi \xB7 bắt đầu lắng đọng”
+4fa7d874e1d4	Cửa núi: độ dốc giảm đột ngột → nước chảy chậm lại → hạt thô được thả xuống
+c7a1e8b662f0	Quạt phù sa, SGK tr. 35
+fad734847921	Đỉnh quạt 63.3 mm thô hơn rìa quạt 25.7 mm
+6381801f609d	Cuốn không nổi mới bồi tụ
+8f0928369574	Tiêu chí là “cỡ hạt lớn nhất đoạn này cuốn được nhỏ hơn hẳn thượng lưu”: hạt thô từ thượng lưu đưa xuống đến đây thì không cuốn nổi nữa.
+8b479542f709	Đỉnh quạt (63.3 mm) thô hơn rìa quạt (25.7 mm), cho thấy hạt thô rơi xuống trước.
+b6fa371d1c60	Quạt phù sa là khối bồi tụ hình quạt, không phải thung lũng sông.
+e357dc3e1940	Nếu bỏ bước này: em sẽ tưởng “nước chảy chậm thì bồi tụ”, không nói được quan hệ nhân quả “cuốn không nổi mới bồi tụ”.
+8eee94459a15	Trọng tâm thi: điều kiện hình thành quạt phù sa (cửa núi, độ dốc giảm đột ngột, nước chảy chậm lại).
+30383dae36c9	Sông chảy ra khỏi vùng núi vào đồng bằng, địa thế thoải dần, lòng sông mở rộng, nước chảy chậm lại, vật liệu vận chuyển dần lắng đọng ở chân núi thành hình quạt; quạt phù sa của nhiều con sông mở rộng và nối liền nhau thành đồng bằng phù sa chân núi rộng lớn.
+74fb670ecb63	A4.2, A6.2, B2.1
+88b4e005ac05	Bờ lõm, bờ lồi
+abc6e1430ec6	Khi lòng sông uốn khúc, xói và bồi lần lượt ở bờ nào?
+5df3045e3a17	Kéo giai đoạn phát triển từ giai đoạn trẻ sang giai đoạn trưởng thành, cho lòng sông uốn khúc
+9e9e0ef2bea7	Hệ số bổ sung khúc uốn 0.313; tốc độ dòng chảy bờ lõm 1.09 m/s, bờ lồi 0.57 m/s; tiêu chí xói – bồi = “bờ lõm xâm thực \xB7 bờ lồi bồi tụ”
+2b79319e3ade	Bờ lõm (phía ngoài) v 1.09 \xB7 bờ lồi (phía trong) v 0.57 m/s
+56835b849b9b	Phía ngoài khúc uốn nước chảy nhanh → xâm thực; phía trong nước chảy chậm → bồi tụ
+2b8f57a34559	Bờ lõm = phía ngoài khúc uốn
+dec2ebd1105d	Bờ lồi = phía trong khúc uốn
+2fa704dc343c	Đỏ: xâm thực, lùi vào \xB7 tốc độ 1.09
+9451651a7dc3	Xanh: bồi tụ, lấn ra \xB7 tốc độ 0.57
+f5a3e556269a	Bờ lõm là phía ngoài khúc uốn, bờ lồi là phía trong khúc uốn, không phải “bờ trái, bờ phải”.
+628d6f436034	Hiệu tốc độ dòng chảy hai bờ 1.09 : 0.57 chính là nguồn gốc của sự khác biệt xói – bồi.
+8d29388a2f0c	Bờ nam sông Trường Giang đoạn Trấn Giang là bờ lồi (bồi), bờ bắc là bờ lõm (xói), nên đường bờ dịch dần về phía bắc.
+1c86a1f6ccc9	Nếu bỏ bước này: chỉ thuộc lòng “bờ lõm xâm thực, bờ lồi bồi tụ”, gặp con sông thật là không phân biệt được bờ nào là bờ lõm.
+1bf1268c056e	Trọng tâm thi: bờ lõm xâm thực, bờ lồi bồi tụ và hướng dịch chuyển của đường bờ.
+bb1d6b4e217d	Khi lòng sông uốn khúc, ở bờ lõm (phía ngoài khúc uốn) nước chảy nhanh, bị xói lở, đường bờ lùi vào; ở bờ lồi (phía trong khúc uốn) nước chảy chậm, phù sa bồi tụ, đường bờ lấn ra; vì vậy lòng sông càng uốn khúc, thung lũng càng rộng.
+bae8bc1c3513	A2.4, A2.6, A3.2, B2.1
+4b918ec94fd2	, B5
+5b59dd4465a0	Bãi bồi
+5a0fa9343e97	Lũ rút rồi, bên sông còn lại gì?
+0373142c4366	Bật mùa lũ, xem mặt nước tràn lên bãi bồi
+82e9b205966a	Tốc độ dòng chảy 0.83 → 1.05 m/s; mặt nước tràn lên bãi bồi; tiêu chí xói – bồi vẫn là “bờ lõm xâm thực \xB7 bờ lồi bồi tụ”
+536472f8a1b8	Bờ lồi bồi tụ → mùa cạn lộ ra → lũ lại bồi thêm
+8f924a4c8696	Mùa lũ: lưu lượng từ thượng nguồn \xD7 1.8 (minh hoạ)
+4182300aae45	Đồng bằng bãi bồi là bộ phận chính của đồng bằng phù sa
+3be1457c8dc8	Phân bố thành dải dọc sông
+31bc065e6d8e	Bãi bồi là kết quả của việc “khối bồi tụ ở bờ lồi nhô lên khỏi mặt nước”, không phải do dòng nước xói ra.
+0bb002107668	Mùa lũ lưu lượng \xD7 1.8, tốc độ dòng chảy 1.05 m/s, cuốn được hạt 11.9 mm, mạnh hơn mùa nước trung bình, nhưng bãi bồi vẫn chủ yếu là bồi tụ.
+7b2692b363e5	Đồng bằng bãi bồi là bộ phận chính của đồng bằng phù sa, phân bố thành dải dọc sông.
+63e4ccc80a37	Nếu bỏ bước này: em sẽ coi bãi bồi là một phần của lòng sông, không biết nó được bồi lên qua từng trận lũ.
+65739795df66	Trọng tâm thi: sự hình thành bãi bồi và đồng bằng bãi bồi (bờ lồi bồi tụ → mùa cạn lộ ra → lũ lại bồi thêm).
+64185988a8d5	Bờ lồi bồi tụ thành khối bồi tích dưới nước, nâng cao và mở rộng dần, đến mùa cạn nhô lên khỏi mặt nước thành bãi bồi; mùa lũ bị ngập và tiếp tục được bồi tụ; nhiều bãi bồi cũ nối liền nhau thành đồng bằng bãi bồi rộng lớn.
+e45f36b72c36	A4.3, A6.2
+4866e2ef9ac1	Vì sao ở cửa sông lại mọc ra một vùng châu thổ?
+a162f5704248	Đẩy giai đoạn phát triển đến giai đoạn già, cho rìa châu thổ tiến ra biển
+5580bc8b8795	Tốc độ dòng chảy ở cửa sông 0.45 → 0.38 m/s; cỡ hạt lớn nhất cuốn được 2.4 → 1.6 mm; rìa châu thổ tiến từ 1.8 km ra 3.6 km
+f489c879b234	Nơi đổ ra biển độ dốc thoải → nước chảy chậm lại → phù sa bồi tụ ở phía trước cửa sông
+b7db62bfb518	Châu thổ, SGK tr. 35
+5d7ee95f41c8	Rìa châu thổ 1.8 → 3.6 km
+f349b645ba68	Chỉ cuốn được cát cỡ 1.6 mm
+53e94431c7f6	Điều kiện của châu thổ là “nơi đổ ra biển đáy nước thoải” cộng với “nước chảy chậm lại”, chỉ “nhiều phù sa” thì chưa đủ.
+d0ba7dbe5dad	Ở cửa sông chỉ cuốn được cát cỡ 1.6 mm, hạt thô đã được thả hết ở trung và thượng lưu.
+875765a8dcb2	Rìa châu thổ 1.8 → 3.6 km là sự “lấn ra biển” đo được.
+d47b87801630	Nếu bỏ bước này: em sẽ nói châu thổ là “do sông xói ra”, thực ra nó được bồi tụ từng lớp một.
+0abbedbef163	Trọng tâm thi: điều kiện hình thành châu thổ và sự lấn ra biển.
+f646fdb65194	Sông mang theo phù sa đổ ra biển, ở nơi đáy nước thoải, nước chảy chậm lại, phù sa lắng đọng ở phía trước cửa sông thành khối bồi tụ gần giống hình tam giác; trầm tích ngày càng nhiều, lấn dần ra phía biển, trở thành đồng bằng châu thổ.
+30c6d0191cda	A4.4, A4.5, B2.1
+620120a569d4	Kiểm tra cuối bài: mùa lũ đến
+ff6968a732cf	Trong mùa lũ, làm thế nào để đoạn khúc uốn không cuốn nổi sỏi 10 mm?
+832d25d1b135	Điều chỉnh giai đoạn phát triển hoặc lưu lượng từ thượng nguồn, cho cỡ hạt lớn nhất cuốn được giảm xuống dưới 10 mm và giữ trong 15 s
+f5c034d81435	Ban đầu 8.3 mm; giây thứ 5 mùa lũ đến → 11.9 mm (vượt ngưỡng); đẩy giai đoạn đến giai đoạn già → 8.1 mm, hoặc chỉnh lưu lượng về 100 m\xB3/s → 7.8 mm
+9e3efcaa9c1e	Trong mùa lũ, D_max
+5fa1e128d9d8	Kiểm tra cuối bài \xB7 giữ 15 s
+62f88db40fae	Giây thứ 5 tự động cho lũ về
+8c5000555bd9	Cả hai hướng nhân quả đều tính là đạt
+b72882d4fb91	Mùa lũ đẩy lưu lượng lên 1.8 lần, khả năng vận chuyển tăng theo.
+cb7e39dded72	Giai đoạn già trắc diện dọc thoải nhất (chênh cao 51 m), cùng một đoạn sông thì tốc độ dòng chảy và khả năng vận chuyển đều yếu nhất.
+e7c6755bda2d	Giảm lưu lượng là một con đường khác cũng đúng: cả hai đều dẫn tới “nước chảy chậm lại → khả năng vận chuyển yếu đi”.
+618d23753821	Nếu bỏ bước này: chỉ thuộc lòng “nước chảy chậm thì lắng đọng”, không biết dùng hai số đọc cùng lúc để phán đoán khi điều kiện thay đổi.
+aafc0d147cb5	Kiểm tra cuối bài: trong mùa lũ, làm cho đoạn khúc uốn không cuốn nổi sỏi 10 mm (giữ 15 s).
+ef2bb1726ef9	Cỡ hạt lớn nhất mà cùng một đoạn sông cuốn được chỉ do tốc độ dòng chảy quyết định: trắc diện dọc thoải đi hay lưu lượng giảm đều làm nó giảm xuống.
+5cff0186c748	Đường đồng mức (khoảng cao đều 100 m, minh hoạ)
+b2c0a92e9971	Khối cắt thung lũng (ngang 1 ô = 1 km, phóng đại chiều đứng \xD710)
+fe4b8847ce9d	Mặt cắt trước: bề rộng / độ sâu thung lũng và đường viền các giai đoạn
+0edcb5952a9f	Bờ lõm xâm thực \xB7 bờ lồi bồi tụ
+1ded4a3c9d6f	Mùa lũ: bãi bồi bị ngập
+3c38953f4aee	Làng, thị trấn phân bố ở nơi lũ không ngập tới
+e7afe6e5a1d9	Địa danh và tỉ lệ
+f120556db623	Tốc độ dòng chảy
+3dbb3e1be91c	m/s \xB7 xói – bồi:
+668034f2a703	Cỡ hạt lớn nhất
+09f5cbba0f44	mm \xB7 minh hoạ
+9da1c657cebf	Tỉ số rộng/sâu thung lũng
+f21ec4351bad	Rộng\xF7sâu
+600eec7a93c7	Tiêu chí xói – bồi
+960f3f4d9d92	Tiêu chí bằng số
+b20f64718597	Chủ yếu xâm thực sâu
+bda1589b11f4	Xâm thực ngang mạnh lên
+e2b188644f9e	Vận chuyển yếu đi \xB7 bắt đầu lắng đọng
+22a813af223b	Chủ yếu bồi tụ
+fe045528989d	Chủ yếu vận chuyển
+a5a9116e0eef	Bờ lồi bồi tụ
+79cff64d0f4b	Thung lũng sâu thêm
+715e01fae4b8	Thung lũng mở rộng
+27d9af04367c	Vận chuyển yếu đi
+a1862ed42e02	Lắng đọng ở cửa sông
+e70defe7cb8e	Chưa lắng đọng
+e4593d253955	Giai đoạn trẻ
+5be5e0efd8cb	Giai đoạn trưởng thành
+0836706b9c91	Giai đoạn già
+548608d370a7	Đoạn sông quan sát
+1245abd08522	Vùng núi
+a3be69cfb784	Đoạn khúc uốn
+b50f1f326876	Lưu lượng từ thượng nguồn (minh hoạ)
+ac45914c4352	Mùa lũ
+50118cc77439	Đã vào mùa lũ
+3b9733820503	Mùa nước trung bình
+2fe2ad174cf9	Tốc độ dòng chảy dọc sông
+1e069629bd7e	— tốc độ dòng chảy \xB7
+190f86d4cb77	Đoạn sông hiện tại
+a51aa5a0bb56	Trong mùa lũ, làm cho đoạn khúc uốn không cuốn nổi sỏi 10 mm
+882d5833c745	Mùa lũ đến: lưu lượng từ thượng nguồn tăng lên 1.8 lần
+006928e61b0c	Thử đẩy giai đoạn phát triển đến giai đoạn già, hoặc giảm lưu lượng từ thượng nguồn
+70b7b33214c3	Mặt cắt ngang thung lũng sông vùng núi có dạng chữ V, chủ yếu là do
+0c6e2cfed166	Chủ yếu xâm thực ngang
+f53d140d1808	Chủ yếu xâm thực sâu và xâm thực giật lùi
+f20b49c11f69	Nước chảy hoà tan đá
+4354dabf4625	Giai đoạn trẻ chênh cao lớn, nước chảy nhanh, xâm thực chủ yếu theo chiều sâu và về phía nguồn, thung lũng sâu thêm, dài ra, mặt cắt ngang dạng chữ V (SGK tr. 33).
+c8e23da4c40c	Bờ nam sông Trường Giang đoạn Trấn Giang là bờ lồi, bờ bắc là bờ lõm, vì vậy đường bờ
+d10afd8594da	Dịch về phía nam
+749430c25f8d	Dịch về phía bắc
+284cafaf6805	Trước nam sau bắc
+541eb163dc5d	Bờ lõm bị xâm thực lùi vào, bờ lồi được bồi tụ lấn ra: bờ bắc là bờ lõm, nên đường bờ liên tục dịch về phía bắc (SGK tr. 33).
+e3f759dabf41	Quạt phù sa phát triển ở
+c5ec71f7c453	Cửa sông đổ ra biển
+cb0682e08ada	Vùng chân núi
+57e4e86f1344	Trung và hạ lưu sông
+e60ce85bca0e	Nguồn sông
+04357c86019e	Sông chảy ra khỏi vùng núi vào đồng bằng, độ dốc giảm đột ngột, nước chảy chậm lại, vật liệu lắng đọng ở chân núi thành hình quạt (SGK tr. 34–35).
+c2487e5c602c	Điều kiện trực tiếp hình thành châu thổ là
+17edc3d04336	Nơi đổ ra biển đáy nước thoải, nước chảy chậm lại
+0c1f10ae7a9d	Hàm lượng phù sa của sông bằng không
+3d2d445b83af	Mực nước biển dâng
+a50f86416c1d	Chênh cao của sông tăng lên
+c2acc7c7edbe	Nơi đổ ra biển đáy nước thoải, nước sông chảy chậm lại, phù sa lắng đọng ở phía trước cửa sông và lấn dần ra phía biển (SGK tr. 35).
+6629458488c7	Làng, thị trấn
+8a0ce2a2b34b	Quần cư trên đồng bằng phù sa thường phân bố ở
+500a900e926e	Chỗ thấp nhất của bãi bồi
+475feec174f6	Nơi lũ không ngập tới
+879666fe0f49	Trên vách dốc bờ lõm
+01c9d022b5ac	Trên cồn cát cửa sông
+2d72b49ce71f	Quần cư trước hết phải tính đến mối đe doạ của lũ, thường phân bố ở nơi lũ không ngập tới (SGK tr. 37).
+60f755002418	Một sa bàn giúp hiểu: thung lũng sông sâu thêm, mở rộng ra sao, ba loại đồng bằng phù sa được bồi lên thế nào.
+552015eefd31	Lưu ý minh hoạ: hình học, độ dốc lòng sông, lưu lượng và số đọc đều là minh hoạ dạy học. Khối cắt thung lũng: ngang 1 ô = 1 km, phóng đại chiều đứng \xD710; dải nước sông được phóng to khoảng 5–13 lần cho dễ nhìn (bề rộng sông thật 42–230 m).
+d40bd046f235	Địa hình sông
+4fa4008a6f3c	Tổng thể \xB7 một sa bàn từ núi ra biển
+cfc29d63c108	Một ô 2 km \xB7 phóng đại chiều đứng \xD76
+c7624038909e	Nguồn (vùng núi)
+b188c5e30da5	Biển
+059c413c225f	Đỉnh quạt: hạt thô nhất
+9b7184304784	Rìa quạt: hạt mịn nhất
+b57afd68080f	Bờ lõm: xâm thực lùi vào \xB7 nước chảy nhanh
+9a19f7f45f4f	Bờ lồi: bồi tụ lấn ra \xB7 nước chảy chậm
+6a9d015d5df0	Làng, thị trấn: xây trên thềm sông (lũ không ngập tới)
+e59e6d9500a0	Bãi bồi (mùa lũ bị ngập)
+15057d74751d	Khối cắt phóng to \xB7 một ô 1 km \xB7 phóng đại chiều đứng \xD710
+ebafcdc77104	Đầu thung lũng: lùi về phía nguồn
+beef4f497bea	Bề rộng thung lũng
+a11d147cb771	Độ sâu thung lũng
+9be55588d7e5	Sự phát triển của địa hình do sông tạo thành · Bài giảng 3D tương tác

@@ -1,0 +1,181 @@
+545b3bc0553e	Vận chuyển các chất qua màng
+872fe43a3a42	Bắt buộc tập 1 \xB7 Chương 4
+7cf8bc064307	Thuận chiều nồng độ + cần protein → khuếch tán tăng cường; ngược chiều nồng độ + tốn năng lượng → vận chuyển chủ động
+ec22d1ed0cd4	Cùng một màng tế bào, vì sao oxygen tự đi qua được, glucose phải nhờ vài protein giúp sức, còn K⁺ lại đi vào được ngược chiều nồng độ?
+4c69f82aef15	Thuận chiều nồng độ, không cần protein, không tốn năng lượng
+e6cea8189761	Thuận chiều nồng độ, cần protein vận chuyển
+460394c04fc1	Vận chuyển chủ động
+d088e233b0ad	Ngược chiều nồng độ, cần protein mang, tốn ATP
+65f8070b514b	Nhập bào, xuất bào
+9dfb11efa1b2	Đại phân tử đi bằng túi màng, nhờ tính linh động của màng
+7a35f6e01bf8	Tế bào \xB7 phóng to khoảng 4000 lần (minh hoạ)
+fb07ca759fb8	Một tế bào động vật: màng tế bào, tế bào chất, nhân; nồng độ phía trong tế bào đặt là 100
+c870bf9afbef	Lớp kép phospholipid và protein vận chuyển, nơi các phân tử đi qua; phía trên là bên ngoài tế bào
+b0dc9e83f2a9	Nhập bào, xuất bào \xB7 phóng to minh hoạ
+a7fa1b9ea93c	Túi màng
+ef8ca44a577d	Màng lõm vào bao lấy đại phân tử tạo thành túi; túi dung hợp với màng để giải phóng đại phân tử
+2df94c514623	Vì sao oxygen tự đi qua được màng tế bào? Đi về phía nào thì do yếu tố gì quyết định?
+d27344743def	Kéo nồng độ bên ngoài từ 120 về 0, xem oxygen đi về phía nào
+96054626526c	Khi nồng độ bên ngoài là 120 (ngoài nhiều hơn trong), oxygen có dòng thực đi vào tế bào, số đọc +5.0 (phía phế nang); kéo về 0 thì oxygen chuyển sang đi ra, số đọc
+bbe9f2237906	25.0 – khi chiều đảo ngược, trong SGK đó chính là cảnh carbon dioxide ở mô khuếch tán ra khỏi tế bào; protein vận chuyển và cấp năng lượng chỉnh thế nào cũng không ảnh hưởng đến oxygen
+2d0830c7b345	J ∝ (nồng độ bên ngoài
+1fd0421ae5e1	nồng độ trong tế bào)
+0fd883591176	Thuận chiều nồng độ \xB7 không tốn năng lượng
+bbf247d36b96	Thuận chiều nồng độ
+8c59f0b419ce	Không tốn năng lượng
+aeb056105e62	Oxygen và carbon dioxide dễ dàng đi qua lớp kép phospholipid của màng tế bào một cách tự do.
+98cca8bcf9e3	Phía phế nang nồng độ oxygen cao, oxygen khuếch tán vào tế bào; phía mô nồng độ carbon dioxide cao, carbon dioxide khuếch tán ra khỏi tế bào – cùng một cách, hai chiều.
+bc51ca36d0a5	Glycerol, ethanol, benzene và các phân tử nhỏ tan trong lipid khác cũng đi qua bằng khuếch tán đơn giản.
+9099d1571079	Bỏ bước này: sẽ tưởng mọi chất qua màng đều cần protein – mất ranh giới với khuếch tán tăng cường.
+afd0a1bdce7d	Nhận định: khuếch tán đơn giản cần protein vận chuyển – sai.
+3d2441909254	Khuếch tán đơn giản diễn ra thuận chiều gradient nồng độ, không cần protein vận chuyển, không tiêu tốn năng lượng; chiều do chênh lệch nồng độ quyết định, đi được cả hai chiều.
+5b9835cc1a21	A4.1–A4.3 (tr. 65–66), B2
+f53ae5549d81	, B3 dòng 1–3
+60c6b2f65deb	Thấm chọn lọc
+f6986de43d86	Glucose cũng là phân tử nhỏ, nó có tự đi qua được không?
+36ce204e55d6	Kéo số protein vận chuyển từ 10 về 0, xem glucose còn vào được không
+78097c556e17	Kéo protein vận chuyển về 0: dòng thực của glucose giảm từ +6.0 xuống 0.0, các phân tử dồn hết ngoài màng không vào được; đổi chất sang oxygen, kéo nồng độ về 60, kéo protein thế nào cũng không ảnh hưởng đến oxygen (vẫn là
+88bc7e57e461	10.0)
+349057b18189	Glucose
+462fe8274d9e	Lớp kép phospholipid
+0ace676f0e32	Cần protein vận chuyển \xB7 không tốn năng lượng
+5fbd577f08c5	Tính thấm chọn lọc
+9a87e71203e0	Màng tế bào không phải cái rây: nó chọn lọc các chất ra vào (chuẩn chương trình 2.1.1, tính thấm chọn lọc).
+f8e5b73d2c5c	Các phân tử vô cơ nhỏ không tích điện và phân tử hữu cơ nhỏ tan trong lipid khuếch tán đơn giản được.
+48b7a2f41ff5	Ion và các phân tử hữu cơ nhỏ như glucose, amino acid bắt buộc phải nhờ protein vận chuyển.
+47750d096db1	Bỏ bước này: sẽ tưởng phân tử nhỏ nào cũng khuếch tán đơn giản được, xếp nhầm glucose.
+7782e088a9ec	Đáp án kèm SGK: chất có phân tử khối nhỏ hoặc ion đều có thể vào tế bào bằng khuếch tán đơn giản – sai (tr. 72, bài tập 1(1)).
+b08745918fb2	Màng tế bào có tính thấm chọn lọc: ion và các phân tử hữu cơ nhỏ như glucose, amino acid không tự do đi qua lớp kép phospholipid được, phải nhờ protein vận chuyển.
+276f5f1075ec	A5.1 (tr. 66), A9 mục 3 (tr. 73), B3 dòng 3, 6
+4e99f8dfa098	Nhiều protein hơn thì glucose vào nhanh hơn không? Nó có cần năng lượng không?
+23c2e8ff6d6c	Tăng protein vận chuyển từ 5 lên 10, so sánh dòng thực
+d2d5dd88e010	Cùng chênh lệch nồng độ, protein tăng từ 5 lên 10, dòng thực tăng từ +3.0 lên +6.0; đổi chất sang oxygen, số protein không ảnh hưởng gì đến oxygen
+53566938da5a	nồng độ trong tế bào) \xD7 số protein vận chuyển
+3aaeac7583e7	Khuếch tán tăng cường \xB7 không tốn năng lượng
+49cc133e8743	Tốc độ phụ thuộc số protein
+434794431156	Khuếch tán tăng cường nhờ protein vận chuyển trên màng, diễn ra thuận chiều gradient nồng độ.
+e3c237c57460	Chênh lệch nồng độ càng lớn càng nhanh; protein vận chuyển càng nhiều cũng càng nhanh (hai hệ số chỉ để hai đường tách nhau ra, không có nghĩa glucose thật sự nhanh hơn oxygen).
+c0bcd54f907d	Hồng cầu hấp thụ glucose chính là khuếch tán tăng cường (cần protein nhưng không tốn năng lượng); bước này cũng không dùng năng lượng – tắt cấp năng lượng, dòng glucose không đổi chút nào.
+7132cfd79f15	Bỏ bước này: sẽ tưởng cần protein là vận chuyển chủ động, đảo ngược ranh giới giữa thụ động và chủ động.
+d4a7efcb218a	Glucose vào hồng cầu cần nhờ protein vận chuyển nhưng không tiêu tốn năng lượng, thuộc khuếch tán tăng cường (tr. 72, bài tập 2, phương án C).
+65e5de82bfaa	Khuếch tán tăng cường: nhờ protein vận chuyển, thuận chiều gradient nồng độ, không tiêu tốn năng lượng; tốc độ vận chuyển một số chất còn phụ thuộc số lượng protein vận chuyển.
+4de28049f12c	A5.1, A5.4 (tr. 66–67), B3 dòng 4–5
+363cdb6fc4e9	Protein mang và kênh
+41f1939bde2a	Protein vận chuyển chỉ có một loại thôi sao? Hai loại protein khác nhau thế nào?
+940f9b8d67ad	Bấm vào protein vận chuyển trên màng, xem hình dạng của nó
+c0993c5095e6	Protein kênh là lỗ do bốn cột bao quanh, phân tử đi qua không liên kết với nó; protein mang giống cái kẹp, phải liên kết với phân tử trước, rồi thay đổi cấu hình của chính nó để đưa phân tử sang phía bên kia
+1b1dfb4ac67a	Protein vận chuyển = protein mang + protein kênh
+c2b1d3a98df7	Mang đổi cấu hình \xB7 kênh không đổi cấu hình
+00958017d9b6	Protein mang
+ee04f512c7ae	Protein kênh
+d06dc24cf923	Protein vận chuyển gồm hai loại: protein mang và protein kênh.
+c194b8125187	Protein mang chỉ cho đi qua những phân tử phù hợp với vị trí liên kết của nó, mỗi lần vận chuyển đều phải thay đổi cấu hình.
+6f80590ba047	Protein kênh chỉ cho đi qua những phân tử có kích thước và điện tích phù hợp, không cần liên kết với phân tử; kênh ion K⁺ là ví dụ điển hình.
+479d0e2e0ae8	Bỏ bước này: sẽ coi “mang” và “kênh” là một, gặp vận chuyển chủ động (cần protein mang) thì giải thích không rõ.
+bc01bcc46fcb	Đáp án kèm SGK: cơ chế vận chuyển của protein mang và protein kênh giống nhau – sai (tr. 67, bài tập 1(3)).
+230f11e0e313	Protein vận chuyển gồm protein mang và protein kênh: protein mang phải liên kết với phân tử và thay đổi cấu hình, protein kênh chỉ cho phân tử có kích thước và điện tích phù hợp đi qua, không liên kết.
+3b2587ab930c	A5.2, A5.5 (tr. 67, hình 4-5), A9 mục 4
+81ecd647b9ca	K⁺ trong tế bào nhiều hơn bên ngoài rất nhiều (SGK: trong hồng cầu cao gấp 30 lần huyết tương), vì sao vẫn tiếp tục hút vào được?
+b427071abdf8	Ngắt cấp năng lượng, xem K⁺ còn vào được không
+dae83657c949	Khi có ATP: nồng độ bên ngoài chỉ 20 (thấp hơn nhiều so với 100 trong tế bào), K⁺ vẫn có dòng thực đi vào, số đọc +5.2, cách thức “vận chuyển chủ động”, năng lượng “tốn ATP”; vừa ngắt cấp năng lượng, số đọc thành
+59ccdbcc607d	0.8, chiều đảo thành “ra khỏi tế bào”, cách thức và năng lượng cũng đồng thời đổi thành “khuếch tán tăng cường \xB7 protein kênh”, “không tốn” – bơm đã dừng, chỉ còn dòng rò qua kênh
+79b50d3b5f8e	J = bơm (tốn ATP)
+eaa1e2c60dcb	rò (thuận chiều nồng độ)
+9ca4dcbccbcd	Ngược chiều nồng độ \xB7 cần protein mang \xB7 tốn năng lượng
+28d08b468fa7	Ngược chiều nồng độ
+89d6e5d58a25	Nồng độ K⁺ trong hồng cầu người cao gấp 30 lần huyết tương, ở tảo vòng cao gấp 63 lần, iodine trong tế bào biểu mô nang tuyến giáp cao gấp 20~25 lần so với máu, đều được tích luỹ ngược chiều gradient nồng độ.
+f7698547a94f	Protein mang sau khi liên kết với ion sẽ thay đổi cấu hình nhờ năng lượng, đưa ion sang phía bên kia.
+cfadffdcc6dc	Vận chuyển chủ động giúp tế bào hấp thụ các chất theo nhu cầu, thải ra chất thải và chất có hại.
+351a2d36fd7d	Bỏ bước này: “tốn năng lượng” chỉ là câu nói suông, học sinh không biết khi mất năng lượng thì chuyện gì xảy ra.
+057e161bafc6	Đáp án kèm SGK: khi vận chuyển qua màng ngược chiều gradient nồng độ, chất vừa cần tiêu tốn năng lượng, vừa cần nhờ protein mang – đúng (tr. 72, bài tập 1(4)).
+03cd52aa8b1e	Vận chuyển chủ động: ngược chiều gradient nồng độ, cần protein mang, tiêu tốn ATP. Ngắt năng lượng thì bơm dừng, chỉ còn dòng rò K⁺ qua kênh thuận chiều nồng độ – đó là khuếch tán tăng cường, không phải vận chuyển chủ động.
+37f60e243b71	A6.2–A6.5 (tr. 69–70), B2
+8f2b7039a883	, B3 dòng 8–10
+f0fffa5de5b1	Protein lớn như vậy, protein vận chuyển không chở được, vậy nó ra vào tế bào bằng cách nào?
+531e1590aee3	Hiện đang là “đại phân tử (nhập bào)”, chuyển chất sang “protein tiết (xuất bào)”, xem chiều đảo ngược
+3a1d77479778	Đại phân tử (nhập bào): màng lõm vào thành túi nhỏ bao lấy nó, túi nhỏ tách ra thành túi màng đi vào tế bào, số đọc +3.0; chuyển sang protein tiết (xuất bào): túi màng di chuyển tới màng và dung hợp, đẩy đại phân tử ra ngoài, số đọc
+b01409d10447	3.0. Cả hai trường hợp số đọc đều không phụ thuộc nồng độ bên ngoài và số protein vận chuyển
+7ad5a21d4673	Đại phân tử
+c85a3f440a81	Túi màng (màng lõm vào / dung hợp màng)
+fc4fedf21173	Nhờ tính linh động của màng \xB7 cũng tốn năng lượng
+5795b02d33a3	Nhập bào
+98a50b47f74a	Xuất bào
+c0405567f149	Tính linh động của màng
+22dcd62a0c8e	Protein vận chuyển bất lực trước các đại phân tử như protein và polysaccharide.
+81556d895de9	Khi nhập bào, đại phân tử liên kết với protein trên màng trước, màng lõm vào tạo túi nhỏ, túi nhỏ tách ra thành túi màng đi vào tế bào.
+f6510ffad93a	Khi xuất bào, túi màng di chuyển tới màng tế bào và dung hợp, đưa đại phân tử ra khỏi tế bào.
+772b1a6d7ddb	Bỏ bước này: sẽ tưởng nhập bào, xuất bào là một dạng vận chuyển chủ động, không giải thích được rằng nó dựa vào sự biến đổi hình dạng của màng.
+04a1a468b98a	Đại phân tử sinh học trong tế bào (như pepsinogen) được đưa ra khỏi tế bào bằng xuất bào (tr. 72, bài tập 3).
+b6ecc268e0b0	Nhập bào, xuất bào: đại phân tử liên kết với protein trên màng trước, rồi ra vào tế bào nhờ màng lõm vào tạo túi (nhập bào, hướng vào) / túi dung hợp với màng (xuất bào, hướng ra), dựa vào tính linh động của màng và cũng cần tiêu tốn năng lượng.
+467f0ba03560	A7.1–A7.5 (tr. 70–72), B2
+40cd6ef9dced	, B3 dòng 11–13
+3824d4e12a72	Tổng hợp
+59ec088803e2	Đặt bốn cách cạnh nhau, chúng khác nhau ở những điểm nào?
+0bb9c9351240	Kéo góc nhìn, xem lần lượt ba phần: tế bào, màng tế bào, túi màng
+84461c6f9456	Tế bào, màng tế bào, túi màng đều có trong khung hình; đổi chất, kéo nồng độ, kéo số protein, bật tắt cấp năng lượng, số đọc và đồ thị thay đổi theo, chỉ ra được ngay “thuận hay ngược chiều nồng độ, cần protein không, cần năng lượng không”
+5fc561eb534f	Bốn cách: chiều \xB7 protein \xB7 năng lượng
+eff0db996a6e	Thuận chiều nồng độ → thụ động; ngược chiều nồng độ → chủ động
+ea940279447b	So sánh
+ed35697ac901	Bảng đối chiếu
+8871f75755c8	Xác định cách vận chuyển, trước hết hỏi hai điều: thuận hay ngược chiều nồng độ, có tốn năng lượng không.
+577f065cd8bc	Sau đó xét có cần protein vận chuyển không, cần loại nào (mang hay kênh).
+038c3f8d32ab	Nước là chất duy nhất đi theo cả hai cách thụ động: khuếch tán đơn giản + khuếch tán tăng cường qua protein kênh nước (aquaporin).
+4df8df093633	Bỏ bước này: từng cách đều đúng, nhưng gộp lại không lập được một bảng đối chiếu.
+7b66d6b5017d	Vận chuyển thụ động gồm khuếch tán đơn giản và khuếch tán tăng cường, cả hai đều thuận chiều nồng độ, đều không tốn năng lượng; vận chuyển chủ động ngược chiều nồng độ, tốn năng lượng, cần protein mang.
+6a348da56037	Thuận chiều nồng độ + không cần protein → khuếch tán đơn giản; thuận chiều nồng độ + cần protein → khuếch tán tăng cường; ngược chiều nồng độ + cần protein mang + tốn năng lượng → vận chuyển chủ động; đại phân tử → nhập bào, xuất bào.
+f5a9247b81f9	A9 bảy mục (tr. 73), A5.1, A6.3, A7.2
+0205698f3c1b	Kiểm tra cuối bài: cho K⁺ tiếp tục đi vào tế bào khi “bên ngoài ít hơn bên trong”
+8d02096d0b3c	Chuyển sang K⁺, bật cấp năng lượng, hạ nồng độ bên ngoài xuống không quá 50, tăng protein mang lên từ 7 trở lên, để dòng thực nằm trong khoảng 3.5–5.5 và giữ 15 giây
+bdda60080e2d	Hiện băng thông báo đạt; giữa chừng sẽ có một lần ngắt cấp năng lượng, chiều đảo thành đi ra, phải bật lại cấp năng lượng rồi chỉnh lại
+4cff70ac6813	K⁺ \xB7 có ATP \xB7 nồng độ ngoài ≤ 50
+48eeecb78929	Dòng thực 3.5–5.5 \xB7 giữ 15 giây
+04cb5dd32911	Tốn năng lượng
+02d94233d6f6	Vận chuyển chủ động đi ngược chiều nồng độ, không phải thuận chiều.
+7001818c4f5b	Không có ATP thì không có vận chuyển chủ động, chỉ còn dòng rò thuận chiều nồng độ.
+533ff0485670	Không có protein mang cũng không có vận chuyển chủ động.
+b037b4503eb0	Kiểm tra cuối bài không có nội dung mới: năm bước trước đều dùng đến.
+8482ff8bfc4e	Hai điều kiện của vận chuyển chủ động: protein mang + năng lượng; chiều: ngược chiều gradient nồng độ.
+9caaaa544195	Kiểm tra cuối bài không có kết luận mới: vận chuyển chủ động phải đồng thời “có protein mang” và “có năng lượng”, chiều luôn ngược chiều nồng độ.
+3d4618c9bc67	B4, A6.3
+b831f8ac32ca	Dòng thực
+c79e45c9149f	Giá trị đặt \xB7 đơn vị tương đối/s
+af90809619ca	Cách thức
+6e01538b7fa5	Năng lượng
+0e25578e8fa1	Đi vào
+55028aacb198	Đi ra
+d23ba1140970	Không cần protein
+79088a62dd0d	Không tốn
+87f31529e001	Tốn ATP
+7c1f33f39724	Thiếu ATP
+a824142da997	Cấp năng lượng
+e32fc35347b3	Số protein mang
+cff420626fe7	tương đối
+f7b2a6ee68ec	phân tử
+77c773b85da0	Ngắt cấp năng lượng: thêm chất ức chế hô hấp (minh hoạ)
+5bdbc6ac628e	Đã cấp lại năng lượng
+593409310f52	Dòng thực – nồng độ ngoài
+6730954dbe27	— dòng thực \xB7 nồng độ ngoài hiện tại
+14380e334dd4	Ngắt cấp năng lượng: bơm dừng, chỉ còn dòng rò thuận chiều nồng độ
+c2726f8f9b2b	Cho K⁺ đi vào ngược chiều nồng độ
+65cdaa83cc7b	Toàn cảnh \xB7 tế bào, màng tế bào, túi màng
+fb10b29b5c4a	Chất có thể ra vào tế bào bằng khuếch tán đơn giản là
+af4927315d3b	Oxygen
+fcf373f67b87	Protein
+3dcb55598a20	Oxygen và carbon dioxide dễ dàng đi qua lớp kép phospholipid của màng tế bào một cách tự do (tr. 66).
+ffd3206a294b	Glucose đi vào hồng cầu theo cách
+aef94321708e	Nồng độ K⁺ trong hồng cầu người cao gấp 30 lần huyết tương, K⁺ vẫn đi vào được hồng cầu theo cách
+1b2b2a67f96e	Vận chuyển ngược chiều gradient nồng độ, cần protein mang và năng lượng, thuộc vận chuyển chủ động (tr. 69).
+859c06a25720	Tế bào đưa protein (như pepsinogen) ra khỏi tế bào theo cách
+9bc7f6cf6509	Đại phân tử được bao trong túi màng ở trong tế bào trước, túi màng dung hợp với màng tế bào để đưa đại phân tử ra ngoài, tức là xuất bào (tr. 71, tr. 72 bài tập 3).
+033cf9b15d69	Hiểu bốn cách vận chuyển qua màng: có thuận chiều nồng độ không, cần protein không, cần năng lượng không.
+cc063fea4632	Lưu ý minh hoạ: tế bào phóng to khoảng 4000 lần, màng tế bào và túi màng là phóng to minh hoạ; nồng độ theo thang tương đối (trong tế bào = 100), dòng thực và hệ số của các chất là giá trị đặt cho bài, chỉ để so sánh lớn nhỏ, không phải tốc độ đo thực.
+814aea5cb067	Nồng độ trong tế bào = 100
+a1e06629db41	Ngoài tế bào
+9d1124e50489	Trong tế bào
+1b7686f85f5e	Protein vận chuyển (mang / kênh)
+7a27113cb618	Đại phân tử hoặc hạt
+ff83348c98fb	0 không
+ded1bc28f039	Protein tiết
+4dd60bb79fc8	Có ATP
+228b2846758a	Không có ATP
+5d824bacb1f4	Vận chuyển các chất qua màng · Bài giảng 3D tương tác

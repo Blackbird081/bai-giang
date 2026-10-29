@@ -1,0 +1,252 @@
+0043cfaa85f6	${I.unitOf} bước ${lt.no}:
+fa1a659fc550	${u}.act.n=${c.act.n}: phải là số nguyên từ 1–${e.record.max??8} (ghi đủ n dòng là hoàn thành)
+215c6755e75f	SGK Nhân Giáo (Trung Quốc) 2019, bắt buộc tập 1, chương 1, bài 2 “Phản ứng ion” \xB7 lựa chọn bắt buộc tập 1, chương 1, bài 1 “Cân bằng điện li” (chất điện li mạnh, yếu)
+c8be64e0bfca	Sự điện li của chất điện li, tính dẫn điện của dung dịch và bản chất phản ứng ion
+a08c94ce66d5	Sự điện li và tính dẫn điện của dung dịch
+79a715e94721	Chất điện li → điện li → ion chuyển động tự do → dẫn điện; Ba\xB2⁺ + SO₄\xB2⁻ = BaSO₄↓
+676a9d7c4c3e	Tay khô hay tay ướt cũng là một bàn tay, vì sao tay ướt lại dễ bị điện giật?
+a8c5902bfa26	Chất điện li bị điện li
+45cb1c66f76d	Khi tan trong nước hoặc nóng chảy, ion được giải phóng
+6f92b37b2583	Có ion mới dẫn điện
+db15ecaeed12	Na⁺ về phía cực âm, Cl⁻ về phía cực dương
+fe761e7bc93e	Càng nhiều ion càng dẫn điện
+77c8b9bd0672	Nồng độ cao, chất điện li mạnh thì dẫn mạnh hơn
+a3e72e0046d3	Ion bị kết tủa kéo đi
+0206afa44c1b	Nhỏ H₂SO₄ loãng vào Ba(OH)₂: dòng điện giảm rồi tăng
+66f937e64808	Bốn trạm: bàn mẫu + ampe kế + chuẩn độ + phóng to minh hoạ
+b81706c0a8c9	Toàn cảnh \xB7 hai thí nghiệm trên cùng một mặt bàn
+ea5b232f8a83	Đổi một chất, kéo thể tích nhỏ vào, ampe kế và đồ thị cùng thay đổi
+eb40127560e5	Đúng hết! Chất điện li xét ở chỗ “dẫn điện được trong dung dịch nước hoặc ở trạng thái nóng chảy”, còn khả năng dẫn điện phụ thuộc lượng ion chuyển động tự do.
+d143f1d89079	Em nên xem lại mạch chính: trước hết so sánh chất rắn khô với chất nóng chảy, rồi xem ion trong dung dịch đi về phía nào, cuối cùng xem ion bị kết tủa kéo đi khi nhỏ H₂SO₄ loãng.
+d29b22ed5469	Dây dẫn \xB7 kẹp cá sấu \xB7 số đọc ampe kế
+f08b9f097794	Ion trong dung dịch (Na⁺ về phía cực âm, Cl⁻ về phía cực dương)
+53a7bf18cd47	Kết tủa trắng BaSO₄
+61e0189100e0	Sự di chuyển ion và kết tủa \xB7 phóng to minh hoạ
+ef0378c22944	Bếp đun (bước nóng chảy)
+8ea39d7bcb1c	Khả năng dẫn điện – thể tích H₂SO₄ loãng nhỏ vào
+60f0f9f22edc	Ampe kế 0–30 / 0–300 mA
+087987414586	Điện cực than chì + cốc mẫu cần đo
+66541911eefa	Burette + cốc Ba(OH)₂
+94678a47af8e	Mẫu
+e8ea2ddbd356	Chuẩn độ
+a3a98457c87c	Mẫu và điện cực
+a7b1c993255a	Bàn mẫu
+ab547519decc	Ba cốc 100 mL: cốc đối chứng nước cất, cốc mẫu cần đo (chất rắn khô / dung dịch / chất nóng chảy), cốc đối chứng dung dịch NaCl 0.10 mol/L; điện cực than chì cắm trong mẫu cần đo
+fa1d28e4ae08	Nguồn điện và ampe kế
+31d3aa746be3	Ampe kế
+3e5be17abcd6	Bộ pin 1.5 V + điện trở bảo vệ hạn dòng + ampe kế một chiều hai thang đo (0–30 mA / 0–300 mA), dây dẫn và kẹp cá sấu kẹp vào hai điện cực than chì
+1f4dc0834d01	Trạm chuẩn độ Ba(OH)₂
+73a3fdc9dc7c	Cốc đựng 20.0 mL dung dịch Ba(OH)₂ 0.05 mol/L, burette phía trên đựng H₂SO₄ loãng 0.10 mol/L (hoặc HCl loãng), đáy cốc đặt tấm sứ trắng
+60690fbf5b2a	Phóng to minh hoạ sự di chuyển ion
+92dc5ba3477d	Khung phóng to phía sau: trong dung dịch cation về phía cực âm, anion về phía cực dương; khi nhỏ, Ba\xB2⁺ kết hợp với SO₄\xB2⁻ thành BaSO₄ lắng xuống đáy cốc (phóng to minh hoạ)
+7d98733445a0	Làm quen mặt bàn
+9d8a42457709	Kéo để đổi góc nhìn, xem một vòng quanh mặt bàn (cuộn chuột để phóng to)
+7816c087e9b8	Đủ ba trạm:
+9d1c5dfd65a3	ba cốc và điện cực than chì,
+8e52c67a1133	bộ pin và ampe kế hai thang đo,
+a373d97197e8	cốc chuẩn độ Ba(OH)₂ và burette. Ampe kế lúc này chỉ 15 mA (mẫu = dung dịch NaCl 0.10 mol/L, đã bật nguồn), độ dẫn điện 12.6 mS/cm
+4113841093bc	Tay khô / tay ướt
+b5db03e2d463	Dung dịch NaCl 0.10 mol/L \xB7 đã bật nguồn
+c4cadbc9d6c6	Ba trạm, một ampe kế
+a138f4988545	Trong ba cốc có hai cốc đối chứng: nước cất và dung dịch NaCl 0.10 mol/L, cốc giữa là “mẫu cần đo”.
+2c27e9ba64db	Ampe kế là dụng cụ duy nhất biến “có dẫn điện hay không” thành con số (độ chia 1 mA).
+7944cb05e122	Tay ướt nguy hiểm không phải vì nước, mà vì nước biến muối trong mồ hôi thành ion chuyển động tự do.
+b6c6a9fa4b5f	Bỏ bước này: học sinh chỉ nhớ “tay ướt dễ bị giật”, không nói được nó liên quan gì đến chất điện li.
+4ff4ff3f2b31	Hay gặp: định nghĩa chất điện li và giải thích “tay ướt dễ bị giật”: tay người thường dính NaCl, gặp nước tạo thành dung dịch chất điện li (bắt buộc tập 1 tr. 15).
+42fab12f7e56	Tay người thường dính NaCl (một thành phần của mồ hôi), khi gặp nước sẽ tạo thành dung dịch chất điện li; dung dịch chất điện li dẫn được điện, nên tay ướt chạm trực tiếp vào nguồn điện dễ bị điện giật (nguyên văn SGK).
+835d5f8421ca	A4.14, A4.1, A6.1, A6.7, B2.1 toán tử 2
+4a441c82aed4	Khô và nóng chảy
+7a99845c73ff	Một thìa NaCl rắn khô, vì sao nối nguồn mà ampe kế không nhúc nhích?
+62eaed2e9bd0	Kéo trạng thái từ “chất rắn khô” sang “đun nóng chảy”, chú ý ampe kế
+485e6a2b8182	NaCl rắn khô 0 mA, độ dẫn điện 0.00 mS/cm (ion bị giữ trong tinh thể, không chuyển động tự do được); đun nóng chảy thì 25 mA, 3600 mS/cm (ion chuyển động nhanh hơn, thắng được lực tương tác); ngắt điện trở về 0 mA
+45e79179000f	NaCl(s) → (đun nóng) → Na⁺ và Cl⁻ nóng chảy
+b8d790450d48	1.5 V \xB7 hạn dòng 60 Ω
+b4cc4385a4d8	Ion không chuyển động tự do
+0d65a923c9ad	Trạng thái nóng chảy dẫn điện
+d8a6fed838f6	“Chất rắn khô không dẫn điện” không có nghĩa “NaCl không phải chất điện li”: chất điện li xét ở chỗ có dẫn điện được trong dung dịch nước hoặc ở trạng thái nóng chảy hay không.
+01fe10f241bb	Nóng chảy cũng dẫn điện, chứng tỏ ion vốn đã có trong tinh thể, chỉ là bị giữ chặt.
+4f9f365a784e	Số đọc 25 mA khi nóng chảy là do điện trở hạn dòng 60 Ω ép vào trong thang đo, bản thân chất nóng chảy dẫn điện mạnh hơn dung dịch nhiều.
+f2de4a7ca7eb	Bỏ bước này: học sinh đọc thẳng “không dẫn điện” thành “chất không điện li” (ý A bài tập 2 SGK sai đúng kiểu này).
+c68aef8ddaea	Gặp nhiều: phát biểu đầy đủ định nghĩa chất điện li (hợp chất dẫn điện được trong dung dịch nước hoặc ở trạng thái nóng chảy); “KNO₃ rắn không dẫn điện nên không phải chất điện li” sai ở đâu.
+610c755a7ac4	Chất dẫn được điện phải có các tiểu phân mang điện chuyển động tự do; trong NaCl rắn khô, Na⁺ và Cl⁻ sắp xếp chặt chẽ, không chuyển động tự do được, khi đun nóng chảy mới sinh ra ion chuyển động tự do (nguyên văn SGK).
+85ff3b77abef	A4.1, A4.2, A4.4, A4.7, A4.3, bảng giá trị chuẩn 4/5, D1, D2
+b9f4837b7854	Tan trong nước
+27a7a66a9bb2	Vẫn thìa NaCl ấy, thêm nước khuấy lên là dẫn điện, nước đã làm gì?
+57e865140f02	Kéo trạng thái sang “dung dịch nước”, xem ampe kế và các ion trong dung dịch
+a5b87e208ee1	Dung dịch 15 mA, 12.6 mS/cm, số đọc nhỏ “ion có chuyển động tự do không” đổi thành “có (Na⁺, Cl⁻ chuyển động tự do)”; so với 25 mA khi nóng chảy. Phương trình điện li NaCl = Na⁺ + Cl⁻
+90ff03ef86a9	0.10 mol/L \xB7 dung dịch nước \xB7 đã bật nguồn
+67248b1872c1	Điện li không cần dòng điện
+0ec738a753bb	Điện li tự xảy ra khi hoà tan (hoặc nóng chảy), không cần dòng điện (ý D bài tập 2 SGK sai đúng chỗ này).
+851850f25a1e	Dung dịch và chất nóng chảy đều dẫn điện, nhưng nguồn gốc ion khác nhau: một bên nhờ phân tử nước kéo tách ra, một bên nhờ đun nóng thắng lực tương tác.
+7e63c78e668b	Phương trình điện li dùng dấu bằng (chất điện li mạnh), kí hiệu ion chính là các tiểu phân thật sự có trong dung dịch.
+a6c6620721aa	Bỏ bước này: học sinh tưởng “có dòng điện mới điện li”, các phương trình ion sau đó đều hiểu ngược.
+ebc47a03ddb6	Gặp nhiều: viết phương trình điện li (NaCl, KNO₃, HCl, H₂SO₄); “điện li có cần dòng điện không”.
+90f5a68e3703	Quá trình chất điện li tan trong nước hoặc nóng chảy tạo ra ion chuyển động tự do gọi là sự điện li; phân tử nước kéo Na⁺, Cl⁻ khỏi bề mặt tinh thể, thành các ion hydrate hoá chuyển động tự do (nguyên văn SGK).
+bf33f2a90c67	A4.5, A4.8, A2.1, A5.2, bảng giá trị chuẩn 1, D3
+15ef55da353a	Nước và saccharose
+fbc27c007866	Nước cất là nước, dung dịch saccharose cũng là chất lỏng, vì sao đều không đo được dòng điện?
+e02ab38d48cb	Kéo chất từ “nước cất” sang “saccharose”, rồi kéo về “NaCl” để đối chứng
+01192ae4d0d9	Nước cất 0 mA (độ dẫn điện 0.00 mS/cm; nói chặt chẽ thì nước nguyên chất cũng dẫn điện, chỉ là rất yếu, bộ dụng cụ này không đo được); dung dịch saccharose 0 mA, số đọc nhỏ “không (saccharose không điện li)”; dung dịch NaCl 0.10 mol/L đối chứng luôn là 15 mA
+6e024127f875	C₁₂H₂₂O₁₁ (chất không điện li, không điện li) \xB7 H₂O
+7aef6bdedfdc	Chất không điện li
+288cfc2c9149	Nước nguyên chất rất yếu
+402daf057af5	“Dẫn được điện” không phải tiêu chí của chất điện li: dây đồng, than chì đều dẫn điện nhưng chúng là đơn chất.
+bdfac1c319ce	“Tan trong nước” cũng chưa đủ: saccharose tan rất tốt mà không có chút dòng điện nào.
+1be3e2e2e28c	Số 0 ở ô nước cất nghĩa là “bộ dụng cụ này không đo được”, không phải “tuyệt đối không dẫn điện” (chú thích SGK nói rõ điều này).
+55f1070c0fde	Bỏ bước này: học sinh đánh đồng “có chất lỏng” với “có dòng điện”, gặp chất không điện li là không giải thích được.
+e85c498fcce4	Gặp nhiều: phân biệt chất điện li / chất không điện li / đơn chất (ý B bài tập 2, bài tập 4 về sự cùng tồn tại của ion trong SGK).
+b284d55b62df	Chất điện li phải là hợp chất và dẫn được điện trong dung dịch nước hoặc ở trạng thái nóng chảy; saccharose tan trong nước nhưng không điện li, dung dịch không có ion chuyển động tự do nên không dẫn điện.
+96af20164148	A4.1 (kèm chú thích), A4.3, A4.4, bảng giá trị chuẩn 7/8, D1
+9772d81708d5	Mạnh và yếu
+6e9478c38afe	Đều là acid một nấc 0.10 mol/L, HCl 21 mA mà acetic acid chỉ 1 mA, khác nhau ở đâu?
+827c328908b0	Kéo chất từ “HCl” sang “acetic acid”, xem dòng điện, độ dẫn điện và độ điện li
+77a8ea69d4f8	HCl 21 mA, 42.6 mS/cm (điện li hoàn toàn, H⁺ và Cl⁻ mỗi loại 0.10 mol/L); acetic acid 1 mA, 0.52 mS/cm (chỉ điện li 1.32 %, c(H⁺) khoảng 1.3\xD710⁻\xB3 mol/L, bằng 1/76 của HCl cùng nồng độ); phương trình điện li một bên dùng dấu bằng, một bên dùng dấu thuận nghịch
+5cf6cd326248	HCl = H⁺ + Cl⁻ ; CH₃COOH ⇌ CH₃COO⁻ + H⁺
+5ca1a8945419	0.10 mol/L \xB7 25 ℃ \xB7 lựa chọn bắt buộc 1, thí nghiệm 3-1
+28d35463439b	(Nội dung lựa chọn bắt buộc 1) So sánh hai chất điện li “chất nào dẫn điện mạnh hơn” phải cùng nồng độ, cùng nhiệt độ; nếu không là đang so nồng độ chứ không phải độ mạnh yếu.
+fd69e16eee55	(Nội dung lựa chọn bắt buộc 1) Sự điện li của chất điện li yếu là thuận nghịch, viết dấu thuận nghịch; trong dung dịch của nó có cả phân tử lẫn ion.
+0086a9fe97d0	(Nội dung lựa chọn bắt buộc 1) “Chất điện li mạnh thì nhất định dẫn điện mạnh hơn” là sai: HCl rất loãng có thể dẫn điện kém hơn acetic acid rất đặc (bài tập 5(1) SGK).
+08b37a0b39fd	Bỏ bước này: học sinh coi “chất điện li mạnh, yếu” là “thứ hạng khả năng dẫn điện”, gặp chênh nồng độ là phán đoán ngược.
+c6313d86a9b8	Gặp nhiều: nhận biết chất điện li mạnh / yếu và cách viết phương trình điện li; điều kiện so sánh khả năng dẫn điện (cùng nồng độ, cùng nhiệt độ), lựa chọn bắt buộc 1, chương 1, bài 1.
+b8e48836f8db	HCl và acetic acid cùng nồng độ mol có pH và khả năng dẫn điện khác nhau, chứng tỏ nồng độ H⁺ trong hai acid khác nhau, tức là mức độ điện li khác nhau: HCl điện li hoàn toàn, CH₃COOH chỉ điện li một phần (nguyên văn SGK).
+ba185f87e153	A1.6, A4.13, A2.7, A7.9, A7.10, bảng giá trị chuẩn 9/10, D4
+59924f339c10	Nhỏ H₂SO₄ loãng
+7fb3d118f599	Nhỏ từng giọt H₂SO₄ loãng vào dung dịch Ba(OH)₂, vì sao dòng điện giảm về 0 rồi lại tăng?
+e3dd162e07e6	Kéo thể tích nhỏ vào từ 0 đến 20.0 mL, chú ý thời điểm 10.0 mL
+b11a1f094b59	V = 0 → 19 mA (26.1 mS/cm); 5.0 mL → 14 mA; 10.0 mL → 0 mA (điểm thấp nhất của khả năng dẫn điện, kết tủa trắng ở đáy cốc nhiều nhất); 15.0 mL → 15 mA; 20.0 mL → 18 mA (thấp hơn điểm đầu một chút, hệ bị pha loãng)
+4832f5e76e34	20.0 mL Ba(OH)₂ 0.05 mol/L + H₂SO₄ loãng 0.10 mol/L
+327f51b1d9b2	Dòng điện giảm không phải vì “pin hết điện”, mà vì ion chuyển động tự do bị kết tủa kéo đi.
+64546e027c4d	Điểm thấp nhất ở 10.0 mL: Ba\xB2⁺ và OH⁻ vừa đủ phản ứng hết với H⁺, SO₄\xB2⁻ nhỏ vào.
+3070851b4fa6	Điểm thấp nhất không phải là “không có phản ứng”, mà chính là “phản ứng vừa xong”: khả năng dẫn điện gần bằng 0 chứng tỏ trong dung dịch gần như không còn ion chuyển động tự do (bài 9 SGK
+950ae0d692bd	Bỏ bước này: học sinh chỉ thuộc “tạo kết tủa”, không thấy đồ thị khả năng dẫn điện và số lượng ion là cùng một chuyện.
+4663fbadd6d4	Gặp nhiều: điểm thấp nhất của đồ thị khả năng dẫn điện, nhận biết thời điểm phản ứng vừa đủ, viết phương trình ion (bắt buộc tập 1 tr. 21 bài tập 9).
+808ad38cb1a2	SO₄\xB2⁻ phản ứng với Ba\xB2⁺ tạo kết tủa trắng BaSO₄ khó tan; phản ứng của chất điện li trong dung dịch thực chất là phản ứng giữa các ion (nguyên văn SGK).
+8e153e804764	A1.5, A5.5, A2.3, A2.6, bảng giá trị chuẩn 12–15, D6, D7, D12
+430e537945c1	Lúc dòng điện về 0, trong cốc rốt cuộc còn lại gì?
+7c54eed37558	Nhấp vào khung phóng to phía sau mặt bàn, xem ion đi về phía nào, kết tủa hình thành ra sao
+50d3e91ab894	Trong khung, cation tụ về phía cực âm, anion tụ về phía cực dương (mỗi loại 8 hạt, phóng to minh hoạ); ở đoạn chuẩn độ, Ba\xB2⁺ và SO₄\xB2⁻ tiến lại gần nhau, kết hợp thành hạt BaSO₄ trắng lắng xuống đáy cốc (tối đa 10 hạt), ion trong dung dịch ngày càng ít; tới 10.0 mL gần như chỉ còn nước
+913e3ec85989	Na⁺ → phía cực âm \xB7 Cl⁻ → phía cực dương
+3330d75332b3	8 hạt Na⁺
+4862a07e1d08	8 hạt Cl⁻
+ab38bd1ddf5b	10 hạt BaSO₄
+c998e7c94bce	Ion chỉ di chuyển trong dung dịch, electron chỉ di chuyển trong dây dẫn, hai đường không lẫn vào nhau.
+374131cff374	Cation về phía cực âm, anion về phía cực dương: hai chiều ngược nhau, đừng nhìn ngược.
+42b3678df0bf	Kết tủa không “biến mất” mà lắng ở đáy cốc dưới dạng chất rắn trắng; ion chuyển động được trong dung dịch ít đi thì dòng điện nhỏ lại.
+9af30199e563	Bỏ bước này: học sinh thuộc được hình dạng đồ thị nhưng không nói được “ion đã đi đâu”.
+eca744fbe884	Gặp nhiều: chiều di chuyển của ion; giải thích vi mô phản ứng ion tạo kết tủa.
+7f45c19e175c	Ion sodium hydrate hoá mang điện dương di chuyển về điện cực nối với cực âm của nguồn, ion chloride hydrate hoá mang điện âm di chuyển về điện cực nối với cực dương; SO₄\xB2⁻ kết hợp với Ba\xB2⁺ tạo kết tủa trắng BaSO₄ khó tan (nguyên văn SGK).
+479dab6253c1	A4.6, A5.3, A5.5, A2.3, B4, D11
+24aecd223b3a	Đổi sai dung dịch chuẩn
+6a0205fcb460	Nếu đổi H₂SO₄ loãng thành HCl loãng, đồ thị “giảm rồi tăng” có còn không?
+37336c3162a6	Đổi dung dịch chuẩn từ “H₂SO₄ loãng” sang “HCl loãng”, rồi kéo thể tích nhỏ vào
+298a3421b71f	Đổi sang HCl loãng: 0 → 19 mA, 10.0 mL → 15 mA, 20.0 mL → 11 mA, giảm đơn điệu, không có điểm thấp nhất; đáy cốc không có kết tủa trắng (Ba\xB2⁺ vẫn trong dung dịch, BaCl₂ tan được); dòng điện chưa bao giờ tụt về 0. Đổi lại H₂SO₄ loãng là lập tức trở về 19 → 0 → 18 mA và có kết tủa trắng
+b77757c17f83	Ba(OH)₂ + 2HCl = BaCl₂ + 2H₂O (không kết tủa)
+4b08156bb904	HCl loãng \xB7 0 → 20.0 mL (đối chứng do bài thêm, SGK không làm)
+f46677942eba	Không có điểm thấp nhất
+2925c204710a	Không kết tủa
+a89a7a409fc7	(Đối chứng do bài thêm, SGK không làm) Hình dạng “giảm rồi tăng” là do kết tủa BaSO₄ kéo ion đi, không phải do bản thân “phản ứng trung hoà”.
+b1b0ec7b8460	Trung hoà chỉ biến H⁺ và OH⁻ thành nước; đổi sang HCl thì Ba\xB2⁺, Cl⁻ vẫn còn, khả năng dẫn điện chỉ giảm chút ít.
+63a00f9f2727	Trong bài 9 SGK, ý
+998665f07a64	nói đoạn BC dẫn điện nhờ Ba(OH)₂ dư là sai: sau khi phản ứng vừa đủ, chất dư là acid.
+51597d0c4bd7	Bỏ bước này: học sinh quy “điểm thấp nhất” cho “trung hoà xong”, đổi dung dịch chuẩn là không giải thích được.
+9148781550db	Gặp nhiều: bốn ý phán đoán của bài 9; điều kiện xảy ra phản ứng ion (tạo kết tủa / khí / nước).
+4232a47c9f85	Một trong các điều kiện xảy ra phản ứng trao đổi là tạo kết tủa: Ba\xB2⁺ với SO₄\xB2⁻ tạo BaSO₄ khó tan; đổi sang HCl thì chỉ có trung hoà, số ion không giảm, chỉ bị pha loãng do thể tích tăng.
+7f40fa6e28c7	Khác biệt quy ước 7, A2.6, A2.8, A1.5
+9302b42256b6	, bảng giá trị chuẩn 17, D8
+3b1b7ab2155f	Kiểm tra cuối bài \xB7 tìm điểm cuối
+cef36d553001	Kiểm tra cuối bài: nhỏ H₂SO₄ loãng đến đúng điểm “phản ứng vừa đủ”
+a35abe1e9f98	Giữ dung dịch chuẩn là H₂SO₄ loãng, chỉnh thể tích nhỏ vào về 10.0 mL (\xB10.5 mL), giữ dòng điện ≤ 2 mA trong 15 giây; giữa chừng sẽ bị đẩy lên 20.0 mL
+cb0af6db771e	Băng rôn đạt “Khả năng dẫn điện \xB7 tìm được điểm cuối”; sau 5 s dung dịch chuẩn bị đẩy lên 20.0 mL (dòng điện 0 → 18 mA), phải kéo về 10.0 mL. Tham chiếu: 10.0 mL là 0 mA, 9.5 mL là 2 mA, 10.5 mL là 4 mA
+7a185217387c	H₂SO₄ loãng \xB7 10.0 mL \xB7 dòng ≤ 2 mA \xB7 duy trì 15 s
+09c6314cb8b3	Tìm điểm thấp nhất là tìm điểm “ít ion nhất”, ampe kế nhạy hơn nhìn kết tủa.
+93b8d7dc5467	Dung dịch chuẩn phải là H₂SO₄ loãng: đổi sang HCl sẽ không có điểm thấp nhất, mấu chốt nằm ở đây.
+9e74a55f22f8	Thể tích chỉ lệch 0.5 mL mà dòng điện lệch vài mA, nên bước của thanh trượt là 0.5 mL, cửa sổ đạt để \xB10.5 mL (hai bước).
+6ca532ee85cc	Không có nội dung mới: làm đúng cả bước 6 và bước 8 thì ở đây chỉ cần lo đủ cả hai cùng lúc.
+a8dbc1854c71	Cấu trúc điểm tối đa: H₂SO₄ loãng + 10.0 mL + dòng ≤ 2 mA duy trì 15 s.
+da5acebaabe0	Kiểm tra cuối bài không có kết luận mới: khi phản ứng vừa đủ, Ba\xB2⁺ và OH⁻ trong dung dịch vừa bị SO₄\xB2⁻ và H⁺ nhỏ vào dùng hết, ion chuyển động tự do ít nhất, khả năng dẫn điện thấp nhất.
+607dc66c94b0	B3.1, bảng giá trị chuẩn 18/19, D6, D8
+c3dd9c533432	Số đọc ampe kế I
+08964c39b878	Ampe kế hai thang đo 1 mA
+9eef88a8c458	Gần bằng 0
+91b04456c3d5	Ion có chuyển động được
+2dc0212b371d	Do trạng thái quyết định
+80a30c8a1fa8	Có (ion chuyển động tự do)
+deed074077fc	Không (ion bị giữ trong tinh thể)
+6baa6d5b9f68	Có (ion nóng chảy chuyển động tự do)
+c7180371c138	Không (saccharose không điện li)
+51df6b6b4a1e	Độ dẫn điện
+a55fa7054e0c	Ion chủ yếu
+d7029d6a4142	Gần như không có (nước nguyên chất rất yếu)
+4abf2df6ddd8	Na⁺, Cl⁻
+b8f7dc0c6bc8	K⁺, NO₃⁻
+a5e43563b19d	Không (chất không điện li)
+2c1d27e6edf0	H⁺, Cl⁻ (mỗi loại 0.10 mol/L)
+036a19c243d2	CH₃COO⁻, H⁺ (α 1.32 %)
+0ea613e76236	Ba\xB2⁺, OH⁻
+2265acaae112	Gần như không có (phản ứng vừa đủ)
+77d9179f8223	H⁺, SO₄\xB2⁻ (acid dư)
+015b8d7ae762	Ba\xB2⁺, Cl⁻
+107b0ea96479	Ba\xB2⁺, Cl⁻, OH⁻ (đang giảm)
+0b5661ee54a5	HCl
+2506ef05c07e	Acetic acid
+11a10d2cb07f	Dung dịch Ba(OH)₂
+1165d986fde4	Trạng thái
+52d656f54ffb	Chất rắn khô
+78a6a9a1cf79	Dung dịch nước
+ba800cfb4694	Đun nóng chảy
+e97e52371877	Nồng độ
+77465be88e3f	Thể tích nhỏ vào
+9e43d4589430	Dung dịch chuẩn
+001db67eb11a	HCl loãng (đối chứng)
+e2d69e900896	Nguồn điện
+55ffdc418d0e	— dung dịch chuẩn hiện tại \xB7
+91242803ac43	loại kia \xB7
+c706a2f59114	Nhỏ đến 10.0 mL, dòng ≤ 2 mA
+9984c4c0acb7	Mục tiêu: nhỏ H₂SO₄ loãng vào dung dịch Ba(OH)₂, tìm điểm dòng điện thấp nhất; chọn dung dịch chuẩn là H₂SO₄ loãng, thể tích nhỏ vào 10.0 mL (\xB10.5 mL), giữ dòng điện ≤ 2 mA trong 15 giây
+94b436505606	(đồ thị bài tập 9 SGK)
+54ac54ec6c4a	Đoạn chuẩn độ cố định nồng độ
+14617ed6ba08	Chất điện li
+d16dab3b7b73	Phát biểu nào sau đây đúng
+dd8fedc1f2d1	KNO₃ rắn không dẫn điện nên KNO₃ không phải chất điện li
+2fe46386f2ab	Dây đồng, than chì đều dẫn điện nên chúng đều là chất điện li
+cc1a805b6233	MgCl₂ nóng chảy dẫn điện được nên MgCl₂ là chất điện li
+ad972e1748ae	NaCl tan trong nước, phải có dòng điện mới điện li được
+bccd2b6aee47	Chất điện li là “hợp chất dẫn được điện trong dung dịch nước hoặc ở trạng thái nóng chảy”; KNO₃ rắn không dẫn điện vì ion không chuyển động tự do được, nóng chảy thì dẫn điện, chứng tỏ nó là chất điện li. Dây đồng, than chì là đơn chất; điện li không cần dòng điện (bắt buộc tập 1 tr. 20 bài tập 2).
+b4a437bd0c7b	Điện li
+386142f7cee9	Phương trình điện li nào sau đây đúng
+1b408d0e15cf	H₂SO₄ phải viết 2H⁺ + SO₄\xB2⁻; chất điện li yếu CH₃COOH dùng dấu thuận nghịch; ion nitrate trong KNO₃ là NO₃⁻. Chất điện li mạnh điện li hoàn toàn, dùng dấu bằng (bắt buộc tập 1 tr. 16).
+fb6d76d2efae	Dẫn điện
+ac136260a1f2	HCl và acetic acid cùng thể tích, cùng nồng độ có khả năng dẫn điện khác nhau rõ rệt, nguyên nhân chính là
+b4b82dbc0886	Acetic acid không trộn lẫn với nước
+60992291c735	Acetic acid chỉ điện li một phần, nồng độ ion trong dung dịch nhỏ
+c8da38ec4040	Phân tử acetic acid lớn hơn phân tử HCl
+e31a6bccabab	HCl là acid, acetic acid không phải acid
+e7867361f9a1	Khả năng dẫn điện phụ thuộc nồng độ và điện tích của ion chuyển động tự do. HCl điện li hoàn toàn, CH₃COOH chỉ điện li khoảng 1.32 % (α = √(Ka/c)), nồng độ ion nhỏ hơn nhiều (lựa chọn bắt buộc 1, thí nghiệm 3-1).
+ace0ecbde6ff	Nhỏ từng giọt H₂SO₄ loãng vào dung dịch Ba(OH)₂, khả năng dẫn điện giảm rồi tăng, nguyên nhân là
+f33f7f060643	BaSO₄ không phải chất điện li, kết tủa tạo ra không dẫn điện
+e917792d0efa	Ba\xB2⁺ và OH⁻ bị kết tủa và trung hoà kéo đi, khi phản ứng vừa đủ ion ít nhất, sau đó H₂SO₄ loãng dư điện li ra ion
+497306cd60ef	Lượng nước tăng nên khả năng dẫn điện tăng
+f7b094271766	Nhiệt độ tăng làm ion chuyển động nhanh hơn
+a647f03518c4	BaSO₄ khó tan nhưng phần tan được điện li hoàn toàn, nó vẫn là chất điện li mạnh; khả năng dẫn điện giảm vì ion chuyển động tự do trong dung dịch bị kết tủa và trung hoà kéo đi. Sau khi phản ứng vừa đủ, H₂SO₄ loãng dư điện li ra H⁺ và SO₄\xB2⁻, khả năng dẫn điện tăng trở lại (bắt buộc tập 1 tr. 21 bài tập 9
+29d38e738917	Phản ứng ion
+a1ccee47c0c5	Phương trình ion của phản ứng giữa dung dịch Ba(OH)₂ và H₂SO₄ loãng là
+aa6d4f40249f	Chất dễ tan và dễ điện li viết dạng ion: Ba(OH)₂ tách thành Ba\xB2⁺ + 2OH⁻, H₂SO₄ tách thành 2H⁺ + SO₄\xB2⁻; BaSO₄ khó tan, H₂O giữ nguyên công thức. Trả lời “Ba\xB2⁺ + SO₄\xB2⁻ = BaSO₄↓” là bỏ sót phản ứng trung hoà (bắt buộc tập 1 tr. 18, ba bước viết).
+bdf1cab1ec1c	Di chuyển
+03fe34bc498e	Sau khi bật nguồn, chiều chuyển động của ion trong dung dịch NaCl là
+b642f0142a23	Na⁺ và Cl⁻ đều về phía cực âm
+90b633b0530d	Na⁺ về phía cực dương, Cl⁻ về phía cực âm
+c1656055cd77	Na⁺ về phía cực âm, Cl⁻ về phía cực dương
+740c8b1d7073	Ion trong dung dịch không chuyển động, chỉ electron chuyển động
+dcc6e7657120	Ion sodium hydrate hoá mang điện dương di chuyển về điện cực nối với cực âm của nguồn, ion chloride hydrate hoá mang điện âm di chuyển về điện cực nối với cực dương (bắt buộc tập 1 tr. 16 hình 1-12).
+86d964d56ca7	Dung dịch chuẩn đổi sang H₂SO₄ loãng: tạo kết tủa BaSO₄, dòng điện sẽ giảm rồi tăng
+88508c82957c	Dung dịch chuẩn đổi sang HCl loãng: chỉ trung hoà, không kết tủa (đối chứng do bài thêm, SGK không làm), dòng điện chỉ giảm nhẹ do pha loãng, không có điểm thấp nhất
+7ea94964c309	Đã bật nguồn: mạch kín
+d6b260cee75e	Đã ngắt nguồn: dòng điện bằng 0 nhưng độ dẫn điện của dung dịch không đổi; cái bị ngắt là mạch điện, không phải sự điện li
+86dd3574e04e	Bất thường: dung dịch chuẩn bị đẩy lên 20.0 mL, dòng điện trở lại 18 mA; hãy kéo về 10.0 mL
+6f26bbc1eb0d	Đã về chế độ tham chiếu: dung dịch NaCl 0.10 mol/L \xB7 đã bật nguồn (15 mA)
+dc3fdd7fc9eb	Đạt: khả năng dẫn điện \xB7 tìm được điểm cuối
+bffa8c47133d	Mục tiêu bài: trước hết so sánh chất rắn khô với chất nóng chảy (chất điện li xét “trong dung dịch nước hoặc ở trạng thái nóng chảy”), rồi xem ion được giải phóng khỏi tinh thể ra sao; tiếp đến so sánh chất điện li mạnh, yếu cùng nồng độ; cuối cùng nhỏ H₂SO₄ loãng, đọc ra “phản ứng vừa đủ” từ điểm thấp nhất của đồ thị khả năng dẫn điện: ion bị kết tủa kéo đi thì dòng điện tụt xuống.
+39ac1369a0f5	Lưu ý minh hoạ: thang đo và độ chia ampe kế (0–30 mA / 0–300 mA), điện áp nguồn 1.5 V, điện trở hạn dòng 60 Ω, hằng số điện cực 50 m⁻\xB9, nồng độ chất điện li (SGK chỉ ghi “dung dịch loãng”, 0.10 mol/L lấy theo lựa chọn bắt buộc 1, thí nghiệm 3-1), nồng độ và thể tích Ba(OH)₂ và H₂SO₄ loãng, các giá trị độ dẫn điện đều là minh hoạ (giá trị đặt cho bài); đoạn vạch chia của burette được nén theo tỉ lệ 1/2.8 (burette 50 mL thật dài khoảng 0.5 m), một ampe kế phục vụ hai thí nghiệm và kẹp cá sấu chuyển sang cốc tương ứng khi đổi “chất”, cốc chuẩn độ dựng theo 100 mL còn độ dày lớp kết tủa là minh hoạ; hình dạng đồ thị (giảm rồi tăng, điểm thấp nhất tại chỗ phản ứng vừa đủ) lấy từ SGK Nhân Giáo (Trung Quốc) 2019, bắt buộc tập 1, bản in tr. 21 bài tập 9, số đọc cụ thể được tính theo
+732d4a471627	cλ\xB0 và I = U/(Rngoài + K/
+5fffcc82ba82	) ra giá trị mô hình; độ dẫn điện mol giới hạn của ion lấy theo sổ tay CRC.
+3f09ff48ea5b	Sự điện li của chất điện li, tính dẫn điện của dung dịch và bản chất phản ứng ion · Bài giảng tương tác 3D

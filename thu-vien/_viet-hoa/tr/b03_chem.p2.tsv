@@ -1,0 +1,229 @@
+11021687eb2d	C.steps[${N}].cam.pitch=${I.cam.pitch}\xB0 không nằm trong CAMERA.polar ${p.polar[0]}–${p.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+e7891d650b45	Lắp mô hình quả cầu – que để tìm hiểu cấu trúc phân tử hợp chất hữu cơ
+5c967a48e445	Mô phỏng nguyên lí và hiện tượng
+02452aab803a	Bắt buộc tập 2 \xB7 Chương 7, Hoạt động thí nghiệm 8
+021db0781599	Carbon hoá trị bốn: mỗi carbon tạo 4 liên kết cộng hoá trị
+80e3b0e48c11	Phân tử vẽ trên giấy thì phẳng, vậy hình dạng ba chiều thật của nó ra sao? Lắp một mô hình quả cầu – que sẽ thấy được gì?
+f39a0cc2f898	Carbon hoá trị bốn
+246b9fcfe04d	Mỗi carbon nối 4 liên kết, mỗi hydrogen nối 1
+c8396f55be10	Tứ diện đều
+880d6ff246f2	Góc giữa 4 liên kết của methane là 109\xB028′
+1aa0b0872838	Liên kết đơn quay được
+357bdacfe9a9	Liên kết σ quay quanh trục liên kết mà không đứt, liên kết π thì không
+e007112e3804	Mạch carbon và đồng phân
+6e7aa251ddab	Carbon nối thành mạch, cùng công thức phân tử có thể có hai bộ khung
+ecdbcdfe4a02	Không no
+e438c2d67b4c	Liên kết đôi 120\xB0 đồng phẳng, liên kết ba 180\xB0 thẳng hàng, benzene các cạnh bằng nhau
+9cfeebb5db4d	Hộp linh kiện
+0410c720644b	Linh kiện
+9f3e0f60dadf	Quả cầu carbon có 4 khớp nối, quả cầu hydrogen có 1 khớp; trong hộp còn có quả cầu chlorine và que dài, que ngắn
+f154679c36c7	Methane
+e6867f19aa43	Tứ diện đều: carbon ở tâm, 4 hydrogen ở 4 đỉnh
+d85d4033827d	Alkane
+707dfd56502c	Carbon có thể nối tiếp nhau thành mạch, góc liên kết vẫn y như cũ
+07da6e9d43d1	Hydrocarbon không no
+a889d63f6d59	Liên kết đôi ép các nguyên tử về một mặt phẳng, liên kết ba ép chúng thành một đường thẳng
+1875b513e64e	Benzene
+2abe64e986b4	Lục giác đều phẳng, 6 liên kết carbon–carbon hoàn toàn như nhau
+1a48a3f85786	Quả cầu carbon 4 khớp
+7b6f24b35d10	Methane \xB7 Tứ diện đều
+64dcdee350f2	Ethane \xB7 Propane \xB7 Butane
+c9fe804688f7	Ethylene \xB7 Acetylene
+8a14cec15f15	Benzene \xB7 Lục giác đều phẳng
+78feb254bee1	Liên kết đôi, ba: không quay quanh trục được (góc nhị diện luôn bằng 0\xB0)
+2cf2b04626be	Vì sao quả cầu carbon trong hộp có 4 khớp, còn quả cầu hydrogen chỉ có 1?
+0d67f92124fc	Bấm vào quả cầu carbon phóng to trước hộp, xem 4 khớp của nó
+662f1674efb4	Cả 4 khớp cùng sáng lên; quả cầu hydrogen chỉ có 1 khớp, đúng với việc carbon tạo 4 liên kết, hydrogen tạo 1 liên kết
+894540ad5ef4	Nguyên tử carbon có 4 electron lớp ngoài cùng, tạo được 4 liên kết cộng hoá trị; hydrogen chỉ tạo được 1. Đó chính là “carbon hoá trị bốn”, nên công thức phân tử của alkane mạch hở là C
+c7fa4f31308e	₂.
+36389fb3e59f	facts A3.11, A3.12, A3.4
+b5f83e4578bd	Nguyên tử carbon dùng 4 electron lớp ngoài cùng tạo 4 liên kết cộng hoá trị với các nguyên tử khác.
+cad22d73688d	Carbon với carbon cũng liên kết được với nhau, có thể là liên kết đơn, đôi hoặc ba.
+66a3dc4e8257	Nguyên tử hydrogen chỉ tạo được 1 liên kết cộng hoá trị, nên quả cầu hydrogen chỉ có 1 khớp.
+d0e9c7be16b4	Bỏ bước này: sẽ tưởng số khớp chỉ là kiểu dáng, không biết carbon hoá trị bốn là ràng buộc bắt buộc khi lắp mô hình.
+25737101cff7	Trọng tâm thi: carbon hoá trị bốn; công thức chung của alkane mạch hở C
+9de727ec77a6	₂ (alkane mạch hở)
+aa705f5ecea5	Carbon 4 liên kết \xB7 Hydrogen 1 liên kết
+cf838a6b72a8	Cầu carbon 4 khớp
+96fd090be293	Cầu hydrogen 1 khớp
+f44600bd305f	Mạch carbon
+eaf061ddcf6d	Dựa vào đâu mà nói 4 hydrogen của methane hoàn toàn như nhau?
+da5d0792f386	Xoay methane một vòng, xem 4 hydrogen có thật sự to như nhau, xa như nhau không
+806c5e3e3b29	Xoay tới góc nào, 4 liên kết C—H cũng dài bằng nhau, 6 góc H—C—H đều là 109\xB028′; 5 nguyên tử thế nào cũng không trải phẳng được (chuyển sang “mô hình đặc” để đối chiếu với kiểu mô hình còn lại trong SGK hình 7-5)
+96f7d6c009db	Methane có dạng tứ diện đều: carbon ở tâm, 4 hydrogen ở 4 đỉnh, góc liên kết 109\xB028′ (tức 109.47\xB0), 5 nguyên tử không cùng nằm trên một mặt phẳng. Chính vì 4 đỉnh hoàn toàn tương đương nên 4 hydrogen mới hoàn toàn như nhau. (Giá trị góc liên kết xem lựa chọn bắt buộc tập 2 “Cấu trúc và tính chất của chất”; bắt buộc tập 2 chỉ yêu cầu “góc giữa 4 liên kết bằng nhau”.)
+7b288610d702	facts A3.1, A3.2, A2
+868a46a61c5f	Methane không phải hình vuông phẳng mà là tứ diện đều.
+687f790335f3	4 liên kết C—H đều dài 109 pm, 6 góc H—C—H đều là 109\xB028′.
+4fe3f451df28	5 nguyên tử không cùng nằm trên một mặt phẳng.
+f8695130967a	Bỏ bước này: sẽ hình dung methane là hình vuông phẳng, sang bước sau sẽ đoán sai dichloromethane.
+811d6903c209	Trọng tâm thi: cấu trúc tứ diện đều của methane, góc liên kết 109\xB028′.
+e65f120e67ba	Tứ diện đều \xB7 Carbon ở tâm
+9b7ea38dad57	5 nguyên tử không đồng phẳng
+afe468a61d61	Dichloromethane
+7db84b7b3bad	Thay hai hydrogen của methane bằng chlorine, có mấy cách lắp?
+37c251fa2033	Gạt “thế chlorine” sang bật, xem hai quả cầu xanh lục xếp thế nào
+71c06c7b9e55	Hai quả cầu chlorine xuất hiện; xoay thế nào thì vị trí tương đối của hai chlorine cũng như nhau, chỉ có một cách xếp
+88a64bf31e70	Dichloromethane chỉ có một cấu tạo, không có đồng phân: mô hình lắp theo tứ diện đều, 4 đỉnh hoàn toàn tương đương, thay hai hydrogen nào cũng ra cùng một cấu tạo. Câu 2 phần [Vấn đề và thảo luận] của Hoạt động thí nghiệm 8 trong SGK chính là dùng mô hình quả cầu – que để kiểm chứng điều này.
+da279c1d4060	facts A3.9, A3.10, A7.1, A7.2
+ed7109f2f52b	4 đỉnh tứ diện đều tương đương, thay hai hydrogen nào cũng được cùng một phân tử.
+d19aa8f0edb5	Mô hình lắp theo tứ diện đều, 4 đỉnh tương đương; thay hai H nào cũng là cùng một cấu tạo. (Mở rộng: CH₂Cl₂ thật không phải tứ diện đều, góc Cl—C—Cl khoảng 112\xB0, nên bài này không báo góc liên kết cho nó.)
+d8cd1cce8af7	Nếu methane thật là hình vuông phẳng thì dichloromethane sẽ có hai cấu tạo: kề nhau và đối nhau.
+ddc1b34788cd	Bỏ bước này: mô hình chỉ còn để ngắm, không học được cách dùng mô hình loại trừ cấu trúc sai.
+96d6fdbadd2b	Trọng tâm thi: dichloromethane không có đồng phân (lỗi sai hay gặp).
+422b018a3401	CH₂Cl₂ \xB7 Chỉ một cấu tạo
+c2088f134283	4 đỉnh tứ diện đều tương đương
+8cb7b76e524a	Các đỉnh tứ diện tương đương
+dcb2167dbab1	Không có đồng phân
+e6af6203119d	Vặn liên kết C—C của ethane một chút, phân tử có còn là phân tử cũ?
+9e770e8f0618	Kéo “góc quay liên kết đơn C—C” đến 180\xB0
+6e6fe82513ba	Góc nhị diện quay từ 0\xB0 đến 180\xB0, nhưng 4 góc H—C—C luôn là 109\xB028′, hình dạng phân tử không đổi
+f0927262af71	Liên kết đơn C—C có thể quay tự do quanh trục liên kết; thứ quay chỉ là các tư thế khác nhau của cùng một phân tử, bản thân phân tử không đổi, không tính là đồng phân. Liên kết đôi, ba thì không quay được; đó là lí do ethylene bị ép về một mặt phẳng, acetylene bị ép thành một đường thẳng.
+6182dfbb0bdd	facts A5.1, A5.2, A5.4, A5.6
+8acff9e622b9	Liên kết đơn có thể quay quanh trục liên kết, trong khi quay liên kết hoá học không bị phá vỡ.
+0e9e9ca53c1d	Quay chỉ làm đổi cấu dạng, phân tử vẫn là phân tử đó.
+be0322c8a885	(Mở rộng \xB7 lựa chọn bắt buộc tập 3 tr. 6) Liên kết đơn là liên kết σ, liên kết σ quay được quanh trục liên kết; liên kết đôi, ba có liên kết π, liên kết π không quay được quanh trục liên kết.
+2702be77a810	Bỏ bước này: sẽ nhầm “quay một cái” là tạo ra chất mới.
+0b5d3a453754	Trọng tâm thi: liên kết σ quay được quanh trục liên kết, liên kết π chắc chắn không.
+a9c14c9db83e	Liên kết σ quay được quanh trục
+7cd2ae7abb06	Liên kết đơn quay được \xB7 đôi, ba không quay được
+a930140ae3bc	Cấu dạng
+8a5e78f33399	Các nguyên tử carbon có nối tiếp nhau mãi được không?
+0e9f3102e555	Kéo “phân tử hiện tại” từ ethane lần lượt đến butane
+59a26801db12	Số nguyên tử 8 → 11 → 14, công thức phân tử lần lượt C₂H₆ → C₃H₈ → C₄H₁₀, nhưng góc liên kết luôn là 109\xB028′
+1e6e42b02836	Các nguyên tử carbon có thể nối với nhau thành mạch, mạch càng dài càng nhiều nguyên tử; công thức chung của hydrocarbon no mạch hở là C
+1d994fa5dcd0	₂. Mạch dài ra, nhưng mỗi carbon vẫn là tứ diện, góc liên kết vẫn là 109\xB028′.
+19afd3ffe1f7	facts A3.4, A6.4, A2
+f8d5e117cbb2	Carbon có thể nối thành mạch thẳng, cũng có thể thành bộ khung có nhánh hoặc mạch vòng.
+46f249c45629	Số nguyên tử tăng theo số nguyên tử carbon, góc liên kết luôn không đổi.
+ec4e056f42f6	Công thức chung của alkane mạch hở C
+619737f4bf7e	₂, hai chất đồng đẳng kế tiếp hơn kém nhau một nhóm CH₂.
+c4f5375678f1	Bỏ bước này: sẽ tưởng phân tử càng lớn thì góc liên kết càng lớn.
+febddef3f818	Trọng tâm thi: công thức chung của alkane C
+77eecb976243	₂, chất đồng đẳng.
+fa5b39e02f03	₂ \xB7 Đồng đẳng hơn kém CH₂
+0e5656722d70	Mỗi carbon vẫn là tứ diện
+b259c5773a13	Ethane 8 nguyên tử
+7e3aa5d8f351	Propane 11 nguyên tử
+f964dc76bc0f	Butane 14 nguyên tử
+b96d37a9ec5e	Đồng phân
+8001262fca5a	Cùng 4 carbon, 10 hydrogen, sao lại lắp ra được hai phân tử khác nhau?
+bc6599680f49	Gạt “nhánh” sang bật, đổi butane mạch thẳng thành mạch có nhánh
+7e1711b192bd	Số nguyên tử vẫn là 14, công thức phân tử vẫn là C₄H₁₀, độ dài và góc liên kết đều không đổi; thứ thay đổi là bộ khung carbon: nhóm methyl ở đầu mạch từ 2 thành 3
+e18e901c766b	Hai hợp chất có cùng công thức phân tử nhưng khác cấu tạo là đồng phân của nhau: butane mạch thẳng, isobutane có nhánh. Bộ khung khác nên tính chất cũng khác: nhiệt độ sôi của butane là
+118cedbeff29	0.5 ℃, của isobutane là
+3aa5a4892001	11.6 ℃.
+a265255931be	facts A6.1, A6.2, A6.3
+c568259045b4	Đồng phân: cùng công thức phân tử, khác cấu tạo.
+344c19400586	Butane mạch thẳng, isobutane có nhánh; nhóm methyl đầu mạch 2 so với 3.
+1fd7a6256c46	Nhiệt độ sôi của hai chất khác nhau:
+977ff724a5ee	0.5 ℃ so với
+3d75abee202a	Bỏ bước này: sẽ tưởng cùng công thức phân tử là cùng một chất.
+49fc1128f843	Trọng tâm thi: hiện tượng đồng phân (bắt buộc tập 2, hình 7-7).
+100bd55d7f6f	C₄H₁₀ có hai cấu tạo
+b9ce9d5157ef	Bộ khung khác nhau
+1515296dab42	Nhiệt độ sôi
+22d0daad4153	Methyl đầu mạch 2 / 3
+df17609dc827	Ethylene và acetylene
+e2a5c19be0e0	Vì sao 6 nguyên tử của ethylene chen trên một mặt phẳng, còn 4 nguyên tử của acetylene xếp thành một đường thẳng?
+154847f8e9c9	Kéo “phân tử hiện tại” từ ethylene sang acetylene
+1adb3659987c	Ethylene: cả 6 nguyên tử nằm trên cùng một mặt phẳng, góc liên kết 120\xB0, C=C 133 pm; chuyển sang acetylene: 4 nguyên tử nằm trên một đường thẳng, góc liên kết 180\xB0, C
+58980dcf2bc6	Trong ethylene, giữa hai carbon là liên kết đôi, không quay được, 6 nguyên tử bị khoá trên cùng một mặt phẳng, góc liên kết khoảng 120\xB0; trong acetylene là liên kết ba, càng không quay được, 4 nguyên tử bị khoá thành một đường thẳng, góc liên kết 180\xB0. Kéo “góc quay liên kết đơn C—C” thì chúng đứng yên; chỉ liên kết đơn như ở ethane mới quay được.
+145c8fa2d2d6	facts A3.5, A3.6, A5.2, A7.3
+b61b45f140f7	6 nguyên tử của ethylene đồng phẳng, góc liên kết khoảng 120\xB0.
+0c38d2672a13	4 nguyên tử của acetylene thẳng hàng, góc liên kết 180\xB0.
+edbca1015525	C=C 133 pm, C
+82def87865ec	C 120 pm, liên kết ba ngắn hơn liên kết đôi.
+1d981e9e2dea	(Mở rộng \xB7 lựa chọn bắt buộc tập 3 tr. 34, tr. 37) Liên kết đôi gồm 1 liên kết σ + 1 liên kết π, liên kết ba gồm 1 liên kết σ + 2 liên kết π; nguyên tử carbon lần lượt lai hoá sp\xB2, sp.
+b8387f022209	Bỏ bước này: rất dễ nhớ lẫn hình dạng không gian của ethylene và acetylene.
+687a4f6607c1	Trọng tâm thi: ethylene có dạng phẳng, acetylene có dạng đường thẳng.
+bbe010cfd822	C₂H₄ phẳng \xB7 C₂H₂ thẳng
+f8a07d11757a	Liên kết đôi, ba đều không quay được
+24bb9f2e7f31	Đồng phẳng
+e9034dc08a05	Thẳng hàng
+467d57da033e	Vì sao nói 6 liên kết carbon–carbon của benzene dài hoàn toàn bằng nhau?
+70d662108504	Xoay benzene một vòng, xem 12 nguyên tử có cùng nằm trên một mặt phẳng không
+694772acfcb9	Xoay tới góc nào, 12 nguyên tử cũng nằm sát mặt phẳng đó; 6 liên kết C—C đều dài 139 pm, 6 góc giữa các liên kết đều là 120\xB0
+b7684bcf9fd8	Benzene là lục giác đều phẳng, 12 nguyên tử đồng phẳng, các góc liên kết đều là 120\xB0. 6 liên kết carbon–carbon hoàn toàn như nhau, đều dài 139 pm, nằm đúng giữa liên kết đơn 154 pm và liên kết đôi 133 pm; vì vậy trong benzene không có liên kết đơn, đôi xen kẽ.
+5d6d099d830e	facts A3.7, A3.8, A7.4, A7.9
+2ae10ede004e	12 nguyên tử của benzene đồng phẳng, lục giác đều, các góc liên kết đều là 120\xB0.
+34b55f9d11d7	6 liên kết carbon–carbon dài bằng nhau, đều là 139 pm.
+a198d5208c4d	139 pm nằm giữa liên kết đơn 154 pm và liên kết đôi 133 pm.
+c07741355d70	Bỏ bước này: sẽ tưởng trong benzene liên kết đơn, đôi xen kẽ, độ dài lúc dài lúc ngắn.
+5c42c9eb98d1	Trọng tâm thi: cấu trúc lục giác đều phẳng của benzene và độ dài liên kết 139 pm.
+bb908aba9077	C₆H₆ \xB7 Lục giác đều phẳng \xB7 120\xB0
+4df1e8014182	6 liên kết C–C hoàn toàn như nhau \xB7 139 pm
+7fe48f07114d	Đến lượt em lắp: gọi ra cấu tạo còn lại của C₄H₁₀
+26933deeb559	Trên bảng điều khiển, gạt “nhánh” sang bật để butane thành isobutane, giữ 12 giây
+184e7d4de74e	Thanh mục tiêu chuyển xanh, mô hình dừng ở isobutane có nhánh
+1e06875a6072	Alkane 4 carbon có hai cấu tạo: butane mạch thẳng, isobutane có nhánh. Chúng đều có công thức phân tử C₄H₁₀ nhưng bộ khung khác nhau, là hai hợp chất khác nhau.
+9ad9b1147c84	facts A6.1, A6.5, B1.1
+d04134b6b486	Cùng công thức phân tử, khác cấu tạo, chính là đồng phân.
+7d19c4a2d0bc	Alkane 4 carbon có hai cấu tạo.
+41611f0d08a3	Bộ khung carbon khác thì tính chất vật lí khác.
+2ff806a7f120	Chưa qua kiểm tra cuối bài thì quay lại bước 6, xem lại khác biệt giữa hai bộ khung.
+7b58426ae989	Kiểm tra cuối bài: gạt butane thành isobutane và giữ nguyên.
+e3ee7f9a4dd9	C₄H₁₀ hai cấu tạo
+d1b522826a58	Chọn butane + đổi khung sang isobutane
+d221fdce0597	Đang chọn butane
+167089b73c6e	Isobutane
+ff7119e83a0d	Phân tử hiện tại
+ed65ee9f35f0	Góc quay liên kết đơn C—C
+96c8e125c64b	Nhánh
+6c6cb3d7da12	Mô hình đặc
+f73463fcb0e3	Thế chlorine
+e22b46e61b96	Góc liên kết
+55181c007aaa	Số nguyên tử
+9f9b04c70d41	Độ dài liên kết C–C
+8fbc36cd129b	Công thức phân tử
+d3e5f754ae51	Giá trị SGK \xB7 số đọc chính đổi theo phân tử
+7e6ba21757f5	Giá trị SGK
+06b21970980c	Theo bảng dữ kiện
+f3cf08eeb7a1	Khoảng 120\xB0
+88b235559cb6	Độ dài liên kết C–C\xB7bậc liên kết càng cao càng ngắn
+572e20ccf86b	— đơn/đôi/ba \xB7
+db27cf30d803	Butane
+c1146bb7d03b	Mô hình đặc
+a74a96b8dcda	Quả cầu – que
+c4f442973032	Ethane
+5f616d0537be	Propane
+fe3214f20f9f	Butane
+74662dcaee3c	Ethylene
+83a00b608ba9	Acetylene
+bc1ccc1257c5	Toàn cảnh \xB7 Một bàn thí nghiệm
+efc5f4b3b069	Cấu trúc không gian của phân tử methane là
+7e033a6f76a2	Hình vuông phẳng, góc liên kết 90\xB0
+4ef8a2e64734	Tứ diện đều, góc liên kết 109\xB028′
+dd16b5123abb	Tam giác phẳng, góc liên kết 120\xB0
+849f2d3bcee3	Đường thẳng, góc liên kết 180\xB0
+59983523ab4d	5 nguyên tử của methane không cùng nằm trên một mặt phẳng, carbon ở tâm tứ diện đều, 4 hydrogen ở các đỉnh, góc liên kết 109\xB028′.
+38faf907309a	Dichloromethane CH₂Cl₂ có mấy cấu tạo?
+5ac103e5b6e9	1 cấu tạo
+6c7790605e86	2 cấu tạo (kề nhau, đối nhau)
+b10ae01b7b19	3 cấu tạo
+aa4b6d6c50d7	4 cấu tạo
+327c9ed2105c	4 đỉnh của tứ diện đều hoàn toàn tương đương, thay hai hydrogen nào cũng được cùng một phân tử, nên chỉ có một cấu tạo.
+f622a0a062f2	Quan hệ vị trí của 6 nguyên tử trong phân tử ethylene là
+9a68ed6421da	4 hydrogen đồng phẳng, hai carbon nằm ngoài mặt phẳng
+0d8d189bbca2	6 nguyên tử đồng phẳng, góc liên kết khoảng 120\xB0
+ce3089af125c	4 nguyên tử thẳng hàng
+2a9f1c97d514	6 nguyên tử thẳng hàng
+3f7c6a6ce115	Nguyên tử carbon trong ethylene lai hoá sp\xB2, góc giữa các liên kết kề nhau khoảng 120\xB0, mọi nguyên tử trong phân tử đều nằm trên cùng một mặt phẳng.
+d3cabd38e732	Về liên kết carbon–carbon trong phân tử benzene, phát biểu đúng là
+4ba0a003f20e	Liên kết đơn, đôi xen kẽ, độ dài lúc dài lúc ngắn
+9546272aeaf7	6 liên kết carbon–carbon hoàn toàn như nhau, dài 139 pm
+8fe462e003f7	6 liên kết carbon–carbon đều là liên kết đơn, 154 pm
+f49374d5b328	6 liên kết carbon–carbon đều là liên kết đôi, 133 pm
+cc8b62cd2a64	Benzene là lục giác đều phẳng, 6 liên kết carbon–carbon hoàn toàn như nhau, đều dài 139 pm, nằm giữa liên kết đơn 154 pm và liên kết đôi 133 pm.
+27322dfc9e2d	Butane và isobutane là đồng phân của nhau, căn cứ là
+13f530fe68af	Phân tử khối bằng nhau, tính chất giống nhau
+8071704be0cb	Cùng công thức phân tử, khác bộ khung carbon
+4fca039849f8	Nhiệt độ sôi bằng nhau, nhiệt độ nóng chảy khác nhau
+fc09b2cac696	Đều cháy tạo carbon dioxide và nước
+bf9f5b4d2273	Cả hai đều có công thức phân tử C₄H₁₀, nhưng một chất mạch thẳng, một chất có nhánh, cấu tạo khác nhau, nên là đồng phân của nhau.
+201c41251a61	Xoay, phóng to/thu nhỏ bàn thí nghiệm
+552fa2e0e1a4	Về bảng điều khiển
+64ca377a12ab	Dùng mô hình quả cầu – que để hiểu hình dạng ba chiều của phân tử hữu cơ: carbon hoá trị bốn, tứ diện đều, đồng phân, liên kết đôi đồng phẳng, liên kết ba thẳng hàng, vòng sáu cạnh đều của benzene.
+4dd0f05edbad	Lưu ý minh hoạ: đường kính quả cầu và tỉ lệ của mô hình quả cầu – que và mô hình đặc được phóng to minh hoạ, độ dài và góc liên kết dựng theo số liệu SGK.
+011f19909d33	Gọi ra cấu tạo còn lại của C₄H₁₀
+50a892fbc3d8	Chọn “phân tử hiện tại” là butane, rồi bật “nhánh”, mô hình sẽ đổi thành isobutane có nhánh
+19933cf2146a	Lắp mô hình quả cầu – que để tìm hiểu cấu trúc phân tử hợp chất hữu cơ · Bài giảng 3D tương tác

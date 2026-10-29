@@ -1,0 +1,277 @@
+957e17692a0c	C.steps[${N}].cam.pitch=${I.cam.pitch}\xB0 không nằm trong CAMERA.polar ${m.polar[0]}–${m.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+447a1cf605d9	SGK Nhân Giáo (Trung Quốc) 2019, lựa chọn bắt buộc tập 1, chương 4, mục 2 “Bình điện phân” + thí nghiệm 4-2 + điện phân nước muối bão hoà
+4c6055c14dfa	Nguyên lí điện phân: điện phân dung dịch đồng(II) chloride và nước muối bão hoà
+746851e08d6a	Cu\xB2⁺ + 2Cl⁻ =điện phân= Cu + Cl₂↑ | 2Cl⁻ + 2H₂O =điện phân= Cl₂↑ + H₂↑ + 2OH⁻
+0c15dbcd54c9	Cùng một nguồn điện một chiều, sao điện phân dung dịch đồng(II) chloride thu được đồng và chlorine, còn điện phân nước muối bão hoà lại thu được hydrogen, chlorine và sodium hydroxide?
+6cd7c5ebbf4a	Có dòng điện mới điện phân
+80f823f88a22	Bình điện phân biến điện năng thành hoá năng; ngắt nguồn là hai cực không tạo chất mới nữa
+524a68c4f444	Ion di chuyển có hướng
+96a573f639f7	Anion về anode, cation về cathode; electron chỉ đi ở mạch ngoài, không vào dung dịch
+7b742803306a	Ion nào phóng điện trước
+212497933a8d	Ở anode Cl⁻ nhường electron trước, ở cathode Cu\xB2⁺ hoặc H⁺ nhận electron trước — sản phẩm được quyết định như vậy
+74204893470e	Điện lượng quyết định lượng sản phẩm
+e61f019ce977	Q = I\xB7t; cứ 2 mol electron cho 1 mol Cu (hoặc H₂), đồng thời cho 1 mol Cl₂
+43f0364a5c67	Hai bình điện phân + một khung phóng to minh hoạ
+e1c4c1427769	Toàn cảnh \xB7 hai bình điện phân đặt cạnh nhau trên một bàn thí nghiệm điện hoá, cho cùng dòng điện, xem sản phẩm khác nhau
+e04248d213dd	Đổi chất điện li, đổi anode, chỉnh dòng điện và thời gian, sản phẩm ở hai cực và số đọc cùng thay đổi
+e8915e443b47	Đúng hết! Bốn điều của bình điện phân: anode oxi hoá, cathode khử; anion về anode, cation về cathode; ion nào dễ phóng điện thì cho sản phẩm; lượng sản phẩm chỉ do điện lượng quyết định.
+61bf3382d1c7	Nên xem lại câu hỏi chính: trước hỏi “đã nối nguồn chưa”, rồi “ion đi về phía nào”, tiếp đó “ion nào phóng điện trước”, cuối cùng “đã qua bao nhiêu điện lượng”.
+0f15ee5b2765	Điện phân dung dịch CuCl₂: cathode có đồng màu đỏ bám vào, anode thoát khí chlorine
+5e483ef895f1	Điện phân nước muối bão hoà: bọt khí ở hai cực 1 : 1, vùng cathode có tính kiềm
+2d6e0c6fa865	Nguồn một chiều \xB7 ampe kế \xB7 dây dẫn \xB7 công tắc
+2eaef71470c5	Phóng to minh hoạ \xB7 ion di chuyển + phóng điện trên bề mặt điện cực \xB7 đang xem: bình điện phân hiện tại
+2f3b7bc2d715	Thể tích chlorine ở anode V(Cl₂) – thời gian điện phân
+f5396fd2132d	Điện phân dung dịch CuCl₂ \xB7 CuCl₂ 25% \xB7 hai thanh than chì
+7d644bda39e9	Điện phân nước muối bão hoà \xB7 thanh than chì \xB7 nhỏ phenolphthalein vào vùng cathode
+a7171e3f3428	Nguồn một chiều + ampe kế (vạch chia 0.01 A)
+e4303bfb840b	Điện phân dung dịch CuCl₂
+6a616fa1855b	Anode ← nối cực dương của nguồn
+6207f7dc05ae	Cathode ← nối cực âm của nguồn
+36d2034eb0ad	Anode +
+da219f59295b	Điện phân nước muối bão hoà
+19ad2e8032d5	Phenolphthalein
+717971fd330c	Ống chữ U chứa dung dịch CuCl₂ 25% + hai thanh than chì: cathode phủ một lớp đồng màu đỏ, anode sủi bọt khí màu vàng lục, giấy KI – hồ tinh bột ẩm ở miệng anode hoá xanh
+86f5dedbf78d	Nước muối
+ab7c9f89519a	Ống chữ U chứa nước muối bão hoà không màu + hai thanh than chì: cả hai cực đều sủi bọt khí, thể tích 1 : 1, vùng cathode nhỏ phenolphthalein thì hoá đỏ
+fee61de273d0	Phóng to minh hoạ (ion + electron)
+d7f48a059cf3	Phóng to
+9205c4006765	Cửa sổ tròn lơ lửng: bốn loại ion di chuyển về hai cực, phóng điện trên bề mặt điện cực, mũi tên electron trong dây dẫn (đang xem: bình điện phân hiện tại)
+bf32d1d74048	Làm quen thí nghiệm
+3c6a356c1b77	Kéo góc nhìn, đi một vòng quanh bàn thí nghiệm điện hoá (lăn chuột để phóng to, thu nhỏ)
+97fae62c443d	Có đủ hai bình điện phân:
+c14d01891a84	bàn trái là ống chữ U chứa dung dịch CuCl₂ 25% màu xanh lục + hai thanh than chì + một mẩu giấy KI – hồ tinh bột ẩm ở miệng anode;
+038f7fded947	bàn phải là ống chữ U chứa nước muối bão hoà không màu + hai thanh than chì + một lọ phenolphthalein; phía sau bàn là nguồn một chiều và ampe kế.
+19315797efa7	Khung phóng to minh hoạ treo phía trên. Số đọc chính 0.00 A (chưa nối nguồn), hiện tượng “chưa có dòng điện”
+d750a4a995ab	Bình điện phân: điện năng → hoá năng (phản ứng điện cực \xB7 vật liệu điện cực \xB7 chất dẫn ion \xB7 chất dẫn electron)
+18dc1f7c03b7	Hai bình điện phân \xB7 một bàn thí nghiệm \xB7 không đổi cảnh suốt bài
+db4711a12b73	2 bình điện phân
+0ae92c52be92	Chưa có dòng điện
+13d350667825	Hai thí nghiệm trả lời cùng một câu hỏi: cho cùng dòng điện, trong các dung dịch khác nhau thì ion nào phóng điện trước.
+38fe18804d55	Hai bình đặt đối chiếu trên cùng màn hình, nhìn là so được ngay.
+8ca322a94d8d	Dòng điện, thời gian, lượng sản phẩm trên giao diện đều là giá trị đặt cho bài (số đọc minh hoạ), SGK chỉ nói “dung dịch 25%”, “phủ một lớp đồng màu đỏ”, “giấy thử hoá xanh”.
+e5a58f13a249	Nếu bỏ bước này: học sinh coi hai thí nghiệm là hai chuyện không liên quan, không biết chúng dùng chung một cách tính “bảo toàn điện tích”.
+637003d552d3	Thường thi: bốn yếu tố của bình điện phân (phản ứng điện cực, vật liệu điện cực, chất dẫn ion, chất dẫn electron); chiều chuyển hoá năng lượng của bình điện phân và pin điện hoá.
+a9ed7526fa02	Bình điện phân là thiết bị chuyển trực tiếp điện năng thành hoá năng: cho dòng điện đi qua dung dịch chất điện li, gây ra phản ứng oxi hoá – khử ở anode và cathode (nguyên văn SGK).
+475f4cefcfd3	A2.1, A2.6, A1.3, A6.1, B2.1 bảng giá trị chuẩn 1
+58abbcd059f3	Nối nguồn điện
+02e4fc5e46c5	Sau khi nối nguồn, trên mỗi thanh than chì trong dung dịch CuCl₂ xuất hiện gì?
+d2162d24f478	Bật “Nối nguồn một chiều”, theo dõi hai thanh than chì: thanh nào phủ đồng đỏ, thanh nào sủi bọt, giấy thử đổi thế nào
+cc96eaf7bf96	Thanh nối với cực âm của nguồn (nhánh trái, cathode) dần phủ một lớp đồng màu đỏ; thanh nối với cực dương (nhánh phải, anode) sủi bọt khí; mẩu giấy KI – hồ tinh bột ẩm ở miệng anode hoá xanh. Số đọc chính 0.00 → 0.20 A; sản phẩm ở cathode: đồng 4.0 mg, sản phẩm ở anode: Cl₂ 1.5 mL (điện phân 60 s)
+bc0d31ab8229	Cu\xB2⁺ + 2Cl⁻ =điện phân= Cu + Cl₂↑
+d4cdb8a14de8	Dung dịch CuCl₂ 25% \xB7 hai thanh than chì \xB7 nối nguồn một chiều
+a2299d9baa65	Đồng 4.0 mg
+d3fb7143b6fd	Chất màu đỏ là đồng, sinh ra từ Cu\xB2⁺ trong dung dịch, không phải thanh than chì đổi màu.
+a88b5a05524d	Bọt khí là chlorine: có mùi xốc, oxi hoá potassium iodide tạo iodine, hồ tinh bột gặp iodine hoá xanh — giấy thử hoá xanh chính là bằng chứng của chlorine.
+d7fd5048099d	“Anode / cathode” nói về oxi hoá / khử, còn “cực dương / cực âm” là một cặp tên khác (phương án sai của bài luyện tập 4 vướng đúng chỗ này).
+c8232fdf099c	Nếu bỏ bước này: học sinh sẽ coi “cathode” chính là cực âm của nguồn.
+ca98d3ac552e	Hay thi: phản ứng điện cực và phản ứng tổng khi điện phân dung dịch CuCl₂; mô tả hiện tượng thế nào; nhận biết khí ở anode ra sao.
+e6257821f695	Khi có dòng điện, dung dịch CuCl₂ xảy ra oxi hoá ở anode, khử ở cathode, tạo ra Cu và Cl₂: anode 2Cl⁻
+c8256ab1e6fc	2e⁻ = Cl₂↑ (oxi hoá), cathode Cu\xB2⁺ + 2e⁻ = Cu (khử), phản ứng tổng Cu\xB2⁺ + 2Cl⁻ =điện phân= Cu + Cl₂↑ (nguyên văn SGK).
+c1e0c74e2c04	A2.2, A2.3, A2.5, A2.8, B2.1 bảng giá trị chuẩn 2, D8
+05a2711defec	Điện phân lâu hơn
+e5e101c943c0	Điện phân lâu hơn, hoặc tăng dòng điện, sao sản phẩm lại nhiều hơn? Nhiều hơn bao nhiêu?
+ecae2ab0bbe4	Kéo thời gian điện phân từ 60 s lên trên 300 s, xem đồng ở cathode và chlorine ở anode cùng tăng ra sao; rồi chỉnh dòng điện lên 0.40 A để so sánh
+b8261f353487	Ở 0.20 A: 60 s → đồng 4.0 mg / Cl₂ 1.5 mL; 300 s → 19.8 mg / 7.6 mL; 600 s → 39.5 mg / 15.2 mL; 1800 s → 118.6 mg / 45.7 mL. Dòng điện gấp đôi (0.40 A \xB7 600 s) → 79.0 mg / 30.5 mL, đúng gấp đôi. Đồ thị là một đường thẳng qua gốc toạ độ
+56ac5a9393cb	Q = I\xB7t | m(Cu) = Q\xB7M/(2F)
+f7235a073502	0.20 A \xB7 điện phân 600 s \xB7 đồ thị qua gốc toạ độ
+1f259dd5cacd	Gấp đôi = gấp đôi
+924fb3ca68cc	Màu gần như không đổi
+1dab96c73592	Sản phẩm không theo xu hướng mơ hồ kiểu “điện phân càng lâu càng đậm”, mà là một đường thẳng: thời gian gấp đôi, sản phẩm gấp đôi.
+d52fa63c2cd2	Dòng điện gấp đôi, cũng 600 s, sản phẩm cũng gấp đôi — điện lượng mới là “sổ sách”.
+054952aa0753	Dung dịch CuCl₂ 25% rất đặc, 600 s chỉ làm c(Cu\xB2⁺) giảm 1.7 %, màu gần như không thấy nhạt đi — đó là lí do SGK chỉ cho em xem đồng đỏ và giấy thử.
+072e60b4df65	Nếu bỏ bước này: học sinh tưởng lượng sản phẩm dựa vào “cảm giác”, không biết dùng Q = I\xB7t để tính, gặp bài tính toán là hỏng.
+0be9227f257e	Hay thi: tính toán điện phân (điện lượng → khối lượng / thể tích sản phẩm); quan hệ số mol sản phẩm ở hai cực; vì sao màu dung dịch thay đổi không rõ. Thể tích khí tính ở 25 ℃, Vm = 24.5 L/mol; SGK dùng 22.4 L/mol ở điều kiện tiêu chuẩn, tính lại theo 22.4 sẽ nhỏ hơn ở đây 8.6 %.
+2e3af44dcba0	Điện lượng đi qua Q = I\xB7t quyết định lượng sản phẩm: cứ 2 mol electron thì ở cathode thu được 1 mol Cu, ở anode thoát ra 1 mol Cl₂ (hai phản ứng điện cực trong SGK đều là 2e⁻ cho một hạt).
+af47746ad09b	A2.5, A4.4, B2.1 toán tử 2–4, bảng giá trị chuẩn 2–9, D2
+1bcf55e98255	“Khi có dòng điện, ion chuyển sang chuyển động có hướng” — rốt cuộc ion nào đi về phía nào? Còn electron đi đâu?
+59401c7f32f2	Xem trong khung phóng to Cu\xB2⁺ và Cl⁻ mỗi loại đi về nhánh nào, mũi tên electron trong dây dẫn chỉ về đâu (rồi quay lại tắt nguồn xem một chút)
+0ebe38798058	Trong khung phóng to, Cu\xB2⁺ (xanh lục) đi về nhánh trái (cathode), Cl⁻ (vàng lục) đi về nhánh phải (anode), hai mũi tên ngược chiều; mũi tên electron chỉ xuất hiện trong dây dẫn, từ cực âm của nguồn chỉ tới cathode, trong dung dịch không có electron nào chạy. Tắt nguồn là cả ba nhóm mũi tên dừng
+73f9d3ec53c8	Anion → anode | cation → cathode (electron chỉ ở mạch ngoài)
+e1542fe683ec	Phóng to minh hoạ \xB7 ion chuyển động trước và sau khi có dòng điện (hình 4-10 SGK) \xB7 đang xem:
+74c315031a67	Mũi tên ngược chiều
+a40f0dc18244	Electron không vào dung dịch
+0e59373f32b8	Ngắt điện là dừng hết
+b8a36ffa5f47	Dung dịch dẫn điện nhờ ion di chuyển, không phải electron chạy trong dung dịch.
+52ffb117c17d	Cation về cathode, anion về anode — hai mũi tên nhất định ngược chiều, vẽ cùng chiều là sai.
+9951141a26e6	Electron chỉ đi trong dây dẫn, từ cực âm của nguồn vào cathode; vào đến cathode thì “gậy tiếp sức” này được trao cho Cu\xB2⁺.
+a79721fc1c97	Nếu bỏ bước này: học sinh sẽ vẽ “electron từ anode xuyên qua dung dịch sang cathode”, cả câu vẽ sơ đồ nguyên lí là hỏng.
+55c97df70b52	Hay thi: vẽ sơ đồ nguyên lí bình điện phân (phần Suy nghĩ và thảo luận trong SGK chính là câu này); phân biệt chiều dòng electron và chiều di chuyển của ion.
+c54730868f38	Khi có dòng điện, các ion chuyển động tự do chuyển sang chuyển động có hướng: anion di chuyển về anode, cation di chuyển về cathode; electron ở mạch ngoài đi từ cực âm của nguồn tới cathode, không đi vào dung dịch (nguyên văn SGK).
+0a9b62f25412	A2.4, A2.9, A5.1, A5.5, A7.3, B4.3, D1
+603f284ec699	Đổi sang nước muối
+37f69104d31a	Cũng điện cực than chì, cũng dòng điện đó, đổi sang nước muối bão hoà, sao ở cathode lại không ra sodium?
+ebb534db0866	Kéo “Chất điện li” từ
+be9d91ca3a94	dung dịch CuCl₂ sang
+feb865f116e2	nước muối bão hoà, xem sản phẩm ở cathode thành gì, khí ở hai cực mỗi bên bao nhiêu
+0fc106f69f8b	Số đọc chính vẫn là 0.20 A, nhưng sản phẩm đổi hết: cathode thoát khí hydrogen H₂ 15.2 mL (không phải sodium), anode là Cl₂ 15.2 mL — thể tích khí hai cực đúng 1 : 1; dung dịch có thêm NaOH, vùng cathode có tính kiềm. Trước khi điện phân, dung dịch có 4 loại ion Na⁺, Cl⁻, H⁺, OH⁻
+b8c1c5227eb7	2Cl⁻ + 2H₂O =điện phân= Cl₂↑ + H₂↑ + 2OH⁻
+4ce8ad98970d	Nước muối bão hoà \xB7 điện cực than chì \xB7 khí hai cực 1 : 1
+037ba8f59993	Thứ tự phóng điện: ở anode Cl⁻ dễ nhường electron hơn OH⁻ → ra Cl₂ (không phải O₂); ở cathode H⁺ dễ nhận electron hơn Na⁺ → ra H₂ (không phải Na).
+fcf88940d5c2	Na⁺ ở lại trong dung dịch, cùng OH⁻ còn lại ở cathode tạo thành NaOH — xút mà công nghiệp chlor–kiềm cần (trong công nghiệp làm trong bình điện phân có màng trao đổi ion).
+d68e48654614	Mỗi cực đều là 2 electron cho một hạt, nên tỉ lệ thể tích luôn là 1 : 1 (thể tích tính ở 25 ℃, Vm = 24.5 L/mol; SGK dùng 22.4 L/mol ở điều kiện tiêu chuẩn, tính lại sẽ nhỏ hơn 8.6 %).
+7ec0da1ce43a	Nếu bỏ bước này: học sinh sẽ viết “thu được Na và O₂”.
+35292411194b	Hay thi: phản ứng điện cực, phản ứng tổng, sản phẩm khi điện phân nước muối bão hoà; vì sao cathode không ra sodium, anode không ra oxygen.
+e56833ff1bf9	Ở anode Cl⁻ dễ nhường electron hơn OH⁻, ở cathode H⁺ dễ nhận electron hơn Na⁺, nên sản phẩm là Cl₂, H₂ và NaOH: 2Cl⁻
+5c4289a02051	2e⁻ = Cl₂↑, 2H₂O + 2e⁻ = H₂↑ + 2OH⁻, phản ứng tổng 2Cl⁻ + 2H₂O =điện phân= Cl₂↑ + H₂↑ + 2OH⁻ (nguyên văn SGK).
+3dfc05ec4eda	A2.10, A2.11, A5.3, A1.3, B2.1 bảng giá trị chuẩn 10–11, D3
+0f9eb2b84eb8	Vùng cathode hoá đỏ
+23eb7aac225f	Quanh thanh cathode, sao nhỏ một giọt phenolphthalein là hoá đỏ?
+4669ebb84333	Bình này lúc đầu chưa nhỏ phenolphthalein — trước hết xem lúc này chỉ có bọt khí, rồi nhỏ vài giọt phenolphthalein vào vùng cathode
+e47e9bc04388	Chưa nhỏ phenolphthalein thì chỉ thấy hai cực sủi bọt, không thấy được tính kiềm; nhỏ rồi thì dung dịch gần cathode (nhánh trái) hoá đỏ và từ từ lan ra (vùng cathode c(OH⁻) = 82.9 mmol/L). Đối chứng ngược lại: kéo chất điện li về
+b5034b0c4801	dung dịch CuCl₂, nhỏ cùng loại phenolphthalein — không đỏ
+7d552c81fa78	2H₂O + 2e⁻ = H₂↑ + 2OH⁻ (vùng cathode có tính kiềm)
+b2aa5760f6eb	Nước muối bão hoà \xB7 nhỏ phenolphthalein vào vùng cathode (đối chứng: hệ CuCl₂ nhỏ vào không đỏ)
+eab9ba63661d	Phenolphthalein hoá đỏ
+795de976c402	CuCl₂ không đỏ
+52a85a9b4914	Hoá đỏ không phải do “phenolphthalein phản ứng với muối”, mà do phản ứng ở cathode tích tụ OH⁻.
+8761cc52c558	Màu đỏ chỉ từ từ lan ra gần cathode, không phải cả ống đỏ cùng lúc.
+ccc202cfec08	Cùng phenolphthalein đó, nhỏ vào hệ CuCl₂ thì không đỏ (Cu\xB2⁺ phóng điện trước, không tạo OH⁻), sự đối chiếu này cho thấy “ion nào phóng điện trước quyết định sản phẩm”.
+1f6179ce0cbb	Nếu bỏ bước này: học sinh chỉ nhớ “cathode ra hydrogen”, không viết được 2H₂O + 2e⁻ = H₂↑ + 2OH⁻.
+35288c8b54fe	Hay thi: vì sao phản ứng ở cathode viết là 2H₂O + 2e⁻ = H₂↑ + 2OH⁻ chứ không phải 2H⁺ + 2e⁻ = H₂↑; phenolphthalein hoá đỏ chứng tỏ điều gì.
+9f108d9f4f1b	Ở cathode là H⁺ nhận electron: 2H₂O + 2e⁻ = H₂↑ + 2OH⁻, OH⁻ ở lại vùng cathode, nên có tính kiềm, phenolphthalein hoá đỏ. Trong hệ CuCl₂, Cu\xB2⁺ nhận electron trước, SGK ghi rõ “một ít H⁺ và OH⁻ do nước phân li ra không tham gia phản ứng điện cực”, nên không tạo OH⁻, phenolphthalein không đỏ.
+e4c8ced54850	A2.11, A2.7, A4.2, A5.3, B2.5, bảng giá trị chuẩn 10/13, D5
+f485029f6316	Thứ tự phóng điện
+4381925c3762	Nước muối có 4 loại ion, sao lại chính Cl⁻ và H⁺ phóng điện?
+866b4cbc6ac0	Xem trong khung phóng to 4 loại ion mỗi loại đi về nhánh nào, ion nào phóng điện trên điện cực, và mũi tên electron trong dây dẫn
+068cfa6b621a	Trong khung phóng to, Na⁺, H⁺ đi về cathode, Cl⁻, OH⁻ đi về anode; tới bề mặt điện cực thì Cl⁻ nhường electron thành Cl₂, H⁺ nhận electron thành H₂, Na⁺ và OH⁻ còn lại ở trong dung dịch (thành NaOH). Mũi tên electron vẫn chỉ ở trong dây dẫn, từ cực âm của nguồn vào cathode
+60e0c6bd2943	Anode: Cl⁻ phóng điện trước | cathode: H⁺ phóng điện trước → còn lại NaOH
+1b36990c353c	Phóng to minh hoạ \xB7 thứ tự phóng điện \xB7 đang xem:
+50560b0e3e3e	4 loại ion
+55b304c0f68a	Cl⁻ / H⁺ phóng điện
+dfa2b20b8f81	Na⁺ không phóng điện
+89371b2774d1	“4 loại ion” không phải loại nào cũng phóng điện, trước hết xét tính oxi hoá / tính khử mạnh hay yếu.
+de81a7e3949b	Trên bề mặt cathode, H⁺ giành được electron chứ không phải Na⁺ — nên ra hydrogen chứ không ra sodium.
+00f0df9f7b80	Na⁺ và OH⁻ không phóng điện chính là sản phẩm NaOH; trong công nghiệp phải dùng màng trao đổi ion để ngăn Cl₂ với NaOH.
+ea15ca797e17	Nếu bỏ bước này: học sinh chỉ thuộc “điện phân nước muối được xút, chlorine, hydrogen”, không trả lời được “vì sao không phải sodium và oxygen”.
+6fd783814379	Hay thi: thứ tự phóng điện (anion S\xB2⁻
+cc5fc9e6c2bb	gốc acid có oxygen; cation Ag⁺
+862a92985824	Na⁺); vai trò của màng trao đổi ion.
+14cd4d37a140	Thứ tự phóng điện do “ion nào dễ nhường / nhận electron” quyết định: ở anode Cl⁻ dễ nhường electron hơn OH⁻, ở cathode H⁺ dễ nhận electron hơn Na⁺ (nguyên văn SGK); Na⁺ và OH⁻ không phóng điện, ở lại trong dung dịch.
+c8977675c719	A2.10, A5.3, B4.4, B4.5, D1, D3
+d8a19aa9a25d	Anode bằng đồng
+86046e881bf5	Thay thanh than chì ở anode bằng một lá đồng, sao anode lại không còn bọt khí, giấy thử cũng không hoá xanh?
+3f072d487d2d	Bình này đang là anode than chì, đã có dòng điện — thay anode bằng lá đồng, rồi theo dõi anode: còn bọt khí không? Giấy thử còn hoá xanh không?
+4ffe079095a5	Thay bằng lá đồng rồi: anode không còn sủi bọt, giấy thử ẩm không hoá xanh (không có chlorine); bản thân lá đồng tan dần, mỏng đi; cathode vẫn thu được đồng 39.5 mg. Hơn nữa lượng đồng tan ở anode = lượng đồng bám ở cathode (39.5 mg = 39.5 mg), c(Cu\xB2⁺) trong dung dịch gần như không đổi
+55202632174e	2e⁻ = Cu\xB2⁺ (anode tan)
+c98a239a4cb3	Điện phân dung dịch CuCl₂ \xB7 anode than chì → anode lá đồng
+7aeb0c86f46f	Giấy thử không xanh
+6b7687ff8dd2	Chuỗi thao tác sai: tuỳ tiện đổi vật liệu anode → anode tự tan → không thu được chlorine → còn tưởng “điện phân hỏng rồi”.
+f646faa374ac	Sai ở mặc định “vật liệu anode không tham gia phản ứng”: than chì là điện cực trơ, đồng là điện cực tan.
+3a098cace822	SGK nói về anode tan trong hệ CuSO₄ (mạ điện / tinh luyện đồng); ở đây mượn để minh hoạ: nếu anode là kim loại hoạt động thì chính anode tan trước, không còn thoát Cl₂ (không viết thành nguyên văn SGK).
+514632e4462c	Nếu bỏ bước này: học sinh không phân biệt được “anode trơ” và “anode tan”.
+90f472e030bb	Hay thi: phân biệt điện cực trơ và điện cực tan; khi mạ điện chọn anode, cathode, dung dịch mạ thế nào; vì sao nồng độ dung dịch mạ không đổi.
+cc14103c6ec0	Khi anode là kim loại hoạt động, bản thân vật liệu anode dễ nhường electron hơn Cl⁻: Cu
+ff192927ac00	2e⁻ = Cu\xB2⁺ (anode tan), cathode vẫn là Cu\xB2⁺ + 2e⁻ = Cu, hiệu quả chung là đồng được “chuyển” từ anode sang cathode — đây chính là nguyên lí của mạ điện và tinh luyện bằng điện phân, nồng độ dung dịch mạ không đổi.
+5552dd69254e	A2.13, A2.14, A2.18, A1.4, A3.3, B2.1 bảng giá trị chuẩn 14, D6
+db8ffd61fef3	Kiểm tra \xB7 thu 29.6 mg đồng
+73d12c5300a1	Kiểm tra cuối bài: cho cathode bình
+fb693bfa33c9	thu được đúng 29.6 mg đồng và giữ 15 giây
+f462198392fc	Trước hết tính điện lượng cần để cathode thu được 29.6 mg đồng, rồi chọn một cặp dòng điện và thời gian rơi đúng vạch chia (dòng lớn thời gian ngắn, dòng nhỏ thời gian dài đều được), và giữ 15 giây; giữa chừng sẽ có người đẩy dòng điện lên, rút nguồn điện
+421375680de0	Băng rôn đạt “Nguyên lí điện phân \xB7 đạt 29.6 mg đồng”; ban đầu 0.20 A, điện phân 0 s (sản phẩm 0.0 mg), phải dùng Q = I\xB7t và m = Q\xB7M/(2F) để tính một cặp (I, t) — 0.20 A \xD7 450 s, 0.50 A \xD7 180 s, 0.10 A \xD7 900 s đều được; vào bài 5 s thì có người đẩy dòng điện lên 0.50 A (sản phẩm vượt mức), 11 s thì nguồn bị rút (sản phẩm về 0), phải lần lượt chỉnh lại và nối lại
+1b9865dfb6a7	Điện phân dung dịch CuCl₂ \xB7 anode than chì \xB7 cặp (I, t) bất kì \xB7 giữ 15 s
+a1d9a52ced94	Trước hết tính điện lượng mục tiêu (khoảng 91.1 C, trên vạch chia là Q = 90 C), rồi chọn một cặp (I, t): **dòng lớn, thời gian ngắn và dòng nhỏ, thời gian dài đều đạt được** (0.20 A \xD7 450 s, 0.50 A \xD7 180 s, 0.10 A \xD7 900 s đều đúng).
+dff4c109bd67	Dòng điện bị đẩy lên thì sản phẩm sẽ vượt mức, phải chỉnh lại chứ không ngắt điện làm lại từ đầu.
+cd536135e7fa	Nguồn điện bị rút thì sản phẩm về 0 (bài này coi “ngắt điện = chưa có dòng điện”), phải nối lại.
+ac784b0269a9	Không có nội dung mới: làm đúng tám bước trước, ở đây là tính chuẩn và giữ vững “bảo toàn điện lượng”.
+59d649cad853	Cấu trúc đạt điểm tối đa: viết phản ứng ở cathode Cu\xB2⁺ + 2e⁻ = Cu → từ m = Q\xB7M/(2F) tính ngược ra Q → từ Q = I\xB7t chọn một cặp (I, t), và giải thích “dòng lớn thời gian ngắn” tương đương “dòng nhỏ thời gian dài”.
+e308114c4119	Kiểm tra cuối bài không có kết luận mới: lượng sản phẩm chỉ do điện lượng quyết định — m(Cu) = Q\xB7M/(2F), nên (0.20 A, 450 s), (0.50 A, 180 s), (0.10 A, 900 s), (0.30 A, 300 s) đều được, chỉ cần điện lượng nằm trong 89.6–92.6 C (trên vạch chia là Q = 90 C): dòng lớn, thời gian ngắn và dòng nhỏ, thời gian dài cho lượng sản phẩm như nhau.
+fc29d52e2a89	B3.1, A2.5, bảng giá trị chuẩn 4, D2, D7
+e464abccb142	Dung dịch CuCl₂
+f1a6f056e7d7	Dòng điện
+bd17a5036bad	0.05 cận dưới
+86592560a7ff	0.50 cận trên
+43f239e9fd02	Thời gian điện phân
+9e87abc9aef6	450 kiểm tra
+311165947228	1800 cận trên
+8de4e9ff85a0	Nguồn một chiều
+7d7eabc3691d	Đã nối
+49f93dc77a16	– vật liệu anode
+50d6395c8153	Đã thay lá đồng
+8c709da27246	Thanh than chì
+2c6c1b09358b	Đã nhỏ phenolphthalein vào vùng cathode
+662ebc07b9e6	Đã nhỏ
+a04f61c6d899	Chưa nhỏ
+25cb48321746	– giấy KI – hồ tinh bột ẩm ở miệng anode
+3191ceded904	Đã đặt
+bf2efd147d27	Chưa đặt
+9efb9c7ba27b	Số đọc minh hoạ \xB7 hai thang đo, 0 ở bên trái
+f39e24aa32a7	Thang 0–0.6 A
+fb928468a3e0	Thang 0–3 A
+36a67a365f68	Sản phẩm ở cathode
+5b178bf6d871	Sản phẩm ở anode
+6a14cd9a8909	Hiện tượng
+56ae29a6eb0d	Đồng
+0c4173359229	Lá đồng tan
+9029a3453472	Không có chất chỉ thị
+0cb0798bf5b5	Phenolphthalein không màu
+dab21fac302d	Chưa nhỏ phenolphthalein
+032672b9def2	Xanh lục
+a2809bbc191f	Xanh lục (hơi nhạt)
+308450f85996	Xanh lục nhạt
+97d628c4705f	Đã ngắt điện
+a4617864b18b	— Dòng điện hiện tại \xB7
+9633333c35a5	0.20 A tham chiếu \xB7
+02ce448a4fde	Cathode thu được 29.6 mg đồng (29.1–30.1) \xB7 giữ 15 s
+01fe24504213	Mục tiêu lớp: tính điện lượng (khoảng 91.1 C, trên vạch chia là Q = 90 C), chọn một cặp dòng điện và thời gian, để cathode thu được đúng 29.6 mg đồng và giữ 15 giây — dòng lớn thời gian ngắn hay dòng nhỏ thời gian dài đều được (cẩn thận dòng điện bị đẩy lên, nguồn bị rút)
+07dc858ae5f1	(Phản ứng điện cực trong SGK: Cu\xB2⁺ + 2e⁻ = Cu)
+b01433d35d80	Tên điện cực
+5df2fa1209cf	Về anode và cathode của bình điện phân, phát biểu nào sau đây đúng
+d01b8515e51d	Anode nối với cực âm của nguồn, xảy ra phản ứng khử
+2dcdfd058dae	Anode nối với cực dương của nguồn, xảy ra phản ứng oxi hoá
+0351d92ca6a4	Cathode nối với cực dương của nguồn, xảy ra phản ứng oxi hoá
+bc48d37f7a5a	Cả anode và cathode đều xảy ra phản ứng khử
+3fe9cf01efa5	SGK quy định: điện cực xảy ra phản ứng oxi hoá là anode, xảy ra phản ứng khử là cathode; anode nối với cực dương của nguồn một chiều, cathode nối với cực âm. Phương án sai của bài 4 phần Luyện tập và vận dụng trong SGK chính là “ở cathode xảy ra phản ứng oxi hoá”. Bước 2 của bài: anode (nhánh phải, nối cực dương) thoát chlorine, cathode (nhánh trái, nối cực âm) thu đồng (giống cách bố trí ở hình 4-9 SGK).
+738fe5917851	Electron và ion
+298af1d5633e	Khi điện phân, chiều chuyển động của electron và ion là
+d00f2a50edbf	Electron từ anode qua dung dịch sang cathode, cation di chuyển về cathode
+c89f9ff5aae6	Electron chỉ đi ở mạch ngoài từ cực âm của nguồn tới cathode, trong dung dịch anion di chuyển về anode, cation di chuyển về cathode
+b3defac2f2d8	Electron trong dung dịch chạy từ cathode sang anode, anion di chuyển về cathode
+b8d7a17d3cae	Cả electron và ion đều chỉ chuyển động trong dung dịch
+603a4db1e14b	Phần Suy nghĩ và thảo luận trong SGK yêu cầu “ghi rõ chiều chuyển động của electron và chiều di chuyển của anion, cation”: electron đi ở mạch ngoài (từ cực âm của nguồn tới cathode), dung dịch dẫn điện nhờ ion di chuyển có hướng — anion về anode, cation về cathode. Khung phóng to ở bước 4 của bài vẽ đúng như vậy.
+beaf5032d079	Điện phân CuCl₂
+49af8e22a4bf	Điện phân dung dịch CuCl₂ với điện cực than chì, sản phẩm ở hai cực là
+b8711e4b3565	Cathode thu được đồng, anode thoát khí chlorine
+825bc4eaeabb	Cathode thoát khí hydrogen, anode thu được đồng
+8878254940c9	Cathode thu được đồng, anode thoát khí oxygen
+4eb94ca6fe20	Cathode thoát khí hydrogen, anode thoát khí oxygen
+314c61e7fd64	2e⁻ = Cl₂↑, cathode Cu\xB2⁺ + 2e⁻ = Cu, phản ứng tổng Cu\xB2⁺ + 2Cl⁻ =điện phân= Cu + Cl₂↑. SGK ghi rõ trong điều kiện thí nghiệm này, một ít H⁺, OH⁻ do nước phân li không tham gia phản ứng điện cực, nên cathode không ra hydrogen, anode không ra oxygen. Bước 2 của bài: giấy thử hoá xanh chính là bằng chứng của chlorine.
+e0b734fb5f1b	Điện phân nước muối
+3c322bedd289	Khi điện phân nước muối bão hoà, sản phẩm ở vùng cathode và vùng anode lần lượt là
+d98b4f1213db	Cathode ra Na, anode ra O₂
+bf242c9e609f	Cathode ra H₂ và còn lại OH⁻, anode ra Cl₂
+cf1bf4b0c5a8	Cathode ra Cl₂, anode ra H₂
+e4f9ded5d2fb	Cathode ra O₂, anode ra Na
+dd3063ae0b6c	Nguyên văn SGK: ở anode Cl⁻ dễ nhường electron hơn OH⁻, Cl⁻ bị oxi hoá tạo khí chlorine; ở cathode H⁺ dễ nhận electron hơn Na⁺, H⁺ bị khử tạo khí hydrogen. Phản ứng ở cathode viết là 2H₂O + 2e⁻ = H₂↑ + 2OH⁻, OH⁻ còn lại cùng Na⁺ chính là NaOH. Bước 5, 6 của bài: khí hai cực 15.2 mL và 15.2 mL đúng 1 : 1, vùng cathode nhỏ phenolphthalein hoá đỏ.
+ed65325b928a	Điện lượng và sản phẩm
+d9ce0cf91f09	Điện phân dung dịch CuCl₂ bằng dòng điện 0.20 A trong 600 s, ở cathode thu được khoảng bao nhiêu đồng (M(Cu) = 63.55 g/mol, F = 96485.33 C/mol)
+a50f25f73aa3	Khoảng 4 mg
+54702456e260	Khoảng 40 mg
+fa6ee1b60e01	Khoảng 400 mg
+993a75c88f92	Khoảng 4 g
+4f8da70bd1c5	Q = I\xB7t = 0.20 \xD7 600 = 120 C; m = Q\xB7M/(2F) = 120 \xD7 63.55 / (2 \xD7 96485.33) = 0.0395 g ≈ 39.5 mg. Bước 3 của bài chính là con số này, hơn nữa dòng điện gấp đôi thì sản phẩm gấp đôi (phần kiểm tra cuối bài ở bước 9 cũng là tính ngược từ sản phẩm ra điện lượng).
+491d701ffdc0	Anode tan
+4a8f4abb1d53	Khi điện phân dung dịch CuCl₂, thay anode than chì bằng lá đồng, hiện tượng nhiều khả năng thấy được nhất là
+e43a9cc28e4d	Anode vẫn sủi bọt, giấy thử hoá xanh
+d7f6c22e97c4	Anode không còn sủi bọt, giấy thử không hoá xanh, lá đồng tan dần
+5f04107a6df5	Cathode không còn thu được đồng, chuyển sang thoát khí hydrogen
+90af04baea94	Nồng độ Cu\xB2⁺ trong dung dịch nhanh chóng giảm về 0
+338c4748e82f	Khi anode là kim loại hoạt động, đồng dễ nhường electron hơn Cl⁻: Cu
+8bd24562f6e3	2e⁻ = Cu\xB2⁺, anode tan, không còn tạo Cl₂, nên không có bọt khí, giấy thử không hoá xanh; cathode vẫn thu được đồng, anode tan bao nhiêu thì cathode thu được bấy nhiêu, nồng độ dung dịch không đổi. Đây chính là nguyên lí của mạ điện và tinh luyện bằng điện phân (SGK tr. 107–108, bài luyện tập 3). Bước 8 của bài: 39.5 mg = 39.5 mg.
+80c4336969fc	Đã nối nguồn một chiều: ion bắt đầu di chuyển có hướng, hai cực cùng bắt đầu phóng điện
+0485ca6454e0	Đã ngắt nguồn: ampe kế về 0, hai cực không tạo chất mới nữa (đồng đã bám vẫn ở trên cathode, bài này không cộng dồn)
+390b9aaa3150	Anode đã đổi thành lá đồng: đồng dễ nhường electron hơn Cl⁻, anode tan, không còn tạo chlorine — đó chính là mạ điện
+eb45b41dc5e7	Đổi lại anode than chì: than chì là điện cực trơ, anode lại thoát chlorine, giấy thử lại hoá xanh
+14897dbdc6db	Nhỏ phenolphthalein vào vùng cathode: trong hệ nước muối, cathode để lại OH⁻, một lúc là đỏ; trong hệ CuCl₂, Cu\xB2⁺ phóng điện trước, không đỏ
+38b3746506b3	Không có phenolphthalein: vùng cathode tuy có tính kiềm nhưng mắt không nhìn thấy được
+d0349537bb67	Đã đặt giấy KI – hồ tinh bột ẩm ở miệng anode: có chlorine là hoá xanh
+796745b3f3c5	Chưa đặt giấy thử: chlorine vẫn đang thoát ra, nhưng em không nhận ra đó là chlorine — lúc này nói “không tạo khí” là kết luận sai
+250f407bae87	Dung dịch CuCl₂: cathode thu được đồng, anode thoát chlorine
+5b434fdfe16a	Nước muối bão hoà: cathode ra hydrogen và để lại OH⁻, anode ra chlorine, khí hai cực 1 : 1
+af5d66d88554	Bất thường 1: có người đẩy dòng điện lên 0.50 A — điện lượng tăng, sản phẩm vượt mức, hãy chỉnh dòng điện lại
+4c8d01e7b94a	Bất thường 2: nguồn điện bị rút — ampe kế về 0, sản phẩm về 0, hãy nối lại nguồn
+e4a0240b1df5	Đã về chế độ tham chiếu:
+445209fa968b	Dung dịch CuCl₂ \xB7 0.20 A \xB7 điện phân 0 s \xB7 chưa nối nguồn
+d9d4a3203c79	Đạt: nguyên lí điện phân \xB7 đạt 30 mg đồng
+5088f56f9fb7	Mục tiêu bài học: trước hết thấy rõ “có dòng điện thì trên mỗi thanh than chì ra gì” (và dùng giấy KI – hồ tinh bột ẩm nhận ra chlorine) → dùng Q = I\xB7t tính được điện phân càng lâu sản phẩm càng nhiều → nhìn vào bên trong xem ion di chuyển thế nào, vì sao electron không vào dung dịch → đổi sang nước muối bão hoà, dùng phenolphthalein thấy vùng cathode có tính kiềm → cuối cùng thay anode bằng lá đồng, hiểu “anode tan tự tan ra” chính là mạ điện.
+4ee09f580037	Lưu ý về minh hoạ: dòng điện, thời gian điện phân, nồng độ dung dịch, dung tích ống chữ U và các số đọc sản phẩm là minh hoạ dạy học (giá trị đặt cho bài), SGK chỉ cho “dung dịch CuCl₂ 25%” và hiện tượng; phản ứng điện cực, thứ tự phóng điện, thiết bị và kết luận lấy từ SGK Nhân Giáo (Trung Quốc) 2019, lựa chọn bắt buộc tập 1, bản in tr. 104–110; khi chuyển bình thì dùng kẹp cá sấu chuyển dây dẫn sang bình đang xem (minh hoạ); ampe kế dựng lại theo hình 4-9 SGK (mạch ngoài của hình có vẽ ampe kế), đọc theo kiểu hai thang đo, 0 ở bên trái (0–0.6 A vạch chia 0.01 A / 0–3 A vạch chia 0.1 A, mọi số đọc của bài đều ở thang nhỏ); lượng sản phẩm tính theo Q = I\xB7t và định luật Faraday (F = 96485.33 C/mol, M(Cu) = 63.55 g/mol (bảng tuần hoàn SGK tr. 133), thể tích mol khí 24.5 L/mol (25 ℃, 101 kPa; SGK dùng 22.4 L/mol ở điều kiện tiêu chuẩn)).
+79222332ffd6	Nguyên lí điện phân: điện phân dung dịch đồng(II) chloride và nước muối bão hoà · bài giảng 3D tương tác

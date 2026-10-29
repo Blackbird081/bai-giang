@@ -1,0 +1,225 @@
+41c53c57d368	C.steps[${N}].cam.pitch=${P.cam.pitch}\xB0 không nằm trong CAMERA.polar ${m.polar[0]}–${m.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+f81970d9c332	Quan sát nguyên phân ở tế bào vùng mô phân sinh đầu rễ
+13c8726bc9fb	Bắt buộc tập 1 \xB7 chương 6 bài 1
+65bad3ee67be	Số tế bào mỗi kì \xF7 tổng số đếm \xD7 12 h = thời gian của kì đó
+41848987517d	Trên một đầu rễ hành, những tế bào nào đang phân chia? Mỗi kì của một lần phân chia kéo dài bao lâu?
+99825a9d02e9	Làm tiêu bản
+48f7bd159c35	Phân li → rửa → nhuộm → làm tiêu bản
+590a5e356696	Tìm vùng phân sinh
+4644164f7493	Tế bào hình vuông, xếp sít nhau
+7c545d9052fd	Nhận biết các kì
+956e4cda8a4d	Chia bốn kì theo hoạt động của NST
+37802b1dfc26	Đếm
+ea1917e07452	Mỗi kì có mấy tế bào trong 50 tế bào
+44b9f14b7b1e	Tính thời gian
+cca0ba581ddd	Tỉ lệ số tế bào = tỉ lệ thời gian
+ba56e401d998	Tiêu bản và đầu rễ
+5ba2192766c7	Đầu rễ
+fb6f694fd5f3	Phân li, rửa, nhuộm, làm tiêu bản; đầu rễ 2~3 mm, vùng mô phân sinh nằm sau đỉnh rễ 0.16~1.6 mm
+62d8d00c9882	Thị trường tế bào vùng phân sinh
+c022a372b978	Thị trường tế bào
+c1fac65b1dc0	50 tế bào trong khung lấy mẫu, tế bào hình vuông xếp sít nhau
+0cce6a9af0ec	NST của một tế bào
+60da4b40dbdf	Một tế bào
+8a17ef86a450	Chất nhiễm sắc, NST, sợi thoi, vách ngăn
+a246e7cf6c6b	Làm thế nào để biến đầu rễ thành tiêu bản tạm thời nhìn rõ được NST?
+d998f0312bea	Bấm lần lượt bốn đĩa kính: phân li → rửa → nhuộm → làm tiêu bản
+5ae95cf7f2a7	Bốn đĩa kính lần lượt sáng: phân li 3~5 min (làm các tế bào tách rời nhau) → rửa 3~5 min (rửa sạch dung dịch) → nhuộm khoảng 10 min (tím gentian làm NST bắt màu) → làm tiêu bản (ép tiêu bản, làm tế bào dàn mỏng)
+d8c153aa854c	Tím gentian 0.01 g/mL \xB7 hydrochloric acid 15% + cồn 95% (1:1)
+6936a1a91db3	Rửa
+17ee6b6d5f44	Nhuộm
+b3e01e886df7	Phân li: cắt đầu rễ 2~3 mm, cho vào hỗn hợp hydrochloric acid và cồn (1:1), trong 3~5 min.
+68795122e44f	Rửa: cho vào nước sạch, trong 3~5 min, rửa sạch dung dịch, tránh phân li quá mức.
+adfee24dd89d	Nhuộm: cho vào dung dịch tím gentian khoảng 10 min, làm NST bắt màu; cuối cùng ép tiêu bản, làm tế bào dàn mỏng.
+0f93913183ce	Bỏ bước phân li: tế bào dính chùm, ép không tách, không nhìn rõ từng NST.
+07bbf4681300	Phân li làm các tế bào trong mô tách rời nhau; rửa là để rửa sạch dung dịch, tránh phân li quá mức (nguyên văn SGK).
+54add0476877	Quy trình làm tiêu bản cố định là phân li → rửa → nhuộm → làm tiêu bản: tế bào tách ra trước, rồi rửa dung dịch, rồi cho NST bắt màu, cuối cùng ép thành một lớp tế bào nhìn rõ được.
+a410e6c744fc	A5.5, A5.6 (tr. 116)
+1ad4c2be9da7	Ở độ phóng đại thấp, đoạn tế bào nào đang phân chia?
+1a6a93c3f9e6	Trong cảnh 3D, chọn “vùng mô phân sinh”, rồi đổi sang vật kính 40\xD7
+f063dcc11381	Trong ba đoạn của đầu rễ, tế bào vùng mô phân sinh hình vuông, xếp sít nhau (đặc điểm nhận biết của SGK); đổi sang 40\xD7 thì thị trường nhỏ lại, tế bào to ra, nhãn trong cảnh đổi thành “phóng đại 400 lần \xB7 trường nhìn 450 \xB5m”
+e5dc8987afce	Vùng phân sinh: hình vuông \xB7 xếp sít nhau
+70a4d76fa00c	Quét ở phóng đại thấp → quan sát với 40\xD7
+2fd95d6873c2	Vùng mô phân sinh đầu rễ
+3ffbf62afeb1	Hình vuông
+e139051eaa6d	Phóng đại thấp trước, cao sau
+179a5b0b1f2a	Nguyên phân thường gặp ở tế bào vùng mô phân sinh như đầu rễ, đầu chồi.
+af9e9affa630	Tế bào vùng mô phân sinh hình vuông, xếp sít nhau — đây là đặc điểm nhận biết SGK đưa ra.
+e3f41b9c88cc	Trong cùng một mô phân sinh, sự phân chia của từng tế bào diễn ra độc lập, nên trong một thị trường có thể thấy các kì khác nhau.
+2c8432cf14db	Bỏ bước tìm vùng phân sinh: đếm ở đoạn khác thì hầu như không tìm được tế bào đang ở kì phân chia (hình dạng chóp rễ, vùng kéo dài là minh hoạ trong cảnh, SGK không mô tả).
+c5a66388ab62	Thứ tự quan sát: tìm vùng mô phân sinh ở phóng đại thấp trước, rồi đổi sang phóng đại cao; ở phóng đại cao tìm tế bào kì giữa trước.
+0673a0adff22	Nguyên phân thường gặp ở tế bào vùng mô phân sinh như đầu rễ, đầu chồi; tế bào vùng mô phân sinh hình vuông, xếp sít nhau, đổi sang phóng đại cao mới nhìn rõ hình thái NST.
+d2093c81acaa	A5.1, A5.7 (tr. 116)
+393c69475ef3	Kì đầu
+9652e46d51f5	NST từ đâu mà có?
+969bb7f38842	Gạt “Tế bào chính” từ kì trung gian sang kì đầu
+6efb11f0b93d	Sợi chất nhiễm sắc xoắn lại, co ngắn và dày lên thành NST; mỗi NST gồm 2 nhiễm sắc tử chị em nằm song song, nối với nhau ở một tâm động; nhân con tiêu biến, màng nhân biến mất; hai cực phát ra sợi thoi tạo thành thoi phân bào hình con thoi; số đọc 16 NST, 32 DNA, 32 nhiễm sắc tử
+08a0c45f998a	Chất nhiễm sắc —(xoắn lại)→ NST
+cb1c9d7661d4	Mỗi NST: 2 nhiễm sắc tử chị em \xB7 1 tâm động
+47b5063f4487	Chất nhiễm sắc co xoắn
+f2effefc6bb8	Nhiễm sắc tử chị em
+0c7f80d02a64	Thoi phân bào
+7fadd5342755	Sợi chất nhiễm sắc xoắn lại, co ngắn và dày lên, trở thành NST.
+8a0d2fcf9f85	Mỗi NST gồm hai nhiễm sắc tử chị em nằm song song, nối với nhau bởi một tâm động chung.
+48d9e6ddbe2e	Nhân con dần tiêu biến, màng nhân dần biến mất, hai cực tế bào phát ra sợi thoi, tạo thành thoi phân bào hình con thoi.
+39c3dbc216ce	Bỏ thoi phân bào: NST không được kéo, nên không xếp được lên mặt phẳng xích đạo.
+10fee605f6e7	Sau khi nhân đôi ở kì trung gian, số NST vẫn là 16; tăng thêm là DNA (32) và nhiễm sắc tử chị em (32).
+afaa4cd9417e	Kì đầu: chất nhiễm sắc co xoắn thành NST (mỗi NST 2 nhiễm sắc tử chị em), nhân con tiêu biến, màng nhân biến mất, thoi phân bào hình thành; số NST không đổi, DNA đã là 32.
+b3497914f1b6	A3.2, A6.1 (tr. 112, tr. 117)
+f47d512e1db5	Kì giữa
+c680e879682f	Ở kì giữa, NST xếp ở vị trí nào?
+b651ae34f851	Gạt “Tế bào chính” sang kì giữa
+db7ae859cd52	Tâm động của 16 NST đều xếp trên một mặt phẳng ở giữa tế bào (mặt phẳng xích đạo), hai phía tâm động đều có sợi thoi kéo; số đọc vẫn là 16 NST, 32 DNA, 32 nhiễm sắc tử
+18bb8023ecbb	Tâm động xếp trên mặt phẳng xích đạo
+533fedf30d90	Mặt phẳng xích đạo vuông góc với trục giữa của thoi phân bào
+a240662f2b55	Mặt phẳng xích đạo
+8215b9031205	Tâm động
+890e93662c8e	Sợi thoi
+03db485d35d2	Hai phía tâm động của mỗi NST đều có sợi thoi đính vào.
+09e922230e5c	Sợi thoi kéo NST di chuyển, làm tâm động xếp trên một mặt phẳng ở giữa tế bào.
+05b92b0b584a	Mặt phẳng này vuông góc với trục giữa của thoi phân bào, gọi là mặt phẳng xích đạo; thứ tự quan sát của SGK là tìm tế bào kì giữa trước, rồi tới kì đầu, kì sau, kì cuối.
+43494ebf5296	Bỏ sợi thoi: NST không xếp được lên mặt phẳng xích đạo, cũng không có mặt phẳng “xích đạo” nào để xem.
+7bf9f46af1da	Mặt phẳng xích đạo là một mặt phẳng ở giữa tế bào (vị trí), tới kì cuối mới xuất hiện vách ngăn (cấu trúc) ở vị trí mặt phẳng xích đạo.
+cc6bd7061324	Kì giữa: tâm động của mọi NST đều xếp trên mặt phẳng xích đạo — một mặt phẳng vuông góc với trục giữa của thoi phân bào; mỗi NST vẫn gồm 2 nhiễm sắc tử chị em.
+49cecbd4aa2a	A3.3, A5.7 (tr. 112, tr. 116)
+2a4cc119686b	Kì sau
+d83c3a7ff144	Vì sao ở kì sau số NST đột ngột tăng gấp đôi?
+a4a895c52c35	Gạt “Tế bào chính” sang kì sau, theo dõi tâm động
+6fc0ed015b63	Mỗi tâm động tách thành hai, nhiễm sắc tử chị em tách ra thành 2 NST, được sợi thoi kéo về hai cực; số đọc NST 16 → 32 (gấp đôi), DNA vẫn là 32 (không đổi), nhiễm sắc tử 32 → 0; mỗi cực có một bộ 16 NST, hình thái và số lượng giống hệt nhau
+d1a4119e3b3f	Tâm động tách → số NST \xD72
+6493f5d7954e	Số DNA không đổi \xB7 nhiễm sắc tử về 0
+d06ce763c5ca	Tâm động tách
+75aeff8ec298	Số NST tăng gấp đôi
+2f60f306aab9	Mỗi cực một bộ
+5c383e27fab6	Mỗi tâm động tách thành hai, nhiễm sắc tử chị em tách ra, trở thành hai NST.
+48f6693e5be3	Hai NST con được sợi thoi kéo, lần lượt di chuyển về hai cực tế bào.
+32cff9115725	Kết quả là mỗi cực có một bộ NST, hình thái và số lượng hoàn toàn giống nhau, cũng giống tế bào mẹ.
+8070596bdcb2	Bỏ sự tách tâm động: hai nhiễm sắc tử chị em không tách được, số NST không tăng gấp đôi.
+5438f0e195c6	Kì sau số NST tăng gấp đôi (16 → 32), số phân tử DNA không đổi (vẫn 32) — nói “kì sau DNA cũng tăng gấp đôi” là sai.
+15b920c044e3	Kì sau: tâm động tách, nhiễm sắc tử chị em tách ra thành hai NST, số NST tạm thời tăng gấp đôi lên 32, số DNA không đổi, mỗi cực nhận một bộ NST giống tế bào mẹ.
+ddf5cf9ea764	A3.4, A7.1 (tr. 113)
+1f9317b88302	Kì cuối
+e4ed7370c5e3	Một tế bào trở thành hai tế bào như thế nào?
+d2385a70e073	Gạt “Tế bào chính” sang kì cuối
+cef4ff83aa80	NST duỗi dài, cuộn lại thành sợi chất nhiễm sắc, sợi thoi biến mất, ở hai cực xuất hiện màng nhân và nhân con mới; ở vị trí mặt phẳng xích đạo xuất hiện vách ngăn, dần mở rộng thành thành tế bào mới; cuối kì cuối mỗi tế bào con có 16 NST, 16 DNA, giống tế bào mẹ
+e361a1062467	Vách ngăn → thành tế bào
+d7cf56575156	Tế bào động vật: màng tế bào thắt lại ở giữa
+3aa24e6f987a	Vách ngăn
+830fc653aa75	Màng nhân mới
+040c9da06274	Tế bào con giống nhau
+e1b4fd9f0ad1	Hai bộ NST đến hai cực rồi, mỗi NST dần trở thành sợi chất nhiễm sắc mảnh, dài, cuộn lại.
+0ca519c2ad81	Sợi thoi biến mất, xuất hiện màng nhân và nhân con mới, tạo thành hai nhân mới.
+fd6daa64be7d	Tế bào thực vật xuất hiện vách ngăn ở vị trí mặt phẳng xích đạo, dần mở rộng tạo thành thành tế bào mới.
+7e37835e2388	Bỏ vách ngăn: tế bào thực vật không chia được thành hai (tế bào động vật không tạo vách ngăn, mà nhờ màng tế bào thắt lại ở giữa).
+9cb32751ac72	Tế bào thực vật kì cuối tạo vách ngăn; tế bào động vật kì cuối màng tế bào thắt lại ở giữa — hoạt động của NST ở hai loại như nhau.
+81fe4d2a52bc	Kì cuối: NST duỗi xoắn thành sợi chất nhiễm sắc, màng nhân và nhân con tái hình thành, tế bào thực vật tạo vách ngăn ở mặt phẳng xích đạo rồi mở rộng thành thành tế bào mới, một tế bào chia thành hai tế bào con, mỗi tế bào con 16 NST, giống tế bào mẹ.
+857a19eebd84	A3.5, A3.6, A4.2 (tr. 113, tr. 114)
+9615c063a8fb	Trong một thị trường có bao nhiêu tế bào đang phân chia?
+5a5edde61dbc	Chuyển thị trường từ “Mẫu 1” sang “Mẫu 2”
+ee973c5a8bde	50 tế bào trong khung lấy mẫu: mẫu 1 kì trung gian 45, kì đầu 3, kì giữa 1, kì sau 0, kì cuối 1 → đang ở kì phân chia 5 tế bào (10.0%); mẫu 2 kì trung gian 45, kì đầu 2, kì giữa 0, kì sau 1, kì cuối 2 → cũng 5 tế bào (10.0%)
+d690ef141f52	Kì phân chia 5 / 50 = 10.0%
+941022b5cb85	Khung lấy mẫu \xB7 50 tế bào \xB7 vật kính 40\xD7
+77c9371e4c52	Khung lấy mẫu
+d34e95ee3fc9	Tế bào kì phân chia
+718176a45dae	Hai mẫu
+d0cefa02d926	Số tế bào ở kì phân chia ít hơn nhiều so với số tế bào ở kì trung gian.
+acb65296cccf	Một thị trường chưa chắc đủ cả năm kì: mẫu 1 không có kì sau, mẫu 2 không có kì giữa.
+11c57bd576fc	Dời thị trường sang một vùng mới của vùng mô phân sinh rồi đếm lại, mẫu lớn hơn, tỉ lệ ổn định hơn.
+eaec7434a73a	Bỏ việc đếm: chỉ nói được “tế bào kì trung gian nhiều”, không nói được nhiều hơn bao nhiêu, cũng không tính được thời gian mỗi kì.
+a87d6c7ba8ff	Tế bào kì trung gian nhiều nhất (đáp án kèm theo của bài tập 1(1) trong SGK): kì trung gian chiếm 90%~95% chu kì tế bào.
+832e13fa01f0	Trong cùng một mô phân sinh, sự phân chia của từng tế bào diễn ra độc lập; trong 50 tế bào của khung lấy mẫu, chỉ 5 tế bào (10.0%) ở kì phân chia, tế bào kì trung gian chiếm đại đa số.
+7e2e9bf9114e	A5.1, A5.8, A5.9 (tr. 116, tr. 117)
+8c9731457dc0	Từ số tế bào có tính được thời gian mỗi kì không?
+e02b6710fad8	Chuyển sang mẫu 2 rồi bấm “Ghi một lượt” lần nữa, để mỗi thị trường ghi một dòng
+4fa95b1f7121	Hai mẫu cộng lại 100 tế bào: kì trung gian 90, kì đầu 5, kì giữa 1, kì sau 1, kì cuối 3; quy đổi theo 12 h: kì trung gian 10.8 h, kì đầu 0.6 h, kì giữa 0.12 h, kì sau 0.12 h, kì cuối 0.36 h, kì phân chia tổng cộng 1.2 h
+240b0b6d31ed	Thời gian mỗi kì = số tế bào kì đó \xF7 tổng số \xD7 12 h
+892df35cd2d8	Hai mẫu cộng lại 100 tế bào
+83bedd26b947	Kì trung gian 10.8 h
+3d4ce559765f	Kì phân chia 1.2 h
+16a66eaa8383	Tỉ lệ số tế bào xấp xỉ tỉ lệ thời gian các kì (điều kiện: sự phân chia của các tế bào diễn ra ngẫu nhiên, độc lập).
+cd607e3950d0	Kì trung gian 90 tế bào ≈ 90%, quy đổi 10.8 h, là đoạn dài nhất trong cả chu kì.
+e3b6b248370f	Trong bốn kì của kì phân chia, kì đầu dài nhất: 5 tế bào ≈ 5%, quy đổi 0.6 h.
+061ca14598f8	Chỉ ghi một mẫu (50 tế bào): kì cuối chỉ còn 1 tế bào, sai số tỉ lệ quá lớn.
+9f88e93fb445	Dùng “số tế bào mỗi kì \xF7 tổng số đếm \xD7 chu kì tế bào” để ước tính thời gian mỗi kì — đây là phương pháp nêu trong câu thảo luận 2 của SGK.
+815d8a26dcc1	Tỉ lệ số tế bào = tỉ lệ thời gian các kì: trong 100 tế bào của hai mẫu có 90 tế bào kì trung gian, quy ra 10.8 h; kì phân chia tổng 10 tế bào, quy ra 1.2 h. Tế bào kì trung gian nhiều nhất vì kì trung gian dài nhất.
+d6da869ac9ef	A2.3, A5.11 (tr. 111, tr. 117)
+f13e69a9327f	Kiểm tra cuối bài: ước tính kì phân chia dài khoảng bao lâu
+c072c9c9148d	Ghi đủ hai thị trường vùng mô phân sinh (mỗi thị trường bấm “Ghi một lượt” một lần), tổng số tế bào kì phân chia 8–12, giữ 15 giây
+f3da5e9a0139	Băng rôn đạt; đến giây thứ 6 của bài kiểm tra, thị trường sẽ trượt sang vùng kéo dài (tế bào dài ra, không còn phân chia, không chia kì), số đọc chính rơi về 0, phải dời thị trường về vùng mô phân sinh và ghi lại
+19531f9cd7e0	8 ≤ tổng tế bào kì phân chia của hai thị trường ≤ 12
+0063195a5e10	Tức là 8%~12%, khoảng 1.0–1.4 h
+cde93c6d4c71	Chỉ đếm ở vùng mô phân sinh
+96c6acc45d00	Hai mẫu, mỗi mẫu 50 tế bào, tổng 100 tế bào.
+deaaa7bb406d	Chỉ được đếm thị trường vùng mô phân sinh: tế bào vùng kéo dài đã không còn phân chia, không nằm trong chu kì tế bào, không chia kì (minh hoạ trong cảnh).
+893a77145395	8–12 tế bào ứng với 8%~12%, tức 1.0–1.4 h trong 12 h, khớp với thời gian kì phân chia 1.2 h.
+a61c2713d622	Không có nội dung mới: dùng hết tám bước trước là đạt.
+176df53ea3bb	Thời gian kì phân chia ≈ tỉ lệ tế bào kì phân chia \xD7 chu kì tế bào = 10% \xD7 12 h = 1.2 h.
+84fa3b33ac64	Kì phân chia chiếm khoảng 10% chu kì tế bào, khoảng 1.2 h trong 12 h — từ số tế bào đếm được là ước tính được thời gian.
+a78666ba5186	B5 (A5.8, A5.11)
+6cb3a278ce73	Khung lấy mẫu 50 tế bào \xB7 vật kính 40\xD7
+75d22678b5d1	Kì của tế bào chính
+290da4ba5b1e	Số NST
+210103edb1ff	Số DNA
+8db78326a5c7	Kì
+9b91f2a37ed7	Vật kính
+5048ccb7a8a4	Thị trường
+865cf5729f57	Kì trung gian
+164f9963f252	Mẫu 1
+e42e7644dfb2	Mẫu 2
+de253ec4fad2	Vùng kéo dài
+62bdc1190bb0	Đã đổi vật kính: độ phóng đại và trường nhìn xem ở nhãn trong cảnh
+e30b20ec74f3	Kì của tế bào chính
+413adad4f36f	Đổi thị trường: vùng mô phân sinh mẫu 1 / mẫu 2, hoặc vùng kéo dài (đối chứng)
+2ae4adfc4fe0	Số NST / số DNA
+5d938da0dde2	— Số NST \xB7
+0a5d88350468	Số DNA \xB7
+07c6768c535d	Hiện tại \xB7 kì trung gian chiếm 90%
+56d77aa65819	Số tế bào mỗi kì (bảng ghi của SGK)
+367ff5ddd2cc	Tổng số
+1455508f718b	Kì phân chia
+fa49d4c99c50	Thị trường trượt ra khỏi vùng mô phân sinh: tới vùng kéo dài, tế bào dài ra, không còn phân chia (không chia kì)
+265b6bd7782b	Ước tính thời gian kì phân chia
+02d01997eac8	Ghi đủ hai thị trường vùng mô phân sinh
+8efe8c55ae2c	8–12 tế bào
+a570c03bf41e	Đặt cho bài
+6753a10e8b60	Tổng thể \xB7 bàn làm tiêu bản, thị trường tế bào, một tế bào
+cdbd5efc6b7f	Ở kì sau nguyên phân, số NST và số phân tử DNA trong một tế bào (hành tây 16 NST)
+c6c7f93d2297	16 NST, 16 DNA
+9d15f83b50bc	16 NST, 32 DNA
+96b85be018e5	32 NST, 32 DNA
+044150cc7425	32 NST, 16 DNA
+a74275451280	Tâm động tách, nhiễm sắc tử chị em tách ra thành hai NST, số NST 16 → 32; DNA không tổng hợp mới, vẫn là 32 (tr. 113).
+163c64fe34ae	Trong chu kì tế bào, phát biểu “sau nhân đôi có 32 NST”
+70ebd1105c57	Đúng, DNA và NST đều tăng gấp đôi
+f9cba290dc0d	Sai, NST vẫn 16, DNA là 32
+a27f5b37b271	Sai, NST vẫn là 8
+13c45e9b4ba9	Đúng, nhiễm sắc tử trở thành NST
+1290bbf5ccf8	Sau nhân đôi NST vẫn 16, tăng thêm là DNA (16 → 32) và nhiễm sắc tử chị em (0 → 32) (bài tập 1(2) trong SGK, đáp án kèm theo).
+8042c23832bf	Mục đích của bước “rửa” trong quy trình làm tiêu bản
+06c40d5a3938	Làm các tế bào tách rời nhau
+dfd527ed23d7	Rửa sạch dung dịch, tránh phân li quá mức
+633d30cfedf8	Làm NST bắt màu
+daad6028c096	Làm tế bào dàn mỏng ra
+abe76da980f5	Bảng ở SGK tr. 116: mục đích của rửa chính là “rửa sạch dung dịch, tránh phân li quá mức”.
+d7cce280ff2d	Trong thị trường, tế bào nhiều nhất là
+f75d08c1dca6	Kì trung gian chiếm 90%~95% chu kì tế bào, thời gian dài nhất, nên tế bào kì trung gian nhiều nhất (bài tập 1(1) trong SGK, đáp án kèm theo).
+053f9b5e45dc	Hiểu hoạt động của NST ở các kì nguyên phân, biết dùng số tế bào ước tính thời gian mỗi kì.
+3cf4fd26c0c4	Ghi chú minh hoạ: đầu rễ phóng to minh hoạ 2 lần, thị trường tế bào là phóng to minh hoạ, động tác các kì là minh hoạ; thời gian quy đổi theo 12 h.
+06e4b300f959	Phân li 3~5 min
+f6c5052822f5	Rửa 3~5 min
+8ff0769dce8b	Nhuộm khoảng 10 min
+ac29f9118e10	Làm tiêu bản (ép)
+c7fd6c60352e	Đầu rễ 2~3 mm \xB7 phóng to minh hoạ 2 lần
+4426643f0229	Vùng mô phân sinh
+66fe6889500d	Vật kính ${u}\xD7 \xB7 phóng đại ${u*10} lần \xB7 trường nhìn ${na(u)} \xB5m
+3b8c3ace87f3	Khung lấy mẫu 200 \xB5m \xD7 100 \xB5m \xB7 50 tế bào
+7c8b716374ad	Sợi chất nhiễm sắc (mỗi cực 16 sợi)
+2798d92b3632	NST con (32)
+6247c724934a	NST (16)
+70e179826d52	Vách ngăn → thành tế bào mới
+c798e9f7a90f	Sai thứ tự: phân li trước, rồi rửa, nhuộm, cuối cùng làm tiêu bản
+47e2a29480c7	${Math.round(i)} tế bào
+af4a63107521	Bốn kì theo SGK
+02114b116af4	Hành tây 8 cặp
+bca5200077fc	Sau nhân đôi ở kì trung gian
+6110546bbf82	Quan sát nguyên phân ở tế bào vùng mô phân sinh đầu rễ · bài giảng 3D tương tác

@@ -1,0 +1,350 @@
+939d7a3d0884	C.steps[${O}].cam.pitch=${k.cam.pitch}\xB0 không nằm trong CAMERA.polar ${p.polar[0]}–${p.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp trở lại)
+d385777c7946	${k.unitOf} ${de.no}:
+1af346bca70d	SGK Nhân Giáo (Trung Quốc) 2019, bắt buộc tập 2, chương 8 bài 1 “Khai thác và sử dụng tài nguyên thiên nhiên \xB7 Khai thác và sử dụng khoáng sản kim loại” (phía SGK: mức L1 chưa đối chiếu trực tiếp)
+aee096123bab	Luyện kim: điện phân muối nóng chảy + nhiệt nhôm
+6a668c09b9e1	Luyện kim: điện phân và nhiệt nhôm
+52ad25f60e59	2Al₂O₃(l) --điện phân--
+f10cb4ca6b70	Vì sao nhôm chỉ có thể dùng điện để “tách” ra, còn sắt lại có thể bị nhôm “đẩy” ra?
+cea372af1b8b	Tính hoạt động
+90f0eaed788d	Kim loại càng hoạt động, ion dương càng khó nhận electron
+cfb281f66b01	Xếp hàng
+ac8eb3a0b2f0	K–Al điện phân \xB7 Zn–Cu nhiệt luyện \xB7 Hg/Ag nhiệt phân
+cdabd3a3fcea	Nóng chảy
+e67b0dcffa09	Al₂O₃ cần 2054 ℃, nhờ cryolite trợ dung còn khoảng 1000 ℃
+cb368d14765f	Cái giá
+8ba761e85a6c	Điện áp bể trên 4 V, mỗi tấn nhôm tốn hơn mười nghìn kWh; tăng dòng chỉ mua thêm sản lượng
+c232d9b58ce4	Dùng ngược lại
+0f025077e5b5	Bản thân nhôm hoạt động → nhiệt nhôm đẩy sắt ra
+371885624435	Quy trình phân xưởng
+3dce5aa1d23a	Toàn phân xưởng \xB7 ba khu bàn
+4a42052b2601	Kéo một điều khiển, sản lượng, điện năng và rủi ro nhiệt độ cùng hiện ra cho em xem
+ffffd20f767f	Đúng hết! Chuỗi từ dãy hoạt động đến điện năng tiêu thụ em đã nắm chắc.
+f7f8dcc56a41	Nên quay lại bước 2, 4, 6, xem lại “vì sao chỉ có thể điện phân” và “bài toán điện năng”.
+8ff924ad4325	Anode (+): O\xB2⁻ nhường electron tại đây, giải phóng O₂
+e1185a4fb95e	Cathode (
+199472cdb8f4	): Al\xB3⁺ nhận electron tại đây, nhôm lỏng chìm xuống đáy
+a1dc792efd22	Nhôm lỏng được hút ra từ đáy bể
+9a0f636739db	Điện phân NaCl nóng chảy: cathode thu được sodium
+93816cabe433	Điện phân MgCl₂ nóng chảy: cathode thu được magnesium
+feb8786d432d	Hỗn hợp nhiệt nhôm: nhôm lấy oxygen của Fe₂O₃
+04660e2c67a9	Nhôm oxide theo ống khí động vào phễu liệu
+6ba1ef11e7a1	Dòng điện một chiều vào từ thanh cái anode, ra ở thanh cái cathode
+c083b38e791b	Khối carbon anode nung sẵn: cắm từ trên vào khối nóng chảy
+0289536a0203	Chất điện li nóng chảy: cryolite + 2–4 % nhôm oxide
+d8d67ef73177	Nhôm lỏng chìm đáy: ρ 2.3 lớn hơn khối nóng chảy 2.1
+507c521b6df2	Phân xưởng điện phân nhôm
+1cb7cfe58f67	Một dãy bể điện phân đang có điện: nhôm oxide vào, nhôm lỏng ra
+e47685c93b1e	Bàn đối chiếu muối nóng chảy
+f3061cfb1527	Điện phân NaCl nóng chảy điều chế sodium, điện phân MgCl₂ nóng chảy điều chế magnesium
+06efdc414294	Bàn phản ứng nhiệt nhôm
+01e6216b5949	Nhiệt nhôm
+202902d8ff58	Bột nhôm + sắt(III) oxide cháy thành sắt nóng chảy trong chén nung
+e51769131cbb	Tủ điều khiển dãy bể
+ea6d1f1ed6ac	Dòng điện, nhiệt độ bể, cảnh báo hiệu ứng anode
+3bf4db887d72	Silo nhôm oxide
+9c02ba736429	Theo ống khí động đưa vào từng bể
+db009cba7a1a	Silo muối fluoride
+542f0ebd6aa3	Bổ sung cryolite và nhôm fluoride
+f327d0016382	Gầu hút nhôm
+6b9112ee5fa9	Hút nhôm lỏng từ đáy bể
+8bc833178bc0	Điện phân NaCl nóng chảy
+2ea5762bd368	Cathode Na⁺ + e⁻ → Na
+50acd0a15baf	Điện phân MgCl₂ nóng chảy
+082094c60b7d	Cathode Mg\xB2⁺ + 2e⁻ → Mg
+0ba8d3e9858b	Chén nung nhiệt nhôm (minh hoạ)
+ef6e60c16605	2Al + Fe₂O₃ → Al₂O₃ + 2Fe \xB7 phóng to kích thước để trình diễn
+e21900aa7613	Ba khu bàn
+7bb317c0ba2b	Cùng là kim loại đào từ quặng, vì sao có loại “nung” ra được, có loại chỉ có thể dùng điện?
+052fb47bc190	Kéo góc nhìn, đi một vòng qua ba khu bàn (cuộn chuột để kéo gần, đẩy xa)
+711d144d1993	Chế độ tham chiếu 300 kA / 955 ℃: sản lượng nhôm mỗi bể 2.30 t/d, điện năng một chiều mỗi tấn nhôm 12 861 kW\xB7h/t đang chạy; phân xưởng điện phân, bàn đối chiếu muối nóng chảy, bàn nhiệt nhôm cùng bày ở ba nơi
+eb689cb8f1f5	Bản chất của luyện kim: khử kim loại từ hợp chất của nó
+d12c2157e0dd	K Ca Na Mg Al → điện phân
+18cffec685fb	Zn Fe Sn Pb Cu → nhiệt luyện
+b5e8562c0d3b	Hg Ag → nhiệt phân
+73720c85eb5f	Trong tự nhiên kim loại chủ yếu tồn tại ở dạng hợp chất có số oxi hoá dương (khoáng vật), số ít ở dạng đơn chất; muốn từ số oxi hoá dương về 0 thì phải nhận electron.
+6b6aeaa8443f	Kim loại càng hoạt động, tính khử càng mạnh, ion dương của nó càng khó nhận electron, càng khó bị khử — phương pháp không phải học thuộc mà là xếp theo tính hoạt động.
+e0127576d0bb	Vì vậy K, Ca, Na, Mg, Al chỉ có thể điện phân muối nóng chảy, Zn→Cu dùng nhiệt luyện, Hg, Ag dùng nhiệt phân, Pt, Au chỉ cần làm giàu vật lí.
+8c45f16ac8a5	Bỏ bước này: học sinh chỉ thuộc “nhôm dùng phương pháp điện phân”, không nói được dựa vào đâu.
+e65c3994d78c	Hay thi “căn cứ chọn phương pháp luyện kim”: trả lời tính hoạt động của kim loại (tính khử mạnh hay yếu), đừng chỉ trả lời “xem giá cả”.
+fd842bfe1eab	Bản chất của luyện kim là khử kim loại từ hợp chất; kim loại càng hoạt động, ion dương càng khó nhận electron, phương pháp xếp hàng theo tính hoạt động: K–Al điện phân, Zn–Cu nhiệt luyện, Hg/Ag nhiệt phân.
+415bceb6af9c	A1.1(K1), A2.4, A3, A4.2
+389be06d3a39	Chỉ có thể điện phân
+b3464cdadb5a	Than cốc lấy được sắt ra từ quặng sắt, vì sao không lấy được nhôm?
+93c654d334e7	Trong cảnh 3D, bấm vào thanh đồng dẫn ra của cathode ở bể điện phân sodium bên trái bàn đối chiếu (khối nhô ra ngoài thành bể)
+8987c43d42df	Bấm vào thì băng thông báo chỉ ra: NaCl 801 ℃, MgCl₂ 714 ℃ tự nóng chảy là dẫn điện được, cathode Na⁺ + e⁻ → Na; còn Al₂O₃ phải 2054 ℃ mới nóng chảy, bắt buộc nhờ cryolite trợ dung
+b0204680292e	2NaCl(l) --điện phân--
+101780333e60	2Na(l) + Cl₂↑ \xB7 MgCl₂(l) --điện phân--
+095c08bf667f	Bản thân muối nóng chảy là chất dẫn ion; Al₂O₃ phải thêm cryolite mới nóng chảy
+98cd37aef257	Al₂O₃ nóng chảy ở 2054 ℃
+3878be8748ea	ΔrG\xB0(sắt đẩy nhôm) = +840.1 kJ\xB7mol⁻\xB9
+1d543a2a7af7	Theo dãy hoạt động của kim loại, nhôm đứng trước carbon: tính khử của nhôm mạnh hơn carbon, ở nhiệt độ khả thi trong công nghiệp carbon không khử được Al₂O₃.
+5ac2d79a0903	Đảo chiều cũng không được: dùng sắt khử nhôm oxide, ΔrG\xB0 = +840.1 kJ\xB7mol⁻\xB9
+48ef6efd3861	0, không tự xảy ra.
+bd96a9bd8f7f	Sodium, magnesium, nhôm đều điều chế bằng điện phân muối nóng chảy, nhưng NaCl 801 ℃, MgCl₂ 714 ℃ tự nóng chảy là dẫn điện, Al₂O₃ phải 2054 ℃ mới nóng chảy, nên bắt buộc thêm cryolite để hạ nhiệt độ khối nóng chảy.
+3b0386658553	Bỏ bước này: học sinh sẽ tưởng “nhôm chỉ đắt hơn một chút”, không biết nó hoàn toàn không nằm trên cùng một con đường khử.
+cb4913ef898f	Hay thi “vì sao nhôm không thể luyện bằng chất khử như sắt”: trả lời tính hoạt động của kim loại (nhôm hoạt động hơn carbon, hơn sắt), đừng trả lời “nhôm đắt”.
+1f7a69d82573	Nhôm hoạt động hơn cả carbon lẫn sắt, carbon không khử được nhôm oxide, sắt cũng không đẩy được nhôm (ΔrG\xB0 = +840.1 kJ\xB7mol⁻\xB9
+8ad8c7a3166c	0, không tự xảy ra) — nên sodium, magnesium, nhôm chỉ có thể điện phân muối nóng chảy.
+c996ab0fb4a4	A3, A4.2, A4.4, A2.3(T3), A6.1, A6.8
+969653b00f9d	Bên trong bể này rốt cuộc có gì, nhôm “mọc” ra như thế nào?
+77195340cc4c	Bể đã được bổ một phần tư hướng về ống kính, kéo góc nhìn đi một vòng quanh nó
+2d140367844e	Bổ ra thấy: khối carbon anode nung sẵn cắm từ trên xuống, khối carbon cathode lát dưới đáy bể, ở giữa là chất điện li nóng chảy màu đỏ cam, đáy bể đọng một lớp nhôm lỏng trắng bạc, mặt dưới anode đang sủi bọt
+6fa497b1ae5b	2Al₂O₃(l) --điện phân (trợ dung cryolite)--
+1546c1fe6922	Khối carbon anode cắm từ trên vào khối nóng chảy \xB7 khối carbon cathode lát dưới đáy bể
+e700d23e317a	Anode ở trên: khối carbon cắm từ trên
+276d9cd0a6e7	Cathode ở đáy bể: khối carbon lát đáy
+18decad4e48b	Nhôm lỏng ρ 2.3 g/cm\xB3
+ca2edeb9366c	Anode là một dãy khối carbon nung sẵn, cắm từ trên vào khối nóng chảy; khối carbon cathode lát dưới đáy bể, nối với thanh thép ở đáy.
+35880fa076a1	Ở giữa là chất điện li nóng chảy: trong cryolite hoà tan 2–4 % nhôm oxide, nhiệt độ 940–980 ℃.
+09129e1a17e7	Nhôm lỏng có khối lượng riêng 2.3 g/cm\xB3 lớn hơn khối nóng chảy 2.1 g/cm\xB3, nên chìm ở đáy bể và được hút ra từ đáy — không phải “vớt ra”.
+ada3f41b32c0	Bỏ bước này: không giải thích được nhôm “ra bằng cách nào”, học sinh sẽ tưởng nhôm nổi ở trên.
+a838a546a4df	Hay thi “sản phẩm cathode khi điện phân luyện nhôm ở đâu”: ở đáy bể (khối lượng riêng lớn hơn khối nóng chảy), anode ở phía trên khối nóng chảy, sản phẩm là O₂.
+f0031fffe8e2	Bể điện phân chính là một thiết bị điện phân muối nóng chảy: khối carbon anode ở trên, khối carbon cathode ở đáy bể, nhôm lỏng nặng hơn khối nóng chảy nên chìm ở đáy, được hút ra từ đáy.
+f5bd4334f3e3	A2.1, A4.5, A5.1, A5.2
+91dec8943657	Cái gì đi về đâu
+499d88cd5b7b	Sau khi có điện, electron và ion mỗi thứ đi về phía nào? Tăng dòng điện có tiết kiệm điện không?
+a3f7e5d0ef68	Kéo dòng điện dãy bể từ 300 kA lên 400 kA, theo dõi sản lượng và điện năng mỗi tấn nhôm
+99d8a50eb576	Al\xB3⁺ đi xuống (cathode ở đáy bể), O\xB2⁻ đi lên (anode ở phía trên); I 300 → 400 kA: sản lượng nhôm mỗi bể 2.30 → 3.06 t/d, điện áp bể 4.100 → 4.180 V, điện năng mỗi tấn nhôm 12 861 → 13 112 kW\xB7h/t
+437bb044ad83	Cathode Al\xB3⁺ + 3e⁻ → Al \xB7 anode 2O\xB2⁻
+d4e19c64101f	Dòng một chiều \xB7 khối carbon anode đồng thời bị đốt cháy: C + O₂ → CO₂
+e2b5fb0684d7	Al\xB3⁺ ↓ về cathode ở đáy bể
+83be4bb67c16	O\xB2⁻ ↑ về anode cắm từ trên
+e713b8372ef2	P ∝ I, W tăng nhẹ theo I
+168d6b2d45f2	Trong khối nóng chảy, cation đi xuống, anion đi lên; ở mạch ngoài, electron từ cực âm của nguồn qua thanh cái đáy bể đi vào, từ thanh dẫn anode phía trên trở về cực dương của nguồn.
+dd38f1f8167f	Ở cathode là Al\xB3⁺ nhận electron (không phải O\xB2⁻); anode giải phóng oxygen, oxygen lập tức đốt cháy anode carbon nóng đỏ, mỗi kilogram nhôm tiêu hao 0.4–0.5 kg carbon.
+5623db58314d	Dòng điện càng lớn, electron nhận được trong một đơn vị thời gian càng nhiều, nhôm ra càng nhiều: sản lượng tỉ lệ thuận với dòng điện, 300 → 400 kA thì 2.30 → 3.06 t/d.
+247ab7b5f774	Bỏ bước này: học sinh sẽ tưởng “dòng càng lớn càng tiết kiệm điện” — thực tế sụt áp Ohm tăng theo dòng sẽ đẩy điện áp bể lên, điện năng mỗi tấn nhôm 12 861 → 13 112 kW\xB7h/t lại tăng.
+9cd0f7bddd44	Hay thi “điện phân nhôm mà tăng dòng điện thì sao”: sản lượng tăng tỉ lệ thuận, điện áp bể và điện năng mỗi tấn nhôm tăng theo; tiết kiệm điện phải dựa vào giảm điện áp bể, nâng hiệu suất dòng điện.
+7ebb900c423b	Cathode Al\xB3⁺ + 3e⁻ → Al, anode 2O\xB2⁻
+a60d08e6321c	4e⁻ → O₂↑; dòng càng lớn nhôm ra càng nhiều, nhưng sụt áp Ohm trên thanh cái, thanh dẫn và khối nóng chảy cũng càng lớn, điện năng mỗi tấn nhôm chủ yếu do điện áp bể và hiệu suất dòng điện quyết định, không vì dòng lớn mà tiết kiệm được.
+89426f3ad2ca	A2.1, A5.2, A5.3, A5.4, B2.1 mục 2–4, B4.2
+b6831ef1bf0a	Pha cryolite
+9cb7a2f8805f	Nhôm oxide 2054 ℃ mới nóng chảy, bể làm sao chịu nổi?
+e0a5ab8bf6b5	Gạt “trợ dung cryolite” sang chưa dùng, xem các số đọc rơi hết xuống, rồi gạt lại
+26a38e08a117	Tắt cryolite: nhiệt độ nóng chảy 2054 ℃ cao hơn nhiều so với giới hạn trên 990 ℃ của bể này, điện phân dừng ngay — sản lượng nhôm mỗi bể 2.30 → 0.00 t/d, điện áp bể 0 V; gạt lại thì khôi phục 2.30 t/d / 4.100 V
+607698e554ab	Cryolite Na₃AlF₆ nóng chảy ở 1012 ℃ \xB7 khối nóng chảy làm việc ở 940–980 ℃
+a92e0bc6c688	Cryolite nóng chảy ở 1012 ℃
+c283cc9cd02f	Chất trợ dung không ghi vào phương trình tổng
+72bece524158	Al₂O₃ tinh khiết nóng chảy ở 2054 ℃, nấu chảy trực tiếp rồi điện phân thì năng lượng tiêu hao và thiết bị đều không chịu nổi.
+30a831ccbafc	Cryolite (Na₃AlF₆, nóng chảy ở 1012 ℃) hoà tan nhôm oxide, nhiệt độ khối nóng chảy hỗn hợp giảm xuống dưới khoảng 1000 ℃, trong công nghiệp thực tế làm việc ở 940–980 ℃.
+5b15b4610921	Cryolite là chất trợ dung: giảm nhiệt độ nóng chảy, tăng tính dẫn điện, về lí thuyết không bị tiêu hao (thực tế có hao hụt do bay hơi phải bổ sung), nên không ghi vào phản ứng tổng.
+81284c39a3a4	Bỏ bước này: học sinh không hiểu “vì sao chất nóng chảy ở 2054 ℃ lại điện phân được trong bể 950 ℃”.
+ced1f3627286	Hay thi “vai trò của cryolite”: chất trợ dung, giảm nhiệt độ nóng chảy của nhôm oxide (không phải chất xúc tác, không tham gia phản ứng điện cực).
+2b0fe5e70eba	Cryolite kéo nhiệt độ nóng chảy của Al₂O₃ từ 2054 ℃ xuống dưới khoảng 1000 ℃, điện phân công nghiệp mới tiến hành được ở 940–980 ℃; nó là chất trợ dung, không ghi vào phương trình tổng.
+703fbb711491	A4.3, A6.1, A6.2, B1.4
+7542c1dfe809	Bài toán điện năng
+9e48a2999f95	Nhiệt độ bể chỉ chênh hơn mười độ, vì sao tiền điện chênh nhau nhiều thế?
+01b204491d28	Kéo nhiệt độ bể từ 955 ℃ xuống 940 ℃, xem điện áp bể và điện năng mỗi tấn nhôm
+817e1556fc56	t 955 → 940 ℃: điện áp bể 4.100 → 4.245 V, điện năng một chiều mỗi tấn nhôm 12 861 → 13 068 kW\xB7h/t, hiệu suất dòng điện 95.0 → 96.8 %, sản lượng ngày 2.30 → 2.34 t/d
+4f3cf34bc220	\xB7 U = 4.10 + 0.003\xB7(955
+5ca73354167a	t, phần dưới 950 ℃)
+7ccedf9ee023	cộng thêm số hạng Ohm 0.0008\xB7(I
+1979d4041780	300); dưới 950 ℃ cộng thêm số hạng độ nhớt khối nóng chảy 0.010/℃
+874946d76211	Điện năng công nghiệp 11 500–13 500 kW\xB7h/t
+eddd78fb89a7	Hình 8-2 SGK khoảng 16 500
+75bc23a2d6f7	Ngưỡng đạt 13 100
+b150190488a6	Nhiệt độ bể giảm, Al₂O₃ khó tan, khối nóng chảy đặc quánh, điện trở tăng, điện áp bể tăng, điện năng mỗi tấn nhôm tăng theo: 955 → 940 ℃ thì 12 861 → 13 068 kW\xB7h/t.
+457ab511b1b1	Nhiệt độ bể tăng, điện áp bể có giảm một chút (khoảng 3 mV/℃; dưới 950 ℃ thì ngược lại, tăng theo số hạng độ nhớt 0.010/℃), nhưng hiệu suất dòng điện giảm nhanh hơn (ở 990 ℃
+8193fca7926c	chỉ còn 0.908), điện năng lại tăng lên 13 111; lớp lót bể cũng bị ăn mòn nhanh hơn.
+5e245b022e91	Vì vậy công nghiệp giữ ở 940–980 ℃, ép điện năng xuống 11 500–13 500 kW\xB7h/t; hình 8-2 SGK cho số liệu cũ khoảng 16 500 kW\xB7h/t, bể hiện đại đã giảm vào khoảng này; chế độ tham chiếu 12 861 của bài này gấp 1.48 lần giới hạn dưới lí thuyết 8700.
+29142fb3b19b	Bỏ bước này: học sinh chỉ thuộc “điện phân nhôm tốn điện”, không biết tính “chỉnh vài độ thì tốn thêm bao nhiêu”.
+0bdda3e8e9c7	Hay thi “vì sao điện phân nhôm tốn điện như vậy”: điện áp bể cao hơn nhiều so với điện áp phân huỷ lí thuyết, phần dư đều biến thành nhiệt.
+1b113ef95fe1	Nhiệt độ bể giảm → Al₂O₃ khó tan, điện trở khối nóng chảy lớn → điện áp bể tăng → điện năng mỗi tấn nhôm tăng (955 → 940 ℃ thì 12 861 → 13 068 kW\xB7h/t); nhiệt độ bể quá cao tuy giảm điện áp bể, nhưng hiệu suất dòng điện giảm nhanh hơn (ở 990 ℃ 0.908 → 13 111). Hai đầu đều tốn điện, công nghiệp giữ ở 940–980 ℃.
+2abe5a196cb3	A4.7, A6.3, B1.1, B1.2, B2.1 mục 1–4
+ba5d256f2e98	Nhôm khó điều chế như vậy, sao còn dùng nó để luyện sắt?
+14e0cc645063	Nhìn dây magnesium được mồi cháy: hỗn hợp nhiệt nhôm bắt đầu phản ứng, sắt nóng chảy từ đáy chén nung chảy vào khoang khuôn
+152c4f5a69cf	Trong chén nung ánh sáng trắng chói, tia lửa bắn tung toé, nhiệt độ lên trên 2500 ℃ (vượt nhiệt độ nóng chảy của sắt 1535 ℃): sắt nóng chảy chìm vào khoang khuôn, xỉ Al₂O₃ nóng chảy nổi lên trên; ΔrH\xB0 =
+c0b3e2bccc9d	2Al + Fe₂O₃ --nhiệt độ cao--
+790ea9bc7575	851.5 kJ\xB7mol⁻\xB9 \xB7 sau khi mồi cháy tự duy trì nhờ nhiệt toả ra
+053d87f573b7	Nhiệt độ trên 2500 ℃
+251375c03abd	Sắt nóng chảy ở 1535 ℃
+c21bdb80fd9e	Sắt nóng chảy chìm, xỉ nổi lên
+b494e35881c7	Trong phản ứng nhiệt nhôm, nhôm bị oxi hoá (0 → +3), sắt bị khử (+3 → 0), nhôm là chất khử — chiều hoàn toàn ngược với bước 2.
+a6cb695d08c5	Phản ứng toả nhiệt mãnh liệt (ΔrH\xB0 =
+4fcd2d2e86aa	851.5 kJ\xB7mol⁻\xB9), chỉ cần mồi cháy, sau đó tự duy trì nhờ nhiệt toả ra, nhiệt độ có thể trên 2500 ℃.
+c64ef5e451d0	Nhiệt độ vượt nhiệt độ nóng chảy của sắt 1535 ℃, sắt chảy ra ở dạng lỏng, chìm ở dưới, xỉ Al₂O₃ nóng chảy nổi lên trên: dùng để hàn đường ray, luyện kim loại khó nóng chảy.
+980160dcaad2	Bỏ bước này: “nhôm rất hoạt động” chỉ được kể như gánh nặng, không nói được chỗ có ích nhất của nó.
+0601de5561f4	Hay thi “chất oxi hoá trong phản ứng nhiệt nhôm là chất nào”: Fe₂O₃ (Fe từ +3 → 0); nhiệt nhôm dùng để hàn đường ray, luyện kim loại khó nóng chảy.
+b1637edf068c	Cùng một tính chất “nhôm rất hoạt động”: khi điện phân là rắc rối (phải dùng điện để kéo ra), khi nhiệt nhôm là vốn liếng (nhôm giành lấy sắt từ oxide), toả nhiệt 851.5 kJ\xB7mol⁻\xB9, nhiệt độ trên 2500 ℃.
+28bf8660d555	A2.2, A2.3(T1/T2/T5), A4.6, A6.7, A6.9
+6c36e083b7db	Sản lượng, điện năng, an toàn của bể cùng ràng buộc, em chỉnh bể này thành thế nào?
+69bc610b9256	Trong khoảng nhiệt độ bể 950–965 ℃, ép điện năng mỗi tấn nhôm xuống ≤ 13 100 kW\xB7h/t, sản lượng nhôm mỗi bể đạt ≥ 2.30 t/d, và giữ 15 s
+22c76743cd4c	Vào được 5 s thì ca đêm sẽ hạ nhiệt độ bể xuống 935 ℃: ở 300 kA điện năng 13 241, ở 320 kA 13 290 kW\xB7h/t, đều vượt 13 100 và chạy ra khỏi dải nhiệt độ, em phải tự kéo lại; đạt rồi thì thanh mục tiêu chuyển xanh
+4fabd58189a4	Ba điều kiện cùng thoả và giữ 15 s
+e1dd79e097d3	Ngưỡng đạt 13 100 kW\xB7h/t
+c0c8b2dbd123	Đáp án chuẩn I 320 / t 955
+c80d4620486b	Vượt ngưỡng t
+42f34a27c1dd	985 là sự cố
+8c2671645364	Ngưỡng điện năng ≤ 13 100 chặn đứng đầu nhiệt độ thấp: ở 930 ℃ là 13 441 kW\xB7h/t, ở 935 ℃ là 13 241, đều vượt.
+29f899d88418	Ngưỡng sản lượng ≥ 2.30 t/d chặn cận dưới của dòng điện ở 305–310 kA; nhiệt độ càng cao hiệu suất dòng điện càng thấp, càng phải tăng dòng để bù sản lượng.
+78523e89b7b0	Cận trên nhiệt độ bể 965 ℃ do hiệu suất dòng điện và an toàn lớp lót bể quyết định; vượt 985 ℃ sẽ diễn ra “đếm ngược 3 s → thủng lớp lót bể → sự cố → phân tích sự cố → sửa chữa khẩn cấp”.
+8f4278968ff8	Bỏ kiểm tra cuối bài: học sinh chỉ thuộc “khoảng 950 ℃”, không biết cùng lúc giữ vững ba ngưỡng.
+34b6014bb692	Hay thi “vì sao điện phân nhôm không thể cứ hạ nhiệt để tiết kiệm điện”: điện áp bể tăng, khối nóng chảy đặc quánh, nhôm oxide khó tan.
+7965ec63fcb9	Miền khả thi là một dải hẹp hai chiều: chỉ khi nhiệt độ bể 950–965 ℃, dòng điện đủ lớn mà không quá lớn thì ba điều kiện mới cùng đạt — ngưỡng là tính ra, không phải học thuộc.
+1c2ea1e3351f	B2.2, B2.1, B1.1
+81e780847679	Dòng điện dãy bể
+1598c666af99	Trợ dung cryolite
+e0555fece462	Chưa dùng (nhôm oxide không nóng chảy)
+a70478bed83b	Sản lượng nhôm mỗi bể
+6eee6d393fde	Điện năng DC mỗi tấn nhôm
+7f3f54095b8a	Ngưỡng đạt 2.30 t/d
+08b8376d4fbc	Ngưỡng 1.31 vạn
+d0e908a9fdda	Tham chiếu 95.0
+7825d7f10df7	Đã dừng (nhôm oxide chưa nóng chảy)
+2d4853598f70	Chưa dùng cryolite: nhôm oxide chưa nóng chảy, không có dòng điện chạy qua
+f04dafbc5e7a	Bể nhỏ
+96b876e3a908	Công nghiệp
+db15c1df3967	Bể lớn
+90b1a0725472	Điện năng mỗi tấn nhôm và sản lượng ngày — nhiệt độ bể
+fe04cbeef9b7	— Điện năng (nghìn kW\xB7h/t) \xB7 -- sản lượng ngày
+8be1c41ee43b	Rủi ro nhiệt độ bể
+d435075e897c	Độ quá nhiệt càng lớn càng nguy hiểm, 985 ℃ là vượt ngưỡng
+0a27bd264466	Mục tiêu ca: điện năng ≤ 13 100 và sản lượng ngày ≥ 2.30
+5f6d29cc81a0	Mục tiêu ca: trong khoảng nhiệt độ bể 950–965 ℃, điện năng mỗi tấn nhôm ≤ 13 100 kW\xB7h/t, sản lượng nhôm mỗi bể ≥ 2.30 t/d, giữ 15 s
+b602c5337f58	(dải nhiệt độ 950–965 ℃)
+1a6642febabc	Nhiệt độ bể quá cao → thủng lớp lót bể → khối nóng chảy rò rỉ
+5dfa1a54d87b	A. Để giảm điện áp bể, tiết kiệm điện, cứ đẩy nhiệt độ bể lên mãi
+c36b53c83be4	Điện áp bể đúng là giảm, nhưng độ quá nhiệt tăng: nhôm hao hụt do hoà tan vào khối nóng chảy nhiều hơn, khối carbon thành bên bị ăn mòn nhanh hơn.
+d819b4dd984c	B. Vượt 985 ℃, lớp vỏ đông ở thành bể bị cháy thủng
+fc65fd3dd1d9	Thành bể được bảo vệ bằng một lớp “vỏ đông thành bể” đã đông cứng; khi quá nhiệt lớp vỏ này tan chảy, khối carbon tiếp xúc trực tiếp với khối nóng chảy và không khí.
+92e3d3f9e6d1	C. Lớp lót bể bị thủng, chất điện li và nhôm lỏng thấm ra vỏ bể
+7efbdb124664	Vỏ bể nóng đỏ, nhiệt độ tăng vọt, lẽ ra phải bị hệ giám sát nhiệt độ vỏ bể phát hiện và cảnh báo.
+4a0e1ea2bfcf	D. Khoá liên động không tác động, vỏ bể bị cháy thủng
+36022ad7e8fc	Phần trình diễn này đặt sẵn khoá liên động bị hỏng; xử lí thực tế là lập tức giảm dòng, nâng khoảng cách cực, khi cần thì dừng bể.
+83bb3343f910	Nhiệt độ bể giữ ở 940–980 ℃ theo quy trình công nghệ, không vì tiết kiệm điện mà vượt giới hạn trên
+d933ac7a3fd1	Giám sát trực tuyến nhiệt độ vỏ bể + cảnh báo nhiệt độ thành bên vượt ngưỡng, định kì đo độ dày vỏ đông thành bể
+22354959f02c	Khoá liên động dòng điện, nhiệt độ bể, nồng độ nhôm oxide: khi bất thường thì giảm tải trước, không cố gồng
+66f1b583bc5b	Tỉ lệ cryolite và nhôm fluoride điều chỉnh theo nhiệt độ kết tinh đầu của chất điện li, đừng để độ quá nhiệt quá lớn
+5b3e4227391d	Định kì kiểm tra anode và thành bên, thấy lớp vỏ đông mỏng đi thì bố trí sửa chữa
+e51904642b2d	Nhớ chuỗi này: nhiệt độ bể càng cao → điện áp bể càng thấp nhưng độ quá nhiệt càng lớn → lớp vỏ đông thành bể tan chảy → lớp lót bể bị thủng, rò rỉ. Tiết kiệm điện phải giảm điện áp bể, chứ không phải đốt nhiệt độ cao.
+406fe6f0923d	Mục tiêu bài: hiểu rõ “vì sao nhôm chỉ có thể điện phân” và “bài toán điện năng tính thế nào”, cuối cùng trong dải nhiệt độ ép điện năng mỗi tấn nhôm xuống dưới 13 100, sản lượng nhôm ngày trên 2.30 và giữ 15 giây.
+9b9345f4253f	Khi điện phân nhôm oxide nóng chảy, sản phẩm ở cathode và anode lần lượt là
+f37ce62b26b9	cathode O₂, anode Al
+42da397457b9	cathode Al, anode O₂
+6a8afd2ed770	cathode Al, anode CO₂
+b5eb3908a846	cathode O₂, anode CO₂
+65a245a490bb	Cathode (nối cực âm của nguồn) Al\xB3⁺ + 3e⁻ → Al; anode (nối cực dương) 2O\xB2⁻
+5c4e4c46c1c4	4e⁻ → O₂↑. O₂ giải phóng ở anode sau đó đốt cháy anode carbon, nhưng bản thân sản phẩm điện cực là O₂.
+b2748ca3fd31	Vai trò của cryolite trong điện phân luyện nhôm là
+2ae35f187ee7	chất xúc tác, làm ion nhôm nhận electron nhanh hơn
+56db9949ddc1	chất trợ dung, giảm nhiệt độ nóng chảy của nhôm oxide
+f29ff136863b	chất khử, khử nhôm ra
+898d8a8682ae	nhiên liệu, cung cấp nhiệt cho phản ứng
+0f434d9bf941	Cryolite (Na₃AlF₆, nóng chảy ở 1012 ℃) là chất trợ dung: hoà tan Al₂O₃, nhiệt độ khối nóng chảy hỗn hợp giảm xuống dưới khoảng 1000 ℃ (công nghiệp 940–980 ℃). Nó không tham gia phản ứng điện cực, cũng không ghi vào phương trình tổng.
+13233234c8d5	Trong công nghiệp không thể dùng than cốc khử nhôm oxide để điều chế nhôm, nguyên nhân chính là
+125ecde4db0d	than cốc quá đắt
+f3d0194a14be	nhôm hoạt động hơn carbon, ở nhiệt độ khả thi trong công nghiệp carbon không khử được Al₂O₃
+8df8d2859784	nhôm oxide không dẫn điện
+5ee04b5b4954	than cốc tạo hợp kim với nhôm
+d128735957c5	Theo dãy hoạt động của kim loại nhôm đứng trước carbon, tính khử của nhôm mạnh hơn carbon; đảo chiều lại (dùng sắt khử nhôm oxide) ΔrG\xB0 = +840.1 kJ\xB7mol⁻\xB9
+c2baee4624ac	0, cũng không tự xảy ra. Nên chỉ có thể điện phân muối nóng chảy.
+77bba5b287ca	Các điều kiện khác không đổi, tăng dòng điện dãy bể từ 300 kA lên 400 kA, sản lượng nhôm mỗi bể và điện năng mỗi tấn nhôm lần lượt thay đổi thế nào
+734e5d6237e4	sản lượng tăng, điện năng mỗi tấn nhôm không đổi
+0863f2c635ef	sản lượng tăng khoảng 4/3 lần, điện năng mỗi tấn nhôm cũng tăng một chút
+698e796a6022	sản lượng tăng, điện năng mỗi tấn nhôm giảm
+0eed2e96c156	sản lượng không đổi, điện năng mỗi tấn nhôm tăng
+de55a7a0fd1c	Sản lượng tỉ lệ thuận với dòng điện (2.30 → 3.06 t/d); nhưng sụt áp Ohm trên thanh cái, thanh dẫn và khối nóng chảy tăng theo dòng, điện áp bể 4.100 → 4.180 V, điện năng mỗi tấn nhôm 12 861 → 13 112 kW\xB7h/t lại tăng một chút.
+bcb4c40c2fe2	Trong phản ứng nhiệt nhôm 2Al + Fe₂O₃ → Al₂O₃ + 2Fe, nhôm
+5b409d161684	bị khử, là chất oxi hoá
+3865bd2b5604	bị oxi hoá, là chất khử
+6a0419091edb	không bị oxi hoá cũng không bị khử
+974ff603c965	bị oxi hoá trước rồi bị khử sau
+e87dde488cd3	Nhôm tăng từ số oxi hoá 0 lên +3, nhường electron, bị oxi hoá, đóng vai chất khử; sắt giảm từ +3 xuống 0, bị khử. Phản ứng nhiệt nhôm toả nhiệt 851.5 kJ\xB7mol⁻\xB9, dùng để hàn đường ray, luyện kim loại khó nóng chảy.
+aa3cfd4519e0	Điện phân NaCl nóng chảy và điện phân dung dịch NaCl, sản phẩm ở cathode lần lượt là
+04195b72697b	đều là H₂
+a8146128670d	đều là Na
+f2fd487ea1d1	nóng chảy được Na, dung dịch được H₂
+eba4db6091a3	nóng chảy được H₂, dung dịch được Na
+bd8cb286d6ba	Trong NaCl nóng chảy chỉ có Na⁺ và Cl⁻, cathode Na⁺ + e⁻ → Na; trong dung dịch H₂O dễ nhận electron hơn Na⁺, cathode giải phóng H₂ và tạo NaOH. Đây chính là mấu chốt của hai chữ “nóng chảy”.
+8bf75844cc0b	Nhiệt độ bể giảm từ 955 ℃ xuống 940 ℃, vì sao điện năng mỗi tấn nhôm lại tăng
+774c000a86ac	vì sản lượng tăng lên
+7ddd2e9efee2	vì khối nóng chảy đặc quánh, điện trở tăng, điện áp bể tăng từ 4.100 V lên 4.280 V
+aeb531618bc8	vì hiệu suất dòng điện giảm
+4885fc314939	vì cryolite bị tiêu hao
+450e5d663649	, khi nhiệt độ bể giảm xuống 940 ℃ Al₂O₃ khó tan, điện trở khối nóng chảy tăng, điện áp bể 4.100 → 4.245 V; dù hiệu suất dòng điện tăng lên 96.8 %, điện năng vẫn tăng từ 12 861 lên 13 068 kW\xB7h/t.
+704cb62207b5	Vì sao nói “nhiệt độ bể càng thấp càng tiết kiệm điện” là không đúng
+80ddb4d144c5	vì ở nhiệt độ thấp sản lượng sẽ rơi về 0
+a6664ebedefa	vì hạ nhiệt làm điện áp bể tăng, điện năng chạm ngưỡng 13 100 trước, còn tăng nhiệt lại làm hiệu suất dòng điện giảm, sản lượng không đủ
+2410bc62fb33	vì ở nhiệt độ thấp cryolite bị phân huỷ
+01bbee8763b8	vì ở nhiệt độ thấp anode không dẫn điện
+fbff0b1767c1	Phải tính cả hai đầu: hạ xuống 930 ℃ điện năng 13 441 kW\xB7h/t (khối nóng chảy đặc quánh), tăng lên 990 ℃ hiệu suất dòng điện chỉ còn 0.908, điện năng 13 111, đều vượt 13 100. Miền khả thi chỉ còn một dải hẹp: nhiệt độ bể 950–965 ℃, dòng điện 305–400 kA.
+a60ea827273a	Đã chọn cathode: NaCl nóng chảy là dẫn điện được, cathode Na⁺ + e⁻ → Na; Al₂O₃ phải 2054 ℃ mới nóng chảy
+9249cb8a8084	Đã cắt cryolite: Al₂O₃ nóng chảy ở 2054 ℃, cao hơn nhiều so với giới hạn trên của nhiệt độ bể, khối nóng chảy đông đặc, điện phân dừng
+8cc9ca5ac27a	Đã dùng cryolite: khối nóng chảy hỗn hợp giảm xuống dưới khoảng 1000 ℃, điện phân khôi phục
+0df3e0707359	Sự cố: ca đêm hạ nhiệt độ bể xuống 935 ℃ (ở 300 kA điện năng 13 241 kW\xB7h/t, vượt 13 100) — em tự kéo lại
+ee7226aa1d31	Đạt: điện năng, sản lượng, nhiệt độ bể cùng giữ vững, giữ 15 s
+eaf55f8f7ce9	Đã về chế độ tham chiếu: 300 kA, 955 ℃, đang dùng cryolite
+a18f730b3c04	Đã dừng máy (dãy bể mất điện)
+4998bbefd324	Dừng máy khẩn cấp: chế độ vận hành đã về giá trị tham chiếu, đã gỡ khoá liên động
+a8b4076ec5d4	Sửa chữa xong: đắp lại vỏ đông thành bể, đặt lại thông số, chạy máy lại
+02b627400a0e	Lưu ý minh hoạ: hình dáng thiết bị, đường ống và vị trí bổ cắt là minh hoạ dạy học; chiều di chuyển của ion mô hình hoá theo facts B4, số đọc tính theo toán tử B2.1 (hệ số nhiệt độ và hệ số Ohm của điện áp bể và hiệu suất dòng điện là giá trị đặt cho bài), các ngưỡng và ngưỡng đạt là giá trị đặt cho bài.
+8c8760cf599c	Bể điện phân anode nung sẵn
+709ba5713aeb	Vỏ bể bằng thép (có độ dày thành, lỗ xuyên tường cho thanh thép)
+fea43da99cee	Sườn đứng khung nôi
+f9c00b55b1c5	Trụ đỡ bê tông
+25e072164a10	Lớp lót khối carbon thành bên
+42dbbbacb4eb	Lớp chịu lửa, cách nhiệt đáy bể
+35af6b63aae3	Khối carbon cathode (đáy bể)
+b0cb116d88d3	Thanh thép cathode và kẹp
+36914ba9d0b4	Khối carbon anode nung sẵn (hai dãy)
+1f11c2de1f90	Chạc thép và thanh dẫn nhôm
+371a7a59876c	Dầm thanh cái anode
+06f3603360a0	Thanh cái đứng
+4d0390aad2c4	Kết cấu phía trên dạng cổng
+37f35af20085	Tấm nắp nghiêng (kín, thu khí)
+5b92e785444a	Bộ phá vỏ cấp liệu (phễu liệu)
+bad2b9e4cf48	Ống thu khí
+dab06e2b574d	Thanh cái cathode và nối mềm
+6445e1130afd	Tủ điều khiển bể
+0248a94ba80e	Nhôm lỏng (chìm ở đáy bể)
+f33d27fe6989	Chất điện li nóng chảy
+89e9dc9ac0d6	Lớp vỏ và liệu phủ
+985d7c0c9810	Vỏ bể bằng thép
+a9e32c6bae09	Làm dày thành để minh hoạ
+6f4fc1f70efa	Thanh cái nhôm
+14b3bc6ae0ea	Bộ phá vỏ cấp liệu
+0991ededd5bb	Định kì thêm Al₂O₃
+f6ba5bbb908a	Khối carbon anode nung sẵn
+270e62ac1afd	Mặt dưới cắm vào chất điện li
+1d195c4a646b	Cryolite + Al₂O₃
+f0b8a4cfcf8c	Nhôm lỏng
+bf2bc844693a	Nặng hơn khối nóng chảy, chìm đáy
+81be084a8133	Khối carbon cathode
+aa3d130a33b4	Gắn thanh thép cathode
+b7e054b59703	Lối ra nhôm và thay anode 2.1 m
+4048256507a2	Chiều cao các lớp chép đúng facts B4.4–B4.6 (làm dày để minh hoạ); độ dày thành vỏ bể làm dày để minh hoạ; chiều dài bể rút ngắn theo nhu cầu dạy học.
+08fc7a82e2ef	Hàn nhiệt nhôm (trình diễn)
+a9eb119dc9c6	Chén nung chịu lửa hình nón
+1b740e507c6f	Hai đoạn ray thép (khe nối)
+fba3807893df	Khuôn cát (bao quanh khe nối)
+2018d4b4f0e6	Cốc đậu ngót
+65c060541b25	Lỗ ra sắt
+197d8e6abd28	Giá ba chân đỡ chén nung
+69e9db8329d0	Tà vẹt và khay cát
+7c8a52cf173f	Kẹp khuôn cát
+fd17728d6f3a	Dây magnesium (mồi cháy)
+221c8a63cf08	Hỗn hợp nhiệt nhôm (bột Al + Fe₂O₃)
+9ec0f4a15dd9	Sắt nóng chảy (chìm ở dưới)
+06adf46a7382	Xỉ nóng chảy (nổi ở trên)
+3ef766e0a2fa	Khay xỉ
+1409788499c5	Lưới chắn bảo hộ
+8e70c8eb2761	Hàn nhiệt nhôm không có đồng hồ đo và van: chỉ cần mồi cháy, phản ứng tự duy trì nhờ nhiệt toả ra
+d7cfa0c1315d	Không có bộ phận truyền động: sắt nóng chảy nhờ trọng lực chảy từ lỗ ra sắt vào khuôn cát
+30d734b61f20	Chén nung chịu lửa
+ded40d8201f6	Đựng hỗn hợp nhiệt nhôm
+2494eb7fd4bf	Ray thép
+6a2e9063d8b7	Khe nối chờ sắt nóng chảy
+241430713392	Khuôn cát
+8685f8f33ff3	Bao quanh khe nối
+d0ad3b0f93a0	Hỗn hợp nhiệt nhôm
+bd67574b5225	Ở dưới
+e4caaf32651f	Xỉ nóng chảy
+927a1426a948	Ở trên
+ae7d60a6affa	Dây magnesium
+2cc62434255a	Mồi cháy
+9d9989eb8f64	Khoảng cách an toàn khi quan sát 2 m
+84cf265d7826	Kích thước trình diễn; trong cảnh phóng to toàn bộ thêm 1.6 lần (facts B4.8). Ray thép phóng to 2 lần.
+8552a041a93f	Tiến độ phản ứng
+7d1d2c1c9b95	Nhiệt độ bể ${t.t.toFixed(0)} ℃
+de44007638e7	985 ℃ \xB7 không hạ nhiệt trong 3 giây sẽ thủng lớp lót bể
+32aca0002d71	Luyện kim: điện phân muối nóng chảy + nhiệt nhôm · Bài giảng tương tác 3D

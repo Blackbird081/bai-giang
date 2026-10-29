@@ -1,0 +1,245 @@
+8737b76f002d	world.build() trả về ${B.length} đơn vị, C.units có ${i.units.length} đơn vị, phải tương ứng một – một
+1b891255e39c	${f}.start.${h}=${JSON.stringify(p)} không phải một nấc của công tắc nhiều nấc
+3072bdc1b64c	${f}.start.${h} không phải điều khiển của bảng điều khiển
+cbd50a251814	C.units[${u}].color=${c.color}: màu nhận diện chỉ có 1–5 (quy chuẩn \xA72.4)
+97f7483f4cc1	SGK Nhân Giáo (Trung Quốc) 2019, lựa chọn bắt buộc tập 1 \xB7 Chương 3, bài 2 “Đai khí áp và đới gió” (tr. 48–53), tình huống ở bài 3 (tr. 56–57)
+a2a7f4f10eae	Đai khí áp, đới gió và hoàn lưu ba vòng
+dc50afe0374f	Đốt nóng không đều + lực Coriolis
+93d59967c96a	Vì sao đoàn thuyền Magellan có chặng ngược gió, có chặng xuôi gió, tới gần 30\xB0S lại gần như không nhích nổi?
+a0bdae9700fc	Đốt nóng
+d4f76f1b9e13	Xích đạo bị đốt nóng, khí bốc lên → đai áp thấp xích đạo
+ad39e70934ae	Lệch hướng
+3cf83a789018	30\xB0 dồn ứ, giáng xuống \xB7 60\xB0 khí ấm trượt lên → ba vòng
+f3193bf59f4b	Phân bố
+8d84213e7250	Bảy đai khí áp \xB7 sáu đới gió \xB7 bao quanh Trái Đất
+591f3aa55fda	Dịch chuyển
+9affea45b0e7	Theo điểm Mặt Trời lên thiên đỉnh, hè lên bắc, đông xuống nam → luân phiên chi phối
+98484f776aa1	Biển – lục địa
+0dca30a86f40	Lục địa đông lạnh hè nóng → trung tâm khí áp → gió mùa
+394bfa85bfd1	Vòng vĩ độ thấp
+345943dfd4dd	0\xB0–30\xB0: xích đạo bốc lên \xB7 30\xB0 giáng xuống
+62b47a4b7f25	Vòng vĩ độ trung bình
+1dc7cf4a87be	30\xB0–60\xB0: 30\xB0 giáng xuống \xB7 60\xB0 trượt lên
+75579d8bb9a8	Vòng vĩ độ cao
+5b39677bf8ef	60\xB0–90\xB0: 60\xB0 trượt lên \xB7 vùng cực giáng xuống
+6c395d510e48	Đai áp thấp xích đạo
+c9786d5d39fc	Đai áp cao cận chí tuyến
+edb5c3719a30	Đai áp thấp ôn đới
+88196d49a4cd	Đai áp cao cực
+f8b30620e750	Gió Mậu dịch đông bắc
+cd059c0980ec	Gió Mậu dịch đông nam
+79e8f5921322	Gió Tây ôn đới
+af4287d11726	Gió Đông cực
+19c1da86dcc4	Đới gió Mậu dịch
+02233ef0e732	Đới gió Tây ôn đới
+13503caa16da	Đới gió Đông cực
+5198aa5cc137	Mô hình không xác định được
+5d480efe4f80	Áp thấp xích đạo
+1580605941de	Vì sao xích đạo là một đai áp thấp?
+8429b119cde5	Em kéo để xoay quanh Trái Đất một vòng: trên mặt cắt, mũi tên màu hổ phách phía trên xích đạo đi lên
+c3a8586d8c62	Không khí sát mặt đất ở xích đạo bị đốt nóng bốc lên; trên mặt cắt, nhánh đi lên (màu hổ phách) của vòng hoàn lưu vĩ độ thấp bốc lên từ xích đạo
+2d084413c97c	Đốt nóng không đều + lực Coriolis → hoàn lưu khí quyển
+af62d3ed856d	Giả thiết của SGK: bề mặt Trái Đất đồng nhất
+2238747b774c	Xích đạo nhận nhiều nhiệt
+db10553e76fe	Không khí nở ra, bốc lên
+e4097c8a3d9a	Khí áp giảm
+8702aa44cbbc	Vùng xích đạo nhận nhiều năng lượng bức xạ Mặt Trời, không khí sát mặt đất bị đốt nóng nở ra và bốc lên, mật độ không khí giảm, khí áp giảm.
+db31a2ab2d38	SGK giả thiết bề mặt Trái Đất đồng nhất: nguyên nhân gây chuyển động khí quyển chỉ có sự đốt nóng không đều giữa vĩ độ cao và vĩ độ thấp cùng lực Coriolis.
+a53ed0caeca6	Đai áp thấp xích đạo có nguyên nhân nhiệt lực: do chênh lệch nóng lạnh trực tiếp gây nên.
+43aec6e92bd1	Bỏ bước này: không biết vì sao khí quyển chuyển động, ba vòng hoàn lưu phía sau cũng không có cơ sở.
+af27f333f0d1	Hay thi: đai áp thấp xích đạo, đai áp cao cực do nguyên nhân nhiệt lực; đai áp cao cận chí tuyến, đai áp thấp ôn đới do nguyên nhân động lực.
+c76a73e7d79c	Xích đạo nhận nhiều bức xạ Mặt Trời, không khí sát mặt đất bị đốt nóng nở ra bốc lên, khí áp giảm, hình thành đai áp thấp xích đạo (nguyên nhân nhiệt lực).
+f61c340b9750	facts-bổ sung A1.2 mục 1–2 (SGK tr. 48)
+40269ba676ea	30\xB0 giáng xuống
+8cfcf3874f49	Không khí đã bốc lên, vì sao tới 30\xB0 lại giáng xuống?
+2debbec123ee	Em bấm vào mặt cắt (hoặc vòng hoàn lưu) để thả một khối khí từ trên cao phía xích đạo, xem nó vừa đi lên phía bắc trên cao vừa lệch sang phải
+be7c9fd632f5	Khối khí lệch dần thành gió tây nam, tới trên cao 30\xB0N thì lệch thành gió tây, dồn ứ và giáng xuống tại đó; nét đứt là đường đi “nếu không lệch hướng”: chảy một mạch tới cực
+ca31bf7303ee	Lực Coriolis: bán cầu Bắc lệch phải \xB7 bán cầu Nam lệch trái \xB7 xích đạo không lệch
+369e102e5fbc	Trên cao 30\xB0N: luồng khí lệch thành gió tây → dồn ứ, giáng xuống
+120fd5eaa790	Gió tây nam → gió tây
+1ec4a258096e	Dồn ứ, giáng xuống
+0acebf651b66	Không khí nóng bốc lên ở xích đạo, trên cao toả về hai phía nam bắc; nhánh đi lên phía bắc lệch phải dần thành gió tây nam, tới gần vĩ độ 30\xB0 Bắc trên cao thì lệch thành gió tây.
+01f9b20cbca1	Không khí liên tục dồn ứ và giáng xuống tại đây, làm khí áp mặt đất tăng, hình thành đai áp cao cận chí tuyến (nguyên nhân động lực).
+d3db2187a286	Sau khi giáng xuống, sát mặt đất chia hai nhánh: nhánh về phía nam lệch phải thành gió Mậu dịch đông bắc, nhánh về phía bắc lệch phải thành gió tây nam (gió Tây ôn đới); gió Mậu dịch đông bắc và gió Mậu dịch đông nam hội tụ ở xích đạo rồi bốc lên.
+19884b30164e	Bỏ lệch hướng: luồng khí sẽ chảy một mạch tới cực (nét đứt), không dồn ứ giáng xuống gần 30\xB0, cũng không có đai áp cao cận chí tuyến.
+f3a54b096cf9	Dễ nhầm: đai áp cao cận chí tuyến không do khí lạnh đi rồi giáng xuống, mà do luồng khí trên cao dồn ứ giáng xuống (nguyên nhân động lực).
+1f114de8a727	Lực Coriolis làm luồng khí trên cao lệch thành gió tây ở gần 30\xB0, không khí dồn ứ giáng xuống, hình thành đai áp cao cận chí tuyến; gió Mậu dịch đông bắc và đông nam hội tụ ở xích đạo bốc lên, tạo thành vòng hoàn lưu vĩ độ thấp.
+6afd39b117b6	facts-bổ sung A1.2 mục 3–5 (SGK tr. 48–49)
+302abb5d05ae	60\xB0 trượt lên
+45630cafd45d	Vì sao gần 60\xB0 lại xuất hiện một đai áp thấp?
+1c151a5d34ed	Em bấm vào “frông cực” ở 60\xB0N trên mặt cắt
+ebc77392344c	Gió Tây ôn đới ấm và nhẹ trượt dọc frông cực lên trên gió Đông cực lạnh và nặng; hai vòng hoàn lưu vĩ độ trung bình và vĩ độ cao khép kín, vòng vĩ độ trung bình quay ngược chiều với hai vòng kia
+f0bfa9fddf7a	Gió Tây ôn đới ấm và nhẹ → trượt lên trên gió Đông cực lạnh và nặng
+8f0abc74dbd1	Gần 60\xB0N: frông cực
+f1caa4743de6	Bắc Cực quanh năm lạnh giá, không khí dồn ứ giáng xuống, hình thành đai áp cao cực; luồng khí chảy về phía nam lệch phải thành gió đông bắc, gọi là gió Đông cực.
+23b193175f80	Gió Đông cực gặp gió Tây ôn đới ấm hơn ở gần vĩ độ 60\xB0 Bắc, khí ấm trượt lên, giữa hai đai áp cao hình thành một đai áp tương đối thấp: đai áp thấp ôn đới (nguyên nhân động lực).
+bb1e5c9f6fcf	Vòng hoàn lưu vĩ độ thấp và vĩ độ cao do chênh lệch nóng lạnh trực tiếp thúc đẩy; vòng vĩ độ trung bình kẹp ở giữa, bị kéo theo, quay ngược chiều với hai bên.
+76488237384e	Bỏ bước này: hai vòng hoàn lưu vĩ độ trung bình và vĩ độ cao đều không thành lập, bán cầu Bắc chỉ còn một vòng hoàn lưu vĩ độ thấp.
+0f59c4febd5a	Dễ nhầm: đai áp thấp ôn đới không do bị đốt nóng bốc lên, mà do khí nóng lạnh gặp nhau, khí ấm trượt lên (nguyên nhân động lực).
+81c769b1ee28	Khí ấm trượt lên dọc frông cực, hình thành đai áp thấp ôn đới (nguyên nhân động lực); nhờ đó bán cầu Bắc có ba vòng hoàn lưu, bán cầu Nam cũng có ba vòng.
+86c7ccc5a85a	facts-bổ sung A1.2 mục 6–8 (SGK tr. 49); facts cũ A2.1 tính trực tiếp / gián tiếp của hoàn lưu
+683e1d077631	Bảy đai sáu đới
+9a2aa4231c13	Bảy đai khí áp, sáu đới gió là một đường hay một vòng quanh Trái Đất?
+3dd7bccc38f2	Em bấm vào mặt cắt để nó quét một vòng quanh trục Trái Đất; rồi bấm vào mũi tên của một đới gió trên mặt cầu
+fc56368c7032	Mặt cắt quét một vòng quanh trục, để lại 7 dải vòng trên mặt cầu; đới gió được bấm trước tiên vẽ “hướng lẽ ra” (từ áp cao về áp thấp), rồi quay thành hướng sau khi lệch
+ca41f8ea5a9c	Xác định hướng gió:
+8472366a7633	Từ áp cao về áp thấp
+b22e615a5cab	Bán cầu Bắc lệch phải, bán cầu Nam lệch trái
+eb9880ac91d8	Toàn cầu 7 đai khí áp \xB7 6 đới gió
+e37fecc634ef	Đai khí áp, đới gió đều là những vành đai bao quanh Trái Đất, không phải một đường; đới gió là gió thịnh hành trong một khoảng vĩ độ.
+d53d9d81be85	Bán cầu Bắc: đới gió Mậu dịch thổi gió đông bắc, đới gió Tây ôn đới thổi gió tây nam (gió Tây ôn đới), đới gió Đông cực thổi gió đông bắc.
+806961059585	Bán cầu Nam đối xứng: gió Mậu dịch đông nam, gió tây bắc (gió Tây ôn đới), gió đông nam (gió Đông cực).
+f8fa42474518	Bỏ bước này: chỉ thuộc lòng một hình mặt cắt, không nói được vì sao hướng gió lại xiên.
+806ccab39b95	Hay thi: xác định hướng gió thì trước hết vẽ từ áp cao về áp thấp, rồi bán cầu Bắc lệch phải, bán cầu Nam lệch trái; “gió tây” là gió thổi từ tây sang đông.
+d28b65f77db9	Đai là vành bao quanh Trái Đất. Toàn cầu có 7 đai khí áp, 6 đới gió; hướng gió từ áp cao về áp thấp, rồi bán cầu Bắc lệch phải, bán cầu Nam lệch trái.
+43501814b87a	facts-bổ sung A1.2 mục 8–9 (SGK tr. 49, hình 3.10); facts cũ A2.3
+add7ee7ff8e8	Dịch chuyển theo mùa
+35c273a2cdff	Điểm Mặt Trời lên thiên đỉnh dịch lên bắc rồi, vì sao mùa hè ở Rome lại khô?
+558ea157a4f2	Em kéo tháng từ tháng 4 tới tháng 7, theo dõi Rome (chấm đỏ) và số đọc của Rome trên bảng điều khiển
+4a84111d6fe0	Điểm lên thiên đỉnh 9.7\xB0N → 21.6\xB0N, hệ đai dịch +4.1\xB0 → +9.2\xB0, tâm áp cao cận chí tuyến (bắc) 34.1\xB0N → 39.2\xB0N; Rome chuyển từ đới gió Tây ôn đới sang chịu chi phối của đai áp cao cận chí tuyến
+f7847a9c205d	Điểm lên thiên đỉnh dịch lên bắc → đai khí áp, đới gió cùng dịch lên bắc
+849c2f12d971	Biên độ dịch chuyển 10\xB0 là giá trị đặt cho bài (minh hoạ)
+7774738d77b7	Mùa hè lệch bắc
+64c14610fd65	Mùa đông lệch nam
+e29a8c803d4e	Khí hậu Địa Trung Hải
+7b68bbe1fcd4	Do điểm Mặt Trời lên thiên đỉnh di chuyển bắc – nam, đai khí áp và đới gió dịch chuyển theo mùa có tính chu kì trong một năm.
+b4cc2854f62a	Ở bán cầu Bắc, so với các ngày phân, vị trí đai khí áp và đới gió đại thể lệch bắc vào mùa hè, lệch nam vào mùa đông.
+c49838c95067	Phía tây lục địa ở vĩ độ 30\xB0–40\xB0, mùa hè chịu chi phối của đai áp cao cận chí tuyến, nóng và khô; mùa đông chịu chi phối của đới gió Tây, ấm áp, mưa nhiều, hình thành khí hậu Địa Trung Hải.
+fcb0aacc3736	Bỏ bước này: không giải thích được vì sao lượng mưa mùa hè và mùa đông ở Rome chênh nhau nhiều thế (tháng 6–8: 95.8 mm, tháng 12, 1, 2: 229.7 mm).
+a124d55c9062	Dễ nhầm: dịch chuyển theo mùa là cả hệ đai cùng dịch, không phải “đai của bán cầu Bắc chạy lên phía bắc”; khí hậu Địa Trung Hải là hè khô đông mưa, không phải mưa nhiều quanh năm.
+70dfa48dc189	Đai khí áp, đới gió dịch theo điểm lên thiên đỉnh, ở bán cầu Bắc lệch bắc vào mùa hè, lệch nam vào mùa đông; Rome mùa hè chịu chi phối của đai áp cao cận chí tuyến, mùa đông của đới gió Tây, hình thành khí hậu Địa Trung Hải hè khô đông mưa.
+3b98818d7744	facts-bổ sung A1.4, A1.8 mục 3–4 (SGK tr. 50, tr. 56–57); facts cũ B2.1 bảng giá trị chuẩn, dòng tháng 4, 7
+2f3eaf0fa546	Phân bố biển – lục địa
+f75d2be88cba	Tháng 1 ở châu Á, vì sao xuất hiện một áp cao khổng lồ?
+3f7a8541b544	Em kéo tháng từ tháng 7 về tháng 1, xem trung tâm khí áp trên lục địa Á – Âu thay đổi thế nào
+2143009eaefc	Tháng 7: áp thấp châu Á (áp thấp Ấn Độ, 996 hPa) cắt đứt đai áp cao cận chí tuyến, áp cao cận chí tuyến chỉ còn trên biển; tháng 1: áp cao châu Á (áp cao Siberia, 1036 hPa) cắt đứt đai áp thấp ôn đới, áp thấp ôn đới chỉ còn trên biển
+8dddb646b9d0	Mô hình lí tưởng + chênh lệch nhiệt biển – lục địa = phân bố khí áp thực tế
+68b4b5d45afe	Mùa đông lục địa nguội nhanh → áp cao lạnh; mùa hè lục địa nóng nhanh → áp thấp nóng
+9add31f0720c	Áp cao châu Á
+6662f6eb8dd8	Áp thấp châu Á
+f922fed28a1e	Gió mùa
+aa2cad3c5513	Mùa đông lục địa nguội nhanh hơn biển, xuất hiện áp cao lạnh; mùa hè lục địa nóng nhanh hơn biển, xuất hiện áp thấp nóng.
+3ef640075a4a	Bán cầu Bắc lục địa rộng, biển và lục địa xen kẽ, các đai khí áp theo vĩ tuyến bị chia cắt thành từng trung tâm áp cao, áp thấp; bán cầu Nam phía nam 30\xB0S về cơ bản có dạng dải.
+dfc6059ab29a	Trung tâm khí áp thay đổi theo mùa làm hướng gió thịnh hành đổi theo mùa, hình thành gió mùa: Đông Á mùa đông thổi gió mùa tây bắc, mùa hè thổi gió mùa đông nam.
+ceb37fb304a9	Bỏ bước này: sẽ tưởng khí áp trên Trái Đất thực tế là những dải đều đặn.
+98830c0cebea	Hay thi: tháng 1 đai áp thấp ôn đới ở bán cầu Bắc bị áp cao lạnh trên lục địa cắt đứt, tháng 7 đai áp cao cận chí tuyến bị áp thấp nóng trên lục địa cắt đứt.
+40bea7816272	Chênh lệch nhiệt biển – lục địa chia cắt các đai khí áp theo vĩ tuyến ở bán cầu Bắc thành các trung tâm áp cao, áp thấp: tháng 1 áp cao châu Á cắt đứt đai áp thấp ôn đới, tháng 7 áp thấp châu Á cắt đứt đai áp cao cận chí tuyến; trung tâm khí áp đổi theo mùa, hình thành gió mùa.
+afd1504e3500	facts-bổ sung A1.6, A1.7, A2 (SGK tr. 50–52, hình 3.12–3.14)
+afebc10d04f0	Kiểm tra cuối bài \xB7 Magellan
+a3cb460f72c4	Kiểm tra cuối bài: bốn chặng của đoàn thuyền Magellan, mỗi chặng chịu chi phối của đai nào?
+457011e5deda	Theo câu hỏi ở cột trái, em lần lượt bấm trên mặt cầu vào đai của từng chặng (kiểm tra lấy vị trí đai tháng 3, gần xuân phân \xB7 đặt cho bài)
+73334a14883a	Eo biển ở mũi nam Nam Mỹ: gió Tây ôn đới (ngược gió); gần 30\xB0S: đai áp cao cận chí tuyến (lặng gió); chặng gió đông nam: gió Mậu dịch đông nam (xuôi gió); gần xích đạo: đai áp thấp xích đạo (sóng yên gió lặng)
+41217556aa36	Chặng → đai chi phối → tình trạng gió
+9993e7452aa0	Kiểm tra lấy vị trí đai tháng 3 (gần xuân phân) \xB7 đặt cho bài
+21452ec72bc8	Ngược gió
+11257983982a	Lặng gió
+9cbe7a78ba7d	Xuôi gió
+cbed5cec00c9	Eo biển ở mũi nam Nam Mỹ chịu ảnh hưởng của gió Tây ôn đới, đoàn thuyền đi về phía tây ngược gió.
+6fda60d3c98e	Gần 30\xB0S chịu chi phối của đai áp cao cận chí tuyến, khí giáng xuống, lặng gió, trời nóng bức, đi thuyền rất gian nan.
+fc74df860558	Vào đới gió Mậu dịch đông nam thì xuôi gió, nhẹ nhàng nhất; tới gần xích đạo, chịu chi phối của đai áp thấp xích đạo, sóng yên gió lặng.
+a702c54e2800	Bỏ bước này: học phân bố các đai rồi mà không biết dùng nó giải thích một hải trình có thật.
+77b00960dfed	Hay thi: cho một tuyến hàng hải hay một địa điểm, xác định đai khí áp, đới gió chi phối, rồi nói tình trạng gió hoặc thời tiết.
+17267713cbfa	Gió Tây ôn đới → ngược gió; đai áp cao cận chí tuyến → lặng gió; gió Mậu dịch đông nam → xuôi gió; đai áp thấp xích đạo → sóng yên gió lặng.
+f4cc29f0edf8	facts-bổ sung A1.1, B3 (SGK tr. 48, tr. 50)
+17dfbf7a84df	Rome 41.9\xB0N
+c61d13b605ca	Trên cao: lệch phải thành gió tây nam
+4e4ab103862a	Trên cao 30\xB0N: lệch thành gió tây → dồn ứ, giáng xuống
+5f52c16bfa8e	Nếu không lệch hướng: chảy một mạch tới cực
+427b3d9d8e8f	Frông cực
+627d96160856	Gió Tây ôn đới ấm, nhẹ trượt lên
+51a03656806d	Lẽ ra: gió bắc (từ áp cao về áp thấp) → lệch phải thành gió Mậu dịch đông bắc
+b00a8d21d7aa	Lẽ ra: gió nam → lệch phải thành gió tây nam (gió Tây ôn đới)
+9518a45f8df2	Lẽ ra: gió bắc → lệch phải thành gió đông bắc (gió Đông cực)
+71e78d846d88	Lẽ ra: gió nam → lệch trái thành gió Mậu dịch đông nam
+d2b88872142c	Lẽ ra: gió bắc → lệch trái thành gió tây bắc (gió Tây ôn đới)
+d44abe11b20e	Lẽ ra: gió nam → lệch trái thành gió đông nam (gió Đông cực)
+9f763818813a	Áp cao châu Á (áp cao Siberia)
+eaf3a115c3cf	Áp thấp ôn đới Bắc Thái Bình Dương
+9ee992782cac	Áp thấp ôn đới trên Bắc Đại Tây Dương
+865ca49f917b	Áp cao lạnh trên lục địa Bắc Mỹ
+985d7961522e	Áp thấp châu Á (áp thấp Ấn Độ)
+f7435db67c78	Áp cao cận chí tuyến Bắc Thái Bình Dương
+3804a3333ec5	Áp cao cận chí tuyến trên Bắc Đại Tây Dương
+a9aa76fdd57a	Eo biển ở mũi nam Nam Mỹ: bấm vào đai chứa nó
+3119c0b2b192	Vùng biển gần 30\xB0S: bấm vào đai chứa nó
+5bff352cb245	Chặng luôn có gió đông nam: bấm vào đai chứa nó
+6abf1dc2de6d	Vùng biển gần xích đạo: bấm vào đai chứa nó
+447262a9d707	Đúng: gió Tây ôn đới, đoàn thuyền đi về phía tây, ngược gió
+b4b8042978c3	Đúng: đai áp cao cận chí tuyến, khí giáng xuống, lặng gió
+792e2de65d37	Đúng: đới gió Mậu dịch đông nam, xuôi gió, nhẹ nhàng nhất
+dcb75d5b52ed	Đúng: đai áp thấp xích đạo, sóng yên gió lặng
+c516cea07fb3	: thuyền của chặng này không ở
+5bdfec841629	. So với thuyền, chỗ em bấm nằm ở
+818a9bc15535	phía bắc
+6009a051e006	phía nam
+de9ab78f3d7e	Cả bốn chặng đều đúng: ngược gió, lặng gió, xuôi gió, sóng yên gió lặng đều khớp
+7787d8394746	Vĩ độ Mặt Trời lên thiên đỉnh
+fc24fbd20400	Ngày 15 mỗi tháng \xB7 gần đúng
+c3026a844805	Hệ đai dịch chuyển
+2171d8c62152	Áp cao cận chí tuyến (bắc)
+974e95593604	Vĩ độ tâm
+fffecc501ecf	Rome chịu chi phối
+d4c974d1384c	Mô hình xác định
+51d806399a4e	Tháng
+d9b59879f3b8	tháng
+1f81317146ff	Mặt cắt hoàn lưu
+f538482285c8	Đai khí áp
+7ffbde2b8a34	Đới gió
+e85be26bea2c	Trung tâm khí áp (biển – lục địa)
+6926841081c1	Địa điểm và hải trình
+71b6771bc789	Hiện
+bb0e7e01aa8d	Ẩn
+717fc264e1f2	SGK chỉ cho tháng 1 và tháng 7
+16c489f920d6	Nhiệt độ và lượng mưa các tháng ở Rome
+dc08751fe720	— nhiệt độ ℃ \xB7
+17e1d1d05af2	lượng mưa mm
+fa7021f03c2a	Vòng hoàn lưu
+9d82319459a5	Toàn bộ Trái Đất \xB7 ba vòng hoàn lưu
+8e2a16cc94fd	Khi SGK phân tích sự hình thành đai khí áp và đới gió, các nhân tố gây chuyển động khí quyển là
+511c965ea406	lực li tâm do Trái Đất tự quay
+b3884d335650	sự đốt nóng không đều giữa vùng vĩ độ cao và vĩ độ thấp cùng lực Coriolis
+d9e28ddeded2	khác biệt tính chất nhiệt giữa biển và lục địa
+29e6b3ca573a	bốn mùa do Trái Đất chuyển động quanh Mặt Trời
+615b7c0d8944	SGK tr. 48: giả thiết bề mặt Trái Đất đồng nhất, các nhân tố gây chuyển động khí quyển là sự đốt nóng không đều giữa vùng vĩ độ cao và vĩ độ thấp cùng lực Coriolis.
+4093999393d0	Đai áp cao cận chí tuyến ở gần vĩ độ 30\xB0 Bắc và Nam được hình thành do
+400913e66600	mặt đất bức xạ làm lạnh, không khí giáng xuống
+9fcd6c6f5323	luồng khí trên cao dồn ứ giáng xuống tại đây (nguyên nhân động lực)
+1a5738cdf05a	khí nóng lạnh gặp nhau, khí ấm trượt lên
+481fbdc284b1	chênh lệch nhiệt biển – lục địa
+a38bf9e8c2b0	Luồng khí từ trên cao xích đạo tới gần 30\xB0 lệch thành gió tây, dồn ứ giáng xuống, làm khí áp mặt đất tăng. Giáng xuống do lạnh đi là đai áp cao cực.
+5db70ef7de2e	Đai áp thấp ôn đới được hình thành do
+22ea74a7a4d7	xích đạo bị đốt nóng, không khí bốc lên
+e9559e03e2be	gió Tây ôn đới ấm, nhẹ trượt lên trên gió Đông cực lạnh, nặng
+c6f953155089	luồng khí trên cao dồn ứ giáng xuống
+82b5bf730ee1	lục địa nóng lên nhanh vào mùa hè
+528ac032f8e9	Gió Đông cực gặp gió Tây ôn đới ấm hơn ở gần 60\xB0, khí ấm trượt lên, hình thành đai áp tương đối thấp.
+e4cbcc36c099	Hướng gió thịnh hành của đới gió Mậu dịch ở bán cầu Bắc là
+fe813ee1c00a	gió tây bắc
+b7d4464fbf6a	gió đông nam
+2c6c54066ddf	gió đông bắc
+20dcae8ba6ff	gió tây nam
+266895473452	Luồng khí từ đai áp cao cận chí tuyến chảy về đai áp thấp xích đạo, vốn là gió bắc, ở bán cầu Bắc lệch phải thành gió đông bắc.
+2537e6a0eff2	Hướng gió thịnh hành của đới gió Tây ôn đới ở bán cầu Bắc là
+b77d61eba2e7	Luồng khí từ đai áp cao cận chí tuyến chảy về phía bắc, lệch phải dần thành gió tây nam, gọi là gió Tây ôn đới. Gió tây bắc là gió Tây ôn đới của bán cầu Nam.
+d25fd4b6de52	Xét ở bán cầu Bắc, so với các ngày phân, vị trí đai khí áp và đới gió đại thể
+36258bf5a1e6	lệch bắc vào mùa hè, lệch nam vào mùa đông
+eba907599b79	lệch nam vào mùa hè, lệch bắc vào mùa đông
+51d0e924cd56	đứng yên quanh năm
+1c7675c8d478	chỉ dịch chuyển vào các ngày phân
+f388318156aa	SGK tr. 50: do điểm Mặt Trời lên thiên đỉnh di chuyển bắc – nam, ở bán cầu Bắc đai khí áp và đới gió lệch bắc vào mùa hè, lệch nam vào mùa đông.
+52c6fb24e26e	Khí hậu Địa Trung Hải “mùa hè nóng khô, mùa đông ấm, mưa nhiều” là do
+8211907ff729	quanh năm chịu chi phối của đới gió Tây
+c04b8c0ab9ee	mùa hè chịu chi phối của đai áp cao cận chí tuyến, mùa đông của đới gió Tây
+4f6b4d6618ce	quanh năm chịu chi phối của đai áp thấp xích đạo
+73ea19e7b303	mùa hè chịu chi phối của gió mùa
+0d7556182da6	SGK tr. 56: phía tây lục địa ở vĩ độ 30\xB0–40\xB0, mùa hè chịu chi phối của áp cao cận chí tuyến, mùa đông chịu chi phối của đới gió Tây.
+0dda094e319c	Tháng 1, đai bị áp cao lạnh trên lục địa cắt đứt ở bán cầu Bắc là
+fd3d992317a2	SGK tr. 51: tháng 1 đai áp thấp ôn đới ở bán cầu Bắc bị áp cao lạnh trên lục địa cắt đứt, áp thấp ôn đới chỉ còn lại trên biển; tháng 7 bị cắt đứt là đai áp cao cận chí tuyến.
+c3a80d300b22	Xoay Trái Đất, phóng to thu nhỏ
+75af6e2c42fe	Nhảy tới một bước
+b8c252fd2ae5	Bật / tắt Trái Đất tự quay
+df055345af0f	Theo hải trình của Magellan, hiểu rõ đai khí áp và đới gió hình thành, phân bố ra sao, thay đổi thế nào theo mùa và theo biển – lục địa.
+2751b0d83cca	Lưu ý minh hoạ: độ dày khí quyển phóng to khoảng 200 lần; chiều dài mũi tên, bề rộng dải màu, biên độ dịch chuyển của hệ đai (10\xB0) và vị trí trung tâm khí áp đều là minh hoạ; vĩ độ Mặt Trời lên thiên đỉnh là giá trị gần đúng. Bản đồ nền: NASA Blue Marble.
+6a783974fda4	Phím tắt ← → chuyển bước \xB7 1–7 nhảy bước \xB7 Space bật/tắt tự quay \xB7 Q kiểm tra \xB7 F toàn màn hình
+4fb5ced1c138	Ngày 15 ${Pn.monthUnit} ${t.month} \xB7 ${Pn.declCal}
+5546870dc506	Đai khí áp, đới gió và hoàn lưu ba vòng · Bài giảng 3D tương tác

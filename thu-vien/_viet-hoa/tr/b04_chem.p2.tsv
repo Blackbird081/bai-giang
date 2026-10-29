@@ -1,0 +1,245 @@
+d07036c0240a	Bơm định lượng acid (vỏ xoắn + cánh bơm)
+b564bcbbf997	Động cơ bơm
+da6e4220c209	Khớp nối bơm
+303f4fe41db0	Máy đo pH (đầu dò + đồng hồ)
+b3d33b40c9a5	Biển tên AC-101
+d4f21ae07127	Nước biển trong bể (thấy được khi cắt dọc)
+710d140d1000	Máy khuấy
+48cafcbe11f1	Hai tầng cánh
+686d742d6fe5	Hộp giảm tốc và động cơ
+b0f8265a8bfa	Bơm định lượng acid
+d64bee55d98f	Máy đo pH
+a17a66dacbae	Chân váy
+bdafaab073d9	Sàn thao tác
+d113dedaa1fa	Lối bảo trì 0.9 m
+3236295f4a3c	Thành bể vẽ dày hơn để minh hoạ (thực tế 0.016 m); số tấm chắn dòng và cánh khuấy là minh hoạ.
+7b78c8032ce5	Khuấy và thêm acid
+8a1db8a6d00a	Thân tháp (có độ dày thành)
+a922bce0a034	Ba tầng đệm
+7cfe453e24d7	Vòng phân phối chlorine (12 vòi phun)
+d3fb1791e066	Cửa vào chlorine N2
+c6f347c9c356	Cửa ra dung dịch oxi hoá N4
+b71c24174197	Bơm cấp chlorine (vỏ xoắn + cánh bơm)
+fabcb52ea843	Lưu lượng kế chlorine
+b470c36974c6	Biển tên OX-201
+a2badb795d13	Thân tháp oxi hoá
+e436b2727697	Tầng đệm (3 tầng)
+7ceb0b1d1040	Vòng phân phối chlorine
+651189f29eba	Cl₂ đi từ dưới lên
+85081a4a62f6	Bơm cấp chlorine
+c76f0a8d0808	Lưu lượng kế
+2b6d08e73eac	Thành tháp vẽ dày hơn để minh hoạ (thực tế 0.016 m), số 4 tầng đệm/vòi phun là minh hoạ.
+1b0e476f4a49	Lượng Cl₂ sục
+11958fda7fdd	Thân tháp (có độ dày thành, tháp đệm 4 tầng)
+1d52878633fd	Nắp elip trên và dưới
+38d6eca548a8	Bốn tầng đệm và lưới đỡ
+d003001cec9e	Bộ phân phối lỏng (máng chính + 6 nhánh)
+231b5facfb2f	Bộ tách sương dạng lưới ở đỉnh tháp
+9dfdce8befa3	Cửa vào nước biển N1 (phun tưới)
+5c55276caeba	Cửa vào không khí N2 (thổi từ dưới)
+46629c1fd92c	Cửa ra hơi bromine N4 (sang tháp hấp thụ)
+66007f2e5149	Cửa người (3 cửa, nắp bắt bu lông)
+ead4d0b18a22	Quạt thổi (vỏ xoắn + cánh quạt)
+b69290b98009	Động cơ quạt
+78b971b51136	Truyền động đai
+755e6bd69243	Nhiệt kế đỉnh tháp
+387e4799049b	Biển tên BL-301
+a00695385fd4	Nước biển trong tháp (thấy khi cắt dọc, tạo màng từng tầng)
+ef77bd7be05a	Thân tháp thổi khí
+b3009a680a15	Bề mặt tiếp xúc khí – lỏng
+013c5290d553	Bộ phân phối lỏng
+e282c105f8d7	Nước biển phun tưới từ trên
+e9c94cac27c9	Cửa vào không khí N2
+5b5ceabc86aa	DN450 \xB7 từ dưới lên
+e39d0c70dcd7	Hơi bromine sang tháp hấp thụ
+37b3779a397c	Không khí chứa Br₂
+04f60acfea72	Chất lỏng đáy tháp
+e9294beeca1e	Nước biển trước khi làm giàu bromine
+ec797c64f33c	Quạt thổi
+758b20db103c	Động cơ
+bc7ec9d6e6b9	Nhiệt kế
+7ac92fcdd093	Lối bảo trì 1.0 m
+9e0716f526e0	Vị trí bảo trì quạt
+47567cc58c9e	Vùng cắt quay về +z (phía người xem); độ dày thành và 4 tầng đệm là minh hoạ (thực tế thành dày 0.016 m, đệm hàng chục tầng).
+111c19ab3799	Lưu lượng khí thổi
+a92f59af69e4	Ba tầng đệm hấp thụ
+37484c61e966	Ba tầng phân phối phun
+bd7b2d1df5b4	Vòng phân phối khí đáy tháp (12 vòi phun)
+d3a8720fe6af	Cửa vào không khí chứa bromine N1
+f8f14bd34dc0	Cửa vào dung dịch SO₂ N2
+50f1c70b5369	Cửa ra khí thải sau hấp thụ N4
+24f67f1f4a01	Bơm tuần hoàn SO₂ (vỏ xoắn + cánh bơm)
+83475abbd353	Lưu lượng kế dung dịch hấp thụ
+be1b0374f705	Biển tên AB-401
+dec981b21634	Thân tháp hấp thụ
+93ff6a19e7a0	Tầng đệm hấp thụ (3 tầng)
+229bf68b2263	Vòng phân phối khí
+beb14c5df928	DN300 \xB7 từ dưới lên
+a4354786d6ff	Cửa vào dung dịch SO₂ N2
+052d29eca484	Bơm tuần hoàn SO₂
+3bd773f696d1	Thành tháp vẽ dày hơn để minh hoạ (thực tế 0.016 m), số tầng đệm và vòi phun là minh hoạ.
+20e7574e7be9	Lưu lượng tuần hoàn dung dịch hấp thụ
+85046bd35457	Sáu đĩa tháp và ống chảy chuyền
+cf426076f67f	Thiết bị ngưng tụ đỉnh tháp (nằm ngang)
+2a06ba8823df	Cửa nạp dung dịch hấp thụ N1
+4f328443d53b	Cửa vào chlorine lần hai N2
+ba2f05b191ac	Cửa ra hơi bromine N4 (sang thiết bị ngưng tụ)
+b87989a53867	Bơm hồi lưu (vỏ xoắn + cánh bơm)
+c004858bde9c	Biển tên DS-501
+6a5899f9c0ea	Thân tháp chưng cất
+fd82a383c7ed	Đĩa tháp (6 đĩa)
+ab9217aeed8d	Thiết bị ngưng tụ
+d599ed262d1b	Br₂ ngưng tụ ở 58.8 ℃
+bdca775cb63e	Chlorine lần hai N2
+9f0c33efc6bd	Bơm hồi lưu
+1795d1d7cc1b	Thành tháp vẽ dày hơn để minh hoạ (thực tế 0.016 m), số đĩa là minh hoạ (thực tế hàng chục đĩa).
+654e19597de6	Tải nồi đun đáy
+ddcdf63308f6	1)
+34e879cfdd51	Br₂(0)
+79f629bf5330	Br₂(0) pha khí
+29bc7248e0bf	HBr(
+f2099d1c9b5e	Br₂(0) bromine lỏng
+d47c868d223a	Nước biển ↓ phun từ trên xuống
+e96f923e1b61	Không khí ↑ từ dưới lên, cuốn Br₂ đi
+dc757a29ddfb	Dung dịch SO₂ ↓ phun
+24ae4c141e39	Không khí chứa Br₂ ↑
+c8d21a910164	${sn.calRec} \xB7 bromine lỏng ${t.m.toFixed(1)} kg/h
+8c2560cb4f80	Khai thác bromine từ nước biển: phương pháp thổi khí · Bài giảng 3D tương tác
+a1636c7f3453	${_.t}: ${x}
+7a9a79ea0c1a	${l.length} lớp
+4c9f5abe453a	C.steps[${N}].cam.pitch=${L.cam.pitch}\xB0 không nằm trong CAMERA.polar ${p.polar[0]}–${p.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+638be3a2aec9	${L.unitOf} bước ${le.no}:
+55e99b2139f8	${d}.unit=${l.unit} không nằm trong -1…${i.units.length-1}
+c59aec6850e4	${d}.act.want=${JSON.stringify(l.act.want)} không phải một nấc của công tắc nhiều nấc ${f.key}
+d75cf97dd48c	${d}.act.n=${l.act.n}: phải là số nguyên 1–${t.record.max??8} (ghi đủ n dòng thì xong)
+706ea2b9023b	LAYERS.${l}.inAll phải là true / false
+1ffae21ee24f	C.units[${u}].color=${l.color}: màu nhận diện chỉ có 1–5 (quy chuẩn \xA72.4)
+88d4cceaaecd	CONSOLE.record.max=${l.max}: phải là số nguyên 1–20 (mặc định 8)
+f278da17fbda	x / y của CONSOLE.record.plot phải là key trong cols (hiện là ${l.plot.x} / ${l.plot.y})
+3e23ec007530	CONSOLE.ref.${l.key}=${JSON.stringify(t.ref[l.key])} không phải một nấc của công tắc nhiều nấc
+79db060c5c63	CONSOLE.main.pill.${l} phải là chuỗi hoặc hàm (S, R) =
+2ad9a10ffba2	SGK Nhân Giáo bắt buộc tập 2, chương 5 bài 3 “Vật liệu vô cơ phi kim loại” (bản in tr. 21) \xB7 số liệu tầng công nghệ là giá trị đặt cho bài
+682058050379	Sản xuất xi măng
+e4ab3d9330cc	Nhiệt độ cao
+bddf542500b2	Một xe đá và đất, vì sao nghiền, nung, rồi nghiền lại là thành xi măng đủ sức đỡ cả con đập?
+6fd31d239e17	Nghiền mịn
+f3850dfc3ce7	Hạt đủ mịn, thành phần đủ đều, vào lò mới nung chín
+52673bf43bc3	Phân huỷ trước
+fe5cbc29925a	Tháp trao đổi nhiệt + lò phân huỷ giải phóng trước CO₂ của CaCO₃
+5780e1576a7f	Nung kết
+8f0d6f073860	Vùng nung kết 1350–1450 ℃ đủ pha lỏng, C₃S mới tạo ra nhiều
+46a79927b870	Làm nguội nhanh
+7a42601b687b	Máy làm nguội ghi giữ được C₃S, còn thu hồi khí nóng về đốt lò
+fa4cb55698ec	Chỉnh đông kết
+e1a7367d56bc	Thạch cao làm chậm đông kết, bắt đầu đông kết ≥ 45 min, SO₃ ≤ 3.5 %
+1dd2992442e5	Chỉnh một điều khiển là thấy ngay f-CaO, tỉ lệ phân huỷ, tiêu hao nhiệt và thời gian bắt đầu đông kết (số liệu là giá trị đặt cho bài)
+8e20b7e6f9bf	Đúng hết! Em đã nắm rõ dây chuyền từ máy nghiền phối liệu tới máy nghiền xi măng.
+35d02c837341	Em nên quay lại bước 2, 3, 5, 7, xem lại nghiền mịn, phân huỷ, nung kết và thêm thạch cao.
+c18625632e31	Phối liệu vào từ đuôi lò, đi về đầu lò
+d122f1fd3e25	Khí nóng sinh ra ở đầu lò, đi về đuôi lò
+ac39913e759a	Liệu vùng gia nhiệt
+8e9466573c89	Liệu vùng nung kết
+0304753be048	Ngọn lửa than mịn
+d81eeb05e209	Liệu vùng làm nguội
+b8d154d9f711	Chuẩn bị phối liệu
+2a1bee0e6b48	Chuẩn bị liệu
+65939306246f	Đá vôi + đất sét nghiền mịn, trộn đều, đồng nhất hoá
+b6eacf16f035	Gia nhiệt – phân huỷ
+95955198d7ab	Tháp trao đổi nhiệt cyclone 5 tầng + lò phân huỷ, phân huỷ CaCO₃ trước
+d0388c5e4097	Lò quay
+d79d1f7c8d76	Ống lò nghiêng và quay, liệu đi từ đầu nguội tới đầu nóng, nung thành clinker
+e00bf869ee2f	Máy làm nguội ghi
+fee1bba57c11	Làm nguội nhanh khi ra lò, thu hồi khí cấp hai
+6966b38e7eeb	Máy nghiền xi măng
+abed3b34954f	Clinker + thạch cao nghiền thành xi măng
+04d18f585c91	Xem toàn nhà máy
+82847777a63d	Một xe đá vôi và đất sét, vì sao cuối cùng thành xi măng đủ sức đỡ cả con đập?
+17906ee32ba7	Em kéo góc nhìn, xem dây chuyền từ trái sang phải: chuẩn bị liệu → gia nhiệt – phân huỷ → lò quay → máy làm nguội ghi → máy nghiền xi măng
+0108fc75dd73	Chế độ tham chiếu 1420 ℃ / lò phân huỷ 880 ℃ / thạch cao 4.0 % đang chạy: clinker f-CaO 0.75 %, tỉ lệ phân huỷ vào lò 90.0 %, tiêu hao nhiệt 3100 kJ/kg, bắt đầu đông kết 148 min; dòng liệu năm công đoạn nối thành một dây.
+b79c5678fa97	Phối liệu → clinker → xi măng: CaCO₃(s)
+45b996754537	Nung trong lò quay xi măng (câu gốc SGK) \xB7 số liệu công nghệ là giá trị đặt cho bài
+dd2408105efa	Nghiền – nung – nghiền
+4b435e91861e	Clinker ≠ xi măng
+dbece3c6cad3	Câu gốc trong SGK chính là dây chuyền này: đất sét + đá vôi “sau khi trộn, nghiền thì nung trong lò quay xi măng”, rồi thêm thạch cao “nghiền thành bột mịn”.
+54381703b89b	Đoạn trước là nghiền, đoạn sau cũng là nghiền, ở giữa mới là nung, nên nhà máy xi măng có nhiều máy nghiền hơn lò.
+183f786dc1da	Clinker chưa phải sản phẩm: xi măng = clinker + thạch cao (+ phụ gia khoáng) nghiền chung thành bột.
+eb307a939ace	Bỏ chuẩn bị phối liệu và máy nghiền xi măng: vào lò là cục thô, ra lò là cục clinker, đều chưa thành “xi măng”.
+23bcd786fa45	Thường thi “phân biệt xi măng và bê tông”: xi măng là chất kết dính, thêm cát, đá dăm, nước mới thành bê tông (câu gốc SGK).
+631e978729b5	Năm công đoạn là một dây chuyền “nghiền – nung – nghiền”: chuẩn bị phối liệu → gia nhiệt – phân huỷ → lò quay → máy làm nguội ghi → máy nghiền xi măng; phản ứng nhiệt độ cao thực sự chỉ xảy ra trong lò quay.
+cffb3b951aa6	A2.3, A3, B2.1
+feecaf6338a0	Vì sao đá vôi và đất sét phải nghiền thành bột, trộn đều rồi mới vào lò?
+79ba5c005348	Chuyển “nghiền mịn, đồng nhất phối liệu” sang liệu thô vào thẳng, xem f-CaO và tiêu hao nhiệt thay đổi ra sao
+6fef4388651d	Tắt máy nghiền: f-CaO tăng từ 0.75 % lên 1.35 %, tiêu hao nhiệt 3100 → 3280 kJ/kg, rủi ro lò 0.10 → 0.25; bật lại thì về 0.75 %.
+80f28147240e	Đá vôi + đất sét + phụ liệu → nghiền mịn, đồng nhất → phối liệu
+2d1791632d57	Giá trị đặt cho bài: độ mịn không đạt tính f-CaO +0.60 %, tiêu hao nhiệt +180 kJ/kg
+4381fff02078	Nghiền mịn + đồng nhất
+4db540e98333	Liệu thô → f-CaO tăng
+7fcb4158436b	Ổn định thể tích
+f447391fdb6f	Chuẩn bị phối liệu làm hai việc: nghiền mịn (đủ diện tích bề mặt riêng) + trộn đều (silo đồng nhất làm giảm dao động thành phần).
+08170aed97e7	Phản ứng trong lò là phản ứng pha rắn/pha lỏng, nhờ các hạt tiếp xúc, hạt thô phản ứng không hết.
+cc55bead1b24	f-CaO tăng không chỉ là “nung chưa tốt”, gặp nước nó tôi và nở, ảnh hưởng trực tiếp tới độ ổn định thể tích.
+8ae55535d027	Bỏ chuẩn bị phối liệu: liệu thô vào lò, lò nóng mấy cũng nung không chín, f-CaO cao, tiêu hao nhiệt cao.
+970d1b461f77	Thường thi “vì sao phối liệu phải nghiền mịn, trộn đều”: tăng diện tích tiếp xúc, ổn định thành phần, bảo đảm nung đều.
+e7a22e8253f7	Hạt thô, thành phần không đều thì cùng nhiệt độ lò vẫn nung không chín: bề mặt hạt lớn đã nung tới, lõi chưa phân huỷ, CaO nằm lại ở dạng tự do. Đây là nguồn gốc thứ nhất của f-CaO.
+cc6fd9804a60	A3.2, A4.7, A5-E10, B2.1
+97404a2e1796	Sao phối liệu không nung một mạch trong lò, mà phải gia nhiệt trên tháp và phân huỷ trước?
+eda5ffae4079	Kéo nhiệt độ cửa ra lò phân huỷ từ 880 xuống 780 ℃, xem tỉ lệ phân huỷ và f-CaO
+236134035166	Lò phân huỷ 880 → 780 ℃: tỉ lệ phân huỷ 90.0 % → 45.0 %, f-CaO 0.75 → 2.33 %, tiêu hao nhiệt 3100 → 3172 kJ/kg.
+853f049a590f	Cửa ra lò phân huỷ 850–900 ℃ \xB7 tỉ lệ phân huỷ vào lò khoảng 90 % (giá trị đặt cho bài)
+713a22384463	Gia nhiệt ngược chiều
+4e5cdee054b2	Phân huỷ trước, nung kết sau
+51e5c8c95b7e	Phân huỷ 90 %
+a3f5c621df2a	Trong tháp trao đổi nhiệt, liệu đi xuống, khí nóng từ đuôi lò đi lên, trao đổi nhiệt ngược chiều; ra khỏi tháp, liệu đã gần nhiệt độ phân huỷ.
+551d4021cff5	Lò phân huỷ thực hiện CaCO₃ → CaO + CO₂, bước này thu nhiệt, CO₂ thải ra là phần lớn lượng phát thải carbon của xi măng.
+a7a0dc4e58fb	Tỉ lệ phân huỷ thấp đi chút nào, tải nhiệt trong lò và f-CaO tăng theo chút ấy.
+63404fc5a9b1	Bỏ gia nhiệt – phân huỷ: mọi thứ nung trong lò, lò phải dài hơn nhiều, tiêu hao nhiệt cao hơn nhiều, sản lượng lại thấp.
+be358eab6bee	Thường thi “vai trò của tháp trao đổi nhiệt và lò phân huỷ”: trao đổi nhiệt để nâng nhiệt độ trước, rồi phân huỷ sớm, chuyển gánh nặng của lò quay sang lò phân huỷ.
+3b8f4c2d1949	Giải phóng CO₂ trước trong lò phân huỷ 850–900 ℃, tỉ lệ phân huỷ vào lò đạt 90 %: lò quay chỉ cần nung liệu tới khi xuất hiện pha lỏng, lợi cả sản lượng lẫn tiêu hao nhiệt; tỉ lệ phân huỷ tụt thì lò quay phải làm thay việc của lò phân huỷ.
+264d967e452c	A4.3, A4.6, A5-E5, B2.1
+602efd993f7c	Đi trong lò
+a41a225b819e	Vì sao lò quay vừa nghiêng vừa quay? Liệu và lửa đi về đâu?
+ffc936fbfbc7	Lò đã cắt dọc: em kéo góc nhìn, xem dải liệu đi thế nào, mũi tên khí nóng chỉ về đâu, bốn vùng nhiệt độ xếp ra sao
+dccff99cd280	Sau khi cắt dọc: liệu trải ở đáy ống lò, đảo theo ống lò, đi dọc trục lò từ đuôi lò (đầu nguội) tới đầu lò (đầu nóng); ngọn lửa ở đầu lò, dòng khí nóng đi ngược về đuôi lò; bốn vùng nhiệt độ: vùng gia nhiệt 800–1000 ℃
+c7eda11785c6	vùng phân huỷ 1000–1300 ℃
+8c02716544c0	vùng nung kết 1350–1450 ℃, ra khỏi vùng nung kết vào vùng làm nguội thì giảm về 1200–1300 ℃.
+4c702271ab35	Liệu: đuôi lò → đầu lò; khí nóng: đầu lò → đuôi lò (ngược chiều)
+a9c5c4546358	Độ dốc 3.5 %, tốc độ quay 3.5 r/min, bốn vùng nhiệt độ xem facts B4 (giá trị đặt cho bài)
+de34875e59be	Liệu đuôi lò→đầu lò
+94020f354295	Khí nóng đầu lò→đuôi lò
+a3b36e88a321	Vùng nung kết 1350–1450 ℃
+7b2d2927a6d1	Liệu vào từ đuôi lò, ra ở đầu lò; khí nóng sinh ra ở đầu lò, đi về đuôi lò, hai dòng ngược chiều.
+f8728bbb15f4	Ống lò dốc 3.5 %, quay 3.5 vòng mỗi phút, liệu mới nhích dần về phía trước.
+2e5ab37a07f8	Cắt dọc ra thấy bốn vùng: gia nhiệt, phân huỷ, nung kết (1350–1450 ℃), làm nguội.
+641b17431ba8	Bỏ độ dốc và chuyển động quay: liệu dồn một chỗ, chỉ mặt sát ngọn lửa bị nung quá, phần còn lại nung non.
+032f715379ff	Thường thi “vì sao lò quay phải nghiêng và quay”: nhờ mặt nghiêng và sự đảo trộn để đưa liệu liên tục vào vùng nhiệt độ cao và trao đổi nhiệt đầy đủ.
+0f2238b19625	Độ dốc làm liệu tiến dọc trục, chuyển động quay nâng liệu lên đảo trộn; nhờ vậy liệu mới đi liên tục từ đầu nguội tới đầu nóng, đồng thời trao đổi nhiệt đầy đủ với dòng khí nóng ngược chiều.
+124d0e26f381	A4.2, A6.1, A6.2, A6.3, B4
+4f731de8f059	Vùng nung kết
+55a249a12b90	Nhiệt độ lò phải cao tới đâu? Thấp một chút cho đỡ tốn than, sao lại không được?
+93df80196adf	Kéo nhiệt độ vùng nung kết từ 1420 xuống 1350 ℃, xem f-CaO thay đổi thế nào
+103422744eed	Nhiệt độ lò 1420 → 1350 ℃: f-CaO 0.75 % → 2.15 % (vượt ngưỡng đạt 1.5 %); số đọc tiêu hao nhiệt vẫn là 3100 kJ/kg (trong mô hình của bài, tiêu hao nhiệt không đổi theo nhiệt độ lò, đây là đơn giản hoá); kéo về 1420 ℃ thì trở lại 0.75 %.
+112c8613b028	2CaO + SiO₂ → 2CaO\xB7SiO₂ ; 3CaO + SiO₂ → 3CaO\xB7SiO₂
+10c6bc331df9	Vùng nung kết 1350–1450 ℃ \xB7 pha lỏng xuất hiện từ khoảng 1280 ℃
+e1c61aa20a13	Pha lỏng tạo C₃S
+a57dfecfd7e2	C₃S là chủ lực tạo cường độ sớm của xi măng, nó hình thành trong pha lỏng (pha lỏng xuất hiện từ khoảng 1280 ℃, tới 1350–1450 ℃ mới đủ lượng), nên nhiệt độ vùng nung kết là ngưỡng cứng.
+2f9efaaec877	Thiếu nhiệt độ không phải là “hơi kém một chút”, f-CaO sẽ tăng gấp mấy lần (1350 ℃ là 2.15 %).
+a05069062871	Nhiệt độ cũng không được cao vô hạn: trên 1480 ℃ pha lỏng quá nhiều, lớp áo lò không bám được, đóng vòng, đỏ vỏ lò.
+c30e03e5bb63	Bỏ bài này: học sinh chỉ thuộc lòng “nung ở nhiệt độ cao”, không biết nhiệt độ cao là để tạo pha lỏng, cũng không biết cái giá của việc hạ nhiệt độ.
+d77c3279edd8	Thường thi “hậu quả khi vùng nung kết thiếu nhiệt”: C₃S tạo ra không đủ, f-CaO tăng, độ ổn định thể tích kém.
+e15252826319	Vùng nung kết cần 1350–1450 ℃: pha lỏng xuất hiện từ khoảng 1280 ℃, nhưng tới 1350–1450 ℃ lượng pha lỏng mới đủ để C₂S kết hợp mạnh với CaO thành C₃S; thiếu nhiệt độ, CaO nằm lại ở dạng tự do, f-CaO tăng, độ ổn định thể tích kém.
+0e86207b169a	A4.4, A4.7, A6.4, B2.1
+b1b1e2b28bad	Clinker ra lò hơn một nghìn ba trăm độ, sao phải vội thổi nguội?
+6a400814f017	Dừng máy làm nguội ghi, xem tiêu hao nhiệt và phát thải CO₂ thay đổi thế nào
+1d9385a7f0bd	Tắt máy làm nguội ghi: tiêu hao nhiệt 3100 → 3360 kJ/kg, CO₂ 0.80 → 0.83 kg/kg clinker, rủi ro lò 0.10 → 0.20; clinker nguội chậm, nhiệt độ khí cấp hai giảm, lửa đầu lò không ổn định.
+f65ca6d098e5	Làm nguội nhanh: clinker 1300 ℃ → dưới 100 ℃ (máy làm nguội ghi)
+bbd6fe659b04	Thu hồi khí cấp hai khoảng 1000 ℃ về lò (giá trị đặt cho bài)
+de36ddafc208	Làm nguội nhanh giữ C₃S
+35b13b41409d	Thu hồi khí cấp hai
+d8f9d6104d96	Tiêu hao nhiệt ≤ 3400
+07691f16cc29	Máy làm nguội ghi không phải để “để nguội”, mà là thiết bị trao đổi nhiệt: khí lạnh xuyên qua lớp liệu, thành khí cấp hai khoảng 1000 ℃ về lò.
+e4ba6947a6ba	Nguội chậm làm C₃S phân huỷ, giảm hoạt tính, clinker sẫm màu, dễ bở vụn.
+d4174f009d80	Dừng máy làm nguội ghi không chỉ làm tiêu hao nhiệt tăng, mà lọc bụi và ngọn lửa đầu lò cũng mất ổn định theo.
+af97f599db7d	Bỏ làm nguội nhanh: tiêu hao nhiệt tăng, CO₂ tăng, hoạt tính clinker còn kém.
+d0dd0556f825	Thường thi “vì sao clinker phải làm nguội nhanh”: giữ C₃S và pha thuỷ tinh, thu hồi nhiệt.
+8ec267c96281	Làm nguội nhanh có hai lợi ích: một là “đóng băng” C₃S và pha thuỷ tinh, không cho chúng chuyển sang dạng tinh thể không có hoạt tính; hai là biến nhiệt của clinker thành khí cấp hai đưa về lò, tiết kiệm thẳng tiêu hao nhiệt.
+bc57603af8e6	A4.4, A6.7, B2.1

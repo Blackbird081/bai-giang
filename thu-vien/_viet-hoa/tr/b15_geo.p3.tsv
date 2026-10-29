@@ -1,0 +1,311 @@
+82ffc26f3630	Số đọc thửa ruộng (minh hoạ)
+32e5a1043c25	Ruộng trơ: mặt đất để trống
+42ff3c806c7c	Ruộng phủ sỏi: lớp sỏi che phủ
+c026a5396b6a	Tầng chứa nước (ẩm)
+472db7e6f7d8	(ngoài thửa đất này)
+2ef065b6ebf5	Dòng chảy từ lục địa ra biển
+93e63d8b3289	Giáng thuỷ trên lục địa
+ea73530f2e70	Chu kì đổi mới
+16c8495a8278	mm/a \xB7 minh hoạ
+14bffc77e1f1	Thửa ruộng (minh hoạ)
+51fe780346e6	Bảng 3.1 SGK
+56c7e376473e	Vận chuyển hơi nước
+f794174bfe01	Độ che phủ thực vật
+909963c67fac	Thể nước
+28c8703cdf8b	0.40 yếu
+a89bccba9ef8	1.60 mạnh
+e5318bfc460e	Loại tuần hoàn
+6ec25bbb28e3	Cả ba loại
+664e1e306d65	Biển – lục địa
+b28c43476ede	Nội địa
+35d8941dcb82	Trên biển
+b4fd978552b5	Lớp phủ mặt đất
+02dee74e8a90	Ruộng trơ
+ea36ca6e2797	Thửa đất
+c68ab61b94cb	Tổng thể \xB7 một thửa đất
+86e80ea60fe0	Các khâu
+e6c53759ae1d	Khâu nào không thuộc vòng tuần hoàn nước?
+f6d8063284e5	Bốc hơi (thoát hơi)
+6b769a4e621b	Biển tiến, biển thoái
+c1709d2a08bb	SGK tr. 46: vận động liên tục qua các khâu bốc hơi (thoát hơi), vận chuyển hơi nước, giáng thuỷ, thấm, dòng chảy...
+c882f5202ac7	Theo phạm vi không gian diễn ra, vòng tuần hoàn nước được chia thành
+83572aa3cf3e	Ba loại: giữa biển và lục địa, nội địa, trên biển
+d8d6d431cd05	Hai loại: vòng lớn, vòng nhỏ
+ddc11c36c8b4	Hai loại: nhanh, chậm
+37da35e3c201	Tuần hoàn trên mặt đất và tuần hoàn dưới đất
+bece97869c81	SGK tr. 46: căn cứ vào phạm vi không gian diễn ra, vòng tuần hoàn nước có thể chia thành tuần hoàn giữa biển và lục địa, tuần hoàn nội địa và tuần hoàn trên biển.
+17b7d656712c	Biển
+75f71fa14823	Nước biển không nhiều thêm là vì
+696b5e399508	Lượng nước sông đổ vào quá ít
+52dd1b34d246	Phần chi bốc hơi cân bằng với phần thu giáng thuỷ, dòng chảy
+eb81468c963c	Nước biển không bốc hơi
+cc1cf22cec3c	Nước biển đều biến thành băng hà
+8986aeb34dce	Nước bốc hơi từ biển, một phần rơi thẳng xuống biển, một phần qua sông ngòi trở về biển, thu chi cân bằng (hướng giải thích của phần mở đầu SGK tr. 46).
+0d2045025bb4	Vòng lớn
+c5ed82445c35	Loại tuần hoàn làm tài nguyên nước lục địa không ngừng được bổ sung, được tái tạo là
+15f78c55da0c	Tuần hoàn trên biển
+6512e3de3b4f	Tuần hoàn nội địa
+2858c168f796	Tuần hoàn giữa biển và lục địa (vòng tuần hoàn lớn)
+0728be22abd0	Không loại nào
+f1f557fed24e	SGK tr. 46: nhờ sự vận động tuần hoàn này, nước trên lục địa không ngừng được bổ sung, tài nguyên nước được tái tạo.
+a1571279d27b	Tắt vòng lớn
+6ffd8c4aa1e5	Tắt tuần hoàn giữa biển và lục địa thì lục địa sẽ ra sao?
+f4d3d8d9413b	Hoàn toàn không mưa, sông vẫn chảy
+c583ba91a820	Vẫn có mưa, nhưng sông không chảy ra biển
+b6fc7b745912	Mưa to hơn, sông đầy hơn
+832378553ee4	Không thay đổi
+34c1b42e27d3	Giáng thuỷ của tuần hoàn nội địa đến từ bốc thoát hơi tại chỗ, nên lục địa vẫn có mưa; nhưng bên ngoài không còn đưa nước vào, dòng chảy ra biển bằng 0.
+7495c7f014e9	Nước thấm xuống đất cuối cùng sẽ
+3be56295307c	Biến mất dưới lòng đất
+6e5117999898	Thành dòng chảy ngầm, đổ vào sông ngòi hoặc đổ thẳng ra biển
+306d340786e5	Bị thực vật hút hết
+881ff06cc4a9	Thành nước ngầm và không bao giờ chuyển động nữa
+df5ae8b39fd7	SGK tr. 46: một phần thấm xuống đất, hình thành dòng chảy ngầm; cả hai được sông ngòi tập hợp lại, cuối cùng trở về biển.
+bacfdd27425b	Lớp phủ sỏi cát của ruộng phủ sỏi làm
+0d50ef48358d	Thấm giảm, bốc hơi tăng
+34ab668a10b4	Thấm tăng, bốc hơi giảm
+2b62848c8e61	Chỉ giảm bốc hơi, không ảnh hưởng thấm
+5ab290dc0534	Chỉ tăng thấm, không ảnh hưởng bốc hơi
+2be9971fced7	Hướng kết luận của hoạt động SGK tr. 48: lớp phủ sỏi cát làm tăng thấm, giảm bốc hơi, đất giữ nhiều nước hơn.
+7da0c76a2a3b	Trong các thể nước sau, thể nào có chu kì đổi mới dài nhất?
+a6a3e79ed3a6	Bảng 3.1 SGK: sông ngòi 16 ngày, hồ 17 năm, biển 2500 năm, băng hà vùng cực 9700 năm.
+fdefd59f7aa8	Xoay góc nhìn, phóng to thửa đất
+d1bf0918aec5	Hiểu chuỗi “bốc hơi → vận chuyển hơi nước → giáng thuỷ → thấm và dòng chảy”, biết dùng ba loại tuần hoàn và ruộng phủ sỏi để giải thích ý nghĩa địa lí của vòng tuần hoàn nước.
+7cd6db180ca2	Đã về chế độ tham chiếu: bức xạ Mặt Trời 1.00, vận chuyển 10 %, thực vật 40 %, cả ba loại tuần hoàn, ruộng trơ (minh hoạ)
+3e30b60b5ab3	Cả ba loại tuần hoàn đều đang chạy (SGK tr. 46 vẽ ba loại trên cùng một hình)
+202be4357fb8	Chỉ xem tuần hoàn giữa biển và lục địa: hơi nước biển được đưa vào lục địa, rồi qua sông ngòi về biển
+c9a369015e81	Chỉ xem tuần hoàn nội địa: bốc thoát hơi tại chỗ → giáng thuỷ trên lục địa, dòng chảy ra biển bằng 0
+1d8f1c9cc027	Chỉ xem tuần hoàn trên biển: nước bốc hơi từ biển ngưng kết trên không trung của biển, rồi lại rơi xuống mặt biển
+103ab5222c79	Ruộng phủ sỏi: lớp sỏi của thửa ruộng này làm thấm nhiều hơn, bốc hơi mặt đất và dòng chảy mặt ít hơn (giáng thuỷ trên lục địa không đổi)
+2910fe96d090	Ruộng trơ: mặt đất để trống, bốc hơi mạnh, thấm ít
+c62d20c8085d	Lưu ý minh hoạ: bài này trong SGK (tr. 46–49) không cho số liệu lưu lượng nào; bốc hơi, giáng thuỷ, thấm, dòng chảy trên giao diện đều là giá trị minh hoạ theo mô hình cân bằng nước dạng hộp (hằng số tính toán xem cột B của bảng dữ kiện); chu kì đổi mới lấy từ bảng 3.1 SGK, tỉ lệ diện tích biển – lục địa lấy từ SGK tr. 50.
+01499c5d45e7	Dòng chảy≥320 \xB7 thấm≥180
+fe2aca4ddc5b	Em thử nghĩ: lượng thấm ở thửa ruộng do tỉ lệ thấm của mặt đất quyết định, lượng dòng chảy ra biển do vận chuyển quyết định; vậy hai điều khiển nào phụ trách hai việc này?
+b95584b68b47	Quá trình và ý nghĩa địa lí của vòng tuần hoàn nước · Bài giảng tương tác 3D
+c84527e4eb7f	Song song đường đẳng áp
+130ec36115be	Hợp với đường đẳng áp góc ${i.alpha.toFixed(0)}\xB0
+25e494d7cc16	Áp cao
+96db17a5c915	Áp thấp
+cd95e02cab3e	Lực gradient
+b503783cfd68	Lực Coriolis
+9cccfe4eba8b	Hướng gió giả định
+5fd1d2be8b51	Vuông góc đường đẳng áp
+cf07654f3565	Song song đường đẳng áp
+1815ae581529	Lệch dần
+0de7a7cbdb11	Hướng gió: song song đường đẳng áp
+eed6ac678f1c	Hướng gió: hợp với đường đẳng áp góc ${et.alpha.toFixed(0)}\xB0
+fb650bfc9b40	Trị số đường đẳng áp
+9feeb44fa664	Áp cao/áp thấp
+7821a371818b	Số đo trên cung góc
+1f430d7b015a	SGK Nhân Giáo (Trung Quốc) 2019, bắt buộc tập 1 \xB7 Chương 2, bài 2 “Chuyển động ngang của khí quyển: gió” (tr. 38–40)
+292f4ad11222	Chuyển động ngang của khí quyển: gió
+90ed686f674c	Lực gradient khí áp → lực Coriolis → lực ma sát → gió
+fdec44f89833	Gió trên bản đồ thời tiết, vì sao không thổi thẳng từ áp cao sang áp thấp?
+0827999e2d24	Đường đẳng áp càng dày, gradient khí áp càng lớn
+a81c2ab80e37	Lực
+2a5df8b79017	Lực gradient khí áp ngang vuông góc với đường đẳng áp, hướng về áp thấp
+9e92718cbb87	Lệch
+282aaae465b1	Lực Coriolis vặn hướng gió sang phải (Nam Bán Cầu sang trái)
+b65bceecd132	Chéo
+84ef64cdc887	Trên cao hai lực triệt tiêu → song song; sát mặt đất thêm ma sát → cắt chéo
+fd20702c73d1	Độ lớn
+ef946f3fd4c1	Đường đẳng áp càng dày, gió càng mạnh
+0b6405b66d1f	Đĩa sát mặt đất (lớp sát đất \xB7 mặt 1010 hPa)
+3170426450b3	Lớp sát mặt đất: đường đẳng áp từ trái 1010 → phải 1000 hPa, lực ma sát tác động ở đây
+74d65a061a7e	Đĩa trên cao (mặt 500 hPa)
+adb404ed3360	Đĩa ở trên cao: đường đẳng áp từ trái 500 → phải 490 hPa, không chịu lực ma sát
+87396efb915f	Đường đẳng áp
+20f19c310413	Những đường ghi 1010, 1008 trên hình là gì?
+fa5ca5fe62e1	Em kéo góc nhìn một chút: trước hết nhìn rõ đĩa sát mặt đất ở dưới, đĩa trên cao ở trên, rồi xem các đường đẳng áp dựng đứng trên đĩa
+06d370cb32a8	Đĩa dưới từ trái sang phải ghi 1010 → 1000 hPa, đĩa trên ghi 500 → 490 hPa; chế độ tham chiếu mỗi đĩa 6 đường, hai đường liền kề chênh 2 hPa; số đọc: gradient khí áp 1.0 hPa/(100 km), tốc độ gió 7.6 m/s
+b73207e1ed1d	Đường đẳng áp là đường nối các điểm có khí áp bằng nhau trên cùng một độ cao. Chênh khí áp trên một đơn vị khoảng cách gọi là gradient khí áp: khoảng cách 200 km, hai đường liền kề chênh 2 hPa thì gradient là 1.0 hPa/(100 km).
+fd9bd60af4a1	facts A2.1, A2.2, A2.7, A3.1, B1 DP_ISO / N_ISO, bảng 1
+f805a56f9973	Đường đẳng áp là đường nối các điểm có khí áp bằng nhau trên cùng một độ cao (nguyên văn SGK).
+7acaaffcb13b	Các đường đẳng áp trên cùng một đĩa ghi khí áp của cùng một tầng: đĩa sát mặt đất trái 1010 → phải 1000 hPa, đĩa trên cao trái 500 → phải 490 hPa, hai đường liền kề chênh 2 hPa (minh hoạ).
+d1c4c243c8ae	Chênh khí áp trên một đơn vị khoảng cách gọi là gradient khí áp; chế độ tham chiếu khoảng cách 200 km, liền kề chênh 2 hPa, gradient là 1.0 hPa/(100 km).
+5dbb63e64947	Bỏ bước này: học sinh sẽ nhầm đường đẳng áp với “mặt đẳng áp” đã học ở tr. 36, nhìn các đường trên đĩa không nói rõ được là khí áp của tầng nào.
+d5493cc21f49	Hay thi: đường đẳng áp là đường nối các điểm có khí áp bằng nhau trên cùng một độ cao, đừng nhầm với mặt đẳng áp.
+e78bc9a4239a	Gradient khí áp = chênh khí áp hai đường liền kề \xF7 khoảng cách
+871889a1febb	Liền kề chênh 2 hPa (minh hoạ)
+443b0efb7367	Đường đẳng áp 1010 → 1000 hPa
+09070bc40ba0	Trên cao 500 → 490 hPa
+39bbce72b1e0	Liền kề chênh 2 hPa
+977aa9e12b1b	Khi chỉ có lực gradient khí áp, gió thổi về đâu?
+bd8ffa214be0	Em kéo “Khoảng cách đường đẳng áp” từ 200 xuống 100 km: xem các đường đẳng áp sít lại, mũi tên lực gradient màu đỏ dài ra
+ed2a41d1c662	Khoảng cách 200→100 km: gradient khí áp 1.0→2.0 hPa/(100 km), mũi tên lực gradient màu đỏ dài gấp đôi; “Hướng gió giả định” màu xanh ngọc nhạt luôn trùng với nó, cùng chỉ sang phải, cắt vuông góc các đường đẳng áp (hình 2.14 SGK)
+a762f96dbcf7	Lực gradient khí áp ngang vuông góc với đường đẳng áp, hướng từ áp cao về áp thấp. Nếu không có ngoại lực khác, hướng gió trùng với nó: đây là nguyên nhân trực tiếp sinh ra gió.
+a40df94a6ce1	facts A2.1, A2.2, A2.7, A4-1, A4-2, bảng 1/bảng 3
+97d372cdd6b5	Lực gradient khí áp ngang có hướng vuông góc với đường đẳng áp, từ áp cao về áp thấp (trên đĩa này là từ áp cao bên trái về áp thấp bên phải, trên màn hình là “chỉ sang phải”).
+7ea6b61af2f6	Chỉ cần trên mặt phẳng ngang có gradient khí áp là lực này tồn tại; đây là nguyên nhân trực tiếp sinh ra gió.
+85e231215164	Hình 2.14 SGK vẽ trường hợp “giả sử không có ngoại lực khác”: hướng gió trùng với lực gradient, hai mũi tên chồng lên nhau.
+58130bbf10d5	Bỏ bước này: học sinh sẽ coi “thổi từ áp cao sang áp thấp” là hướng gió thật, trong khi hướng gió sát mặt đất thực ra là chéo.
+bf4e8068b314	Hay thi: nguyên nhân trực tiếp sinh ra gió là lực gradient khí áp ngang; phải vẽ được ý “vuông góc đường đẳng áp, áp cao → áp thấp”.
+51f41c1124f9	Lực gradient khí áp ngang
+7af68f685ada	đường đẳng áp, hướng từ áp cao về áp thấp
+61547aaee350	Liền kề chênh 2 hPa, khoảng cách 200 km (minh hoạ)
+3ddc0a2c8e67	Áp cao → áp thấp
+c5efdabd2636	Nguyên nhân trực tiếp sinh ra gió
+b8098dbdbe60	Lực Coriolis
+4ef8c061af4f	Gió vừa thổi lên, vì sao lại bị vặn đi một chút?
+e227195c1f12	Em bấm vào mũi tên xanh “Lực Coriolis” ở vị trí dưới cùng: dấu góc vuông sáng lên
+bddf06936722	Trên đĩa trên cao là chuỗi mũi tên ở 6 vị trí: lực gradient màu đỏ ở mọi vị trí đều chỉ sang phải, dài như nhau; lực Coriolis màu xanh luôn vuông góc ở bên phải hướng gió; hướng gió màu lục lệch phải dần từ “chỉ sang phải (vuông góc đường đẳng áp)”, cuối cùng “hướng xuống (song song đường đẳng áp)”; bấm mũi tên xanh ở vị trí cuối, dấu góc vuông sáng lên
+1e5c630dd591	Trái Đất tự quay làm không khí chuyển động không ngừng lệch sang phải (Nam Bán Cầu sang trái): hướng gió bắt đầu vuông góc với đường đẳng áp, bị lực Coriolis vặn dần, cuối cùng song song với đường đẳng áp. Lực Coriolis luôn vuông góc với hướng gió, chỉ làm đổi hướng gió, không làm đổi độ lớn tốc độ gió.
+0cc05c421658	facts A2.3, A2.4, A2.7 (đọc hình 2.15), B1 SEQ_N, B2.1-9, D2 / D5 / D11 / D12, bảng 2
+fe497f13fca2	Gió vừa hình thành đã chịu tác dụng của lực Coriolis, hướng gió lệch dần khỏi hướng của lực gradient khí áp (hình 2.15 SGK vẽ đúng quá trình “lệch dần” này).
+e8afc27dcd64	Ở Bắc Bán Cầu hướng gió lệch sang phải, ở Nam Bán Cầu lệch sang trái.
+53390bb41805	Lực Coriolis luôn vuông góc với hướng gió (góc vuông ở mỗi vị trí), chỉ làm đổi hướng gió, không làm đổi độ lớn tốc độ gió.
+254a2b55a78f	Bỏ bước này: học sinh sẽ tưởng gió luôn vuông góc với đường đẳng áp, không giải thích được “gió thổi dọc đường đẳng áp” ở hình 2.15 / 2.16.
+ea89c3276eaf	Bắc Bán Cầu lệch phải, Nam Bán Cầu lệch trái; ý “chỉ đổi hướng gió, không đổi tốc độ gió” gần như năm nào cũng thi.
+1c14f7571692	hướng gió, chỉ đổi hướng không đổi tốc độ
+f71dbf073879	Bắc Bán Cầu 40\xB0: f = 9.4\xD710⁻⁵ s⁻\xB9 (minh hoạ)
+13293a2b2a03	6 vị trí lệch dần
+ab8ec77be455	Chỉ đổi hướng, không đổi tốc độ
+b134fef788ff	Gió trên cao
+01735fcbfa30	Gió trên cao vì sao luôn thổi dọc đường đẳng áp?
+156168cb8004	Em kéo các đường đẳng áp dày lại còn 100 km: xem hai mũi tên lực cùng dài ra, hướng gió vẫn bám theo đường đẳng áp
+224ee1359149	Khoảng cách 200→100 km: tốc độ gió 8.9→17.8 m/s, góc giữa hướng gió và đường đẳng áp luôn là 0.0\xB0; hai mũi tên lực dài bằng nhau, ngược chiều (8.3→16.7, \xD710⁻⁴ m\xB7s⁻\xB2)
+c8182f253b1d	Trên cao không có lực ma sát: lực gradient khí áp ngang và lực Coriolis bằng nhau về độ lớn, ngược chiều nhau, gió không lệch nữa, hướng gió cuối cùng song song với đường đẳng áp.
+e8b47609a76f	facts A2.4, B2.1-7, D2, bảng 2/bảng 6
+ad7c3e1697af	Trên cao không chịu lực ma sát, chỉ còn hai lực là lực gradient khí áp ngang và lực Coriolis.
+977a02bbc5d4	Hai lực bằng nhau về độ lớn, ngược chiều nhau (trên đĩa hai mũi tên dài bằng nhau, ngược chiều), gió ổn định, không lệch nữa.
+42ca1251ba0a	Kết quả: hướng gió cuối cùng song song với đường đẳng áp (vị trí cuối cùng trong hình 2.15 SGK).
+037289c41611	Bỏ bước này: học sinh sẽ coi “gió song song đường đẳng áp” là quy tắc phải học thuộc, chứ không phải kết quả của hai lực triệt tiêu nhau.
+7e6d681d2cb0	Gió trên cao song song với đường đẳng áp; đường đẳng áp càng dày, gió trên cao cũng càng mạnh.
+8af9f371d9b6	Trên cao: lực gradient + lực Coriolis = 0 → hướng gió
+caf6a0fbaa94	Không chịu lực ma sát (minh hoạ)
+7765ba94c5a4	Hai lực bằng nhau, ngược chiều
+ba6e2bb29e24	Tốc độ gió 8.9 → 17.8 m/s
+b93331bf138c	Ở lớp sát mặt đất, vì sao gió lại chéo đi?
+a48083531400	Em kéo “Hệ số ma sát” từ 0 lên 0.6: xem mũi tên lực ma sát màu tím mọc ra, hướng gió chéo đi
+d1c1181a95b2	Hệ số ma sát 0→0.6: góc giữa hướng gió và đường đẳng áp 0.0\xB0→31\xB0, tốc độ gió 8.9→7.6 m/s; lực gradient đỏ chỉ sang phải, lực Coriolis xanh chỉ xuống trái, lực ma sát tím chỉ lên trái (ngược hướng gió), hướng gió lục chéo xuống phải cắt qua đường đẳng áp (hình 2.16 SGK), ba lực nối đầu cuối thành tam giác kín
+e9ee68b24ed3	Sát mặt đất còn chịu lực ma sát: lực ma sát ngược hướng gió, làm giảm tốc độ gió. Dưới tác dụng chung của ba lực, hướng gió cắt chéo đường đẳng áp và hướng về phía áp thấp.
+9dcf31b10f7d	facts A2.5, A2.7 (đọc hình 2.16), A4-4, A4-5, D3, D8, bảng 1/bảng 2
+0aa5ad923f33	Sát mặt đất còn chịu lực ma sát: lực cản sinh ra do tác động qua lại giữa mặt đất và không khí, giữa các lớp không khí chuyển động khác nhau.
+de4f71e9189c	Lực ma sát ngược hướng gió, có tác dụng cản trở gió, làm giảm tốc độ gió.
+186515ec008c	Dưới tác dụng chung của ba lực, hướng gió cắt chéo đường đẳng áp (hình 2.16 SGK) nhưng vẫn hướng về phía áp thấp: chế độ tham chiếu 31\xB0.
+edf0bd5e05e8	Bỏ bước này: học sinh chỉ thuộc “trên cao song song, sát mặt đất cắt chéo”, không nói được nguyên nhân khác biệt chính là lực ma sát.
+9b98732b645d	Hướng gió sát mặt đất cắt chéo đường đẳng áp, vẫn hướng về áp thấp; ma sát làm giảm tốc độ gió.
+0135ba13a11e	Lực gradient + lực Coriolis + lực ma sát = 0 → hướng gió cắt chéo đường đẳng áp
+9ec1ecdbc5c0	Hệ số ma sát 0.6 (minh hoạ)
+d031017e3969	Lực ma sát ngược hướng gió
+4d73c8f24811	Cắt chéo 31\xB0
+69d455404ea5	Tốc độ gió 8.9 → 7.6 m/s
+dc6b13bffcaf	Nam Bán Cầu
+b91f25a6426c	Cùng một trường khí áp, gió ở Nam Bán Cầu thổi về phía nào?
+0eadfce73306	Em chuyển “Bán cầu” sang Nam Bán Cầu: xem cả chuỗi “lệch dần” đối xứng gương (hướng gió từ hướng xuống thành hướng lên)
+151fa9a00696	Cả chuỗi mũi tên đối xứng gương: ở Bắc Bán Cầu gió từ “chỉ sang phải” lệch phải dần đến “hướng xuống”, ở Nam Bán Cầu từ “chỉ sang phải” lệch trái dần đến “hướng lên”; lực Coriolis chuyển sang bên trái hướng gió; tốc độ gió và góc hợp đều không đổi
+9dcec4c060dc	Trên cùng một trường khí áp, gió ở Bắc Bán Cầu lệch phải, ở Nam Bán Cầu lệch trái: hướng gió đối xứng gương sang phía bên kia, tốc độ gió và góc hợp với đường đẳng áp đều không đổi.
+d0965eb67d09	facts A2.3, A2.7 (câu hỏi suy nghĩ cạnh hình 2.16), D6, D12, bảng 2/bảng 5
+663f52696b46	Trên cùng một trường khí áp, ở Bắc Bán Cầu hướng gió lệch phải, ở Nam Bán Cầu hướng gió lệch trái.
+614d998c9b90	Trong hình cả chuỗi mũi tên đối xứng gương: ở Bắc Bán Cầu mũi tên cuối chỉ xuống dưới màn hình (nam), ở Nam Bán Cầu chỉ lên trên màn hình (bắc), tốc độ gió và góc hợp không đổi.
+bd1c26687761	Mẹo đọc hình: đứng quay lưng về phía gió thổi tới, ở Bắc Bán Cầu áp thấp ở bên trái, áp cao ở bên phải, Nam Bán Cầu ngược lại.
+d0db7aa962e8	Bỏ bước này: học sinh sẽ coi “lệch phải” là định luật vật lí, khi vẽ bản đồ thời tiết Nam Bán Cầu thì hướng ngược hết.
+b0773d323963	Nam Bán Cầu lệch trái; trên cùng một hình đường đẳng áp, kết luận về hướng gió ở hai bán cầu ngược nhau.
+60e4524b5af2	Bắc Bán Cầu lệch phải \xB7 Nam Bán Cầu lệch trái
+6a4dae05749b	Cùng chế độ, chỉ đổi bán cầu (minh hoạ)
+e64cd655788c	Đối xứng gương
+d1660bf6ebec	Lệch phải → lệch trái
+28f667a7b58c	Tốc độ gió không đổi
+1244323e913d	Thưa dày
+3323797e0a09	Chỗ các đường đẳng áp sít nhau, vì sao gió mạnh hơn?
+d2f87f7a77be	Em kéo khoảng cách từ 300 xuống 100 km: xem các đường đẳng áp sít lại, bốn mũi tên cùng dài ra
+d134b85afeab	Khoảng cách 300→100 km: gradient khí áp 0.7→2.0 hPa/(100 km), tốc độ gió 5.1→15.2 m/s, bốn mũi tên cùng dài ra, góc hợp vẫn 31\xB0
+3a4b53bb5c52	Đường đẳng áp càng dày, gradient khí áp càng lớn, sức gió càng mạnh; xác định hướng gió vẫn theo “Bắc Bán Cầu lệch phải, cắt chéo đường đẳng áp hướng về áp thấp”.
+c3eacf0b8d4b	facts A2.6, A2.7 (hình vẽ 2.17), D4, D7, bảng 1/bảng 3/bảng 4
+a8cc076e3104	Mức độ thưa dày của đường đẳng áp phản ánh độ lớn của gradient khí áp, đường đẳng áp càng dày, gradient khí áp càng lớn (nguyên văn SGK tr. 40).
+a3ae40db4f58	Khoảng cách 300→100 km: gradient 0.7→2.0 hPa/(100 km), tốc độ gió 5.1→15.2 m/s.
+e956e245d543	Trong hoạt động SGK tr. 40, nơi A (phía đông Mông Cổ, đường đẳng áp dày) và nơi B (rìa nam bồn địa Tứ Xuyên, đường đẳng áp thưa) được so sánh đúng như vậy.
+23109e161c8e	Bỏ bước này: học sinh sẽ chỉ nhìn trị số khí áp lớn hay nhỏ, rút ra kết luận “nơi 1000 hPa gió mạnh”.
+271e7f420de6	Đường đẳng áp càng dày gió càng mạnh; xác định sức gió phải nêu cùng lúc hai căn cứ là gradient khí áp và lực ma sát.
+ec5455824c84	Đường đẳng áp càng dày → gradient càng lớn → gió càng mạnh
+5c70a446471f	Liền kề vẫn chênh 2 hPa, chỉ đổi khoảng cách (minh hoạ)
+d78b76264959	Thưa → dày
+418b3a673e9b	Tốc độ gió 5.1 → 15.2 m/s
+3ac8381462ca	Góc hợp không đổi
+206910ae3dcf	Kiểm tra cuối bài: làm tốc độ gió ≥ 12 m/s, hướng gió sát đường đẳng áp
+346233b962d5	Chỉnh để tốc độ gió ≥ 12.0 m/s và góc với đường đẳng áp ≤ 15\xB0, giữ 15 s
+263e1a457355	Thanh mục tiêu chuyển xanh: tốc độ gió ≥ 12.0 m/s, góc hợp ≤ 15\xB0. Đường đẳng áp phải dày (khoảng cách 140 km), mặt đất phải nhẵn (hệ số ma sát 0.25)
+faeb58e564a1	Độ lớn và hướng của gió do gradient khí áp và lực ma sát cùng quyết định: đường đẳng áp càng dày, mặt đất càng nhẵn, gió càng mạnh, càng gần song song đường đẳng áp.
+c5bf74804a40	facts B1 V_EXAM / A_EXAM, D10, bảng 8
+6684a81ec51e	Trước hết kéo nhỏ “Khoảng cách đường đẳng áp”: gradient khí áp tăng, gió mạnh lên.
+df673094b9e2	Sau đó kéo nhỏ “Hệ số ma sát”: lực ma sát giảm, hướng gió sát đường đẳng áp hơn.
+fcbc90a80aff	Bán cầu phải là Bắc Bán Cầu: ở Nam Bán Cầu hướng gió đối xứng gương, theo tiêu chí của phần này thì không tính là đạt.
+ef25c6f5896f	Bỏ bước này: học sinh chỉ nhắc lại được kết luận, gặp một bản đồ thời tiết vẫn không xác định được gió mạnh hay yếu.
+ac1ac9631d47	Tổng hợp: gradient khí áp quyết định độ lớn của gió, lực ma sát quyết định góc giữa gió và đường đẳng áp.
+8077fd1b433d	Tốc độ gió ≥ 12.0 m/s và góc hợp ≤ 15\xB0
+3406cb5a0110	Bắc Bán Cầu \xB7 sát mặt đất (minh hoạ)
+f623e0aff5eb	Khoảng cách ≤ 140 km
+fa41d2d5d955	Ma sát ≤ 0.25
+41d211797301	Tốc độ gió
+6d7814b292a4	Góc hợp\xB0
+14072057f67a	Góc lệch\xB0
+cdbc0970ab9b	Khoảng cách đường đẳng áp
+67797a7571a0	Hệ số ma sát
+7105644b7b11	Bán cầu
+c15de9459bb7	Tính theo công thức vật lí \xB7 minh hoạ
+1b09b70b9515	Tốc độ gió — khoảng cách đường đẳng áp
+afc68928ee68	— tốc độ gió \xB7
+52d26758c488	Khoảng cách hiện tại
+1721dbd6163e	Làm tốc độ gió ≥ 12 m/s, hướng gió sát đường đẳng áp
+6e400aec106f	Địa lí \xB7 Khí quyển
+1579767b3c67	Tổng thể \xB7 hai đĩa hướng gió
+d2c9d499c088	Đường đẳng áp là
+bf5ce2625dc7	Đường nối các điểm có khí áp bằng nhau trên cùng một độ cao
+7db06ddd2d7b	Đường nối độ cao các điểm có cùng khí áp
+60bd15e51793	Đường đi lên của không khí
+296f1346bde4	Đường đẳng nhiệt trên mực nước biển
+d84aa325ecf0	Nguyên văn SGK: đường đẳng áp là đường nối các điểm có khí áp bằng nhau trên cùng một độ cao (khác với “mặt đẳng áp”).
+120fd9215b43	Nguyên nhân trực tiếp
+0a8fcbba29df	Nguyên nhân trực tiếp sinh ra gió là
+b4386eed9dd9	Chỉ cần trên mặt phẳng ngang có gradient khí áp là sinh ra lực gradient khí áp ngang, khí quyển chuyển từ khu áp cao về khu áp thấp, tạo thành gió.
+8ae50f7073fe	Hướng của lực gradient khí áp ngang là
+9c712c925e87	Song song đường đẳng áp, từ áp thấp về áp cao
+996bc9e51277	Vuông góc đường đẳng áp, từ áp cao về áp thấp
+68abc0ee0039	Vuông góc đường đẳng áp, từ áp thấp về áp cao
+b045c86dc3ed	Cắt chéo đường đẳng áp
+77bfc193f394	Nguyên văn SGK: lực gradient khí áp ngang có hướng vuông góc với đường đẳng áp, từ áp cao về áp thấp.
+61b17eab20ce	Lệch hướng
+b40d9fc1a268	Tác dụng của lực Coriolis đối với gió là
+616575edf43c	Chỉ đổi hướng gió, không đổi tốc độ gió
+3f25637a07f2	Chỉ đổi tốc độ gió, không đổi hướng gió
+99b5e0a3c109	Đổi cả hướng gió và tốc độ gió
+4880cc76883c	Không đổi cả hướng gió và tốc độ gió
+221c7f16dae2	Lực Coriolis luôn vuông góc với hướng gió, nên chỉ làm đổi hướng gió, không làm đổi độ lớn tốc độ gió.
+8e42186887bd	Khi không chịu lực ma sát, hướng gió cuối cùng
+e710b09bded4	Vuông góc với đường đẳng áp
+c8e875a3e5e8	Cắt chéo đường đẳng áp 45\xB0
+73f725e89a69	Cắt chéo đường đẳng áp 31\xB0
+bc4edb054159	Trên cao không có lực ma sát, lực gradient và lực Coriolis bằng nhau, ngược chiều, hướng gió song song với đường đẳng áp.
+11ad8d9864e4	Hướng gió sát mặt đất so với đường đẳng áp là
+d2ef955ebe4b	Song song
+2c1e1d4770ea	Cắt chéo, hướng về phía áp thấp
+ae17ab7f82d2	Cắt chéo, hướng về phía áp cao
+614a13edccb9	Sát mặt đất có thêm lực ma sát, hướng gió cắt chéo đường đẳng áp (chế độ tham chiếu 31\xB0), lực gradient khí áp ngang vẫn hướng về áp thấp, nên hướng gió lệch về phía áp thấp.
+c56fd6a04975	Sức gió
+e88c9e2da823	Trên cùng một hình, nơi đường đẳng áp càng dày thì
+2543a96ae0e3	Gradient khí áp càng nhỏ, gió càng yếu
+586c694d057c	Gradient khí áp càng lớn, gió càng mạnh
+55ca7995f2b8	Tốc độ gió không liên quan đến thưa dày
+8e4d344a08a3	Chỉ xác định được hướng gió, không xác định được tốc độ gió
+6dac72dcebba	SGK tr. 40: mức độ thưa dày của đường đẳng áp phản ánh độ lớn của gradient khí áp, đường đẳng áp càng dày, gradient khí áp càng lớn, gió càng mạnh.
+078aecc6e94b	So với lực gradient khí áp, hướng gió ở Nam Bán Cầu
+28f5c953bb4c	Lệch sang phải
+0b745be493a5	Lệch sang trái
+af3d3aed1f6d	Không lệch
+d11ac540eaa1	Lệch phải trước, trái sau
+c5973d01f039	Bắc Bán Cầu lệch phải, Nam Bán Cầu lệch trái, đây là kết quả của việc hướng lực Coriolis thay đổi theo bán cầu.
+0d318549c6f7	Hiểu gió thổi về đâu, vì sao có nơi gió mạnh.
+e37ecad728ae	Lưu ý minh hoạ: trị số, khoảng cách đường đẳng áp, hệ số ma sát và tốc độ gió đều là số liệu minh hoạ dạy học, không phải số liệu thời tiết đo thực tế.
+9356a10eb37e	Với đường đẳng áp
+92a1aa497d83	Với lực gradient
+14358c826a74	100 dày
+78b3b54f52a2	300 thưa
+6732e076f3b1	0 trên cao
+1c3ac04b3aef	2.0 gồ ghề
+143f9004d48e	Bắc Bán Cầu
+3c15240bc07c	Bắc Bán Cầu: hướng gió lệch phải so với lực gradient khí áp
+52d913b7a1ea	Nam Bán Cầu: hướng gió lệch trái so với lực gradient khí áp
+7ed4414dfcfd	Tốc độ gió ≥ 12 và sát đường đẳng áp
+4fe9d0721b60	Bắc Bán Cầu \xB7 sát mặt đất: kéo đường đẳng áp dày lại (khoảng cách ≤ 140 km), kéo hệ số ma sát nhỏ đi (≤ 0.25), tốc độ gió sẽ tăng, hướng gió cũng sát đường đẳng áp
+5c461f286d4d	Bắc Bán Cầu \xB7 sát mặt đất
+9424dcb7ee58	Chuyển động ngang của khí quyển: gió · Bài giảng tương tác 3D

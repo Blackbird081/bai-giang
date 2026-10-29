@@ -1,0 +1,237 @@
+9e0a7a631c18	C.steps[${k}].cam.pitch=${L.cam.pitch}\xB0 không nằm trong CAMERA.polar ${m.polar[0]}–${m.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+1cd4adf9ca9c	${L.unitOf} ${dt.no} bước:
+16ba6803d1b8	SGK Nhân Giáo (Trung Quốc) 2019, bắt buộc tập 2, chương 6 bài 1 + hoạt động thí nghiệm 6 “Chuyển hoá năng lượng hoá học thành điện năng” \xB7 lựa chọn bắt buộc tập 1, chương 4 bài 1 “Pin điện hoá”
+fe7df5527b9c	Pin điện hoá: từ một dung dịch đến hai dung dịch
+e9e0115bb5e1	2e⁻ = Zn\xB2⁺ \xB7 electron đi từ cực âm qua dây dẫn sang cực dương \xB7 cầu muối nối mạch ion
+e53d94fb2a1d	Trong cùng một cốc sulfuric acid loãng đã có dòng điện, vì sao còn phải đổi sang hai cốc và thêm một cầu muối?
+0c3640d47201	Tách hai bán phản ứng
+52a819768ef7	Oxi hoá và khử không xảy ra trong cùng một dung dịch
+169f555a4944	Nhờ đó có dòng điện
+fd0eeb733014	Electron đi từ Zn qua dây dẫn sang Cu, dòng điện ngược chiều
+dce882487285	Cái giá của một dung dịch
+ea06ba32ce13	Kẽm phản ứng trực tiếp với acid, dòng điện giảm dần
+e334e841986d	Cầu muối nối mạch ion
+775076cbdae1	Mỗi cốc đảm nhận một nửa phản ứng, điện áp cao hơn, dòng ổn định hơn
+fa2d270cea2b	Hai bộ thiết bị + một ampe kế + một hình phóng to minh hoạ
+6525c3b20d55	Toàn cảnh \xB7 trên cùng một mặt bàn: một cốc acid khác hai cốc ra sao
+c24c2df361cb	Gạt một công tắc, ampe kế, bọt khí và mũi tên cùng thay đổi
+b18b9d7592f5	Đúng hết! Tách hai cốc là để electron chỉ đi qua dây dẫn, cầu muối bổ sung đường đi cho ion.
+3af3b8f76ad0	Em nên xem lại mạch chính: trước hết xem chiều electron và chiều dòng điện, rồi xem vì sao pin một dung dịch bị suy giảm, cuối cùng xem thiếu cầu muối thì sao.
+2a1260a8aecc	Electron (cam, Zn → Cu) và dòng điện (lam, Cu → Zn)
+b4c3e136390f	Cầu muối: K⁺ → cốc CuSO₄, Cl⁻ → cốc ZnSO₄
+0b1e5a46f90c	Bọt khí trên bề mặt điện cực (mặt Zn tự phóng điện, mặt Cu H₂↑)
+9053b93ec81c	Đồng bám trên lá Cu
+991d2ee2d2a0	Bề mặt điện cực và cầu muối \xB7 phóng to minh hoạ
+d3bac80ae28d	Dòng điện – thời gian chạy
+c3c249349781	Điện kế nhạy G
+1b74cd3a54dc	Cầu muối (thạch agar KCl)
+a204bcda7e90	Bọt khí trên điện cực
+6134ed5a921a	Một dung dịch
+0c6d6212feca	Hai dung dịch
+8a474a9d86d8	Pin một dung dịch
+24736d172f4d	Một cốc 250 mL đựng sulfuric acid loãng, cắm lá kẽm và lá đồng (SGK hình 6-6)
+96afcaf035df	Pin hai dung dịch
+23141b1ad9ea	Cốc ZnSO₄ cắm lá kẽm, cốc CuSO₄ cắm lá đồng, ở giữa là cầu muối chứa thạch agar KCl (SGK hình 4-1)
+7838e9bd0844	Ampe kế và dây dẫn
+a81a3f2f2d63	Điện kế nhạy G có vạch 0 ở giữa (\xB115 mA, độ chia 0.1 mA) và hai dây dẫn có kẹp cá sấu, kẹp vào bộ thiết bị đang được chọn
+069162999a38	Điện cực và cầu muối phóng to minh hoạ
+e1588b5f4a0f	Khung phóng to phía sau mặt bàn: mặt Zn mất electron, mặt Cu nhận electron, K⁺ và Cl⁻ trong cầu muối (phóng to minh hoạ)
+0feca1b5dca4	Hai bộ thiết bị
+87a3d9230f89	Trên bàn có hai bộ thiết bị, vì sao cùng một lá kẽm lại phải thử hai lần?
+69ad01060ae7	một cốc sulfuric acid loãng cắm lá kẽm và lá đồng,
+183b1fda488a	hai cốc (ZnSO₄ / CuSO₄) nối với nhau bằng một cầu muối,
+e583521cc1b5	điện kế nhạy ở giữa và hai dây dẫn, lúc này đang kẹp vào
+0f6e17828198	. Số đọc chính 7.3 mA (một dung dịch, 0.50 mol/L, vừa nối mạch), suất điện động 0.76 V
+2be312d3f6ea	Zn | sulfuric acid loãng | Cu
+a0ccdfe34976	0.50 mol/L \xB7 dây dẫn đã nối \xB7 ampe kế 0.1 mA
+353851cbaacf	Hai bộ thiết bị
+1cf8f25b220c	Ampe kế 0.1 mA
+a6e3b3764f0e	Hai bộ chỉ khác nhau hai chỗ: một cốc acid hay hai cốc, có cắm cầu muối hay không.
+bb0d1a17f381	Ampe kế là dụng cụ duy nhất biến “có dòng điện hay không” thành con số (độ chia 0.1 mA).
+e38d223b902d	Bộ bên trái đã có số đọc, chứng tỏ pin một dung dịch không “sai”, chỉ là có cái giá phải trả.
+9a5e3b414577	Bỏ bước này: học sinh tưởng pin điện hoá chỉ có một dạng, phép so sánh ở bước 4, 5 sẽ không có mốc đối chiếu.
+3955b96d7e7b	Hay thi: các yếu tố cấu thành pin điện hoá (điện cực, dung dịch chất điện li, dây dẫn, mạch kín) — câu hỏi 1 trong hoạt động thí nghiệm 6 của SGK.
+4021877222fd	Bộ bên trái đã làm ở chương trình bắt buộc: một cốc sulfuric acid loãng, hai lá kim loại, một dây dẫn là có dòng điện; bộ bên phải thêm một cầu muối, chính là câu hỏi “vì sao” của bài này.
+542c85b0c951	A1.8, A1.9, A3.1, A3.2, A4.1
+7b02d6c35109	Nối dây dẫn
+e67836aa62e2	Kẹp hai dây dẫn vào, vì sao lá đồng lại sủi bọt khí?
+ce1224b16df3	Kẹp dây dẫn vào (lúc đầu đang hở mạch), xem trên lá đồng xảy ra gì
+6454e1052ea9	Khi hở mạch dòng điện 0.0 mA: lá kẽm có bọt khí, lá đồng không có; nối mạch thì số đọc 7.3 mA, lá đồng cũng sủi bọt, bọt khí trên lá kẽm ít đi nhưng không mất (tự phóng điện 70 %)
+9e251e7cdff8	Sulfuric acid loãng 0.50 mol/L \xB7 dòng điện 0.0 → 7.3 mA
+8fb547f84028	Mặt Cu xuất hiện bọt khí
+aff609773b0e	Dòng điện 7.3 mA
+aee32869a9ff	Dây dẫn đã nối
+f1439b824bc2	Khi hở mạch lá kẽm sủi bọt là do kẽm phản ứng trực tiếp với sulfuric acid loãng, không liên quan đến dây dẫn.
+b9f612771e35	Nối mạch thì bọt khí chuyển sang lá đồng, chứng tỏ electron thật sự đã qua dây dẫn đến lá đồng.
+941516d8ad5a	Lá kẽm vẫn còn bọt khí, chứng tỏ trong pin một dung dịch có một phần năng lượng hoá học không đi qua dây dẫn (bước 4 định lượng).
+43c5046e2f71	Bỏ bước này: học sinh thấy lá kẽm sủi bọt là tưởng nó “đang phóng điện”.
+f6adf64abf34	Hay gặp: vì sao nối mạch thì bọt khí xuất hiện trên lá đồng kém hoạt động (2H⁺ + 2e⁻ = H₂↑).
+694423fb26c4	Electron đi từ lá kẽm qua dây dẫn sang lá đồng; ion H⁺ trong dung dịch nhận electron từ lá đồng, bị khử thành nguyên tử hydrogen, kết hợp thành H₂ thoát ra trên lá đồng (nguyên văn SGK).
+03305484766a	A4.1, A4.2, A5.1, A5.2, B2.1 toán tử 2
+5e5461a35a40	Cái gì đang chạy
+35eed2f1615b	Kim ampe kế lệch rồi, rốt cuộc là electron chạy hay dòng điện chạy? Theo chiều nào?
+d7c1b724c966	Bấm vào ampe kế, xem kim lệch, rồi xem hai loại mũi tên trên dây dẫn đi theo chiều nào
+035c369c4738	Kim bị lệch (lệch về bên nào tuỳ cách mắc ampe kế, bài này không xét); mũi tên cam trên dây dẫn là electron (Zn → Cu), mũi tên lam là dòng điện (Cu → Zn, ngược chiều electron). Dòng điện 7.3 mA, suất điện động 0.76 V đều không đổi
+5e5570c65adc	Electron Zn → Cu \xB7 dòng điện Cu → Zn
+1c99c1fbff1d	Trong dây dẫn chỉ có electron \xB7 0.50 mol/L \xB7 7.3 mA
+d36a219b03ad	Electron Zn → Cu
+057adc8c2cb7	Dòng điện Cu → Zn
+7f58ba7794ab	Electron đi ra ở cực âm
+4e7d3ef3a0c6	“Cực âm” được gọi theo chỗ electron đi ra, không theo điện thế cao hay thấp.
+8acc09cc8996	Chiều dòng điện là chiều chuyển động của điện tích dương theo quy ước lịch sử, nên ngược chiều electron — năm nào cũng có người sai chỗ này.
+bd6332c82b70	Trong dây dẫn chỉ có electron chạy, ion không đi qua dây dẫn (bước 7 nói ion đi đường nào).
+e463b44d88ef	Bỏ bước này: học sinh coi chiều dòng điện là chiều electron, vẽ hình và phân tích đều ngược hết.
+7e50792fa9b7	Hay gặp: xác định cực âm, cực dương, vẽ chiều electron và dòng điện; “cực có electron đi ra là cực âm”.
+3749eb040062	Cực có electron đi ra là cực âm (lá kẽm bị oxi hoá), cực có electron đi vào là cực dương (lá đồng, H⁺ bị khử ở cực dương); chiều dòng điện ngược với chiều chuyển động của electron (nguyên văn SGK).
+2cfa072ab6a8	A4.2, A4.3, A2.1, A2.2, B2.1 toán tử 5, D1, D2
+27d6f8075bb3	Để yên pin một dung dịch, vì sao dòng điện càng lúc càng nhỏ?
+785d33e6ddbd	Kéo “thời gian chạy” từ 0 lên 10 min, rồi lên 30 min, theo dõi ampe kế
+3439190a105e	Một dung dịch 0.50 mol/L: chạy 0 min 7.3 mA → 10 min 2.1 mA → 30 min 0.2 mA; cùng thời điểm, hai dung dịch luôn là 10.5 mA. Bề mặt lá kẽm luôn có bọt khí (tự phóng điện 70 %, năng lượng hoá học biến thẳng thành nhiệt)
+1c430591ce67	Zn + 2H⁺ = Zn\xB2⁺ + H₂↑ (không qua dây dẫn)
+7431b88832c2	Một dung dịch \xB7 0.50 mol/L \xB7 chạy 0 → 30 min
+31d5db24592c	Tự phóng điện 70 %
+8d25a7d9419a	Dòng điện suy giảm
+2fb826586f82	Suy giảm không phải “pin hết điện”, mà là kẽm bị acid tiêu hao vô ích.
+dcf3fccdc154	70 % tự phóng điện không đi qua dây dẫn, phần năng lượng hoá học đó biến thẳng thành nhiệt, không sinh công.
+d6c486a132fc	Pin hai dung dịch trong cùng khoảng thời gian số đọc đứng yên, khác biệt không nằm ở vật liệu điện cực mà ở chỗ “Zn có tiếp xúc trực tiếp với acid hay không”.
+36d9ade8c5d0	Bỏ bước này: học sinh sẽ thấy đổi sang hai dung dịch chỉ là “xịn hơn”, không nói được cái giá nằm ở đâu.
+e3b2020681ff	Hay gặp: nhược điểm của pin một dung dịch (dòng suy giảm, kẽm phản ứng trực tiếp); vì sao SGK chuyển sang dùng cầu muối.
+e358fdcd8dd2	Trong pin điện hoá này, phản ứng oxi hoá và phản ứng khử không được tách hoàn toàn, kẽm phản ứng với sulfuric acid loãng tiếp xúc với nó, dòng điện sẽ giảm dần (nguyên văn SGK).
+199b1f47fa04	A4.4, A4.1, A5.2, bảng B1, B2.1 toán tử 3, bảng giá trị chuẩn 1/4/5, D5
+86d320bcfd2f	Đổi sang hai dung dịch
+f3eb6d374040	Đổi sang hai cốc dung dịch, cắm cầu muối, vì sao số đọc lại lớn hơn và ổn định hơn?
+ff1daf606a07	Gạt “thiết bị” sang hai dung dịch (cầu muối đã cắm sẵn), xem số đọc và bề mặt hai điện cực
+dec5d7c6410b	Dòng điện 7.3 → 10.5 mA, suất điện động 0.76 → 1.10 V (cao hơn 0.34 V); lá kẽm không còn sủi bọt (tự phóng điện 0 %), lá đồng xuất hiện lớp đồng bám (Cu\xB2⁺ + 2e⁻ = Cu)
+929a467e5617	Phản ứng tổng Zn + Cu\xB2⁺ = Zn\xB2⁺ + Cu \xB7 0.50 mol/L
+5b6465f42e2c	Đồng bám lên Cu
+626e35f141bb	Điện áp cao hơn vì cực dương đổi bán phản ứng: từ H⁺/H₂ (0 V) sang Cu\xB2⁺/Cu (+0.3419 V).
+1aad7369b01e	Lá kẽm không còn sủi bọt, chứng tỏ nó không còn tiếp xúc trực tiếp với acid — nhược điểm của pin một dung dịch được loại bỏ nhờ cấu tạo thiết bị.
+314c79d51a2c	Trên lá đồng xuất hiện đồng (bám vào), không phải bọt khí, đừng nhầm hai thứ.
+291e88dc1d0f	Bỏ bước này: học sinh chỉ biết “thêm cầu muối thì có dòng điện”, không biết mỗi cốc đảm nhận một nửa phản ứng mới là mấu chốt.
+7a8ef3d62e66	Hay gặp: phản ứng ở cực âm, cực dương và phản ứng tổng của pin hai dung dịch; vì sao trên lá Cu là đồng bám vào chứ không phải bọt khí.
+d22c51f77222	Zn mất electron thành Zn\xB2⁺ đi vào dung dịch, electron đi từ cực âm qua dây dẫn sang cực dương, Cu\xB2⁺ ở phía cực dương nhận electron thành Cu bám trên lá đồng (nguyên văn SGK).
+fa09a8ae6f2d	A2.3, A4.6, A5.3, bảng B1, B2.1 toán tử 1, bảng giá trị chuẩn 7, D4, D9
+7c33994bdff5	Rút cầu muối
+651eb815d8f1	Chỉ rút đi một ống đựng thạch agar, vì sao dòng điện về 0?
+fa1cc64f0d79	Rút cầu muối ra, xem kim; rồi cắm lại xem có phục hồi không
+d9d183312315	Rút cầu muối: dòng điện 10.5 → 0.0 mA, kim về vạch 0, ô suất điện động thành “— (mạch ion bị ngắt)” — giữa hai cốc không có đường đi cho ion, không dụng cụ nào đọc được suất điện động; cắm lại thì lập tức trở về 10.5 mA và 1.10 V
+faef3cf657b9	Zn | ZnSO₄
+fecc8cd85c78	Cầu muối KCl
+d15c65e6550f	CuSO₄ | Cu
+434387300634	Cầu muối cắm → rút \xB7 0.50 mol/L \xB7 dòng điện 10.5 → 0.0 mA
+d8f908633a34	Kim về 0
+6e4375971ff6	Vật dẫn ion
+6b59cf14d184	Mạch kín phải có đồng thời vật dẫn electron (dây dẫn) và vật dẫn ion (dung dịch + cầu muối).
+2e886969af95	Pin không hỏng: cắm cầu muối lại, hiệu điện thế mạch hở vẫn là 1.10 V — cái bị ngắt là mạch ion, không phải điện cực.
+0c0b5887224c	Trong cầu muối là thạch agar chứa dung dịch KCl bão hoà, ion di chuyển tự do được trong đó — nó cung cấp đường đi cho ion, không cung cấp electron.
+e9d134f94035	Bỏ bước này: học sinh tưởng “có điện là chuyện của dây dẫn”, không trả lời được ý vật dẫn ion.
+8ad2fd276a6a	Hay gặp: vai trò của cầu muối (tạo mạch kín, cân bằng điện tích); vì sao rút cầu muối thì không có dòng điện.
+949fc99618fc	Lấy cầu muối ra khỏi thiết bị trên, kim ampe kế lại trở về vạch 0, tức là trong mạch không có dòng điện chạy qua (nguyên văn SGK).
+9bf8513374e7	A4.5, A1.6, A2.6, bảng B1, bảng giá trị chuẩn 7/12, D3
+9e82c3badb22	Electron đi qua dây dẫn, vậy điện tích trong dung dịch do ai bù?
+b7de60613e98	Bấm vào khung phóng to phía sau mặt bàn, xem các hạt ở bề mặt hai điện cực và trong cầu muối đi về đâu
+a255f83a86d5	Trong khung, ở nửa trái (kẽm) electron rời bề mặt đi ra, Zn\xB2⁺ vào dung dịch; ở nửa phải (đồng) electron đi vào bề mặt, Cu\xB2⁺ thành Cu bám vào; ở giữa, trong cầu muối K⁺ đi về cốc CuSO₄, Cl⁻ đi về cốc ZnSO₄ (mỗi loại vẽ 3 hạt, phóng to minh hoạ)
+c33bf22f28ca	K⁺ → cốc CuSO₄ \xB7 Cl⁻ → cốc ZnSO₄
+4e60b71d360d	3 hạt K⁺
+24c553cd68fb	3 hạt Cl⁻
+14608f98784f	e⁻ nhường và nhận, mỗi bên 12
+c54a6b6adbe9	Electron chỉ đi trong dây dẫn, ion chỉ đi trong dung dịch và cầu muối, hai đường không lẫn vào nhau.
+50a17a6b2944	Cation về phía cực dương (K⁺ sang CuSO₄), anion về phía cực âm (Cl⁻ sang ZnSO₄), hai chiều ngược nhau.
+bb3b232f56bb	Cầu muối bù cân bằng điện tích: không có nó, điện tích dương ở một bên ngày càng dồn nhiều, phản ứng không tiếp tục được.
+46a91ae4d1f7	Bỏ bước này: học sinh chỉ thuộc “cầu muối nối hai cốc”, không vẽ được ion đi về đâu.
+8f409686596e	Hay gặp: chiều di chuyển của ion trong cầu muối; chiều di chuyển của cation, anion trong dung dịch.
+f6383b4e94ef	Cl⁻ trong cầu muối di chuyển về dung dịch ZnSO₄, K⁺ di chuyển về dung dịch CuSO₄, giúp phản ứng oxi hoá – khử diễn ra liên tục, pin điện hoá kẽm – đồng liên tục sinh ra dòng điện (nguyên văn SGK).
+ab00e50238d4	A2.6, A4.6, A5.4, B4, D8
+99112b5d7990	Pha dung dịch đặc hơn, vì sao số đọc lớn lên?
+506383816701	Kéo nồng độ chất điện li từ 0.05 lên 1.00 mol/L, đồng thời xem dòng điện và đồ thị
+302fda434492	Hai dung dịch: 0.05 mol/L 9.5 mA → 0.50 10.5 mA → 1.00 10.7 mA, suất điện động luôn là 1.10 V; một dung dịch cũng tăng theo nồng độ (6.6 → 7.3 → 7.4 mA). Nếu ngắt dây dẫn: dòng điện 0.0 mA, nhưng vẫn đọc được suất điện động 1.10 V (hiệu điện thế mạch hở)
+a36360889579	0.05 → 1.00 mol/L \xB7 dòng điện 9.5 → 10.7 mA
+8b2cc20a4eda	Suất điện động không đổi
+6d7fe9ff913b	Điện trở trong
+d875d411dd92	Nồng độ thay đổi “đường có dễ đi không” (điện trở trong), không thay đổi “lực đẩy lớn bao nhiêu” (suất điện động) — với điều kiện nồng độ hai cốc bằng nhau và cùng thay đổi, số hạng Nernst triệt tiêu; nếu chỉ một bên đặc lên thì suất điện động cũng đổi.
+5572e7598d04	Suất điện động do vật liệu và chất phản ứng ở hai điện cực quyết định (SGK: khả năng cung cấp điện năng phụ thuộc khả năng oxi hoá – khử của chất phản ứng).
+9ad182474e4d	Khi ngắt dây dẫn, dòng điện bằng 0 nhưng vẫn đọc được suất điện động 1.10 V (hiệu điện thế mạch hở), chứng tỏ “có điện áp” không đồng nghĩa “có dòng điện”.
+07c77a238086	Bỏ bước này: học sinh tưởng pha dung dịch đặc hơn sẽ làm điện áp cao lên.
+9f1c98a2f091	Hay gặp: khả năng cung cấp điện của pin điện hoá phụ thuộc vào gì (khả năng oxi hoá – khử của chất phản ứng), không phải diện tích điện cực hay lượng dung dịch.
+b9cbe1757d0d	Nồng độ tăng, dung dịch dẫn điện tốt hơn, điện trở trong của pin nhỏ đi, nên cùng suất điện động thì dòng điện lớn hơn; suất điện động do chất phản ứng ở hai điện cực quyết định, không do nồng độ dung dịch.
+db28f4c1e378	A4.7, bảng B1, B2.1 toán tử 2, bảng giá trị chuẩn 8/9/13, D6
+352e0c283ad8	Kiểm tra \xB7 lắp pin
+4a542a0ffee1	Kiểm tra cuối bài: chỉnh mặt bàn thành một pin điện hoá kẽm – đồng cho dòng điện ổn định
+c77da65ef631	Hai dung dịch + cắm cầu muối + nối dây dẫn + nồng độ ≥ 0.50 mol/L, để dòng điện ≥ 10.0 mA và giữ 15 giây; giữa chừng cầu muối sẽ bị rút ra
+f0e16410e22a	Băng thông báo đạt “Pin điện hoá \xB7 lắp đạt”; sau 5 s cầu muối bị rút ra (dòng điện 10.5 → 0.0 mA), phải cắm cầu muối lại. Ở chế độ tham chiếu 0.50 mol/L, hai dung dịch, cầu muối và dây dẫn đều thông thì đọc được 10.5 mA
+206793a93749	Hai dung dịch \xB7 0.50 mol/L \xB7 dòng điện ≥ 10.0 mA \xB7 giữ 15 s
+dd208a9eb60a	Chọn thiết bị hai dung dịch: pin một dung dịch lúc đầu đã có 6.6–7.3 mA nhưng không đạt 10.0 mA, lại còn suy giảm.
+115f69700509	Cầu muối và dây dẫn là hai “đường” độc lập, thiếu một thì dòng điện bằng 0.
+fe66c31af56d	Nồng độ phải đủ (≥ 0.50 mol/L), nếu không điện trở trong sẽ kìm dòng điện.
+e18caa127926	Cấu trúc điểm tối đa: hai dung dịch + cầu muối + dây dẫn + nồng độ, thiếu một trong bốn cũng không được.
+3a0e84ad5b63	Kiểm tra cuối bài không có kết luận mới: lo đồng thời bốn việc “tách hai cốc, cắm cầu muối, nối dây dẫn, dung dịch đủ đặc” thì dòng điện mới vừa lớn vừa ổn định.
+a8d7376fcec7	B3.1, bảng giá trị chuẩn 14/15, D3
+b862cc65cebc	Điện kế nhạy 0.1 mA
+1aeb603a3508	Đủ lớn
+68f38091eef3	Suất điện động E
+7fb101a91403	Vôn kế 0.01 V
+22f4d9630de1	Mạch ion bị ngắt
+667f3c14a762	Mạch hở
+096e9a89a032	Qua dây dẫn
+baf7b872bba4	Chiều electron
+dfbff70659b2	Zn phản ứng trực tiếp
+1ebde83b2821	Nồng độ chất điện li
+20bc02de4b80	Hai dung dịch (hai cốc + cầu muối)
+5f68a0166a13	Một dung dịch (một cốc sulfuric acid loãng)
+f34d92527519	Cầu muối
+5fec84584af7	Đã cắm
+75ac9754daaf	Đã rút
+afc6ecc9c60f	Dây dẫn
+564dd9c140c2	— Bộ đang chọn \xB7
+d1b282ad1512	Bộ còn lại \xB7
+7be03ade0ac8	Mục tiêu: dòng điện ≥ 10.0 mA
+cf568c0d507f	Mục tiêu: lắp một pin điện hoá kẽm – đồng cho dòng điện ổn định — hai dung dịch, cắm cầu muối, nối dây dẫn, nồng độ ≥ 0.50 mol/L, dòng điện ≥ 10.0 mA giữ 15 giây (SGK thí nghiệm 4-1)
+ebe0fb67047f	Cực âm
+2c06f56bbe01	Nối lá kẽm và lá đồng bằng dây dẫn rồi nhúng vào sulfuric acid loãng, nhận định nào sau đây đúng
+1277a7627ead	Kẽm là cực dương vì kẽm tan nhanh
+66cfae460632	Kẽm là cực âm, electron đi từ kẽm qua dây dẫn sang đồng
+b9671047944c	Đồng là cực âm vì trên lá đồng có bọt khí
+1b7693fc1337	Electron đi từ đồng qua dây dẫn sang kẽm
+1b7ca5aeda04	Cực có electron đi ra là cực âm: kẽm bị oxi hoá, Zn
+a9e45ef1dfec	2e⁻ = Zn\xB2⁺, electron qua dây dẫn sang lá đồng; trên lá đồng 2H⁺ + 2e⁻ = H₂↑ nên mới sủi bọt khí (SGK bắt buộc tập 2 tr. 36–37).
+8e87d856821e	Về chiều electron và chiều dòng điện ở mạch ngoài của pin điện hoá, phát biểu đúng là
+44364dbf4195	Electron và dòng điện đều đi từ cực âm sang cực dương
+c92346930d76	Electron đi từ cực âm sang cực dương, dòng điện ngược chiều
+f2efa025a2d4	Electron đi từ cực dương sang cực âm, dòng điện cùng chiều
+b481716c790d	Electron và dòng điện đều đi từ cực dương sang cực âm
+f3d27345e060	Electron đi từ cực âm (kẽm) qua dây dẫn sang cực dương (đồng); chiều dòng điện là chiều quy ước của điện tích dương, nên ngược chiều chuyển động của electron. Trong bài, mũi tên cam (electron) và mũi tên lam (dòng điện) trên dây dẫn chính là một cặp mũi tên ngược chiều.
+7adb8c983706	Khi pin hai dung dịch kẽm – đồng hoạt động, chiều di chuyển của ion trong cầu muối là
+98952825a789	K⁺ đi về dung dịch ZnSO₄, Cl⁻ đi về dung dịch CuSO₄
+7a99c72bce53	K⁺ đi về dung dịch CuSO₄, Cl⁻ đi về dung dịch ZnSO₄
+66a18caf01e0	K⁺ và Cl⁻ đều đi về dung dịch CuSO₄
+ae195fe87de9	K⁺ và Cl⁻ đều đi về dung dịch ZnSO₄
+72e2e5a26ef5	Nguyên văn SGK: Cl⁻ trong cầu muối di chuyển về dung dịch ZnSO₄, K⁺ di chuyển về dung dịch CuSO₄ — cation về phía cực dương (cốc CuSO₄), anion về phía cực âm (cốc ZnSO₄).
+52ea2848aff9	Phản ứng ở cực dương của pin hai dung dịch kẽm – đồng là
+e8715e54d0cc	Ở cực dương của pin hai dung dịch, Cu\xB2⁺ trong dung dịch CuSO₄ nhận electron, bám thành Cu; 2H⁺ + 2e⁻ = H₂↑ là phản ứng ở cực dương của pin một dung dịch (sulfuric acid loãng), đừng nhầm hai thứ.
+854550797e3c	Pin một dung dịch (kẽm, đồng nhúng trong sulfuric acid loãng) hoạt động lâu thì dòng điện suy giảm, nguyên nhân chủ yếu là
+42e13e3d358a	Kẽm phản ứng trực tiếp với sulfuric acid loãng tiếp xúc với nó, bị tiêu hao vô ích
+0f11077de458	H⁺ trong sulfuric acid loãng bị tiêu hao hết
+7fd0f1f4aea0	Lá đồng bị oxi hoá thành Cu\xB2⁺ đi vào dung dịch
+fbab50a10f4f	Dây dẫn nóng lên làm điện trở lớn vô hạn
+7dcce439c261	Nguyên văn SGK: trong pin điện hoá này, phản ứng oxi hoá và phản ứng khử không được tách hoàn toàn, ví dụ kẽm phản ứng với sulfuric acid loãng tiếp xúc với nó, dòng điện sẽ giảm dần. Bài này đánh dấu phần không qua dây dẫn là tự phóng điện 70 %, phần năng lượng hoá học đó biến thẳng thành nhiệt.
+a72591a2b55e	Rút cầu muối
+fd7f8bee2fe8	Lấy cầu muối của pin hai dung dịch kẽm – đồng ra, kim ampe kế trở về vạch 0, nguyên nhân là
+ec50d6a29aab	Suất điện động của pin bằng 0
+1a15a5d578a3	Giữa hai nửa pin mất đường đi cho ion, mạch không khép kín
+4f021c578452	Lá đồng không còn dẫn điện được
+4186912cba59	Zn\xB2⁺ trong dung dịch kẽm sulfate bị tiêu hao hết
+5d136e7ab539	Lấy cầu muối ra thì giữa hai nửa pin không có vật dẫn ion, điện tích không cân bằng được, mạch không khép kín, nên không có dòng điện (đến suất điện động cũng không đọc được). Mạch kín cần vật dẫn electron (dây dẫn) và vật dẫn ion (dung dịch + cầu muối); cắm cầu muối lại, hiệu điện thế mạch hở vẫn là 1.10 V.
+dc1b7743cb1b	Chuyển sang hai dung dịch: suất điện động 0.76 → 1.10 V, số đọc ampe kế tăng, Zn không còn tiếp xúc trực tiếp với acid
+620e2c503660	Chuyển về một dung dịch: suất điện động 0.76 V, lá kẽm lại phản ứng trực tiếp với sulfuric acid loãng (tự phóng điện 70 %)
+a8549700cd58	Cắm cầu muối: mạch ion được nối, mạch khép kín
+e55c4c38bc21	Rút cầu muối: mạch ion bị ngắt, ampe kế về 0, suất điện động cũng không đọc được
+db3903f3f0c0	Nối dây dẫn: mạch khép kín
+89b8d6e5ca0c	Ngắt dây dẫn: dòng điện bằng 0, nhưng vôn kế vẫn đọc được suất điện động
+e815de106b7a	Bất thường: cầu muối bị rút ra — dòng điện về 0, cắm nó lại trước
+447310956418	Đã về chế độ tham chiếu: một dung dịch \xB7 0.50 mol/L \xB7 dây dẫn đã nối \xB7 vừa nối mạch (7.3 mA)
+9cec3648c36b	Đạt: pin điện hoá \xB7 lắp đạt
+2ebd9342a985	Mục tiêu bài: nhìn rõ chiều electron và dòng điện trong pin một dung dịch, rồi hiểu vì sao nó suy giảm → đổi sang hai dung dịch + cầu muối, hiểu mỗi cốc đảm nhận một nửa phản ứng, cầu muối nối mạch ion → cuối cùng lắp một pin điện hoá kẽm – đồng cho dòng điện vừa lớn vừa ổn định và vượt qua kiểm tra cuối bài.
+4a568a103e45	Lưu ý minh hoạ: kích thước dụng cụ, nồng độ chất điện li (SGK không cho), thang đo và độ chia của ampe kế và vôn kế, điện trở trong và điện trở ngoài, hằng số thời gian suy giảm dòng của pin một dung dịch, tỉ lệ tự phóng điện đều là minh hoạ dạy học (giá trị đặt cho bài); cấu tạo thiết bị và thao tác lấy từ SGK Nhân Giáo (Trung Quốc) 2019 bắt buộc tập 2 hình 6-6, thí nghiệm 6-3, hoạt động thí nghiệm 6 (bản in tr. 36, tr. 56–57) và lựa chọn bắt buộc tập 1 hình 4-1, thí nghiệm 4-1 (bản in tr. 96–97); thế điện cực chuẩn lấy theo sổ tay CRC (E\xB0(Zn\xB2⁺/Zn) =
+4d93613336f6	0.7618 V, E\xB0(Cu\xB2⁺/Cu) = +0.3419 V), dòng điện và suất điện động trên giao diện là số đọc mô hình tính theo E/(Rngoài + Rtrong), suất điện động hiển thị hai chữ số thập phân.
+ac9ce9e5aabd	centerZeroMeter: ${pe}=${Fe} phải là bội nguyên của minor=${t}
+ce9e87fa0ae2	Pin điện hoá: từ một dung dịch đến hai dung dịch · Bài giảng 3D tương tác

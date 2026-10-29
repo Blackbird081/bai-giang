@@ -1,0 +1,231 @@
+e55e39752a0a	${x.t}: ${v}
+9223e838b562	C.steps[${D}].cam.pitch=${L.cam.pitch}\xB0 không nằm trong CAMERA.polar ${m.polar[0]}–${m.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+dc7d93aa61ef	Tìm hiểu các yếu tố ảnh hưởng đến chuyển dịch cân bằng hoá học
+a148d4e3f8cb	Lựa chọn bắt buộc 1 \xB7 chương 2, hoạt động thí nghiệm 1 (gộp CHEM-34)
+87300a8bf0f2	Thay đổi một điều kiện, dựa vào đâu để nói cân bằng “chuyển dịch về phía nào”?
+aaeb28df1873	So sánh Q với K: Q
+a8eeecd7ef59	K thì chiều thuận, Q
+d5c4588e47d1	K thì chiều nghịch
+1a07b0576cab	Thêm chất phản ứng làm Q giảm → chiều thuận; bớt chất phản ứng làm Q tăng → chiều nghịch
+ebfca2667651	Nhiệt độ thay đổi chính K: phản ứng toả nhiệt, tăng nhiệt độ thì K giảm → chiều nghịch
+43adf79793c6	Tin cậy
+3c5b01c46a96	Số đọc phải cùng nhiệt độ, cùng thể tích mới so được: nhiệt độ chưa trở lại mà đã đọc thì số đọc bị cao
+b628b481cd2e	Nhóm ống sắt (
+28a723a576ca	)/thiocyanate
+576d70fe15f7	Nhóm ống sắt
+660899358e32	Ống thí nghiệm thêm chất, ống đối chứng không thêm; màu đỏ thể hiện c(FeSCN\xB2⁺)
+e7483386ae88	Nhóm ống potassium dichromate
+7db7244cfb40	Nhóm ống chromium
+1ba5ba49ca71	Thêm kiềm hoá vàng, thêm acid hoá da cam; màu thể hiện c(CrO₄\xB2⁻)
+90baa25817ce	Trạm nhiệt độ (NO₂/N₂O₄)
+7355c3c47e7a	Bóng số 1 đổi nhiệt độ trong bể nước, bóng số 2 ở 25 ℃ làm đối chứng
+5a2d81bf074d	Phóng to minh hoạ \xB7 góc nhìn hạt
+620e5d06387d	Các hạt của hệ hiện tại được phóng to theo đúng tỉ lệ nồng độ (minh hoạ)
+5724d8237d4d	Màu không đổi, phản ứng đã dừng chưa?
+802f4989c3bc	Kéo góc nhìn đi một vòng quanh bàn
+a4c3e32b9dd4	Bốn trạm xếp lần lượt: ống sắt màu đỏ, ống chromium màu vàng cam, hai bóng màu nâu đỏ, khung hạt phóng to minh hoạ — các hạt luôn chuyển hoá theo cả hai chiều
+4bdee735eb0f	Cân bằng là cân bằng động: v(thuận) = v(nghịch) ≠ 0, nồng độ các chất không đổi. “Màu không đổi” không có nghĩa là phản ứng đã dừng; muốn biết “chuyển dịch về phía nào” phải so Q với K.
+44cf46a3219c	facts A5-1, A5-2
+1d1fab5c6ded	Ba hệ cân bằng + phóng to minh hoạ
+1e84390864c7	Màu hai ống nghiệm không còn thay đổi là đã đạt cân bằng, không phải phản ứng dừng lại.
+3b7e63018af7	Trong khung phóng to, các hạt luôn chuyển hoá theo cả hai chiều: v(thuận) = v(nghịch) ≠ 0.
+e30ff40a2986	Muốn biết “đã cân bằng chưa, chuyển dịch về phía nào”, hãy so thương số phản ứng Q với hằng số cân bằng K.
+91a620d0569f	Nếu bỏ bước này: học sinh sẽ coi “màu không đổi” là “phản ứng đã dừng”.
+0a896963f1aa	Thường thi “đặc điểm bản chất của trạng thái cân bằng hoá học”: cân bằng động, nồng độ không đổi, v(thuận) = v(nghịch).
+40d92bff3045	Ống sắt: thêm chất
+279416d18f22	Nhỏ thêm 5 giọt FeCl₃, sao màu đỏ đậm hơn?
+991462869fc2	Kéo số giọt lên 5 giọt (cách làm trong SGK), xem màu đỏ và số đọc
+d2bdbbb204cf	c(FeSCN\xB2⁺) tăng từ 0.379 lên 1.095 mmol/L, màu đỏ đậm lên rõ rệt; Q = 26
+73d3f971d9d8	K = 146; ống đối chứng không đổi
+06f01a27907e	Ngay khi thêm chất phản ứng, Q giảm (
+cdb42976c9bf	K), tốc độ phản ứng thuận lớn hơn phản ứng nghịch, cân bằng chuyển dịch theo chiều thuận; khi đạt cân bằng mới, Q lại bằng K.
+2ecc21c75c77	facts A3.2, bảng giá trị chuẩn dòng 2
+9a0a9acf43d8	FeCl₃ 0.05 mol/L 5 giọt \xB7 đọc theo tỉ lệ 1:1
+8e0d31b83081	FeCl₃ 5 giọt
+3e6c4404ebf3	Ngay khi thêm Fe\xB3⁺, Q = 26
+e7fc8f997c43	K = 146.
+6ee97526db7f	Sau khi chuyển dịch theo chiều thuận, c(FeSCN\xB2⁺) tăng từ 0.379 lên 1.095 mmol/L.
+d4592c2cef04	Ở cân bằng mới Q lại bằng K: K chỉ thay đổi theo nhiệt độ.
+60e1a5df6cde	Nếu bỏ bước này: chỉ thấy màu đậm lên mà không nói được “vì sao” đậm.
+38391c0435f4	Thường thi “thêm FeCl₃ thì màu đỏ đậm lên, giải thích bằng Q và K”.
+8f56eccc8627	Bột sắt: bớt chất
+843d1efe0d11	Thêm bột sắt vào, sao màu đỏ nhạt đi?
+2a5187236ce6	Thêm một ít bột sắt, xem màu đỏ phai đi
+4ee76e436b22	c(FeSCN\xB2⁺) giảm từ 1.095 xuống 0.072 mmol/L, gần như mất màu; Q = 1.5\xD710\xB3
+c08430925219	K = 146 (chiều nghịch)
+80d3a59fcd95	Bột sắt khử Fe\xB3⁺ thành Fe\xB2⁺ (2Fe\xB3⁺ + Fe = 3Fe\xB2⁺), c(Fe\xB3⁺) giảm → Q tăng, vượt K → cân bằng chuyển dịch theo chiều nghịch.
+04db07044c0f	facts A3.3, bảng giá trị chuẩn dòng 5
+72b80c0c0679	Một ít bột sắt \xB7 c(Fe\xB3⁺) giảm còn 5 % (minh hoạ)
+c1294bec8e05	Giảm chất phản ứng
+06354950b8b9	Chiều nghịch
+a50f6f6427db	Bột sắt khử Fe\xB3⁺, c(Fe\xB3⁺) giảm.
+229773c1a7e6	K = 146, Q tăng → chiều nghịch.
+a1a0ad604bf8	Màu đỏ gần như mất hẳn (0.072 mmol/L), chứng tỏ FeSCN\xB2⁺ đã phân li.
+d58fa91d6d72	Nếu bỏ bước này: chỉ biết “thêm chất thì chiều thuận”, gặp “nhạt đi” là không trả lời được chiều nào.
+a84171e5ab44	Dễ nhầm: tưởng bột sắt khử trực tiếp FeSCN\xB2⁺ — thật ra chất bị tiêu hao là Fe\xB3⁺.
+3ca758dddefe	Ống chromium: thêm kiềm
+d07a423204d2	Nhỏ 5 giọt NaOH, sao màu da cam lại hoá vàng?
+55770f64dfd6	Kéo ống chromium tới “NaOH 5 giọt”, xem màu chuyển từ da cam sang vàng
+f0cd0284f86c	c(CrO₄\xB2⁻) tăng từ 0.152 lên 178 mmol/L, da cam chuyển vàng; Q = 5.2\xD710⁻\xB3⁵
+fc5a67b9b4ea	K = 2.3\xD710⁻\xB9⁵ (chiều thuận); ống đối chứng vẫn màu da cam
+2e856c87e346	Thêm kiềm trung hoà H⁺, Q giảm (
+aaf0aead7df8	K) → cân bằng chuyển dịch theo chiều thuận: Cr₂O₇\xB2⁻ + H₂O ⇌ 2CrO₄\xB2⁻ + 2H⁺ chuyển dịch về phía tạo CrO₄\xB2⁻ (màu vàng).
+6a0c384ddb31	facts A3.4, bảng giá trị chuẩn dòng 7
+11f3510c36fe	Da cam → vàng
+31b04836e9fe	Giảm c(H⁺)
+cca24dee9e9f	Trong ống chromium là Cr₂O₇\xB2⁻, màu da cam.
+ac3fb40f57c2	Thêm kiềm trung hoà H⁺, Q giảm → chiều thuận, màu chuyển vàng (CrO₄\xB2⁻).
+a645280a5557	Ống đối chứng (không thêm kiềm) vẫn màu da cam.
+9765fb555593	Nếu bỏ bước này: chỉ thuộc “thêm kiềm hoá vàng”, không biết là do Q giảm.
+8d7987d5896c	Ví dụ chuẩn cho câu trong SGK “giảm nồng độ sản phẩm, cân bằng chuyển dịch theo chiều thuận”.
+e718b96bfb6b	Ống chromium: thêm acid
+e6db2f1fc954	Nhỏ tiếp H₂SO₄, sao lại trở về màu da cam?
+b8c3a5456e9c	Từ “NaOH 5 giọt” kéo sang trái tới “H₂SO₄ 5 giọt”, xem màu vàng trở lại da cam
+27b22c38a8be	c(CrO₄\xB2⁻) giảm từ 178 xuống 1.1\xD710⁻⁵ mmol/L, dung dịch trở về màu da cam; Q = 4.1\xD710⁻⁷
+eeba15fbae27	K (chiều nghịch)
+4b72acc5efdc	Thêm acid làm c(H⁺) tăng, Q tăng (
+05fa5043bb5c	K) → cân bằng chuyển dịch theo chiều nghịch, dung dịch trở về màu da cam của Cr₂O₇\xB2⁻.
+df81c763a4f3	facts A3.4, bảng giá trị chuẩn dòng 9
+0a2055f28e86	Thêm tiếp H₂SO₄
+625b7a5c01b3	Vàng → da cam
+ab67cfadf17b	Tăng c(H⁺)
+cecf67ae97fa	Thêm acid làm c(H⁺) tăng, Q tăng → chiều nghịch, trở về màu da cam.
+2f69c0c7003e	Gộp với bước trước: cùng một ống, thêm kiềm hoá vàng, thêm acid hoá da cam.
+eabbbe7a2997	Cả hai chiều đều chỉ là so sánh Q với K, không cần nhớ thêm quy tắc riêng.
+89ff363a8f65	Nếu bỏ bước này: chỉ có một nửa quy luật, học sinh sẽ tưởng “thêm gì cũng chiều thuận”.
+04fe4a8c4b3b	Cả hai chiều thêm kiềm, thêm acid đều phải phán đoán được, và phải viết được biểu thức Q.
+f57ce85abe67	Hai chậu nóng, lạnh
+609fc360c434	Cùng một quả bóng, trong nước nóng màu nâu đỏ đậm hơn, trong nước đá nhạt đi, vì sao?
+38d0916c4a7d	Kéo bể nước lên 70 ℃ (nước nóng), rồi kéo về 0 ℃ (nước đá) để so sánh
+7b5086a2c970	70 ℃: c(NO₂) 12.878 → 40.726 mmol/L, màu nâu đỏ đậm lên, K = 8.2
+de715616dd25	Q = 165.6 (chiều nghịch); 0 ℃: giảm còn 4.824 mmol/L, nhạt đi, K = 1.4\xD710\xB3
+12bd365f0d8f	Q (chiều thuận); bóng số 2 luôn là đối chứng ở 25 ℃
+83d48681bf67	2NO₂ ⇌ N₂O₄ phản ứng thuận toả nhiệt (ΔH =
+a96af1423146	56.9 kJ/mol): nhiệt độ thay đổi chính K. Tăng nhiệt độ K giảm → Q
+666361a0cd06	K → chiều nghịch (NO₂ tăng, màu nâu đỏ đậm lên); hạ nhiệt độ K tăng → Q
+d8f8d6bb7988	K → chiều thuận (nhạt đi).
+465b57d43ff2	facts A2.3, A3.6, bảng giá trị chuẩn dòng 12, 14
+1353da6b12a1	2NO₂ ⇌ N₂O₄  ΔH =
+9811b8fe8f29	Bể nước 0–80 ℃ \xB7 bóng số 2 đối chứng 25 ℃
+801b7ec4a89c	Tăng nhiệt độ, K giảm
+ee3f2f7a0ac8	Bóng đối chứng 25 ℃
+473e545240c6	Nhiệt độ thay đổi chính K, nồng độ tức thời không đổi, Q vẫn là 165.6.
+049f9538324c	Ở 70 ℃, K = 8.2
+1f5540a7d454	Q → chiều nghịch, c(NO₂) 12.878 → 40.726 mmol/L.
+712f485d1d4f	Ở 0 ℃, K = 1.4\xD710\xB3
+274179f40049	Q → chiều thuận, giảm còn 4.824 mmol/L.
+44fb8b5f3130	Nếu bỏ bước này: học sinh rất dễ coi “tăng nhiệt độ” là “nhất định chiều thuận”.
+a09dac681070	Màu đậm lên → suy ngược ra phản ứng thuận toả nhiệt (ΔH
+461bda45adf4	0), là dạng suy ngược chắc chắn có trong đề.
+65a8ce393346	Đằng sau màu sắc, các hạt đang làm gì?
+6d95166488e1	Dừng ở bước này vài giây, xem trong khung phóng to các hạt hai bên chuyển hoá
+b61e6ec39b9a	Các hạt của hệ hiện tại luôn chuyển hoá lẫn nhau: lúc cân bằng, tốc độ hai chiều bằng nhau; thay đổi điều kiện thì số hạt một bên tăng rõ, chiều chuyển dịch khớp với phán đoán theo Q/K
+5c95f8cb2f2d	Cân bằng không phải là “hạt đứng yên”, mà là tốc độ chuyển hoá hai chiều bằng nhau; điều kiện thay đổi thì tốc độ hai chiều không còn bằng nhau, số hạt bên này tăng bên kia giảm, cho tới khi lại có Q = K.
+6c4ab628fced	v thuận = v nghịch (cân bằng động)
+471afde2fdd2	Phóng to minh hoạ \xB7 hạt theo đúng tỉ lệ nồng độ
+a0025228bd78	Cùng thời điểm
+84305b7d8a87	Màu cùng nguồn
+826e6e122f6f	Các hạt hai bên luôn chuyển hoá lẫn nhau, không bao giờ dừng.
+2c4dd57f39a9	Lúc cân bằng, tốc độ hai chiều bằng nhau, số hạt không còn thay đổi.
+bac4b851b3f3	Điều kiện thay đổi thì một bên tăng rõ, cho tới khi thiết lập cân bằng mới.
+2f2726fc10d7	Nếu bỏ bước này: hiện tượng chỉ học thuộc, không nói được “vì sao chiều lại đảo ngược”.
+f3d9dbff5536	Thường gặp dạng câu hỏi hình vẽ vi mô: từ sự thay đổi số hạt phán đoán chiều chuyển dịch.
+8c706ddb94be	Sai số \xB7 số đọc
+42bfc265a116	Vì sao nhất định phải đợi nhiệt độ về nhiệt độ phòng rồi mới so màu?
+fba843502c60	Bật “Đọc khi chưa về nhiệt độ phòng”, xem số đọc lệch thế nào
+a916096284e9	Số đọc nhảy từ 12.878 lên 26.978 mmol/L (cao gấp 2.09 lần), giá trị thật vẫn là 12.878; dựa vào số này sẽ phán đoán sai thành “chuyển dịch theo chiều nghịch”
+daaa80285c18	Khi nhiệt độ chưa trở lại, trong màu sắc còn lẫn ảnh hưởng của nhiệt độ, số đọc bị cao; tìm hiểu ảnh hưởng của nồng độ thì phải giữ nhiệt độ như nhau (mục 1 phần “Câu hỏi và thảo luận” trong SGK: kiểm soát biến, đối chiếu).
+8d6c9f38c881	facts A3 câu hỏi và thảo luận 1, bảng giá trị chuẩn dòng 15
+215b899b67e8	Cùng thời điểm, cùng nhiệt độ, cùng thể tích mới so được
+331d4c331b98	Thao tác sai \xB7 đọc theo màu khi còn nóng hơn 25 ℃
+33b0ac83c8a0	Số đọc cao gấp 2.09 lần
+5d6c47580f83	Đừng so màu ngay
+446f4c977e96	Nhiệt độ chưa trở lại, trong màu còn lẫn hiệu ứng nhiệt độ.
+043e8ef51468	Bật lên thì số đọc là 26.978, cao gấp 2.09 lần giá trị thật 12.878.
+38a60a41d594	SGK yêu cầu: tìm hiểu ảnh hưởng của nồng độ thì nhiệt độ phải như nhau.
+209f9237878f	Nếu bỏ bước này: học sinh sẽ nhớ nhầm hiệu ứng nhiệt độ thành hiệu ứng nồng độ.
+f7359c0e9e25	Dạng đánh giá thí nghiệm và phân tích sai số: chỉ ra thao tác sai và nói số đọc lệch về phía nào.
+2a846fcce5d1	Kiểm tra cuối bài: em có chỉnh được màu đỏ tới c ≥ 1.00 mmol/L và giữ ổn định không?
+e6fde540a3ec	Chỉnh c(FeSCN\xB2⁺) của ống sắt lên trên ngưỡng đạt, giữ 15 s
+ff60f81e2acd	Hiện băng rôn đạt, cộng 15 điểm; chọn nhầm lọ nhỏ giọt (KSCN) chỉ tới 0.720, không đạt
+a2801c298b8b	Chọn đúng thuốc thử, thêm đúng lượng như SGK (FeCl₃ 5 giọt → 1.095 mmol/L), và dựa vào c chứ không phải “màu đậm hay nhạt” để phán đoán.
+b2caf6baa0c2	facts B3, bảng giá trị chuẩn dòng 2–3
+00a11a149265	Mục tiêu c ≥ 1.00 mmol/L \xB7 giữ 15 s
+cbff19877b9b	Cách làm SGK: 5 giọt
+5dfa88137f38	Phải chọn đúng lọ nhỏ giọt: FeCl₃ 5 giọt → 1.095; KSCN 5 giọt chỉ được 0.720.
+d305973c4347	Đạt hay không dựa vào c, không phải “màu đậm hay nhạt”.
+c0a9f78ff052	Nhỏ thêm vài giọt cũng đạt (10 giọt → 1.440).
+51d3efaf031b	Nếu bỏ bước này: chỉ biết nhìn hiện tượng, không biết định lượng.
+b8034f6d8a44	Dạng câu hỏi thao tác + phân tích số liệu của thí nghiệm bắt buộc.
+e329317e68b0	a ống thí nghiệm (thêm chất)
+1448445d1cd8	c ống đối chứng (không thêm)
+72f34e98e131	Ống chromium (thí nghiệm)
+6241a59920cf	Bóng số 1 (bể nước)
+830bf561d831	Bóng số 2 (đối chứng 25 ℃)
+2aff0c84a147	Bể nước (0–80 ℃)
+6f4e53406591	Phóng to minh hoạ \xB7 ống sắt a (Fe\xB3⁺+SCN⁻)
+02c1850e94ab	Phóng to minh hoạ \xB7 ống chromium (Cr₂O₇\xB2⁻/CrO₄\xB2⁻)
+92b48082e113	Phóng to minh hoạ \xB7 bóng số 1 (NO₂/N₂O₄)
+b4eeac632681	Hệ đang đọc
+0121204c9bdd	Số giọt ống sắt
+ad02ee0fd477	Lọ nhỏ giọt ống sắt
+8d45e7dfb087	Bột sắt
+8cbba8caf944	Đọc khi chưa về nhiệt độ phòng
+766a30e36f1e	c(chất có màu)
+8b3070deefda	Q ngay khi thay đổi
+d1ef30982613	Hằng số cân bằng K
+4f014fa726e6	Chiều chuyển dịch
+45bf5219bc3a	Nồng độ NO₂ – nhiệt độ bể nước
+3625adaae77d	Ống sắt
+7821fea0ffc0	Thêm một ít bột sắt vào hệ cân bằng Fe\xB3⁺/SCN⁻, màu đỏ nhạt đi là do
+175e4495a575	Bột sắt khử FeSCN\xB2⁺
+7fe8e67120d1	Bột sắt khử Fe\xB3⁺ thành Fe\xB2⁺, c(Fe\xB3⁺) giảm, cân bằng chuyển dịch theo chiều nghịch
+266bced061ec	Bột sắt làm loãng dung dịch
+403f4529f535	K giảm
+491f546b1e4d	2Fe\xB3⁺ + Fe = 3Fe\xB2⁺, c(Fe\xB3⁺) giảm → Q tăng
+520ea97e794b	K → chuyển dịch theo chiều nghịch (facts A3.3).
+62a18e34f348	Ống chromium
+18b1415ca141	Nhỏ NaOH vào dung dịch K₂Cr₂O₇ màu da cam, màu chuyển vàng, chứng tỏ
+30ab8921d517	Cân bằng chuyển dịch theo chiều nghịch, Cr₂O₇\xB2⁻ tăng
+435254acb0ef	Cân bằng chuyển dịch theo chiều thuận, CrO₄\xB2⁻ tăng
+787a3f977ab4	K tăng
+447b933f04eb	Nguyên tố Cr bị oxi hoá
+0affa52ec39b	Thêm kiềm trung hoà H⁺, Q = c\xB2(CrO₄\xB2⁻)\xB7c\xB2(H⁺)/c(Cr₂O₇\xB2⁻) giảm
+b4b130ed480c	K → chiều thuận, CrO₄\xB2⁻ (vàng) tăng (facts A3.4).
+5fa38d9abd10	Đặt quả bóng chứa NO₂/N₂O₄ vào nước nóng, màu đậm lên, từ đó có thể kết luận
+015f2d7d81f0	Phản ứng thuận toả nhiệt (ΔH
+837c5ac0ada5	0)
+766a59f8e6b2	Phản ứng thuận thu nhiệt (ΔH
+aee09e039edd	Tăng nhiệt độ màu đậm lên = cân bằng chuyển dịch theo chiều nghịch (NO₂ tăng), tăng nhiệt độ thì cân bằng chuyển dịch theo chiều thu nhiệt, nên phản ứng thuận toả nhiệt (facts A2.3, A3.6).
+3c47eea8762d	[Thí nghiệm 2-2] SGK: đẩy pít-tông của xi lanh chứa NO₂/N₂O₄ vào trong (áp suất tăng, nồng độ tăng), màu trong xi lanh sẽ
+3fd86ea44865	Nhạt dần liên tục
+b2fc7275fdff	Đậm lên trước, rồi nhạt dần
+9b7300bebd72	Đậm dần liên tục
+9f0025bbbdce	Nguyên văn SGK: áp suất tăng, nồng độ tăng, màu đậm lên trước rồi nhạt dần, nhạt dần là vì NO₂ bị tiêu thụ nhiều hơn — cân bằng chuyển dịch về phía làm giảm thể tích khí (facts A5-4, SGK tr. 38–39).
+d60c560ca2f6	Hoạt động thí nghiệm 1 trong SGK còn làm thí nghiệm đổi nhiệt độ với dung dịch CuCl₂: đun nóng thì chuyển từ xanh lam sang xanh lục, chứng tỏ
+b69588477bf4	[Cu(H₂O)₄]\xB2⁺ → [CuCl₄]\xB2⁻ là quá trình thu nhiệt (ΔH
+89152399615f	Tăng nhiệt độ nhất định làm cân bằng chuyển dịch theo chiều thuận
+ba1733733576	K giảm
+00d08087bb83	Dung dịch bị pha loãng
+6e90048d8da9	SGK cho cân bằng [Cu(H₂O)₄]\xB2⁺ + 4Cl⁻ ⇌ [CuCl₄]\xB2⁻ + 4H₂O thu nhiệt (ΔH
+a0bf2e854849	0), tăng nhiệt độ thì chiều thuận, xanh lam → xanh lục (facts A2.5); lưu ý “tăng nhiệt độ nhất định chiều thuận” là sai, phải xét phản ứng thu hay toả nhiệt.
+3b03e157f7be	Xoay, phóng to thu nhỏ; kéo ngang để đi một vòng quanh bàn
+a75405840b04	Học xong bài này: em dùng được Q và K để phán đoán nồng độ, nhiệt độ, áp suất làm cân bằng chuyển dịch thế nào, và giải thích được vì sao số đọc phải cùng nhiệt độ, cùng thể tích mới so được.
+bcd7ae8eeb9d	Lưu ý về minh hoạ: dụng cụ và màu sắc là minh hoạ; Q, K và c tính theo toán tử ở cột B của bảng dữ kiện, hệ sắt định lượng theo Fe\xB3⁺+SCN⁻⇌FeSCN\xB2⁺ (SGK viết là Fe(SCN)₃).
+9004381806d5	Ba hệ cân bằng, thay đổi một điều kiện xem số đọc biến đổi ra sao
+26c424c8f89b	Đã đạt cân bằng
+13208df8d75b	c(CrO₄\xB2⁻) \xB7 mmol/L \xB7 số đọc minh hoạ
+064f8ff51be5	c(NO₂) \xB7 mmol/L \xB7 số đọc minh hoạ
+a37301dc4a64	c(FeSCN\xB2⁺) \xB7 mmol/L \xB7 theo tỉ lệ 1:1 \xB7 số đọc minh hoạ
+5d708077740c	Không thứ nguyên
+387b42421ba6	Chỉ đổi theo nhiệt độ
+abe67a13e390	So sánh Q với K
+f4a705a3076e	giọt
+8bb2ef11d926	5 giọt (SGK)
+1c8075f16980	Nước đá
+9d23c189380e	Nhiệt độ phòng
+a81cb8692b5f	Nước nóng
+44e8fe0bd1a1	Đã bật (thao tác sai)
+3f98a53d172d	Mục tiêu lớp: FeSCN\xB2⁺ ≥ 1.00 mmol/L
+83363994829e	Chọn đúng lọ nhỏ giọt (FeCl₃), thêm 5 giọt như SGK, giữ 15 giây; KSCN 5 giọt chỉ được 0.720 mmol/L.
+f4c4c2dec999	Tìm hiểu các yếu tố ảnh hưởng đến chuyển dịch cân bằng hoá học · bài giảng 3D tương tác

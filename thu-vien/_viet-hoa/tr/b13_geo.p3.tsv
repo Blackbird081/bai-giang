@@ -1,0 +1,258 @@
+a81ccfd8d146	C.steps[${N}].cam.pitch=${D.cam.pitch}\xB0 nằm ngoài khoảng CAMERA.polar ${m.polar[0]}–${m.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp trở lại)
+3141bedfe52c	world.build() trả về ${L.length} đơn vị, C.units có ${i.units.length}, phải khớp một – một
+abd15cb5412c	${D.unitOf} bước ${le.no}:
+e0342786e8ba	float e = min(vUv.x, 1.0 - vUv.x) * uW;                // khoảng cách thế giới tới mép
+46df42c1f18b	col *= mix(0.62, 1.0, smoothstep(0.0, 0.08, e));       // mép đậm hơn một bậc (trên nền sáng vẫn thấy rõ)
+9752efffb1f4	col = mix(col, vec3(1.0), 0.11 * smoothstep(0.0, 0.1, ch) * (1.0 - smoothstep(0.16, 0.3, ch)));   // vân chữ V di chuyển theo hướng dòng
+56c5ea57375b	Ngày
+2d8f0e9d136d	Đêm
+ff9b81299fa8	Giới hạn trên khí quyển
+0e9f1deb350c	SGK Nhân Giáo (Trung Quốc) 2019, bắt buộc tập 1 \xB7 Chương 2 Bài 2 “Quá trình khí quyển nhận nhiệt” (tr. 34–35), khung tự học “Phát hiện ra khí nhà kính” (tr. 40–41)
+c31d544bb835	Quá trình khí quyển nhận nhiệt
+f6aaedfc6f97	Sóng ngắn Mặt Trời → sóng dài mặt đất → bức xạ nghịch khí quyển
+11f13a2402fd	Mặt đất phơi nắng cả ngày, vì sao ban ngày nóng lên trước, đêm lại nguội nhanh đến vậy — rốt cuộc khí quyển đã giữ lại cho mặt đất bao nhiêu nhiệt?
+4b1d6193e498	Vào
+7d9137d2d6ff	Bức xạ sóng ngắn Mặt Trời đi vào, một phần nhỏ bị khí quyển hấp thụ và phản xạ
+59a684eebe33	Nhận
+bba91f5c0ffd	Phần tới mặt đất được mặt đất hấp thụ, mặt đất nóng lên
+ad9a4b24a5da	Chuyển
+a632f8c6aba9	Mặt đất truyền nhiệt lên dưới dạng sóng dài, bước sóng gấp 19.94 lần của Mặt Trời
+0990e460add3	Giữ
+1b9192ba724c	Khí quyển hấp thụ sóng dài, rồi phát bức xạ nghịch xuống dưới → giữ nhiệt
+d58a8d812424	Biến đổi
+a295a4701c57	Mây \xB7 khí nhà kính \xB7 bề mặt \xB7 có hay không có khí quyển → biên độ nhiệt ngày đêm
+c70f11453fc1	Lớp khí quyển
+2aea1bf86d69	Lớp nằm giữa giới hạn trên khí quyển và mặt đất: hấp thụ, phản xạ, bức xạ nghịch đều xảy ra ở đây
+88e030bea176	Bề mặt Trái Đất
+41d50b0d243c	Mặt đất
+fe19f7634b73	Dải mặt đất dùng chung cho ngày và đêm: hấp thụ bức xạ Mặt Trời, phát sóng dài lên trên
+a7780e7485f8	Bề mặt Mặt Trăng
+3935de6f7e97	Mặt Trăng
+a0bd841facb3	Mặt đối chứng không có khí quyển: không bị suy giảm, cũng không có bức xạ nghịch
+a0d69956627c	Suy giảm
+655afd13ce89	Bức xạ Mặt Trời đi qua khí quyển, phần bị hao hụt đã đi đâu?
+1f9a51eb230a	Em kéo góc nhìn đi một vòng quanh bàn mặt cắt: các mũi tên sóng ngắn màu vàng nhạt chiếu thẳng từ trên xuống, một phần quay ngược lại ở giới hạn trên khí quyển
+9f7bd65128a0	Trong 340 W\xB7m⁻\xB2 bức xạ tới trung bình năm, mây và khí quyển phản xạ 75, khí quyển hấp thụ sóng ngắn 80, tới mặt đất 185; tổng suy giảm 155, 155 + 185 = 340
+d0bbf82079c0	340 = 100 (75 + 25) + 80 + 160
+2fd9b4806329	Chế độ tham chiếu \xB7 trung bình năm toàn cầu (AR6 hình 7.2)
+3ef808db0b0b	Một phần nhỏ bị suy giảm
+d975872b349c	Phần lớn tới mặt đất
+232a9c7a05b4	Hình 2.9 / 2.10 SGK không vẽ mây, mây ở đây = lượng mây chế độ tham chiếu 65 %
+2836528c6a4f	Mọi quá trình vật lí trong khí quyển đều đi kèm chuyển hoá năng lượng, bức xạ Mặt Trời là nguồn năng lượng quan trọng nhất của khí quyển Trái Đất.
+dc7c2f6ba4b1	Bức xạ Mặt Trời chiếu tới Trái Đất phải đi qua lớp khí quyển dày mới tới được mặt đất: một phần nhỏ bị khí quyển hấp thụ hoặc phản xạ, phần lớn tới bề mặt Trái Đất.
+558aaa5f339b	Khí quyển làm suy giảm = khí quyển hấp thụ + mây và khí quyển phản xạ = 80 + 75 = 155 (25 do mặt đất phản xạ không tính vào phần khí quyển làm suy giảm, đó là việc ở phía mặt đất, bước 2 sẽ nói).
+cf5679c7fbd6	Bỏ bước này: học sinh sẽ nghĩ bức xạ Mặt Trời tới mặt đất “nguyên vẹn”, quan hệ bảo toàn “suy giảm + tới mặt đất = bức xạ tới” không còn chỗ đứng.
+0f236c06554d	Hay thi: tác dụng làm suy giảm = hấp thụ + phản xạ; nói “chỉ có hấp thụ” là phương án sai.
+9ee2e7ef42bf	Trên đường truyền, một phần nhỏ bức xạ Mặt Trời bị khí quyển hấp thụ hoặc phản xạ, phần lớn tới mặt đất; khí quyển làm suy giảm = khí quyển hấp thụ 80 + mây và khí quyển phản xạ 75 = 155, không phải chỉ có hấp thụ.
+6b8978a86374	facts A2.1-b, A7-8; B2.1 công thức 1, bảng 1-1, B2.4 D7
+42e5c058c9c4	Mặt đất hấp thụ
+8f6b3e0aaffe	Bức xạ Mặt Trời tới mặt đất có được dùng hết để làm nóng không?
+19bbfabd9441	Em kéo “Albedo bề mặt” tới tuyết mới 0.80, xem đoạn mặt đất hấp thụ co lại thế nào, đoạn phản xạ lên trên dài ra thế nào
+5e81ba2be63b	Tới mặt đất vẫn là 185, nhưng mặt đất hấp thụ giảm từ 160 xuống 37, nhánh phản xạ lên trên dài ra rõ rệt; mức nóng lên ban ngày giảm từ 5.8 ℃ xuống 1.3 ℃
+26d861338cd0	S_abs = S_sfc \xD7 (1
+151ebd78b96c	alb)
+cbf62c5243ea	Bước này minh hoạ: albedo 0.135 → 0.80 (tuyết mới)
+51852ce05b10	Trung bình toàn cầu 0.135
+9849ac0b5dde	Tuyết mới 0.80
+e8b3586ac860	Chỉ phần được hấp thụ mới làm nóng
+394d22ed810a	Bức xạ Mặt Trời tới bề mặt Trái Đất bị mặt đất hấp thụ và phản xạ — không phải toàn bộ dùng để làm nóng.
+7f23c2216b1b	Chỉ phần được hấp thụ mới làm mặt đất nóng lên; phần bị phản xạ quay trở lại khí quyển và vũ trụ.
+7a4c34fc1cf3	Albedo là thuộc tính của chính bề mặt: trung bình toàn cầu 0.135, tuyết mới 0.80, nên trên mặt tuyết mặt đất chỉ hấp thụ được 37 W\xB7m⁻\xB2.
+0d43cc7e5b2c	Bỏ bước này: học sinh sẽ coi “185 tới mặt đất” là “185 dùng để làm nóng”, nhánh mặt đất hấp thụ ban ngày bị đứt.
+5a677c6afeca	Dễ sai: cho rằng bức xạ Mặt Trời tới mặt đất được dùng hết để làm nóng (bảng sự kiện A7-10).
+1ef88efb600f	Bức xạ Mặt Trời tới mặt đất bị mặt đất hấp thụ và phản xạ, chỉ phần được hấp thụ mới làm nóng; albedo càng cao, hấp thụ càng ít.
+4e9ec4b92237	facts A2.1-c, A7-10; B2.1 công thức 2, bảng 1-1 và dòng 5, B2.4 D8
+45a76603045c	Sóng dài
+19b917977682	Mặt đất vừa nóng lên, sao tự nó lại “phát nhiệt” lên trên?
+8a72cd385f27	Em xem 12 giây: sóng dài màu cam bốc lên từ mặt đất, đọc nhiệt độ và bước sóng mạnh nhất của mặt đất, rồi so với Mặt Trời
+4763121fee09	Nhiệt độ mặt đất 289.4 K, bước sóng mạnh nhất 10.01 \xB5m; Mặt Trời 0.50 \xB5m; hai bên chênh nhau 19.94 lần — đó là nguồn gốc của sóng ngắn và sóng dài
+dae5782c3f07	Định luật dịch chuyển Wien (const)
+958005260811	Mặt Trời 0.50 \xB5m
+87c41703235d	Mặt đất 10.01 \xB5m
+4b93443fca21	Bức xạ mặt đất là sóng dài
+5ce6e410b4da	Thực nghiệm cho thấy: nhiệt độ vật càng cao, bước sóng của phần bức xạ mạnh nhất càng ngắn; ngược lại thì bước sóng càng dài.
+bb1c99318694	Nhiệt độ hiệu dụng của Mặt Trời 5772 K, bước sóng mạnh nhất 0.50 \xB5m, nằm trong vùng ánh sáng nhìn thấy; mặt đất khoảng 289.4 K, bước sóng mạnh nhất 10.01 \xB5m, nằm trong vùng hồng ngoại.
+4488de60eb46	Bước sóng chênh 19.94 lần, đó mới là nguồn gốc của câu “bức xạ Mặt Trời là sóng ngắn, bức xạ mặt đất là sóng dài”; sóng dài từ mặt đất là nguồn nhiệt chủ yếu, trực tiếp của khí quyển gần mặt đất.
+6e2fc75ad92b	Bỏ bước này: “sóng ngắn / sóng dài” thành nhãn học thuộc, vì sao bước sau khí quyển hấp thụ chọn lọc theo bước sóng cũng mất căn cứ.
+4dd1dfe8f3a8	Dễ sai: nói bức xạ mặt đất là sóng ngắn (nhiệt độ càng thấp, bước sóng mạnh nhất càng dài).
+a8eb799bc894	Nhiệt độ càng cao, bước sóng của phần bức xạ mạnh nhất càng ngắn; nhiệt độ mặt đất thấp hơn nhiều so với Mặt Trời, nên bức xạ Mặt Trời là sóng ngắn, bức xạ mặt đất là sóng dài; sóng dài từ mặt đất là nguồn nhiệt chủ yếu, trực tiếp của khí quyển gần mặt đất.
+90afafe54def	facts A2.1-d, A2.2-b, ý chính 5 của chương; B2.1 công thức 5, B2.4 D5
+213791ad56c1	Giữ lại
+8a6ad0ec25ef	Sóng dài phát lên, bao nhiêu bị khí quyển giữ lại?
+cf3ee118e04b	Em bấm vào mũi tên màu cam hướng lên “Sóng dài mặt đất” trong hình: đoạn bị hấp thụ và đoạn đi xuyên qua sẽ hiện tách riêng
+b7272e4729bf	Trong 398 sóng dài mặt đất, 342 bị khí quyển hấp thụ, 56 thoát ra khỏi giới hạn trên khí quyển; tỉ lệ hấp thụ 86 %, nằm trong khoảng 75%—95% SGK nêu
+955abacdd3e4	L_dn = f \xD7 L_UP, f = 86 %
+75701ba97176	Khoảng trong SGK 75%—95% (tr. 35)
+b1b88d805507	Bị hấp thụ 342 \xB7 xuyên qua 56
+f0348e681fed	Xét quá trình khí quyển nhận nhiệt: khí quyển hấp thụ ít bức xạ sóng ngắn của Mặt Trời, hấp thụ nhiều bức xạ sóng dài của mặt đất.
+c357a98f9d1c	Sóng dài từ mặt đất, ngoài một phần rất nhỏ đi xuyên qua khí quyển ra vũ trụ, tuyệt đại bộ phận (75%—95%) bị hơi nước, carbon dioxide và các khí khác trong tầng đối lưu hấp thụ.
+0c7bd1511c8f	Tỉ lệ hấp thụ ở chế độ tham chiếu là 86 %, nằm đúng trong khoảng SGK đưa ra.
+67d3ccc130ae	Bỏ bước này: học sinh sẽ quy “khí quyển nóng lên” cho “khí quyển hấp thụ bức xạ Mặt Trời” — đây là lỗi hay gặp nhất của bài (A7-1).
+e93d9f27bf3f	Dễ sai: cho rằng khí quyển nóng lên do trực tiếp hấp thụ bức xạ Mặt Trời. Đúng: khí quyển hấp thụ ít sóng ngắn, nguồn nhiệt chủ yếu, trực tiếp là sóng dài từ mặt đất.
+3a8e91739bf0	Sóng dài từ mặt đất, ngoài một phần rất nhỏ đi xuyên qua khí quyển, tuyệt đại bộ phận (75%—95%) bị hơi nước, carbon dioxide trong tầng đối lưu hấp thụ, nhờ đó khí quyển nóng lên.
+c382fd7144a3	facts A2.2-a, A2.2-c, A7-1; B2.1 công thức 3, bảng 1-1, B2.4 D12
+6c8a50d48c9d	Bức xạ nghịch
+cd21f0d3809f	Bức xạ nghịch của khí quyển vì sao gọi là “nghịch”, nó giữ nhiệt bằng cách nào?
+f16a59e9764b	Em bấm vào mũi tên màu đỏ cam hướng xuống “Bức xạ nghịch khí quyển”, xem nó ngược chiều hẳn với sóng dài mặt đất
+94208fcda8c6	Mặt đất phát lên 398, khí quyển trả xuống 342, ban đêm chỉ còn mất ròng 56; hai mũi tên ngược chiều nhau
+ce271ba24300	Bức xạ mặt đất hướng lên \xB7 bức xạ nghịch khí quyển hướng xuống
+1a7c3dd7ba7a	Ngược chiều
+7a8651f5cd0c	Tác dụng giữ nhiệt
+45fe32e64258	Mất ròng 56
+bdc2863e0d9a	Khí quyển trong khi nóng lên cũng phát bức xạ sóng dài ra xung quanh: một phần nhỏ hướng lên vũ trụ, phần lớn hướng xuống mặt đất.
+1762b5bb4634	Nhánh hướng xuống này ngược chiều với bức xạ mặt đất, nên gọi là bức xạ nghịch của khí quyển.
+7ac43035210f	Bức xạ nghịch trả nhiệt lại cho mặt đất, bù lại phần nhiệt mặt đất mất do bức xạ: 398 đi ra, 342 quay về, ban đêm chỉ còn mất ròng 56 W\xB7m⁻\xB2.
+6de3edda1f40	Bỏ bước này: học sinh chỉ nói được “khí quyển giữ nhiệt”, không nói được tác dụng giữ nhiệt đến từ mũi tên nào.
+758f25df05b9	Dễ sai: gọi toàn bộ “bức xạ khí quyển” là bức xạ nghịch; chỉ nhánh hướng xuống mặt đất mới gọi là bức xạ nghịch của khí quyển.
+b4b39232b55a	Bức xạ nghịch của khí quyển ngược chiều với bức xạ mặt đất, nó bù lại phần nhiệt mặt đất mất do bức xạ, có tác dụng giữ nhiệt cho mặt đất.
+337f297a4d50	facts A2.2-d, ý chính 6 của chương, A7-3/4; B2.1 công thức 3, B2.4 D4
+2ea617b5cf83	Mây
+282efe277c57	Ngày nhiều mây, vì sao biên độ nhiệt ngày đêm lại nhỏ hơn?
+216b3fa48a52	Em kéo “Lượng mây” từ nhiều mây 65 % lên u ám 100 %: xem nhánh đi vào ban ngày ngắn lại, nhánh trả về ban đêm dài ra
+ac0f85bbcf2e	Tới mặt đất 185 → 156, bức xạ nghịch khí quyển 342 → 357, biên độ nhiệt ngày đêm 7.8 → 6.3 ℃; đối chiếu trời quang hoàn toàn là 240 / 314 / 10.5 ℃
+2c59db13eee9	cloud 0 → 100 %: biên độ nhiệt 10.5 → 6.3 ℃
+724662528834	Quang hoàn toàn ↔ u ám hoàn toàn (trục hoành đường cong của bài là lượng mây)
+9333dcf31f57	Ban ngày ít hơn
+3a0ae8125d46	Ban đêm ấm hơn
+e581ba82a7cf	Đêm quang dễ có sương giá
+48f80a0115bc	Bầu trời có mây, nhất là mây thấp dày đặc, bức xạ nghịch của khí quyển mạnh hơn.
+e22946e02a89	Ban ngày mây phản xạ nhiều bức xạ Mặt Trời hơn về vũ trụ, nhánh tới mặt đất ít đi.
+453c94d97cbc	Ban đêm mây làm bức xạ nghịch mạnh hơn, mặt đất mất ròng ít hơn. Hai đầu cùng ép biên độ nhiệt: quang hoàn toàn 10.5 ℃, u ám hoàn toàn 6.3 ℃.
+ebdeb654cac9	Bỏ bước này: học sinh sẽ coi mây là thứ “chỉ làm giảm nhiệt” (A7-6).
+61cf06bd036f	Hay thi: nguyên nhân ngày u ám có biên độ nhiệt ngày đêm nhỏ (ban ngày suy giảm mạnh + ban đêm bức xạ nghịch mạnh); đêm trời quang dễ có sương giá.
+3930de538fab	Mây có tác dụng hai chiều: ban ngày suy giảm mạnh hơn làm phần tới mặt đất ít đi, ban đêm bức xạ nghịch mạnh hơn làm mất ròng nhỏ đi, nên ngày u ám biên độ nhiệt ngày đêm nhỏ, còn đêm trời quang lại dễ có sương giá.
+403608555926	facts A2.2-e, A5 tác dụng của mây, A6; B2.1 công thức 1/3/4, bảng 1-1 dòng 2/3, B2.4 D1–D3
+031bccdee20e	Khí nhà kính tăng một chút, số đọc ô nào thay đổi?
+0354f9568c41	Em kéo “Hàm lượng hơi nước và carbon dioxide” lên 1.5 lần, theo dõi xem các số đọc ban ngày có nhúc nhích không
+bcecdfc98aca	Bức xạ nghịch khí quyển 342 → 354, mất ròng ban đêm 56 → 44, mức giảm nhiệt ban đêm 2.0 → 1.6 ℃; còn tới mặt đất 185, mặt đất hấp thụ 160, suy giảm 155 không đổi ô nào
+b02d016068e3	ghg 1.0 → 1.5: bức xạ nghịch +12 W\xB7m⁻\xB2
+187bb6914831	Khí nhà kính chỉ “ăn” sóng dài (thí nghiệm Tyndall)
+5a9ae04e8844	Chỉ “ăn” sóng dài
+5425441a666a	Số đọc ban ngày không đổi
+5b2c283c21af	Dẫn tới nóng lên toàn cầu
+ce0565cea5f2	Tyndall chứng minh bằng thí nghiệm: bức xạ hồng ngoại xuyên qua được oxygen và nitrogen, nhưng không xuyên qua được carbon dioxide và hơi nước — đây là thành phần chính của “khí nhà kính”.
+16ecb859e194	Khí nhà kính tăng chỉ làm bức xạ nghịch của khí quyển mạnh lên: 342 → 354, mất ròng ban đêm giảm xuống 44 W\xB7m⁻\xB2.
+84a6052eea5f	Chuỗi số đọc ban ngày (tới mặt đất, mặt đất hấp thụ, suy giảm) không đổi ô nào, đó chính là hình ảnh của câu “khí nhà kính chỉ ăn sóng dài”.
+ecf394d8df3f	Bỏ bước này: cây cầu từ bài này tới “biến đổi khí hậu toàn cầu” bị đứt, học sinh không biết hiệu ứng nhà kính tăng cường là do mũi tên nào mạnh lên.
+19c4720353dc	Dễ sai: cho rằng oxygen, nitrogen hấp thụ sóng dài mặt đất; chất hấp thụ được sóng dài là hơi nước, carbon dioxide và các khí nhà kính khác.
+b21eb968fab2	Khí nhà kính chỉ hấp thụ sóng dài: tăng lên thì chỉ làm bức xạ nghịch khí quyển mạnh hơn, giữ nhiệt tốt hơn, số đọc ban ngày không đổi — đây là cửa ngõ dẫn tới việc hoạt động của con người làm hiệu ứng nhà kính tăng cường.
+5b9bc1d87d96	facts A2.2-f, A7-9; B2.1 công thức 3, bảng 1-1 dòng 4, B2.4 D6
+456e6429d35c	Đối chứng Mặt Trăng
+581a25960434	Ban ngày Mặt Trăng nắng hơn, vì sao biên độ nhiệt ngày đêm lại lớn hơn nhiều?
+853ba9644ae2	Em tắt “Khí quyển”, chuyển sang bề mặt Mặt Trăng: xem thiếu đi những mũi tên nào
+6e905d5ff771	Tắt khí quyển thì tới mặt đất 185 → 340, suy giảm 155 → 0, bức xạ nghịch 342 → 0, mất ròng ban đêm 56 → 398; biên độ nhiệt ngày đêm 7.8 → 24.9 ℃; bàn Trái Đất trở nên giống hệt bàn Mặt Trăng bên trái
+0df5c867fb62	Biên độ nhiệt: 7.8 ℃ (Trái Đất) ↔ 24.9 ℃ (Mặt Trăng, minh hoạ)
+cee58f36ae79	Trái Đất có khí quyển \xB7 Mặt Trăng gần như không có khí quyển
+3c3adad7b6f3	Không suy giảm
+dc07ffe87ba0	Không có bức xạ nghịch
+489e9b95d498	Biên độ nhiệt lớn hơn nhiều
+002eddf2e408	Mặt Trăng gần như không có khí quyển, nên không có tác dụng làm suy giảm bức xạ Mặt Trời, cũng không có bức xạ nghịch của khí quyển.
+f789b4343020	Ban ngày bức xạ Mặt Trời tới bề mặt Mặt Trăng toàn bộ (340), ban đêm sóng dài từ bề mặt thoát đi hết (mất ròng 398).
+e699588e19c8	Hai đầu cùng kéo giãn, biên độ nhiệt ngày đêm 24.9 ℃, lớn hơn nhiều so với 7.8 ℃ của Trái Đất (minh hoạ).
+8f6f8f7dd970	Bỏ bước này: câu 3 phần hoạt động trong SGK không có hình ảnh tương ứng, tác dụng giữ nhiệt thiếu một đối chứng “chỉ khác nhau đúng một điều kiện là khí quyển”.
+79b467421a8e	Hay thi: nguyên nhân Mặt Trăng có biên độ nhiệt ngày đêm lớn — không có khí quyển làm suy giảm, không có bức xạ nghịch khí quyển.
+3ca69fb8dc24	Mặt Trăng không có khí quyển: không bị suy giảm (ban ngày nhận nhiều hơn), cũng không có bức xạ nghịch khí quyển (ban đêm mất nhiều hơn), nên nhiệt độ ngày đêm biến đổi dữ dội hơn nhiều so với Trái Đất.
+ad8582878e11	facts A3.2 câu 3 phần hoạt động, A5, A7-7; B2.1 công thức 1/3, bảng 1-1 dòng 6, B2.4 D9/D10
+f36bfc7f7831	Kiểm tra cuối bài: ép biên độ nhiệt ngày đêm của Trái Đất xuống dưới 7.5 ℃ (không được tắt khí quyển)
+50c56ba3eb5d	Tìm cách ép biên độ nhiệt ngày đêm xuống dưới 7.5 ℃: những gì làm “phần vào ban ngày” ít đi, hoặc làm “phần mất ban đêm” ít đi?
+84ecce81cc36	Một bộ đạt: lượng mây 100 % (biên độ nhiệt 6.3 ℃, bức xạ nghịch 357); bộ khác: khí nhà kính 1.5 lần (biên độ nhiệt 7.3 ℃) cũng đạt — cả hai cách đều được chấp nhận
+ab3c006c9686	Δ biên độ nhiệt
+dbc50f7e1d69	Suy giảm mạnh hơn hoặc giữ nhiệt mạnh hơn
+ec18dfa41eca	Thêm mây
+30f80998e0ff	Thêm khí nhà kính
+bb9b50b9d217	Biên độ nhiệt đạt được
+f8c0a6507f8a	7.5 ℃ có hai con đường: thêm mây (đồng thời siết cả suy giảm và bức xạ nghịch) hoặc thêm khí nhà kính (chỉ siết ban đêm).
+ad30cd854b3d	Hai cách có cái giá khác nhau: thêm mây sẽ ép bức xạ Mặt Trời tới mặt đất ban ngày xuống 156, thêm khí nhà kính thì không (vẫn là 185).
+8cec2199a293	Mô hình của bài là minh hoạ khí quyển một lớp, bề mặt thực còn phải tính bốc hơi, vận chuyển rối và dẫn nhiệt.
+54e028f72f53	Bỏ bước này: học sinh sẽ kết luận “giữ nhiệt càng mạnh càng tốt”, quên rằng mây đồng thời cũng cắt bớt nguồn năng lượng ban ngày.
+d84bf0bd64dc	Kiểm tra cuối bài: nói được “cùng ép biên độ nhiệt xuống, nhưng thêm mây và thêm khí nhà kính có cái giá khác nhau”.
+14964c931b75	Mây và khí nhà kính đều ép được biên độ nhiệt ngày đêm xuống, nhưng mây đồng thời làm giảm năng lượng tới mặt đất ban ngày, khí nhà kính thì không — giữ nhiệt không phải một núm vặn “càng mạnh càng tốt”.
+d09d46b0426d	facts B2.1 công thức 1/3/4, bảng 1-1 dòng 3/4, B2.4 D1–D3/D6
+1fede4e52ddf	Bức xạ nghịch khí quyển
+8d06006a91a6	Biên độ nhiệt ngày đêm
+b9a86e35a208	Tới mặt đất
+3cc60f3da2c6	Mất ròng ban đêm
+5e525f648048	Lượng mây
+a687b82f71d3	Hơi nước và carbon dioxide
+53b7ec226896	Albedo bề mặt
+950fe4e9c2b0	Có khí quyển
+f265a14693f0	Bề mặt Mặt Trăng (không khí quyển)
+517be9a1a456	Giá trị minh hoạ
+1cb57d99344a	Bức xạ Mặt Trời
+b1cb77a884b9	Công thức vật lí
+91dbc2886c24	Lượng mây — biên độ nhiệt ngày đêm \xB7 bức xạ nghịch khí quyển
+75463d1d6bc7	— Biên độ nhiệt ngày đêm (℃) \xB7
+f826d924a99a	Bức xạ nghịch khí quyển (W\xB7m⁻\xB2) \xB7
+0d05046a439f	Quang
+44729fcc8cc2	Ít mây
+39b6b4c78771	Nhiều mây
+ae381edaa151	U ám
+f17da77e40bb	Trung bình toàn cầu
+a5bc23a3779a	Tuyết mới
+85a95280003c	Ép biên độ nhiệt ngày đêm xuống dưới 7.5 ℃ (không được tắt khí quyển)
+b3ecd4099e22	Biên độ nhiệt
+410695e67ce9	Nghĩ xem: những gì làm “phần vào ban ngày” ít đi, hoặc làm “phần mất ban đêm” ít đi?
+579db757292a	Toàn cảnh \xB7 mặt đất + cột khí quyển
+f9f7f760fd5d	Trung bình năm
+7e78c30c8d37	Mây và khí quyển phản xạ
+c0cfdb176ebe	Khí quyển hấp thụ
+22899722ec82	Mặt đất phản xạ
+08d8698f3b66	Bức xạ mặt đất
+d85cb18b31dd	Xuyên qua khí quyển (minh hoạ)
+06c3d3ff2292	Toàn bộ ra vũ trụ
+d046f0c1c87a	Bị hấp thụ
+96102d5127b8	(minh hoạ) \xB7
+b28a958f5f6c	Ra vũ trụ \xB7 không theo tỉ lệ
+373bd61a3574	Mặt đất 289.4 K
+4b2b03204405	Bước sóng mạnh nhất của bức xạ mặt đất 10.01 \xB5m
+ed2f7cb8b20e	Bước sóng mạnh nhất của bức xạ Mặt Trời 0.50 \xB5m
+060a8f806bf0	Ngay khi vừa tắt khí quyển: nhiệt độ mặt đất chưa kịp thay đổi
+c5a8707fd833	Tác dụng làm suy giảm của khí quyển là
+a0b4168bbadf	Chỉ có hấp thụ
+b060c7b8be2b	Hấp thụ và phản xạ
+3c71aa23ec8f	Chỉ có phản xạ
+431cf0d34e23	Không liên quan tới bức xạ Mặt Trời
+c901e9a2920e	Câu gốc SGK tr. 34 “một phần nhỏ bị khí quyển hấp thụ hoặc phản xạ”: suy giảm = hấp thụ + phản xạ (A2.1-b, A7-8).
+76931e3944c2	Sóng ngắn, sóng dài
+b0fff2af42d1	Về bước sóng của bức xạ Mặt Trời và bức xạ mặt đất, phát biểu đúng là
+2e144c8c3510	Bức xạ Mặt Trời là sóng dài, bức xạ mặt đất là sóng ngắn
+9ed95b9a2c4d	Cả hai đều là sóng ngắn
+4ec62f344005	Bức xạ Mặt Trời là sóng ngắn, bức xạ mặt đất là sóng dài
+ad30dc61d463	Hai bên có bước sóng như nhau
+0f38e1391dda	Nhiệt độ càng thấp, bước sóng của phần bức xạ mạnh nhất càng dài (A2.1-d); ở chế độ tham chiếu của bài, Mặt Trời 0.50 \xB5m, mặt đất 10.01 \xB5m.
+04275180ef5e	“Bức xạ nghịch của khí quyển” là
+32ad3a0f812c	Toàn bộ sóng dài khí quyển phát ra ngoài
+c4db1e1aeb8f	Nhánh khí quyển phát ra vũ trụ
+cfe19be83a2f	Nhánh khí quyển phát xuống mặt đất, ngược chiều với bức xạ mặt đất
+eb3d6903f92e	Sự phản xạ bức xạ Mặt Trời của khí quyển
+56c52dd94305	A2.2-d: phần lớn bức xạ khí quyển hướng xuống mặt đất, ngược chiều với bức xạ mặt đất, nên gọi là bức xạ nghịch của khí quyển (A7-3).
+5067cf2c9e87	Nguồn nhiệt
+b091fc55a7e4	Nguồn nhiệt chủ yếu, trực tiếp của khí quyển gần mặt đất là
+0fab440df477	Địa nhiệt
+fcf9b4e890f1	A2.2-b và ý chính 5 của chương: bức xạ sóng dài của mặt đất là nguồn nhiệt chủ yếu, trực tiếp của khí quyển gần mặt đất (A7-1).
+471aa3e28d30	Ngày u ám có biên độ nhiệt ngày đêm nhỏ hơn ngày quang vì
+8106beda38f8	Mây chỉ làm suy giảm bức xạ Mặt Trời
+aa94669e2ff0	Mây chỉ làm tăng bức xạ nghịch khí quyển
+772fc9c1f44f	Ban ngày mây làm suy giảm mạnh, ban đêm mây làm bức xạ nghịch mạnh, cả hai đầu đều ép biên độ nhiệt
+c35c3d3cb5c8	Tác dụng giữ nhiệt của mây không liên quan tới biên độ nhiệt
+57593eb6728d	A2.2-e + câu 2 phần hoạt động SGK: quang hoàn toàn 10.5 ℃, u ám hoàn toàn 6.3 ℃ (A7-6).
+3c58a876f3fa	Bề mặt Mặt Trăng có nhiệt độ ngày đêm biến đổi dữ dội hơn nhiều so với Trái Đất vì
+b5397b7b611e	Mặt Trăng gần Mặt Trời hơn
+ed299fc97cc1	Mặt Trăng tự quay chậm hơn
+59c11f931054	Mặt Trăng không có khí quyển, không có suy giảm cũng không có bức xạ nghịch khí quyển
+be73ee65818b	Bề mặt Mặt Trăng có albedo thấp hơn
+9bcdcd59d867	Câu 3 phần hoạt động SGK; chế độ tham chiếu của bài: Trái Đất 7.8 ℃, đối chứng không khí quyển 24.9 ℃ (A7-7).
+6b1da89719d7	Carbon dioxide, hơi nước được gọi là khí nhà kính vì chúng
+7da76d2fd0b4	Hấp thụ được bức xạ sóng ngắn của Mặt Trời
+88e7c3ce6ad5	Hấp thụ mạnh bức xạ sóng dài của mặt đất
+82c7f0a994af	Phản xạ được bức xạ Mặt Trời
+83bdcabef025	Phá huỷ được tầng ozone
+67a554d88da1	A2.2-f: tia hồng ngoại xuyên qua được oxygen và nitrogen, không xuyên qua được carbon dioxide và hơi nước; khí nhà kính hấp thụ sóng dài của mặt đất (A7-9).
+4639b1184c95	Ở chế độ tham chiếu, mặt đất phát lên 398 W\xB7m⁻\xB2, bức xạ nghịch khí quyển 342 W\xB7m⁻\xB2, lượng nhiệt mặt đất mất ròng ban đêm là
+b2c332b250c7	Mất ròng = 398
+a6617db647e0	342 = 56 W\xB7m⁻\xB2 (B2.1 công thức 3, bảng 1-1).
+923ac3a0dd67	Xoay, thu phóng bàn mặt cắt
+4193441553ae	Hiểu được sau khi bức xạ Mặt Trời đi vào, nhiệt lượng luân chuyển một vòng giữa mặt đất và khí quyển ra sao, rồi được giữ lại thế nào.
+5d1225911849	Lưu ý minh hoạ: số trên các mũi tên là trung bình năm toàn cầu (AR6 hình 7.2); hai cột ngày / đêm chỉ minh hoạ đường đi của bức xạ; biên độ nhiệt ngày đêm là lượng minh hoạ quy đổi theo ngày và đêm mỗi bên 12 h; các mức lượng mây và khí nhà kính là giá trị đặt cho bài.
+e1a7ef820514	${i.toFixed(1)} lần
+d4b384e191cc	Quá trình khí quyển nhận nhiệt · Bài giảng tương tác 3D

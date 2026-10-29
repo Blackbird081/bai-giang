@@ -1,0 +1,301 @@
+43e7b1c41641	SGK Nhân Giáo (Trung Quốc) 2019, lựa chọn bắt buộc tập 1, chương 4 bài 2 “Bình điện phân” (điện phân dung dịch muối ăn bão hoà)
+af14d39402a7	Công nghiệp chlor–kiềm
+33e8008eac26	2NaCl + 2H₂O --điện phân--
+bd6c0819e307	Cùng lượng điện, làm sao đổi được nhiều xút hơn, tốn ít điện hơn mà không gây sự cố?
+458b8fb405c2	Điện phân
+6eb87903f757	Dòng điện tách nước muối thành Cl₂, H₂, NaOH
+bcea1c87f145	Màng
+dfb704e7b712	Màng cation cho Na⁺ kèm nước đi qua, chặn Cl⁻ và OH⁻
+45ca6120a49d	Tinh chế
+71d8546433f9	Calcium, magnesium không đóng cặn thì hiệu suất dòng điện mới giữ được
+da172c02bee4	Mật độ dòng điện ↑ → sản lượng tăng tỉ lệ thuận, điện năng tiêu thụ cũng tăng
+0ce226fa2bc1	Dung hoà
+da597b75d113	Vùng vận hành 3.0–3.9 kA/m\xB2 \xB7 nhiệt độ bể 90 ℃
+1acbb0671b07	Chỉnh một điều khiển, cái giá hiện ngay trên đường cong và số đọc
+adbab2de33f6	Vùng tham chiếu
+e9890369c821	Đúng hết! Em đã nắm rõ chuỗi từ màng tới điện năng tiêu thụ.
+1f3df903a863	Em nên quay lại bước 2, 4, 5, xem lại ba việc: tinh chế, màng, điện năng tiêu thụ.
+4499c8996abb	Ca\xB2⁺, Mg\xB2⁺ sẽ đóng cặn trong màng
+e4d5d9bb0823	Buồng anode (+x): Cl⁻ phóng điện tạo Cl₂
+ecf7b326685b	Buồng cathode (
+ade34e8b4e07	x): nước nhận electron tạo H₂ + OH⁻
+0c0bf904fa7a	Buồng anode: Cl⁻ phóng điện tạo Cl₂
+3571c5cb3bea	Buồng cathode: nước nhận electron tạo H₂ và OH⁻
+14ff01da921f	Màng trao đổi ion (phóng to minh hoạ)
+cd0e6dd88fe5	Màu bóng chỉ biểu thị loại ion: Na⁺ xanh lam \xB7 Cl⁻ xanh lục \xB7 OH⁻ đỏ
+d86eb6bd0212	Đã tháo màng: Cl₂ và OH⁻ lẫn sang nhau
+58296d1d7162	Hoà muối và tinh chế
+7b0c6f156471	Hoà muối → tinh chế hoá học lần một → lọc → nhựa chelate lần hai
+bd8dae14160a	Điện phân màng ion
+75d650340c51	Anode ra Cl₂, cathode ra H₂ và NaOH, giữa là một lớp màng
+a084f4487b71	Xử lí chlorine
+42f3d56e4047	Chlorine
+836126806e7c	Làm lạnh → sấy bằng sulfuric acid đặc → nén hoá lỏng → chlorine lỏng
+d9c99202af23	Xử lí hydrogen
+8579ddd5ffc2	Làm lạnh, rửa, nén → sản phẩm hydrogen
+d58065053d20	Cô đặc xút
+781e9dc8dec6	Xút
+9f4faf13cd59	Dung dịch kiềm 32 % → xút 50 % / xút rắn
+f70f9de2dbbc	Thùng hoà muối
+cbae85798e32	Muối thô → nước muối bão hoà
+9593c1d1b259	Bể phản ứng
+850b8e32b8da	Thêm BaCl₂ / Na₂CO₃ / NaOH
+652114851dfb	Tháp nhựa chelate
+962d98408cd7	Tinh chế lần hai ≤ 20 μg/L
+88ecd1ec5570	Bể điện phân màng ion
+6fcca8ed24c1	Anode Cl₂ / cathode H₂ + NaOH
+338aead10bf4	Tháp làm lạnh chlorine
+3742cb1c3ea1	Hạ nhiệt, tách nước
+8da49419b5d8	Tháp sấy sulfuric acid đặc
+e7dfada6be38	Sấy khô chlorine
+98bb21cc7cfe	Bồn chlorine lỏng
+c26ccfd38502	Nén hoá lỏng rồi lưu trữ
+8e5c1f42f4ba	Tháp hấp thụ chlorine sự cố
+f09bd0270bd2	Hấp thụ bằng kiềm, không xả thẳng
+269f72f0fb19	Máy nén hydrogen
+f1394faee97d	Tăng áp rồi chuyển đi
+737b6444f47f	Đuốc đốt xả hydrogen
+11b69db980c7	Xả và đốt khi chạy/dừng máy
+e3209866ee02	Thiết bị cô đặc ba nồi
+e7edf61c4783	Xút 32 % → 50 %
+d7375a617df7	Bồn xút đặc
+d7198fcd51f9	Sản phẩm xút 50 %
+f0fd32cd431c	Ba sản phẩm
+7ce7ae9a518a	Vì sao một nhà máy chlor–kiềm cùng lúc cho ra xút, chlorine và hydrogen?
+d7944c4def00	Em kéo góc nhìn, xem nhà máy từ trái sang phải (lăn chuột để phóng to, thu nhỏ)
+348bda0ba956	Chế độ tham chiếu 3.3 kA/m\xB2, 90 ℃ đang chạy: sản lượng xút 30.31 t/d, điện năng 2187 kW\xB7h/t xút; nước muối loãng đã quay về khâu hoà muối.
+ea68a9348a76	2NaCl(aq) + 2H₂O(l) --điện phân--
+171bb3402bb5	Anode 2Cl⁻
+c842f10a37c8	2e⁻ → Cl₂↑ \xB7 cathode 2H₂O + 2e⁻ → H₂↑ + 2OH⁻
+28901ae33b1c	Anode Cl₂
+cbd7e22c7e93	Cathode H₂ + NaOH
+51cc9c108b5a	Phương pháp màng ion
+1ae2f3f2e902	Một thiết bị cho ba sản phẩm: cathode được H₂ và NaOH, anode được Cl₂, nên nhà máy chlor–kiềm vốn là “ba trong một”.
+7dd207e93946	Tinh chế (
+1a10d7421d13	) chỉ làm một việc: loại calcium, magnesium khỏi nước muối, giúp màng ở
+9d2dfc83b572	khỏi đóng cặn.
+7386b455613a	Chlorine (
+fdf6a844a930	), hydrogen (
+bae479476b07	), xút (
+5e38dec668e8	) là ba dây chuyền sản phẩm song song sau điện phân, không nối tiếp.
+11de600f0461	Bỏ bước điện phân: ba dây chuyền sản phẩm đều không có nguyên liệu, cả nhà máy ngừng sản xuất.
+470a5ab7ca5a	Thường thi “điện phân dung dịch muối ăn bão hoà thu được gì”: cathode H₂ và NaOH, anode Cl₂; không phải sodium kim loại.
+5bb0b72ca1e7	Một thiết bị điện phân cùng lúc cho ba thứ: Cl₂, H₂, NaOH. Nguyên liệu chỉ là muối ăn và nước, cái khó là tách các sản phẩm ra mà vẫn giữ hiệu suất; đó chính là việc của lớp màng ở giữa.
+7a4126a29584	A2.1, A2.2, A6
+73024aab001f	Rửa muối trước
+47f490b1cc94	Nguyên liệu chỉ là muối ăn và nước, sao trước khi vào bể phải làm sạch nước muối?
+30d9cc485eaf	Ngắt “tinh chế nước muối”, theo dõi hiệu suất dòng điện
+e921e6347f86	Hiệu suất dòng điện bắt đầu giảm từ 95 % (mỗi 6 s giảm 1 điểm phần trăm, thấp nhất 80 %), điện năng/tấn xút tăng theo; bật lại chỉ ngừng giảm, không hồi lại.
+62d3ee28f659	Sau tinh chế lần một Ca\xB2⁺+Mg\xB2⁺ ≤ 5 mg/L; nhựa chelate lần hai ≤ 20 μg/L
+cce8cfe4ee18	Na₂CO₃ sau BaCl₂
+b433da2059e0	Hydrochloric acid sau khi lọc
+c7d8f9ecc9ad	Tinh chế lần một dùng kết tủa hoá học + lọc, đưa Ca\xB2⁺+Mg\xB2⁺ xuống ≤ 5 mg/L.
+be321f5f0703	Màng ion đòi hỏi cao hơn: qua tiếp tháp nhựa chelate tinh chế lần hai, xuống ≤ 20 μg/L.
+266dc761b577	Chỉ có hai ràng buộc cứng: Na₂CO₃ phải sau BaCl₂ (để kết tủa luôn Ba\xB2⁺ dư), hydrochloric acid phải sau khi lọc (nếu không kết tủa lại tan); NaOH thêm ở bước nào là lựa chọn công nghệ.
+1abae329fdde	Bỏ tinh chế: calcium, magnesium đóng cặn trong màng, hiệu suất dòng điện giảm không phục hồi được. Bước sau mở đầu coi như thay màng mới (giá trị đặt cho bài), nên em sẽ thấy hiệu suất trở lại 95 %.
+a56338f3a757	Thường thi hai điểm: vì sao nước muối phải tinh chế hai lần; hai ràng buộc cứng về thứ tự chất tạo kết tủa (phần còn lại không phải “bắt buộc”).
+ac914ec15455	Ca\xB2⁺, Mg\xB2⁺ vào màng tạo Ca(OH)₂, Mg(OH)₂ lắng trong lớp carboxylic phía cathode: hiệu suất dòng điện giảm, điện áp bể tăng, hư hại không đảo ngược được.
+2ef925be518a	A5.4, A7-E14, B1.3
+7bdb30c9c0b5	Cắt dọc bể
+c777009df9f7	Một lớp màng kẹp giữa hai tấm điện cực, rốt cuộc nó tách cái gì?
+0de0aa4977a6	Em kéo góc nhìn, nhìn hai buồng từ mặt cắt
+0e70e34de70b	Buồng anode (+x) có bọt khí vàng lục, buồng cathode (
+8b3d1fef8533	x) có bọt khí gần trắng, giữa là tấm màng bán trong suốt; dung dịch anode và dung dịch cathode tách riêng.
+fcbacba85558	Chất nhận electron ở cathode là nước, không phải Na⁺
+a488446577c8	Anode +x \xB7 nền titanium phủ ruthenium–iridium
+c7bce599ec1d	Cathode
+325e5abde234	x \xB7 nền nickel
+f860334b7475	Bể đơn 1.2 m \xD7 2.4 m
+d52aa505508c	Anode là titanium phủ ruthenium–iridium: lớp xúc tác giúp Cl⁻ phóng điện ưu tiên, kìm hãm sự thoát oxygen từ nước, nếu không chlorine kém tinh khiết, anode bị ăn mòn.
+f53e10174c09	Cathode là nickel phủ lớp hoạt tính: giảm quá thế thoát hydrogen, nước nhận electron tạo H₂ và OH⁻.
+c37fb22f3c37	Chất nhận electron ở cathode là nước, không phải Na⁺: trong dung dịch nước Na⁺ không phóng điện, điện phân NaCl nóng chảy mới được sodium kim loại.
+026649bab4d7	Bỏ lớp màng này: sản phẩm không còn được tách riêng, hậu quả xem bước
+d366ebc20e6c	.
+397220961545	Thường thi “vì sao sản phẩm ở cathode không phải Na”: trong dung dịch nước Na⁺ không phóng điện, cathode là 2H₂O + 2e⁻ → H₂↑ + 2OH⁻.
+e203a438d481	Hai điện cực mỗi bên lo một nửa: phía +x Cl⁻ phóng điện tạo Cl₂, phía
+4a0dba708579	x nước nhận electron tạo H₂ và OH⁻; màng ngăn hai buồng, sản phẩm mới không lẫn sang nhau.
+c9b935cd8ec3	A2.2, A5.3, A7-E1
+24a6a06547dd	Nhìn vào màng
+e834c985a9d6	Màng trao đổi ion cho gì đi qua, chặn gì lại?
+27a4a05169ad	Trong cảnh 3D, em bấm vào màng trên tấm phóng to trước bể
+e70e1d1c145f	Na⁺ kèm nước nhảy từ buồng anode (+x) sang buồng cathode (
+bee4a7d52465	x); Cl⁻ ở lại phía +x, OH⁻ ở lại phía
+0efd4de3eb0e	x, đến gần màng là bị đẩy ngược lại.
+f9e0a7a93e20	—SO₃⁻ / —COO⁻ hàng rào điện tích âm cố định
+3ecccedad2cc	Màng trao đổi cation: chỉ cho Na⁺ kèm nước đi qua
+1691c154b1e6	Lớp màng khoảng 0.2 mm
+33e6696ab885	Khoảng cách điện tích cố định khoảng 1 nm
+6b5450fde5d8	Lớp carboxylic phía cathode
+fea7e4fc1c2b	Màng là màng composite nhiều lớp: lớp sulfonic phía anode dày, điện trở thấp, quyết định điện áp bể.
+57fbb20fa2c6	Lớp carboxylic phía cathode mỏng, đẩy OH⁻, quyết định hiệu suất dòng điện; lớp này làm không tốt thì hiệu suất không đạt mức dùng được.
+12faa78508a1	Na⁺ nhảy từ điện tích âm cố định này sang điện tích kế tiếp, đồng thời kéo theo nhiều nước; vì vậy buồng cathode phải liên tục bổ sung nước tinh khiết, giữ kiềm ở khoảng 32 %.
+7fec815a3e3d	Bỏ khả năng đẩy ion của màng: Cl⁻ và OH⁻ lẫn sang nhau, xút bị nhiễm bẩn, hiệu suất dòng điện giảm (xem bước
+309265ddac77	).
+8003998333cd	Thường thi “màng trao đổi ion là màng gì”: màng trao đổi cation, chỉ cho Na⁺ (kèm nước) đi qua, Cl⁻ và OH⁻ bị điện tích âm cố định đẩy lại.
+9100094965b2	Điện tích âm cố định đẩy anion, chỉ cho Na⁺ kèm nước đi qua: chặn Cl⁻ để giữ độ tinh khiết của xút, chặn OH⁻ để giữ hiệu suất dòng điện.
+c462cfc94034	A5.1, A5.2, A7-E3
+5a9de3e85280	Tăng điện
+4141cd589ea1	Muốn nhà máy ra nhiều xút hơn, cứ tăng mật độ dòng điện là được?
+94107d213a61	Kéo mật độ dòng điện từ 3.3 lên 6.0 kA/m\xB2, xem điểm trên đường cong di chuyển thế nào
+b091d1a956b6	Sản lượng xút 30.31 → 55.11 t/d, điện năng/tấn xút 2187 → 2712 kW\xB7h/t, điện áp bể 3.100 → 3.845 V, thanh rủi ro cùng nhích lên.
+4ef847cac456	NaOH 32 %, 90 ℃,
+a65d39f8044e	0.95 (tính theo công thức sổ tay \xB7 tham số khớp cho bài)
+67364e59f775	Vùng vận hành 3.0–3.9 kA/m\xB2
+5cd3ad286c17	Mật độ dòng 3.5–4.5 xếp mức trung bình
+901151db3285	Tung độ gốc 2.19 V
+651dd85906b0	Sản lượng tỉ lệ thuận với mật độ dòng điện, còn điện áp bể chỉ tăng tuyến tính: hệ số góc cố định, tung độ gốc 2.19 V khác 0.
+ef9dea25d332	Nên điện năng tăng chậm hơn sản lượng, nhưng giá trị tuyệt đối vẫn tăng: ra thêm xút ắt phải trả thêm tiền điện.
+283cd767855e	Phân mức theo sổ tay: 3.5–4.5 kA/m\xB2 là mật độ dòng trung bình, 4.5–6.0 là cao, trên 6.0 gọi là siêu cao, bể và màng đều chịu nặng.
+0f32c1d9b908	Bỏ bước này: học sinh sẽ tưởng dòng càng lớn càng lời, không thấy khoản điện năng song song.
+0f158cbf1d48	Thường thi “quan hệ giữa mật độ dòng điện với điện áp bể, điện năng tiêu thụ”: tăng tuyến tính nhưng không tỉ lệ thuận (tung độ gốc khác 0); tỉ lệ thuận với mật độ dòng điện là sản lượng.
+4329ececa87f	Sản lượng tăng tỉ lệ thuận với mật độ dòng điện, điện năng/tấn xút cũng tăng tuyến tính theo điện áp bể; cả hai cùng tăng nên mới có bài toán “dung hoà”.
+eceb30f7270f	A7-E9, B2.1, B2.2
+069159ae9c0e	Chỉnh nhiệt độ bể
+10fdf23b57dd	Nhiệt độ bể chỉ chênh vài độ, sao cũng tính vào giá thành?
+8b3725d728bd	Kéo nhiệt độ bể từ 90 xuống 85 ℃, xem điện áp bể và điện năng tiêu thụ
+dfc4c1bdd7c8	Ở 3.3 kA/m\xB2, 90 → 85 ℃: điện áp bể 3.100 → 3.532 V, điện năng/tấn xút 2187 → 2492 kW\xB7h/t, sản lượng xút vẫn 30.31 t/d.
+09819c83ac24	Hệ số nhiệt độ 0.095 /℃ (sổ tay 5.5.1); ba điểm 85 / 90 / 95 ℃ dùng cùng một công thức
+3ca927b5666c	Nhiệt độ bể 85–90 ℃
+f06b0df11d6d	85 ℃: 2492 kW\xB7h/t
+d8e6bba092a8	Nồng độ kiềm giữ 32 %
+2817dc715899	Nhiệt độ bể tăng, ion di chuyển trong màng dễ hơn, điện trở giảm, điện áp bể và điện năng/tấn xút cùng giảm.
+0b2f1f526ded	Nhưng nhiệt độ bể không phải càng cao càng tốt: nồng độ kiềm sẽ giảm, hiệu suất màng có đỉnh tối ưu, hơi nước trong chlorine và ăn mòn thiết bị đều tăng.
+ec8950ec6254	Vì vậy công nghiệp giữ nhiệt độ bể quanh 90 ℃, bước kiểm tra cuối bài cũng khoá nhiệt độ bể ở 90 ℃.
+48fa4f768ab0	Bỏ bước này: chỉ nhìn mật độ dòng điện sẽ bỏ sót một biến khác cũng tính vào giá thành.
+155932dd4b45	Thường thi “tăng nhiệt độ bể có tốt không”: điện áp bể giảm, điện năng giảm, nhưng hiệu suất màng có đỉnh tối ưu, còn phải tính hơi nước trong chlorine và ăn mòn.
+4dc96aa4a231	Nhiệt độ bể ảnh hưởng thẳng tới điện năng qua điện áp bể: 90 ℃ là nhiệt độ chuẩn công nghiệp, hạ xuống 85 ℃ thì mỗi tấn xút tốn thêm 305 kW\xB7h (2187 → 2492 kW\xB7h/t).
+2ab30f8e3d3a	A4, A7-E10, B2.2
+3a664d671b1b	Tháo màng
+2caf9988c347	Rút lớp màng này đi, trong bể sẽ xảy ra gì?
+96abc213fd8d	Chuyển “màng trao đổi ion” sang đã tháo, xem sản phẩm đi đâu trên tấm phóng to
+e192e2089537	Trên tấm phóng to Cl₂ và OH⁻ lẫn sang nhau, mặt màng xám đi; thanh trên cùng cảnh báo, bốn số đọc hiện “—”: bài này không tính số đọc cho bể không màng, bước này xem sản phẩm đi đâu.
+263327ed6249	Cách viết cho kiềm loãng nguội; ở 90 ℃, kiềm đặc nóng 32 % chủ yếu tạo sodium chlorate 3Cl₂ + 6NaOH → 5NaCl + NaClO₃ + 3H₂O
+f133431f35cc	Xút bị nhiễm bẩn
+affc7e53a6c2	H₂ và Cl₂ chung một không gian
+c82a5c1dfc71	Thực tế là dừng máy bằng khoá liên động
+0539ed12711f	Chlorine bị kiềm hấp thụ: SGK viết (nhiệt độ thường) Cl₂ + 2NaOH → NaCl + NaClO + H₂O; kiềm đặc nóng 32 %, 90 ℃ chủ yếu tạo sodium chlorate; xút bị nhiễm bẩn, chlorine mất không.
+6f8cf0dccdf4	OH⁻ thấm ngược sang buồng anode, nâng pH dung dịch anode, thúc đẩy tạo HClO / ClO₃⁻, ăn mòn anode, làm giảm độ tinh khiết chlorine.
+f641b8057b8e	H₂ và Cl₂ trộn trong cùng một không gian, chỉ ở thành phần và điều kiện nhất định, có ánh sáng, tia lửa… kích hoạt mới có thể nổ, không phải cứ gặp sáng là nổ. Thực tế phòng ngừa bằng phân tích hydrogen trong chlorine + dừng máy bằng khoá liên động.
+ebd87b2951d3	Bỏ bước này: học sinh sẽ coi màng là một “tấm ngăn”, không thấy nó đồng thời quyết định cả độ tinh khiết và an toàn.
+9e13e1a27a40	Thường thi “không có màng sẽ ra sao”: xút bị muối hypochlorite làm nhiễm bẩn, và hỗn hợp H₂ với Cl₂ có thể nổ trong điều kiện nhất định.
+5b06d2c12c36	Không có màng, Cl₂ phản ứng với NaOH làm nhiễm bẩn xút, H₂ và Cl₂ cũng trộn lẫn; vai trò thứ hai của màng là hàng rào an toàn.
+c44d3b93e8a2	A2.4, A7-E4
+31873b816586	Khi sản lượng và điện năng cùng bị chặn, em chỉnh cái nào?
+223359501eec	Trong vùng vận hành, đưa sản lượng xút lên ≥ 28 t/d, điện năng/tấn xút ≤ 2300 kW\xB7h/t, giữ 15 s
+2c0fda4c2a83	Vào được 5 s, ca đêm sẽ hạ dòng điện một lần (sản lượng xút tụt còn 23.88 t/d), em phải tự kéo lại; đạt thì thanh mục tiêu chuyển xanh.
+6d476c2c33e4	P ≥ 28 t/d \xB7 W ≤ 2300 kW\xB7h/t \xB7 giữ 15 s
+e1e388c1d26f	Quy về NaOH 100%; nhiệt độ bể khoá 90 ℃
+470cf38448ee	Chỉ 3.1–3.8 thoả cả hai
+7e72f4a63bec	Vượt ngưỡng 6.5 kA/m\xB2
+653d8963266c	Sản lượng tăng tỉ lệ thuận với mật độ dòng điện, điện năng cũng tăng theo; phải nhìn cả hai đường mới trụ được trong vùng vận hành.
+dbc74c052902	Đường điện năng ép cận trên xuống 3.88 kA/m\xB2: ở 3.9 đã là 2303.8 kW\xB7h/t, vượt rồi.
+407fa8951b74	1.0 kA/m\xB2 điện năng thấp nhất (1740 kW\xB7h/t), nhưng sản lượng xút chỉ 9.18 t/d, không thu hồi được vốn thiết bị, nên nhà máy không dùng.
+b002dbe291c1	Vượt 6.5 kA/m\xB2 sẽ chạy chuỗi “đếm ngược 3 s → thủng màng → sự cố → xem lại → sửa chữa”, phải hiểu chuỗi này.
+4e4a8d478b9f	Thường thi “vì sao không chọn điểm điện năng thấp nhất”: sản lượng quá nhỏ, không bù được chi phí thiết bị và nhân công; công nghiệp chọn vùng vận hành dung hoà.
+2cbf02cd5c73	Chỉ 3.1–3.8 kA/m\xB2 thoả cả hai ràng buộc (3.0 chỉ được 27.55 t/d, 3.9 đã 2303.8 kW\xB7h/t); điểm dung hoà là tính ra, không phải học thuộc.
+5141fbe50ca2	Mật độ dòng điện
+cf08355ea49e	Nhiệt độ bể
+c0d7915f74d6	Tinh chế nước muối
+d458203dc7cc	Màng trao đổi ion
+076864b09e5b	Đã ngắt (Ca, Mg vào màng)
+bde4599848f6	Đã lắp màng
+4b7af16ac844	Đã tháo màng
+d47543ea2d31	Sản lượng xút
+62d242351074	Điện năng DC/tấn xút
+49119e69b3db	Điện áp bể
+9393473488ae	Hiệu suất dòng điện
+a37a89b4be38	Quy 100% \xB7 đạt ≥ 28
+7dc81fc8edfb	Quy 100%
+a77fa97bd116	Khớp tuyến tính
+d58d6f1a630a	Tinh chế bật
+e022dd9f1448	Tinh chế đã ngắt
+b1e1ed632004	Bài này không tính số đọc cho bể không màng, bước này xem sản phẩm đi đâu
+459122a14d96	Không tính
+7d2e163e50ff	Điện năng/tấn xút / sản lượng – mật độ dòng điện
+3d4eb0ced22c	— điện năng \xB7 -- sản lượng \xB7
+b507b257ae50	Vùng vận hành
+57a994146d6f	Rủi ro phụ tải
+67e315919444	Vượt ngưỡng 6.5 kA/m\xB2; điện năng tính từ 2400
+efc7d4ed68f0	Mục tiêu ca này: xút ≥ 28 t/d và điện năng ≤ 2300
+b730a4157fed	Mục tiêu ca này: trong vùng vận hành, xút ≥ 28 t/d, điện năng/tấn xút ≤ 2300 kW\xB7h/t, giữ 15 s
+326668d239ca	(vùng vận hành 3.0–3.9)
+8b5302e46590	Mật độ dòng vượt ngưỡng → màng khô, thủng → H₂ gặp Cl₂
+0c004f0d31c8	A. Để tăng sản lượng, cứ đẩy mật độ dòng điện lên mãi
+7827da34faed	Sản lượng đúng là tăng theo, nhưng điện áp bể và nhiệt sinh ra cũng tăng (nhiệt Joule tăng theo bình phương dòng điện), màng đang mất nước.
+35651778d4a1	B. Vượt 6.5 kA/m\xB2, màng khô cục bộ
+06bedc159da9	Màng thiếu nước, dòng điện tập trung cục bộ, mặt màng xuất hiện lỗ kim.
+6dbc08d170da	C. Màng thủng, H₂ ở buồng cathode lọt sang buồng anode
+c764c8f5c5ee	Hydrogen trong chlorine tăng, lẽ ra máy phân tích trực tuyến phải bắt được và cảnh báo.
+33a206bb0df1	D. Khoá liên động không tác động, hỗn hợp H₂–Cl₂ bị kích nổ
+b1f92b43beb2	Bản trình diễn giả định thành phần nguy hiểm, điều kiện kích hoạt bằng ánh sáng và khoá liên động hỏng; thực tế khoá liên động tác động trước, ngắt dòng điện dừng máy.
+872330c5d40a	Vận hành mật độ dòng theo giới hạn thiết kế của màng và bể, không vào vùng “siêu cao” (
+0cf776f66092	6.0 kA/m\xB2)
+8a79616d6b59	Máy phân tích trực tuyến hydrogen trong chlorine + dừng máy liên động khi vượt ngưỡng (bài này không đưa phần trăm, trong công nghiệp đây là chỉ tiêu bắt buộc đo)
+d0da57c3aeae	Thêm acid vào dung dịch anode, kiểm soát pH, giảm chlorate và ăn mòn anode
+dc252efbd4be	Kiểm soát chênh áp hai bên màng, tránh màng rung và thấm ngược (bài này chỉ gợi ý định tính, không đưa số)
+2adfdb20dd5f	Kiểm tra màng định kì, thay màng đúng hạn, đừng đợi thủng
+103724f361e2	Nhớ chuỗi này: dòng càng lớn → điện áp bể và nhiệt sinh ra tăng → màng khô, thủng → H₂ gặp Cl₂. Khi bảo vệ hoạt động bình thường thì là dừng máy, không phải nổ.
+45f978d1669a	Mục tiêu bài: hiểu vì sao màng bắt buộc phải chặn, tính được bài toán mật độ dòng điện và điện năng, cuối cùng giữ sản lượng xút trên 28 t/d trong vùng vận hành suốt 15 giây.
+2c4d5562b71c	Khi điện phân dung dịch muối ăn bão hoà, sản phẩm ở cathode là
+405168402124	Na và Cl₂
+fd24b4be25b9	H₂ và NaOH
+892a649b81ab	Cl₂ và NaOH
+2af273ba7ce8	H₂ và Na
+e196b1b72680	Trong dung dịch nước Na⁺ không phóng điện, cathode là 2H₂O + 2e⁻ → H₂↑ + 2OH⁻, sản phẩm là H₂ và NaOH; muốn được sodium kim loại phải điện phân NaCl nóng chảy.
+90b8120d9fdf	Trong tinh chế nước muối, điều thuộc “ràng buộc cứng” là
+7c69037afc07	Phải theo đúng một thứ tự duy nhất BaCl₂ → Na₂CO₃ → NaOH
+63b6d0a21d14	Na₂CO₃ phải sau BaCl₂, hydrochloric acid phải sau khi lọc
+0d5dc3e3231f	NaOH phải thêm đầu tiên
+afb501700b09	Hydrochloric acid phải thêm cùng lúc với Na₂CO₃
+8ea4e8df05cb	Na₂CO₃ vừa kết tủa Ca\xB2⁺, vừa biến Ba\xB2⁺ dư thành BaCO₃, nên phải sau BaCl₂; thêm hydrochloric acid trước sẽ hoà tan lại CaCO₃, Mg(OH)₂ đã kết tủa. NaOH thêm ở bước nào là lựa chọn công nghệ (bông kết tủa giúp lắng).
+c376296334f7	Màng trao đổi ion trong công nghiệp chlor–kiềm cho gì đi qua
+f4d5a625e872	Cả Na⁺ và Cl⁻ đều qua
+852c66499381	Na⁺ (kèm nước) đi qua, Cl⁻ và OH⁻ bị đẩy lại
+2bbeb9b010f1	OH⁻ đi qua, Na⁺ bị chặn
+04e3ac348afe	Chỉ có nước đi qua
+8f24a1284070	Nhóm cố định trong màng mang điện âm (—SO₃⁻, —COO⁻), đẩy anion, chỉ cho Na⁺ kèm nước đi qua: chặn Cl⁻ để giữ độ tinh khiết của xút, chặn OH⁻ để giữ hiệu suất dòng điện.
+28fbc3dcbda2	Khi không có màng, nguyên nhân trực tiếp làm xút bị nhiễm bẩn là
+75637becd9b8	Na⁺ không đi qua được
+738e18a70571	Cl₂ phản ứng với NaOH tạo muối hypochlorite (trong kiềm đặc nóng còn tạo sodium chlorate)
+a9f4c3a73a45	Hydrogen tan trong kiềm
+39bd9a18d0ef	Sự điện phân nước dừng lại
+2ee6fdec21cd	Khi không có màng, Cl₂ ở anode tan vào dung dịch cathode và phản ứng với NaOH: SGK viết (nhiệt độ thường) Cl₂ + 2NaOH → NaCl + NaClO + H₂O; kiềm đặc nóng 32 %, 90 ℃ chủ yếu tạo sodium chlorate.
+cd056eaf14bd	Giữ nguyên các điều kiện khác, tăng mật độ dòng điện từ 3.3 lên 6.0 kA/m\xB2, điện năng DC/tấn xút sẽ
+36485c37a31e	Giảm
+dc6ca315bf44	Tăng, vì điện áp bể tăng tuyến tính theo mật độ dòng điện
+76356192e48c	Tăng rồi giảm
+59bc83e49b52	U = 2.19 + 0.27576\xB7i, mật độ dòng điện càng lớn điện áp bể càng lớn; W = 1000\xB7U/(1.492\xB7
+aa2016000d79	), nên điện năng tăng (2187 → 2712 kW\xB7h/t).
+3cd33ea76422	Vì sao công nghiệp không dùng 1.0 kA/m\xB2, điểm có điện năng thấp nhất
+e8dc79bf18f0	Điểm này điện áp bể cao nhất
+c84cdb49d903	Bể cùng cỡ cho sản lượng quá nhỏ (9.18 t/d), không thu hồi được vốn thiết bị
+ffe794d8661b	Vùng này màng sẽ thủng
+dcd1f79ebe61	Vùng này hiệu suất dòng điện thấp nhất
+a2f7ae9b4fe5	Điện năng thấp là vì sản lượng cũng thấp; 1.0 kA/m\xB2 chỉ được 9.18 t/d, cùng bể, cùng nhân công mà chỉ ra một phần mười lượng xút, không bù được chi phí. Công nghiệp chọn vùng vận hành dung hoà giữa sản lượng và điện năng.
+7646585742e1	Khi hydrogen trong chlorine tăng, cách xử lí đúng trong công nghiệp là
+f68112003bc1	Cứ chạy tiếp, đợi lần bảo trì sau
+d9cb5023aaf2	Giảm mật độ dòng trước, nhờ phân tích trực tuyến và khoá liên động dừng máy để cô lập thiết bị
+4d7b7392213b	Tăng dòng điện để đốt hết hydrogen
+e8f6b3ee857c	Hạ pH dung dịch anode thấp hơn là không cần lo
+a73d7af1f19e	Hydrogen trong chlorine là chỉ tiêu an toàn bắt buộc đo: giảm tải trước, rồi phân tích trực tuyến + khoá liên động ngắt dòng điện dừng máy kiểm tra màng. Nhánh sự cố của bài chỉ trình diễn một đường tệ nhất là “bảo vệ không tác động”.
+a1bcc375447b	Tổng hợp
+854c7e4441d0	Để ra nhiều xút hơn mà không vượt ngưỡng điện năng, yếu tố thật sự có tác dụng là
+b14d7087e265	Tăng nhiệt độ bể, vì vừa tăng sản lượng vừa giảm điện năng
+9718e723e52e	Tăng mật độ dòng điện: sản lượng tăng tỉ lệ thuận, điện năng tăng tuyến tính, nên chỉnh trong vùng vận hành
+a53cd6b3ca3c	Tháo màng để giảm điện trở
+7818c6310eb9	Giảm mật độ dòng điện
+08b666ef427d	Sản lượng xút tỉ lệ thuận với mật độ dòng điện, điện năng tăng tuyến tính theo mật độ dòng điện; nhiệt độ bể chỉ ảnh hưởng điện năng qua điện áp bể, không trực tiếp tăng sản lượng (bài này khoá nhiệt độ bể ở 90 ℃ trong bước kiểm tra cuối bài). Tháo màng không giảm điện trở, chỉ làm nhiễm bẩn sản phẩm.
+dbb627d60374	Đã chọn màng: xem Na⁺ kèm nước đi qua lớp màng thế nào
+01f25e94ee19	Đã ngắt tinh chế nước muối: calcium, magnesium bắt đầu vào màng, hiệu suất dòng điện giảm dần
+d66ad35d56d4	Đã bật tinh chế nước muối: hiệu suất ngừng giảm, nhưng cặn đã đóng không tự bong ra
+2475b1f7a698	Đã tháo màng: Cl₂ và OH⁻ lẫn sang nhau, xút bị nhiễm bẩn; H₂ và Cl₂ đã chung một không gian
+0338d00a96a8	Đã lắp lại màng: Na⁺ kèm nước đi qua, Cl⁻ và OH⁻ bị chặn lại ở buồng mình
+71811826d058	Bất thường: ca đêm chỉnh mật độ dòng điện xuống 2.6 kA/m\xB2 (xút 23.88 t/d), em tự kéo về vùng vận hành
+69f65f29a0d8	Đạt: sản lượng xút và điện năng cùng giữ được, đủ 15 s
+ddaa4cba0a1a	Đã về chế độ tham chiếu: 3.3 kA/m\xB2, 90 ℃, tinh chế bật, đã lắp màng
+05c1dc8c3d4e	Đã dừng máy (ngắt điện)
+58408fba70f7	Dừng máy khẩn cấp: dòng điện đã về chế độ tham chiếu, giải trừ khoá liên động
+cae80e620ff7	Sửa chữa xong: thay màng, đặt lại thông số, chạy máy lại
+3aaa0e13478b	Lưu ý minh hoạ: hình dáng thiết bị, đường ống và tỉ lệ của tấm phóng to là minh hoạ dạy học; hình màng và ion được mô hình hoá theo hướng của A5.2. Số đọc tính theo công thức sổ tay, tham số khớp cho bài (facts B2.2), ngưỡng và mức đạt là giá trị đặt cho bài.
+b29131b9293e	Mật độ dòng điện ${t.i.toFixed(1)} kA/m\xB2 ≥ 6.5 kA/m\xB2 \xB7 không hạ lại trong 3 giây sẽ thủng màng (bản trình diễn giả định khoá liên động hỏng)
+49b0da20c409	Công nghiệp chlor–kiềm · Bài giảng 3D tương tác

@@ -1,0 +1,278 @@
+50a897941a4b	${I.unitOf} bước ${le.no}:
+eb6b4c718708	${f}.start.${d}=${JSON.stringify(p)} không phải là một nấc của công tắc nhiều nấc
+2fcfada0e879	SGK Nhân Giáo (Trung Quốc) 2019, bắt buộc tập 1, chương 2, bài 2 “Chlorine và hợp chất của chlorine”, tr. 44–52
+26d5a8d7cad4	Điều chế và tính chất của chlorine
+061adbbb2e8d	MnO₂ + 4HCl(đặc) —
+d0f8b7d3d6f5	Muốn có một bình chlorine khô và tinh khiết, mỗi đoạn trong bộ dụng cụ làm nhiệm vụ gì? Thiếu một đoạn thì sao?
+4a721fed634a	HCl đặc + MnO₂ phải đun nóng mới có Cl₂, acid loãng đi thì dừng
+8b5fc70cf9c7	Loại tạp
+6c2b00b75709	Nước muối bão hoà rửa sạch HCl bay hơi theo
+8d690accd7dd	Làm khô
+4b4d0e3200f4	H₂SO₄ đặc hút hơi nước, chlorine ẩm mới tẩy màu
+4f764620d189	Cùng nhiệt độ nặng gấp 2.486 lần không khí: đẩy không khí, ngửa bình, vào dài ra ngắn
+8fafb7879827	Khí thải
+3eefb34a0459	NaOH hấp thụ Cl₂ dư, bỏ đoạn này là ngộ độc
+3916a91c2a77	Năm đoạn thiết bị
+3f87150363fb	Toàn cảnh \xB7 một chuỗi thiết bị từ bình cầu tới cốc
+c0571530d833	Đổi một công tắc, xem hậu quả trên cả chuỗi
+fba0525041d1	Đúng hết! Em đã nắm chắc thứ tự thiết bị, vai trò từng đoạn và thành phần nước chlorine.
+ec2fb72df005	Em nên xem lại mạch chính: tạo khí → loại tạp → thu khí → khí thải, rồi làm lại bước nước chlorine.
+743adab24af2	Chiều dòng khí: theo thứ tự thiết bị đi sang đoạn kế tiếp
+48ba8dabf581	Bình rửa khí vào dài ra ngắn: miệng ống dẫn khí vào nằm dưới mặt chất lỏng
+1978d6f635d8	Bình thu khí vào dài ra ngắn: ống dẫn cắm sát đáy bình
+d36d570e3dfa	NaOH hấp thụ Cl₂ dư
+da566dac79ed	Các tiểu phân trong nước chlorine (phóng to minh hoạ)
+1a58e3f44bec	Đối chứng dải vải màu ẩm và dải vải khô
+afdfe36f7888	HCl đặc (phễu chiết)
+a11b2657a071	Miệng ống dẫn khí vào cắm dưới mặt chất lỏng
+522a229c56f9	Miệng ống dẫn khí ra chỉ ở miệng bình
+11063f7ce070	Bình H₂SO₄ đặc cũng vào ống dài
+457cd2f06c6a	Miệng ống dẫn khí ra cao hơn mặt chất lỏng
+f03bb2c79690	Ống dẫn khí vào cắm sát đáy bình
+0c450a507eac	Dung dịch NaOH
+93677bf9e125	Chưa nối khí thải: Cl₂ thoát ra ngoài
+ebc159e15623	HClO bị phân huỷ dưới ánh sáng tạo O₂
+5246e6c1302e	Bình cầu + phễu chiết + đèn cồn: đun nóng MnO₂ với HCl đặc
+1e6dce366a36	Loại tạp và làm khô
+499ee3efba73	Làm sạch
+19e04b048c8d	Nước muối bão hoà rửa HCl, H₂SO₄ đặc làm khô, cả hai đoạn đều tháo ra được
+2b3b6f4f1413	Bình thu khí
+8dbeac735014	Đẩy không khí, ngửa bình: ống dẫn cắm sát đáy, khí ra qua ống ngắn ở miệng bình
+c138a23120bd	Hấp thụ khí thải
+418a749af75e	Dung dịch NaOH hấp thụ Cl₂ dư, tránh ngộ độc và ô nhiễm
+2f2a62d74409	Khu ống nghiệm nước chlorine (phóng to minh hoạ)
+2dda98778f27	Nước chlorine
+b967fa18d046	Nước chlorine mới pha, ống đối chứng, ống thử AgNO₃ và ống chiếu sáng, kèm phóng to tiểu phân
+f3ac4e1effaa	Làm quen dụng cụ
+ec4a0ce3e09b	Một bộ dụng cụ điều chế chlorine, vì sao lại chia thành ngần ấy đoạn?
+880056239d95	Kéo để đổi góc nhìn, xem một vòng quanh bàn thí nghiệm (cuộn chuột để phóng to, thu nhỏ)
+fe2a47f76029	Em sẽ thấy năm đoạn từ trái sang phải: bình cầu đang đun, hai bình rửa khí, bình thu khí, cốc NaOH; mép trước bàn còn một hàng ống nghiệm nước chlorine
+183d3898c626	Tạo khí → loại tạp (nếu cần) → thu khí → khí thải (nếu cần)
+094ce9621f0a	SGK tr. 49 “Thiết kế bộ dụng cụ điều chế khí trong phòng thí nghiệm”
+0c71d90adf94	Bộ phận loại tạp
+271d0883db15	Bộ phận thu khí
+e4734692151e	Xử lí khí thải
+08632b6ab371	Bộ phận tạo khí dựa vào trạng thái chất phản ứng và điều kiện phản ứng: MnO₂ rắn với HCl đặc lỏng, lại cần đun nóng.
+1b40969e60e6	Bộ phận loại tạp dựa vào tính chất của tạp chất: HCl bay hơi từ acid đặc tan rất tốt trong nước.
+76b5befa1995	Bộ phận thu khí dựa vào khối lượng riêng, độ tan, có phản ứng với nước hay không: Cl₂ nặng hơn không khí, lại tan trong nước.
+1b527dad5856	Bỏ cách nghĩ chia đoạn: chỉ chép được bộ dụng cụ theo hình, đổi sang khí khác là không biết thiết kế.
+a10fa25d45b7	Hay hỏi “bộ dụng cụ điều chế khí gồm những phần nào, nối theo thứ tự nào”: tạo khí → loại tạp → thu khí → khí thải.
+0b3caa46790b	Hình 2-17 trong SGK có ba đoạn “tạo khí → thu khí → khí thải”; mục hướng dẫn phương pháp tr. 49 cho phép thêm đoạn loại tạp “nếu cần” và nêu thứ tự: tạo khí → loại tạp → thu khí → khí thải. Bài này làm loại tạp và làm khô thành từng đoạn tháo rời được.
+ddde757bd84c	A1.2, A4.1, A4.3
+81c13df9334b	Vì sao phải đun
+95a8ca63fa57	Không đốt đèn cồn, chlorine có thoát ra không?
+7ef9a2b691f3	Bật “đun nóng”, chú ý MnO₂ trong bình cầu và dòng khí trong ống dẫn
+03911c959ffb	Bọt khí từ không đến có: tốc độ tạo khí 0.0 → 30.0 mL/min, bề mặt MnO₂ bắt đầu sủi bọt liên tục, các hạt dòng khí theo ống dẫn sang đoạn kế tiếp
+42b10920262c	Rắn + lỏng, đun nóng
+7753537c928c	MnO₂ rắn
+c930ed1de105	HCl đặc
+ad8470911315	Đèn cồn + lưới amiăng
+4e7021b84548	Chất phản ứng là MnO₂ rắn với HCl đặc lỏng, điều kiện trong phương trình ghi “
+fb8cc2e88b40	”.
+f39d98f395ce	Không đun thì tốc độ tạo khí 0.0 mL/min: dụng cụ đủ đến đâu cũng không có khí thoát ra.
+b0b645ea09f9	Đun bằng đèn cồn có lót lưới amiăng để bình cầu nóng đều, tránh sôi bùng cục bộ.
+55a9c6f38442	Bỏ đun nóng: cả chuỗi không ra nổi một bọt khí, các đoạn loại tạp, thu khí phía sau đều chạy không.
+ecf224b9cfd1	Quên ghi “
+6d0752b12b30	” trong phương trình là lỗi mất điểm phổ biến nhất, thường hỏi cùng ý “HCl loãng không phản ứng”.
+476d357c6891	Phản ứng giữa HCl đặc và MnO₂ phải đun nóng mới xảy ra: không đun thì nhỏ bao nhiêu HCl đặc cũng không tạo Cl₂.
+ae0e3ae278b6	A2.1, A4.1, B2.1 toán tử 1
+9ed7c1429086	Vì sao cần HCl đặc
+f7d7d24d7acd	Cứ nhỏ mãi, vì sao chlorine lại tự ngừng?
+0f688d5929fd	Không cần chỉnh gì, quan sát khoảng một phút: acid loãng dần, bọt khí ít dần, cuối cùng ngừng hẳn
+019818b8db51	Nồng độ phần trăm HCl giảm từ 37 % xuống 20 %, tốc độ tạo khí giảm từ 30.0 mL/min về 0.0 mL/min, điểm trên đồ thị trượt tới 20 % thì về 0
+7d0721f5f3f9	HCl đặc 37 % → 20 % thì ngừng (HCl loãng không phản ứng với MnO₂)
+e7d955a7f21e	HCl đặc 37 %
+10c991767f3a	Loãng còn 20 %
+3a71afc3b6ca	HCl loãng không phản ứng
+582bb2c4421d	Thực tế phải cân dư MnO₂
+198acfae6281	Phản ứng tiêu tốn HCl, acid đặc loãng dần, HCl loãng không còn phản ứng với MnO₂.
+89367daed8f0	Vì vậy HCl không phản ứng hết: bài 7 trong SGK hỏi “vì sao lượng MnO₂ cân thực tế phải nhiều hơn lí thuyết một chút”, đáp án nằm ở đây.
+0a87485979fc	Tính theo bài 7 trong SGK: 4 bình chlorine 100 mL về lí thuyết cần 1.427 g MnO₂ (khoảng 1.43 g).
+af4ddee3c74f	Bỏ quan sát ở bước này: dễ tưởng “thêm acid là thêm khí”, tính sản lượng theo HCl phản ứng hết nên kết quả bị cao.
+9fdaeff71262	“HCl đặc không phản ứng hết” và “MnO₂ dư hay acid dư” là hai ý của cùng một bài.
+4d981132026f	HCl đặc loãng dần trong phản ứng, HCl loãng không phản ứng với MnO₂ nên khí tự ngừng; đó chính là lí do lượng MnO₂ cân thực tế phải nhiều hơn lí thuyết một chút.
+8e24d73cf8a2	A4.4, A3.3, B2.1 toán tử 1 và 4
+13a666f3d187	Bình thứ nhất rửa gì
+1171f92f09a3	HCl bay hơi theo chlorine vào bình thu khí thì sao?
+c23a8a1ab46c	Trước hết tháo đoạn “nước muối bão hoà” (thao tác sai), chú ý độ tinh khiết trong bình thu và miệng ống dẫn khí vào
+a72ff5489cba	Độ tinh khiết trong bình thu 99.4 % → 87.9 %, tạp HCl 0.5 % → 12.0 %; lắp lại là phục hồi ngay
+d0213400f56e	HCl(g) tan vào nước muối bão hoà
+ef1dda7a7c76	Vào dài ra ngắn \xB7 miệng ống vào dưới mặt chất lỏng
+161f469e5643	Nước muối bão hoà
+392a4e89115a	Loại HCl
+6b6b1df2db60	Vào dài ra ngắn
+f03fe10f8402	Không thay bằng NaOH
+ac6a8d7aefb9	Bộ phận loại tạp chọn theo “tính chất của tạp chất”: HCl tan rất tốt trong nước, dùng nước muối bão hoà rửa sạch nó.
+ab89cc0380c5	Không dùng NaOH, NaHCO₃, vôi tôi xút để loại HCl: chúng hấp thụ luôn cả Cl₂.
+3f3de7adab64	Bình rửa khí phải vào dài ra ngắn: miệng ống vào nằm dưới mặt chất lỏng thì khí mới tiếp xúc đủ với dung dịch rửa.
+e947944e68a1	Bỏ đoạn này: độ tinh khiết trong bình thu tụt còn 87.9 %, trong bình lẫn HCl, làm thí nghiệm tính chất sẽ bị khói trắng gây nhiễu.
+a6d8f146374b	“Có dùng dung dịch NaOH để loại HCl được không” gần như năm nào cũng gặp; đáp án: loại được HCl nhưng cũng “nuốt” luôn Cl₂.
+cb9a3b89c258	HCl đặc dễ bay hơi, dòng khí mang theo HCl; nước muối bão hoà hấp thụ HCl, đồng thời hạn chế Cl₂ tan, nên bình thứ nhất rửa HCl.
+e23a31092146	A4.3, A4.8, A3.1, B2.1 toán tử 2
+7c2efffcc213	Bình thứ hai rửa gì
+a979a6aa9b62	Vì sao loại HCl trước rồi mới làm khô, hai bình có đổi chỗ được không?
+230aaff462de	Tháo đoạn “làm khô bằng H₂SO₄ đặc” (thao tác sai), xem thành bình thu khí và hai dải vải
+aa5e8271a7fd	Độ tinh khiết 99.4 % → 97.0 %, hơi nước 0.1 % → 2.5 %, thành bình thu khí đọng hơi nước; chlorine ẩm làm mất màu dải vải màu, dải vải khô không đổi
+ba3df0c767eb	Loại HCl trước, làm khô sau
+bdc53b272885	Loại tạp trước, làm khô sau
+8e255031e5f1	Chlorine ẩm mới tẩy màu
+9fce7d86be1b	Vải khô không mất màu
+1b29814ef450	Không được đảo thứ tự: làm khô trước rồi qua nước muối, hơi nước lại bị kéo theo.
+d5f2f068329e	H₂SO₄ đặc chỉ hút hơi nước, không phản ứng với Cl₂, nên đặt sau bước loại HCl.
+942a8d188433	Chlorine khô không tẩy màu được dải vải khô: chất tẩy màu thật sự là HClO do Cl₂ tác dụng với nước tạo ra.
+2f40e27db1e5	Bỏ đoạn này: hơi nước 2.5 %, vải mất màu, dễ kết luận sai “Cl₂ có tính tẩy màu”.
+63800421a489	“Chlorine khô không có tính tẩy màu, chlorine ẩm thì có” là câu hỏi gần như chắc chắn gặp, đi kèm hình vẽ dụng cụ như bài 3 tr. 51.
+c7fbcf4b5d5e	Làm khô phải đặt sau bước loại HCl; và chỉ chlorine ẩm (chất thật sự tác dụng là HClO sinh ra khi nó tan trong nước) mới làm mất màu dải vải màu.
+ed7e2f502eff	A4.5, A4.8, A5.5, B2.1 toán tử 2
+c158dec28f24	Chlorine nặng hay nhẹ hơn không khí? Ống dẫn nên cắm tới đâu?
+ad4442f03d49	Nhấp vào bình thu khí trong cảnh 3D, xem hai ống dẫn cắm tới đâu
+a5643999a84d	Ống dẫn khí vào cắm sát đáy bình, ống ngắn dẫn khí ra ở miệng bình; màu vàng lục tích dần từ dưới lên; khối lượng riêng của chlorine 3.214 g/L, gấp 2.486 lần không khí 1.293 g/L
+c16d43d28d3c	Đẩy không khí, ngửa bình \xB7 vào dài ra ngắn
+a1d02727af57	ρ(Cl₂) / ρ(không khí) = 3.214 / 1.293 = 2.486 (cùng ở 0 ℃)
+d86bdc2c84f1	Khối lượng riêng 3.214 g/L
+f41ae06038d8	Không khí 1.293 g/L
+ccf1eaa0e884	Đẩy không khí, ngửa bình
+b0115bd19a37	Không dùng cách đẩy nước
+7bd72870a0b1	Tiêu chí khối lượng riêng: 3.214 / 1.293 = 2.486
+7b40bf72e9f9	1, chlorine nặng hơn không khí nên thu bằng cách đẩy không khí, ngửa bình (cả hai khối lượng riêng đều lấy ở 0 ℃).
+0cbc031b1757	Không dùng cách đẩy nước: ở 25 ℃, 1 thể tích nước hoà tan khoảng 2 thể tích Cl₂, lại còn phản ứng với nước.
+0838ca1f2d22	Vào dài ra ngắn mới đẩy sạch không khí trong bình: vào ngắn ra dài thì khí chỉ quẩn ở miệng bình.
+e0227711b72c	Bỏ đoạn này (đổi sang đẩy nước): chlorine tan mất, lại lẫn hơi nước, điều chế công cốc.
+f63e908a6ae3	“Có thu chlorine bằng cách đẩy nước được không” và “ống dẫn khí vào dài hay ngắn” là hai câu phán đoán luôn đi thành cặp.
+a44844facba6	Khí nặng hơn không khí thì thu bằng cách đẩy không khí, ngửa bình: khí vào từ đáy, đẩy không khí ra ở miệng, nên ống vào dài, ống ra ngắn; Cl₂ tan trong nước và phản ứng với nước nên không thu bằng cách đẩy nước.
+548706cfd160	A4.6, A3.1, A5.2, B2.1 toán tử 5
+792666f6a1b6	Chlorine dư đi đâu
+1fa196b4e7df	Không nối cốc cuối cùng thì chuyện gì xảy ra?
+b6cf51d26215	Tháo đoạn “hấp thụ khí thải bằng NaOH” (thao tác sai), xem miệng ống dẫn và trạng thái thanh trên cùng
+2767a263bc0c	Lượng thải tăng từ 0.0 lên 30.0 mL/min, thanh rủi ro 0.00 → 1.00, thanh trên cùng chuyển “cảnh báo”; miệng ống nhấc lên, miệng bình phả ra đám khí vàng lục
+f62b39a0aa29	Chlorine dư phải được hấp thụ, không được xả ra ngoài
+4e90bcfef528	Hấp thụ Cl₂ dư
+d92e96a62a2e	Có độc
+2378fc8d68ab	Không dùng nước vôi
+782a2b0eb787	Chlorine độc: hít một ít sẽ kích thích niêm mạc mũi họng, gây ho và đau ngực, hít nhiều có thể ngộ độc tử vong.
+6eab15642aec	NaOH hấp thụ chlorine tạo NaCl và NaClO, đây cũng chính là nguyên tắc điều chế nước Javel.
+32169b3327ad	Không dùng nước vôi trong: nồng độ Ca(OH)₂ quá thấp, không bảo đảm hấp thụ hết chlorine.
+069f972fd6de	Bỏ đoạn này: toàn bộ 30.0 mL/min xả ra ngoài, thí nghiệm như vậy không thể làm trong lớp học.
+ddf4a948baf0	“Vì sao xử lí khí thải bằng NaOH chứ không bằng nước vôi trong” là câu tự luận ngắn kinh điển.
+458700642dc8	Cl₂ dư phải được hấp thụ bằng dung dịch NaOH: Cl₂ + 2NaOH = NaCl + NaClO + H₂O; không nối khí thải thì chlorine xả thẳng vào lớp học.
+dfa20416dac9	A4.1, A4.2, A2.6, A4.7, B2.1 toán tử 3
+1eaa6ff1f63c	Nước chlorine có gì
+0d1dfb378552	Hoà chlorine vào nước, trong nước rốt cuộc có mấy loại tiểu phân?
+3d1d729179e2	Kéo thời gian chiếu sáng từ 0 s đến 150 s, chú ý pH, c(Cl⁻) và các tiểu phân trong khung phóng to minh hoạ
+f17af62eefb4	pH 2.10 → 1.62, c(Cl⁻) 200 → 850 mg/L, phần trăm thể tích oxygen 20.0 % → 21.1 %; trong khung phóng to, HClO liên tục phân huỷ giải phóng O₂, màu vàng lục trong ống nhạt dần
+9ab48292fceb	Cl₂ + H₂O ⇌ HCl + HClO \xB7 2HClO —ánh sáng→ 2HCl + O₂↑
+c46709535674	Hypochlorous acid phân huỷ khi gặp ánh sáng, nước chlorine để lâu sẽ mất tác dụng
+1eded4750530	HClO tẩy màu, sát khuẩn
+200340954287	Nước chlorine có Cl₂, H₂O, HClO cùng H⁺, Cl⁻, ClO⁻; chất tẩy màu, sát khuẩn là HClO, không phải Cl₂.
+eff334602166	Hypochlorous acid phân huỷ khi gặp ánh sáng: 2HClO —ánh sáng→ 2HCl + O₂↑.
+ae758e90084d	Vì vậy sau khi chiếu sáng, pH giảm, c(Cl⁻) tăng, phần trăm thể tích oxygen tăng, cả ba xu hướng đều đo được.
+7dfb90244b48	Bỏ bước này: chỉ biết “nước chlorine tẩy màu được”, không giải thích được vì sao để lâu mất tác dụng, cũng không nói rõ kết tủa trắng khi thử AgNO₃ từ đâu ra.
+042871c1553e	Xu hướng biến đổi của ba đại lượng trong Hình 2-16 SGK (pH, c(Cl⁻), φ(O₂)) là nguyên mẫu của câu hỏi tình huống theo chương trình mới.
+b582913c9b76	Nước chlorine có Cl₂, H₂O, HClO và H⁺, Cl⁻, ClO⁻; hypochlorous acid phân huỷ dưới ánh sáng tạo O₂ và HCl, nên pH giảm, c(Cl⁻) tăng, oxygen nhiều lên, nước chlorine để lâu sẽ mất tác dụng.
+d897d7fe5581	A2.4, A2.5, A5.2, A3.2, B2.1 toán tử 6
+99b82bdb4aa0	Cho em một bộ dụng cụ, em có thu đầy một lần một bình chlorine vừa tinh khiết vừa an toàn được không?
+0d9e7cf615c8	Độ tinh khiết ≥ 99.0 %, bình thu đủ 95 mL, đã nối khí thải, rủi ro dưới ngưỡng cảnh báo, duy trì 12 giây; giữa chừng tốc độ nhỏ giọt sẽ bị gạt về 0
+cf46f2bd89b2	Băng rôn đạt “Một bình chlorine tinh khiết”; ở giây thứ 6 tốc độ nhỏ giọt bị gạt về 0, phải gạt lại 40 giọt/min mới thu tiếp được
+fcd891b41dfe	Tạo khí → loại tạp → thu khí → khí thải
+5a12cef622ce	Độ tinh khiết ≥ 99.0 % \xB7 thu ≥ 95 mL \xB7 duy trì 12 s
+b8298f0886d4	Độ tinh khiết ≥ 99.0 %
+cfcb1858ec62	Thu 95 mL
+8cb63f4f8ff3	Đã nối khí thải
+96a9697379e2	Rủi ro
+2a03d553b2f8	Thiếu đoạn loại tạp: độ tinh khiết 87.9 %, không đạt.
+1bd861272720	Thiếu đoạn làm khô: độ tinh khiết 97.0 %, không đạt.
+597fb98d3a99	Tắt khí thải: rủi ro lập tức đầy thanh 1.00, thanh trên cùng chuyển cảnh báo.
+7b2ac549bdf0	Không có nội dung mới: đáp ứng cùng lúc các điều kiện của tám bước trước là đạt.
+e8702033741b	Cấu trúc điểm tối đa: thứ tự thiết bị + vai trò từng đoạn + tiêu chí độ tinh khiết, viết đủ cả ba.
+32e7dfb95358	Kiểm tra cuối bài không có kết luận mới: năm đoạn đúng chỗ, có đun nóng, tốc độ nhỏ giọt phù hợp thì mới thu được chlorine ≥ 99.0 %.
+70c9f7af3364	B2 (toàn bộ ngưỡng), B3.1, B2.1 toán tử 1–4
+fb16961c6618	Đang đun
+e7c69005b6be	Chưa đun
+a7cde8588901	Tốc độ nhỏ HCl đặc
+e3795a9f38e6	giọt/min
+08cf3020aea5	40 giọt/min
+6ccaeab3ceb0	Nước muối bão hoà loại HCl
+da72245d50ed	Đã nối
+38093d864b7e	Chưa nối
+21d2f73db3c2	H₂SO₄ đặc làm khô
+ecdd5a607f50	NaOH hấp thụ khí thải
+994d15a0a038	Thời gian chiếu sáng
+4df2a8789997	Độ tinh khiết bình thu
+0f22e7d9a831	Tốc độ tạo Cl₂
+d1dd4b89c2e9	pH nước chlorine
+98caba97fae4	c(Cl⁻) nước chlorine
+982ef7679d34	Trừ theo tạp chất
+c7b6471a4abd	Hình 2-16
+c7e7467c983d	Chưa đạt: chưa đun
+1372a2c05d2a	Chưa đạt: nhỏ giọt về 0
+2cd0b7f0cde3	Chưa đạt: HCl đặc đã loãng
+9827704643cc	Chưa đạt: chưa nối loại tạp
+3983c1f18325	Chưa đạt: chưa nối làm khô
+69819ad489a6	Chưa đạt: chưa nối khí thải
+3e0bf26b42bc	Tốc độ tạo khí – nồng độ acid
+6240197b18d2	— 40 giọt/min \xB7
+6b95e771a559	Rủi ro rò khí thải
+a66f439600c9	Chưa nối khí thải thì cảnh báo
+9dff9676ad72	Mục tiêu: độ tinh khiết ≥ 99.0 %, thu ≥ 95 mL, đã nối khí thải, rủi ro
+42f6925892c2	0.4, duy trì 12 giây
+e3dcec147b3a	Độ tinh khiết ≥ 99.0 %, thu ≥ 95 mL
+e6284307643c	Đã nối khí thải \xB7 ngưỡng đạt
+4548c33e9899	Phương trình hoá học điều chế chlorine trong phòng thí nghiệm, phương trình đúng là
+759a3fff03c3	MnO₂ + 2HCl(đặc) —
+ae4ce9253b40	MnO₂ + 4HCl(đặc) → MnCl₂ + 2Cl₂↑ + 2H₂O
+7a01f23c672f	SGK tr. 48: MnO₂ + 4HCl(đặc) —
+bb881edc9089	→ MnCl₂ + Cl₂↑ + 2H₂O. Điều kiện “
+24d1060ea816	” và chữ “đặc” đều không được bỏ sót; cân bằng theo tỉ lệ electron nhường–nhận 1 : 2.
+01a1847d2391	Lượng chlorine thu được luôn ít hơn lượng lí thuyết tính theo HCl phản ứng hết, nguyên nhân chính là
+c3ba174c2e9b	Lượng MnO₂ không đủ
+824a7c8d3c30	HCl đặc loãng dần trong phản ứng, HCl loãng không phản ứng với MnO₂
+7a486af31d9f	Chlorine tan trong nước
+ed189092f07b	Khi thu, chlorine nặng hơn không khí
+e45be74f04d0	SGK tr. 52 bài 7(2): phản ứng càng diễn ra HCl đặc càng loãng, HCl loãng không còn phản ứng với MnO₂, nên thực tế phải cân dư MnO₂.
+79f2a3ec0207	Để loại một ít HCl lẫn trong chlorine, nên dùng thuốc thử
+b914b47c773f	Dung dịch NaHCO₃
+fac54825274a	HCl tan rất tốt trong nước, nước muối bão hoà còn hạn chế Cl₂ tan; ba chất còn lại đều hấp thụ luôn cả Cl₂.
+ade125c1f295	Về thứ tự loại tạp và làm khô, phát biểu đúng là
+eb66a82ffa82	Làm khô bằng H₂SO₄ đặc trước, rồi qua nước muối bão hoà loại HCl
+c5398a0302fd	Loại HCl trước, rồi làm khô bằng H₂SO₄ đặc
+e584d9a4a3f8	Hai bình đổi chỗ được, hiệu quả như nhau
+ab4fa1973ce4	Đã nối H₂SO₄ đặc thì không cần loại HCl
+d26ae78afc6e	Làm khô trước rồi qua nước muối rửa khí, hơi nước lại bị kéo theo; nên thứ tự là loại tạp → làm khô.
+6f326b758069	Về cách thu chlorine, phát biểu đúng là
+ba52ec62a810	Có thể thu bằng cách đẩy nước
+7184c6f7a70b	Đẩy không khí, ngửa bình, ống dẫn khí vào cắm sát đáy bình
+69a87a79e249	Đẩy không khí, úp bình
+29a6bbae823b	Úp miệng bình thu khí xuống là chắc chắn nhất
+1501cdb6718e	Ở 0 ℃ khối lượng riêng của chlorine là 3.214 g/L, khoảng 2.486 lần không khí cùng nhiệt độ (1.293 g/L); chlorine lại tan trong nước và phản ứng với nước, nên thu bằng cách đẩy không khí, ngửa bình, vào dài ra ngắn.
+5f1c97c29795	Cách xử lí chlorine dư đúng là
+4f379fbda701	Xả thẳng ra không khí
+fa600f1d4ceb	Hấp thụ bằng nước vôi trong
+752fac3560c0	Hấp thụ bằng dung dịch NaOH
+8f8856da1f90	Hấp thụ bằng nước
+96c1ac9e5d84	Cl₂ + 2NaOH = NaCl + NaClO + H₂O; nước vôi trong nồng độ quá thấp nên hấp thụ không hết, nước hấp thụ ít và cũng không triệt để.
+29d7cc0bd582	Sau khi chiếu sáng nước chlorine, biến đổi đúng là
+2533661dcef2	pH tăng, c(Cl⁻) giảm
+dda1bb8e5fd5	pH giảm, c(Cl⁻) tăng, oxygen nhiều lên
+237d3735dd83	pH tăng, oxygen nhiều lên
+5cda0ed65dbb	Cả ba đại lượng đều không đổi
+266beb579bdb	2HClO —ánh sáng→ 2HCl + O₂↑: tạo acid mạnh HCl nên pH giảm, c(Cl⁻) tăng, đồng thời giải phóng oxygen (Hình 2-16 SGK).
+9e1e7e6c9795	Hiện tượng thí nghiệm chứng tỏ “chlorine khô không có tính tẩy màu” là
+768acebb905d	Dải vải màu ẩm bị mất màu
+3a71a30af39e	Dải vải màu khô không mất màu
+c3390fb21468	Nước chlorine làm quỳ tím hoá đỏ rồi mất màu
+87a39ad1be9d	Chlorine làm giấy tẩm hồ tinh bột và KI ẩm hoá xanh
+ddc7362e74be	Chlorine khô tiếp xúc dải vải khô không làm mất màu, chứng tỏ chất tẩy màu là HClO do chlorine tác dụng với nước tạo ra (SGK tr. 46 thí nghiệm 2-8, bài 3 tr. 51).
+0ecd3206817c	Đã đun: MnO₂ bắt đầu phản ứng với HCl đặc, tạo chlorine
+5fb86ea70e9e	Đã ngừng đun: không tạo chlorine nữa
+7fbf3c47e395	Tháo nước muối bão hoà: HCl lẫn vào dòng khí, độ tinh khiết bình thu tụt còn 87.9 %
+8ae679f550e9	Tháo H₂SO₄ đặc: chlorine ẩm vào bình, hơi nước 2.5 %, vải mất màu
+c475f145ba40	Tháo hấp thụ khí thải: chlorine đang xả ra ngoài, có độc, rủi ro đầy thanh
+2a06d7b247bf	Bất thường: tốc độ nhỏ giọt bị gạt về 0, chlorine đã ngừng; trước hết gạt lại 40 giọt/min
+15bea8737063	Đã về chế độ tham chiếu: có đun, 40 giọt/min, loại tạp, làm khô và khí thải đều đã nối
+ab5133da3c5c	Đạt: một bình chlorine tinh khiết
+b829904e322e	Chạy / dừng (tạm dừng và tiếp tục vận hành bộ dụng cụ)
+a23c8921564a	Mục tiêu bài: chỉnh đúng năm đoạn thiết bị cùng việc đun nóng, tốc độ nhỏ giọt, thu đầy một bình chlorine ≥ 99.0 % và duy trì 12 giây; giữa chừng tốc độ nhỏ giọt sẽ bị gạt về 0, em phải phát hiện và gạt lại.
+9c230ba752b7	Lưu ý minh hoạ: hình dáng thiết bị và kích thước dụng cụ chỉ mang tính minh hoạ; khối lượng riêng của chlorine, ba bộ số đọc ở Hình 2-16 lấy từ SGK Nhân Giáo (Trung Quốc) 2019, bắt buộc tập 1, tr. 44–52; tốc độ tạo khí, tạp chất còn lại và thời gian thu khí là giá trị đặt cho bài.
+8b6d87f0a416	Phím tắt 1–9 chuyển bước \xB7 Q kiểm tra \xB7 Space chạy/dừng \xB7 F toàn màn hình \xB7 Esc về bảng điều khiển
+276e3d4afc0b	// tia và hình trụ (bán kính uR, y
+c5ecbe6306e1	Điều chế và tính chất của chlorine · Bài giảng tương tác 3D

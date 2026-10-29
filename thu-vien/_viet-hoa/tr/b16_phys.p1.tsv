@@ -1,0 +1,252 @@
+68ee1ec22eaa	Thí nghiệm: Tìm hiểu mối liên hệ giữa gia tốc với lực và khối lượng
+0c7c55d841ba	Vật lí
+2fcec64c2d65	Bắt buộc tập 1 \xB7 chương 4, bài 2 (bản in tr. 88–93)
+78b962f62f97	a = F/m (kiểm soát biến)
+ac33d732dfdb	Không đo lực trực tiếp, cũng không đo gia tốc trực tiếp: chỉ với một băng giấy và vài quả nặng, liệu có đo được mối liên hệ giữa a với F, m?
+59ef97faa042	Kê cao ván, thành phần trọng lực dọc ván bù trừ ma sát: các khoảng chấm trở nên đều (Δx = 0.00 mm)
+de0635697e30	Gõ nhịp
+064d463d2cd2	Bật nguồn trước, thả xe sau, băng giấy ghi lại 4 khoảng x₁…x₄
+b342ca2ac59f	Tính a
+a8c4fde4dc9e	Khoảng cách → vận tốc v
+29611901b306	→ độ dốc đồ thị v–t = a
+271f8aa9a0d0	Chỉ đổi số quả nặng (a–F) / chỉ đổi quả cân trên xe (a–1/m)
+32b3f16d102b	Kết luận
+47463a2b54c8	Hai đường thẳng đi qua gốc toạ độ: a ∝ F, a ∝ 1/m; độ dốc là 1/m và F
+d8c513b931fb	Ván và ròng rọc
+c51bbc657891	Ván\xB7ròng rọc
+8fd014d6552a	Ván dài có ròng rọc ở một đầu, miếng kê, dây mảnh
+619b46d59dcb	Xe và quả nặng
+d6d9bcaee42b	Xe\xB7quả nặng
+91328ce00303	Xe, quả cân đặt trên xe, quả nặng treo thẳng đứng
+805c886a2a39	Bộ gõ nhịp và băng giấy
+f84ce690d28c	Gõ nhịp\xB7băng giấy
+ff0205a9e1c2	Bộ gõ nhịp điện từ, băng giấy, thước có vạch chia
+ffdb1ab72a86	Cân và giấy kẻ ô
+fd47bf46d8b3	Cân\xB7giấy kẻ ô
+6df8b53c9294	Cân, tấm giấy kẻ ô dựng đứng
+52f535cc6bf4	Nhận biết dụng cụ
+7bd27f1efab1	Các dụng cụ trên bàn dùng để làm gì? Vì sao phải kê cao đầu ván có bộ gõ nhịp?
+c148a5649d2a	Em kéo góc nhìn đi một vòng quanh bàn thí nghiệm, lần theo dây mảnh: “quả nặng → ròng rọc → xe → băng giấy → bộ gõ nhịp”
+99227c8d6311	Chế độ mặc định: F = 0.29 N, m = 0.360 kg, a = 0.81 m/s\xB2; đầu ván có bộ gõ nhịp được kê bằng miếng gỗ (biển ghi góc nghiêng “kê cao 1.15\xB0”); 4 khoảng trên băng giấy là 44.03 / 52.08 / 60.14 / 68.19 mm.
+eca152c3ebd2	Thí nghiệm này lấy trọng lượng quả nặng làm lực kéo (SGK tr. 88 “có thể coi lực kéo tác dụng lên xe bằng trọng lượng của quả nặng”), dùng băng giấy để tính gia tốc (tr. 89, cách 2), dùng cân để đo khối lượng (tr. 89); bố trí chính là phương án tham khảo 1 ở hình 4.2-2.
+2921d0f9bffb	facts A3.1, A3.2, A6; hình 4.2-1 (tr. 88), hình 4.2-2 (tr. 90)
+b2050c3c8c45	Nhận ra dụng cụ: một đầu ván dài được kê cao, ròng rọc ở đầu thấp, bộ gõ nhịp ở đầu cao, băng giấy luồn qua lỗ dẫn từ phía sau xe.
+f848e3fafb08	Mỗi đại lượng có cách đo riêng: khối lượng đo bằng cân, lực kéo lấy bằng trọng lượng quả nặng, gia tốc tính từ băng giấy.
+97725830ec4d	Lời chú bên lề SGK tr. 89 hỏi “dùng lực kế kéo bằng tay có được không”: không được, vì tay không giữ được độ lớn và hướng lực không đổi, cũng khó giữ song song với ván.
+063e6d40a95c	Bỏ bước này: học sinh không biết số nào là “đo được”, số nào là “tính ra”.
+ee679421b28f	Nhận biết dụng cụ là năng lực đầu tiên của thí nghiệm bắt buộc (chuẩn chương trình tr. 13 “biết dùng các dụng cụ thí nghiệm cơ học cơ bản để thu thập số liệu”).
+cbaa05892d52	F = m_h\xB7g, m đọc từ cân, a tính từ băng giấy
+fb6dedcb259b	Đã cân bằng lực cản \xB7 dụng cụ lí tưởng
+a25a4df83386	Hình 4.2-2
+338205bfa7db	Phương án tham khảo 1
+ccd3f4557141	Cân bằng lực cản
+9226443ff893	Vì sao phải kê cao một đầu ván? Kê đến mức nào thì gọi là “đã cân bằng”? Kê quá thì sao?
+12e0eebdcbe6	Đã tháo quả nặng, đẩy nhẹ xe một cái: em bật “Kê cao ván”, xem các khoảng chấm trên băng giấy trở nên đều
+19d9ac9103d8	Ba ảnh chụp khi không treo quả nặng, đẩy nhẹ: ván nằm ngang → a =
+509696049735	0.20 m/s\xB2 (chậm dần, Δx =
+6109e650ca74	1.96 mm, các chấm dày dần); kê cao 1.15\xB0 → a = 0.00 m/s\xB2, Δx = 0.00 mm (chấm cách đều); kê quá (2.29\xB0) → a = +0.20 m/s\xB2 (tự nhanh dần, Δx = +1.96 mm).
+de5acd94b453	Cân bằng lực cản là làm cho thành phần trọng lực dọc ván vừa đúng bù trừ ma sát (SGK tr. 90 “làm cho xe khi không bị kéo có thể kéo băng giấy chuyển động đều dọc theo ván”); tiêu chí là các chấm trên băng giấy cách đều, không phải “kê đại một cái là xong”; kê quá sẽ dư ra μ\xB7g = 0.196 m/s\xB2.
+877d66c89eb3	facts A2.14, A4.1, A7.1; hình 4.2-2 (tr. 90); bảng giá trị chuẩn D
+b6acc52440ac	Cân bằng lực cản cần đồng thời ba điều kiện “không treo quả nặng + kéo theo băng giấy + chuyển động đều”; chỉ kê mà không gắn băng giấy thì ma sát của băng giấy chưa được tính, coi như chưa cân bằng.
+41aa725b6010	Tiêu chí là các chấm trên băng giấy cách đều (Δx = 0.00 mm), không phải “đã kê một vật”.
+96c922008b0c	Kê quá sẽ dư ra μ\xB7g = 0.196 m/s\xB2, điều này bước 7 còn dùng đến.
+97b466a1c736	Bỏ bước này: mọi đồ thị phía sau đều bị dịch đi
+9a4c27622719	0.196 m/s\xB2 mà học sinh không phát hiện ra.
+705197697adf	Trọng tâm thi: cách cân bằng lực cản và tiêu chí; vì sao không được bỏ bước “kéo theo băng giấy”.
+aab1c870e172	θ₀ = 1.146\xB0 \xB7 μ = 0.020 (giá trị đặt cho bài)
+bff2c829eaf9	Đẩy nhẹ, xem đều
+ed0de67e9d6a	Tiêu chí: chấm cách đều
+9983bb9bb3e2	Ghi băng giấy
+260c42eca017	Bật nguồn trước hay thả xe trước? Sai thứ tự thì băng giấy mất đi phần nào?
+6718cfde1ea7	Đã treo lại 4 quả nặng: em bật nguồn bộ gõ nhịp, rồi xem các chấm trên băng giấy
+48254537a1c9	Sau khi bật nguồn, 4 khoảng trên băng giấy = 44.03 / 52.08 / 60.14 / 68.19 mm, chấm đầu tiên ứng với vị trí xe vừa bắt đầu chuyển động; nếu thả xe trước rồi mới bật nguồn thì đầu băng giấy bỏ trống 0.10 s ≈ 40 mm (= v₀\xB7T), số khoảng dùng được giảm từ 4 còn 3, số điểm vận tốc giảm từ 3 còn 2; khi tắt nguồn, số đọc chính, Δx, v đều hiện “—” (không phải 0).
+e157b9422e77	SGK tr. 37 “đặt xe ở vị trí gần bộ gõ nhịp. Khởi động bộ gõ nhịp, rồi thả xe…… sau đó lập tức tắt nguồn”; bộ gõ nhịp dùng nguồn xoay chiều 50 Hz, cứ 0.02 s gõ một chấm, nên “giữa hai điểm đếm có bốn chấm không vẽ ra” nghĩa là khoảng thời gian giữa hai điểm đếm là 0.1 s.
+51c82a687594	facts A2.17, A2.19, A2.20, A4.5, A4.7, A7.3; tr. 37, tr. 18, tr. 93
+713767bf4717	Thứ tự là “bật nguồn trước, thả xe sau”, cuối cùng “tắt nguồn ngay”.
+508ad572e503	50 Hz → 0.02 s một chấm; “giữa hai điểm đếm có bốn chấm không vẽ ra” → T = 0.1 s (không phải 0.02 s).
+fda0751788ba	Sai thứ tự thì hậu quả đo được: đầu băng bỏ trống 0.10 s ≈ 40 mm, số khoảng dùng được 4 → 3, số điểm vận tốc 3 → 2.
+5335a4322c18	Bỏ bước này: học sinh nhận ngay “một băng giấy đã gõ sẵn”, không biết vì sao nó đáng tin, cũng không biết sai thứ tự sẽ ra sao.
+5a9d512e11ed	Trọng tâm thi: thứ tự thao tác và “vì sao”; “giữa hai điểm đếm có bốn chấm không vẽ ra” nghĩa là T = 0.1 s.
+f028ed6bfa80	Xoay chiều 50 Hz \xB7 giữa hai điểm đếm có 4 chấm không vẽ
+34893a6c2703	Bật nguồn trước, thả xe sau
+e9a2027779e5	Nguồn xoay chiều
+755449042c0b	Tính gia tốc
+da44def22422	Một băng giấy biến thành một giá trị a bằng cách nào? Vì sao không dùng thẳng a = 2x/t\xB2?
+66c45a4f5646	Em nhìn đồ thị v–t trên tấm giấy kẻ ô (3 điểm + đường thẳng qua các điểm) và số đọc Δx
+576c64af45b7	Chế độ mặc định: x₁…x₄ = 44.03 / 52.08 / 60.14 / 68.19 mm → v₁ = 0.4806, v₂ = 0.5611, v₃ = 0.6417 m/s (hiệu vận tốc liền kề 0.0805 / 0.0806 = a\xB7T); Δx = 8.06 mm; độ dốc đường thẳng v–t = a = 0.81 m/s\xB2.
+8692fc61c8f6	Hiệu các khoảng liền kề không đổi
+70c4df8e8b04	nhanh dần đều; v
+8823a5281850	₁)/(2T) (SGK tr. 23–24 “dùng vận tốc trung bình của đoạn này thay cho vận tốc tức thời tại một điểm trong đoạn”), độ dốc đường nối ba điểm chính là a (mục phân tích số liệu SGK tr. 37). Băng giấy đã bỏ phần chấm dày lúc đầu, vận tốc ban đầu v₀ = 0.40 m/s ≠ 0, nên không thể dùng a = 2x/t\xB2.
+05249b6a7746	facts A2.7, A2.18, A2.21, A3.3, A5.3; hình 4.2-6 (tr. 93), bảng 1 (tr. 37); bảng giá trị chuẩn A1
+163a14d53cfb	“Hiệu” các khoảng liền kề không đổi mới chứng tỏ nhanh dần đều; bản thân các khoảng không bằng nhau cũng không sao.
+f4febdb43045	Vận tốc tại điểm giữa lấy bằng trung bình của hai khoảng hai bên (SGK tr. 23–24 “khoảng càng nhỏ càng gần đúng”).
+d9cdfd43d29e	a là độ dốc của đồ thị v–t, không phải một khoảng nào đó chia cho thời gian.
+e2299a9633af	Em tự tính lại với băng giấy hình 4.2-6: 6.19 / 6.70 / 7.21 / 7.72 cm, T = 0.1 s → Δx = 0.51 cm → a = 0.51 m/s\xB2.
+e37e9992d672	Trọng tâm thi: tính gia tốc từ băng giấy (độ dốc đồ thị v–t / phương pháp hiệu liên tiếp); tiền đề “a = 2x/t\xB2 đòi hỏi vận tốc ban đầu bằng 0”.
+b556dc233085	₁)/(2T); a = [(x₃+x₄)
+aee55efd7056	Độ dốc đồ thị v–t
+b1092f1be52c	Hiệu liên tiếp
+dbc9c65eaa16	Hình 4.2-6 → 0.51
+fb3b774cd44a	a và F
+85ebd2d523eb	Giữ khối lượng xe không đổi, treo thêm một quả nặng thì a thay đổi bao nhiêu? Năm điểm vẽ ra có hình dạng gì?
+b347d401ca68	Giữ m = 0.360 kg, đổi số quả nặng từ 1 đến 5, mỗi nấc bấm một lần “Ghi một lượt”
+478c765aae99	Giữ m = 0.360 kg, quả nặng 1→5: F = 0.14 / 0.19 / 0.24 / 0.29 / 0.34 N, a = 0.39 / 0.53 / 0.67 / 0.81 / 0.94 m/s\xB2; năm điểm nằm trên một đường thẳng qua gốc toạ độ, độ dốc qua gốc k_F = 2.781 kg⁻\xB9 → m_đo = 1/k_F = 0.360 kg, trùng với số đọc của cân.
+2e97ea482f15	Kiểm soát biến: khi chỉ đổi lực kéo thì a ∝ F; đồ thị a–F đi qua gốc toạ độ (SGK tr. 91 “nếu các điểm này nằm gần một đường thẳng đi qua gốc toạ độ thì gia tốc a tỉ lệ thuận với lực kéo F”), độ dốc chính là 1/m. Năm số này trùng từng chữ số với bảng 4 trong SGK; riêng ô 0.67 trong SGK bỏ trống, là ô đề bài yêu cầu điền (tính theo a = F/m ra đúng 0.67, đây là đáp án, không phải giá trị in trong SGK).
+32012aee96cc	facts A2.2, A2.3, A2.6, A5.2; hình 4.2-2 (tr. 90), bảng 4 (tr. 93); bảng giá trị chuẩn B, G
+b3f3702178ab	Kiểm soát biến: bước này chỉ được đổi số quả nặng, không được động vào quả cân nào trên xe.
+17f206e49383	Năm điểm phải nằm trên đường thẳng qua gốc toạ độ, độ dốc chính là 1/m (2.781 → 0.360 kg = số đọc của cân).
+29dc2a497bda	Các điểm được lưu bằng nút “Ghi một lượt”, không phải tự vẽ lên giấy; ghi 4–5 lượt là đủ.
+8af66657e915	Bỏ bước này: a ∝ F trở thành kết luận học thuộc, học sinh không có bằng chứng.
+5080e061516c	Trọng tâm thi: từ đồ thị a–F đi qua gốc toạ độ suy ra tỉ lệ thuận, từ độ dốc tính khối lượng (SGK tr. 91).
+7f661c9fa9b4	a = F / m (m không đổi) \xB7 k_F =
+a93913e6a7ab	k_F 2.781 kg⁻\xB9 → m_đo 0.360 kg
+8b1efa226854	Thẳng qua gốc toạ độ
+6358475f209b	Trùng bảng 4
+db9d863cb29d	a và m
+0ad8bdc52dcf	Giữ lực kéo không đổi, vẽ a theo m thì thấy gì? Vì sao SGK chuyển sang vẽ a–1/m?
+c1d1df25a524	Giữ F (4 quả nặng = 0.29 N), đổi số quả cân trên xe từ 0 đến 4, mỗi nấc bấm một lần “Ghi một lượt”; rồi chuyển trục hoành sang 1/m để thấy đường thẳng
+fc4d2acda141	Giữ F = 0.29 N, m = 0.310 / 0.360 / 0.410 / 0.610 / 0.860 kg → a = 0.94 / 0.81 / 0.71 / 0.48 / 0.34 m/s\xB2. Khi trục hoành là m, các điểm tạo thành một đường cong; chuyển sang 1/m thì 1/m = 3.2258 / 2.7778 / 2.4390 / 1.6393 / 1.1628 kg⁻\xB9, năm điểm thành đường thẳng qua gốc toạ độ, độ dốc k_R = 0.292 N (≈ lực kéo không đổi 0.29 N).
+60f0afca429e	Không thể từ đường hyperbol mà kết luận ngay là tỉ lệ nghịch (SGK tr. 91 “chúng ta khó nhìn trực quan ra đồ thị có phải hyperbol hay không”); đổi sang a–1/m, nếu đi qua gốc toạ độ thì kết luận được a ∝ 1/m (nguyên văn SGK tr. 92); bước này chính là lần đổi trục từ hình 4.2-4 → hình 4.2-5 → hình 4.2-7 trong SGK. Năm số này trùng từng chữ số với bảng 5 trong SGK, trong đó ô m = 0.31 kg là ô trống của đề bài, điền vào là 0.94 (đáp án, không phải giá trị in trong SGK).
+aff4fd652280	facts A2.2, A2.4, A2.5, A5.2, A5.3; hình 4.2-4 (tr. 91), hình 4.2-5 (tr. 92), hình 4.2-7 (tr. 93), bảng 5 / bảng 6 (tr. 93)
+04af14eb1c4f	Đồ thị a–m là hyperbol, không thể nói ngay “tỉ lệ nghịch”; bắt buộc phải đổi trục.
+cfb38b250ac6	Sau khi đổi trục, yêu cầu là “đi qua gốc toạ độ”, không phải “trông giống đường thẳng”.
+89c30d5a35c5	Bước này chỉ được đổi quả cân trên xe, không được động vào số quả nặng.
+f952bf611892	Bảng 6 trong SGK là 8 cặp số liệu của cùng quy luật: a\xB7m ≈ 0.157 N, đồ thị a–1/m cũng đi qua gốc toạ độ (bài tập 2).
+88b736b1cb13	Trọng tâm thi: đồ thị a–1/m (SGK tr. 92; bài tập 2 tr. 93 chính là vẽ đồ thị này).
+4ae249df972e	a ∝ 1/m (F không đổi) \xB7 k_R =
+12bbd4266b37	Hyperbol → đổi trục
+4bcf2d3595d5	Qua gốc toạ độ
+78c5abdb113f	Trùng bảng 5
+7701bf2270cf	Nếu ván kê chưa chuẩn, hoặc quả nặng quá nặng, đồ thị a–F sẽ trông thế nào? Hai lỗi này trên đồ thị có giống nhau không?
+93612c30b152	Em tắt “Kê cao ván” (chưa cân bằng lực cản), xem đồ thị a–F còn đi qua gốc toạ độ không
+a51880340273	Chưa cân bằng (m = 0.360 kg, quả nặng 1→5): a = 0.19 / 0.33 / 0.47 / 0.61 / 0.75 m/s\xB2, đồ thị không qua gốc toạ độ, cắt trục a tại
+7a08eece75c4	0.196 m/s\xB2, cắt trục F tại +0.0706 N.
+cc55630af391	Kê quá: a = 0.58 / 0.72 / 0.86 / 1.00 / 1.14, cắt trục a tại +0.196, cắt trục F tại
+9a7e54e12125	0.0706 (dấu ngược lại).
+48220c1ba1aa	Chuyển sang dụng cụ thực: a = 0.38 / 0.50 / 0.62 / 0.74 / 0.86, nhỏ hơn F/m từ 3.8 %~8.8 %, đầu trên của đồ thị cong xuống; k_F = 2.569 → m_đo = 0.389 kg, lớn hơn số đọc của cân 0.360 kg là 8.1 %.
+07a627133400	Chỉ cần dấu của giao điểm là biết trạng thái: cắt trục F ở nửa dương = ma sát chưa được bù (chưa cân bằng tốt); cắt trục a ở nửa dương = kê quá. Khi quả nặng không thoả mãn “nhỏ hơn nhiều so với xe”, bản thân giả thiết F = m_h\xB7g không còn đúng (lời chú bên lề SGK tr. 88 “điều kiện là khối lượng quả nặng phải nhỏ hơn nhiều so với khối lượng xe”), biểu hiện là đầu trên đồ thị cong, khối lượng tính từ độ dốc bị lớn hơn.
+d26df0ab222a	facts A2.16, A7.2, A7.5; B2.1 mục 12, 13; B1.5; bảng giá trị chuẩn E, G
+59b986072f95	Hai lỗi trên đồ thị trông khác nhau: chưa cân bằng tốt → cắt trục F ở nửa dương; kê quá → cắt trục a ở nửa dương.
+7146af4f9f01	Quả nặng quá nặng → đồ thị “cong” (không phải bị dịch), và khối lượng tính từ độ dốc bị lớn hơn.
+6faed4ebab2c	Cả ba lỗi đều nói rõ được bằng một con số: giao điểm
+7eafae3bb681	0.196 m/s\xB2, độ lệch
+0ef3a667aac1	7.6 %, không phải “sai số lớn nhỏ là do may rủi”.
+a286bf1b5b5d	Bỏ bước này: học sinh sẽ coi “đo ra khác với tính ra” là do mình tính sai.
+68a08b972ede	Năng lực thí nghiệm: nêu được nguồn và chiều của sai số (chuẩn chương trình tr. 13 “biết thí nghiệm luôn có sai số”).
+e47f8a4fc71e	μ\xB7g (giao điểm) \xB7 a_thực/a_SGK
+572dea0ffa68	Giao điểm
+658a0b5057e6	0.196 / +0.196 m/s\xB2 \xB7 m_đo 0.389 vs 0.360 kg
+0cf268de3cfc	Giao điểm cho biết trạng thái
+900a274f05b0	Đồ thị cong
+3f8250595e1b	Khối lượng lớn hơn
+cd22a03c404f	Chỉ có quả nặng, băng giấy và một tờ giấy kẻ ô, có đo được khối lượng xe không?
+bd9e358910a6	Cân bằng lực cản xong, giữ m, mỗi lần đổi quả nặng bấm một lần “Ghi một lượt”, ghi đủ từ 3 lượt trở lên, sao cho khối lượng tính từ độ dốc qua gốc lệch so với cân ≤ 5 %
+cce44fb9297b	Điều kiện đạt:
+391fda751e9b	“Kê cao ván” bật và “Kê quá” tắt;
+ae8228d380a9	quả cân trên xe giữ nguyên suốt quá trình;
+25112b71d22a	ghi đủ từ 3 lượt trở lên;
+c2611c941410	m_đo tính từ độ dốc qua gốc lệch so với số đọc của cân ≤ 5 %. Một lời giải hợp lệ: m = 0.360 kg, quả nặng 1/2/3 → k_F = 2.790 kg⁻\xB9, m_đo = 0.358 kg, lệch 0.6 % (khi ghi đủ 5 lượt thì k_F = 2.781, m_đo = 0.360 kg). Khi chuyển sang dụng cụ thực thì m_đo = 0.389 kg, lớn hơn 8.1 % → không đạt.
+eacece7b95c0	Không có kết luận mới: dùng nối liền bảy bước trước một lượt: kiểm soát biến (m không đổi) + băng giấy đo a + độ dốc đường thẳng qua gốc = 1/m. Đây cũng chính là phiên bản định lượng của câu “nếu các điểm này nằm gần một đường thẳng đi qua gốc toạ độ……” ở SGK tr. 91.
+a8b23ae5f4ae	facts A2.6, A7.5; B2.1 mục 10, B3 mục 6; bảng giá trị chuẩn G
+88f90e478548	Ước lượng độ dốc trước theo k_F ≈ 1/m, rồi xem số lượt đã ghi đủ chưa.
+e1ab8d5319ef	Ghi thì ghi các lượt cùng một m; đổi m sẽ làm rối độ dốc.
+a98b78e1c587	Chuyển sang dụng cụ thực thì chắc chắn đo không chuẩn: không phải em tính sai, mà là sai số hệ thống của yếu tố “khối lượng quả nặng”.
+3d905d94de3a	Không có kết luận mới: dùng nối liền các mối liên hệ của bảy bước trước một lượt chính là bài kiểm tra cuối bài.
+c2a172a5286a	Tổng hợp: kiểm soát biến + băng giấy đo a + độ dốc qua gốc = 1/m.
+11d95038401f	k_F = 1/m → m_đo = 1/k_F; |m_đo
+e3046c1d500d	m 0.360 → m_đo 0.358 (ba lượt) / 0.360 (năm lượt)
+17cc1dd9321e	Không dùng cân
+322577e558ba	Độ dốc qua gốc
+4bfb9fc77f0c	Dung sai 5 %
+20aa877c4244	Tháo băng giấy đo x₁…x₄ và Δx (Δx = a\xB7T\xB2)
+9e678cd741aa	Gia tốc a
+472ad19b0118	Lực kéo F
+884fda8a69ea	Khối lượng m
+484c6e3caf5f	Hiệu khoảng
+d0bf560d80db	Số quả nặng
+f303a3f3edf5	Quả cân trên xe
+ec0404c5f596	Kê cao ván
+d09b9c6b2979	Kê quá
+5bce065a71e4	Nguồn bộ gõ nhịp
+5ed2679c470b	Dụng cụ thực
+7540b4d18028	Trục hoành
+3cafb4a22d93	Đo từ băng giấy \xB7 dụng cụ lí tưởng
+73bca635849c	Đo từ băng giấy \xB7 dụng cụ thực
+1f3b049ad94c	Bảng 3
+d558599b2e9a	Cân
+f4d3dab8e0c2	Chữ
+19b7ebbefbc7	Đã cân bằng lực cản
+f0d9f04e512b	Kiểm tra cân bằng lực cản
+fbf91d01b7fd	Đã kê cao 1.15\xB0
+ff23a93240ad	Ván nằm ngang
+4b5a225d2d76	Kê đến 2.29\xB0
+1f479e4c59f8	Chưa kê quá
+488502d8e976	Dụng cụ lí tưởng
+d85ea1826649	Trục hoành F
+a9d451f90ba4	Trục hoành 1/m
+f9edaf48ebdb	Ván kê cao 1.146\xB0: thành phần trọng lực dọc ván vừa đúng bù trừ ma sát (tanθ₀ = μ).
+dceedf39e207	Ván nằm ngang: ma sát chưa được bù, với cùng lực kéo a nhỏ đi μ\xB7g = 0.196 m/s\xB2.
+98311eb2a638	Không treo quả nặng (đẩy nhẹ)
+c5ab5032eb06	1 quả nặng \xB7 0.14 N
+456586bd6717	2 quả nặng \xB7 0.19 N
+b8e132e87ea6	3 quả nặng \xB7 0.24 N
+b898ec132c13	4 quả nặng \xB7 0.29 N
+d6b669d64a15	5 quả nặng \xB7 0.34 N
+ec508fc1abd9	0 quả \xB7 0.310 kg
+afb39c150588	1 quả \xB7 0.360 kg
+bc05b0a8364b	2 quả \xB7 0.410 kg
+823aa397ecd5	3 quả \xB7 0.610 kg
+e2186669b8d4	4 quả \xB7 0.860 kg
+26feb5d64e6d	Đẩy nhẹ
+46f4838fcc18	Đang tăng tốc
+1ab51ae2885d	Đều (đã cân bằng lực cản)
+634fb145ac5a	Trượt chậm dần
+b049ac5c9617	Kéo không chạy
+1f26e00cee76	Băng giấy đã hết
+978ba80a5848	Chưa bật nguồn (không có số đọc)
+7936ceb91209	Điểm a–F (đồ thị trục hoành 1/m xem trên tấm giấy kẻ ô)
+68d654afb891	— khớp qua gốc toạ độ \xB7
+3b5f9ff380c5	Điểm đã ghi
+d4410039e146	Ghi số liệu (F, m, a)
+032fac8eea42	Không dùng cân, dùng đồ thị a–F đo khối lượng xe
+cc0e1ae11dee	Cân bằng lực cản → giữ m → ghi đủ từ 3 lượt → từ độ dốc qua gốc tính m_đo, lệch so với cân ≤ 5 %
+2ff66b8d36d2	Đo khối lượng từ độ dốc a–F
+cacbe30ee147	Ván nằm ngang \xB7 chưa cân bằng
+846a8bb352a5	Kê cao 1.15\xB0 \xB7 đã cân bằng
+d7a081141875	Kê cao 2.29\xB0 \xB7 kê quá
+d4b632d2c6bd	Ván dài (một đầu kê cao)
+226c5a368bb8	Xe
+40c44597c924	Bộ gõ nhịp
+0d84b4953e26	Tấm giấy kẻ ô
+6254e3e5f064	Độ dốc
+8ab957f2753f	Chiếu chậm \xD70.2
+768c0a86f32e	Tổng khối lượng xe vừa cân
+1fc5361cf43a	Nguồn điện học sinh
+b796e0b4051d	Bộ gõ nhịp điện từ \xB7 xoay chiều 50 Hz
+c2366dfc6671	Khi cân bằng lực cản phải “không treo quả nặng, kéo theo băng giấy, đẩy nhẹ thấy chuyển động đều”; không được bỏ bước “kéo theo băng giấy” vì
+30c05437eed5	Băng giấy quá nặng, sẽ níu xe lại
+72a044acdbc4	Giữa băng giấy và lỗ dẫn cũng có ma sát, phải cân bằng cùng lúc
+2f5be0bbf908	Không có băng giấy thì không gõ ra chấm
+732898a3e840	SGK viết tuỳ tiện
+93c8af80ca0a	Lực cản gồm cả ma sát giữa băng giấy và lỗ dẫn; chỉ góc nghiêng chỉnh khi “kéo theo băng giấy” mới còn đúng trong thí nghiệm chính thức.
+8b7c1351876c	Điểm đếm
+d4ab3e670723	Nguồn xoay chiều 50 Hz, giữa hai điểm đếm có bốn chấm không vẽ ra, khoảng thời gian giữa hai điểm đếm là
+5c9b84e5c896	0.02 s \xD7 5 khoảng = 0.1 s (điều kiện của bài tập 2 SGK tr. 93).
+98895ed604a9	Tiêu chí đồ thị
+1df2be53d4fd	Để xét a có tỉ lệ nghịch với m hay không, cần xem
+e1d8b3e3ccfd	Đồ thị a–m có phải hyperbol không
+a154cf7f8c42	Đồ thị a–m có phải đường thẳng không
+dc58ee3c79a7	Đồ thị a–1/m có phải đường thẳng qua gốc toạ độ không
+0f3b50b6545f	Tích của a và m có đổi không
+90f5c63616cb	SGK tr. 91–92: khi đồ thị a–m là hyperbol thì không nhìn ra có tỉ lệ nghịch hay không, phải vẽ đồ thị a–1/m, đường thẳng qua gốc toạ độ mới kết luận được tỉ lệ nghịch.
+69111bef6964	Chiều sai số
+9baf47c2c66d	Làm thí nghiệm khi chưa cân bằng lực cản, đồ thị a–F
+dab0afd2129e	Vẫn qua gốc toạ độ, chỉ có độ dốc nhỏ đi
+c77791f74c69	Cắt trục F ở nửa dương
+4f82a64fb9b0	Cắt trục a ở nửa dương
+4de7982c8e83	Trở thành một đường cong
+cee7b968a639	μ\xB7g: F phải lớn hơn μ\xB7m\xB7g thì xe mới chạy, nên đồ thị cắt trục F ở nửa dương (bài này là +0.0706 N).
+4103565a10bc	Với một băng giấy và vài quả nặng, đo được mối liên hệ giữa a với F, m, và nói được sai số lệch về phía nào.
+804bf811865a	Lưu ý minh hoạ: hình dạng dụng cụ và số đọc làm minh hoạ dạy học theo phương án tham khảo 1 của SGK Nhân Giáo bắt buộc tập 1 tr. 88–93; góc nghiêng và độ phân giải số đọc là giá trị đặt cho bài.
+9f71e8483c40	Toàn cảnh \xB7 bố trí phương án tham khảo 1
+7d86302cf806	Thí nghiệm: Tìm hiểu mối liên hệ giữa gia tốc với lực và khối lượng · Bài giảng 3D tương tác

@@ -1,0 +1,261 @@
+8915fb81b0fb	${b.t}: ${_}
+941915452dc4	C.steps[${O}].cam.pitch=${D.cam.pitch}\xB0 nằm ngoài khoảng CAMERA.polar ${p.polar[0]}–${p.polar[1]}\xB0 (kéo góc nhìn sẽ bị kẹp lại)
+d3e11eda7f12	${D.unitOf} bước ${dt.no}:
+0005d69e4edd	${f}.act.want=${JSON.stringify(c.act.want)} không phải một nấc của công tắc nhiều nấc ${h.key}
+f9a20cf075a1	C.units[${d}].color=${c.color}: màu nhận diện chỉ có 1–5 (quy chuẩn \xA72.4)
+71822389bb0b	CONSOLE.exam.solve[${f}].${h} không phải điều khiển trên bảng điều khiển
+6f89d1ce45f1	Quan sát sự tích điện và phóng điện của tụ điện
+ca2edfce9500	Vật lí THPT
+12d358fd72ea	Bắt buộc tập 3 \xB7 chương 10, bài 4 (thí nghiệm bắt buộc 8)
+2d46c69619b8	C = q / u_C  \xB7  i = dq/dt
+f820290d755b	Trong tụ điện rốt cuộc chứa cái gì? Có thể chỉ dùng một con số để đo “sức chứa” của nó không?
+2ca8711ba867	Vừa đóng khoá, trong mạch lập tức có dòng điện, i lớn nhất
+34c3d1366475	Tích điện
+dc47161f4ee9	u_C tăng, i giảm: với cách mắc hình 10.4-1, khi tích điện dòng cũng đi qua R, giảm dần về 0
+db05eeb4ce35	Tích đầy
+2a1e0c40a426	u_C = U, i = 0, q = C\xB7U; ngắt nguồn điện tích vẫn còn
+942d20371408	Phóng điện
+7083b8de9657	Dòng điện đổi chiều, đi qua R: i âm, u_C giảm dần
+591abd33255f	Định nghĩa
+c965b68b464f	Diện tích dưới đồ thị i-t = q, q-u là đường thẳng qua gốc toạ độ, độ dốc = C
+eecd2ddb2385	Nguồn và khoá
+efb2eaf2afb9	Nguồn\xB7khoá
+2ae5e6fa4e13	Nguồn điện học sinh một chiều + khoá hai vị trí
+80b5199159d3	Điện trở và tụ điện
+fc1d93bdb959	Điện trở điều chỉnh được R + tụ hoá (kèm minh hoạ mặt cắt)
+47c67eed1988	Cảm biến và đồng hồ đo
+aad5dfe3ba6a	Đồng hồ đo
+0e5095d646eb	Miliampe kế số 0 ở giữa / cảm biến dòng điện / vôn kế số
+2bd678939bc1	Máy tính và đồ thị
+ed72fcf86058	Màn đồ thị
+ea9e45ba1b83	Đồ thị I-t, tô màu diện tích, lưới đếm ô, đồ thị q-u
+dac12620ad53	Trên bàn có những gì? Cách mắc ở hình 10.4-1 và hình 10.4-2a trong SGK khác nhau ở đâu?
+33e96e259d4f	Em kéo góc nhìn đi một vòng quanh bàn thí nghiệm, lần theo dây dẫn đi hết một vòng mạch
+b688a843ab43	Khoá ở giữa (ngắt): i = 0.00 mA, u_C = 0.00 V; nguồn 8.0 V, R 3.3 kΩ, C 470 μF. Lần theo dây đi được một vòng “nguồn → khoá vị trí 1 → bản trên → bản dưới → về nguồn”; mạch phóng điện đi vòng thêm qua R và cảm biến dòng điện so với mạch tích điện.
+b922aa55ca80	Khoá hai vị trí nối tụ điện lần lượt vào hai mạch “nguồn” và “điện trở”. Ở hình 10.4-1 SGK, ampe kế mắc nối tiếp ở nhánh chung (cả tích và phóng điện đều đi qua), còn cảm biến ở hình 10.4-2a chỉ nằm ở nhánh phóng điện; bài này vẽ cả hai cách bố trí, bước 5 sẽ đối chiếu.
+1838a54695fa	facts A6.1–A6.9, A3.1, A3.2, B2.1 mục 0, 15
+0ac2d58658b7	U 8.0 V \xB7 R 3.3 kΩ \xB7 C 470 μF \xB7 khoá ngắt
+e8b2aa08ef83	Cách mắc hình 10.4-1
+b7af529abe2a	Khoá hai vị trí có ba vị trí chứ không phải hai: ở giữa là ngắt, gạt sang 1 (tích điện), gạt sang 2 (phóng điện).
+69499ecddefe	Hai hình trong SGK mắc khác nhau: ở hình 10.4-1 điện trở và ampe kế nằm ở nhánh chung, ở hình 10.4-2a điện trở và cảm biến chỉ nằm ở nhánh phóng điện.
+a1997ba63a5c	Cảm biến dòng điện và R mắc nối tiếp trên cùng nhánh phóng điện, đo cùng một dòng điện; miliampe kế số 0 ở giữa lấy vị trí giữa làm số 0, kim lệch được về cả hai phía (không có cảm biến thì cũng có thể dùng điện kế nhạy).
+e7ede1a7a5cb	Bỏ bước này: học sinh không biết gạt khoá về phía nào, cũng không biết mỗi đồng hồ đo đoạn nào.
+2e1cb3272507	Nhận biết dụng cụ là năng lực đầu tiên của thí nghiệm bắt buộc (chuẩn chương trình 3.1.6 “quan sát các tụ điện thường gặp”).
+76059efcbf55	Gạt sang 1 để tích điện
+9ea262c985d7	Gạt khoá sang 1, dòng điện đi theo hướng nào? Kim lệch về phía nào?
+9c2d382ae82f	Trong cảnh 3D, em gạt cần khoá sang 1 (tích điện), chờ kim từ từ trở về 0
+941afa586d54	Đoạn này là cách mắc hình 10.4-1 (R ở mạch chung, miliampe kế số 0 ở giữa ở nhánh chung). Vừa đóng (t = 0⁺): i = +2.42 mA, kim lệch đến gần 2.4, u_C = 0.00 V; t = 1τ = 1.55 s: u_C = 5.06 V, i = 0.89 mA; 5τ = 7.75 s tích đầy: u_C = 7.95 V, i = 0.02 mA, q = 3.73 mC; sau đó ngắt khoá, u_C vẫn là 7.95 V.
+0b719532f955	Dòng tích điện chạy vào bản trên, điện tích trên bản tụ tăng; u_C càng cao thì hiệu điện thế còn lại càng nhỏ, dòng điện càng nhỏ; u_C bắt kịp U thì dòng điện bằng 0. Ngay cả khi ngắt nguồn, điện tích trên hai bản do hút nhau vẫn được giữ lại trong tụ điện (SGK tr. 38).
+8bd7888515a3	facts A2.5, A2.6, A2.11, A3.1, A4.2, B2.1 mục 1, 15, bảng tích điện 1a
+fe2fd6239367	U 8.0 V \xB7 R 3.3 kΩ \xB7 C 470 μF \xB7 cách mắc hình 10.4-1
+567884620b57	Chiều tích điện
+8ea3ab0ee1ee	Kim lệch phải
+de81e9cb4390	Chiều dòng tích điện là “chạy vào bản trên”, mũi tên trên bàn phải chỉ về bản trên.
+2aab8a90824f	Với cách mắc hình 10.4-1, khi tích điện dòng cũng đi qua R nên kim trở về 0 từ từ (τ = R\xB7C = 1.55 s), nhưng không lệch ngược.
+d1c91a12633b	Tiêu chí tích đầy là u_C bắt kịp U, không phải “tích đủ thời gian”; tích đầy rồi thì i = 0.
+b0ac4e26fcca	Bỏ bước này: học sinh sẽ tưởng “tụ phải tích đầy rồi mới cho dòng đi qua”, cũng bỏ sót câu nguyên văn SGK “ngắt nguồn điện tích vẫn còn”.
+84d3ad2298d3	Trọng tâm thi: vì sao dòng tích điện ngày càng nhỏ; Q = C\xB7U; ngắt nguồn điện tích vẫn còn (nguyên văn SGK tr. 38).
+f50216db7d90	Gạt sang 2 để phóng điện
+2243f7e69e0c	Gạt khoá sang 2, kim lệch về phía nào? Điện trường giữa hai bản có đổi chiều không?
+7635229a8489	Em gạt cần từ 1 sang 2 (phóng điện), xem kim lệch sang phía bên kia
+075ad78fef34	Vẫn là cách mắc hình 10.4-1 (cùng một miliampe kế mắc nối tiếp trong cả hai mạch). Vừa gạt sang: u_C = 8.00 V, i =
+dae41e6f1ee0	2.42 mA, kim lệch sang phía bên kia; t = 1τ = 1.55 s: u_C = 2.94 V, i =
+caa38dd1b54a	0.89 mA (cùng thời điểm khi tích điện là +0.89 mA). Mũi tên điện trường giữa hai bản không đổi hướng, chỉ ngắn đi.
+3694c21b2d3d	Dòng phóng điện ngược chiều với dòng tích điện (kim của cùng một đồng hồ lệch ngược là bằng chứng trực quan nhất). Ở đoạn này hai giai đoạn dùng chung một τ = R\xB7C, đường tích điện và phóng điện đối xứng gương qua u_C = U/2; điện trường giữa hai bản luôn hướng từ bản trên xuống bản dưới, khi phóng điện không đổi chiều, chỉ yếu đi.
+8dfa5c6acfbb	facts A2.12, A2.13, A3.1, B2.1 mục 1, 15; D2, D3, D5, D6, bảng phóng điện 2
+2e280a149e3e	Kim lệch ngược
+70889883e1b2	1τ:
+5822d7f06767	Dòng phóng điện ngược chiều dòng tích điện; kim của cùng một đồng hồ số 0 ở giữa lệch ngược là bằng chứng trực quan nhất.
+dce0ffd53514	Cả hai giai đoạn đều đi qua R nên dùng chung một τ = R\xB7C: u_tích + u_phóng = 8.00 V, |i_phóng|
+11a78c26b842	i_tích = 0.00 mA.
+97344ca065f9	u_C giảm đơn điệu, nhưng điện trường giữa hai bản luôn giữ nguyên chiều: đừng nói “dòng điện đổi chiều” thành “điện trường đổi chiều”.
+eac912d2803c	Bỏ bước này: học sinh sẽ nói “dòng điện đổi chiều” thành “điện trường đổi chiều”, đây là điểm các khoá trước dễ dạy sai nhất.
+2da219eb7593	Bẫy hay thi: khi phóng điện, điện trường giữa hai bản có đổi chiều không (facts A7.3).
+ec0913f66114	Diện tích cho điện tích
+6d2dd34583d8	Không dùng đồng hồ vạn năng, làm sao từ một đồ thị I-t đọc ra lúc đầu tụ điện chứa bao nhiêu điện tích?
+816df8b7f61e	Em gạt cần sang 2 để phóng điện (cách mắc hình 10.4-2a), nhìn phần diện tích được tô màu trên màn và số đọc q
+632313bb6ded	Bước này đổi sang cách mắc hình 10.4-2a (R và cảm biến dòng điện chỉ ở nhánh phóng điện) thì mới vẽ được đồ thị: τ vẫn là 1.55 s, đường phóng điện vẽ phía dưới trục; số đọc q giảm từ 3.76 mC (t = 0) xuống 1.38 mC (t = 1τ). Đếm ô (lưới hình 10.4-3 SGK, 0.4 s \xD7 0.2 mA): đường cong phủ 45 ô, mỗi ô 0.08 mC, được 3.60 mC, ít hơn diện tích chính xác 3.73 mC là 0.13 mC (nhỏ hơn 3.6 %); diện tích hình chữ nhật hẹp dựng đứng ở câu hỏi (1) SGK tr. 39 (0–0.2 s) = 0.48 mC.
+0101bf4df139	i = dq/dt, nên diện tích dưới đường i-t chính là điện tích đã chạy qua: q = q₀ + S. Cách đếm ô là phiên bản gần đúng của cùng một tích phân (câu hỏi (2) SGK tr. 39 chính là yêu cầu học sinh ước lượng bằng cách đếm ô).
+f22c6b0612a8	facts A2.4, A2.16, A3.2, B2.1 mục 2, 4, 11, 13; bảng đếm ô
+91b930417e2c	q = q₀ + S  (S =
+bcffdce81b0e	i dt)
+516b92106bd5	Ô 0.4 s \xD7 0.2 mA = 0.08 mC \xB7 45 ô
+58f8bf9e3625	Đường cong dưới trục
+0133bcf2ea2b	Diện tích = điện tích
+e7248bd40572	Nhỏ hơn 3.6 %
+be3eed52490b	Đơn vị của diện tích là “dòng điện \xD7 thời gian” = điện tích, đúng là mC.
+6496e42131f4	Đường phóng điện nằm dưới trục, q giảm dần từ 3.76 mC: phần diện tích còn lại dưới đường cong mới là điện tích còn lại trong tụ.
+7ba2aad0b511	Lưới trong SGK: ô nhỏ 0.4 s \xD7 0.2 mA = 0.08 mC, 45 ô = 3.60 mC, nhỏ hơn giá trị chính xác 3.6 %.
+b66a22cf39d4	Bỏ bước này: q chỉ là “một con số đọc ra”, học sinh không có cách “đo ra” nó.
+b9cafdde94a2	Trọng tâm thi: diện tích dưới đồ thị I-t biểu thị điện tích; đếm ô là dạng thi thường gặp nhất (câu hỏi (2) SGK tr. 39).
+a0dea1bc20d9	Hai cách mắc
+30876863f037	SGK hỏi: muốn vẽ đồ thị I-t khi tích điện thì phải mắc mạch thế nào?
+50abcf44430a	Em đổi cách mắc về hình 10.4-1 (khi tích điện cũng đi qua R), rồi gạt sang 1 tích đầy: lần này kim trở về 0 từ từ
+563339314735	Đối chiếu hai cách mắc: hình 10.4-2a (đoạn vừa rồi) khi tích điện chỉ đi qua r = 0.2 kΩ, τ_chg = 0.09 s, 0.47 s đã tích đầy, đoạn này không có số đọc dòng điện; hình 10.4-1 khi tích điện cũng đi qua R, τ = 1.55 s, kim trở về 0 từ từ, lúc này mới đo được đường tích điện. Cùng τ thì hai giai đoạn đối xứng gương: u_tích + u_phóng = 8.00 V, |i_phóng|
+cce1d98dc0bf	Muốn đo dòng tích điện thì mạch tích điện cũng phải có R, và đồng hồ phải mắc ở nhánh chung: đây chính là đáp án của câu hỏi cuối tr. 39 SGK. Thang thời gian của hai cách mắc chênh 16 lần (τ_chg / τ_dis = r / R = 0.0606).
+75485737467b	facts A3.2 (câu hỏi cuối bài SGK), A4.2, B2.1 mục 0, 15; D5, D6, D8; bảng tích điện 1b
+0cd79e1a105b	r 0.2 kΩ \xB7 R 3.3 kΩ \xB7 tỉ số 0.0606
+bba91dfa7bb9	Hình 10.4-1
+12c75fce53bc	0.47 s tích đầy
+1da30b1e5892	Cuối tr. 39 SGK có hỏi câu này, đáp án là: chuyển R và cảm biến sang nhánh chung (cách mắc như hình 10.4-1).
+ea4066682c20	Chuyển sang rồi thì tích điện chậm hơn (τ từ 0.09 s thành 1.55 s), lúc đó mới vẽ được đường tích điện.
+a10a586c3f5f	Khi hai giai đoạn dùng chung một τ, u_tích + u_phóng = 8.00 V, |i_phóng|
+36600cd8697f	Bỏ bước này: học sinh chỉ biết đo phóng điện, “dòng điện lúc tích điện trông thế nào” mãi là điều bí ẩn.
+149a180301dd	Câu hỏi nguyên văn trong SGK, thuộc trọng tâm thiết kế mạch của thí nghiệm bắt buộc.
+5c218a1cad5f	Ghi q-u
+47039de7f09f	Ghi từng cặp điện tích và hiệu điện thế tương ứng rồi vẽ đồ thị, sẽ thấy gì?
+c37f92fae9bf	Trong lúc phóng điện, em bấm “Ghi một lượt” ở bên trái màn hình, ghi đủ 5 dòng
+c957b2e8c424	Mặc định 470 μF (q/mC = 0.47 \xD7 u/V, hai đại lượng nhìn là phân biệt được): 5 dòng ghi (8.00 V, 3.76 mC), (2.94, 1.38), (1.08, 0.51), (0.40, 0.19), (0.15, 0.07); 5 điểm nằm trên một đường thẳng qua gốc toạ độ; độ dốc khớp qua gốc 0.4700 mC/V → C = 470 μF.
+a9c2933281f3	q ∝ u_C, tỉ số q/u_C là đại lượng chỉ do bản thân tụ điện quyết định: đây chính là định nghĩa điện dung C = q/u_C. SGK tr. 40 dùng “hai tụ điện giống nhau mắc song song → điện tích và hiệu điện thế đều giảm một nửa” để đi đến cùng kết luận, bài này làm thành phiên bản định lượng.
+af01181b7186	facts A2.1, A2.2, A2.16, A2.19, B2.1 mục 9, bảng phương pháp đồ thị
+c535f00ece9a	C = q / u_C  (độ dốc đồ thị q-u)
+d39b474a0e04	C 470 μF \xB7 U 8.0 V \xB7 ghi 5 dòng \xB7 khớp qua gốc toạ độ
+da2c7007d776	Độ dốc 0.4700
+4b545409154d	Ghi 4–6 lượt là đủ vẽ đường thẳng, không cần ghi suốt cả quá trình; mỗi lần ghi một dòng, trên màn thêm một điểm.
+ef7158ed5a09	q đo bằng diện tích (điện tích còn lại = diện tích dưới đường cong sau thời điểm đó), không phải lấy C ghi trên nhãn nhân với u_C.
+f51d296c1a5a	q/mC = 0.47 \xD7 u/V, con số của hai đại lượng không trùng nhau, học sinh không nhầm hai đại lượng là một.
+a640a27df369	Bỏ bước này: C = Q/U trở thành công thức học thuộc, học sinh không biết nó từ đâu ra.
+49d96598926e	Trọng tâm thi: tính điện dung từ đồ thị q-U (độ dốc); cách mắc song song chia đôi ở SGK tr. 40 là một con đường khác đến cùng kết luận.
+d46955e05cd6	Đổi C, đổi R
+43b4d094473a	Đổi sang một tụ nhỏ hơn, độ dốc và diện tích thay đổi thế nào? Chỉ đổi điện trở thì sao?
+31f019a6a1bb	Em đổi tụ thành 220 μF, rồi gạt sang 2 phóng điện: xem diện tích và độ dốc thay đổi theo cái gì
+c426041b4b3a	Đổi C (470 → 220 μF): tổng diện tích phóng điện từ 3.73 thành 1.75 mC (giảm theo tỉ lệ), độ dốc q-u từ 0.4700 thành 0.2200 mC/V → đo được C = 220 μF; rồi đổi R (3.3 → 4.7 kΩ, tụ đổi lại đúng tụ 470 μF): τ từ 1.55 thành 2.21 s, i(0) từ
+a5c4edf00512	2.42 thành
+dc40a3b7ed56	1.70 mA, đường cong thấp và rộng ra, nhưng diện tích vẫn là 3.73 mC, độ dốc vẫn là 0.4700 mC/V → C vẫn là 470 μF.
+6951713600e9	Diện tích = C\xB7U, độ dốc = C: điện dung đổi thì cả hai đổi, điện trở đổi thì cả hai không đổi. q/u_C do bản thân tụ điện quyết định, không phụ thuộc nó phóng điện ra sao.
+a4357a6d8235	facts A2.1, A2.2, B2.1 mục 5, 9, bảng diện tích không phụ thuộc R
+c0f2eb62d242	q = C\xB7U  (không phụ thuộc R)
+0cb219bbb652	Diện tích 3.73 → 1.75
+0a9128b61841	Độ dốc 0.2200
+b9ff53718224	Đổi R, diện tích không đổi
+90b8141414a9	C đổi → diện tích và độ dốc đều đổi (3.73 → 1.75 mC, 0.4700 → 0.2200).
+479160dcdf94	R đổi → diện tích và độ dốc đều không đổi, chỉ có đường cong thấp và rộng ra (τ từ 1.55 s thành 2.21 s).
+f992a47c59db	“Tích nhanh hay chậm” và “cuối cùng chuyển đi bao nhiêu điện tích” là hai việc khác nhau.
+c9aecbaaec9f	Bỏ bước này: học sinh sẽ dùng “phóng điện nhanh hay chậm” để xét “điện dung lớn hay nhỏ”, lỗi đó không xoá được.
+2e2587d9424f	Trọng tâm thi: công thức định nghĩa điện dung và “tỉ số không đổi” (facts A2.2); lỗi hay gặp “R càng lớn điện tích càng ít”.
+45bd6a708135	Nhãn ghi 470 μF, vì sao đo ra không phải 470?
+1f0ae56f9e9e	Em bật “Dụng cụ thực”, xem điện dung đo được thành bao nhiêu
+1b0f1a324580	Bật lên thì linh kiện thành giá trị thực: C′ = 454.19 μF, R′ = 3.3598 kΩ → τ = 1.53 s; tích đầy rồi q (đo bằng diện tích) = 3.62 mC, u_C = 7.94 V → đo được C = 456 μF, nhãn vẫn ghi 470 μF. Biểu diễn thêm trường hợp vượt thang đo: chỉnh U lên 12.0 V (miliampe kế \xB13 mA) → i(0) = 3.64 mA kịch thang, diện tích đo được 5.51 mC, “diện tích \xF7 (C\xB7U)” = 0.9770, nhỏ hơn tương đối 1.6 % so với 0.9933 khi không vượt thang.
+2da847ecd41e	456 μF ≠ 470 μF là dung sai linh kiện (giá trị thật 454.19 μF,
+f9ba6093e545	3.4 %), không phải đo sai: nhãn ghi giá trị danh định, tụ hoá cho phép \xB110 %, nên điện dung phải đo.
+e5f27a7accc9	Sai số của bản thân phép đo tính riêng: lượng tử hoá 0.1 mA của miliampe kế và việc lấy mẫu (chế độ mặc định
+32fd49096482	1 %), dòng điện kịch thang làm đỉnh đường cong bị cắt phẳng nên diện tích chắc chắn nhỏ hơn (tương đối 1.6 %), cách đếm ô nhỏ hơn 3.6 %.
+c45f76b7cd58	facts B2.1 mục 10, 12, B3 mục 3, B1.2, bảng chế độ thực
+e4f02481937f	C′ = C\xB7(1 + δ_C)  \xB7  nhãn ≠ đo thực
+c4fb8a806581	Nhãn 470 μF \xB7 giá trị thật 454.19 μF \xB7 đo thực 456 μF
+d7d887b2be6d	Dung sai
+d8977151d852	Đo thực 456 μF
+9d2776a48166	Kịch thang, diện tích nhỏ hơn
+5b98041b8415	Nhãn ghi giá trị danh định, đo ra là giá trị thực, chênh 3 % thuộc dung sai, nên điện dung phải đo.
+ed82dfd244dc	Sai số của bản thân phép đo có chiều: lượng tử hoá làm số đọc dao động, vượt thang làm diện tích chắc chắn nhỏ hơn, cách đếm ô cũng cho kết quả nhỏ hơn.
+0f7dcb0390d1	Cùng hạt giống, cùng một bộ điều khiển thì số đọc lặp lại được (đây là tính chất của phần mềm, không phải căn cứ để phân loại sai số).
+c2cd85d5e0d7	Bỏ bước này: học sinh sẽ coi “đo ra khác giá trị danh định” là do mình tính sai.
+f1bcab06610c	Năng lực thí nghiệm: nêu được nguồn và chiều sai số của dụng cụ thực (chuẩn chương trình “tìm tòi khoa học”).
+37617b8fd9f2	Kiểm tra cuối bài: tự chọn U, R, C sao cho ở đoạn này điện dung đo được đủ lớn mà dòng đỉnh không kịch thang
+39cbebef1f81	Đổi C lớn hơn (và đừng để R quá nhỏ), sao cho ba tiêu chí cùng thoả mãn, giữ trong 10 s
+3ac74df0fcf3	Kiểm tra cuối bài làm ở **giai đoạn phóng điện** (hình 10.4-2a, cảm biến đang đọc số), cả ba tiêu chí đều tính từ số đọc của đoạn này:
+cdab7f7ceca1	dòng phóng điện đỉnh |i(0)| ≤ 6.67 mA (một phần ba thang đo 20 mA của cảm biến);
+c5a01b21688d	điện dung đo từ số đọc nhỏ C = q/u_C ≥ 900 μF;
+3015629f1a1b	hiệu điện thế nguồn suy ngược từ dòng phóng điện ban đầu |i(0)| \xD7 R ≥ 2.0 V (chứng tỏ trước khi gạt sang 2 đã thật sự tích đầy). Một lời giải: U = 8.0 V, R = 2.2 kΩ, C = 1000 μF → |i(0)| = 3.64 mA, U suy ngược = 8.0 V, đo được C = 1000 μF; một lời giải khác: U = 12.0 V, R = 3.3 kΩ, C = 1000 μF.
+8b6b0b958562	Không có kết luận mới, chỉ dùng nối liền các mối liên hệ của tám bước trước một lượt: dòng đỉnh |i(0)| = U/R quyết định “có kịch thang không”, q/u_C dùng để tính điện dung, còn u_C tích đầy mới làm dòng phóng điện ban đầu bằng U/R; cả ba đều lấy từ số đọc trên cùng một đường phóng điện.
+c4c8bf222675	facts A2.1, A2.2, B1.2, B2.1 mục 1, 9, 15, B2.1 mục 17 (tiêu chí kiểm tra cuối bài và giá trị chuẩn)
+e1ce65a5e484	|i(0)| ≤ 6.67 mA  \xB7  q/u_C ≥ 900 μF  \xB7  |i(0)|\xB7R ≥ 2.0 V
+f70b3846750a	8.0 V / 2.2 kΩ / 1000 μF là một lời giải
+98b72e715a34	Dòng đỉnh ≤ 6.67 mA
+a131a4a920c1	C đo được ≥ 900 μF
+22053c8c1ae6	U suy ngược ≥ 2.0 V
+6b1dd95c5e36	Tiền đề: trước khi gạt sang 2 phải gạt khoá sang 1 tích đầy, nếu không dòng phóng điện ban đầu rất nhỏ, U suy ngược cũng nhỏ (tiêu chí số
+3d5d1edcd5ed	sẽ đánh em không đạt).
+26e91525aea6	Dòng đỉnh |i(0)| = U/R không được vượt một phần ba thang đo của cảm biến: đổi R xuống dưới 1.0 kΩ, hoặc chỉnh U lên 12 V mà dùng R nhỏ, sẽ kịch thang.
+b1e1e22a4a26	Muốn qua tiêu chí số
+b38f702f8997	thì đổi tụ lớn hơn (470 → 1000 μF): C đo được chính là q/u_C, giống nhãn, là tỉ số riêng của chính tụ này.
+61fb8fa54893	Không có kết luận mới: ba tiêu chí lần lượt ứng với ba ý “thang đo”, “định nghĩa điện dung”, “tích đầy” của tám bước trước, dùng đủ trong một lần.
+a471b0770bb8	Tổng hợp: |i(0)| = U/R (ràng buộc thang đo) + C = q/u_C (công thức định nghĩa) + tích đầy mới có dòng đỉnh (thứ tự thao tác).
+d00c4d1f87f7	Nguồn điện học sinh một chiều 4.0–12.0 V
+c89f2dbdbb5d	Khoá hai vị trí (ngắt / 1 / 2)
+c51cb1e31256	Điện trở phóng điện R
+37a4e6e9c3d4	Tụ hoá 470 μF / 16 V
+a027c9e912ca	Mặt cắt tụ điện (minh hoạ)
+19dfe0bfbfdd	Miliampe kế số 0 ở giữa
+6a168c575d05	Cảm biến dòng điện
+81b99c9710db	Vôn kế số
+2ec4c6558cbf	Máy tính \xB7 đồ thị I-t / q-u
+5332afb8ea8b	Đồ thị I-t
+f086dbffdb91	Diện tích = điện tích
+d7a322d9e15f	Đoạn này không có đồng hồ (giai đoạn tích điện, hình 10.4-2a)
+d4898498b18e	Đồ thị q-u
+5f998c43d18d	Điểm đã ghi + khớp qua gốc toạ độ
+cb40f00d7787	Tô màu = diện tích dưới đường cong = điện tích
+94cd24df9028	Độ dốc k =
+616035b228e0	Bấm “Ghi một lượt” bên trái, ghi 5 dòng
+efac437d7b68	Hình 10.4-2a
+2a1b942e4d13	Bản tụ và điện môi là minh hoạ mặt cắt
+54b23af149d3	Chấm điện tích chỉ để minh hoạ
+d69a38be4b15	Hình chữ nhật hẹp dựng đứng
+34fe422138ea	Hiệu điện thế nguồn U
+7f665e7b2288	Điện dung C (nhãn)
+befe957160ba	Khoá tổng
+b884174b5fa4	Khoá hai vị trí gạt sang
+30e5fe71bf6b	Cách mắc (hình SGK)
+4f53ad459b88	Dòng điện i
+27dbabff62c1	Điện tích q
+afbb625b2ce4	Điện dung C
+8c213148e216	Đồ thị I-t (bảng điều khiển)
+454dc32e2af1	Thời điểm hiện tại
+8f7b5b81831b	Không có dòng điện
+ca0fb38e1934	Khoá ngắt
+c09680de800f	Đang tích điện
+dbea72d6ecf2	Đã tích đầy
+b549c1221e82	Đang phóng điện
+24f66d0f560c	Đã phóng hết
+d0713d394e3a	Miliampe kế số 0 ở giữa \xB13 mA / 0.1 mA
+d7f4feda6056	Cảm biến dòng điện 20 mA / 0.01 mA
+b197da7a949a	Đoạn này không có đồng hồ
+6c238ebd3ce6	Ở hình 10.4-1 SGK, ampe kế mắc nối tiếp ở nhánh chung. Khi gạt khoá S từ 1 sang 2, kim ampe kế sẽ
+c00a7a02d8cd	Lệch về cùng phía nhưng ít hơn
+7443355beba5	Lệch về phía ngược lại
+d1d0b11c5c4e	Không lệch
+ed0b7d43570c	Lệch ngược trước, rồi trở lại phía cũ
+1db32439f984	Dòng tích điện chạy vào bản trên, dòng phóng điện từ bản dương qua R về bản âm, hai dòng ngược chiều; cùng một đồng hồ số 0 ở giữa có cả hai dòng đi qua nên kim lệch về phía ngược lại (facts A2.12, B2.1 mục 15).
+f20ee3f1fa02	Với cách mắc hình 10.4-1, dùng nguồn một chiều 8 V tích điện cho tụ 470 μF, dòng tích điện
+5d4bcb84c16e	Ngày càng nhỏ, cuối cùng bằng 0
+bf64038d3fb5	Ngày càng nhỏ, cuối cùng khác 0
+2eb954f1507f	Không đổi
+6c40dadb83b0	Ngày càng lớn
+fe76b5805b7f	u_C tăng làm (U
+f1343c866bff	u_C) nhỏ đi, i = (U
+289e1d984db2	u_C)/R giảm theo; khi u_C bắt kịp U thì dòng điện bằng 0 (facts A2.6, bảng tích điện 1a).
+1f372608b597	Trong quá trình tụ điện phóng điện, điện trường giữa hai bản
+88300b723198	Giữ nguyên chiều, chỉ yếu đi
+3df485f0fbc7	Đổi chiều, ngày càng yếu
+e3d3a8d951cb	Giữ nguyên chiều, ngày càng mạnh
+d599062192e6	Đổi chiều trước rồi trở lại
+13a0f4eaf500	Phóng điện chỉ làm điện tích trên bản tụ giảm, bản dương và bản âm không đổi chỗ cho nhau, nên cường độ điện trường luôn hướng từ bản trên xuống bản dưới, chỉ yếu đi (facts A2.13, khẳng định D3: \xCA\xB7
+ea25597a2580	= +1).
+ac2c28db8769	Diện tích
+a74dab84e9b1	Đồ thị I-t của một lần phóng điện cao khoảng 2.4 mA, trục thời gian dài khoảng 8 s, dùng lưới hình 10.4-3 SGK (ô nhỏ 0.2 mA \xD7 0.4 s) đếm được khoảng 45 ô, điện tích ước lượng khoảng
+29ff392033ca	Mỗi ô nhỏ 0.4 s \xD7 0.2 mA = 0.08 mC, 45 ô \xD7 0.08 = 3.60 mC, chênh với diện tích chính xác 3.73 mC là
+fc462f5eb3f8	0.13 mC (facts B2.1 mục 11).
+7172b8222124	Vẽ nhiều cặp (u_C, q) đo được trong quá trình phóng điện thành đồ thị q-u, được một đường thẳng qua gốc toạ độ, độ dốc 0.47 mC/V, vậy điện dung của tụ điện này là
+3ab6a4d96120	C = q/u_C = độ dốc \xD7 1000 = 470 μF (facts B2.1 mục 9; q/mC = 0.47 \xD7 u/V).
+80555c370a78	Một bạn chỉnh nguồn lên 12 V, kim miliampe kế kịch thang, điện tích đo bằng phương pháp diện tích sẽ
+cc5d2c9aeb7c	Lúc lớn lúc nhỏ, không xác định được
+dcbceeebc476	Khi dòng điện vượt thang đo, đỉnh đường cong bị cắt phẳng, diện tích dưới đường cong nhỏ đi, nên điện tích đo được chắc chắn nhỏ hơn (facts B2.1 mục 12: diện tích \xF7 (C\xB7U) là 0.9770
+3d118481ba67	0.9933).
+db54f2d48dbf	Xoay, thu phóng; bấm vào cần khoá trong cảnh 3D để gạt trực tiếp
+064ed00e5c9f	F toàn màn hình
+866dd98fa3bb	Chiếu toàn màn hình
+565628092097	Học xong bài này: dùng được diện tích dưới đồ thị I-t để đo điện tích, dùng độ dốc đồ thị q-u để tính điện dung, và nói rõ sai số của dụng cụ thực đến từ đâu, lệch về phía nào.
+7b13c782b4cd	Lưu ý minh hoạ: hình dạng dụng cụ, chấm điện tích trên bản tụ và mũi tên điện trường giữa hai bản là minh hoạ; i, u_C, q, C tính theo các toán tử ở cột B của bảng dữ kiện, q đo bằng diện tích i-t, không suy ngược từ C ghi trên nhãn.
+0c867bb325af	Công thức \xB7 điều kiện
+8c642c6861e1	Hai cách mắc trong SGK, hai đồng hồ: trên màn chỉ hiện một số đọc dòng điện
+c29d6ee93d11	centerZeroMeter: ${se}=${Ae} phải là bội nguyên của minor=${t}
+87fb3c8a0156	V \xB7 vôn kế
+2ba8f6a273a8	mC \xB7 diện tích
+142373c5ba99	Đã đóng
+c1fe8d856b94	Sang 2 (phóng điện)
+5f9a797a2609	Sang 1 (tích điện)
+781b3540ace9	Đỉnh≤6.67 mA, C≥900 μF, U≥2.0 V
+c889cb058235	Dòng đỉnh không vượt 1/3 thang đo, C đo từ q/u_C, U suy ngược từ i(0)\xB7R: đổi C thành 1000 μF, R không nhỏ hơn 2.2 kΩ, rồi gạt sang 1 tích đầy, sau đó gạt sang 2.
+0414bac848db	Ba tiêu chí của giai đoạn phóng điện
+7f4d6dc3c713	Quan sát sự tích điện và phóng điện của tụ điện · Bài giảng 3D tương tác
