@@ -11,7 +11,7 @@
     </svg>
     <div class="tt">
       <h1>Hành Trình Vào <em>Tế Bào</em></h1>
-      <p>Tế bào nhân thực · cắt hở phía trên · đang hoạt động · phóng tới nguyên tử · bản 7</p>
+      <p>Tế bào nhân thực · cắt hở phía trên · đang hoạt động · phóng tới nguyên tử · lên lớp · bản 8</p>
     </div>
     <dl class="kpis">
       <div><dt>Hạt đang chạy</dt><dd id="kParticles">0</dd></div>
@@ -36,6 +36,13 @@
         <button type="button" class="pin herotag" id="heroTag" hidden><span class="n">↓</span><span class="t">Ribosome thật · phóng tới nguyên tử</span></button>
         <div class="callout" id="callout" hidden></div>
         <div class="ov glass caption" id="caption" hidden></div>
+        <section class="ov lesson" id="lesson" hidden aria-live="polite" aria-label="Chế độ lên lớp">
+          <div class="lh"><span class="lk" id="lsK"></span><button type="button" class="lx" id="lsMin" title="Thu gọn hoặc mở rộng (phím H)" aria-label="Thu gọn">–</button><button type="button" class="lx" id="lsX" aria-label="Kết thúc tiết học">×</button></div>
+          <h3 id="lsT"></h3><p id="lsB"></p><p class="ask" id="lsA"></p>
+          <details id="lsND" hidden><summary>Gợi ý cho giáo viên</summary><p class="note" id="lsN"></p></details>
+          <div class="lq" id="lsQ"></div>
+          <div class="lf"><button type="button" class="btn" id="lsPrev">‹ Trước</button><div class="dots" id="lsDots"></div><button type="button" class="btn primary" id="lsNext">Tiếp ›</button></div>
+        </section>
         <div class="ov glass tline" id="tline" hidden></div>
         <button type="button" class="drawer-tab" id="drawerTab" aria-controls="aside" aria-expanded="true" title="Ẩn bảng thông tin (phím I)">›</button>
         <div class="ov toast" id="toast" role="status"></div>
@@ -75,7 +82,8 @@
         </div>
         <div class="grp">
           <button type="button" class="btn gold" id="diveBtn" disabled>Đang tải cấu trúc…</button>
-          <button type="button" class="btn primary" id="tourBtn">Xem phim 45 giây</button>
+          <button type="button" class="btn primary" id="lessonBtn" title="Bài giảng từng bước cho giáo viên">Lên lớp</button>
+          <button type="button" class="btn" id="tourBtn">Xem phim 45 giây</button>
           <button type="button" class="btn" id="resetBtn">Về toàn cảnh</button>
           <button type="button" class="btn" id="fsBtn" title="Phím F">Toàn màn hình</button>
           <button type="button" class="btn dark" id="benchBtn">Đo cổng 0 · 30 giây</button>
@@ -95,7 +103,7 @@
       <div class="card">
         <span class="eyebrow">Bào quan trong cảnh</span>
         <ul class="legend" id="legend"></ul>
-        <p class="keys">Kéo để xoay, cuộn để phóng. <kbd>I</kbd> ẩn hoặc hiện bảng này, <kbd>F</kbd> toàn màn hình. Bấm một bào quan để bay tới, rồi bấm ghim số để xem từng bộ phận. Bấm hạt vàng trên lưới nội chất hoặc nút <b>Phóng tới nguyên tử</b> để xuống tới từng nguyên tử. <kbd>1</kbd>–<kbd>4</kbd> đổi nhuộm, <kbd>R</kbd> về toàn cảnh, <kbd>Esc</kbd> lùi một bước.</p>
+        <p class="keys">Kéo để xoay, cuộn để phóng. <kbd>I</kbd> ẩn hoặc hiện bảng này, <kbd>F</kbd> toàn màn hình. Khi lên lớp: <kbd>→</kbd> hoặc bút trình chiếu để sang bước, <kbd>←</kbd> lùi, <kbd>H</kbd> thu gọn bảng bài giảng. Bấm một bào quan để bay tới, rồi bấm ghim số để xem từng bộ phận. Bấm hạt vàng trên lưới nội chất hoặc nút <b>Phóng tới nguyên tử</b> để xuống tới từng nguyên tử. <kbd>1</kbd>–<kbd>4</kbd> đổi nhuộm, <kbd>R</kbd> về toàn cảnh, <kbd>Esc</kbd> lùi một bước.</p>
       </div>
       <div class="card" id="benchCard" hidden></div>
       <div class="card">
@@ -126,6 +134,6 @@
 
   <footer class="foot">
     <span>Kế hoạch: <a href="https://claude.ai/artifact/EdyMQyM2rYKcfFYwgFisvM" target="_blank" rel="noopener">đồ hoạ 3D và tương tác</a> · Hồ sơ nguồn: <a href="https://claude.ai/artifact/FmWrnRkoZDdedueUbAcUqh" target="_blank" rel="noopener">tinh lọc bài tham khảo</a></span>
-    <span>Pha 0 · cổng 0: hình ảnh và độ mượt</span>
+    <span><a href="https://github.com/nclamvn/hanh-trinh-te-bao/blob/main/offline/hanh-trinh-te-bao-offline.html" target="_blank" rel="noopener">Tải bản offline cho lớp học (9 MB)</a> · <a href="https://github.com/nclamvn/hanh-trinh-te-bao" target="_blank" rel="noopener">Mã nguồn</a> · Pha 0</span>
   </footer>
 </div>

@@ -40,7 +40,7 @@ const REG = {
   'rnc.ptc': { l: 'Trung tâm nối peptide', v: 'làm bằng rRNA', s: 'Nissen và cs., Science 2000', u: 'https://doi.org/10.1126/science.289.5481.920' },
   'rnc.mrna': { l: 'mRNA có toạ độ trong mô hình', v: '10 nucleotide', s: 'RCSB PDB 3J7R', u: 'https://www.rcsb.org/structure/3J7R' },
 };
-let molHole = null, aoRef = null;
+let molHole = null, aoRef = null, lesson = null; // lesson: {i, qi, first, score, done, lastKey, poll, compact}
 const MOL = { ready: false, err: null, meta: null, heroP: null, disp: new THREE.Vector3(), lastDisp: new THREE.Vector3(), inMol: false, atomsOn: false, s: 1, dh: 1e9 };
 
 /* ================= Nội dung bào quan và bộ phận ================= */
@@ -969,7 +969,7 @@ function p95(a) { if (!a.length) return 0; const s = [...a].sort((x, y) => x - y
 function hud() { const info = renderer.info?.render || {}; const calls = info.drawCalls ?? info.calls ?? '–', tris = info.triangles ?? 0;
   $('hud').innerHTML = `<span class="${isWebGPU ? 'gpu' : 'gl'}">${isWebGPU ? 'WebGPU' : 'WebGL 2 (dự phòng)'}</span> · mức ${tierName === 'cao' ? 'Cao' : 'Chuẩn'}<br><b>${fmt(fpsEma, 0)}</b> fps · p95 <b>${fmt(p95(dts), 1)}</b> ms<span class="hx"><br>${calls} lệnh vẽ · ${fmt(tris / 1000, 0)}k tam giác</span>`; }
 let bench = null;
-function startBench() { fly = null; if (dive) endDive(false); if (tour) endTour(); stopFollow(); clearSel(); const off = camera.position.clone().sub(HOME.target); bench = { t0: performance.now(), dur: 30000, frames: [], tier: tierName, r: Math.hypot(off.x, off.z), y: off.y, a0: Math.atan2(off.z, off.x), last: -1 }; controls.target.copy(HOME.target); $('benchBtn').disabled = true; toast('Đang đo: camera tự bay một vòng và đổi nhuộm 4 lần. Kéo chuột để huỷ.'); }
+function startBench() { if (lesson) endLesson(); fly = null; if (dive) endDive(false); if (tour) endTour(); stopFollow(); clearSel(); const off = camera.position.clone().sub(HOME.target); bench = { t0: performance.now(), dur: 30000, frames: [], tier: tierName, r: Math.hypot(off.x, off.z), y: off.y, a0: Math.atan2(off.z, off.x), last: -1 }; controls.target.copy(HOME.target); $('benchBtn').disabled = true; toast('Đang đo: camera tự bay một vòng và đổi nhuộm 4 lần. Kéo chuột để huỷ.'); }
 function benchStep(now, dt) {
   const t = (now - bench.t0) / bench.dur; if (now - bench.t0 > 500) bench.frames.push(dt);
   const a = bench.a0 + t * Math.PI * 2, z = 1 - 0.5 * Math.sin(t * Math.PI);
@@ -1101,7 +1101,7 @@ function stepTour(dt) {
   if (u >= 1) { tour.i++; if (tour.i >= tour.shots.length) endTour(); else enterShot(); }
 }
 function endTour() { if (!tour) return; tour = null; $('caption').hidden = true; $('tline').hidden = true; $('tourBtn').textContent = 'Xem phim 45 giây'; if (tunnel) { tunnel = null; rebuildTunnelParts(); } }
-$('tourBtn').addEventListener('click', () => tour ? endTour() : startTour());
+$('tourBtn').addEventListener('click', () => { if (lesson) endLesson(); tour ? endTour() : startTour(); });
 
 /* ================= Bảng dữ liệu, nhật ký, số liệu đầu trang ================= */
 const PH_ROWS = [['Lysosome', 4.7, 4.7, 'lyso'], ['Endosome muộn', 5.5, 5.5, null], ['Golgi, trans → cis', 6.0, 6.7, 'golgi'], ['Lưới nội chất', 7.2, 7.2, 'er'], ['Bào tương', 7.2, 7.2, null], ['Nhân', 7.2, 7.2, 'nucleus'], ['Ty thể', 8.0, 8.0, 'mito']];
@@ -1142,7 +1142,7 @@ function renderTicker() { $('ticker').innerHTML = tickLog.length ? tickLog.slice
 $('ticker').addEventListener('animationiteration', renderTicker);
 if (reduceMotion) setInterval(renderTicker, 6000);
 setTimeout(renderTicker, 2500);
-function stateText() { return bench ? 'Đang đo' : dive ? 'Đang phóng' : MOL.atomsOn ? 'Nguyên tử' : tour ? 'Phim' : follow ? 'Theo dõi' : sel ? (sel.part ? 'Xem bộ phận' : 'Xem bào quan') : 'Toàn cảnh'; }
+function stateText() { return bench ? 'Đang đo' : lesson ? `Lên lớp ${lesson.i + 1}/${LESSON.steps.length}` : dive ? 'Đang phóng' : MOL.atomsOn ? 'Nguyên tử' : tour ? 'Phim' : follow ? 'Theo dõi' : sel ? (sel.part ? 'Xem bộ phận' : 'Xem bào quan') : 'Toàn cảnh'; }
 setInterval(() => {
   let n = flashPool.mesh.count; for (const p of PROCS) n += p.pool.mesh.count; $('kParticles').textContent = n.toLocaleString('vi-VN');
   const sec = Math.floor(simT); $('kClock').textContent = `${String(Math.floor(sec / 60)).padStart(2, '0')}:${String(sec % 60).padStart(2, '0')}`;
@@ -1242,8 +1242,9 @@ function setupHero() {
 
 async function loadMol() {
   try {
-    const res = await fetch('ribosome.b64.txt'); if (!res.ok) throw new Error('HTTP ' + res.status);
-    const b64 = (await res.text()).trim(), bin = atob(b64); let buf = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+    const emb = document.getElementById('ribo-b64'); let b64;
+    if (emb) b64 = emb.textContent.trim(); else { const res = await fetch('ribosome.b64.txt'); if (!res.ok) throw new Error('HTTP ' + res.status); b64 = (await res.text()).trim(); }
+    const bin = atob(b64); let buf = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
     if (buf[0] === 0x1f && buf[1] === 0x8b) buf = new Uint8Array(await new Response(new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer());
     const dv = new DataView(buf.buffer, buf.byteOffset, buf.byteLength), n = dv.getUint32(0, true);
     const meta = JSON.parse(new TextDecoder().decode(buf.subarray(4, 4 + n))); let off = 4 + n; off += (4 - off % 4) % 4;
@@ -1436,7 +1437,113 @@ applyTier('cao', false);
 setStain(0); renderInfo(); renderLegend(); renderProcs(); setPlaying(playing); stepLook(0, true); renderPH(); drawFlow(); drawMito();
 resize();
 renderer.setAnimationLoop(loop);
-window.__cell = { startTour, endTour, startFollow, stopFollow, setPlaying, get follow() { return follow; }, setStain, select, selectPart, back, setCut: (y) => { cutY = y; rebuildCut(); }, isWebGPU, setTier: (t) => applyTier(t, false), get sel() { return sel; }, startDive, endDive, get dive() { return dive; }, mol: MOL, look: () => ({ pos: camera.position.toArray(), tgt: controls.target.toArray(), near: camera.near }) };
+window.__cell = { startTour, endTour, startFollow, stopFollow, setPlaying, get follow() { return follow; }, setStain, select, selectPart, back, setCut: (y) => { cutY = y; rebuildCut(); }, isWebGPU, setTier: (t) => applyTier(t, false), get sel() { return sel; }, startDive, endDive, get dive() { return dive; }, lesson: { start: () => startLesson(), go: (i) => goStep(i), end: () => endLesson(), get state() { return lesson && { i: lesson.i, qi: lesson.qi, score: lesson.score, done: lesson.done }; } }, mol: MOL, look: () => ({ pos: camera.position.toArray(), tgt: controls.target.toArray(), near: camera.near }) };
+
+
+/* ================= Chế độ lên lớp: bài "Hành trình của một phân tử protein tiết" ================= */
+const LESSON = {
+  title: 'Hành trình của một phân tử protein tiết',
+  steps: [
+    { t: 'Câu hỏi mở đầu', b: 'Nhiều tế bào làm ra protein để đưa ra ngoài, như tế bào tuyến tụy tiết insulin. Hôm nay ta đi theo một phân tử protein tiết, từ gen trong nhân tới lúc rời tế bào.', a: 'Em đoán phân tử ấy đi qua những bào quan nào, theo thứ tự nào? Ghi ra giấy, cuối bài ta kiểm lại.', go: () => { clearSel(); flyHome(); } },
+    { t: 'Công thức nằm trong nhân', b: 'Trình tự của protein được ghi trong gen, trên DNA cuộn thành chất nhiễm sắc. DNA ở lại trong nhân; tế bào phiên mã gen thành một bản sao là mRNA.', a: 'Vì sao tế bào gửi bản sao mRNA ra khỏi nhân mà không gửi chính DNA?', go: () => select('nucleus', null, 'chromatin') },
+    { t: 'mRNA rời khỏi nhân', b: 'Theo dõi một phân tử mRNA: nó chui qua lỗ nhân ra bào tương rồi đi tới lưới nội chất hạt.', a: 'Nếu mọi lỗ nhân bị bịt kín, mRNA mắc kẹt ở đâu và tế bào sẽ thiếu gì?', go: () => { clearSel(); startFollow('mrna'); } },
+    { t: 'Lưới nội chất hạt', b: 'Các tấm màng quanh nhân lấm tấm ribosome. Protein tiết được tổng hợp bởi những ribosome bám trên màng này.', a: 'Ở thang này ribosome được vẽ phóng to cho dễ thấy. Theo em, kích thước thật của nó cỡ nào?', go: () => select('er', null, 'boundribo') },
+    { t: 'Phóng tới một ribosome thật', b: 'Camera phóng liền một mạch từ micromet xuống ångström. Ribosome này dựng từ 222.336 nguyên tử của cấu trúc cryo-EM PDB 3J7R.', a: 'Ước lượng: ribosome rộng khoảng 30 nm, tế bào khoảng 20 µm. Nếu tế bào to bằng một lớp học dài 10 m, ribosome to cỡ nào?', n: 'Đáp án: 20 µm ÷ 30 nm ≈ 670 lần, nên ribosome cỡ 10 m ÷ 670 ≈ 1,5 cm, bằng một viên bi. Kích thước tế bào 20 µm là giả định để ước lượng.', go: () => { clearSel(); startDive(); } },
+    { t: 'tRNA đọc mã trên mRNA', b: 'Mỗi tRNA mang một amino acid. Anticodon của tRNA khớp với một codon trên mRNA, nhờ vậy amino acid được nối đúng thứ tự. Các phần khác thu thành sương nguyên tử để lộ tRNA nằm sâu bên trong ribosome.', a: 'Một codon gồm mấy nucleotide? Có tất cả bao nhiêu codon khác nhau?', n: 'Đáp án: 3 nucleotide; 4 loại nucleotide nên có 4³ = 64 codon.', go: () => select('rnc', null, 'trnaA') },
+    { t: 'Chuỗi protein chui vào lưới nội chất', b: 'Chuỗi amino acid mới (màu cam) mọc ra từ trung tâm nối peptide, đi qua đường hầm của tiểu phần lớn rồi chui qua kênh Sec61 vào lòng lưới nội chất. Ở đó protein được gấp nếp.', a: 'Nếu kênh Sec61 bị chặn, chuỗi protein này sẽ ra sao?', n: 'Đường đi của chuỗi là ước lượng; mô hình 3J7R không có toạ độ của chuỗi mới.', go: () => { setPlaying(true); select('rnc', null, 'nascent'); } },
+    { t: 'Bộ máy Golgi sửa và đóng gói', b: 'Túi chở protein từ lưới nội chất tới mặt cis của Golgi. Qua từng tầng, protein được sửa đổi, ví dụ gắn chuỗi đường, rồi được phân loại và đóng gói vào túi ở mặt trans.', a: 'Protein đi qua Golgi theo hướng nào, và màu trong cảnh cho em biết điều gì về hướng đó?', go: () => select('golgi') },
+    { t: 'Xuất bào', b: 'Theo dõi một túi tiết: nó rời Golgi, đi dọc vi ống tới màng sinh chất, hoà vào màng và đổ protein ra ngoài tế bào.', a: 'Sau khi túi hoà vào màng sinh chất, màng của túi đi đâu?', go: () => { clearSel(); startFollow('secrete'); } },
+    { t: 'Năng lượng cho cả hành trình', b: 'Dịch mã và vận chuyển túi đều tốn năng lượng. Phần lớn ATP của tế bào do ty thể tạo ra; hạt vàng trong cảnh là ATP toả ra bào tương.', a: 'Kể lại cả hành trình trong một câu. So với dự đoán đầu giờ, em đoán đúng bao nhiêu chặng?', go: () => select('mito') },
+    { t: 'Kiểm tra', quiz: true, go: () => { clearSel(); flyHome(); } },
+  ],
+  quiz: [
+    { pick: 'golgi', q: 'Bấm vào bào quan nơi protein tiết được sửa đổi và đóng gói vào túi.', ok: 'Đúng: bộ máy Golgi sửa đổi, phân loại và đóng gói protein.' },
+    { pick: 'er', q: 'Bấm vào nơi chuỗi protein tiết đi vào ngay sau khi rời ribosome.', ok: 'Đúng: chuỗi protein chui qua kênh Sec61 vào lòng lưới nội chất hạt.' },
+    { opts: ['Nhân → lưới nội chất hạt → Golgi → túi tiết → màng sinh chất', 'Nhân → Golgi → lưới nội chất hạt → túi tiết → màng sinh chất', 'Nhân → ribosome tự do → ty thể → màng sinh chất'], right: 0, q: 'Thứ tự nào đúng với hành trình của một protein tiết?', ok: 'Đúng: làm ở lưới nội chất hạt, sửa ở Golgi, theo túi tiết ra màng.' },
+  ],
+};
+function startLesson() {
+  if (bench) return; if (tour) endTour(); if (dive) endDive(false); stopFollow();
+  lesson = { i: 0, qi: 0, score: 0, first: true, done: false, lastKey: null, poll: null, compact: false };
+  host.classList.add('lessoning'); $('lesson').hidden = false; $('lessonBtn').textContent = 'Kết thúc tiết học';
+  $('lsDots').innerHTML = LESSON.steps.map((s, k) => `<button type="button" aria-label="Bước ${k + 1}: ${s.t}"></button>`).join('');
+  goStep(0);
+}
+function lessonOffset() { const card = $('lesson'), W = host.clientWidth, H = host.clientHeight; const dx = lesson && W > 760 && !card.hidden ? Math.round((card.offsetWidth + 12) / 2) : 0; if (dx) camera.setViewOffset(W, H, -dx, 0, W, H); else camera.clearViewOffset(); }
+new ResizeObserver(() => lessonOffset()).observe($('lesson')); new ResizeObserver(() => lessonOffset()).observe(host);
+function endLesson() {
+  if (!lesson) return; clearInterval(lesson.poll); lesson = null; lessonOffset();
+  host.classList.remove('lessoning'); $('lesson').hidden = true; $('lessonBtn').textContent = 'Lên lớp';
+  if (sel) showCallout();
+}
+function goStep(i) {
+  if (!lesson) return; i = Math.max(0, Math.min(LESSON.steps.length - 1, i));
+  clearInterval(lesson.poll); lesson.poll = null; lesson.i = i;
+  const s = LESSON.steps[i];
+  if (dive && i !== 4) endDive(false);
+  if (follow && !s.go.toString().includes('startFollow')) stopFollow();
+  try { s.go(); } catch (e) { console.warn('Bước bài giảng lỗi:', e); }
+  if (s.quiz) { lesson.qi = 0; lesson.score = 0; lesson.first = true; lesson.done = false; }
+  renderLesson();
+}
+function renderLesson() {
+  if (!lesson) return; const s = LESSON.steps[lesson.i], n = LESSON.steps.length;
+  $('lsK').textContent = `Lên lớp · bước ${lesson.i + 1}/${n}`; $('lsK').title = LESSON.title;
+  $('lsT').textContent = s.t;
+  const lb = $('lsB'), la = $('lsA'), nd = $('lsND'), q = $('lsQ');
+  q.innerHTML = '';
+  if (!s.quiz) {
+    lb.hidden = false; lb.textContent = s.b; la.hidden = false; la.innerHTML = `<b>Hỏi cả lớp</b>${s.a}`;
+    nd.hidden = !s.n; if (s.n) { $('lsN').textContent = s.n; nd.open = false; }
+  } else { la.hidden = true; nd.hidden = true; renderQuiz(); }
+  document.querySelectorAll('#lsDots button').forEach((b, k) => b.setAttribute('aria-current', String(k === lesson.i)));
+  $('lsPrev').disabled = lesson.i === 0;
+  $('lsNext').textContent = lesson.i === n - 1 ? 'Kết thúc' : 'Tiếp ›';
+  $('lesson').classList.toggle('compact', lesson.compact); $('lsMin').textContent = lesson.compact ? '+' : '–';
+  lessonOffset();
+}
+function renderQuiz() {
+  const lb = $('lsB'), q = $('lsQ'), Q = LESSON.quiz;
+  if (lesson.done) {
+    lb.hidden = false; lb.textContent = `Kết quả: ${lesson.score}/${Q.length} câu đúng ngay lần đầu.`;
+    q.innerHTML = `<div class="fb ${lesson.score === Q.length ? 'ok' : 'wait'}">${lesson.score === Q.length ? 'Xuất sắc. Cả lớp đã nắm được hành trình của protein tiết.' : 'Xem lại các bước còn sai rồi làm lại phần kiểm tra.'}</div><button type="button" class="opt" id="qAgain">Làm lại phần kiểm tra</button>`;
+    $('qAgain').addEventListener('click', () => { lesson.qi = 0; lesson.score = 0; lesson.first = true; lesson.done = false; clearSel(); flyHome(); renderLesson(); });
+    return;
+  }
+  const c = Q[lesson.qi]; lb.hidden = false; lb.textContent = `Câu ${lesson.qi + 1}/${Q.length}. ${c.q}`;
+  if (c.pick) {
+    q.innerHTML = '<div class="fb wait" id="qFb">Bấm trực tiếp vào mô hình 3D. Có thể xoay và phóng để tìm.</div>';
+    lesson.lastKey = sel ? sel.key : null; clearInterval(lesson.poll);
+    lesson.poll = setInterval(() => {
+      if (!lesson) return; const k = sel ? sel.key : null; if (k === lesson.lastKey) return; lesson.lastKey = k; if (!k) return;
+      const fb = $('qFb'); if (!fb) return;
+      if (k === c.pick) { clearInterval(lesson.poll); if (lesson.first) lesson.score++; fb.className = 'fb ok'; fb.textContent = c.ok; nextQuizSoon(); }
+      else { lesson.first = false; fb.className = 'fb no'; fb.textContent = `Chưa đúng: em vừa bấm vào ${ORG[k] ? ORG[k].name.toLowerCase() : 'một bào quan khác'}. Thử lại nhé.`; setTimeout(() => { if (lesson && sel && sel.key === k) { clearSel(); lesson.lastKey = null; } }, 1800); }
+    }, 250);
+  } else {
+    q.innerHTML = c.opts.map((o, k) => `<button type="button" class="opt" data-k="${k}">${String.fromCharCode(65 + k)}. ${o}</button>`).join('') + '<div class="fb" id="qFb" hidden></div>';
+    q.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => {
+      const k = +b.dataset.k, fb = $('qFb'); fb.hidden = false;
+      if (k === c.right) { b.classList.add('ok'); if (lesson.first) lesson.score++; fb.className = 'fb ok'; fb.textContent = c.ok; q.querySelectorAll('.opt').forEach(x => x.disabled = true); nextQuizSoon(); }
+      else { lesson.first = false; b.classList.add('no'); fb.className = 'fb no'; fb.textContent = 'Chưa đúng. Nhớ lại: protein được làm ở đâu trước, rồi mới tới đâu?'; }
+    }));
+  }
+}
+function nextQuizSoon() { setTimeout(() => { if (!lesson || !LESSON.steps[lesson.i].quiz) return; lesson.qi++; lesson.first = true; if (lesson.qi >= LESSON.quiz.length) lesson.done = true; else { clearSel(); flyHome(); } renderLesson(); }, 2200); }
+$('lessonBtn').addEventListener('click', () => lesson ? endLesson() : startLesson());
+$('lsX').addEventListener('click', (e) => { e.stopPropagation(); endLesson(); });
+$('lsMin').addEventListener('click', (e) => { e.stopPropagation(); if (lesson) { lesson.compact = !lesson.compact; renderLesson(); } });
+$('lsPrev').addEventListener('click', (e) => { e.stopPropagation(); if (lesson) goStep(lesson.i - 1); });
+$('lsNext').addEventListener('click', (e) => { e.stopPropagation(); if (!lesson) return; if (lesson.i === LESSON.steps.length - 1) endLesson(); else goStep(lesson.i + 1); });
+$('lsDots').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b || !lesson) return; goStep([...b.parentNode.children].indexOf(b)); });
+$('lesson').addEventListener('pointerdown', (e) => e.stopPropagation());
+addEventListener('keydown', (e) => {
+  if (!lesson || e.target.closest('input,select,textarea') || e.ctrlKey || e.metaKey || e.altKey) return;
+  if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); if (lesson.i < LESSON.steps.length - 1) goStep(lesson.i + 1); }
+  else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); goStep(lesson.i - 1); }
+  else if (e.key === 'h' || e.key === 'H') { lesson.compact = !lesson.compact; renderLesson(); }
+  else if (e.key === 'Escape' && !sel && !dive && !follow) endLesson();
+});
 
 // Ngăn kéo bên phải và chế độ toàn màn hình
 { const main = document.querySelector('.main'), tab = $('drawerTab'), stage = document.querySelector('.stage');

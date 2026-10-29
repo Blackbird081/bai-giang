@@ -205,6 +205,38 @@ kbd{font-family:var(--f-mono);font-size:11px;border:1px solid var(--hair);border
 @keyframes hpulse{0%,100%{box-shadow:0 0 0 0 rgba(232,176,75,.6)}50%{box-shadow:0 0 0 8px rgba(232,176,75,0)}}
 .capscale{display:inline-block;margin-left:6px;font-family:var(--f-mono);font-size:11px;padding:1px 6px;border-radius:5px;background:rgba(232,176,75,.2);color:inherit}
 @media (prefers-reduced-motion: reduce){.herotag .n{animation:none}}
+/* Chế độ lên lớp */
+.lesson{left:12px;top:64px;width:min(380px,34%);max-height:calc(100% - 128px);overflow:auto;pointer-events:auto;z-index:6;padding:12px 16px 12px;font-family:var(--f-body);color:#1B1416;background:rgba(255,252,250,.9);border:1px solid rgba(190,23,64,.25);border-radius:12px;box-shadow:0 12px 34px rgba(60,10,25,.16);display:grid;gap:6px}
+.lesson[hidden]{display:none!important}
+.lesson .lh{display:flex;align-items:center;gap:8px}
+.lesson .lk{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#BE1740;font-weight:600}
+.lesson .lx{margin-left:auto;background:none;border:0;font-size:18px;line-height:1;cursor:pointer;color:inherit;opacity:.6;padding:2px 6px}
+.lesson h3{margin:0;font-size:18px;line-height:1.25}
+.lesson p{margin:0;font-size:14px;line-height:1.5}
+.lesson .ask{border-left:3px solid #E8B04B;padding:4px 0 4px 10px;background:rgba(232,176,75,.1);border-radius:0 6px 6px 0}
+.lesson .ask b{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#8A5A07;margin-right:6px}
+.lesson .note{font-size:12.5px;color:#6B5B60}
+.lesson .note[hidden],.lesson .ask[hidden]{display:none}
+.lesson details summary{cursor:pointer;font-size:12.5px;color:#6B5B60}
+.lesson .lq{display:grid;gap:6px}
+.lesson .lq:empty{display:none}
+.lesson .opt{text-align:left;background:#fff;border:1px solid rgba(0,0,0,.14);border-radius:8px;padding:8px 10px;font:14px var(--f-body);cursor:pointer;color:inherit}
+.lesson .opt:hover{border-color:#BE1740}
+.lesson .opt.ok{border-color:#1E8A4C;background:rgba(30,138,76,.1)}
+.lesson .opt.no{border-color:#BE1740;background:rgba(190,23,64,.08)}
+.lesson .fb{font-size:13.5px;padding:6px 10px;border-radius:8px}
+.lesson .fb.ok{background:rgba(30,138,76,.1);color:#14592F}
+.lesson .fb.no{background:rgba(190,23,64,.08);color:#8C1230}
+.lesson .fb.wait{background:rgba(232,176,75,.14);color:#6B4705}
+.lesson .lf{display:flex;align-items:center;gap:8px;margin-top:2px}
+.lesson .dots{display:flex;gap:4px;flex:1;justify-content:center;flex-wrap:wrap}
+.lesson .dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:rgba(190,23,64,.2);cursor:pointer}
+.lesson .dots button[aria-current="true"]{background:#BE1740;transform:scale(1.25)}
+.lesson .lf .btn{padding:6px 12px;font-size:13px}
+.lesson .lf .btn:disabled{opacity:.45;cursor:not-allowed}
+#viewport.lessoning .callout,#viewport.lessoning .lead,#viewport.lessoning .caption,#viewport.lessoning .hud{display:none!important}
+#viewport.lessoning .lesson.compact p:not(.ask),#viewport.lessoning .lesson.compact .note,#viewport.lessoning .lesson.compact details{display:none}
+@media (max-width:760px){.lesson{left:3%;width:94%;top:auto;bottom:10px;max-height:58%}}
 /* Bố cục tràn viền: khung 3D chiếm tối đa, cột phải là ngăn kéo thu gọn được */
 .drawer-tab{display:none;position:absolute;right:0;top:50%;transform:translateY(-50%);width:24px;height:72px;place-items:center;pointer-events:auto;z-index:5;border:1px solid var(--line);border-right:0;border-radius:10px 0 0 10px;background:var(--panel);color:var(--ink);font:600 16px var(--f-mono);cursor:pointer;opacity:.88;box-shadow:-4px 0 14px rgba(0,0,0,.08)}
 .drawer-tab:hover,.drawer-tab:focus-visible{opacity:1;color:var(--crimson)}
