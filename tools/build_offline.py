@@ -3,6 +3,7 @@
 
 Cách dùng:
   python3 tools/build_offline.py index.html ribosome.b64.txt <thư mục gói three@0.180.0> offline/hanh-trinh-te-bao-offline.html
+  python3 tools/build_offline.py ty-the.html - <thư mục gói three@0.180.0> offline/vao-ty-the-offline.html
 Thư mục gói three lấy từ `npm i three@0.180.0` (node_modules/three).
 """
 import base64, json, re, sys, pathlib
@@ -44,11 +45,13 @@ used = set(re.findall(r"""['"](three(?:/[A-Za-z0-9_./-]+)?)['"]""", html))
 missing = sorted(u for u in used if u not in imports and not u.endswith('/'))
 if missing: sys.exit(f'Trang dùng module chưa được đóng gói: {missing}')
 html = html[:m.start()] + '<script type="importmap">' + json.dumps({'imports': imports}) + '</script>' + html[m.end():]
-b64 = pathlib.Path(data).read_text().strip()
-if not re.fullmatch(r'[A-Za-z0-9+/=]+', b64): sys.exit('ribosome.b64.txt không phải base64 hợp lệ')
-emb = f'<script type="text/plain" id="ribo-b64">{b64}</script>\n'
-i = html.index('<script type="importmap">')
-html = html[:i] + emb + html[i:]
+b64 = ''
+if data != '-':  # '-': trang đã tự nhúng dữ liệu (ví dụ ty-the.html)
+    b64 = pathlib.Path(data).read_text().strip()
+    if not re.fullmatch(r'[A-Za-z0-9+/=]+', b64): sys.exit('ribosome.b64.txt không phải base64 hợp lệ')
+    emb = f'<script type="text/plain" id="ribo-b64">{b64}</script>\n'
+    i = html.index('<script type="importmap">')
+    html = html[:i] + emb + html[i:]
 html = html.replace('<title>', '<meta name="offline-build" content="three ' + version + '">\n<title>', 1)
 if not html.lstrip().lower().startswith('<!doctype'):
     html = '<!doctype html>\n<html lang="vi">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n' + html

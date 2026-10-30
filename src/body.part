@@ -11,7 +11,7 @@
     </svg>
     <div class="tt">
       <h1>Hành Trình Vào <em>Tế Bào</em></h1>
-      <p>Tế bào nhân thực · cắt hở phía trên · đang hoạt động · phóng tới nguyên tử · lên lớp · AR · bản 9</p>
+      <p>Tế bào nhân thực · cắt hở phía trên · đang hoạt động · phóng tới nguyên tử · lên lớp · AR · ty thể · bản 10</p>
     </div>
     <dl class="kpis">
       <div><dt>Hạt đang chạy</dt><dd id="kParticles">0</dd></div>
@@ -135,6 +135,6 @@
 
   <footer class="foot">
     <span>Kế hoạch: <a href="https://claude.ai/artifact/EdyMQyM2rYKcfFYwgFisvM" target="_blank" rel="noopener">đồ hoạ 3D và tương tác</a> · Hồ sơ nguồn: <a href="https://claude.ai/artifact/FmWrnRkoZDdedueUbAcUqh" target="_blank" rel="noopener">tinh lọc bài tham khảo</a></span>
-    <span><a href="https://github.com/nclamvn/hanh-trinh-te-bao/blob/main/offline/hanh-trinh-te-bao-offline.html" target="_blank" rel="noopener">Tải bản offline cho lớp học (9 MB)</a> · <a href="https://nclamvn.github.io/hanh-trinh-te-bao/thu-vien/" target="_blank" rel="noopener">Thư viện 54 bài 3D tiếng Việt</a> · <a href="https://github.com/nclamvn/hanh-trinh-te-bao" target="_blank" rel="noopener">Mã nguồn</a> · Pha 0</span>
+    <span><a href="https://github.com/nclamvn/hanh-trinh-te-bao/blob/main/offline/hanh-trinh-te-bao-offline.html" target="_blank" rel="noopener">Tải bản offline cho lớp học (9 MB)</a> · <a href="thu-vien/" target="_blank" rel="noopener">Thư viện 54 bài 3D tiếng Việt</a> · <a href="ty-the.html" target="_blank" rel="noopener">Vào Ty Thể: ATP synthase thật</a> · <a href="chu-de-sinh-hoc-te-bao.html" target="_blank" rel="noopener">Lộ trình Sinh học tế bào lớp 10</a> · <a href="https://github.com/nclamvn/hanh-trinh-te-bao" target="_blank" rel="noopener">Mã nguồn</a> · Pha 0</span>
   </footer>
 </div>

@@ -48,6 +48,12 @@ VI_CSS = """<style id="vi-fit">
 .slh b{font-size:17px!important}
 </style>
 """
+# Quy tắc thuật ngữ áp lúc ghép (không sửa từng dòng dịch): bài gốc trích sách giáo khoa Trung Quốc (NXB Giáo dục Nhân dân).
+# "SGK" trơn dễ bị hiểu là SGK Việt Nam, nên đổi thành "SGK gốc", trừ chỗ đã ghi rõ.
+TERM_FIX = [(re.compile(r'\bSGK\b(?! ?(?:gốc|Nhân Giáo|Trung Quốc))'), 'SGK gốc')]
+def term_fix(t):
+    for rx, b in TERM_FIX: t = rx.sub(b, t)
+    return t
 uid = lambda t: hashlib.sha1(t.encode('utf-8')).hexdigest()[:12]
 tokens = lambda t, pat: sorted(re.findall(pat, t))
 
@@ -143,6 +149,7 @@ def apply(repo, tdir, outdir):
             parts = []; last = 0
             for a, b, t in runs(d):
                 vi = T.get(Z.get(t, ''), None)
+                if vi is not None: vi = term_fix(vi)
                 if vi is None: left += 1; continue
                 parts.append((a, b, vi)); n += 1
             if not parts: return raw
@@ -155,7 +162,7 @@ def apply(repo, tdir, outdir):
         head_end = s2.find('<script')
         h = s2[:head_end]
         for m in re.finditer(r'>([^<>]*[\u4e00-\u9fff][^<>]*)<', h):
-            t = m.group(1).strip(); vi = T.get(Z.get(t, ''))
+            t = m.group(1).strip(); vi = T.get(Z.get(t, '')); vi = term_fix(vi) if vi else vi
             if vi: h = h.replace(m.group(1), m.group(1).replace(t, vi), 1)
         s2 = h.replace('lang="zh-CN"', 'lang="vi"') + s2[head_end:]
         # hậu xử lý: template lồng trong template mà bộ tách không với tới (thông báo lỗi cho lập trình viên)

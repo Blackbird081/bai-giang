@@ -1,0 +1,3043 @@
+{
+ "mo_ta": "Đối chiếu 54 bài thư viện, trang Hành Trình Vào Tế Bào và trang Vào Ty Thể với Chương trình GDPT 2018 (Thông tư 32/2018/TT-BGDĐT, đã soát các lần sửa đổi: Thông tư 13/2022, 17/2025). Yêu cầu cần đạt trích nguyên văn; mỗi trích dẫn đã được đối chiếu bằng máy với văn bản nguồn. muc_do: chinh = bài dạy trực tiếp yêu cầu này; lien_quan = bài hỗ trợ hoặc mở rộng.",
+ "ngay": "2026-10-30",
+ "nguon": {
+  "Sinh học": [
+   {
+    "ten": "Chương trình giáo dục phổ thông môn Sinh học (ban hành kèm theo Thông tư số 32/2018/TT-BGDĐT ngày 26/12/2018 của Bộ trưởng Bộ GD&ĐT), bản PDF 65 trang của Bộ, bản sao lưu tại Trường Đại học Sư phạm – Đại học Cần Thơ (đã đọc toàn văn; trích nguyên văn từ đây)",
+    "url": "https://se.ctu.edu.vn/images/upload/bmsh/CTTT_2018"
+   },
+   {
+    "ten": "Thông tư 13/2022/TT-BGDĐT (chỉ sửa Chương trình tổng thể và môn Lịch sử; không sửa môn Sinh học)",
+    "url": "https://luatvietnam.vn/giao-duc/thong-tu-13-2022-tt-bgddt-227351-d1.html"
+   },
+   {
+    "ten": "Thông tư 17/2025/TT-BGDĐT (sửa Lịch sử và Địa lí, Địa lí 12, Lịch sử 10, GD kinh tế và pháp luật 10; không sửa môn Sinh học)",
+    "url": "https://lsvn.vn/chinh-thuc-sua-doi-bo-sung-mot-so-noi-dung-trong-chuong-trinh-giao-duc-pho-thong-a163209.html"
+   }
+  ],
+  "Vật lí": [
+   {
+    "ten": "Chương trình giáo dục phổ thông môn Vật lí (ban hành kèm Thông tư 32/2018/TT-BGDĐT), bản PDF của Bộ GD&ĐT ngày 27/12/2018, đăng lại trên trang Trường THCS An Đồng, Hải Phòng",
+    "url": "https://thcsandong.haiphong.edu.vn/van-ban-nganh/chuong-trinh-giao-duc-pho-thong-mon-vat-li-ban-hanh-kem-theo-thong-tu-so-322018/ctmb/20405/91189"
+   },
+   {
+    "ten": "Chương trình giáo dục phổ thông môn Khoa học tự nhiên (ban hành kèm Thông tư 32/2018/TT-BGDĐT), bản PDF của Bộ GD&ĐT ngày 27/12/2018, đăng lại trên trang Trường THCS An Đồng, Hải Phòng",
+    "url": "https://thcsandong.haiphong.edu.vn/van-ban-nganh/chuong-trinh-giao-duc-pho-thong-mon-khoa-hoc-tu-nhien-ban-hanh-kem-theo-thong-t/ctmb/20405/91188"
+   },
+   {
+    "ten": "Thông tư 13/2022/TT-BGDĐT (chỉ sửa Chương trình tổng thể và môn Lịch sử, không sửa Vật lí, KHTN)",
+    "url": "https://luatvietnam.vn/giao-duc/thong-tu-13-2022-tt-bgddt-227351-d1.html"
+   },
+   {
+    "ten": "Thông tư 17/2025/TT-BGDĐT (sửa Lịch sử và Địa lí, Địa lí 12, Lịch sử 10, GDCD 10; không sửa Vật lí, KHTN)",
+    "url": "https://chuyenlequydongialai.edu.vn/bo-gddt-cong-bo-noi-dung-sua-doi-bo-sung-chuong-trinh-giao-duc-pho-thong/"
+   }
+  ],
+  "Hoá học": [
+   {
+    "ten": "Chương trình giáo dục phổ thông môn Hoá học (ban hành kèm Thông tư 32/2018/TT-BGDĐT) – bản toàn văn .doc do Thư viện Pháp luật đăng",
+    "url": "https://cdn.thuvienphapluat.vn//uploads/tintuc/2025/04/09/chuong-trinh-giao-duc-pho-thong-hoa-hoc.doc"
+   },
+   {
+    "ten": "Bản đối chiếu: Chương trình GDPT môn Hoá học trên HoaTieu.vn",
+    "url": "https://hoatieu.vn/tai-lieu/chuong-trinh-giao-duc-pho-thong-mon-hoa-hoc-1395"
+   },
+   {
+    "ten": "Chương trình giáo dục phổ thông môn Khoa học tự nhiên (Bộ GD&ĐT, Hà Nội 2018, PDF gốc ban hành kèm Thông tư 32/2018/TT-BGDĐT)",
+    "url": "https://quantri.quangich.com///data/thcsthanhxuan/thcsthanhxuan/attachments/2020_3/11_ctkhoa_hoc_tu_nhien_53202020.pdf"
+   },
+   {
+    "ten": "Thông tư 13/2022/TT-BGDĐT (sửa đổi CT GDPT; không sửa nội dung môn Hoá học)",
+    "url": "https://luatvietnam.vn/giao-duc/thong-tu-13-2022-tt-bgddt-227351-d1.html"
+   },
+   {
+    "ten": "Thông tư 17/2025/TT-BGDĐT (sửa đổi Lịch sử và Địa lí, Lịch sử 10, Địa lí, GDCD; không sửa Hoá học, KHTN)",
+    "url": "https://luatvietnam.vn/giao-duc/thong-tu-17-2025-tt-bgddt-411392-d1.html"
+   }
+  ],
+  "Địa lí": [
+   {
+    "ten": "Chương trình giáo dục phổ thông môn Địa lí (ban hành kèm Thông tư 32/2018/TT-BGDĐT), bản .doc của Bộ GD&ĐT lưu trên Thư viện Pháp luật",
+    "url": "https://cdn.thuvienphapluat.vn//uploads/Hoidapphapluat/2024/TTTT/241017/GDPT/9.CT_%C4%90ia%20li.doc"
+   },
+   {
+    "ten": "Chương trình giáo dục phổ thông môn Lịch sử và Địa lí cấp THCS (ban hành kèm Thông tư 32/2018/TT-BGDĐT), bản PDF ngày 27/12/2018 do trường THCS Thanh Xuân đăng",
+    "url": "https://quantri.quangich.com///data/thcsthanhxuan/thcsthanhxuan/attachments/2020_3/7_ctlich_su_va_dia_li_thcs_53202020.pdf"
+   },
+   {
+    "ten": "Chương trình GDPT môn Lịch sử và Địa lí cấp THCS, bản toàn văn trên HoaTieu (đối chiếu chéo phần lớp 6)",
+    "url": "https://hoatieu.vn/tai-lieu/chuong-trinh-giao-duc-pho-thong-mon-lich-su-va-dia-ly-cap-trung-hoc-co-so-1390"
+   },
+   {
+    "ten": "Thông tư 17/2025/TT-BGDĐT ngày 12/9/2025 sửa đổi, bổ sung Chương trình GDPT (toàn văn Phụ lục II trên HoaTieu)",
+    "url": "https://hoatieu.vn/phap-luat/thong-tu-17-2025-tt-bgddt-237960"
+   },
+   {
+    "ten": "Bộ GD&ĐT, Tài liệu hướng dẫn thực hiện Chương trình GDPT sửa đổi môn Địa lí năm 2025 (bản do Trường THPT chuyên Lê Quý Đôn Gia Lai đăng)",
+    "url": "https://chuyenlequydongialai.edu.vn/wp-content/uploads/2025/12/5.Tai-lieu-GDPT_Mon-Dia-Li-B2.pdf"
+   },
+   {
+    "ten": "Tóm tắt Thông tư 17/2025/TT-BGDĐT trên LuatVietnam",
+    "url": "https://luatvietnam.vn/giao-duc/thong-tu-17-2025-tt-bgddt-411392-d1.html"
+   }
+  ]
+ },
+ "bai": {
+  "enzyme-step": {
+   "khop": [
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Enzyme",
+     "ycd": [
+      "Phân tích được các yếu tố ảnh hưởng đến hoạt động xúc tác của enzyme.",
+      "Thực hành: làm được thí nghiệm phân tích ảnh hưởng của một số yếu tố đến hoạt tính của enzyme; thí nghiệm kiểm tra hoạt tính thuỷ phân tinh bột của amylase."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Enzyme",
+     "ycd": [
+      "Trình bày được vai trò của enzyme trong quá trình trao đổi chất và chuyển hoá năng lượng. Nêu được khái niệm, cấu trúc và cơ chế tác động của enzyme."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Chuyên đề học tập 10.2: Công nghệ enzyme và ứng dụng",
+     "muc": "Cơ sở khoa học ứng dụng công nghệ enzyme",
+     "ycd": [
+      "Phân tích được cơ sở khoa học ứng dụng công nghệ enzyme."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    }
+   ],
+   "ghi_chu": "Khớp trực tiếp YCĐ “phân tích các yếu tố ảnh hưởng” và phần thực hành (nhiệt độ, pH). Thí nghiệm amylase–tinh bột trong cùng YCĐ thực hành chưa có trong bài."
+  },
+  "mitosis-step": {
+   "khop": [
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Chu kì tế bào và phân bào › Chu kì tế bào và nguyên phân",
+     "ycd": [
+      "Thực hành làm được tiêu bản nhiễm sắc thể để quan sát quá trình nguyên phân (hành tây, hành ta, đại mạch, cây tỏi, lay ơn, khoai môn,...)."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Chu kì tế bào và phân bào › Chu kì tế bào và nguyên phân",
+     "ycd": [
+      "Nêu được khái niệm chu kì tế bào. Dựa vào sơ đồ, trình bày được các giai đoạn và mối quan hệ giữa các giai đoạn trong chu kì tế bào.",
+      "Dựa vào cơ chế nhân đôi và phân li của nhiễm sắc thể để giải thích được quá trình nguyên phân là cơ chế sinh sản của tế bào."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    }
+   ],
+   "ghi_chu": "Bài là thực hành quan sát nguyên phân ở đầu rễ hành, đúng YCĐ thực hành. Bước đếm tế bào và tính thời gian mỗi kì là mở rộng định lượng, chương trình không yêu cầu."
+  },
+  "impulse-step": {
+   "khop": [
+    {
+     "lop": 11,
+     "chu_de": "Sinh học cơ thể",
+     "muc": "Sinh học cơ thể › Cảm ứng ở sinh vật › Cảm ứng ở động vật › Cơ chế cảm ứng ở động vật có hệ thần kinh › Tế bào thần kinh",
+     "ycd": [
+      "Dựa vào hình vẽ, nêu được cấu tạo và chức năng của tế bào thần kinh."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 11,
+     "chu_de": "Sinh học cơ thể",
+     "muc": "Sinh học cơ thể › Cảm ứng ở sinh vật › Cảm ứng ở động vật › Cơ chế cảm ứng ở động vật có hệ thần kinh › Truyền tin qua synapse",
+     "ycd": [
+      "Dựa vào sơ đồ, mô tả được cấu tạo synapse và quá trình truyền tin qua synapse."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 11,
+     "chu_de": "Sinh học cơ thể",
+     "muc": "Sinh học cơ thể › Cảm ứng ở sinh vật › Khái quát về cảm ứng ở sinh vật › Cơ chế của cảm ứng",
+     "ycd": [
+      "Trình bày được cơ chế cảm ứng ở sinh vật (thu nhận kích thích, dẫn truyền kích thích, phân tích và tổng hợp, trả lời kích thích)."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 11,
+     "chu_de": "Sinh học cơ thể",
+     "muc": "Sinh học cơ thể › Cảm ứng ở sinh vật › Cảm ứng ở động vật › Cơ chế cảm ứng ở động vật có hệ thần kinh › Các bệnh liên quan hệ thần kinh",
+     "ycd": [
+      "Đề xuất được các biện pháp bảo vệ hệ thần kinh: không lạm dụng chất kích thích; phòng chống nghiện và cai nghiện các chất kích thích.",
+      "Vận dụng hiểu biết về hệ thần kinh để giải thích được cơ chế giảm đau khi uống và tiêm thuốc giảm đau."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Sự vận chuyển các chất qua màng sinh chất (+ Vận chuyển thụ động; + Vận chuyển chủ động; + Nhập, xuất bào)",
+     "ycd": [
+      "Phân biệt được các hình thức vận chuyển các chất qua màng sinh chất: vận chuyển thụ động, chủ động. Nêu được ý nghĩa của các hình thức đó. Lấy được ví dụ minh hoạ."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    }
+   ],
+   "ghi_chu": "Chương trình không có YCĐ riêng về điện thế nghỉ, điện thế hoạt động, dòng điện cục bộ; các nội dung này nằm trong SGK khi dạy “Tế bào thần kinh”, nên bài vượt mức chữ của chương trình. Bước cocaine nối với YCĐ về chất kích thích."
+  },
+  "plasmolysis-step": {
+   "khop": [
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Sự vận chuyển các chất qua màng sinh chất (+ Vận chuyển thụ động; + Vận chuyển chủ động; + Nhập, xuất bào)",
+     "ycd": [
+      "Làm được thí nghiệm và quan sát hiện tượng co và phản co nguyên sinh (tế bào hành, tế bào máu,...); thí nghiệm tính thấm có chọn lọc của màng sinh chất tế bào sống.",
+      "Vận dụng những hiểu biết về sự vận chuyển các chất qua màng sinh chất để giải thích một số hiện tượng thực tiễn (muối dưa, muối cà)."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Sự vận chuyển các chất qua màng sinh chất (+ Vận chuyển thụ động; + Vận chuyển chủ động; + Nhập, xuất bào)",
+     "ycd": [
+      "Phân biệt được các hình thức vận chuyển các chất qua màng sinh chất: vận chuyển thụ động, chủ động. Nêu được ý nghĩa của các hình thức đó. Lấy được ví dụ minh hoạ."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Cấu trúc tế bào › Tế bào nhân thực",
+     "ycd": [
+      "Phân tích được mối quan hệ phù hợp giữa cấu tạo và chức năng của thành tế bào (ở tế bào thực vật) và màng sinh chất."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 11,
+     "chu_de": "Sinh học cơ thể",
+     "muc": "Sinh học cơ thể › Trao đổi chất và chuyển hoá năng lượng ở sinh vật › Trao đổi chất và chuyển hoá năng lượng ở thực vật › Trao đổi nước và khoáng ở thực vật › Sự hấp thụ nước và khoáng ở rễ",
+     "ycd": [
+      "Trình bày được cơ chế hấp thụ nước và khoáng ở tế bào lông hút của rễ."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    }
+   ],
+   "ghi_chu": "Khớp trực tiếp thí nghiệm co và phản co nguyên sinh, tính thấm chọn lọc (bước glycerol) và hiện tượng muối dưa, muối cà. Bước đo nồng độ là mở rộng định lượng."
+  },
+  "transport-step": {
+   "khop": [
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Sự vận chuyển các chất qua màng sinh chất (+ Vận chuyển thụ động; + Vận chuyển chủ động; + Nhập, xuất bào)",
+     "ycd": [
+      "Phân biệt được các hình thức vận chuyển các chất qua màng sinh chất: vận chuyển thụ động, chủ động. Nêu được ý nghĩa của các hình thức đó. Lấy được ví dụ minh hoạ.",
+      "Trình bày được hiện tượng nhập bào và xuất bào thông qua biến dạng của màng sinh chất. Lấy được ví dụ minh hoạ."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Sự vận chuyển các chất qua màng sinh chất (+ Vận chuyển thụ động; + Vận chuyển chủ động; + Nhập, xuất bào)",
+     "ycd": [
+      "Vận dụng những hiểu biết về sự vận chuyển các chất qua màng sinh chất để giải thích một số hiện tượng thực tiễn (muối dưa, muối cà).",
+      "Làm được thí nghiệm và quan sát hiện tượng co và phản co nguyên sinh (tế bào hành, tế bào máu,...); thí nghiệm tính thấm có chọn lọc của màng sinh chất tế bào sống."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Cấu trúc tế bào › Tế bào nhân thực",
+     "ycd": [
+      "Phân tích được mối quan hệ phù hợp giữa cấu tạo và chức năng của thành tế bào (ở tế bào thực vật) và màng sinh chất."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    }
+   ],
+   "ghi_chu": "Bao trọn phần lí thuyết vận chuyển thụ động, chủ động, nhập bào, xuất bào. Phân biệt khuếch tán đơn giản và khuếch tán tăng cường (protein mang, kênh) là chi tiết SGK, chương trình chỉ ghi “vận chuyển thụ động, chủ động”."
+  },
+  "te-bao": {
+   "khop": [
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Cấu trúc tế bào › Tế bào nhân thực",
+     "ycd": [
+      "Phân tích được mối quan hệ phù hợp giữa cấu tạo và chức năng của thành tế bào (ở tế bào thực vật) và màng sinh chất.",
+      "Nêu được cấu tạo và chức năng của tế bào chất.",
+      "Trình bày được cấu trúc của nhân tế bào và chức năng quan trọng của nhân.",
+      "Phân tích được mối quan hệ giữa cấu tạo và chức năng của các bào quan trong tế bào."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Sự vận chuyển các chất qua màng sinh chất (+ Vận chuyển thụ động; + Vận chuyển chủ động; + Nhập, xuất bào)",
+     "ycd": [
+      "Trình bày được hiện tượng nhập bào và xuất bào thông qua biến dạng của màng sinh chất. Lấy được ví dụ minh hoạ."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Thông tin ở tế bào › Quá trình",
+     "ycd": [
+      "Dựa vào sơ đồ thông tin giữa các tế bào, trình bày được các quá trình: + Tiếp nhận: Một phân tử truyền tin liên kết vào một protein thụ thể làm thụ thể thay đổi hình dạng; + Truyền tin: các chuỗi tương tác phân tử chuyển tiếp tín hiệu từ các thụ thể tới các phân tử đích trong tế bào; + Đáp ứng: Tế bào phát tín hiệu điều khiển phiên mã, dịch mã hoặc điều hoà hoạt động của tế bào."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Thông tin ở tế bào › Khái niệm",
+     "ycd": [
+      "Nêu được khái niệm về thông tin giữa các tế bào."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Cấu trúc tế bào › Tế bào nhân thực",
+     "ycd": [
+      "Quan sát hình vẽ, lập được bảng so sánh cấu tạo tế bào thực vật và động vật.",
+      "Làm được tiêu bản hiển vi tế bào nhân thực (củ hành tây, hành ta, thài lài tía, hoa lúa, bí ngô, tế bào niêm mạc xoang miệng,...) và quan sát nhân, một số bào quan trên tiêu bản đó."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Khái quát về tế bào",
+     "ycd": [
+      "Giải thích được tế bào là đơn vị cấu trúc và chức năng của cơ thể sống."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Các loại năng lượng",
+     "ycd": [
+      "Phân tích được cấu tạo và chức năng của ATP về giá trị năng lượng sinh học."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Tổng hợp các chất và tích luỹ năng lượng trong tế bào",
+     "ycd": [
+      "Nêu được khái niệm tổng hợp các chất trong tế bào. Lấy được ví dụ minh hoạ (tổng hợp protein, lipid, carbohydrate,...)."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 12,
+     "chu_de": "Di truyền học",
+     "muc": "Di truyền học › Di truyền phân tử › Gene và cơ chế truyền thông tin di truyền › Mã di truyền và dịch mã",
+     "ycd": [
+      "Trình bày được cơ chế tổng hợp protein từ bản sao là RNA có bản chất là quá trình dịch mã."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    }
+   ],
+   "ghi_chu": "Bao phủ tốt phần tế bào nhân thực (màng, tế bào chất, nhân, bào quan), nhập bào, xuất bào và truyền tin qua thụ thể. Chỉ có tế bào động vật nên YCĐ so sánh với tế bào thực vật mới đạt một nửa. Phần nguyên tử của ribosome, kênh Sec61, ảnh nhuộm TEM vượt chương trình phổ thông; dịch mã thuộc lớp 12."
+  },
+  "ty-the": {
+   "khop": [
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Khái niệm trao đổi chất và chuyển hoá năng lượng trong tế bào",
+     "ycd": [
+      "Trình bày được quá trình tổng hợp và phân giải ATP gắn liền với quá trình tích lũy, giải phóng năng lượng."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Cấu trúc tế bào › Tế bào nhân thực",
+     "ycd": [
+      "Phân tích được mối quan hệ giữa cấu tạo và chức năng của các bào quan trong tế bào."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Các loại năng lượng",
+     "ycd": [
+      "Phân biệt được các dạng năng lượng trong chuyển hoá năng lượng ở tế bào.",
+      "Giải thích được năng lượng được tích luỹ và sử dụng cho các hoạt động sống của tế bào là dạng hoá năng (năng lượng tiềm ẩn trong các liên kết hoá học).",
+      "Phân tích được cấu tạo và chức năng của ATP về giá trị năng lượng sinh học."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Phân giải các chất và giải phóng năng lượng trong tế bào",
+     "ycd": [
+      "Trình bày được các giai đoạn phân giải hiếu khí (hô hấp tế bào) và các giai đoạn phân giải kị khí (lên men).",
+      "Trình bày được quá trình phân giải các chất song song với giải phóng năng lượng."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Enzyme",
+     "ycd": [
+      "Trình bày được vai trò của enzyme trong quá trình trao đổi chất và chuyển hoá năng lượng. Nêu được khái niệm, cấu trúc và cơ chế tác động của enzyme."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 11,
+     "chu_de": "Sinh học cơ thể",
+     "muc": "Sinh học cơ thể › Trao đổi chất và chuyển hoá năng lượng ở sinh vật › Khái quát trao đổi chất và chuyển hoá năng lượng trong sinh giới › Trao đổi chất và chuyển hoá năng lượng",
+     "ycd": [
+      "Dựa vào sơ đồ chuyển hoá năng lượng trong sinh giới, mô tả được tóm tắt ba giai đoạn chuyển hoá năng lượng (tổng hợp, phân giải và huy động năng lượng)."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 11,
+     "chu_de": "Sinh học cơ thể",
+     "muc": "Sinh học cơ thể › Trao đổi chất và chuyển hoá năng lượng ở sinh vật › Trao đổi chất và chuyển hoá năng lượng ở động vật › Hô hấp và trao đổi khí ở động vật › Vai trò hô hấp",
+     "ycd": [
+      "Phân tích được vai trò của hô hấp ở động vật: trao đổi khí với môi trường và hô hấp tế bào."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 11,
+     "chu_de": "Sinh học cơ thể",
+     "muc": "Sinh học cơ thể › Trao đổi chất và chuyển hoá năng lượng ở sinh vật › Trao đổi chất và chuyển hoá năng lượng ở thực vật › Hô hấp ở thực vật › Các giai đoạn hô hấp ở thực vật",
+     "ycd": [
+      "Trình bày được sơ đồ các giai đoạn của hô hấp ở thực vật."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    }
+   ],
+   "ghi_chu": "Neo vào YCĐ tổng hợp ATP và quan hệ cấu tạo–chức năng của ti thể. Cơ chế quay của ATP synthase, cơ chế thay đổi liên kết ở F1, tỉ lệ 8 H⁺/3 ATP và hàng dimer trên mào ti thể vượt chương trình; chương trình chỉ yêu cầu trình bày các giai đoạn hô hấp tế bào."
+  },
+  "chu-de": {
+   "khop": [
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Khái quát về tế bào",
+     "ycd": [
+      "Giải thích được tế bào là đơn vị cấu trúc và chức năng của cơ thể sống."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Cấu trúc tế bào › Tế bào nhân thực",
+     "ycd": [
+      "Phân tích được mối quan hệ phù hợp giữa cấu tạo và chức năng của thành tế bào (ở tế bào thực vật) và màng sinh chất.",
+      "Nêu được cấu tạo và chức năng của tế bào chất.",
+      "Trình bày được cấu trúc của nhân tế bào và chức năng quan trọng của nhân.",
+      "Phân tích được mối quan hệ giữa cấu tạo và chức năng của các bào quan trong tế bào."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Cấu trúc tế bào › Tế bào nhân thực",
+     "ycd": [
+      "Quan sát hình vẽ, lập được bảng so sánh cấu tạo tế bào thực vật và động vật.",
+      "Làm được tiêu bản hiển vi tế bào nhân thực (củ hành tây, hành ta, thài lài tía, hoa lúa, bí ngô, tế bào niêm mạc xoang miệng,...) và quan sát nhân, một số bào quan trên tiêu bản đó."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Sự vận chuyển các chất qua màng sinh chất (+ Vận chuyển thụ động; + Vận chuyển chủ động; + Nhập, xuất bào)",
+     "ycd": [
+      "Phân biệt được các hình thức vận chuyển các chất qua màng sinh chất: vận chuyển thụ động, chủ động. Nêu được ý nghĩa của các hình thức đó. Lấy được ví dụ minh hoạ.",
+      "Trình bày được hiện tượng nhập bào và xuất bào thông qua biến dạng của màng sinh chất. Lấy được ví dụ minh hoạ.",
+      "Vận dụng những hiểu biết về sự vận chuyển các chất qua màng sinh chất để giải thích một số hiện tượng thực tiễn (muối dưa, muối cà).",
+      "Làm được thí nghiệm và quan sát hiện tượng co và phản co nguyên sinh (tế bào hành, tế bào máu,...); thí nghiệm tính thấm có chọn lọc của màng sinh chất tế bào sống."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Các loại năng lượng",
+     "ycd": [
+      "Phân biệt được các dạng năng lượng trong chuyển hoá năng lượng ở tế bào.",
+      "Giải thích được năng lượng được tích luỹ và sử dụng cho các hoạt động sống của tế bào là dạng hoá năng (năng lượng tiềm ẩn trong các liên kết hoá học).",
+      "Phân tích được cấu tạo và chức năng của ATP về giá trị năng lượng sinh học."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Khái niệm trao đổi chất và chuyển hoá năng lượng trong tế bào",
+     "ycd": [
+      "Trình bày được quá trình tổng hợp và phân giải ATP gắn liền với quá trình tích lũy, giải phóng năng lượng."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Enzyme",
+     "ycd": [
+      "Phân tích được các yếu tố ảnh hưởng đến hoạt động xúc tác của enzyme.",
+      "Thực hành: làm được thí nghiệm phân tích ảnh hưởng của một số yếu tố đến hoạt tính của enzyme; thí nghiệm kiểm tra hoạt tính thuỷ phân tinh bột của amylase."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Enzyme",
+     "ycd": [
+      "Trình bày được vai trò của enzyme trong quá trình trao đổi chất và chuyển hoá năng lượng. Nêu được khái niệm, cấu trúc và cơ chế tác động của enzyme."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Phân giải các chất và giải phóng năng lượng trong tế bào",
+     "ycd": [
+      "Trình bày được các giai đoạn phân giải hiếu khí (hô hấp tế bào) và các giai đoạn phân giải kị khí (lên men).",
+      "Trình bày được quá trình phân giải các chất song song với giải phóng năng lượng."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Thông tin ở tế bào › Quá trình",
+     "ycd": [
+      "Dựa vào sơ đồ thông tin giữa các tế bào, trình bày được các quá trình: + Tiếp nhận: Một phân tử truyền tin liên kết vào một protein thụ thể làm thụ thể thay đổi hình dạng; + Truyền tin: các chuỗi tương tác phân tử chuyển tiếp tín hiệu từ các thụ thể tới các phân tử đích trong tế bào; + Đáp ứng: Tế bào phát tín hiệu điều khiển phiên mã, dịch mã hoặc điều hoà hoạt động của tế bào."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Thông tin ở tế bào › Khái niệm",
+     "ycd": [
+      "Nêu được khái niệm về thông tin giữa các tế bào."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Chu kì tế bào và phân bào › Chu kì tế bào và nguyên phân",
+     "ycd": [
+      "Thực hành làm được tiêu bản nhiễm sắc thể để quan sát quá trình nguyên phân (hành tây, hành ta, đại mạch, cây tỏi, lay ơn, khoai môn,...)."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 10,
+     "chu_de": "Sinh học tế bào",
+     "muc": "Chu kì tế bào và phân bào › Chu kì tế bào và nguyên phân",
+     "ycd": [
+      "Nêu được khái niệm chu kì tế bào. Dựa vào sơ đồ, trình bày được các giai đoạn và mối quan hệ giữa các giai đoạn trong chu kì tế bào.",
+      "Dựa vào cơ chế nhân đôi và phân li của nhiễm sắc thể để giải thích được quá trình nguyên phân là cơ chế sinh sản của tế bào."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 11,
+     "chu_de": "Sinh học cơ thể",
+     "muc": "Sinh học cơ thể › Cảm ứng ở sinh vật › Cảm ứng ở động vật › Cơ chế cảm ứng ở động vật có hệ thần kinh › Tế bào thần kinh",
+     "ycd": [
+      "Dựa vào hình vẽ, nêu được cấu tạo và chức năng của tế bào thần kinh."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 11,
+     "chu_de": "Sinh học cơ thể",
+     "muc": "Sinh học cơ thể › Cảm ứng ở sinh vật › Cảm ứng ở động vật › Cơ chế cảm ứng ở động vật có hệ thần kinh › Truyền tin qua synapse",
+     "ycd": [
+      "Dựa vào sơ đồ, mô tả được cấu tạo synapse và quá trình truyền tin qua synapse."
+     ],
+     "muc_do": "chinh",
+     "mon": "Sinh học"
+    },
+    {
+     "lop": 12,
+     "chu_de": "Di truyền học",
+     "muc": "Di truyền học › Di truyền phân tử › Gene và cơ chế truyền thông tin di truyền › Mã di truyền và dịch mã",
+     "ycd": [
+      "Trình bày được cơ chế tổng hợp protein từ bản sao là RNA có bản chất là quá trình dịch mã."
+     ],
+     "muc_do": "lien_quan",
+     "mon": "Sinh học"
+    }
+   ],
+   "ghi_chu": "Cả đơn vị nằm chủ yếu ở Sinh học 10, mạch Sinh học tế bào, thêm tế bào thần kinh và synapse của Sinh học 11. Chưa phủ: khái quát học thuyết tế bào, thành phần hoá học của tế bào, tế bào nhân sơ, tổng hợp các chất (quang hợp, hoá tổng hợp), lên men, giảm phân, ung thư, công nghệ tế bào và hai chuyên đề 10.1, 10.2."
+  },
+  "brownian-step": {
+   "khop": [
+    {
+     "mon": "Vật lí",
+     "lop": 12,
+     "chu_de": "Khí lí tưởng",
+     "muc": "Mô hình động học phân tử chất khí",
+     "ycd": [
+      "Phân tích mô hình chuyển động Brown, nêu được các phân tử trong chất khí chuyển động hỗn loạn."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 12,
+     "chu_de": "Khí lí tưởng",
+     "muc": "Mô hình động học phân tử chất khí",
+     "ycd": [
+      "Từ các kết quả thực nghiệm hoặc mô hình, thảo luận để nêu được các giả thuyết của thuyết động học phân tử chất khí."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 12,
+     "chu_de": "Vật lí nhiệt",
+     "muc": "Sự chuyển thể",
+     "ycd": [
+      "Sử dụng mô hình động học phân tử, nêu được sơ lược cấu trúc của chất rắn, chất lỏng, chất khí."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 8,
+     "chu_de": "Nhiệt",
+     "muc": "Năng lượng nhiệt; Đo năng lượng nhiệt; Dẫn nhiệt, đối lưu, bức xạ nhiệt; Sự nở vì nhiệt",
+     "ycd": [
+      "Nêu được: Khi một vật được làm nóng, các phân tử của vật chuyển động nhanh hơn và nội năng của vật tăng."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp trực tiếp YCĐ chuyển động Brown ở Vật lí 12 (chủ đề Khí lí tưởng). Chương trình chỉ nói phân tử chất khí; bài dùng hạt lơ lửng trong chất lỏng nên vẫn cùng tinh thần. Phần khuếch tán và quan sát định lượng (dịch chuyển tăng theo thời gian, phụ thuộc cỡ hạt) không có YCĐ riêng trong Vật lí hay KHTN, là phần mở rộng."
+  },
+  "photoelectric-step": {
+   "khop": [
+    {
+     "mon": "Vật lí",
+     "lop": 12,
+     "chu_de": "Chuyên đề 12.3. Vật lí lượng tử",
+     "muc": "Hiệu ứng quang điện và năng lượng của photon",
+     "ycd": [
+      "Nêu được tính lượng tử của bức xạ điện từ, năng lượng photon.",
+      "Vận dụng được công thức tính năng lượng photon, E = hf.",
+      "Nêu được hiệu ứng quang điện là bằng chứng cho tính chất hạt của bức xạ điện từ, giao thoa và nhiễu xạ là bằng chứng cho tính chất sóng của bức xạ điện từ.",
+      "Mô tả được khái niệm giới hạn quang điện, công thoát.",
+      "Giải thích được hiệu ứng quang điện dựa trên năng lượng photon và công thoát.",
+      "Giải thích được: động năng ban đầu cực đại của quang điện tử không phụ thuộc cường độ chùm sáng, cường độ dòng quang điện bão hoà tỉ lệ với cường độ chùm sáng chiếu vào.",
+      "Vận dụng được phương trình Einstein để giải thích các định luật quang điện.",
+      "Thảo luận để thiết kế phương án hoặc lựa chọn phương án và thực hiện phương án, khảo sát được dòng quang điện bằng dụng cụ thực hành."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 12,
+     "chu_de": "Chuyên đề 12.3. Vật lí lượng tử",
+     "muc": "Hiệu ứng quang điện và năng lượng của photon",
+     "ycd": [
+      "Ước lượng được năng lượng của các bức xạ điện từ cơ bản trong thang sóng điện từ."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Nằm trong chuyên đề học tập lựa chọn 12.3, không thuộc phần nội dung cốt lõi lớp 12; học sinh không chọn chuyên đề này sẽ không học. Bước đo hằng số h từ đồ thị hiệu điện thế hãm theo tần số không được nêu thành YCĐ riêng, là phần mở rộng của YCĐ về phương trình Einstein."
+  },
+  "capacitor-step": {
+   "khop": [
+    {
+     "mon": "Vật lí",
+     "lop": 11,
+     "chu_de": "Trường điện (Điện trường)",
+     "muc": "Tụ điện và điện dung",
+     "ycd": [
+      "Định nghĩa được điện dung và đơn vị đo điện dung (fara).",
+      "Vận dụng được (không yêu cầu thiết lập) công thức điện dung của bộ tụ điện ghép nối tiếp, ghép song song."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 11,
+     "chu_de": "Trường điện (Điện trường)",
+     "muc": "Tụ điện và điện dung",
+     "ycd": [
+      "Thảo luận để xây dựng được biểu thức tính năng lượng tụ điện.",
+      "Lựa chọn và sử dụng thông tin để xây dựng được báo cáo tìm hiểu một số ứng dụng của tụ điện trong cuộc sống."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 11,
+     "chu_de": "Dòng điện, mạch điện",
+     "muc": "Cường độ dòng điện",
+     "ycd": [
+      "Thực hiện thí nghiệm (hoặc dựa vào tài liệu đa phương tiện), nêu được cường độ dòng điện đặc trưng cho tác dụng mạnh yếu của dòng điện và được xác định bằng điện lượng chuyển qua tiết diện thẳng của vật dẫn trong một đơn vị thời gian."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp phần điện dung ở Vật lí 11. Chương trình Việt Nam không có thí nghiệm bắt buộc quan sát tích điện và phóng điện qua điện trở; đường I-t, diện tích dưới đồ thị bằng điện tích và ảnh hưởng của R lên thời gian phóng là phần vượt YCĐ."
+  },
+  "accel-force-step": {
+   "khop": [
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Động lực học",
+     "muc": "Ba định luật Newton về chuyển động",
+     "ycd": [
+      "Thực hiện thí nghiệm, hoặc sử dụng số liệu cho trước để rút ra được a ~ F, a ~ 1/m, từ đó rút ra được biểu thức a = F/m hoặc F = ma (định luật 2 Newton)."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Động lực học",
+     "muc": "Ba định luật Newton về chuyển động",
+     "ycd": [
+      "Từ kết quả đã có (lấy từ thí nghiệm hay sử dụng số liệu cho trước), hoặc lập luận dựa vào a = F/m, nêu được khối lượng là đại lượng đặc trưng cho mức quán tính của vật."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Động học",
+     "muc": "Chuyển động biến đổi",
+     "ycd": [
+      "Thực hiện thí nghiệm và lập luận dựa vào sự biến đổi vận tốc trong chuyển động thẳng, rút ra được công thức tính gia tốc; nêu được ý nghĩa, đơn vị của gia tốc."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Mở đầu",
+     "muc": "Giới thiệu mục đích học tập môn Vật lí",
+     "ycd": [
+      "Thảo luận để nêu được: + Một số loại sai số đơn giản hay gặp khi đo các đại lượng vật lí và cách khắc phục chúng; + Các quy tắc an toàn trong nghiên cứu và học tập môn Vật lí."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp gần như trọn vẹn YCĐ thí nghiệm định luật 2 Newton ở Vật lí 10. Chương trình không quy định dùng băng giấy và bộ gõ; sách Việt Nam thường dùng xe có cảm biến hoặc đồng hồ đo thời gian hiện số."
+  },
+  "projectile-step": {
+   "khop": [
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Động học",
+     "muc": "Chuyển động biến đổi",
+     "ycd": [
+      "Mô tả và giải thích được chuyển động khi vật có vận tốc không đổi theo một phương và có gia tốc không đổi theo phương vuông góc với phương này."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Động học",
+     "muc": "Chuyển động biến đổi",
+     "ycd": [
+      "Thực hiện được dự án hay đề tài nghiên cứu tìm điều kiện ném vật trong không khí ở độ cao nào đó để đạt độ cao hoặc tầm xa lớn nhất."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Động học",
+     "muc": "Mô tả chuyển động",
+     "ycd": [
+      "Xác định được độ dịch chuyển tổng hợp, vận tốc tổng hợp."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Mở đầu",
+     "muc": "Giới thiệu mục đích học tập môn Vật lí",
+     "ycd": [
+      "Thảo luận để nêu được: + Một số loại sai số đơn giản hay gặp khi đo các đại lượng vật lí và cách khắc phục chúng; + Các quy tắc an toàn trong nghiên cứu và học tập môn Vật lí."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Chương trình Việt Nam không dùng tên \"ném ngang\" mà mô tả chuyển động có vận tốc không đổi theo một phương và gia tốc không đổi theo phương vuông góc. Không có thí nghiệm bắt buộc vẽ quỹ đạo bằng máng nghiêng và tấm chắn; phần thực hành là mở rộng."
+  },
+  "energy-step": {
+   "khop": [
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Công, năng lượng, công suất",
+     "muc": "Động năng và thế năng",
+     "ycd": [
+      "Phân tích được sự chuyển hoá động năng và thế năng của vật trong một số trường hợp đơn giản.",
+      "Nêu được khái niệm cơ năng; phát biểu được định luật bảo toàn cơ năng và vận dụng được định luật bảo toàn cơ năng trong một số trường hợp đơn giản."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Công, năng lượng, công suất",
+     "muc": "Động năng và thế năng",
+     "ycd": [
+      "Từ phương trình chuyển động thẳng biến đổi đều với vận tốc ban đầu bằng không, rút ra được động năng của vật có giá trị bằng công của lực tác dụng lên vật.",
+      "Nêu được công thức tính thế năng trong trường trọng lực đều, vận dụng được trong một số trường hợp đơn giản."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Công, năng lượng, công suất",
+     "muc": "Công và năng lượng",
+     "ycd": [
+      "Chế tạo mô hình đơn giản minh hoạ được định luật bảo toàn năng lượng, liên quan đến một số dạng năng lượng khác nhau."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Mở đầu",
+     "muc": "Giới thiệu mục đích học tập môn Vật lí",
+     "ycd": [
+      "Thảo luận để nêu được: + Một số loại sai số đơn giản hay gặp khi đo các đại lượng vật lí và cách khắc phục chúng; + Các quy tắc an toàn trong nghiên cứu và học tập môn Vật lí."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 9,
+     "chu_de": "Năng lượng cơ học",
+     "muc": "Động năng và thế năng; Cơ năng; Công và công suất",
+     "ycd": [
+      "Nêu được cơ năng là tổng động năng và thế năng của vật.",
+      "Vận dụng khái niệm cơ năng phân tích được sự chuyển hoá năng lượng trong một số trường hợp đơn giản."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp YCĐ định luật bảo toàn cơ năng ở Vật lí 10. Chương trình không có YCĐ riêng cho thí nghiệm kiểm chứng bằng băng giấy; mục Thiết bị dạy học có nêu \"dụng cụ nghiệm lại định luật bảo toàn năng lượng\"."
+  },
+  "centripetal-step": {
+   "khop": [
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Chuyển động tròn",
+     "muc": "Gia tốc hướng tâm và lực hướng tâm",
+     "ycd": [
+      "Vận dụng được biểu thức lực hướng tâm F = mrω², F = mv²/r."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Chuyển động tròn",
+     "muc": "Gia tốc hướng tâm và lực hướng tâm",
+     "ycd": [
+      "Vận dụng được biểu thức gia tốc hướng tâm a = rω², a = v²/r."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Chuyển động tròn",
+     "muc": "Động học của chuyển động tròn đều",
+     "ycd": [
+      "Vận dụng được khái niệm tốc độ góc."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Mở đầu",
+     "muc": "Giới thiệu mục đích học tập môn Vật lí",
+     "ycd": [
+      "Thảo luận để nêu được: + Một số loại sai số đơn giản hay gặp khi đo các đại lượng vật lí và cách khắc phục chúng; + Các quy tắc an toàn trong nghiên cứu và học tập môn Vật lí."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Chương trình chỉ yêu cầu vận dụng biểu thức lực hướng tâm, không yêu cầu thí nghiệm tìm ra quan hệ F với m, r, ω; phần khảo sát bằng thiết bị quay tay là mở rộng. Số mũ trong bản PDF là chữ số viết trên, ghi ở đây bằng ký tự ²."
+  },
+  "current-field-step": {
+   "khop": [
+    {
+     "mon": "Vật lí",
+     "lop": 12,
+     "chu_de": "Trường từ (Từ trường)",
+     "muc": "Khái niệm từ trường",
+     "ycd": [
+      "Thực hiện thí nghiệm tạo ra được các đường sức từ bằng các dụng cụ đơn giản.",
+      "Nêu được từ trường là trường lực gây ra bởi dòng điện hoặc nam châm, là một dạng của vật chất tồn tại xung quanh dòng điện hoặc nam châm mà biểu hiện cụ thể là sự xuất hiện của lực từ tác dụng lên một dòng điện hay một nam châm đặt trong đó."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 7,
+     "chu_de": "Từ",
+     "muc": "Nam châm; Từ trường (Trường từ); Từ trường Trái Đất; Nam châm điện",
+     "ycd": [
+      "Nêu được vùng không gian bao quanh một nam châm (hoặc dây dẫn mang dòng điện), mà vật liệu có tính chất từ đặt trong nó chịu tác dụng lực từ, được gọi là từ trường.",
+      "Nêu được khái niệm từ phổ và tạo được từ phổ bằng mạt sắt và nam châm.",
+      "Nêu được khái niệm đường sức từ và vẽ được đường sức từ quanh một thanh nam châm.",
+      "Chế tạo được nam châm điện đơn giản và làm thay đổi được từ trường của nó bằng thay đổi dòng điện."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp YCĐ từ trường và đường sức từ ở Vật lí 12, có nền ở KHTN 7. YCĐ không nêu riêng từ trường của dòng điện thẳng, vòng dây, ống dây hay quy tắc nắm tay phải; các phần này là mở rộng."
+  },
+  "self-induction-step": {
+   "khop": [
+    {
+     "mon": "Vật lí",
+     "lop": 12,
+     "chu_de": "Trường từ (Từ trường)",
+     "muc": "Từ thông; Cảm ứng điện từ",
+     "ycd": [
+      "Tiến hành các thí nghiệm đơn giản minh hoạ được hiện tượng cảm ứng điện từ.",
+      "Vận dụng được định luật Faraday và định luật Lenz về cảm ứng điện từ.",
+      "Giải thích được một số ứng dụng đơn giản của hiện tượng cảm ứng điện từ."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 9,
+     "chu_de": "Điện từ",
+     "muc": "Cảm ứng điện từ",
+     "ycd": [
+      "Thực hiện thí nghiệm để rút ra được: Khi số đường sức từ xuyên qua tiết diện của cuộn dây dẫn kín biến thiên thì trong cuộn dây đó xuất hiện dòng điện cảm ứng."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 12,
+     "chu_de": "Chuyên đề 12.1. Dòng điện xoay chiều",
+     "muc": "Các đặc trưng của dòng điện xoay chiều",
+     "ycd": [
+      "Thảo luận để thiết kế phương án hoặc lựa chọn phương án và thực hiện phương án, khảo sát được đoạn mạch xoay chiều RLC mắc nối tiếp bằng dụng cụ thực hành."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Vượt chương trình: không có YCĐ nào nêu tự cảm, độ tự cảm, dòng điện Foucault hay hãm điện từ. Chỉ nối được qua cảm ứng điện từ, định luật Faraday, Lenz ở Vật lí 12 và KHTN 9; hãm điện từ có thể dạy như một ứng dụng của cảm ứng điện từ."
+  },
+  "emf-step": {
+   "khop": [
+    {
+     "mon": "Vật lí",
+     "lop": 11,
+     "chu_de": "Dòng điện, mạch điện",
+     "muc": "Mạch điện và điện trở",
+     "ycd": [
+      "Mô tả được ảnh hưởng của điện trở trong của nguồn điện lên hiệu điện thế giữa hai cực của nguồn.",
+      "Thảo luận để thiết kế phương án hoặc lựa chọn phương án và thực hiện phương án, đo được suất điện động và điện trở trong của pin hoặc acquy (battery hoặc accumulator) bằng dụng cụ thực hành."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 11,
+     "chu_de": "Dòng điện, mạch điện",
+     "muc": "Mạch điện và điện trở",
+     "ycd": [
+      "Định nghĩa được suất điện động qua năng lượng dịch chuyển một điện tích đơn vị theo vòng kín.",
+      "So sánh được suất điện động và hiệu điện thế."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Vật lí",
+     "lop": 10,
+     "chu_de": "Mở đầu",
+     "muc": "Giới thiệu mục đích học tập môn Vật lí",
+     "ycd": [
+      "Thảo luận để nêu được: + Một số loại sai số đơn giản hay gặp khi đo các đại lượng vật lí và cách khắc phục chúng; + Các quy tắc an toàn trong nghiên cứu và học tập môn Vật lí."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 8,
+     "chu_de": "Điện",
+     "muc": "Hiện tượng nhiễm điện; Dòng điện; Tác dụng của dòng điện; Nguồn điện; Mạch điện đơn giản; Đo cường độ dòng điện và hiệu điện thế",
+     "ycd": [
+      "Thực hiện thí nghiệm để nêu được khả năng sinh ra dòng điện của pin (hay ắc quy) được đo bằng hiệu điện thế (còn gọi là điện áp) giữa hai cực của nó."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp trực tiếp YCĐ thực hành đo suất điện động và điện trở trong ở Vật lí 11. Phân tích sai số hệ thống do hai cách mắc ampe kế là phần mở rộng."
+  },
+  "titration-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "CÂN BẰNG HOÁ HỌC",
+     "muc": "Cân bằng trong dung dịch nước",
+     "ycd": [
+      "Nêu được nguyên tắc xác định nồng độ acid, base mạnh bằng phương pháp chuẩn độ.",
+      "Thực hiện được thí nghiệm chuẩn độ acid - base: Chuẩn độ dung dịch base mạnh (sodium hydroxide) bằng acid mạnh (hydrochloric acid)."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "CÂN BẰNG HOÁ HỌC",
+     "muc": "Cân bằng trong dung dịch nước",
+     "ycd": [
+      "Viết được biểu thức tính pH (pH = -lg[H+] hoặc [H+] = 10-pH) và biết cách sử dụng các chất chỉ thị để xác định pH (môi trường acid, base, trung tính) bằng các chất chỉ thị phổ biến như giấy chỉ thị màu, quỳ tím, phenolphthalein,...",
+      "Nêu được khái niệm và ý nghĩa của pH trong thực tiễn (liên hệ giá trị pH ở các bộ phận trong cơ thể với sức khoẻ con người, pH của đất, nước tới sự phát triển của động thực vật,...)."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 8,
+     "chu_de": "Acid – Base – pH – Oxide – Muối",
+     "muc": "Thang đo pH",
+     "ycd": [
+      "Nêu được thang pH, sử dụng pH để đánh giá độ acid - base của dung dịch."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp trực tiếp Hoá học 11: chương trình yêu cầu đúng thí nghiệm chuẩn độ base mạnh (NaOH) bằng acid mạnh (HCl); bài 3D chuẩn độ theo chiều nào cũng dùng được. Phần sai số, bước nhảy pH quanh điểm tương đương là mở rộng."
+  },
+  "rate-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "TỐC ĐỘ PHẢN ỨNG HOÁ HỌC",
+     "muc": "Các yếu tố ảnh hưởng tới tốc độ phản ứng",
+     "ycd": [
+      "Thực hiện được một số thí nghiệm nghiên cứu các yếu tố ảnh hưởng tới tốc độ phản ứng (nồng độ, nhiệt độ, áp suất, diện tích bề mặt, chất xúc tác).",
+      "Giải thích được các yếu tố ảnh hưởng tới tốc độ phản ứng như: nồng độ, nhiệt độ, áp suất, diện tích bề mặt, chất xúc tác.",
+      "Vận dụng được kiến thức tốc độ phản ứng hoá học vào việc giải thích một số vấn đề trong cuộc sống và sản xuất."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "TỐC ĐỘ PHẢN ỨNG HOÁ HỌC",
+     "muc": "Phương trình tốc độ phản ứng và hằng số tốc độ của phản ứng",
+     "ycd": [
+      "Trình bày được khái niệm tốc độ phản ứng hoá học và cách tính tốc độ trung bình của phản ứng."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "TỐC ĐỘ PHẢN ỨNG HOÁ HỌC",
+     "muc": "Các yếu tố ảnh hưởng tới tốc độ phản ứng",
+     "ycd": [
+      "Nêu được ý nghĩa của hệ số nhiệt độ Van’t Hoff (γ)."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "Chuyên đề 10.1: CƠ SỞ HOÁ HỌC",
+     "muc": "Năng lượng hoạt hoá của phản ứng hoá học",
+     "ycd": [
+      "Trình bày được khái niệm năng lượng hoạt hoá (theo khía cạnh ảnh hưởng đến tốc độ phản ứng).",
+      "Giải thích được vai trò của chất xúc tác."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 8,
+     "chu_de": "Phản ứng hoá học",
+     "muc": "Tốc độ phản ứng và chất xúc tác",
+     "ycd": [
+      "Nêu được khái niệm về tốc độ phản ứng (chỉ mức độ nhanh hay chậm của phản ứng hoá học).",
+      "Trình bày được một số yếu tố ảnh hưởng đến tốc độ phản ứng và nêu được một số ứng dụng thực tế.",
+      "Tiến hành được thí nghiệm và quan sát thực tiễn: + So sánh được tốc độ một số phản ứng hoá học; + Nêu được các yếu tố làm thay đổi tốc độ phản ứng; + Nêu được khái niệm về chất xúc tác."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp trực tiếp Hoá học 10 (chủ đề Tốc độ phản ứng); KHTN 8 là phần định tính đã học trước. Bước \"Nhìn vào bên trong\" (va chạm hiệu quả, năng lượng hoạt hoá) thuộc Chuyên đề 10.1."
+  },
+  "chlor-alkali-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "NGUYÊN TỐ NHÓM IA VÀ NHÓM IIA",
+     "muc": "Nguyên tố nhóm IA › Một số ứng dụng và quá trình liên quan đến hợp chất nhóm IA",
+     "ycd": [
+      "Trình bày được quá trình điện phân dung dịch sodium chloride và các sản phẩm cơ bản của công nghiệp chlorine - kiềm."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "PIN ĐIỆN VÀ ĐIỆN PHÂN",
+     "muc": "Điện phân",
+     "ycd": [
+      "Trình bày được nguyên tắc (thứ tự) điện phân dung dịch, điện phân nóng chảy.",
+      "Thực hiện được (hoặc quan sát video) thí nghiệm điện phân dung dịch copper(II) sulfate, dung dịch sodium chloride (tự chế tạo nước Javel để tẩy rửa)."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "NGUYÊN TỐ NHÓM VIIA",
+     "muc": "Tính chất vật lí và hoá học các đơn chất nhóm VIIA",
+     "ycd": [
+      "Viết được phương trình hoá học của phản ứng tự oxi hoá - khử của chlorine trong phản ứng với dung dịch sodium hydroxide ở nhiệt độ thường và khi đun nóng; ứng dụng của phản ứng này trong sản xuất chất tẩy rửa."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Công nghiệp chlorine – kiềm có trong Hoá học 12 nhưng chỉ ở mức trình bày quá trình và sản phẩm. Các nội dung tinh chế nước muối, cấu tạo màng trao đổi ion, tối ưu dòng điện, nhiệt độ bể và vận hành ca là mở rộng ngoài chương trình."
+  },
+  "haber-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Ammonia và một số hợp chất ammonium",
+     "ycd": [
+      "Vận dụng được kiến thức về cân bằng hoá học, tốc độ phản ứng, enthalpy cho phản ứng tổng hợp ammonia từ nitơ và hydrogen trong quá trình Haber."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "CÂN BẰNG HOÁ HỌC",
+     "muc": "Khái niệm về cân bằng hoá học",
+     "ycd": [
+      "Vận dụng được nguyên lí chuyển dịch cân bằng Le Chatelier để giải thích ảnh hưởng của nhiệt độ, nồng độ, áp suất đến cân bằng hoá học."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Đơn chất nitơ (nitrogen)",
+     "ycd": [
+      "Giải thích được tính trơ của đơn chất nitơ ở nhiệt độ thường thông qua liên kết và giá trị năng lượng liên kết."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Ammonia và một số hợp chất ammonium",
+     "ycd": [
+      "Trình bày được ứng dụng của ammonia (chất làm lạnh; sản xuất phân bón như: đạm, ammophos; sản xuất nitric acid; làm dung môi...); của ammonium nitrate và một số muối ammonium tan như: phân đạm, phân ammophos..."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "TỐC ĐỘ PHẢN ỨNG HOÁ HỌC",
+     "muc": "Các yếu tố ảnh hưởng tới tốc độ phản ứng",
+     "ycd": [
+      "Vận dụng được kiến thức tốc độ phản ứng hoá học vào việc giải thích một số vấn đề trong cuộc sống và sản xuất."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Quá trình Haber nằm trong Hoá học 11, ở mức vận dụng cân bằng, tốc độ, enthalpy. Cấu tạo tháp tổng hợp, làm sạch khí nguyên liệu và vòng tuần hoàn khí là chi tiết công nghệ ngoài chương trình."
+  },
+  "bromine-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "NGUYÊN TỐ NHÓM VIIA",
+     "muc": "Tính chất vật lí và hoá học các đơn chất nhóm VIIA",
+     "ycd": [
+      "Thực hiện được (hoặc quan sát video) thí nghiệm chứng minh được xu hướng giảm dần tính oxi hoá của các halogen thông qua một số phản ứng: Thay thế halogen trong dung dịch muối bởi một halogen khác; Halogen tác dụng với hydrogen và với nước.",
+      "Phát biểu được trạng thái tự nhiên của các nguyên tố halogen.",
+      "Mô tả được trạng thái, màu sắc, nhiệt độ nóng chảy, nhiệt độ sôi của các đơn chất halogen."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Lưu huỳnh và sulfur dioxide",
+     "ycd": [
+      "Trình bày được tính oxi hoá (tác dụng với hydrogen sulfide) và tính khử (tác dụng với nitrogen dioxide, xúc tác nitrogen oxide trong không khí) và ứng dụng của sulfur dioxide (khả năng tẩy màu, diệt nấm mốc,...)."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 9,
+     "chu_de": "Khai thác tài nguyên từ vỏ Trái đất",
+     "muc": "Sơ lược về hoá học vỏ Trái Đất và khai thác tài nguyên từ vỏ Trái Đất",
+     "ycd": [
+      "Trình bày được những lợi ích cơ bản về kinh tế, xã hội từ việc khai thác vỏ Trái Đất (nhiên liệu, vật liệu, nguyên liệu); lợi ích của sự tiết kiệm và bảo vệ nguồn tài nguyên, sử dụng vật liệu tái chế, ... phục vụ cho sự phát triển bền vững."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Quy trình thổi khí khai thác bromine từ nước biển KHÔNG có trong chương trình. Phần hoá học cốt lõi (chlorine đẩy bromine khỏi muối bromide, bromine dễ bay hơi, SO2 khử Br2) dựa trên YCCĐ nhóm VIIA lớp 10 và SO2 lớp 11. Phản ứng Br2 + SO2 + H2O không được nêu đích danh (YCCĐ chỉ nêu tính khử của SO2 với NO2)."
+  },
+  "blast-furnace-step": {
+   "khop": [
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 9,
+     "chu_de": "Kim loại",
+     "muc": "Tách kim loại và việc sử dụng hợp kim",
+     "ycd": [
+      "Trình bày được các giai đoạn cơ bản sản xuất gang và thép trong lò cao từ nguồn quặng chứa iron (III) oxide.",
+      "Trình bày được quá trình tách một số kim loại có nhiều ứng dụng, như:",
+      "+ Tách sắt ra khỏi iron(III) oxide (sắt(III) oxit) bởi carbon oxide (oxit cacbon);"
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "ĐẠI CƯƠNG VỀ KIM LOẠI",
+     "muc": "Quặng, mỏ kim loại trong tự nhiên và các phương pháp tách kim loại",
+     "ycd": [
+      "Trình bày và giải thích được phương pháp tách kim loại hoạt động mạnh như sodium, magnesium, nhôm (aluminium); Phương pháp tách kim loại hoạt động trung bình như kẽm (zinc), sắt (iron); Phương pháp tách kim loại kém hoạt động như đồng (copper).",
+      "Nêu được khái quát trạng thái tự nhiên của kim loại và một số quặng, mỏ kim loại phổ biến."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "ĐẠI CƯƠNG VỀ KIM LOẠI",
+     "muc": "Hợp kim",
+     "ycd": [
+      "Nêu được thành phần, tính chất và ứng dụng một số hợp kim quan trọng của sắt và nhôm (gang, thép, dural,...)."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 9,
+     "chu_de": "Khai thác tài nguyên từ vỏ Trái đất",
+     "muc": "Khai thác đá vôi",
+     "ycd": [
+      "Trình bày được nguồn đá vôi, thành phần chính của đá vôi trong tự nhiên; các ứng dụng từ đá vôi: sản phẩm đá vôi nghiền, calcium oxide, calcium hydroxide, nguyên liệu sản xuất xi măng."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Lò cao được dạy đích danh ở KHTN 9 (định tính); Hoá học 12 chỉ nêu phương pháp tách kim loại hoạt động trung bình như sắt và hợp kim gang, thép. Vai trò đá vôi tạo xỉ, phân vùng nhiệt trong lò và bài toán nhiệt độ gió nóng là mở rộng."
+  },
+  "smelting-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "PIN ĐIỆN VÀ ĐIỆN PHÂN",
+     "muc": "Điện phân",
+     "ycd": [
+      "Trình bày được giai đoạn điện phân aluminium oxide trong sản xuất nhôm (aluminium), tinh luyện đồng (copper) bằng phương pháp điện phân, mạ điện.",
+      "Trình bày được nguyên tắc (thứ tự) điện phân dung dịch, điện phân nóng chảy."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "ĐẠI CƯƠNG VỀ KIM LOẠI",
+     "muc": "Quặng, mỏ kim loại trong tự nhiên và các phương pháp tách kim loại",
+     "ycd": [
+      "Trình bày và giải thích được phương pháp tách kim loại hoạt động mạnh như sodium, magnesium, nhôm (aluminium); Phương pháp tách kim loại hoạt động trung bình như kẽm (zinc), sắt (iron); Phương pháp tách kim loại kém hoạt động như đồng (copper)."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 9,
+     "chu_de": "Kim loại",
+     "muc": "Tách kim loại và việc sử dụng hợp kim",
+     "ycd": [
+      "Nêu được phương pháp tách kim loại theo mức độ hoạt động hoá học của chúng.",
+      "Trình bày được quá trình tách một số kim loại có nhiều ứng dụng, như:",
+      "+ Tách nhôm ra khỏi aluminium oxide (nhôm oxit) bởi phản ứng điện phân;"
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 9,
+     "chu_de": "Kim loại",
+     "muc": "Dãy hoạt động hoá học",
+     "ycd": [
+      "Nêu được dãy hoạt động hoá học (K, Na, Ca, Mg, Al, Zn, Fe, Pb, H, Cu, Ag, Au).",
+      "Trình bày được ý nghĩa của dãy hoạt động hoá học."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Điện phân nóng chảy Al2O3 có trong Hoá học 12 và KHTN 9; vai trò cryolite không được nêu đích danh. Phản ứng nhiệt nhôm không có YCCĐ riêng, chỉ liên hệ qua dãy hoạt động hoá học và phương pháp tách kim loại. Bài toán điện năng là mở rộng."
+  },
+  "ball-stick-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "LIÊN KẾT HOÁ HỌC",
+     "muc": "Liên kết cộng hoá trị",
+     "ycd": [
+      "Lắp được mô hình phân tử, tinh thể NaCl (theo mô hình có sẵn)."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "ĐẠI CƯƠNG HOÁ HỌC HỮU CƠ",
+     "muc": "Cấu tạo hoá học hợp chất hữu cơ",
+     "ycd": [
+      "Giải thích được hiện tượng đồng phân trong hoá học hữu cơ.",
+      "Viết được công thức cấu tạo của một số hợp chất hữu cơ đơn giản (công thức cấu tạo đầy đủ, công thức cấu tạo thu gọn)."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "HYDROCARBON",
+     "muc": "Alkane (ankan)",
+     "ycd": [
+      "Trình bày được đặc điểm về liên kết hoá học trong phân tử alkane, hình dạng phân tử của methane, ethane; phản ứng thế, cracking, reforming, phản ứng oxi hoá hoàn toàn, phản ứng oxi hoá không hoàn toàn."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "HYDROCARBON",
+     "muc": "Hydrocarbon không no",
+     "ycd": [
+      "Nêu được khái niệm về alkene và alkyne, công thức chung của alkene; đặc điểm liên kết, hình dạng phân tử của ethylene và acetylene."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "HYDROCARBON",
+     "muc": "Arene (hydrocarbon thơm)",
+     "ycd": [
+      "Trình bày được đặc điểm về tính chất vật lí, trạng thái tự nhiên của một số arene, đặc điểm liên kết và hình dạng phân tử benzene."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "Chuyên đề 10.1: CƠ SỞ HOÁ HỌC",
+     "muc": "Liên kết hoá học",
+     "ycd": [
+      "Viết được công thức Lewis, sử dụng được mô hình VSEPR để dự đoán hình học cho một số phân tử đơn giản."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 9,
+     "chu_de": "Giới thiệu về chất hữu cơ",
+     "muc": "Giới thiệu về chất hữu cơ",
+     "ycd": [
+      "Nêu được khái niệm công thức phân tử, công thức cấu tạo và ý nghĩa của nó; đặc điểm cấu tạo hợp chất hữu cơ."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "YCCĐ lắp mô hình nằm ở Hoá học 10 (mô hình có sẵn); hình dạng methane, ethylene, acetylene, benzene và đồng phân nằm ở Hoá học 11. Dichloromethane không có đồng phân và liên kết đơn quay tự do không được nêu đích danh."
+  },
+  "electrolysis-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "PIN ĐIỆN VÀ ĐIỆN PHÂN",
+     "muc": "Điện phân",
+     "ycd": [
+      "Trình bày được nguyên tắc (thứ tự) điện phân dung dịch, điện phân nóng chảy.",
+      "Thực hiện được (hoặc quan sát video) thí nghiệm điện phân dung dịch copper(II) sulfate, dung dịch sodium chloride (tự chế tạo nước Javel để tẩy rửa)."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "PIN ĐIỆN VÀ ĐIỆN PHÂN",
+     "muc": "Điện phân",
+     "ycd": [
+      "Nêu được ứng dụng của một số hiện tượng điện phân trong thực tiễn (mạ điện, tinh chế kim loại).",
+      "Trình bày được giai đoạn điện phân aluminium oxide trong sản xuất nhôm (aluminium), tinh luyện đồng (copper) bằng phương pháp điện phân, mạ điện."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "NGUYÊN TỐ NHÓM IA VÀ NHÓM IIA",
+     "muc": "Nguyên tố nhóm IA › Một số ứng dụng và quá trình liên quan đến hợp chất nhóm IA",
+     "ycd": [
+      "Trình bày được quá trình điện phân dung dịch sodium chloride và các sản phẩm cơ bản của công nghiệp chlorine - kiềm."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 8,
+     "chu_de": "Điện",
+     "muc": "Tác dụng của dòng điện",
+     "ycd": [
+      "Thực hiện thí nghiệm để minh hoạ được các tác dụng cơ bản của dòng điện: nhiệt, phát sáng, hoá học, sinh lí."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp trực tiếp Hoá học 12. Lưu ý chương trình Việt Nam chọn thí nghiệm điện phân dung dịch copper(II) sulfate (không phải copper(II) chloride) và dung dịch NaCl. Anode đồng tan liên hệ YCCĐ tinh luyện đồng; bài toán khối lượng đồng (định luật Faraday) không có YCCĐ riêng."
+  },
+  "hou-soda-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "NGUYÊN TỐ NHÓM IA VÀ NHÓM IIA",
+     "muc": "Nguyên tố nhóm IA › Một số ứng dụng và quá trình liên quan đến hợp chất nhóm IA",
+     "ycd": [
+      "Giải thích được các ứng dụng phổ biến của sodium hydrogen carbonate (natri hiđrocacbonat), sodium carbonate (natri cacbonat) và phương pháp Solvay sản xuất soda."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Ammonia và một số hợp chất ammonium",
+     "ycd": [
+      "Trình bày được tính chất cơ bản của muối ammonium (dễ tan và phân li, chuyển hoá thành ammonia trong kiềm, dễ bị nhiệt phân) và nhận biết được ion ammonium trong dung dịch."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "Chuyên đề 11.1: PHÂN BÓN",
+     "muc": "Phân bón vô cơ",
+     "ycd": [
+      "Trình bày được quy trình sản xuất một số loại phân bón vô cơ."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Chương trình chỉ có phương pháp Solvay (ammonia – soda); phương pháp Hầu Đức Bảng không được nêu. Các bước tạo NaHCO3 kết tủa và nung thành soda trùng với Solvay nên dạy được; phần thu hồi NH4Cl làm phân đạm từ nước cái là đặc thù phương pháp Hầu, nằm ngoài YCCĐ."
+  },
+  "galvanic-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "PIN ĐIỆN VÀ ĐIỆN PHÂN",
+     "muc": "Thế điện cực và nguồn điện hoá học",
+     "ycd": [
+      "Nêu được cấu tạo, nguyên tắc hoạt động của pin Galvani, ưu nhược điểm chính một số loại pin khác như acquy (accu), pin nhiên liệu; pin mặt trời...",
+      "Lắp ráp được pin đơn giản (Pin đơn giản: 2 thanh kim loại khác nhau cắm vào quả chanh, lọ nước muối...) và đo được sức điện động của pin.",
+      "Mô tả được cặp oxi hoá - khử kim loại."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "PIN ĐIỆN VÀ ĐIỆN PHÂN",
+     "muc": "Thế điện cực và nguồn điện hoá học",
+     "ycd": [
+      "Sử dụng bảng giá trị thế điện cực chuẩn để: So sánh được tính khử, tính oxi hoá giữa các cặp oxi hoá - khử; Dự đoán được chiều hướng xảy ra phản ứng giữa hai cặp oxi hoá - khử; Tính được sức điện động của pin điện hoá tạo bởi hai cặp oxi hoá - khử."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 8,
+     "chu_de": "Điện",
+     "muc": "Nguồn điện",
+     "ycd": [
+      "Thực hiện thí nghiệm để nêu được khả năng sinh ra dòng điện của pin (hay ắc quy) được đo bằng hiệu điện thế (còn gọi là điện áp) giữa hai cực của nó."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp trực tiếp Hoá học 12 (pin Galvani). Cầu muối không được nêu đích danh trong YCCĐ; ảnh hưởng của nồng độ lên sức điện động (phương trình Nernst) là ngoài chương trình."
+  },
+  "sulfuric-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Sulfuric acid và muối sulfate",
+     "ycd": [
+      "Vận dụng được kiến thức về năng lượng phản ứng, chuyển dịch cân bằng, vấn đề bảo vệ môi trường để giải thích các giai đoạn trong quá trình sản xuất sulfuric acid theo phương pháp tiếp xúc."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "CÂN BẰNG HOÁ HỌC",
+     "muc": "Khái niệm về cân bằng hoá học",
+     "ycd": [
+      "Vận dụng được nguyên lí chuyển dịch cân bằng Le Chatelier để giải thích ảnh hưởng của nhiệt độ, nồng độ, áp suất đến cân bằng hoá học."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Lưu huỳnh và sulfur dioxide",
+     "ycd": [
+      "Trình bày được sự hình thành sulfur dioxide do tác động của con người, tự nhiên, tác hại của sulfur dioxide và một số biện pháp làm giảm thiểu lượng sulfur dioxide thải vào không khí."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Có YCCĐ đích danh ở Hoá học 11 (phương pháp tiếp xúc), mức vận dụng năng lượng, cân bằng, môi trường. Chi tiết tháp tiếp xúc, xúc tác V2O5 nhiều lớp và hấp thụ SO3 bằng acid đặc (oleum) là mở rộng."
+  },
+  "cement-step": {
+   "khop": [
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 9,
+     "chu_de": "Khai thác tài nguyên từ vỏ Trái đất",
+     "muc": "Công nghiệp silicate",
+     "ycd": [
+      "Mô tả được các công đoạn chính sản xuất đồ gốm, thuỷ tinh, xi măng.",
+      "Trình bày được sơ lược ngành công nghiệp silicate."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 9,
+     "chu_de": "Khai thác tài nguyên từ vỏ Trái đất",
+     "muc": "Khai thác đá vôi",
+     "ycd": [
+      "Trình bày được nguồn đá vôi, thành phần chính của đá vôi trong tự nhiên; các ứng dụng từ đá vôi: sản phẩm đá vôi nghiền, calcium oxide, calcium hydroxide, nguyên liệu sản xuất xi măng."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "Chuyên đề 12.2: TRẢI NGHIỆM, THỰC HÀNH HOÁ HỌC VÔ CƠ",
+     "muc": "Tìm hiểu công nghiệp silicate",
+     "ycd": [
+      "Nêu được thành phần hoá học và tính chất cơ bản của thuỷ tinh, đồ gốm, xi măng.",
+      "Trình bày được phương pháp sản xuất các loại vật liệu trên từ nguồn nguyên liệu có trong tự nhiên nói chung và trong tự nhiên Việt Nam nói riêng."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "NGUYÊN TỐ NHÓM IA VÀ NHÓM IIA",
+     "muc": "Nguyên tố nhóm IIA › Tính chất cơ bản của một số loại hợp chất nhóm IIA",
+     "ycd": [
+      "Viết được phương trình hoá học sự phân huỷ nhiệt của muối carbonate và muối nitrate."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "NGUYÊN TỐ NHÓM IA VÀ NHÓM IIA",
+     "muc": "Nguyên tố nhóm IIA › Một số ứng dụng",
+     "ycd": [
+      "Tìm hiểu và trình bày được ứng dụng của kim loại dạng nguyên chất, hợp kim; ứng dụng của đá vôi, vôi, nước vôi, thạch cao, khoáng vật apatite,... dựa trên một số tính chất hoá học và vật lí của chúng; vai trò một số hợp chất của calcium trong cơ thể con người."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Sản xuất xi măng có ở KHTN 9 (bắt buộc) và Chuyên đề học tập 12.2 (tự chọn). Thành phần khoáng clinker, vùng nung kết và làm nguội nhanh là mở rộng."
+  },
+  "iron-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "SƠ LƯỢC VỀ DÃY KIM LOẠI CHUYỂN TIẾP THỨ NHẤT VÀ PHỨC CHẤT",
+     "muc": "Đại cương về kim loại chuyển tiếp dãy thứ nhất",
+     "ycd": [
+      "Nêu được xu hướng có nhiều số oxi hoá của nguyên tố chuyển tiếp.",
+      "Nêu được các trạng thái oxi hoá phổ biến, cấu hình electron, đặc tính có màu của một số ion kim loại chuyển tiếp dãy thứ nhất.",
+      "Thực hiện được thí nghiệm kiểm tra sự có mặt từng ion riêng biệt: Cu2+, Fe3+."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "SƠ LƯỢC VỀ DÃY KIM LOẠI CHUYỂN TIẾP THỨ NHẤT VÀ PHỨC CHẤT",
+     "muc": "Đại cương về kim loại chuyển tiếp dãy thứ nhất",
+     "ycd": [
+      "Thực hiện được (hoặc quan sát video) thí nghiệm xác định hàm lượng muối Fe(II) bằng dung dịch thuốc tím."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "SƠ LƯỢC VỀ DÃY KIM LOẠI CHUYỂN TIẾP THỨ NHẤT VÀ PHỨC CHẤT",
+     "muc": "Sơ lược về phức chất và sự hình thành phức chất của ion kim loại chuyển tiếp trong dung dịch",
+     "ycd": [
+      "Trình bày được một số dấu hiệu của phản ứng tạo phức chất trong dung dịch (đổi màu, kết tủa, hoà tan...)."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "PHẢN ỨNG OXI HOÁ - KHỬ",
+     "muc": "Phản ứng oxi hoá - khử",
+     "ycd": [
+      "Nêu được khái niệm và xác định được số oxi hoá của nguyên tử các nguyên tố trong hợp chất."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Chương trình Việt Nam không có bài riêng \"sắt và hợp chất\" như SGK Trung Quốc; nội dung Fe(II)/Fe(III) nằm trong chủ đề kim loại chuyển tiếp lớp 12. Kết tủa Fe(OH)2 trắng bị oxi hoá trong không khí và thử bằng KSCN không được nêu đích danh."
+  },
+  "coal-gas-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "Chuyên đề 11.3: DẦU MỎ VÀ CHẾ BIẾN DẦU MỎ",
+     "muc": "Một số nguồn nhiên liệu thay thế dầu mỏ",
+     "ycd": [
+      "Trình bày được một số nguồn nhiên liệu thay thế dầu mỏ (than đá, đá nhựa, đá dầu, khí thiên nhiên, hydrogen)."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 9,
+     "chu_de": "Khai thác tài nguyên từ vỏ Trái đất",
+     "muc": "Khai thác nhiên liệu hoá thạch",
+     "ycd": [
+      "Nêu được khái niệm nhiên liệu hoá thạch.",
+      "Nêu được một số giải pháp hạn chế việc sử dụng nhiên liệu hoá thạch"
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "CÂN BẰNG HOÁ HỌC",
+     "muc": "Khái niệm về cân bằng hoá học",
+     "ycd": [
+      "Vận dụng được nguyên lí chuyển dịch cân bằng Le Chatelier để giải thích ảnh hưởng của nhiệt độ, nồng độ, áp suất đến cân bằng hoá học."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Lưu huỳnh và sulfur dioxide",
+     "ycd": [
+      "Trình bày được sự hình thành sulfur dioxide do tác động của con người, tự nhiên, tác hại của sulfur dioxide và một số biện pháp làm giảm thiểu lượng sulfur dioxide thải vào không khí."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khí hoá than (C + H2O, chuyển hoá CO, khí tổng hợp, sản xuất methanol) KHÔNG có trong chương trình Hoá học và KHTN. Chỉ liên hệ được qua than đá là nhiên liệu thay thế (Chuyên đề 11.3), nhiên liệu hoá thạch (KHTN 9), nguyên lí Le Chatelier và xử lí sulfur."
+  },
+  "hydrolysis-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "CÂN BẰNG HOÁ HỌC",
+     "muc": "Cân bằng trong dung dịch nước",
+     "ycd": [
+      "Trình bày được ý nghĩa thực tiễn cân bằng trong dung dịch nước của ion Al3+, Fe3+ và CO32-."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "CÂN BẰNG HOÁ HỌC",
+     "muc": "Khái niệm về cân bằng hoá học",
+     "ycd": [
+      "Thực hiện được thí nghiệm nghiên cứu ảnh hưởng của nhiệt độ tới chuyển dịch cân bằng:",
+      "(2) Phản ứng thuỷ phân sodium acetate."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "CÂN BẰNG HOÁ HỌC",
+     "muc": "Cân bằng trong dung dịch nước",
+     "ycd": [
+      "Trình bày được thuyết Brønsted - Lowry về acid - base."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "Chuyên đề 12.2: TRẢI NGHIỆM, THỰC HÀNH HOÁ HỌC VÔ CƠ",
+     "muc": "Xử lí nước sinh hoạt",
+     "ycd": [
+      "Trình bày được các vật liệu và hoá chất thông dụng có thể được sử dụng như than trong xử lí nước (hoặc than hoạt tính); cát, đá, sỏi; các loại phèn, PAC (poly aluminium chloride),..."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Chương trình 2018 không dùng thuật ngữ \"sự thuỷ phân của muối\" thành mục riêng; nội dung nằm ở cân bằng của ion Al3+, Fe3+, CO32- (công thức CO32- trong bản gốc là ảnh công thức) và thí nghiệm thuỷ phân sodium acetate theo nhiệt độ. Phèn làm trong nước liên hệ Chuyên đề 12.2."
+  },
+  "conductivity-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "CÂN BẰNG HOÁ HỌC",
+     "muc": "Cân bằng trong dung dịch nước",
+     "ycd": [
+      "Nêu được khái niệm sự điện li, chất điện li, chất không điện li."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "CÂN BẰNG HOÁ HỌC",
+     "muc": "Cân bằng trong dung dịch nước",
+     "ycd": [
+      "Trình bày được thuyết Brønsted - Lowry về acid - base."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Sulfuric acid và muối sulfate",
+     "ycd": [
+      "Nêu được ứng dụng của một số muối sulfate quan trọng: barium sulfate (bari sunfat), ammonium sulfate (amoni sunfat), calcium sulfate (canxi sunfat), magnesium sulfate (magie sunfat) và nhận biết được ion SO42- trong dung dịch bằng ion Ba2+."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 8,
+     "chu_de": "Điện",
+     "muc": "Dòng điện",
+     "ycd": [
+      "Phân loại được vật dẫn điện, vật không dẫn điện."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Chỉ khái niệm sự điện li, chất điện li, chất không điện li là có YCCĐ (Hoá học 11). Chất điện li mạnh/yếu và phương trình ion rút gọn không được nêu đích danh trong chương trình 2018. Bước Ba(OH)2 + H2SO4 liên hệ nhận biết ion SO42- bằng Ba2+ (SO42- trong bản gốc là ảnh công thức)."
+  },
+  "flame-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "NGUYÊN TỐ NHÓM IA VÀ NHÓM IIA",
+     "muc": "Nguyên tố nhóm IA › Một số ứng dụng và quá trình liên quan đến hợp chất nhóm IA",
+     "ycd": [
+      "Thực hiện được thí nghiệm (hoặc qua quan sát video thí nghiệm) phân biệt các ion Li+, Na+, K+ bằng màu ngọn lửa."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "NGUYÊN TỐ NHÓM IA VÀ NHÓM IIA",
+     "muc": "Nguyên tố nhóm IIA › Đơn chất",
+     "ycd": [
+      "Trình bày được phản ứng của kim loại IIA với oxygen. Nhận biết được đơn chất và các hợp chất của Ca2+, Sr2+, Ba2+ dựa vào màu ngọn lửa."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "CẤU TẠO NGUYÊN TỬ",
+     "muc": "Cấu trúc lớp vỏ electron nguyên tử",
+     "ycd": [
+      "Trình bày và so sánh được mô hình của Rutherford - Bohr với mô hình hiện đại mô tả sự chuyển động của electron trong nguyên tử."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Thử màu ngọn lửa khớp trực tiếp Hoá học 12 (nhóm IA, IIA). Quang phổ phát xạ/hấp thụ nguyên tử, vạch kép sodium, kính cobalt và quan hệ năng lượng – bước sóng không có trong chương trình Hoá học (chỉ liên hệ mô hình Rutherford – Bohr lớp 10)."
+  },
+  "equilibrium-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "CÂN BẰNG HOÁ HỌC",
+     "muc": "Khái niệm về cân bằng hoá học",
+     "ycd": [
+      "Vận dụng được nguyên lí chuyển dịch cân bằng Le Chatelier để giải thích ảnh hưởng của nhiệt độ, nồng độ, áp suất đến cân bằng hoá học.",
+      "Thực hiện được thí nghiệm nghiên cứu ảnh hưởng của nhiệt độ tới chuyển dịch cân bằng:",
+      "(1) Phản ứng: 2NO2 ⇌ N2O4",
+      "Trình bày được khái niệm phản ứng thuận nghịch và trạng thái cân bằng của một phản ứng thuận nghịch.",
+      "Viết được biểu thức hằng số cân bằng (KC) của một phản ứng thuận nghịch."
+     ],
+     "muc_do": "chinh"
+    }
+   ],
+   "ghi_chu": "Khớp trực tiếp Hoá học 11. Mũi tên thuận nghịch trong \"2NO2 ⇌ N2O4\" ở bản gốc là ảnh, được chép lại bằng kí hiệu ⇌. Thí nghiệm bắt buộc theo chương trình là ảnh hưởng nhiệt độ (NO2/N2O4, thuỷ phân sodium acetate); các thí nghiệm nồng độ với Fe3+/SCN- và chromate/dichromate là bổ sung."
+  },
+  "nitric-lab-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Một số hợp chất với oxygen của nitrogen",
+     "ycd": [
+      "Nêu được cấu tạo của HNO3, tính acid, tính oxi hoá mạnh trong một số ứng dụng thực tiễn quan trọng của nitric acid."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Một số hợp chất với oxygen của nitrogen",
+     "ycd": [
+      "Phân tích được nguồn gốc của các oxide của nitrogen trong không khí và nguyên nhân gây hiện tượng mưa acid."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Đơn chất nitơ (nitrogen)",
+     "ycd": [
+      "Trình bày được sự hoạt động của đơn chất nitơ ở nhiệt độ cao đối với hydrogen, oxygen. Liên hệ được quá trình tạo và cung cấp nitrate (nitrat) cho đất từ nước mưa."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "YCCĐ về nitric acid ở Hoá học 11 rất khái quát (tính acid, tính oxi hoá mạnh); không nêu đích danh phản ứng Cu với HNO3 đặc/loãng, sự thụ động của sắt, bảo quản trong lọ nâu hay chuyển hoá NO ⇌ NO2 với O2, H2O."
+  },
+  "sodium-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "NGUYÊN TỐ NHÓM IA VÀ NHÓM IIA",
+     "muc": "Nguyên tố nhóm IA › Đơn chất",
+     "ycd": [
+      "Thông qua mô tả thí nghiệm (hoặc quan sát qua video), nêu được mức độ phản ứng tăng dần từ lithium, sodium, potassium khi chúng phản ứng với nước, chlorine và oxygen.",
+      "Trình bày được cách bảo quản kim loại nhóm IA.",
+      "Giải thích được nguyên nhân khối lượng riêng nhỏ và độ cứng thấp của kim loại nhóm IA.",
+      "Giải thích được nguyên nhân kim loại nhóm IA có tính khử mạnh hơn so với các nhóm kim loại khác."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "Chuyên đề 10.2: HOÁ HỌC TRONG VIỆC PHÒNG CHỐNG CHÁY NỔ",
+     "muc": "Hoá học về phản ứng cháy, nổ",
+     "ycd": [
+      "Giải thích được tại sao đám cháy có mặt các kim loại hoạt động mạnh như kim loại kiềm, kiềm thổ và nhôm... không sử dụng nước, CO2, cát (thành phần chính là SiO2), bọt chữa cháy (hỗn hợp không khí, nước và chất hoạt động bề mặt) để dập tắt đám cháy."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 9,
+     "chu_de": "Kim loại",
+     "muc": "Tính chất chung của kim loại",
+     "ycd": [
+      "Trình bày được tính chất hoá học cơ bản của kim loại: Tác dụng với phi kim (oxygen, lưu huỳnh, chlorine), nước hoặc hơi nước, dung dịch hydrochloric acid (axit clohiđric), dung dịch muối."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Tính chất sodium nằm ở Hoá học 12 (nhóm IA), phần lớn ở mức mô tả hoặc xem video. Chữa cháy kim loại kiềm khớp đích danh Chuyên đề 10.2 (tự chọn). Sản phẩm cháy Na2O2 không được nêu đích danh."
+  },
+  "sulfur-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Lưu huỳnh và sulfur dioxide",
+     "ycd": [
+      "Trình bày được cấu tạo, tính chất vật lí, hoá học cơ bản và ứng dụng của lưu huỳnh đơn chất.",
+      "Thực hiện được thí nghiệm chứng minh lưu huỳnh đơn chất vừa có tính oxi hoá (tác dụng với kim loại), vừa có tính khử (tác dụng với oxygen).",
+      "Trình bày được tính oxi hoá (tác dụng với hydrogen sulfide) và tính khử (tác dụng với nitrogen dioxide, xúc tác nitrogen oxide trong không khí) và ứng dụng của sulfur dioxide (khả năng tẩy màu, diệt nấm mốc,...)."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Sulfuric acid và muối sulfate",
+     "ycd": [
+      "Trình bày được cấu tạo H2SO4; tính chất vật lí, tính chất hoá học cơ bản, ứng dụng của sulfuric acid loãng, sulfuric acid đặc và những lưu ý khi sử dụng sulfuric acid.",
+      "Thực hiện được một số thí nghiệm chứng minh tính oxi hoá mạnh và tính háo nước của sulfuric acid đặc (với đồng, da, than, giấy, đường, gạo,...)."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Lưu huỳnh và sulfur dioxide",
+     "ycd": [
+      "Trình bày được sự hình thành sulfur dioxide do tác động của con người, tự nhiên, tác hại của sulfur dioxide và một số biện pháp làm giảm thiểu lượng sulfur dioxide thải vào không khí."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "PHẢN ỨNG OXI HOÁ - KHỬ",
+     "muc": "Phản ứng oxi hoá - khử",
+     "ycd": [
+      "Nêu được khái niệm và xác định được số oxi hoá của nguyên tử các nguyên tố trong hợp chất."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp tốt Hoá học 11: S + Fe, Cu + H2SO4 đặc, tính tẩy màu và tính oxi hoá của SO2 (với H2S) đều có YCCĐ. Thử bằng fuchsin và hồi màu khi đun là chi tiết thí nghiệm của SGK Trung Quốc."
+  },
+  "corrosion-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 12,
+     "chu_de": "ĐẠI CƯƠNG VỀ KIM LOẠI",
+     "muc": "Sự ăn mòn kim loại",
+     "ycd": [
+      "Nêu được khái niệm ăn mòn kim loại từ sự biến đổi của một số kim loại, hợp kim trong tự nhiên.",
+      "Trình bày được các dạng ăn mòn kim loại và các phương pháp chống ăn mòn kim loại.",
+      "Thực hiện được (hoặc quan sát qua video) thí nghiệm ăn mòn điện hoá đối với sắt và thí nghiệm bảo vệ sắt bằng phương pháp điện hoá, mô tả hiện tượng thí nghiệm, giải thích và nhận xét."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 8,
+     "chu_de": "Phản ứng hoá học",
+     "muc": "Năng lượng trong các phản ứng hoá học",
+     "ycd": [
+      "Nêu được khái niệm và đưa ra được ví dụ minh hoạ về phản ứng toả nhiệt, thu nhiệt."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Ăn mòn điện hoá và bảo vệ bằng kẽm (anode hi sinh) khớp trực tiếp Hoá học 12. Phân biệt ăn mòn hấp thụ oxygen/giải phóng hydrogen và dự án thiết kế miếng dán nhiệt không có YCCĐ riêng (phù hợp làm dự án học tập)."
+  },
+  "ammonia-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Ammonia và một số hợp chất ammonium",
+     "ycd": [
+      "Dựa vào đặc điểm cấu tạo của phân tử ammonia, giải thích được tính chất vật lí (tính tan), tính chất hoá học (tính base, tính khử). Viết được phương trình hoá học minh hoạ.",
+      "Trình bày được tính chất cơ bản của muối ammonium (dễ tan và phân li, chuyển hoá thành ammonia trong kiềm, dễ bị nhiệt phân) và nhận biết được ion ammonium trong dung dịch.",
+      "Mô tả được công thức Lewis và hình học của phân tử ammonia."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 11,
+     "chu_de": "NITROGEN VÀ SULFUR",
+     "muc": "Ammonia và một số hợp chất ammonium",
+     "ycd": [
+      "Thực hiện được (hoặc quan sát video) thí nghiệm nhận biết được ion ammonium trong phân đạm chứa ion ammonium."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 8,
+     "chu_de": "Phản ứng hoá học",
+     "muc": "Mol và tỉ khối của chất khí",
+     "ycd": [
+      "So sánh được chất khí này nặng hay nhẹ hơn chất khí khác dựa vào công thức tính tỉ khối."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Tính tan (thí nghiệm vòi phun), tính base, phản ứng với HCl tạo khói trắng và muối ammonium + kiềm → NH3 có YCCĐ ở Hoá học 11. Cách lắp bộ điều chế, chọn chất làm khô (vôi tôi xút, không dùng CaCl2) và thu khí úp ngược không được nêu đích danh."
+  },
+  "chlorine-step": {
+   "khop": [
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "NGUYÊN TỐ NHÓM VIIA",
+     "muc": "Tính chất vật lí và hoá học các đơn chất nhóm VIIA",
+     "ycd": [
+      "Thực hiện được (hoặc quan sát video) một số thí nghiệm chứng minh tính oxi hoá mạnh của các halogen và so sánh tính oxi hoá giữa chúng (thí nghiệm tính tẩy màu của khí chlorine ẩm; thí nghiệm nước chlorine, nước bromine tương tác với các dung dịch sodium chloride, sodium bromide, sodium iodide).",
+      "Viết được phương trình hoá học của phản ứng tự oxi hoá - khử của chlorine trong phản ứng với dung dịch sodium hydroxide ở nhiệt độ thường và khi đun nóng; ứng dụng của phản ứng này trong sản xuất chất tẩy rửa.",
+      "Thực hiện được (hoặc quan sát video) thí nghiệm chứng minh được xu hướng giảm dần tính oxi hoá của các halogen thông qua một số phản ứng: Thay thế halogen trong dung dịch muối bởi một halogen khác; Halogen tác dụng với hydrogen và với nước."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Hoá học",
+     "lop": 10,
+     "chu_de": "NGUYÊN TỐ NHÓM VIIA",
+     "muc": "Hydrogen halide và một số phản ứng của ion halide (halogenua)",
+     "ycd": [
+      "Trình bày được tính khử của các ion halide (Cl-, Br-, I-) thông qua phản ứng với chất oxi hoá là sulfuric acid đặc."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Khoa học tự nhiên",
+     "lop": 8,
+     "chu_de": "Phản ứng hoá học",
+     "muc": "Mol và tỉ khối của chất khí",
+     "ycd": [
+      "So sánh được chất khí này nặng hay nhẹ hơn chất khí khác dựa vào công thức tính tỉ khối."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Tính chất chlorine (tẩy màu khi ẩm, nước chlorine, hấp thụ bằng NaOH) khớp Hoá học 10. Điều chế chlorine trong phòng thí nghiệm từ MnO2 + HCl đặc và dãy bình rửa khí (nước, H2SO4 đặc) không được nêu đích danh trong YCCĐ."
+  },
+  "carbon-step": {
+   "khop": [
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Chuyên đề 10.1: Biến đổi khí hậu",
+     "muc": "Khái niệm, biểu hiện, nguyên nhân của biến đổi khí hậu",
+     "ycd": [
+      "Trình bày được khái niệm, các biểu hiện của biến đổi khí hậu.",
+      "Giải thích được nguyên nhân của biến đổi khí hậu."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Chuyên đề 10.1: Biến đổi khí hậu",
+     "muc": "Các tác động của biến đổi khí hậu và hậu quả",
+     "ycd": [
+      "Phân tích được các tác động của biến đổi khí hậu và hậu quả trên phạm vi toàn cầu.",
+      "Giải thích được tầm quan trọng và sự cấp bách của ứng phó với biến đổi khí hậu."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Chuyên đề 10.1: Biến đổi khí hậu",
+     "muc": "Ứng phó với biến đổi khí hậu",
+     "ycd": [
+      "Hệ thống hoá được các nhóm giải pháp ứng phó với biến đổi khí hậu."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Phát triển bền vững và tăng trưởng xanh",
+     "muc": "Phát triển bền vững",
+     "ycd": [
+      "Trình bày được khái niệm và sự cần thiết phải phát triển bền vững."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "KHÍ HẬU VÀ BIẾN ĐỔI KHÍ HẬU",
+     "muc": "Sự biến đổi khí hậu và biện pháp ứng phó",
+     "ycd": [
+      "Nêu được một số biểu hiện của biến đổi khí hậu.",
+      "Trình bày được một số biện pháp phòng tránh thiên tai và ứng phó với biến đổi khí hậu."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 8,
+     "chu_de": "ĐẶC ĐIỂM KHÍ HẬU VÀ THUỶ VĂN VIỆT NAM",
+     "muc": "Tác động của biến đổi khí hậu đối với tự nhiên Việt Nam",
+     "ycd": [
+      "Phân tích được tác động của biến đổi khí hậu đối với một số yếu tố của tự nhiên Việt Nam."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 8,
+     "chu_de": "ĐẶC ĐIỂM KHÍ HẬU VÀ THUỶ VĂN VIỆT NAM",
+     "muc": "Tác động của biến đổi khí hậu đối với tự nhiên Việt Nam",
+     "ycd": [
+      "Tìm ví dụ về giải pháp ứng phó với biến đổi khí hậu."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp tốt nhất là chuyên đề học tập 10.1 (35 tiết chuyên đề, không thuộc phần cốt lõi). Lớp 8: dùng tên nội dung và YCCĐ đã sửa theo Thông tư 17/2025/TT-BGDĐT. Mạch 'an ninh quốc gia' (Maldives, nước biển dâng đe doạ lãnh thổ) vượt chương trình Địa lí; chương trình Việt Nam không có cặp 'tài nguyên – môi trường – an ninh quốc gia' như sách Trung Quốc."
+  },
+  "insolation-step": {
+   "khop": [
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Trái Đất",
+     "muc": "Hệ quả địa lí các chuyển động của Trái Đất",
+     "ycd": [
+      "Phân tích được hệ quả địa lí của các chuyển động chính của Trái Đất: Chuyển động tự quay (sự luân phiên ngày đêm, giờ trên Trái Đất); chuyển động quanh Mặt Trời (các mùa trong năm, ngày đêm dài ngắn theo vĩ độ).",
+      "Liên hệ được thực tế địa phương về các mùa trong năm và chênh lệch thời gian ngày đêm.",
+      "Sử dụng hình vẽ, lược đồ để phân tích được các hệ quả chuyển động của Trái Đất."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Nhiệt độ không khí",
+     "ycd": [
+      "Trình bày được sự phân bố nhiệt độ không khí trên Trái Đất theo vĩ độ địa lí; lục địa, đại dương; địa hình."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Các đới và kiểu khí hậu trên Trái Đất",
+     "ycd": [
+      "Đọc được bản đồ các đới khí hậu trên Trái Đất; phân tích được biểu đồ một số kiểu khí hậu."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "TRÁI ĐẤT – HÀNH TINH CỦA HỆ MẶT TRỜI",
+     "muc": "Chuyển động của Trái Đất và hệ quả địa lí",
+     "ycd": [
+      "Mô tả được chuyển động của Trái Đất (quanh trục và quanh Mặt Trời).",
+      "Trình bày được hiện tượng ngày đêm dài ngắn theo mùa."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "KHÍ HẬU VÀ BIẾN ĐỔI KHÍ HẬU",
+     "muc": "Nhiệt độ và mưa. Thời tiết, khí hậu",
+     "ycd": [
+      "Trình bày được sự thay đổi nhiệt độ bề mặt Trái Đất theo vĩ độ."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp chính với 'các mùa trong năm' và yêu cầu liên hệ thực tế địa phương ở lớp 10. Chương trình Việt Nam không ghi tường minh chuyển động biểu kiến hằng năm của Mặt Trời, cách tính độ cao Mặt Trời giữa trưa, hướng Mặt Trời giữa trưa hay 'năm đới' (vành đai nhiệt); các phần này vượt YCCĐ, chỉ dùng như mở rộng."
+  },
+  "wind-step": {
+   "khop": [
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Khí áp và gió",
+     "ycd": [
+      "Trình bày được một số loại gió chính trên Trái Đất; một số loại gió địa phương."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Khí áp và gió",
+     "ycd": [
+      "Trình bày được sự hình thành các đai khí áp trên Trái Đất, nguyên nhân của sự thay đổi khí áp."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Mưa",
+     "ycd": [
+      "Phân tích được bảng số liệu, hình vẽ, bản đồ, lược đồ về một số yếu tố của khí quyển (nhiệt độ, khí áp, gió, mưa)."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "TRÁI ĐẤT – HÀNH TINH CỦA HỆ MẶT TRỜI",
+     "muc": "Chuyển động của Trái Đất và hệ quả địa lí",
+     "ycd": [
+      "Trình bày được hiện tượng ngày đêm luân phiên nhau và mô tả được sự lệch hướng chuyển động của vật thể theo chiều kinh tuyến."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Chương trình Việt Nam không có lực gradient khí áp, lực Coriolis như lực, gió trên cao (gió địa chuyển) hay đường đẳng áp; bài vượt chương trình về cơ chế. Gần nhất là YCCĐ về khí áp, gió (lớp 10) và sự lệch hướng chuyển động theo kinh tuyến (lớp 6). YCCĐ đọc hình vẽ, bản đồ khí áp, gió thuộc nội dung 'Mưa' trong bảng nhưng áp chung cho các yếu tố khí quyển."
+  },
+  "soil-step": {
+   "khop": [
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Sinh quyển",
+     "muc": "Đất",
+     "ycd": [
+      "Trình bày được các nhân tố hình thành đất; liên hệ được thực tế ở địa phương."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Sinh quyển",
+     "muc": "Đất",
+     "ycd": [
+      "Trình bày được khái niệm về đất; phân biệt được lớp vỏ phong hoá và đất."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Sinh quyển",
+     "muc": "Sự phân bố của đất và sinh vật trên Trái Đất",
+     "ycd": [
+      "Phân tích được sơ đồ, hình vẽ, bản đồ phân bố các nhóm đất và sinh vật trên thế giới."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "ĐẤT VÀ SINH VẬT TRÊN TRÁI ĐẤT",
+     "muc": "Lớp đất trên Trái Đất. Thành phần của đất",
+     "ycd": [
+      "Nêu được các tầng đất và các thành phần chính của đất."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "ĐẤT VÀ SINH VẬT TRÊN TRÁI ĐẤT",
+     "muc": "Các nhân tố hình thành đất",
+     "ycd": [
+      "Trình bày được một số nhân tố hình thành đất."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "ĐẤT VÀ SINH VẬT TRÊN TRÁI ĐẤT",
+     "muc": "Một số nhóm đất điển hình ở các đới thiên nhiên trên Trái Đất",
+     "ycd": [
+      "Kể được tên và xác định được trên bản đồ một số nhóm đất điển hình ở vùng nhiệt đới hoặc ở vùng ôn đới."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 8,
+     "chu_de": "ĐẶC ĐIỂM THỔ NHƯỠNG VÀ SINH VẬT VIỆT NAM",
+     "muc": "Đặc điểm chung của lớp phủ thổ nhưỡng",
+     "ycd": [
+      "Chứng minh được tính chất nhiệt đới gió mùa của lớp phủ thổ nhưỡng."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 8,
+     "chu_de": "ĐẶC ĐIỂM THỔ NHƯỠNG VÀ SINH VẬT VIỆT NAM",
+     "muc": "Vấn đề sử dụng hợp lí tài nguyên đất ở Việt Nam",
+     "ycd": [
+      "Phân tích được đặc điểm của đất feralit và giá trị sử dụng đất feralit trong sản xuất nông, lâm nghiệp."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp trực tiếp cả lớp 10 (nhân tố hình thành đất) và lớp 6 (tầng đất = phẫu diện, nhân tố hình thành đất). Ví dụ đất đen Đông Bắc – đất đỏ phương nam nên thay hoặc bổ sung bằng đất feralit và đất phù sa Việt Nam (lớp 8)."
+  },
+  "thermal-step": {
+   "khop": [
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Khí áp và gió",
+     "ycd": [
+      "Trình bày được một số loại gió chính trên Trái Đất; một số loại gió địa phương."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Khí áp và gió",
+     "ycd": [
+      "Trình bày được sự hình thành các đai khí áp trên Trái Đất, nguyên nhân của sự thay đổi khí áp."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Các đới và kiểu khí hậu trên Trái Đất",
+     "ycd": [
+      "Giải thích được một số hiện tượng thời tiết và khí hậu trong thực tế."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Mưa",
+     "ycd": [
+      "Phân tích được bảng số liệu, hình vẽ, bản đồ, lược đồ về một số yếu tố của khí quyển (nhiệt độ, khí áp, gió, mưa)."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Gió đất, gió biển thuộc 'một số loại gió địa phương' (lớp 10), nhưng mô hình hoàn lưu nhiệt (vòng khép kín, đẳng áp trên cao – dưới thấp) và đảo nhiệt đô thị không được ghi tường minh trong YCCĐ; phần cơ chế là mở rộng."
+  },
+  "earth-motion-step": {
+   "khop": [
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Trái Đất",
+     "muc": "Hệ quả địa lí các chuyển động của Trái Đất",
+     "ycd": [
+      "Phân tích được hệ quả địa lí của các chuyển động chính của Trái Đất: Chuyển động tự quay (sự luân phiên ngày đêm, giờ trên Trái Đất); chuyển động quanh Mặt Trời (các mùa trong năm, ngày đêm dài ngắn theo vĩ độ).",
+      "Liên hệ được thực tế địa phương về các mùa trong năm và chênh lệch thời gian ngày đêm.",
+      "Sử dụng hình vẽ, lược đồ để phân tích được các hệ quả chuyển động của Trái Đất."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "TRÁI ĐẤT – HÀNH TINH CỦA HỆ MẶT TRỜI",
+     "muc": "Chuyển động của Trái Đất và hệ quả địa lí",
+     "ycd": [
+      "Mô tả được chuyển động của Trái Đất (quanh trục và quanh Mặt Trời).",
+      "Nhận biết được giờ địa phương/giờ khu vực, so sánh được giờ của hai địa điểm trên Trái Đất.",
+      "Trình bày được hiện tượng ngày đêm luân phiên nhau và mô tả được sự lệch hướng chuyển động của vật thể theo chiều kinh tuyến.",
+      "Trình bày được hiện tượng ngày đêm dài ngắn theo mùa."
+     ],
+     "muc_do": "chinh"
+    }
+   ],
+   "ghi_chu": "Khớp rất tốt cả lớp 6 và lớp 10. Đường chuyển ngày quốc tế và tính độ cao Mặt Trời chính trưa không ghi tường minh trong YCCĐ (mở rộng). Có thể đổi ví dụ Bắc Kinh – New York thành Hà Nội/TP.HCM – một thành phố khác."
+  },
+  "currents-step": {
+   "khop": [
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Thuỷ quyển",
+     "muc": "Nước biển và đại dương",
+     "ycd": [
+      "Trình bày được chuyển động của các dòng biển trong đại dương."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Thuỷ quyển",
+     "muc": "Nước biển và đại dương",
+     "ycd": [
+      "Trình bày được tính chất của nước biển và đại dương.",
+      "Nêu được vai trò của biển và đại dương đối với phát triển kinh tế - xã hội.",
+      "Vẽ được sơ đồ; phân tích được bản đồ và hình vẽ về thuỷ quyển."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Mưa",
+     "ycd": [
+      "Phân tích được các nhân tố ảnh hưởng đến lượng mưa và trình bày được sự phân bố mưa trên thế giới."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "NƯỚC TRÊN TRÁI ĐẤT",
+     "muc": "Biển và đại dương. Một số đặc điểm của môi trường biển",
+     "ycd": [
+      "Trình bày được các hiện tượng sóng, thuỷ triều, dòng biển.",
+      "Nêu được sự khác biệt về nhiệt độ và độ muối giữa vùng biển nhiệt đới và vùng biển ôn đới."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "YCCĐ lớp 10 chỉ nói chung 'chuyển động của các dòng biển'; quy luật phân bố theo vòng hoàn lưu, dòng biển gió mùa Bắc Ấn Độ Dương đảo chiều, ảnh hưởng tới khí hậu và ngư trường là phần chi tiết hơn chương trình nhưng phù hợp sách giáo khoa lớp 10."
+  },
+  "heating-step": {
+   "khop": [
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Khái niệm khí quyển",
+     "ycd": [
+      "Nêu được khái niệm khí quyển."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Nhiệt độ không khí",
+     "ycd": [
+      "Trình bày được sự phân bố nhiệt độ không khí trên Trái Đất theo vĩ độ địa lí; lục địa, đại dương; địa hình."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Chuyên đề 10.1: Biến đổi khí hậu",
+     "muc": "Khái niệm, biểu hiện, nguyên nhân của biến đổi khí hậu",
+     "ycd": [
+      "Giải thích được nguyên nhân của biến đổi khí hậu."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "KHÍ HẬU VÀ BIẾN ĐỔI KHÍ HẬU",
+     "muc": "Các tầng khí quyển. Thành phần không khí",
+     "ycd": [
+      "Mô tả được các tầng khí quyển, đặc điểm chính của tầng đối lưu và tầng bình lưu; hiểu được vai trò của oxy, hơi nước và khí carbonic."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "KHÍ HẬU VÀ BIẾN ĐỔI KHÍ HẬU",
+     "muc": "Nhiệt độ và mưa. Thời tiết, khí hậu",
+     "ycd": [
+      "Trình bày được sự thay đổi nhiệt độ bề mặt Trái Đất theo vĩ độ."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Không có YCCĐ nào nói trực tiếp 'quá trình khí quyển nhận nhiệt' (suy giảm bức xạ, bức xạ sóng dài mặt đất, bức xạ nghịch); bài vượt chương trình về cơ chế, chỉ hỗ trợ nội dung nhiệt độ không khí (lớp 10), vai trò hơi nước và khí carbonic (lớp 6) và nguyên nhân biến đổi khí hậu (chuyên đề 10.1)."
+  },
+  "water-cycle-step": {
+   "khop": [
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "NƯỚC TRÊN TRÁI ĐẤT",
+     "muc": "Vòng tuần hoàn nước",
+     "ycd": [
+      "Mô tả được vòng tuần hoàn lớn của nước."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "NƯỚC TRÊN TRÁI ĐẤT",
+     "muc": "Các thành phần chủ yếu của thuỷ quyển",
+     "ycd": [
+      "Kể được tên được các thành phần chủ yếu của thuỷ quyển."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Thuỷ quyển",
+     "muc": "Khái niệm thuỷ quyển",
+     "ycd": [
+      "Nêu được khái niệm thuỷ quyển."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Thuỷ quyển",
+     "muc": "Nước trên lục địa",
+     "ycd": [
+      "Phân tích được các nhân tố ảnh hưởng tới chế độ nước sông.",
+      "Trình bày được đặc điểm chủ yếu của nước băng tuyết và nước ngầm.",
+      "Nêu được các giải pháp bảo vệ nguồn nước ngọt."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Thuỷ quyển",
+     "muc": "Nước biển và đại dương",
+     "ycd": [
+      "Vẽ được sơ đồ; phân tích được bản đồ và hình vẽ về thuỷ quyển."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Vòng tuần hoàn nước chỉ được ghi tường minh ở lớp 6 (vòng tuần hoàn lớn). Ở lớp 10 không có YCCĐ riêng về vòng tuần hoàn nước, ba loại tuần hoàn hay ý nghĩa địa lí của chúng; bài sâu hơn chương trình lớp 10. Ví dụ ruộng phủ sỏi (Cam Túc) nên kèm ví dụ Việt Nam."
+  },
+  "karst-step": {
+   "khop": [
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Thạch quyển",
+     "muc": "Nội lực và ngoại lực",
+     "ycd": [
+      "Trình bày khái niệm nội lực, ngoại lực; nguyên nhân của chúng; tác động đến sự hình thành địa hình bề mặt Trái Đất.",
+      "Phân tích được sơ đồ, lược đồ, tranh ảnh về tác động của nội lực, ngoại lực đến địa hình bề mặt Trái Đất."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "CẤU TẠO CỦA TRÁI ĐẤT. VỎ TRÁI ĐẤT",
+     "muc": "Quá trình nội sinh và ngoại sinh. Hiện tượng tạo núi",
+     "ycd": [
+      "Phân biệt được quá trình nội sinh và ngoại sinh."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "CẤU TẠO CỦA TRÁI ĐẤT. VỎ TRÁI ĐẤT",
+     "muc": "Các dạng địa hình chính",
+     "ycd": [
+      "Phân biệt được các dạng địa hình chính trên Trái Đất."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 8,
+     "chu_de": "ĐẶC ĐIỂM ĐỊA HÌNH VÀ KHOÁNG SẢN VIỆT NAM",
+     "muc": "Các khu vực địa hình. Đặc điểm cơ bản của từng khu vực địa hình",
+     "ycd": [
+      "Trình bày được đặc điểm của các khu vực địa hình: địa hình đồi núi; địa hình đồng bằng; địa hình bờ biển và thềm lục địa."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Chương trình không có YCCĐ riêng về địa hình karst; karst chỉ là một ví dụ của tác động ngoại lực (lớp 10). Bài vượt chương trình về mức chi tiết (chuỗi rãnh – trũng – rừng tháp – đồi sót). Nên dùng ví dụ Việt Nam: Hạ Long, Phong Nha – Kẻ Bàng, cao nguyên đá Đồng Văn (gắn lớp 8)."
+  },
+  "tectonic-step": {
+   "khop": [
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Thạch quyển",
+     "muc": "Nội lực và ngoại lực",
+     "ycd": [
+      "Trình bày khái niệm nội lực, ngoại lực; nguyên nhân của chúng; tác động đến sự hình thành địa hình bề mặt Trái Đất.",
+      "Phân tích được sơ đồ, lược đồ, tranh ảnh về tác động của nội lực, ngoại lực đến địa hình bề mặt Trái Đất."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Trái Đất",
+     "muc": "Thuyết kiến tạo mảng",
+     "ycd": [
+      "Trình bày được khái quát thuyết kiến tạo mảng; vận dụng để giải thích được nguyên nhân hình thành các vùng núi trẻ, các vành đai động đất, núi lửa."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "CẤU TẠO CỦA TRÁI ĐẤT. VỎ TRÁI ĐẤT",
+     "muc": "Quá trình nội sinh và ngoại sinh. Hiện tượng tạo núi",
+     "ycd": [
+      "Phân biệt được quá trình nội sinh và ngoại sinh.",
+      "Trình bày được tác động đồng thời của quá trình nội sinh và ngoại sinh trong hiện tượng tạo núi."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Uốn nếp, đứt gãy (địa luỹ, địa hào), nâng – hạ là phần cụ thể của 'tác động của nội lực đến địa hình' (lớp 10); YCCĐ không gọi tên các dạng này. Phần nếp lồi – nếp lõm 'nghịch đảo địa hình' là mở rộng."
+  },
+  "river-step": {
+   "khop": [
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Thạch quyển",
+     "muc": "Nội lực và ngoại lực",
+     "ycd": [
+      "Trình bày khái niệm nội lực, ngoại lực; nguyên nhân của chúng; tác động đến sự hình thành địa hình bề mặt Trái Đất.",
+      "Phân tích được sơ đồ, lược đồ, tranh ảnh về tác động của nội lực, ngoại lực đến địa hình bề mặt Trái Đất."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "NƯỚC TRÊN TRÁI ĐẤT",
+     "muc": "Sông, hồ và việc sử dụng nước sông, hồ",
+     "ycd": [
+      "Mô tả được các bộ phận của một dòng sông lớn; mối quan hệ giữa mùa lũ của sông với các nguồn cấp nước sông."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "CẤU TẠO CỦA TRÁI ĐẤT. VỎ TRÁI ĐẤT",
+     "muc": "Quá trình nội sinh và ngoại sinh. Hiện tượng tạo núi",
+     "ycd": [
+      "Phân biệt được quá trình nội sinh và ngoại sinh."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 8,
+     "chu_de": "ĐẶC ĐIỂM ĐỊA HÌNH VÀ KHOÁNG SẢN VIỆT NAM",
+     "muc": "Các khu vực địa hình. Đặc điểm cơ bản của từng khu vực địa hình",
+     "ycd": [
+      "Trình bày được đặc điểm của các khu vực địa hình: địa hình đồi núi; địa hình đồng bằng; địa hình bờ biển và thềm lục địa."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Không có YCCĐ riêng về địa hình do sông tạo thành (thung lũng chữ V, quạt phù sa, bờ lõm – bờ lồi, bãi bồi, châu thổ); đây là ví dụ cụ thể của ngoại lực (xâm thực, bồi tụ) ở lớp 10. Bài vượt chương trình về mức chi tiết. Châu thổ sông Hồng, sông Cửu Long (lớp 8) là ví dụ Việt Nam phù hợp."
+  },
+  "enso-step": {
+   "khop": [
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Các đới và kiểu khí hậu trên Trái Đất",
+     "ycd": [
+      "Giải thích được một số hiện tượng thời tiết và khí hậu trong thực tế."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Mưa",
+     "ycd": [
+      "Phân tích được các nhân tố ảnh hưởng đến lượng mưa và trình bày được sự phân bố mưa trên thế giới."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Thuỷ quyển",
+     "muc": "Nước biển và đại dương",
+     "ycd": [
+      "Trình bày được chuyển động của các dòng biển trong đại dương."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Một số quy luật của vỏ địa lí",
+     "muc": "Quy luật thống nhất và hoàn chỉnh của vỏ địa lí",
+     "ycd": [
+      "Trình bày được khái niệm, biểu hiện và ý nghĩa thực tiễn của quy luật thống nhất và hoàn chỉnh của vỏ địa lí; liên hệ được thực tế ở địa phương."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 12,
+     "chu_de": "Chuyên đề 12.1: Thiên tai và biện pháp phòng chống",
+     "muc": "Những vấn đề chung",
+     "ycd": [
+      "Trình bày được quan niệm, đặc điểm, nguyên nhân, phân loại thiên tai."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "El Niño, La Niña và hoàn lưu Walker không có trong YCCĐ môn Địa lí Việt Nam; bài vượt chương trình, chỉ dùng làm mở rộng cho phần giải thích hiện tượng thời tiết – khí hậu, dòng biển và quy luật thống nhất của vỏ địa lí. Liên hệ ENSO với hạn hán, xâm nhập mặn ở Việt Nam sẽ gắn được chuyên đề 12.1."
+  },
+  "circulation-step": {
+   "khop": [
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Khí áp và gió",
+     "ycd": [
+      "Trình bày được sự hình thành các đai khí áp trên Trái Đất, nguyên nhân của sự thay đổi khí áp.",
+      "Trình bày được một số loại gió chính trên Trái Đất; một số loại gió địa phương."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Địa lí",
+     "lop": 10,
+     "chu_de": "Khí quyển",
+     "muc": "Mưa",
+     "ycd": [
+      "Phân tích được các nhân tố ảnh hưởng đến lượng mưa và trình bày được sự phân bố mưa trên thế giới."
+     ],
+     "muc_do": "lien_quan"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 6,
+     "chu_de": "KHÍ HẬU VÀ BIẾN ĐỔI KHÍ HẬU",
+     "muc": "Các khối khí. Khí áp và gió",
+     "ycd": [
+      "Trình bày được sự phân bố các đai khí áp và các loại gió thổi thường xuyên trên Trái Đất."
+     ],
+     "muc_do": "chinh"
+    },
+    {
+     "mon": "Lịch sử và Địa lí",
+     "lop": 7,
+     "chu_de": "CHỦ ĐỀ CHUNG · CÁC CUỘC ĐẠI PHÁT KIẾN ĐỊA LÍ",
+     "muc": "Một số cuộc đại phát kiến địa lí",
+     "ycd": [
+      "Mô tả được các cuộc đại phát kiến địa lí: Christopher Colombus tìm ra châu Mỹ (1492 – 1502), cuộc thám hiểm của Ferdinand Magellan vòng quanh Trái Đất (1519 – 1522)."
+     ],
+     "muc_do": "lien_quan"
+    }
+   ],
+   "ghi_chu": "Khớp trực tiếp đai khí áp và gió thổi thường xuyên (lớp 6, lớp 10). Mô hình hoàn lưu ba vòng, sự dịch chuyển theo mùa của các đai và ảnh hưởng phân bố biển – lục địa (gió mùa) chỉ ngầm trong 'nguyên nhân thay đổi khí áp' và 'một số loại gió chính'; phần mô hình là mở rộng. Câu chuyện Magellan nối được với chủ đề chung lớp 7."
+  }
+ },
+ "sinh10_te_bao": [
+  {
+   "muc": "Khái quát về tế bào",
+   "ycd": [
+    "Nêu được khái quát học thuyết tế bào.",
+    "Giải thích được tế bào là đơn vị cấu trúc và chức năng của cơ thể sống."
+   ]
+  },
+  {
+   "muc": "Thành phần hoá học của tế bào › Các nguyên tố hoá học trong tế bào",
+   "ycd": [
+    "Liệt kê được một số nguyên tố hoá học chính có trong tế bào (C, H, O, N, S, P).",
+    "Nêu được vai trò của các nguyên tố vi lượng, đa lượng trong tế bào.",
+    "Nêu được vai trò quan trọng của nguyên tố carbon trong tế bào (cấu trúc nguyên tử C có thể liên kết với chính nó và nhiều nhóm chức khác nhau)."
+   ]
+  },
+  {
+   "muc": "Thành phần hoá học của tế bào › Nước trong tế bào",
+   "ycd": [
+    "Trình bày được đặc điểm cấu tạo phân tử nước quy định tính chất vật lí, hoá học và sinh học của nước, từ đó quy định vai trò sinh học của nước trong tế bào."
+   ]
+  },
+  {
+   "muc": "Thành phần hoá học của tế bào › Các phân tử sinh học trong tế bào",
+   "ycd": [
+    "Nêu được khái niệm phân tử sinh học.",
+    "Trình bày được thành phần cấu tạo (các nguyên tố hoá học và đơn phân) và vai trò của các phân tử sinh học trong tế bào: carbohydrate, lipid, protein, nucleic acid.",
+    "Phân tích được mối quan hệ giữa cấu tạo và vai trò của các phân tử sinh học.",
+    "Nêu được một số nguồn thực phẩm cung cấp các phân tử sinh học cho cơ thể.",
+    "Vận dụng được kiến thức về thành phần hoá học của tế bào vào giải thích các hiện tượng và ứng dụng trong thực tiễn (ví dụ: ăn uống hợp lí; giải thích vì sao thịt lợn, thịt bò cùng là protein nhưng có nhiều đặc điểm khác nhau; giải thích vai trò của DNA trong xác định huyết thống, truy tìm tội phạm,...).",
+    "Thực hành xác định (định tính) được một số thành phần hoá học có trong tế bào (protein, lipid,...)."
+   ]
+  },
+  {
+   "muc": "Cấu trúc tế bào › Tế bào nhân sơ",
+   "ycd": [
+    "Mô tả được kích thước, cấu tạo và chức năng các thành phần của tế bào nhân sơ."
+   ]
+  },
+  {
+   "muc": "Cấu trúc tế bào › Tế bào nhân thực",
+   "ycd": [
+    "Phân tích được mối quan hệ phù hợp giữa cấu tạo và chức năng của thành tế bào (ở tế bào thực vật) và màng sinh chất.",
+    "Nêu được cấu tạo và chức năng của tế bào chất.",
+    "Trình bày được cấu trúc của nhân tế bào và chức năng quan trọng của nhân.",
+    "Phân tích được mối quan hệ giữa cấu tạo và chức năng của các bào quan trong tế bào.",
+    "Quan sát hình vẽ, lập được bảng so sánh cấu tạo tế bào thực vật và động vật.",
+    "Lập được bảng so sánh tế bào nhân sơ và tế bào nhân thực.",
+    "Thực hành làm được tiêu bản và quan sát được tế bào sinh vật nhân sơ (vi khuẩn).",
+    "Làm được tiêu bản hiển vi tế bào nhân thực (củ hành tây, hành ta, thài lài tía, hoa lúa, bí ngô, tế bào niêm mạc xoang miệng,...) và quan sát nhân, một số bào quan trên tiêu bản đó."
+   ]
+  },
+  {
+   "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Khái niệm trao đổi chất ở tế bào",
+   "ycd": [
+    "Nêu được khái niệm trao đổi chất ở tế bào."
+   ]
+  },
+  {
+   "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Sự vận chuyển các chất qua màng sinh chất (+ Vận chuyển thụ động; + Vận chuyển chủ động; + Nhập, xuất bào)",
+   "ycd": [
+    "Phân biệt được các hình thức vận chuyển các chất qua màng sinh chất: vận chuyển thụ động, chủ động. Nêu được ý nghĩa của các hình thức đó. Lấy được ví dụ minh hoạ.",
+    "Trình bày được hiện tượng nhập bào và xuất bào thông qua biến dạng của màng sinh chất. Lấy được ví dụ minh hoạ.",
+    "Vận dụng những hiểu biết về sự vận chuyển các chất qua màng sinh chất để giải thích một số hiện tượng thực tiễn (muối dưa, muối cà).",
+    "Làm được thí nghiệm và quan sát hiện tượng co và phản co nguyên sinh (tế bào hành, tế bào máu,...); thí nghiệm tính thấm có chọn lọc của màng sinh chất tế bào sống."
+   ]
+  },
+  {
+   "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Các loại năng lượng",
+   "ycd": [
+    "Phân biệt được các dạng năng lượng trong chuyển hoá năng lượng ở tế bào.",
+    "Giải thích được năng lượng được tích luỹ và sử dụng cho các hoạt động sống của tế bào là dạng hoá năng (năng lượng tiềm ẩn trong các liên kết hoá học).",
+    "Phân tích được cấu tạo và chức năng của ATP về giá trị năng lượng sinh học."
+   ]
+  },
+  {
+   "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Khái niệm trao đổi chất và chuyển hoá năng lượng trong tế bào",
+   "ycd": [
+    "Phát biểu được khái niệm chuyển hoá năng lượng trong tế bào.",
+    "Trình bày được quá trình tổng hợp và phân giải ATP gắn liền với quá trình tích lũy, giải phóng năng lượng."
+   ]
+  },
+  {
+   "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Enzyme",
+   "ycd": [
+    "Trình bày được vai trò của enzyme trong quá trình trao đổi chất và chuyển hoá năng lượng. Nêu được khái niệm, cấu trúc và cơ chế tác động của enzyme.",
+    "Phân tích được các yếu tố ảnh hưởng đến hoạt động xúc tác của enzyme.",
+    "Thực hành: làm được thí nghiệm phân tích ảnh hưởng của một số yếu tố đến hoạt tính của enzyme; thí nghiệm kiểm tra hoạt tính thuỷ phân tinh bột của amylase."
+   ]
+  },
+  {
+   "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Tổng hợp các chất và tích luỹ năng lượng trong tế bào",
+   "ycd": [
+    "Nêu được khái niệm tổng hợp các chất trong tế bào. Lấy được ví dụ minh hoạ (tổng hợp protein, lipid, carbohydrate,...).",
+    "Trình bày được quá trình tổng hợp các chất song song với tích luỹ năng lượng.",
+    "Nêu được vai trò quan trọng của quang hợp trong việc tổng hợp các chất và tích luỹ năng lượng trong tế bào thực vật.",
+    "Nêu được vai trò của hoá tổng hợp và quang khử ở vi khuẩn."
+   ]
+  },
+  {
+   "muc": "Trao đổi chất và chuyển hoá năng lượng ở tế bào › Phân giải các chất và giải phóng năng lượng trong tế bào",
+   "ycd": [
+    "Phát biểu được khái niệm phân giải các chất trong tế bào.",
+    "Trình bày được các giai đoạn phân giải hiếu khí (hô hấp tế bào) và các giai đoạn phân giải kị khí (lên men).",
+    "Trình bày được quá trình phân giải các chất song song với giải phóng năng lượng.",
+    "Phân tích được mối quan hệ giữa tổng hợp và phân giải các chất trong tế bào."
+   ]
+  },
+  {
+   "muc": "Thông tin ở tế bào › Khái niệm",
+   "ycd": [
+    "Nêu được khái niệm về thông tin giữa các tế bào."
+   ]
+  },
+  {
+   "muc": "Thông tin ở tế bào › Quá trình",
+   "ycd": [
+    "Dựa vào sơ đồ thông tin giữa các tế bào, trình bày được các quá trình: + Tiếp nhận: Một phân tử truyền tin liên kết vào một protein thụ thể làm thụ thể thay đổi hình dạng; + Truyền tin: các chuỗi tương tác phân tử chuyển tiếp tín hiệu từ các thụ thể tới các phân tử đích trong tế bào; + Đáp ứng: Tế bào phát tín hiệu điều khiển phiên mã, dịch mã hoặc điều hoà hoạt động của tế bào."
+   ]
+  },
+  {
+   "muc": "Chu kì tế bào và phân bào › Chu kì tế bào và nguyên phân",
+   "ycd": [
+    "Nêu được khái niệm chu kì tế bào. Dựa vào sơ đồ, trình bày được các giai đoạn và mối quan hệ giữa các giai đoạn trong chu kì tế bào.",
+    "Dựa vào cơ chế nhân đôi và phân li của nhiễm sắc thể để giải thích được quá trình nguyên phân là cơ chế sinh sản của tế bào.",
+    "Giải thích được sự phân chia tế bào một cách không bình thường có thể dẫn đến ung thư. Trình bày được một số thông tin về bệnh ung thư ở Việt Nam. Nêu được một số biện pháp phòng tránh ung thư.",
+    "Thực hành làm được tiêu bản nhiễm sắc thể để quan sát quá trình nguyên phân (hành tây, hành ta, đại mạch, cây tỏi, lay ơn, khoai môn,...)."
+   ]
+  },
+  {
+   "muc": "Chu kì tế bào và phân bào › Quá trình giảm phân",
+   "ycd": [
+    "Dựa vào cơ chế nhân đôi và phân li của nhiễm sắc thể để giải thích được quá trình giảm phân, thụ tinh cùng với nguyên phân là cơ sở của sinh sản hữu tính ở sinh vật.",
+    "Trình bày được một số nhân tố ảnh hưởng đến quá trình giảm phân.",
+    "Lập được bảng so sánh quá trình nguyên phân và quá trình giảm phân.",
+    "Vận dụng kiến thức về nguyên phân và giảm phân vào giải thích một số vấn đề trong thực tiễn.",
+    "Làm được tiêu bản quan sát quá trình giảm phân ở tế bào động vật, thực vật (châu chấu đực, hoa hành,...)."
+   ]
+  },
+  {
+   "muc": "Công nghệ tế bào",
+   "ycd": [
+    "Nêu được khái niệm, nguyên lí công nghệ và một số thành tựu của công nghệ tế bào thực vật.",
+    "Nêu được khái niệm, nguyên lí công nghệ và một số thành tựu công nghệ tế bào động vật."
+   ]
+  },
+  {
+   "muc": "Chuyên đề học tập 10.1: Công nghệ tế bào và một số thành tựu (Thành tựu công nghệ tế bào; Các giai đoạn của công nghệ tế bào; Tế bào gốc và ứng dụng)",
+   "ycd": [
+    "Kể được tên một số thành tựu hiện đại của công nghệ tế bào.",
+    "Trình bày được tính toàn năng và các giai đoạn chung của công nghệ tế bào. Lấy được ví dụ về công nghệ tế bào thực vật, công nghệ tế bào động vật.",
+    "Nêu được khái niệm tế bào gốc. Trình bày được một số thành tựu trong sử dụng tế bào gốc.",
+    "Phân tích được triển vọng của công nghệ tế bào trong tương lai.",
+    "Thực hiện được dự án hoặc đề tài tìm hiểu về các thành tựu nuôi cấy mô, thành tựu tế bào gốc. Thiết kế được tập san các bài viết, tranh ảnh về công nghệ tế bào.",
+    "Trình bày được quan điểm của bản thân về tầm quan trọng của việc sử dụng tế bào gốc trong thực tiễn.",
+    "Tranh luận, phản biện được quan điểm về nhân bản vô tính động vật, con người."
+   ]
+  },
+  {
+   "muc": "Chuyên đề học tập 10.2: Công nghệ enzyme và ứng dụng (Cơ sở khoa học ứng dụng công nghệ enzyme; Quy trình công nghệ sản xuất enzyme; Ứng dụng của công nghệ enzyme)",
+   "ycd": [
+    "Trình bày được một số thành tựu của công nghệ enzyme.",
+    "Phân tích được cơ sở khoa học ứng dụng công nghệ enzyme.",
+    "Trình bày được quy trình công nghệ sản xuất enzyme. Lấy được một số ví dụ minh hoạ.",
+    "Trình bày được một số ứng dụng của enzyme trong các lĩnh vực: công nghệ thực phẩm, y dược, kĩ thuật di truyền.",
+    "Phân tích được triển vọng công nghệ enzyme trong tương lai.",
+    "Thực hiện được dự án hoặc đề tài tìm hiểu về ứng dụng enzyme."
+   ]
+  }
+ ]
+}

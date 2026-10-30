@@ -79,6 +79,7 @@ const ORG = {
     facts: ['mito.dpsi', 'mito.ph', 'mcs.gap'],
     q: 'Vì sao màng trong gấp thành nhiều nếp mà màng ngoài thì không?',
     ill: 'Cỡ, số mào và số ty thể là minh hoạ.',
+    src: '<div class="sec"><h3>Đi sâu hơn</h3><p><a class="btn gold" href="ty-the.html" target="_blank" rel="noopener">Vào ty thể: ATP synthase thật</a></p><p class="small">Phóng từ một ty thể xuống 37.733 nguyên tử của ATP synthase (PDB 6J5I): dòng H⁺ làm vòng c quay, ba vị trí β lần lượt tạo ATP.</p></div>',
     parts: [
       { id: 'outer', name: 'Màng ngoài', en: 'outer membrane', body: 'Lớp màng trơn bao toàn bộ ty thể, cho các phân tử nhỏ đi qua tương đối dễ.', facts: [] },
       { id: 'inner', name: 'Màng trong', en: 'inner membrane', body: 'Lớp màng chọn lọc chặt, mang chuỗi chuyền electron và ATP synthase. Điện thế màng của ty thể hình thành qua lớp màng này.', facts: ['mito.dpsi'] },
