@@ -27,8 +27,8 @@ def sources_html():
     out = []
     for mon, arr in GD['nguon'].items():
         main = [a for a in arr if 'Thông tư 13' not in a['ten'] and 'Thông tư 17' not in a['ten']][:2]
-        out.append(f'{E(mon)}: ' + ', '.join(f'<a href="{E(a["url"])}" target="_blank" rel="noopener">{E(a["ten"].split("(")[0].strip())}</a>' for a in main))
-    return '; '.join(out) + '.'
+        out.append(' '.join(f'<a href="{E(a["url"])}" target="_blank" rel="noopener" title="{E(a["ten"])}">{E(mon) if k == 0 else k + 1}</a>' for k, a in enumerate(main)))
+    return 'Văn bản chương trình: ' + ' · '.join(out) + '.'
 
 
 def library(links):
@@ -164,7 +164,7 @@ td:first-child{{width:24%;color:var(--ink2);font-size:13px}} td:last-child{{widt
 .filters{{display:flex;gap:8px;flex-wrap:wrap}}
 .chip{{padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:600 13px var(--f-body);cursor:pointer}}
 .chip[aria-pressed="true"]{{background:var(--ink);color:var(--panel);border-color:var(--ink)}}
-footer{{font-size:13.5px;color:var(--ink2);border-top:1px solid var(--line);padding-top:14px;display:grid;gap:6px}}
+footer{{font-size:12.5px;line-height:1.55;color:var(--lg-muted);border-top:1px solid var(--lg-hair);margin-top:24px;padding:20px 4px 8px;display:grid;gap:6px}} footer a{{color:inherit;text-decoration:underline;text-decoration-color:rgba(110,110,115,.35);text-underline-offset:2px}} footer b{{font-weight:600;color:var(--lg-ink2)}}
 {LG_CSS}
 @media (max-width:820px){{.step{{grid-template-columns:1fr}} .step .no{{display:none}} td:first-child{{display:none}} td:last-child{{width:32%}}}}
 </style>
