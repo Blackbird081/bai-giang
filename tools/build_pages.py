@@ -37,6 +37,7 @@ def library(links):
     gd = {s: v for s, v in GD['bai'].items() if any(c['slug'] == s for c in CAT)}
     s = TPL.replace('__CATALOG__', json.dumps(lessons, ensure_ascii=False)).replace('__GDPT__', json.dumps(gd, ensure_ascii=False))
     s = s.replace('__SOURCES__', sources_html())
+    s = s.replace('__PAPER_CSS__', LG.PAPER_CSS).replace('__DECOR__', LG.decor_html())
     for k, v in links.items(): s = s.replace(k, v)
     assert '__' not in s.replace('__proto__', ''), 'còn chỗ giữ chỗ chưa thay'
     return s
@@ -166,10 +167,12 @@ td:first-child{{width:24%;color:var(--ink2);font-size:13px}} td:last-child{{widt
 .chip[aria-pressed="true"]{{background:var(--ink);color:var(--panel);border-color:var(--ink)}}
 footer{{font-size:12.5px;line-height:1.55;color:var(--lg-muted);border-top:1px solid var(--lg-hair);margin-top:24px;padding:20px 4px 8px;display:grid;gap:6px}} footer a{{color:inherit;text-decoration:underline;text-decoration-color:rgba(110,110,115,.35);text-underline-offset:2px}} footer b{{font-weight:600;color:var(--lg-ink2)}}
 {LG_CSS}
+{LG.PAPER_CSS}
 @media (max-width:820px){{.step{{grid-template-columns:1fr}} .step .no{{display:none}} td:first-child{{display:none}} td:last-child{{width:32%}}}}
 </style>
 </head>
 <body>
+{LG.decor_html()}
 <div class="wrap">
 <header>
   <div class="lbl">Chủ đề · lớp 10 · chương trình GDPT 2018</div>
