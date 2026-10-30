@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F5F5F7">
+<title>Lịch Sử 10</title>
+<meta name="description" content="Lộ trình bài giảng 3D Lịch sử lớp 10 theo chương trình GDPT 2018 (sửa đổi 2025), dùng chung cho ba bộ sách; yêu cầu cần đạt trích nguyên văn; bài mẫu Thành Cổ Loa.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root,:root[data-theme]{
+  --lg-page:#F5F5F7;
+  --lg-wash:radial-gradient(1100px 560px at 6% -12%, rgba(120,170,255,.13), transparent 62%),
+            radial-gradient(900px 520px at 104% -6%, rgba(255,160,190,.10), transparent 60%),
+            radial-gradient(1200px 700px at 50% 118%, rgba(140,220,210,.09), transparent 62%),
+            linear-gradient(180deg,#FCFCFD 0%,#F3F3F6 100%);
+  --lg-fill:linear-gradient(180deg,rgba(255,255,255,.78) 0%,rgba(255,255,255,.6) 100%);
+  --lg-fill-strong:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.8) 100%);
+  --lg-blur:blur(28px) saturate(185%);
+  --lg-stroke:rgba(255,255,255,.92);
+  --lg-hair:rgba(15,23,42,.08);
+  --lg-shadow:0 0 0 .5px rgba(15,23,42,.07),0 1px 2px rgba(15,23,42,.05),0 14px 36px -12px rgba(15,23,42,.20);
+  --lg-shadow-lo:0 0 0 .5px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.05),0 6px 16px -8px rgba(15,23,42,.18);
+  --lg-inner:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(255,255,255,.4);
+  --lg-r:24px; --lg-r-md:18px; --lg-r-sm:14px;
+  --lg-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Segoe UI",Roboto,"Helvetica Neue","Noto Sans",Arial,system-ui,sans-serif;
+  --lg-ink:#1D1D1F; --lg-ink2:#424245; --lg-muted:#6E6E73;
+
+  --paper:#F5F5F7; --ink:#1D1D1F; --ink2:#424245; --muted:#6E6E73; --line:rgba(15,23,42,.08); --accent:#9A5B13; --accent2:#7A4510;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]),:root[data-theme]{
+  --lg-page:#F5F5F7;
+  --lg-wash:radial-gradient(1100px 560px at 6% -12%, rgba(120,170,255,.13), transparent 62%),
+            radial-gradient(900px 520px at 104% -6%, rgba(255,160,190,.10), transparent 60%),
+            radial-gradient(1200px 700px at 50% 118%, rgba(140,220,210,.09), transparent 62%),
+            linear-gradient(180deg,#FCFCFD 0%,#F3F3F6 100%);
+  --lg-fill:linear-gradient(180deg,rgba(255,255,255,.78) 0%,rgba(255,255,255,.6) 100%);
+  --lg-fill-strong:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.8) 100%);
+  --lg-blur:blur(28px) saturate(185%);
+  --lg-stroke:rgba(255,255,255,.92);
+  --lg-hair:rgba(15,23,42,.08);
+  --lg-shadow:0 0 0 .5px rgba(15,23,42,.07),0 1px 2px rgba(15,23,42,.05),0 14px 36px -12px rgba(15,23,42,.20);
+  --lg-shadow-lo:0 0 0 .5px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.05),0 6px 16px -8px rgba(15,23,42,.18);
+  --lg-inner:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(255,255,255,.4);
+  --lg-r:24px; --lg-r-md:18px; --lg-r-sm:14px;
+  --lg-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Segoe UI",Roboto,"Helvetica Neue","Noto Sans",Arial,system-ui,sans-serif;
+  --lg-ink:#1D1D1F; --lg-ink2:#424245; --lg-muted:#6E6E73;
+
+  --paper:#F5F5F7; --ink:#1D1D1F; --ink2:#424245; --muted:#6E6E73; --line:rgba(15,23,42,.08); --accent:#9A5B13; --accent2:#7A4510;
+  color-scheme:light;
+}}
+body{background:var(--lg-wash)!important;background-attachment:fixed!important;color:var(--lg-ink);font-family:var(--lg-font);-webkit-font-smoothing:antialiased}
+
+html{background:var(--lg-wash),var(--lg-page);background-attachment:fixed}
+body{background:transparent!important}
+.paper-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    linear-gradient(to right,rgba(15,23,42,.048) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(15,23,42,.048) 1px,transparent 1px),
+    linear-gradient(to right,rgba(15,23,42,.024) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(15,23,42,.024) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;background-position:-1px -1px;
+  -webkit-mask-image:radial-gradient(ellipse 85% 70% at 50% 35%,#000 35%,rgba(0,0,0,.35) 75%,transparent 100%);
+          mask-image:radial-gradient(ellipse 85% 70% at 50% 35%,#000 35%,rgba(0,0,0,.35) 75%,transparent 100%)}
+.decor{position:fixed;z-index:-1;pointer-events:none;color:#1D1D1F}
+.decor svg{display:block;width:100%;height:auto;overflow:visible}
+.decor .ln{fill:none;stroke:currentColor;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;opacity:.22}
+.decor .hl{fill:none;stroke:#C2184A;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;opacity:.28}
+.decor .tk{stroke:currentColor;stroke-width:.8;opacity:.2}
+.decor .fl{fill:#C2184A;opacity:.05}
+.decor .dot{fill:currentColor;opacity:.22}
+.decor.tr{top:72px;right:-18px;width:min(330px,26vw)}
+.decor.bl{bottom:-10px;left:-14px;width:min(340px,27vw)}
+.decor.br{bottom:26px;right:28px;width:min(150px,12vw)}
+@media (max-width:900px){.decor{opacity:.55}.decor.br{display:none}}
+@media (max-width:640px){.decor{display:none}}
+@media (prefers-reduced-motion:no-preference){.decor.br svg{animation:orb 60s linear infinite}@keyframes orb{to{transform:rotate(360deg)}}}
+.glass{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow),var(--lg-inner);border-radius:var(--lg-r)}
+.btn{border-radius:999px!important;background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke)!important;box-shadow:var(--lg-shadow-lo),var(--lg-inner);color:var(--lg-ink);font-family:var(--lg-font);font-weight:600;transition:transform .15s ease,box-shadow .2s ease}
+.btn:hover{box-shadow:0 0 0 .5px rgba(15,23,42,.1),0 8px 22px -8px rgba(15,23,42,.25),var(--lg-inner)}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:linear-gradient(180deg,#B26A1A 0%,#8E5110 100%)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 8px 20px -8px #B26A1A,inset 0 1px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(0,0,0,.08)!important}
+
+*{box-sizing:border-box} body{margin:0;line-height:1.55;font-size:15px}
+a{color:var(--accent2)}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 18px 60px;display:grid;gap:20px}
+.lbl{font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.crumb a{text-decoration:none;color:var(--muted);font-weight:500;font-size:14px}
+h1{margin:6px 0 8px;font-size:clamp(30px,4.2vw,44px);letter-spacing:-.025em;line-height:1.08}
+h1 em{font-style:normal;color:var(--accent)}
+header p{margin:0;max-width:74ch;color:var(--ink2)}
+.feat{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);overflow:hidden;text-decoration:none;color:inherit}
+.feat img{width:100%;height:100%;object-fit:cover;display:block;min-height:240px}
+.feat .bd{padding:22px 24px;display:grid;gap:10px;align-content:center}
+.feat h2{margin:0;font-size:26px;letter-spacing:-.02em}
+.feat p{margin:0;color:var(--ink2)}
+.feat .btn{justify-self:start;text-decoration:none;padding:9px 16px}
+.kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.kpi div{padding:12px 14px}
+.kpi b{display:block;font-size:26px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+h2.sec{margin:14px 0 0;font-size:22px;letter-spacing:-.015em}
+.cd{padding:18px 20px;display:grid;gap:10px}
+.ch{display:flex;gap:14px;align-items:center}
+.ch .no{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;color:#fff;background:linear-gradient(180deg,#B26A1A,#8E5110)}
+.ch h3{margin:0;font-size:20px;letter-spacing:-.015em}
+.muc{border-top:1px solid var(--line);padding:10px 0 4px;display:grid;gap:5px}
+.muc .mh{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.muc h4{margin:0;font-size:15.5px}
+.muc .canh{font-size:14px;color:var(--ink2)}
+.muc details summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--accent2)}
+.muc ul{margin:4px 0 2px;padding-left:20px;font-size:14px}
+.muc .btn{justify-self:start;text-decoration:none;margin:4px 0 6px;padding:7px 14px;font-size:13.5px}
+.muc.co{background:linear-gradient(90deg,rgba(178,106,26,.07),transparent 70%);border-radius:14px;padding:10px 12px;border-top-color:transparent}
+.st{font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.st.co{background:rgba(44,122,75,.12);color:#226040} .st.du,.st.tl{background:rgba(118,118,128,.12);color:var(--muted)}
+.new{font-size:10.5px;font-weight:700;color:#7A4510;background:rgba(178,106,26,.12);border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:2px}
+.bs{border-top:1px solid var(--line);padding-top:10px}
+.bsg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:6px}
+.bsg b{font-size:12.5px} .bsg ul{margin:4px 0 0;padding-left:16px;font-size:12.5px;color:var(--ink2)}
+.cdx{padding:14px 18px} .cdx summary{cursor:pointer} .small{font-size:12.5px;color:var(--muted)}
+footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--lg-hair);padding-top:18px;display:grid;gap:8px}
+footer ul{margin:0;padding-left:18px} footer a{color:inherit}
+@media (max-width:760px){.wrap{padding:16px 12px 40px;gap:14px} .feat{grid-template-columns:1fr} .feat img{min-height:0;aspect-ratio:16/10} .kpi{grid-template-columns:repeat(2,minmax(0,1fr))} .bsg{grid-template-columns:1fr} .cd{padding:14px} .ch h3{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="paper-grid" aria-hidden="true"></div><div class="decor tr"><svg viewBox="0 0 330 300" aria-hidden="true"><path class="ln" d="M67 228 A118 118 0 0 1 303 228 Z"/><path class="ln" d="M111.8 228 A73.2 73.2 0 0 1 258.2 228"/><line class="tk" x1="67.0" y1="228.0" x2="85.9" y2="228.0"/><line class="tk" x1="67.4" y1="217.7" x2="73.9" y2="218.3"/><line class="tk" x1="68.8" y1="207.5" x2="80.4" y2="209.6"/><line class="tk" x1="71.0" y1="197.5" x2="77.3" y2="199.1"/><line class="tk" x1="74.1" y1="187.6" x2="85.2" y2="191.7"/><line class="tk" x1="78.1" y1="178.1" x2="83.9" y2="180.9"/><line class="tk" x1="82.8" y1="169.0" x2="99.2" y2="178.4"/><line class="tk" x1="88.3" y1="160.3" x2="93.7" y2="164.0"/><line class="tk" x1="94.6" y1="152.2" x2="103.6" y2="159.7"/><line class="tk" x1="101.6" y1="144.6" x2="106.2" y2="149.2"/><line class="tk" x1="109.2" y1="137.6" x2="116.7" y2="146.6"/><line class="tk" x1="117.3" y1="131.3" x2="121.0" y2="136.7"/><line class="tk" x1="126.0" y1="125.8" x2="135.4" y2="142.2"/><line class="tk" x1="135.1" y1="121.1" x2="137.9" y2="126.9"/><line class="tk" x1="144.6" y1="117.1" x2="148.7" y2="128.2"/><line class="tk" x1="154.5" y1="114.0" x2="156.1" y2="120.3"/><line class="tk" x1="164.5" y1="111.8" x2="166.6" y2="123.4"/><line class="tk" x1="174.7" y1="110.4" x2="175.3" y2="116.9"/><line class="tk" x1="185.0" y1="110.0" x2="185.0" y2="128.9"/><line class="tk" x1="195.3" y1="110.4" x2="194.7" y2="116.9"/><line class="tk" x1="205.5" y1="111.8" x2="203.4" y2="123.4"/><line class="tk" x1="215.5" y1="114.0" x2="213.9" y2="120.3"/><line class="tk" x1="225.4" y1="117.1" x2="221.3" y2="128.2"/><line class="tk" x1="234.9" y1="121.1" x2="232.1" y2="126.9"/><line class="tk" x1="244.0" y1="125.8" x2="234.6" y2="142.2"/><line class="tk" x1="252.7" y1="131.3" x2="249.0" y2="136.7"/><line class="tk" x1="260.8" y1="137.6" x2="253.3" y2="146.6"/><line class="tk" x1="268.4" y1="144.6" x2="263.8" y2="149.2"/><line class="tk" x1="275.4" y1="152.2" x2="266.4" y2="159.7"/><line class="tk" x1="281.7" y1="160.3" x2="276.3" y2="164.0"/><line class="tk" x1="287.2" y1="169.0" x2="270.8" y2="178.4"/><line class="tk" x1="291.9" y1="178.1" x2="286.1" y2="180.9"/><line class="tk" x1="295.9" y1="187.6" x2="284.8" y2="191.7"/><line class="tk" x1="299.0" y1="197.5" x2="292.7" y2="199.1"/><line class="tk" x1="301.2" y1="207.5" x2="289.6" y2="209.6"/><line class="tk" x1="302.6" y1="217.7" x2="296.1" y2="218.3"/><line class="tk" x1="303.0" y1="228.0" x2="284.1" y2="228.0"/><circle class="dot" cx="185" cy="228" r="2.4"/><line class="tk" x1="185" y1="228" x2="185" y2="154.8"/><path class="hl" d="M58 118 A112 112 0 0 1 268 70" stroke-dasharray="3 5"/><g transform="rotate(-14 150 40)"><rect class="ln" x="143" y="10" width="14" height="22" rx="4"/><circle class="ln" cx="150" cy="40" r="8"/><circle class="dot" cx="150" cy="40" r="2"/><path class="ln" d="M145 47 L104 200"/><path class="ln" d="M155 47 L196 190"/><path class="ln" d="M104 200 l-2 12"/><path class="ln" d="M196 190 l6 4 l3 14 l-9 -6 z"/><path class="ln" d="M124 126 q26 -8 52 0"/></g><circle class="dot" cx="58" cy="118" r="2.2"/></svg></div><div class="decor bl"><svg viewBox="0 0 340 300" aria-hidden="true"><g transform="translate(40 40)"><path class="ln" d="M38 0 h28 M42 0 v58 L4 156 q-4 12 10 12 h76 q14 0 10 -12 L62 58 v-58"/><path class="fl" d="M22 112 L82 112 L100 156 q4 12 -10 12 h-76 q-14 0 -10 -12 z"/><path class="hl" d="M22 112 q30 -8 60 0"/><circle class="ln" cx="40" cy="138" r="5"/><circle class="ln" cx="62" cy="126" r="3.4"/><circle class="ln" cx="54" cy="150" r="2.4"/><line class="tk" x1="46" y1="70" x2="56" y2="70"/><line class="tk" x1="46" y1="82" x2="54" y2="82"/><line class="tk" x1="46" y1="94" x2="56" y2="94"/></g><g transform="translate(150 70)"><path class="ln" d="M0 0 L0 170 L150 170 Z"/><path class="ln" d="M22 74 L22 148 L84 148 Z"/><line class="tk" x1="0" y1="160" x2="5" y2="160"/><line class="tk" x1="0" y1="150" x2="5" y2="150"/><line class="tk" x1="0" y1="140" x2="5" y2="140"/><line class="tk" x1="0" y1="130" x2="5" y2="130"/><line class="tk" x1="0" y1="120" x2="9" y2="120"/><line class="tk" x1="0" y1="110" x2="5" y2="110"/><line class="tk" x1="0" y1="100" x2="5" y2="100"/><line class="tk" x1="0" y1="90" x2="5" y2="90"/><line class="tk" x1="0" y1="80" x2="5" y2="80"/><line class="tk" x1="0" y1="70" x2="9" y2="70"/><line class="tk" x1="0" y1="60" x2="5" y2="60"/><line class="tk" x1="0" y1="50" x2="5" y2="50"/><line class="tk" x1="0" y1="40" x2="5" y2="40"/><line class="tk" x1="0" y1="30" x2="5" y2="30"/><line class="tk" x1="0" y1="20" x2="9" y2="20"/><line class="tk" x1="0" y1="10" x2="5" y2="10"/></g><g transform="rotate(-8 170 268)"><rect class="ln" x="40" y="256" width="270" height="22" rx="3"/><line class="tk" x1="50.0" y1="256" x2="50.0" y2="261.5"/><line class="tk" x1="60.0" y1="256" x2="60.0" y2="261.5"/><line class="tk" x1="70.0" y1="256" x2="70.0" y2="261.5"/><line class="tk" x1="80.0" y1="256" x2="80.0" y2="261.5"/><line class="tk" x1="90.0" y1="256" x2="90.0" y2="265.9"/><line class="tk" x1="100.0" y1="256" x2="100.0" y2="261.5"/><line class="tk" x1="110.0" y1="256" x2="110.0" y2="261.5"/><line class="tk" x1="120.0" y1="256" x2="120.0" y2="261.5"/><line class="tk" x1="130.0" y1="256" x2="130.0" y2="261.5"/><line class="tk" x1="140.0" y1="256" x2="140.0" y2="265.9"/><line class="tk" x1="150.0" y1="256" x2="150.0" y2="261.5"/><line class="tk" x1="160.0" y1="256" x2="160.0" y2="261.5"/><line class="tk" x1="170.0" y1="256" x2="170.0" y2="261.5"/><line class="tk" x1="180.0" y1="256" x2="180.0" y2="261.5"/><line class="tk" x1="190.0" y1="256" x2="190.0" y2="265.9"/><line class="tk" x1="200.0" y1="256" x2="200.0" y2="261.5"/><line class="tk" x1="210.0" y1="256" x2="210.0" y2="261.5"/><line class="tk" x1="220.0" y1="256" x2="220.0" y2="261.5"/><line class="tk" x1="230.0" y1="256" x2="230.0" y2="261.5"/><line class="tk" x1="240.0" y1="256" x2="240.0" y2="265.9"/><line class="tk" x1="250.0" y1="256" x2="250.0" y2="261.5"/><line class="tk" x1="260.0" y1="256" x2="260.0" y2="261.5"/><line class="tk" x1="270.0" y1="256" x2="270.0" y2="261.5"/><line class="tk" x1="280.0" y1="256" x2="280.0" y2="261.5"/><line class="tk" x1="290.0" y1="256" x2="290.0" y2="265.9"/><line class="tk" x1="300.0" y1="256" x2="300.0" y2="261.5"/></g><g transform="rotate(-38 250 110)"><path class="ln" d="M210 104 h108 l14 6 l-14 6 h-108 z"/><line class="tk" x1="210" y1="110" x2="318" y2="110"/><path class="hl" d="M318 104 l14 6 l-14 6"/></g></svg></div><div class="decor br"><svg viewBox="0 0 150 150" aria-hidden="true"><g transform="translate(75 75)"><ellipse class="ln" rx="62" ry="22"/><ellipse class="ln" rx="62" ry="22" transform="rotate(60)"/><ellipse class="ln" rx="62" ry="22" transform="rotate(-60)"/><circle class="fl" r="10" style="opacity:.12"/><circle class="hl" r="7"/><circle class="dot" cx="62" cy="0" r="3"/><circle class="dot" cx="-31" cy="-53.7" r="3"/><circle class="dot" cx="-31" cy="53.7" r="3"/></g></svg></div>
+<div class="wrap">
+<header>
+  <nav class="crumb"><a href="../">← Bài Giảng</a></nav>
+  <div class="lbl" style="margin-top:12px">Lịch sử · lớp 10 · chương trình GDPT 2018, sửa đổi 2025</div>
+  <h1>Lịch sử 10 bằng <em>mô hình 3D</em></h1>
+  <p>Lộ trình bám theo chương trình môn Lịch sử, nên dùng chung được cho cả ba bộ sách Kết nối tri thức, Chân trời sáng tạo và Cánh diều. Mỗi mục ghi nguyên văn yêu cầu cần đạt và cảnh 3D sẽ dựng. Nội dung bài được viết mới từ nguồn khảo cổ, sử liệu công khai, có dẫn nguồn từng con số; phần phỏng dựng luôn được ghi rõ. Trang không chép nội dung sách giáo khoa.</p>
+</header>
+<a class="feat glass" href="co-loa/">
+  <img src="../thu-vien/covers/co-loa.webp" alt="Mô hình 3D ba vòng thành Cổ Loa trên đồng bằng">
+  <div class="bd"><div class="lbl">Bài mẫu · Văn minh Văn Lang – Âu Lạc</div><h2>Thành Cổ Loa</h2>
+  <p>Ba vòng thành đất dựng theo số đo khảo cổ trên đồng bằng ven sông Hoàng Giang. Kéo dòng thời gian từ thế kỷ IV TCN đến ngày nay, mở mặt cắt lũy đúng tỉ lệ, xem kho mũi tên, trống đồng, và đặt truyền thuyết cạnh bằng chứng.</p>
+  <span class="btn primary">Vào bài →</span></div>
+</a>
+<section class="kpi" aria-label="Tổng quan">
+  <div class="glass"><span class="lbl">Chủ đề</span><b>7 + thực hành</b></div>
+  <div class="glass"><span class="lbl">Yêu cầu cần đạt</span><b>66</b></div>
+  <div class="glass"><span class="lbl">Bài 3D đã có</span><b>1</b></div>
+  <div class="glass"><span class="lbl">Cảnh dự kiến</span><b>27</b></div>
+</section>
+<h2 class="sec">Lộ trình theo chương trình</h2>
+<section class="cd glass" id="cd1">
+  <div class="ch"><span class="no">1</span><div><div class="lbl">Chủ đề 1 · thời lượng 10% (chung chủ đề 1–2)</div><h3>Lịch sử và sử học</h3></div></div>
+  <div class="muc du">
+  <div class="mh"><h4>Lịch sử</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Hố địa tầng</b> · Một hố khảo cổ cắt lớp: các lớp đất và hiện vật là hiện thực còn lại; bản vẽ, nhật ký khai quật là lịch sử được nhận thức. Học sinh tự đào từng lớp và ghi chép.</div>
+  <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Trình bày được khái niệm lịch sử.</li><li>Phân biệt được hiện thực lịch sử và lịch sử được con người nhận thức.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Sử học</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Bàn của nhà sử học</b> · Tư liệu gốc, tư liệu phái sinh, truyền miệng đặt cạnh nhau; kéo từng tư liệu vào khung đối chiếu để thấy chỗ khớp, chỗ vênh.</div>
+  <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Giải thích được khái niệm sử học.</li><li>Trình bày được đối tượng nghiên cứu của sử học.</li><li>Nêu được chức năng, nhiệm vụ của sử học.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Tri thức lịch sử và cuộc sống: Học tập và khám phá lịch sử suốt đời</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Phòng trưng bày ảo</b> · Một phòng bảo tàng nhỏ xoay quanh vài hiện vật, mỗi hiện vật mở ra câu hỏi để học sinh tự tìm hiểu tiếp.</div>
+  <details><summary>Yêu cầu cần đạt (4)</summary><ul><li>Giải thích được sự cần thiết phải học tập và khám phá lịch sử suốt đời.</li><li>Biết cách sưu tầm, thu thập, xử lí thông tin, sử liệu để học tập, khám phá lịch sử.</li><li>Vận dụng kiến thức, bài học lịch sử để giải thích những vấn đề thời sự trong nước và thế giới, những vấn đề trong thực tiễn cuộc sống (ở mức độ đơn giản).</li><li>Quan tâm, yêu thích và tham gia các hoạt động tìm hiểu lịch sử, văn hoá của dân tộc Việt Nam và thế giới.</li></ul></details>
+  
+</div>
+  <div class="bs"><div class="lbl">Bài tương ứng trong sách</div><div class="bsg"><div><b>Kết nối tri thức</b><ul><li>Bài 1: Hiện thực lịch sử và lịch sử được con người nhận thức</li><li>Bài 2: Tri thức lịch sử và cuộc sống</li></ul></div><div><b>Chân trời sáng tạo</b><ul><li>Bài 1: Hiện thực lịch sử và nhận thức lịch sử</li><li>Bài 2: Tri thức lịch sử và cuộc sống</li></ul></div><div><b>Cánh diều</b><ul><li>Bài 1: Hiện thực lịch sử và nhận thức lịch sử</li><li>Bài 2: Tri thức lịch sử và cuộc sống</li></ul></div></div></div>
+</section><section class="cd glass" id="cd2">
+  <div class="ch"><span class="no">2</span><div><div class="lbl">Chủ đề 2 · thời lượng 10% (chung chủ đề 1–2)</div><h3>Vai trò của sử học</h3></div></div>
+  <div class="muc du">
+  <div class="mh"><h4>Sử học với công tác bảo tồn và phát huy giá trị di sản văn hoá, di sản thiên nhiên</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Các tầng di tích chồng lớp</b> · Một khu di tích có nhiều thời kỳ chồng lên nhau, bóc từng tầng để thấy vì sao bảo tồn cần sử học.</div>
+  <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Nêu được mối quan hệ giữa sử học với công tác bảo tồn và phát huy giá trị di sản văn hoá và di sản thiên nhiên.</li><li>Có ý thức vận động các bạn và mọi người ở xung quanh cùng tham gia bảo vệ các di sản văn hoá và di sản thiên nhiên ở địa phương.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Sử học với sự phát triển du lịch</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Tuyến tham quan một đô thị cổ</b> · Dựng tuyến tham quan 3D một đô thị cổ, gắn thông tin lịch sử vào từng điểm dừng.</div>
+  <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Giải thích được vai trò của lịch sử và văn hoá đối với sự phát triển du lịch.</li><li>Nêu được tác động của du lịch với công tác bảo tồn di tích lịch sử, văn hoá.</li></ul></details>
+  
+</div>
+  <div class="bs"><div class="lbl">Bài tương ứng trong sách</div><div class="bsg"><div><b>Kết nối tri thức</b><ul><li>Bài 3: Vai trò của sử học</li></ul></div><div><b>Chân trời sáng tạo</b><ul><li>Bài 3: Sử học với các lĩnh vực khoa học khác</li><li>Bài 4: Sử học với một số lĩnh vực, ngành nghề hiện đại</li></ul></div><div><b>Cánh diều</b><ul><li>Bài 3: Sử học với các lĩnh vực khoa học khác</li><li>Bài 4: Sử học với một số lĩnh vực, ngành hiện đại</li></ul></div></div></div>
+</section><section class="cd glass" id="cd3">
+  <div class="ch"><span class="no">3</span><div><div class="lbl">Chủ đề 3 · thời lượng 8%</div><h3>Một số nền văn minh thế giới thời cổ – trung đại</h3></div></div>
+  <div class="muc du">
+  <div class="mh"><h4>Khái niệm văn minh</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Quả địa cầu văn minh</b> · Các trung tâm văn minh cổ hiện trên quả địa cầu theo dòng thời gian, phân biệt văn hoá và văn minh.</div>
+  <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Giải thích được khái niệm văn minh.</li><li>Phân biệt được khái niệm văn minh, văn hoá.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Văn minh Ai Cập</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Kim tự tháp Khufu</b> · Mặt cắt kim tự tháp theo số đo khảo cổ, các hành lang và buồng bên trong, công trường xây dựng.</div>
+  <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về các nền văn minh cổ đại phương Đông.</li><li>Nêu được thành tựu tiêu biểu và ý nghĩa của văn minh Ai Cập về chữ viết, khoa học tự nhiên, kiến trúc, điêu khắc.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Văn minh Trung Hoa</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Giấy, la bàn, thuốc súng, kỹ thuật in</b> · Bốn phát minh dưới dạng mô hình chuyển động, kèm niên đại và nguồn.</div>
+  <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được thành tựu tiêu biểu và ý nghĩa của văn minh Trung Hoa về chữ viết, văn học nghệ thuật, sử học, khoa học tự nhiên, y học, thiên văn học, lịch pháp, tư tưởng, tôn giáo.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Văn minh Ấn Độ</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Bảo tháp Sanchi</b> · Bảo tháp và cổng đá chạm khắc, liên hệ với Phật giáo lan sang Đông Nam Á.</div>
+  <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được những thành tựu tiêu biểu và ý nghĩa của văn minh Ấn Độ về chữ viết, văn học nghệ thuật, khoa học tự nhiên, tư tưởng, tôn giáo.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Văn minh Hy Lạp - La Mã</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Đền Parthenon và đấu trường Colosseum</b> · Hai công trình đúng tỉ lệ, xem cột, vòm và kỹ thuật xây dựng.</div>
+  <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về các nền văn minh phương Tây thời cổ - trung đại.</li><li>Nêu được những thành tựu tiêu biểu và ý nghĩa của văn minh Hy Lạp - La Mã về chữ viết, thiên văn học, lịch pháp, văn học, nghệ thuật, khoa học tự nhiên, tư tưởng, tôn giáo, thể thao.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Văn minh thời Phục hưng</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Mái vòm nhà thờ Florence</b> · Cách Brunelleschi xây mái vòm hai lớp, từng vòng gạch xương cá.</div>
+  <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được những thành tựu tiêu biểu và ý nghĩa của văn minh thời Phục hưng về tư tưởng, văn học, nghệ thuật, khoa học kĩ thuật, thiên văn học.</li></ul></details>
+  
+</div>
+  <div class="bs"><div class="lbl">Bài tương ứng trong sách</div><div class="bsg"><div><b>Kết nối tri thức</b><ul><li>Bài 4: Khái niệm văn minh. Một số nền văn minh phương Đông thời cổ - trung đại</li><li>Bài 5: Một số nền văn minh phương Tây thời cổ - trung đại</li></ul></div><div><b>Chân trời sáng tạo</b><ul><li>Bài 5: Khái quát lịch sử văn minh thế giới cổ - trung đại</li><li>Bài 6: Văn minh Ai Cập</li><li>Bài 7: Văn minh Trung Hoa cổ - trung đại</li><li>Bài 8: Văn minh Ấn Độ cổ - trung đại</li><li>Bài 9: Văn minh Hy Lạp - La Mã cổ đại</li><li>Bài 10: Văn minh Tây Âu thời Phục hưng</li></ul></div><div><b>Cánh diều</b><ul><li>Bài 5: Khái niệm văn minh</li><li>Bài 6: Một số nền văn minh phương Đông</li><li>Bài 7: Một số nền văn minh phương Tây</li></ul></div></div></div>
+</section><section class="cd glass" id="cd4">
+  <div class="ch"><span class="no">4</span><div><div class="lbl">Chủ đề 4 · thời lượng 11%</div><h3>Các cuộc cách mạng công nghiệp trong lịch sử thế giới</h3></div></div>
+  <div class="muc du">
+  <div class="mh"><h4>Cách mạng công nghiệp lần thứ nhất</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Máy hơi nước</b> · Piston, van, bánh đà chuyển động; vì sao máy hơi nước thay đổi nhà máy và giao thông.</div>
+  <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Biết cách sưu tầm và sử dụng một số tư liệu để tìm hiểu về các cuộc cách mạng công nghiệp.</li><li>Nếu được thành tựu cơ bản của Cách mạng công nghiệp lần thứ nhất.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Cách mạng công nghiệp lần thứ hai</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Động cơ đốt trong, máy phát điện, dây chuyền</b> · Ba cỗ máy tiêu biểu chạy cạnh nhau.</div>
+  <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được những thành tựu cơ bản của Cách mạng công nghiệp lần thứ hai.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Ý nghĩa của Cách mạng công nghiệp lần thứ nhất và lần thứ hai</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Bản đồ đường sắt và nhà máy</b> · Mạng đường sắt, nhà máy lan rộng qua các thập niên.</div>
+  <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được ý nghĩa của Cách mạng công nghiệp lần thứ nhất và lần thứ hai về kinh tế, xã hội, văn hoá.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Cách mạng công nghiệp lần thứ ba</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Từ bóng bán dẫn đến vi mạch</b> · Phóng từ một chiếc máy tính xuống vi mạch và bóng bán dẫn.</div>
+  <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được những thành tựu cơ bản của cuộc Cách mạng công nghiệp lần thứ ba.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Cách mạng công nghiệp lần thứ tư (Cách mạng 4.0)</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Nhà máy thông minh</b> · Robot, cảm biến, dữ liệu kết nối trong một xưởng sản xuất.</div>
+  <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được những thành tựu cơ bản của cuộc Cách mạng công nghiệp lần thứ tư.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Ý nghĩa của Cách mạng công nghiệp lần thứ ba và lần thứ tư</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Bốn cuộc cách mạng trên một trục</b> · So sánh nguồn năng lượng, công cụ và tác động của bốn cuộc cách mạng.</div>
+  <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Nêu được ý nghĩa của Cách mạng công nghiệp lần thứ ba và lần thứ tư về kinh tế, xã hội, văn hoá.</li><li>Có thái độ trân trọng những thành quả của cuộc cách mạng công nghiệp đối với sự phát triển của lịch sử.</li><li>Vận dụng được những hiểu biết về tác động hai mặt của Cách mạng công nghiệp lần thứ ba và lần thứ tư để tuân thủ những quy định của pháp luật trong cách thức giao tiếp trên Internet, mạng xã hội.</li></ul></details>
+  
+</div>
+  <div class="bs"><div class="lbl">Bài tương ứng trong sách</div><div class="bsg"><div><b>Kết nối tri thức</b><ul><li>Bài 6: Các cuộc cách mạng công nghiệp thời cận đại</li><li>Bài 7: Các cuộc cách mạng công nghiệp thời hiện đại</li></ul></div><div><b>Chân trời sáng tạo</b><ul><li>Bài 11: Các cuộc cách mạng công nghiệp thời kì cận đại</li><li>Bài 12: Các cuộc cách mạng công nghiệp thời kì hiện đại</li></ul></div><div><b>Cánh diều</b><ul><li>Bài 8: Cách mạng công nghiệp thời kì cận đại</li><li>Bài 9: Cách mạng công nghiệp thời kì hiện đại</li></ul></div></div></div>
+</section><section class="cd glass" id="cd5">
+  <div class="ch"><span class="no">5</span><div><div class="lbl">Chủ đề 5 · thời lượng 6%</div><h3>Văn minh Đông Nam Á thời cổ – trung đại</h3></div></div>
+  <div class="muc du">
+  <div class="mh"><h4>Hành trình phát triển và thành tựu của văn mình Đông Nam Á thời cổ - trung đại</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Angkor Wat và Borobudur</b> · Mặt bằng mandala, các tầng đền tháp, liên hệ với văn minh Ấn Độ.</div>
+  <details><summary>Yêu cầu cần đạt (4)</summary><ul><li>Biết cách sưu tầm và sử dụng một số tư liệu để tìm hiểu về lịch sử văn minh Đông Nam Á.</li><li>Trình bày được các thời kì phát triển của văn minh Đông Nam Á.</li><li>Nêu được một số thành tựu tiêu biểu của văn minh Đông Nam Á về tôn giáo và tín ngưỡng, văn tự và văn học, kiến trúc và điêu khắc.</li><li>Biết trân trọng giá trị trường tồn của các di sản văn minh Đông Nam Á, tham gia bảo tồn các di sản văn minh Đông Nam Á nói chung và ở Việt Nam nói riêng.</li></ul></details>
+  
+</div>
+  <div class="bs"><div class="lbl">Bài tương ứng trong sách</div><div class="bsg"><div><b>Kết nối tri thức</b><ul><li>Bài 8: Hành trình phát triển và thành tựu của văn minh Đông Nam Á thời cổ - trung đại</li></ul></div><div><b>Chân trời sáng tạo</b><ul><li>Bài 13: Cơ sở hình thành văn minh Đông Nam Á cổ - trung đại</li><li>Bài 14: Hành trình phát triển và thành tựu văn minh Đông Nam Á cổ - trung đại</li></ul></div><div><b>Cánh diều</b><ul><li>Bài 10: Cơ sở hình thành văn minh Đông Nam Á thời kì cổ - trung đại</li><li>Bài 11: Hành trình phát triển và thành tựu của văn minh Đông Nam Á thời kì cổ - trung đại</li></ul></div></div></div>
+</section><section class="cd glass" id="cd6">
+  <div class="ch"><span class="no">6</span><div><div class="lbl">Chủ đề 6 · thời lượng 24%</div><h3>Một số nền văn minh trên đất nước Việt Nam (trước năm 1858)</h3></div></div>
+  <div class="muc co">
+  <div class="mh"><h4>Văn minh Văn Lang - Âu Lạc <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span></h4><span class="st co">Đã có</span></div>
+  <div class="canh"><b>Thành Cổ Loa</b> · Ba vòng thành phỏng dựng theo số đo khảo cổ, dòng thời gian từ thế kỷ IV TCN đến nay, hiện vật, truyền thuyết đối chiếu bằng chứng, chế độ học theo bước có câu hỏi.</div>
+  <details open><summary>Yêu cầu cần đạt (3)</summary><ul><li>Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Văn Lang - Âu Lạc.</li><li>Phân tích được cơ sở hình thành văn minh Văn Lang - Âu Lạc.</li><li>Nêu được những thành tựu tiêu biểu của nền văn minh Văn Lang - Âu Lạc về đời sống vật chất, đời sống tinh thần, tổ chức xã hội, Nhà nước.</li></ul></details>
+  <a class="btn primary" href="co-loa/">Mở bài 3D</a>
+</div><div class="muc du">
+  <div class="mh"><h4>Văn minh Champa <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span></h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Thánh địa Mỹ Sơn</b> · Các nhóm tháp gạch, kỹ thuật xây gạch không vữa nhìn thấy, liên hệ tôn giáo.</div>
+  <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Biết sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Champa.</li><li>Phân tích được cơ sở hình thành văn minh Champa.</li><li>Trình bày được những thành tựu tiêu biểu của văn minh Champa về đời sống vật chất, đời sống tinh thần, tổ chức xã hội, Nhà nước.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Văn minh Phù Nam <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span></h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Cảng thị Óc Eo</b> · Kênh đào, nhà sàn, cảng biển trong mạng giao thương.</div>
+  <details><summary>Yêu cầu cần đạt (4)</summary><ul><li>Biết sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Phù Nam.</li><li>Phân tích được cơ sở hình thành văn minh Phù Nam.</li><li>Trình bày được những thành tựu tiêu biểu của văn minh Phù Nam về đời sống vật chất, đời sống tinh thần, tổ chức xã hội, Nhà nước.</li><li>Biết vận dụng hiểu biết về các nền văn minh cổ để giới thiệu về đất nước, con người Việt Nam. Nhận thức được giá trị trường tồn của các nền văn minh cổ trên đất nước Việt Nam. Có ý thức trân trọng truyền thống lao động cần cù, sáng tạo của dân tộc Việt Nam trong lịch sử. Có trách nhiệm trong việc góp phần bảo tồn các di sản văn hoá của dân tộc.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Cơ sở hình thành và quá trình phát triển của văn minh Đại Việt <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span></h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Kinh thành Thăng Long</b> · Các tầng kiến trúc Hoàng thành Thăng Long qua các triều đại.</div>
+  <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Giải thích được khái niệm văn minh Đại Việt.</li><li>Phân tích được cơ sở hình thành văn minh Đại Việt về kế thừa văn minh Văn Lang - Âu Lạc, đấu tranh gìn giữ văn hoá, bản sắc dân tộc trong thời kì Bắc thuộc, nền độc lập tự chủ của đất nước, tiếp thu ảnh hưởng của văn hoá Trung Quốc, Ấn Độ.</li><li>Nêu được quá trình phát triển của văn minh Đại Việt.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Một số thành tựu của văn minh Đại Việt</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Văn Miếu, thành nhà Hồ</b> · Hai công trình tiêu biểu cho giáo dục và kỹ thuật xây dựng.</div>
+  <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về những thành tựu của văn minh Đại Việt.</li><li>Nêu được một số thành tựu cơ bản của nền văn minh Đại Việt về kinh tế, chính trị, tư tưởng, tôn giáo, văn hoá, giáo dục, văn học, nghệ thuật.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Ý nghĩa của văn minh Đại Việt trong lịch sử dân tộc Việt Nam <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span></h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Dòng thời gian văn minh Đại Việt</b> · Các thành tựu đặt trên một trục thời gian để so sánh, tổng hợp.</div>
+  <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Phân tích được ý nghĩa của nền văn minh Đại Việt trong lịch sử dân tộc Việt Nam.</li><li>Trân trọng giá trị của nền văn minh Đại Việt, vận dụng hiểu biết về văn minh Đại Việt để giới thiệu, quảng bá về đất nước, con người, di sản văn hoá Việt Nam.</li><li>Đề xuất được các giải pháp nhằm gìn giữ và phát huy những giá trị của các nền văn minh trên đất nước Việt Nam (trước năm 1858) trong cuộc sống hiện nay.</li></ul></details>
+  
+</div>
+  <div class="bs"><div class="lbl">Bài tương ứng trong sách</div><div class="bsg"><div><b>Kết nối tri thức</b><ul><li>Bài 9: Một số nền văn minh cổ trên đất nước Việt Nam</li><li>Bài 10: Văn minh Đại Việt</li></ul></div><div><b>Chân trời sáng tạo</b><ul><li>Bài 15: Văn minh Văn Lang – Âu Lạc</li><li>Bài 16: Văn minh Chăm-pa</li><li>Bài 17: Văn minh Phù Nam</li><li>Bài 18: Văn minh Đại Việt</li></ul></div><div><b>Cánh diều</b><ul><li>Bài 12: Văn minh Văn Lang - Âu Lạc</li><li>Bài 13: Văn minh Chăm-pa, văn minh Phù Nam</li><li>Bài 14: Cơ sở hình thành và quá trình phát triển của văn minh Đại Việt</li><li>Bài 15: Một số thành tựu của văn minh Đại Việt</li></ul></div></div></div>
+</section><section class="cd glass" id="cd7">
+  <div class="ch"><span class="no">7</span><div><div class="lbl">Chủ đề 7 · thời lượng 11%</div><h3>Cộng đồng các dân tộc Việt Nam</h3></div></div>
+  <div class="muc du">
+  <div class="mh"><h4>Các dân tộc trên đất nước Việt Nam</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Bản đồ ngữ hệ</b> · Bản đồ phân bố các ngữ hệ, nhóm ngôn ngữ, chạm vào để xem từng dân tộc.</div>
+  <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Nêu được thành phần dân tộc theo dân số.</li><li>Trình bày được việc phân chia tộc người theo ngữ hệ.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Khái quát về đời sống vật chất và tinh thần của cộng đồng các dân tộc Việt Nam</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Ba kiểu nhà truyền thống</b> · Nhà rông, nhà sàn, nhà trình tường dựng đúng cấu trúc, xem vật liệu và cách dùng không gian.</div>
+  <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Trình bày được nét chính về đời sống vật chất của cộng đồng các dân tộc Việt Nam.</li><li>Nêu được nét chính về đời sống tinh thần của cộng đồng các dân tộc Việt Nam.</li></ul></details>
+  
+</div><div class="muc du">
+  <div class="mh"><h4>Khối đại đoàn kết dân tộc trong lịch sử Việt Nam <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span></h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Dòng thời gian</b> · Các mốc tiêu biểu của khối đại đoàn kết dân tộc.</div>
+  <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Nêu được nét chính về sự hình thành khối đại đoàn kết dân tộc trong lịch sử Việt Nam.</li><li>Nêu được vai trò, tầm quan trọng của khối đại đoàn kết dân tộc trong lịch sử dựng nước và giữ nước.</li><li>Phân tích được vai trò, tầm quan trọng của khối đại đoàn kết dân tộc trong sự nghiệp xây dựng và bảo vệ Tổ quốc hiện nay.</li></ul></details>
+  
+</div><div class="muc tl">
+  <div class="mh"><h4>Chính sách dân tộc của Đảng và Nhà nước hiện nay</h4><span class="st tl">Tư liệu</span></div>
+  <div class="canh"><b>Trang tư liệu</b> · Mục này hợp với văn bản, số liệu hơn là mô hình 3D.</div>
+  <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Nêu được quan điểm nhất quán của Đảng và Nhà nước về chính sách dân tộc bình đẳng, đoàn kết, tôn trọng và giúp nhau cùng phát triển.</li><li>Nêu được nội dung cơ bản trong chính sách dân tộc của Đảng và Nhà nước hiện nay về phát triển kinh tế, văn hoá, xã hội, quốc phòng và an ninh.</li><li>Có ý thức trân trọng sự bình đẳng giữa các dân tộc, có hành động cụ thể góp phần tham gia vào việc giữ gìn khối đại đoàn kết dân tộc.</li></ul></details>
+  
+</div>
+  <div class="bs"><div class="lbl">Bài tương ứng trong sách</div><div class="bsg"><div><b>Kết nối tri thức</b><ul><li>Bài 11: Các dân tộc trên đất nước Việt Nam</li><li>Bài 12: Khái quát về đời sống vật chất và tinh thần của cộng đồng các dân tộc Việt Nam</li><li>Bài 13: Khối đại đoàn kết dân tộc trong lịch sử Việt Nam</li></ul></div><div><b>Chân trời sáng tạo</b><ul><li>Bài 19: Các dân tộc trên đất nước Việt Nam</li><li>Bài 20: Khối đại đoàn kết dân tộc Việt Nam</li></ul></div><div><b>Cánh diều</b><ul><li>Bài 16: Các dân tộc trên đất nước Việt Nam</li><li>Bài 17: Khối đại đoàn kết dân tộc trong lịch sử Việt Nam</li></ul></div></div></div>
+</section><section class="cd glass" id="cd8">
+  <div class="ch"><span class="no">★</span><div><div class="lbl">Hoạt động · thời lượng 20%</div><h3>Thực hành lịch sử</h3></div></div>
+  <div class="muc du">
+  <div class="mh"><h4>Hoạt động thực hành</h4><span class="st du">Dự kiến</span></div>
+  <div class="canh"><b>Thực địa ảo Cổ Loa</b> · Đi thực địa trên mô hình Cổ Loa: đo mặt cắt, ghi chép, đối chiếu nguồn. Dùng lại bài Thành Cổ Loa.</div>
+  <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Củng cố, khắc sâu kiến thức lịch sử.</li><li>Rèn luyện các kĩ năng thực hành bộ môn, phát triển năng lực lịch sử.</li><li>Tạo hứng thú trong học tập.</li></ul></details>
+  
+</div>
+  
+</section>
+<h2 class="sec">Chuyên đề học tập lựa chọn</h2>
+<p class="small" style="margin:-8px 0 0">52 yêu cầu cần đạt, 35 tiết. Chưa lên kế hoạch cảnh 3D; chuyên đề 10.2 về di sản có thể dùng lại mô hình Cổ Loa.</p>
+<details class="cdx glass"><summary><b>Chuyên đề 10.1</b> Các lĩnh vực của sử học <span class="small">· 15 yêu cầu</span></summary>
+  <div class='muc du'><h4>Khái quát về một số cách trình bày lịch sử truyền thống</h4><ul><li>Tóm tắt được một số cách trình bày lịch sử truyền thống thông qua ví dụ cụ thể.</li></ul></div><div class='muc du'><h4>Thông sử</h4><ul><li>Giải thích được khái niệm thông sử.</li><li>Nêu được nội dung chính của thông sử.</li></ul></div><div class='muc du'><h4>Lịch sử theo lĩnh vực</h4><ul><li>Nêu được nét khái quát về các lĩnh vực của lịch sử</li><li>Giải thích được ý nghĩa của việc phân chia lịch sử theo lĩnh vực.</li><li>Nêu được khái niệm và nội dung chính của lịch sử dân tộc</li><li>Nêu được khái niệm và nội dung chính của lịch sử thế giới.</li></ul></div><div class='muc du'><h4>Một số lĩnh vực của lịch sử Việt Nam</h4><ul><li>Nêu được đối tượng và phạm vi của lịch sử văn hoá Việt Nam.</li><li>Tóm tắt được nét chính của lịch sử văn hoá Việt Nam trên đường thời gian.</li><li>Nêu được đối tượng và phạm vi của lịch sử tư tưởng Việt Nam.</li><li>Tóm tắt được nét chính của lịch sử tư tưởng Việt Nam trên đường thời gian.</li></ul></div><div class='muc du'><h4>Lịch sử xã hội Việt Nam</h4><ul><li>Giải thích được đối tượng của lịch sử xã hội.</li><li>Tóm tắt được nét chính của lịch sử xã hội Việt Nam trên đường thời gian.</li></ul></div><div class='muc du'><h4>Lịch sử kinh tế Việt Nam</h4><ul><li>Giải thích được đối tượng của lịch sử kinh tế.</li><li>Tóm tắt được nét chính của lịch sử kinh tế Việt Nam trên đường thời gian.</li></ul></div></details><details class="cdx glass"><summary><b>Chuyên đề 10.2</b> Bảo tồn và phát huy giá trị di sản văn hoá ở việt nam <span class="small">· 19 yêu cầu</span></summary>
+  <div class='muc du'><h4>Di sản văn hoá</h4><ul><li>Giải thích được khái niệm di sản văn hoá.</li><li>Nêu được ý nghĩa của di sản văn hoá: tài sản vô giá của cộng đồng, dân tộc, nhân loại được kế thừa từ các thế hệ trước cho các thế hệ mai sau.</li><li>Chỉ ra được một số cách phân loại, xếp hạng di sản văn hoá.</li><li>Phân tích được mục đích và ý nghĩa của việc phân loại, xếp hạng di sản văn hoá.</li></ul></div><div class='muc du'><h4>Mối quan hệ giữa bảo tồn và phát triển</h4><ul><li>Giải thích được khái niệm bảo tồn di sản văn hoá.</li><li>Phân tích được mối quan hệ giữa bảo tồn và phát huy giá trị di sản văn hoá: bảo tồn phải đặt trong bối cảnh phát triển bền vững để bảo tồn không trở thành gánh nặng và rào cản của phát triển.</li></ul></div><div class='muc du'><h4>Giải pháp bảo tồn và phát huy giá trị di sản</h4><ul><li>Phân tích được cơ sở khoa học của công tác bảo tồn di sản văn hoá trong quá trình phát triển bền vững của đất nước.</li><li>Nêu được các giải pháp bảo tồn và phát huy giá trị di sản văn hoá: tuyên truyền giáo dục ý thức bảo tồn di sản, đầu tư cơ sở vật chất, tăng cường biện pháp bảo vệ di sản,...</li><li>Giải thích được vai trò của hệ thống chính trị, doanh nghiệp, cộng đồng dân cư và của mỗi cá nhân trong công tác bảo tồn và phát huy giá trị di sản văn hoá.</li><li>Trình bày được trách nhiệm của Nhà nước, tổ chức xã hội, nhà trường, cộng đồng, công dân trong việc bảo tồn và phát huy giá trị di sản thông qua ví dụ cụ thể.</li><li>Có ý thức trách nhiệm và sẵn sàng đóng góp và vận động người khác cùng tham gia vào việc bảo tồn và phát huy giá trị các di sản văn hoá ở địa phương và đất nước.</li></ul></div><div class='muc du'><h4>Giới thiệu một số di sản văn hoá phi vật thể tiêu biểu</h4><ul><li>Xác định được vị trí phân bố các di sản văn hoá phi vật thể tiêu biểu trên bản đồ.</li><li>Giới thiệu được nét cơ bản về một trong số những di sản văn hoá phi vật thể tiêu biểu.</li></ul></div><div class='muc du'><h4>Giới thiệu một số di sản văn hoá vật thể tiêu biểu</h4><ul><li>Xác định được vị trí phân bố các di sản lịch sử văn hoá vật thể tiêu biểu trên bản đồ.</li><li>Giới thiệu được nét cơ bản về một trong số di sản lịch sử văn hoá vật thể tiêu biểu.</li></ul></div><div class='muc du'><h4>Giới thiệu một số di sản thiên nhiên tiêu biểu</h4><ul><li>Xác định vị trí phân bố các di sản thiên nhiên tiêu biểu trên bản đồ.</li><li>Giới thiệu được những nét cơ bản về một trong số những di sản thiên nhiên tiêu biểu.</li></ul></div><div class='muc du'><h4>Giới thiệu một số di sản phức hợp tiêu biểu</h4><ul><li>Xác định được vị trí phân bố các di sản phức hợp tiêu biểu trên bản đồ.</li><li>Giới thiệu được những nét cơ bản về một trong số các di sản phức hợp tiêu biểu.</li></ul></div></details><details class="cdx glass"><summary><b>Chuyên đề 10.3</b> Nhà nước và pháp luật việt nam trong lịch sử <span class="small">· 18 yêu cầu</span></summary>
+  <div class='muc du'><h4>Nhà nước và pháp luật trong lịch sử Việt Nam (trước năm 1858)</h4><ul><li>Sưu tầm tư liệu để tìm hiểu về một số mô hình nhà nước quân chủ Việt Nam tiêu biểu: Nhà nước quân chủ thời Lý - Trần, thời Lê sơ, thời Nguyễn.</li><li>Nêu và phân tích được đặc điểm của mô hình nhà nước quân chủ Việt Nam thông qua ví dụ cụ thể: Nhà nước quân chủ thời Lý - Trần, thời Lê sơ, thời Nguyễn.</li><li>Phân tích được nét chính của hai bộ luật tiêu biểu của nhà nước quân chủ Việt Nam: Quốc triều hình luật và Hoàng Việt luật lệ.</li></ul></div><div class='muc du'><h4>Sự ra đời của Nhà nước Việt Nam Dân chủ Cộng hoà</h4><ul><li>Phân tích được bối cảnh ra đời của Nhà nước Việt Nam Dân chủ Cộng hoà.</li><li>Nêu được ý nghĩa của việc ra đời Nhà nước Việt Nam Dân chủ Cộng hoà.</li></ul></div><div class='muc du'><h4>Vai trò của Nhà nước Việt Nam Dân chủ Cộng hoà</h4><ul><li>Phân tích được đặc điểm và tính chất của Nhà nước Việt Nam Dân chủ Cộng hoà.</li><li>Nêu được vai trò của Nhà nước Việt Nam Dân chủ Cộng hoà trong quá trình kháng chiến chống giặc ngoại xâm và xây dựng đất nước thời kì 1945 - 1976.</li></ul></div><div class='muc du'><h4>Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam từ năm 1976 đến nay</h4><ul><li>Phân tích được bối cảnh ra đời của Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam.</li><li>Nêu được ý nghĩa lịch sử của việc ra đời Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam.</li><li>Nêu được vai trò của Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam trong quá trình đổi mới và hội nhập quốc tế.</li></ul></div><div class='muc du'><h4>Một số điểm chung của các bản Hiến pháp Việt Nam từ năm 1946 đến nay</h4><ul><li>Nêu được bối cảnh ra đời của các bản Hiến pháp ở Việt Nam từ năm 1946 đến nay (1946, 1959, 1980, 1992, 2013 và năm 2025 (năm sửa đổi, bổ sung Hiến pháp năm 2013): những thay đổi quan trọng về chính trị, kinh tế, xã hội, văn hoá, gắn với một giai đoạn phát triển của lịch sử dân tộc.</li><li>Phân tích được một số điểm chính của các bản Hiến pháp Việt Nam: cơ sở pháp lí để xây dựng hệ thống pháp luật, tổ chức hoạt động của bộ máy Nhà nước,...</li></ul></div><div class='muc du'><h4>Hiến pháp đầu tiên của Việt Nam: Hiến pháp năm 1946</h4><ul><li>Nêu được một số nội dung chính của Hiến pháp năm 1946: ghi nhận thành quả của Cách mạng tháng Tám 1945, quyền bình đẳng và nghĩa vụ công dân, cơ cấu hệ thống chính trị,...</li><li>Phân tích được ý nghĩa của Hiến pháp năm 1946 - Hiến pháp đầu tiên trong lịch sử Việt Nam.</li><li>Nêu được một số nét chính của Hiến pháp năm 1992: ban hành trong những năm đầu của công cuộc Đổi mới, là cơ sở chính trị - pháp lí quan trọng để thực hiện công cuộc Đổi mới,...</li><li>Phân tích được điểm mới của Hiến pháp năm 2013: sự tiến bộ về tư tưởng dân chủ, cơ cấu Nhà nước, kĩ thuật lập hiến,...</li><li>Nêu được những nội dung sửa đổi, bổ sung Hiến pháp năm 2013 (sửa đổi, bổ sung năm 2025): Giải thích được ý nghĩa những nội dung sửa đổi, bổ sung Hiến pháp năm 2013 đối với công cuộc đổi mới, đưa đất nước vào kỉ nguyên vươn mình.</li><li>Có ý thức trân trọng lịch sử lập hiến của dân tộc, có trách nhiệm và sẵn sàng vận động người khác cùng tuân thủ pháp luật.</li></ul></div></details>
+<footer>
+  <div><b>Văn bản chương trình.</b> Thông tư 32/2018/TT-BGDĐT ngày 26/12/2018 (Chương trình GDPT 2018); Thông tư 13/2022/TT-BGDĐT ngày 03/8/2022 (ban hành lại toàn văn Chương trình môn Lịch sử: &quot;Chương trình giáo dục phổ thông môn Lịch sử (Ban hành kèm theo Thông tư số 13/2022/TT-BGDĐT ngày 03 tháng 8 năm 2022...)&quot;); Thông tư 17/2025/TT-BGDĐT ngày 12/9/2025, Điều 1 khoản 3 và Phụ lục III &quot;Sửa đổi, bổ sung Chương trình giáo dục phổ thông môn Lịch sử - Lớp 10&quot;. Yêu cầu cần đạt chép theo văn bản, kể cả lỗi in có trong văn bản gốc. Dữ liệu: <a href="https://github.com/nclamvn/bai-giang/blob/main/lich-su-10/chuong-trinh.json">chuong-trinh.json</a>.</div>
+  <ul><li><a href="https://hcc.nghean.gov.vn/laws/detail/Thong-tu-so-17-2025-TT-BGDDT-cua-Bo-Giao-duc-va-Dao-tao-Sua-doi-bo-sung-mot-so-noi-dung-trong-Chuong-trinh-giao-duc-pho-thong-ban-hanh-kem-theo-Thong-tu-so-32-2018-TT-BGDDT-ngay-26-thang-12-nam-2018-cua-Bo-truong-Bo-Giao-duc-va-Dao-tao-1934/?download=1&amp;id=0" target="_blank" rel="noopener">Thông tư 17/2025/TT-BGDĐT (bản scan có dấu, 22 trang, file 17-bgddt.pdf) – Cổng Trung tâm Phục vụ hành chính công tỉnh Nghệ An</a></li><li><a href="https://luatvietnam.vn/giao-duc/thong-tu-13-2022-tt-bgddt-227351-d1.html" target="_blank" rel="noopener">Thông tư 13/2022/TT-BGDĐT – toàn văn Chương trình môn Lịch sử (bản HTML) – LuatVietnam</a></li><li><a href="https://hoatieu.vn/chuong-trinh-giao-duc-pho-thong-tong-the-mon-lich-su-161491" target="_blank" rel="noopener">Chương trình GDPT môn Lịch sử (TT 13/2022) – bản HTML trên HoaTieu.vn</a></li><li><a href="https://chuyenlequydongialai.edu.vn/wp-content/uploads/2025/12/3417_SGDDT-GDTrH_18122025.pdf" target="_blank" rel="noopener">Công văn 3417/SGDĐT-GDTrH (12/2025) của Sở GDĐT Gia Lai về thực hiện CT GDPT sửa đổi theo TT17</a></li><li><a href="https://hoatieu.vn/phap-luat/thong-tu-17-2025-tt-bgddt-237960" target="_blank" rel="noopener">HoaTieu.vn và LuatVietnam – trang tóm tắt TT17/2025</a></li><li><a href="https://vietjack.com/lich-su-10-cd/index.jsp" target="_blank" rel="noopener">Danh mục bài SGK – VietJack và Loigiaihay</a></li></ul>
+  <div><b>Tên bài ba bộ sách</b> lấy từ danh mục công khai trên VietJack và Loigiaihay, chỉ để đối chiếu. Bộ Kết nối tri thức có hai bản danh mục khác nhau giữa các nguồn; trang dùng bản 13 bài.</div>
+  <div>Đối chiếu do người soạn thực hiện, chưa qua giáo viên bộ môn duyệt; góp ý tại <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">GitHub Issues</a>.</div>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F5F5F7">
+<title>Thành Cổ Loa</title>
+<meta name="description" content="Bài giảng 3D Lịch sử 10: ba vòng thành Cổ Loa phỏng dựng theo số đo khảo cổ, dòng thời gian từ thế kỷ IV TCN đến nay, hiện vật và truyền thuyết đối chiếu bằng chứng.">
+__FONT__
+<style>
+__LG_CSS__
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-size:14.5px;line-height:1.5}
+a{color:var(--accent2)}
+button{font:inherit;cursor:pointer}
+.eyebrow,.lbl{font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.app{position:fixed;inset:0;overflow:hidden}
+#stage{position:absolute;inset:0;background:#EEF1F4;touch-action:none}
+#stage canvas{display:block;width:100%!important;height:100%!important;outline:none}
+.leftcol{position:absolute;left:16px;top:16px;bottom:118px;width:404px;display:flex;flex-direction:column;gap:12px;pointer-events:none;z-index:5}
+.leftcol>*{pointer-events:auto}
+header.top{padding:14px 18px 16px}
+.crumb{display:flex;gap:6px;align-items:center;font-size:13px;margin-bottom:8px}
+.crumb a{text-decoration:none;color:var(--muted);font-weight:500}
+.crumb a:hover{color:var(--ink)}
+.crumb span{color:var(--hair)}
+h1{margin:2px 0 4px;font-size:30px;letter-spacing:-.02em;line-height:1.1}
+.sub{margin:0;color:var(--muted);font-size:13.5px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0 0;padding:0}
+.kpis div{background:rgba(255,255,255,.55);border-radius:14px;padding:7px 8px;border:1px solid rgba(255,255,255,.9)}
+.kpis dt{font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.kpis dd{margin:1px 0 0;font-weight:700;font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.ctrl{padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.ctrl .row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.ctrl .lbl{min-width:72px}
+.btn,.chip{padding:7px 13px;font-size:13px;line-height:1.2}
+.btn[aria-pressed="true"]{background:linear-gradient(180deg,#2C2C2E,#1D1D1F)!important;color:#fff!important;border-color:transparent!important}
+.chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid var(--lg-stroke);background:var(--lg-fill);box-shadow:var(--lg-shadow-lo),var(--lg-inner);font-weight:600;color:var(--ink)}
+.chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.chip[aria-pressed="true"]{outline:2px solid var(--accent);outline-offset:1px}
+.seg{border-radius:999px;overflow:hidden;background:rgba(118,118,128,.12);padding:2px;display:inline-flex;gap:2px}
+.seg button{border:0;border-radius:999px;background:transparent;padding:5px 12px;font-size:13px;font-weight:600;color:var(--ink)}
+.seg button[aria-pressed="true"]{background:#fff;box-shadow:0 1px 3px rgba(15,23,42,.14),0 0 0 .5px rgba(15,23,42,.06)}
+.timeline{position:absolute;left:16px;right:404px;bottom:16px;padding:10px 14px 12px;z-index:5}
+.tl-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
+#tlNow{font-size:12.5px;color:var(--muted)}
+.tl-track{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.tl-track:before{content:"";position:absolute;left:4%;right:4%;top:50%;height:2px;background:linear-gradient(90deg,rgba(178,106,26,.15),rgba(178,106,26,.5),rgba(178,106,26,.15));transform:translateY(-1px)}
+.ph{position:relative;padding:7px 6px;font-size:12px;line-height:1.2;text-align:center;white-space:nowrap}
+.ph small{display:block;font-weight:500;color:var(--muted);font-size:10.5px;margin-top:1px}
+.ph.primary{background:linear-gradient(180deg,#B26A1A 0%,#8E5110 100%)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 8px 20px -8px #B26A1A,inset 0 1px 0 rgba(255,255,255,.35)!important}
+.ph.primary small{color:rgba(255,255,255,.82)}
+#info{position:absolute;right:16px;top:16px;bottom:16px;width:372px;overflow:auto;padding:18px 18px 16px;z-index:5;overscroll-behavior:contain}
+#info h2{margin:2px 0 6px;font-size:21px;letter-spacing:-.015em;line-height:1.2}
+#info h3{margin:14px 0 6px;font-size:15px}
+#info p{margin:0 0 8px}
+.card{background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.95);border-radius:18px;padding:12px 14px;margin:12px 0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.facts{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0 4px}
+.facts td{padding:5px 0;border-top:1px solid var(--line);vertical-align:top}
+.facts td:first-child{color:var(--muted);padding-right:10px;width:44%}
+.facts td:last-child{font-weight:600;font-variant-numeric:tabular-nums}
+.ref{display:inline-block;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:rgba(178,106,26,.12);color:var(--accent2);font-size:10px;font-weight:700;line-height:16px;text-align:center;text-decoration:none;vertical-align:2px;margin-left:2px}
+.ref:hover{background:var(--accent);color:#fff}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;margin:0 4px 4px 0}
+.tag.do{background:rgba(44,122,75,.1);color:#226040}
+.tag.uoc{background:rgba(178,106,26,.12);color:#7A4510}
+.tag.tt{background:rgba(91,95,168,.12);color:#3E4290}
+.est{font-size:12.5px;color:#7A4510;background:rgba(178,106,26,.08);border-radius:12px;padding:7px 10px;margin:8px 0}
+.hint{color:var(--muted);font-size:13px}
+.sec svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.foot{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.small{font-size:12px;color:var(--muted)}
+#pins{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
+.pin{position:absolute;left:0;top:0;pointer-events:auto;border:0;background:none;padding:0;display:flex;align-items:center;gap:6px;transform-origin:0 50%;white-space:nowrap;transition:opacity .25s}
+.pin i{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(15,23,42,.35);flex:none;margin-left:-6px}
+.pin span{font-size:12px;font-weight:600;color:var(--ink);background:rgba(255,255,255,.8);-webkit-backdrop-filter:blur(14px) saturate(180%);backdrop-filter:blur(14px) saturate(180%);border:1px solid rgba(255,255,255,.95);border-radius:999px;padding:2px 9px;box-shadow:var(--lg-shadow-lo)}
+.pin.ring span{font-size:12.5px;font-weight:700;letter-spacing:.01em}
+.pin.on span{background:var(--ink);color:#fff;border-color:transparent}
+.pin.hide{opacity:0;pointer-events:none}
+.pin.dot span{display:none}
+.nolab .pin:not(.on) span{display:none}
+.ov{position:absolute;z-index:4;pointer-events:none}
+#compass{right:404px;bottom:118px;display:flex;align-items:flex-end;gap:10px}
+#compass .rose{width:44px;height:44px;border-radius:50%;display:grid;place-items:center}
+#compass .rose svg{transition:transform .08s linear}
+#scale{padding:6px 10px 7px;font-size:11px;font-weight:600;color:var(--ink2);border-radius:14px}
+#scale b{display:block;height:5px;border:1.5px solid var(--ink2);border-top:0;margin-top:3px}
+#badge{left:436px;bottom:118px;font-size:11.5px;padding:5px 11px;border-radius:999px;color:var(--ink2)}
+#loading{position:absolute;inset:0;display:grid;place-items:center;z-index:3;background:#EEF1F4;color:var(--muted);font-weight:500;transition:opacity .5s}
+.sheet{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(245,245,247,.45);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.sheet.open{display:flex}
+.sheet .box{max-width:760px;width:100%;max-height:86vh;overflow:auto;padding:22px 24px}
+.sheet h2{margin:0 0 10px;font-size:22px;letter-spacing:-.015em}
+.sheet .x{float:right}
+.tv{width:100%;border-collapse:collapse;font-size:13.5px}
+.tv th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:6px 8px}
+.tv td{vertical-align:top;padding:9px 8px;border-top:1px solid var(--line)}
+.tv td:first-child{font-weight:700;width:20%}
+.tv td:nth-child(2){color:#3E4290;width:34%}
+ol.src{padding-left:22px;font-size:13px}
+ol.src li{margin:4px 0}
+ol.src a{word-break:break-word}
+.yccd li{margin:6px 0}
+/* bài học */
+.lesson .prog{display:flex;gap:4px;margin:4px 0 12px}
+.lesson .prog i{flex:1;height:4px;border-radius:2px;background:rgba(15,23,42,.1)}
+.lesson .prog i.on{background:var(--accent)}
+.lesson .ask{background:rgba(232,176,75,.14);border-radius:14px;padding:10px 12px;margin:10px 0 8px;font-weight:600}
+.lesson .opt{display:block;width:100%;text-align:left;margin:6px 0;padding:9px 12px;border-radius:14px;border:1px solid var(--lg-hair);background:rgba(255,255,255,.85);font-size:13.5px;color:var(--ink)}
+.lesson .opt.ok{border-color:#2C7A4B;background:rgba(44,122,75,.1)}
+.lesson .opt.bad{border-color:#B3261E;background:rgba(179,38,30,.07)}
+.lesson .fb{font-size:13px;border-radius:12px;padding:8px 10px;margin:6px 0;background:rgba(15,23,42,.04)}
+.lesson .nav{display:flex;gap:8px;justify-content:space-between;margin-top:14px}
+/* điện thoại */
+@media (max-width:760px){
+  .app{position:static;display:flex;flex-direction:column;gap:10px;padding:10px 10px calc(16px + env(safe-area-inset-bottom));overflow:visible}
+  .leftcol{display:contents}
+  header.top{order:1;padding:12px 14px 14px}
+  h1{font-size:25px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  #stagewrap{order:2;position:relative;height:58vh;min-height:330px;border-radius:24px;overflow:hidden;box-shadow:var(--lg-shadow)}
+  .timeline{order:3;position:static;padding:10px 10px 12px}
+  .tl-track{display:flex;overflow-x:auto;scrollbar-width:none;padding:2px}
+  .tl-track::-webkit-scrollbar{display:none}
+  .tl-track:before{display:none}
+  .ph{flex:none}
+  #info{order:4;position:static;width:auto;overflow:visible;padding:16px}
+  .ctrl{order:5}
+  #compass{right:10px;bottom:10px}
+  #badge{left:10px;top:10px;bottom:auto;font-size:11px}
+  .sheet .box{padding:18px 16px}
+  .tv td:first-child{width:auto}
+}
+@media (min-width:761px){ #stagewrap{position:absolute;inset:0} }
+@media (min-width:761px) and (max-width:1180px){
+  .leftcol{width:340px}
+  #info{width:330px}
+  .timeline{right:362px}
+  #compass{right:362px}
+  #badge{left:372px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="leftcol">
+    <header class="top">
+      <nav class="crumb"><a href="__HUB__">← Bài Giảng</a><span>/</span><a href="__HOME__">Lịch sử 10</a></nav>
+      <div class="eyebrow">Văn minh Văn Lang – Âu Lạc</div>
+      <h1>Thành Cổ Loa</h1>
+      <p class="sub">Ba vòng thành đất phỏng dựng theo số đo khảo cổ, đặt trên đồng bằng ven sông Hoàng Giang. Kéo dòng thời gian để xem thành lớn dần qua các thời kỳ.</p>
+      <dl class="kpis">
+        <div><dt>Vòng thành</dt><dd>3</dd></div>
+        <div><dt>Tổng chu vi</dt><dd>&gt; 16 km</dd></div>
+        <div><dt>Đất đắp, ước</dt><dd>2,2 tr m³</dd></div>
+        <div><dt>Diện tích, ước</dt><dd>600 ha</dd></div>
+      </dl>
+    </header>
+    <div class="ctrl glass">
+      <div class="row"><span class="lbl">Chiều cao</span>
+        <div class="seg" id="segEx"><button data-v="1">Tỉ lệ thật</button><button data-v="3">×3</button><button data-v="6" aria-pressed="true">×6</button></div>
+      </div>
+      <div class="row" id="chips">
+        <button class="chip" data-sel="noi"><i style="background:#B26A1A"></i>Thành Nội</button>
+        <button class="chip" data-sel="trung"><i style="background:#2F7A64"></i>Thành Trung</button>
+        <button class="chip" data-sel="ngoai"><i style="background:#5559A6"></i>Thành Ngoại</button>
+        <button class="chip" data-sel="song"><i style="background:#4D8FA8"></i>Sông, hào</button>
+      </div>
+      <div class="row">
+        <button class="btn" id="bHome">Toàn cảnh</button>
+        <button class="btn" id="bMap">Nhìn từ trên</button>
+        <button class="btn" id="bLab" aria-pressed="true">Nhãn</button>
+        <button class="btn primary" id="bLesson">Học theo bước</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="stagewrap">
+    <div id="stage"><div id="loading">Đang dựng cảnh…</div></div>
+    <div id="pins"></div>
+    <div class="ov glass" id="badge">Sơ đồ phỏng dựng · chiều cao ×6</div>
+    <div class="ov" id="compass">
+      <div class="glass" id="scale"><span id="scaleT">500 m</span><b id="scaleB" style="width:80px"></b></div>
+      <div class="rose glass"><svg id="roseSvg" width="30" height="30" viewBox="-15 -15 30 30" aria-label="Hướng bắc"><path d="M0-12 5 2 0-1-5 2Z" fill="#BE1740"/><path d="M0 12 5 2 0-1-5 2Z" fill="#C7C7CC"/><text x="0" y="-5" font-size="0" fill="none">B</text></svg></div>
+    </div>
+  </div>
+
+  <div class="timeline glass">
+    <div class="tl-head"><span class="eyebrow">Dòng thời gian</span><span id="tlNow"></span></div>
+    <div class="tl-track" id="track"></div>
+  </div>
+
+  <aside id="info"></aside>
+</div>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true"><div class="box glass" id="sheetBox"></div></div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js",
+  "three/webgpu": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js",
+  "three/tsl": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.tsl.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three/webgpu';
+import * as TSL from 'three/tsl';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+const { uniform, attribute, float, vec2, vec3, mix, smoothstep, floor, fract, sin, cos, min, max, dot, abs, positionWorld, cameraPosition, screenUV } = TSL;
+
+const D = __DATA__;
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const NG = {}; D.nguon.forEach((n, i) => NG[n.k] = { ...n, i: i + 1 });
+const cite = s => s.replace(/\[\[([a-z0-9_]+)\]\]/g, (m, k) => NG[k] ? `<a class="ref" href="${NG[k].url}" target="_blank" rel="noopener" title="${esc(NG[k].ten)}">${NG[k].i}</a>` : '');
+const vn = (x, d = 1) => { const [i, f] = String(Math.round(x * 10 ** d) / 10 ** d).split('.'); return i.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (f ? ',' + f : ''); };
+const RING = {}; D.rings.forEach(r => RING[r.id] = r);
+const COLOR = { noi: '#B26A1A', trung: '#2F7A64', ngoai: '#5559A6', song: '#4D8FA8' };
+
+/* ================= Nội dung (viết mới, có dẫn nguồn) ================= */
+const RC = {
+  noi: {
+    mo: 'Vòng trong cùng, gần hình chữ nhật, là vòng duy nhất có hình học đều. Khu đền thờ An Dương Vương (Đền Thượng) và đình Cổ Loa nằm trong hoặc sát vòng này. Mặt ngoài lũy dốc đứng, mặt trong thoải.',
+    so: [['Chu vi', '≈ 1.650 m', 'viwiki nhandan11 thaogiang'], ['Cao trung bình', '≈ 5 m', 'viwiki'], ['Chân lũy', '20–30 m', 'viwiki'], ['Mặt lũy', '6–12 m', 'viwiki'], ['Ụ hoả hồi', '18 ụ nhô ra mặt ngoài', 'viwiki'], ['Cửa', '1, phía nam', 'viwiki nhandan11']],
+    nd: 'Niên đại còn tranh luận. Có ý kiến cho rằng vòng này được làm về sau, thời Ngô Quyền [[viwiki]] [[phapluat11]]; có ý kiến cho rằng hình dạng hiện nay là do tu sửa thời Hán, thời Mã Viện [[thaogiang]]. Vì vậy ở giai đoạn Âu Lạc cảnh để thành Nội mờ.',
+    hao: { gap: 6, w: 20, d: null, ghi: 'Hào rộng 10–30 m là số chung cho cả ba vòng; độ sâu chưa có số đo công bố.' }
+  },
+  trung: {
+    mo: 'Vòng giữa, không đều, đắp nối các gò đất tự nhiên nên uốn lượn. Đây là vòng được nghiên cứu kỹ nhất: hố khai quật Xóm Thượng gần cửa Bắc (2007–2008) cắt ngang toàn bộ bề rộng lũy.',
+    so: [['Chu vi', '≈ 6.500 m', 'viwiki nhandan11'], ['Lũy thời An Dương Vương, hố Xóm Thượng', 'rộng 21,5 m, cao 4,5 m', 'viwiki'], ['Cao hiện nay', '≈ 9 m; chỗ cao nhất 10 m', 'kim16 viwiki'], ['Mặt lũy trung bình', '≈ 10 m', 'viwiki'], ['Hào, hố Xóm Thượng', 'cách chân lũy 6 m, rộng 12 m, sâu 4,8 m', 'viwiki'], ['Cửa', '5 (có nguồn ghi 4)', 'viwiki nhandan11']],
+    nd: 'Niên đại C14 của nhóm Nam C. Kim: phần đáy sớm nhất khoảng thế kỷ IV TCN; pha giữa, tức lũy chính, khoảng 300–100 TCN, trước khi nhà Hán đến; lớp đổ cuối cùng khoảng thế kỷ XV–XVI [[kim16]] [[kim10]]. Mặt cắt có 3 thời kỳ, 5 giai đoạn đắp chính; dưới lũy chính còn một hệ phòng thủ nhỏ hơn của cư dân Đông Sơn [[kim16]] [[qdnd14]].',
+    hao: { gap: 6, w: 12, d: 4.8, ghi: 'Độ sâu 4,8 m là đáy hào cổ trong địa tầng, không phải mực nước hiện nay.' }
+  },
+  ngoai: {
+    mo: 'Vòng ngoài cùng, uốn theo địa hình. Phía nam và đông nam dùng sông Hoàng Giang làm hào tự nhiên. Vòng này bị phá hoại nặng nhất.',
+    so: [['Chu vi', '≈ 8.000 m', 'viwiki enwiki kim16'], ['Cao trung bình', '3–4 m; có chỗ hơn 8 m', 'viwiki'], ['Hố Đống Dân 2012', 'rộng 26 m, cao 2,5 m sau lần đắp thêm cuối', 'thanhtra12'], ['Giai đoạn 2 (hố Đống Dân)', 'rộng 14,18 m, cao 1,14 m', 'thanhtra12'], ['Cửa', '4', 'viwiki nhandan11'], ['Hào', 'rộng 10–30 m', 'viwiki']],
+    nd: 'Hố khai quật 72 m² gần gò Đống Dân (2012) cho thấy 4 giai đoạn đắp và 2 lần đắp thêm: có lũy và hào của cư dân Đông Sơn muộn, giai đoạn đắp thời An Dương Vương và một lần đắp thêm thời Lê. Đây là báo cáo sơ bộ, chưa có niên đại tuyệt đối [[thanhtra12]].',
+    hao: { gap: 6, w: 20, d: null, ghi: 'Phía nam và đông nam là sông Hoàng Giang; phần hào còn lại đào sát chân thành.' }
+  },
+  song: {
+    ten: 'Sông Hoàng Giang và hệ thống hào',
+    mo: 'Sông Hoàng (Hoàng Giang) xưa là một nhánh lớn nối sông Hồng với sông Cầu, nay bị bồi thành lạch nhỏ. Sông làm hào tự nhiên ở phía nam và đông nam thành Ngoại; hào các vòng nối với nhau, thông ra sông qua Cống Song và Cửa Khâu ở Đầm Cả [[viwiki]]. Mạng hào và hồ vừa để phòng thủ vừa để đi lại bằng thuyền [[enwiki]].',
+    est: 'Đường sông, bề rộng sông và vị trí Đầm Cả trong cảnh là minh hoạ, không phải bản đồ đo đạc.'
+  }
+};
+const POI_TXT = {
+  den: { t: 'Khuôn đúc mũi tên đồng, Đền Thượng', k: 'hien_vat', b: 'Khai quật 2004–2007 ở khu Đền Thượng, trong thành Nội: khuôn đá ba mang để đúc mũi tên ba cạnh, cùng nhiều mảnh khuôn vỡ, phế vật, đá nguyên liệu và dấu vết lò đúc; số mang khuôn ước tính hàng trăm. Văn hoá Đông Sơn, khoảng thế kỷ V–I TCN. Bộ sưu tập khuôn đúc Cổ Loa được công nhận bảo vật quốc gia (công bố 7/1/2021) [[seaa]] [[quocte21]] [[nd_muiten]].' },
+  cauvuc: { t: 'Kho mũi tên đồng Cầu Vực', k: 'hien_vat', b: 'Tháng 6/1959, công nhân đắp đường vào xưởng phim phát hiện một hố gần vuông, cạnh khoảng 1 m, sâu 1,2 m, chứa khoảng 10.000 mũi tên đồng nặng 93 kg, chia 7 loại dài 6–11 cm. Khoảng 3/4 còn nguyên dấu đúc, chưa dùng [[nd_muiten]] [[vnx_muiten]] [[enwiki]].', est: 'Vị trí ghim là phỏng chừng: nguồn chỉ ghi gần chân thành Ngoại, gần lối vào phía nam.' },
+  matre: { t: 'Trống đồng Cổ Loa, khu Mả Tre', k: 'hien_vat', b: 'Ngày 21/6/1982, khi làm ruộng ở khu Mả Tre (giữa thành Trung và thành Nội, phía tây nam cửa Nam), người dân phát hiện một trống đồng nặng 72 kg, cao 57 cm, mặt rộng 73,6 cm. Bên trong có khoảng 200 hiện vật đồng, nhiều nhất là lưỡi cày: 96 chiếc theo Higham [[enwiki]]; Trung tâm Bảo tồn Di sản Thăng Long – Hà Nội ghi 247 hiện vật với 143 lưỡi cày [[matre]]. Trống được công nhận bảo vật quốc gia năm 2015 [[dautu]].', est: 'Vị trí ghim là phỏng chừng theo mô tả "phía tây nam cửa Nam".' },
+  xomthuong: { t: 'Hố khai quật Xóm Thượng', k: 'khao_co', b: 'Hố cắt ngang toàn bộ bề rộng lũy thành Trung gần cửa Bắc (Nam C. Kim, Lại Văn Tới, Trịnh Hoàng Hiệp, 2007–2008): 3 thời kỳ, 5 giai đoạn đắp chính. Lũy thời An Dương Vương rộng 21,5 m, cao 4,5 m; hào cách chân lũy 6 m, rộng 12 m, sâu 4,8 m. Trong đất đắp có lớp ngói, gốm "Cổ Loa" [[kim16]] [[kim10]] [[viwiki]].' },
+  dongdan: { t: 'Hố khai quật Đống Dân 2012', k: 'khao_co', b: 'Hố 72 m² trên thành Ngoại gần gò Đống Dân: 4 giai đoạn đắp và 2 lần đắp thêm. Giai đoạn 2 rộng 14,18 m, cao 1,14 m; giai đoạn 3 cao thêm 0,6 m, đất lẫn mảnh ngói Cổ Loa; giai đoạn 4 cao thêm 0,25 m. Sau lần đắp thêm cuối, lũy rộng 26 m, cao 2,5 m so với mặt nền [[thanhtra12]].', est: 'Vị trí ghim là phỏng chừng.' },
+  dinh: { t: 'Đình Cổ Loa (Ngự Triều Di Quy)', k: 'nay', b: 'Cửa duy nhất của thành Nội nhìn vào kiến trúc Ngự Triều Di Quy [[viwiki]]. Đình là di tích thờ cúng của làng, có sau thời Âu Lạc rất lâu. Toạ độ theo OpenStreetMap [[osm]].' },
+  am: { t: 'Am Mỵ Châu', k: 'truyen_thuyet', b: 'Nơi thờ gắn với truyện Mỵ Châu – Trọng Thủy. Chưa có bằng chứng khảo cổ cho nhân vật và sự kiện trong truyện; am là di tích thờ cúng có muộn. Toạ độ theo OpenStreetMap [[osm]].' },
+  gieng: { t: 'Giếng Ngọc (giếng Trọng Thủy)', k: 'truyen_thuyet', b: 'Theo truyền thuyết là nơi Trọng Thủy tự vẫn. Đây là di tích gắn với truyện, không phải bằng chứng cho sự kiện. Toạ độ theo OpenStreetMap [[osm]].' },
+  damca: { t: 'Đầm Cả', k: 'nuoc', b: 'Hồ ở phía đông, nơi hào thành thông với sông Hoàng Giang qua Cống Song và Cửa Khâu [[viwiki]].', est: 'Vị trí và hình dạng hồ trong cảnh là phỏng chừng.' }
+};
+const KIND = { hien_vat: ['#B26A1A', 'Hiện vật'], khao_co: ['#2F7A64', 'Khảo cổ'], nay: ['#636366', 'Di tích ngày nay'], truyen_thuyet: ['#5559A6', 'Gắn với truyền thuyết'], nuoc: ['#4D8FA8', 'Mạng nước'] };
+
+// Mặt cắt lũy theo từng giai đoạn (b: chân, t: mặt, h: cao, m). do: số đo có nguồn; null: không có lũy
+const PH = [
+  { nhan: 'Trước TK IV TCN', nho: 'Đông Sơn', ten: 'Trước thế kỷ IV TCN', r: {}, pins: [],
+    b: 'Vùng đất cao ráo bên tả ngạn sông Hoàng, ở đỉnh tam giác châu thổ sông Hồng, giữa đồng bằng trồng lúa. Cư dân văn hoá Đông Sơn đã sống và đúc đồng quanh đây: di chỉ Đình Tràng gần đó có 56 lò đúc đồng, lớp Đông Sơn có niên đại C14 khoảng 780–620 TCN. Lưu ý đó là niên đại của di chỉ, không phải của thành [[thaogiang]].',
+    est: 'Chưa có lũy. Ruộng, làng cây trong cảnh là minh hoạ.' },
+  { nhan: 'Thế kỷ IV TCN', nho: 'lũy sớm', ten: 'Thế kỷ IV TCN: lũy sớm nhất', r: { trung: { b: 12, t: 5, h: 1.5 } }, pins: [],
+    b: 'Phần đáy sớm nhất của lũy thành Trung, gần cửa Bắc, có niên đại C14 khoảng thế kỷ IV TCN [[kim16]]. Bên dưới lũy chính còn một hệ phòng thủ nhỏ hơn có trước: hào, lũy, hào, ụ phòng vệ và tường chắn của cư dân Đông Sơn [[qdnd14]] [[kim10]].',
+    est: 'Lũy sớm trong cảnh là phỏng dựng: chỉ biết nó tồn tại dưới lũy chính; đường đi, bề rộng và chiều cao là ước lượng.' },
+  { nhan: '300–100 TCN', nho: 'Âu Lạc', ten: 'Khoảng 300–100 TCN: kinh đô Âu Lạc', r: { trung: { b: 21.5, t: 10, h: 4.5, do: 1 }, ngoai: { b: 14.2, t: 7, h: 2 }, noi: { b: 25, t: 9, h: 5, ghost: 1 } }, pins: ['den', 'cauvuc', 'matre'],
+    b: 'Pha đắp chính của thành Trung, khoảng 300–100 TCN, trước khi nhà Hán đô hộ năm 111 TCN [[kim16]] [[enwiki]]. Sử cũ gắn thành với An Dương Vương, niên đại truyền thống khoảng 257–207 TCN [[enwiki]]. Thành Ngoại cũng có giai đoạn đắp thời An Dương Vương [[thanhtra12]]. Dân số kinh đô được ước tính khoảng 5.000–10.000 người [[enwiki]].',
+    est: 'Thành Trung dùng số đo hố Xóm Thượng (rộng 21,5 m, cao 4,5 m). Thành Ngoại lấy theo giai đoạn 2 hố Đống Dân (rộng 14 m, cao khoảng 2 m). Thành Nội để mờ vì niên đại còn tranh luận.' },
+  { nhan: 'Năm 939', nho: 'Ngô Quyền', ten: 'Năm 939: Ngô Quyền đóng đô', r: { trung: { b: 22.5, t: 10, h: 6 }, ngoai: { b: 16, t: 7, h: 2.4 }, noi: { b: 25, t: 9, h: 5, do: 1 } }, pins: ['den', 'cauvuc', 'matre'],
+    b: 'Sau chiến thắng Bạch Đằng, mùa xuân năm 939 Ngô Quyền xưng vương và chọn Cổ Loa làm kinh đô [[sggp24]]. Thành đã được nhiều đời sử dụng và bồi đắp: nhà Triệu, thời Đông Hán (Mã Viện), Lý Phật Tử, Ngô Quyền [[viwiki]] [[thaogiang]].',
+    est: 'Chiều cao thành Trung và thành Ngoại ở giai đoạn này là ước lượng nằm giữa số đo thời Âu Lạc và hiện trạng.' },
+  { nhan: 'TK XV–XVI', nho: 'lớp cuối', ten: 'Thế kỷ XV–XVI: những lớp đắp cuối', r: { trung: { b: 25, t: 10, h: 9 }, ngoai: { b: 26, t: 9, h: 3.5 }, noi: { b: 25, t: 9, h: 5, do: 1 } }, pins: ['den', 'cauvuc', 'matre'],
+    b: 'Lớp đổ chặt trên cùng của lũy thành Trung có niên đại khoảng thế kỷ XV–XVI [[kim16]]; thành Ngoại có một lần đắp thêm thời Lê [[thanhtra12]].',
+    est: 'Cảnh dùng chiều cao hiện trạng: thành Trung khoảng 9 m [[kim16]], thành Ngoại trung bình 3–4 m [[viwiki]].' },
+  { nhan: 'Ngày nay', nho: 'di tích', ten: 'Ngày nay: di tích quốc gia đặc biệt', r: { trung: { b: 25, t: 10, h: 9, do: 1 }, ngoai: { b: 26, t: 9, h: 3.5, do: 1 }, noi: { b: 25, t: 9, h: 5, do: 1 } }, pins: ['den', 'cauvuc', 'matre', 'xomthuong', 'dongdan', 'dinh', 'am', 'gieng'],
+    b: 'Cổ Loa ở phía bắc Hà Nội, cách trung tâm khoảng 17 km [[enwiki]], được xếp hạng di tích quốc gia đặc biệt ngày 27/9/2012 [[viwiki]]. Nhiều đoạn lũy còn cao, phủ cây; trong thành có đền thờ An Dương Vương, đình Cổ Loa, am Mỵ Châu, giếng Ngọc [[osm]]. Phía nam và tây nam khu di tích đang đô thị hoá mạnh.',
+    est: 'Nhà cửa trong cảnh là minh hoạ mật độ làng, không đúng từng ngôi nhà.' }
+];
+const TV = [
+  ['Số vòng và hình "xoáy ốc"', 'Thành có 9 vòng xoáy như hình con ốc, nên gọi là Loa Thành [[toanthu]].', 'Dấu tích hiện còn là 3 vòng thành khép kín, mỗi vòng có hào, không phải một đường xoắn liên tục [[viwiki]]. Con số 9 có thể là cách mô tả cả các gò đống, ụ lũy rải rác.'],
+  ['Tên gọi "Loa"', '"Loa" là con ốc, nên thành xoáy ốc.', 'Học giả chưa thống nhất: Đào Duy Anh cho rằng có lẽ là phiên âm "Kẻ Loa" của dân gian; PGS.TS Nguyễn Hải Kế cho rằng hiểu theo nghĩa "ốc" là không có cơ sở [[nhandan11]] [[ngonngu]].'],
+  ['Nỏ thần', 'Rùa vàng cho vuốt làm lẫy nỏ, một phát bắn ra nhiều mũi tên.', 'Có bằng chứng sản xuất và tích trữ mũi tên đồng ba cạnh quy mô lớn: kho Cầu Vực khoảng 10.000 mũi, khuôn đúc ở Đền Thượng [[nd_muiten]] [[seaa]]. Các nguồn đã đọc không nêu hiện vật nào là chiếc nỏ "thần".'],
+  ['Mỵ Châu – Trọng Thủy', 'Trọng Thủy lừa Mỵ Châu đổi lẫy nỏ, Âu Lạc mất nước.', 'Không có bằng chứng khảo cổ cho nhân vật và sự kiện trong truyện. Việc nhà Triệu, rồi nhà Hán kiểm soát vùng này được sử sách ghi lại [[enwiki]].'],
+  ['Năm xây thành', 'An Dương Vương xây thành sau khi lập Âu Lạc, khoảng 257 TCN.', 'C14 cho lũy chính thành Trung khoảng 300–100 TCN và một lũy sớm hơn từ thế kỷ IV TCN [[kim16]]. Khung thời gian phù hợp với truyền thống, nhưng khảo cổ không xác định được một năm cụ thể.'],
+  ['Ai xây thành Nội', 'Cả ba vòng do An Dương Vương xây.', 'Còn tranh luận: thành Nội hình chữ nhật có thể được làm hoặc sửa muộn hơn, thời Hán hoặc thời Ngô Quyền [[viwiki]] [[thaogiang]].']
+];
+const YCCD = ['Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Văn Lang - Âu Lạc.', 'Phân tích được cơ sở hình thành văn minh Văn Lang - Âu Lạc.', 'Nêu được những thành tựu tiêu biểu của nền văn minh Văn Lang - Âu Lạc về đời sống vật chất, đời sống tinh thần, tổ chức xã hội, Nhà nước.'];
+
+/* ================= Renderer, cảnh, camera ================= */
+const host = $('stage');
+let renderer;
+try { renderer = new THREE.WebGPURenderer({ antialias: true, powerPreference: 'high-performance', forceWebGL: location.hash === '#webgl' }); await renderer.init(); }
+catch (e) { $('loading').textContent = 'Trình duyệt này chưa chạy được WebGPU hay WebGL 2.'; throw e; }
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 1.02;
+host.prepend(renderer.domElement);
+const scene = new THREE.Scene();
+const SKY = new THREE.Color('#EEF1F4');
+scene.backgroundNode = mix(uniform(new THREE.Color('#FFFFFF')), uniform(new THREE.Color('#E6EBF0')), smoothstep(0.15, 1.0, screenUV.y));
+if (TSL.fog && TSL.rangeFogFactor) scene.fogNode = TSL.fog(uniform(SKY), TSL.rangeFogFactor(7000, 15000));
+const camera = new THREE.PerspectiveCamera(34, 1, 8, 40000);
+scene.add(new THREE.HemisphereLight(0xFFFFFF, 0xB8AE96, 1.25));
+const sun = new THREE.DirectionalLight(0xFFF6EA, 2.2); sun.position.set(0.55, 0.5, 0.65); scene.add(sun);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.dampingFactor = 0.08; controls.minDistance = 120; controls.maxDistance = 15000; controls.maxPolarAngle = 1.42; controls.zoomSpeed = 1.1;
+controls.screenSpacePanning = false;
+
+/* ================= Mặt đất: ruộng lúa đồng bằng (shader thủ tục) ================= */
+const hash2 = v => fract(sin(dot(v, vec2(127.1, 311.7))).mul(43758.5453));
+{
+  const g = new THREE.PlaneGeometry(26000, 26000, 1, 1); g.rotateX(-Math.PI / 2);
+  const m = new THREE.MeshStandardNodeMaterial({ roughness: 0.95, metalness: 0 });
+  const p = positionWorld.xz;
+  const blk = floor(p.div(430));
+  const ang = hash2(blk).sub(0.5).mul(0.9);
+  const cs = cos(ang), sn = sin(ang);
+  const q = vec2(p.x.mul(cs).sub(p.y.mul(sn)), p.x.mul(sn).add(p.y.mul(cs)));
+  const sz = vec2(38, 26);
+  const f = fract(q.div(sz)), cell = floor(q.div(sz));
+  const edge = min(min(f.x, f.x.oneMinus()).mul(38), min(f.y, f.y.oneMinus()).mul(26));
+  const h = hash2(cell.add(blk.mul(17.0)));
+  const dist = positionWorld.sub(cameraPosition).length();
+  const near = smoothstep(4200, 1200, dist);
+  let col = mix(vec3(0.755, 0.81, 0.63), vec3(0.79, 0.835, 0.655), h);
+  col = mix(col, vec3(0.84, 0.82, 0.65), smoothstep(0.9, 0.94, h));
+  col = mix(col, vec3(0.72, 0.80, 0.78), smoothstep(0.05, 0.02, h));
+  const avg = vec3(0.775, 0.82, 0.645);
+  col = mix(avg, col, near.mul(0.85).add(0.15));
+  col = mix(col, vec3(0.88, 0.88, 0.80), smoothstep(1.1, 0.35, edge).mul(near).mul(0.55));
+  const r = p.sub(vec2(-120, 0)).length();
+  col = mix(col, vec3(0.92, 0.935, 0.945), smoothstep(4200, 8800, r));
+  m.colorNode = col;
+  const ground = new THREE.Mesh(g, m); scene.add(ground);
+}
+
+/* ================= Ba vòng thành: lũy hình thang đùn theo đường vòng ================= */
+const uEx = uniform(6);
+const ringObj = {};
+function gateMask(r, G = 15) {
+  const P = r.pts, n = P.length, cum = [0];
+  for (let i = 1; i <= n; i++) cum.push(cum[i - 1] + Math.hypot(P[i % n][0] - P[i - 1][0], P[i % n][1] - P[i - 1][1]));
+  const L = cum[n];
+  return P.map((_, i) => r.gate_idx.some(g => { let d = Math.abs(cum[i] - cum[g]); d = Math.min(d, L - d); return d < G; }));
+}
+function normals(P, c) {
+  const n = P.length;
+  return P.map((p, i) => {
+    const a = P[(i - 1 + n) % n], b = P[(i + 1) % n];
+    let tx = b[0] - a[0], tz = b[1] - a[1]; const l = Math.hypot(tx, tz) || 1; tx /= l; tz /= l;
+    let nx = tz, nz = -tx; if (nx * (p[0] - c[0]) + nz * (p[1] - c[1]) < 0) { nx = -nx; nz = -nz; }
+    return [nx, nz];
+  });
+}
+function runs(mask) { // các đoạn liên tục không phải cửa, trên vòng khép kín
+  const n = mask.length, out = []; let s = mask.findIndex(v => v); if (s < 0) return [[...Array(n).keys(), 0]];
+  let i = (s + 1) % n, cur = null;
+  for (let k = 0; k < n; k++, i = (i + 1) % n) {
+    if (!mask[i]) { if (!cur) cur = []; cur.push(i); } else if (cur) { out.push(cur); cur = null; }
+  }
+  if (cur) out.push(cur);
+  return out;
+}
+function buildWall(r) {
+  const P = r.pts, N = normals(P, r.c), mask = gateMask(r), R = runs(mask);
+  const aC = [], aN = [], aK = [], idx = []; let v = 0;
+  const rnd = i => 0.9 + 0.2 * (0.5 + 0.5 * Math.sin(i * 0.37 + r.per) * Math.cos(i * 0.11));
+  for (const run of R) {
+    const base = v;
+    run.forEach((i, j) => {
+      const jit = rnd(i);
+      for (const [s, top] of [[1, 0], [1, 1], [-1, 1], [-1, 0]]) { aC.push(P[i][0], P[i][1]); aN.push(N[i][0], N[i][1]); aK.push(s, top, jit); }
+      if (j > 0) { const a = base + (j - 1) * 4, b = base + j * 4; for (let k = 0; k < 3; k++) idx.push(a + k, b + k, a + k + 1, a + k + 1, b + k, b + k + 1); }
+    });
+    const m = run.length, e0 = base, e1 = base + (m - 1) * 4;
+    idx.push(e0, e0 + 1, e0 + 2, e0, e0 + 2, e0 + 3, e1, e1 + 2, e1 + 1, e1, e1 + 3, e1 + 2);
+    v += m * 4;
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(aK.length), 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(new Float32Array(aK.length).map((_, i) => i % 3 === 1 ? 1 : 0), 3));
+  g.setAttribute('aC', new THREE.Float32BufferAttribute(aC, 2)); g.setAttribute('aN', new THREE.Float32BufferAttribute(aN, 2)); g.setAttribute('aK', new THREE.Float32BufferAttribute(aK, 3));
+  g.setIndex(idx); g.boundingSphere = new THREE.Sphere(new THREE.Vector3(r.c[0], 0, r.c[1]), 3000);
+  const uB = uniform(1), uT = uniform(1), uH = uniform(0), uO = uniform(0), uHL = uniform(0);
+  const C = attribute('aC', 'vec2'), Nn = attribute('aN', 'vec2'), K = attribute('aK', 'vec3');
+  const off = mix(K.x.mul(uB.mul(0.5)), K.x.mul(uT.mul(0.5)).add(uB.sub(uT).mul(0.25)), K.y);
+  const mat = new THREE.MeshStandardNodeMaterial({ roughness: 0.92, metalness: 0, flatShading: true, transparent: true });
+  mat.positionNode = vec3(C.x.add(Nn.x.mul(off)), K.y.mul(uH).mul(uEx).mul(K.z).add(0.05), C.y.add(Nn.y.mul(off)));
+  const earth = mix(vec3(0.66, 0.50, 0.32), vec3(0.50, 0.56, 0.33), K.y);
+  const HLC = { noi: [0.88, 0.46, 0.12], trung: [0.22, 0.64, 0.46], ngoai: [0.42, 0.44, 0.88] }[r.id];
+  mat.colorNode = mix(earth, vec3(...HLC), uHL.mul(0.85));
+  mat.opacityNode = uO;
+  const mesh = new THREE.Mesh(g, mat); mesh.frustumCulled = false; scene.add(mesh);
+  // Hào: dải nước ngoài chân lũy, giãn theo bề rộng chân lũy
+  const hao = RC[r.id].hao, oc = RING.ngoai.c;
+  const mC = [], mN = [], mK = [], mi = []; let w = 0;
+  for (const run of R) {
+    const segs = []; let cur = [];
+    for (const i of run) {
+      const a = Math.atan2(P[i][1] - oc[1], P[i][0] - oc[0]);
+      const river = r.id === 'ngoai' && a > -0.5 && a < 2.0;
+      if (river) { if (cur.length) segs.push(cur); cur = []; } else cur.push(i);
+    }
+    if (cur.length) segs.push(cur);
+    for (const sg of segs) {
+      if (sg.length < 2) continue;
+      const b0 = w;
+      sg.forEach((i, j) => { for (const s of [-1, 1]) { mC.push(P[i][0], P[i][1]); mN.push(N[i][0], N[i][1]); mK.push(s); } if (j > 0) { const a = b0 + (j - 1) * 2, b = b0 + j * 2; mi.push(a, b, a + 1, a + 1, b, b + 1); } });
+      w += sg.length * 2;
+    }
+  }
+  const mg = new THREE.BufferGeometry();
+  mg.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(mK.length * 3), 3)); mg.setAttribute('normal', new THREE.Float32BufferAttribute(new Float32Array(mK.length * 3).map((_, i) => i % 3 === 1 ? 1 : 0), 3));
+  mg.setAttribute('aC', new THREE.Float32BufferAttribute(mC, 2)); mg.setAttribute('aN', new THREE.Float32BufferAttribute(mN, 2)); mg.setAttribute('aS', new THREE.Float32BufferAttribute(mK, 1));
+  mg.setIndex(mi);
+  const S = attribute('aS', 'float');
+  const mo = uB.mul(0.5).add(hao.gap).add(hao.w * 0.5).add(S.mul(hao.w * 0.5));
+  const wm = waterMat(); wm.positionNode = vec3(C.x.add(Nn.x.mul(mo)), float(0.6), C.y.add(Nn.y.mul(mo))); wm.opacityNode = uO.mul(0.95);
+  const moat = new THREE.Mesh(mg, wm); moat.frustumCulled = false; scene.add(moat);
+  ringObj[r.id] = { mesh, moat, uB, uT, uH, uO, uHL, cur: { b: 1, t: 1, h: 0, o: 0 }, tgt: { b: 1, t: 1, h: 0, o: 0 }, N };
+}
+function waterMat() {
+  const m = new THREE.MeshStandardNodeMaterial({ roughness: 0.18, metalness: 0.0, transparent: true });
+  const dist = positionWorld.sub(cameraPosition).length();
+  m.colorNode = mix(vec3(0.42, 0.62, 0.70), vec3(0.62, 0.76, 0.80), smoothstep(800, 6000, dist));
+  return m;
+}
+D.rings.forEach(buildWall);
+
+// 18 ụ hoả hồi ở mặt ngoài thành Nội
+const bast = (() => {
+  const r = RING.noi, P = r.pts, N = ringObj.noi.N, n = P.length, mask = gateMask(r, 30), list = [];
+  for (let k = 0; k < 18; k++) { let i = Math.round((k + 0.5) * n / 18) % n; while (mask[i]) i = (i + 1) % n; list.push(i); }
+  const bg = new THREE.CylinderGeometry(0.42, 0.62, 1, 4, 1); bg.rotateY(Math.PI / 4);
+  const mesh = new THREE.InstancedMesh(bg, new THREE.MeshStandardNodeMaterial({ color: 0xB59670, roughness: 0.92, flatShading: true, transparent: true }), 18);
+  mesh.frustumCulled = false; scene.add(mesh);
+  return { mesh, list, P, N };
+})();
+const _m = new THREE.Matrix4(), _q = new THREE.Quaternion(), _s = new THREE.Vector3(), _p = new THREE.Vector3(), _Y = new THREE.Vector3(0, 1, 0);
+function placeBastions() {
+  const o = ringObj.noi.cur, h = o.h * uEx.value;
+  bast.list.forEach((i, k) => {
+    const [x, z] = bast.P[i], [nx, nz] = bast.N[i], d = o.b * 0.5 + 6;
+    _p.set(x + nx * d * 0.62, h * 0.43, z + nz * d * 0.62); _q.setFromAxisAngle(_Y, Math.atan2(-nz, nx)); _s.set(30, Math.max(0.01, h * 0.86), 26);
+    bast.mesh.setMatrixAt(k, _m.compose(_p, _q, _s));
+  });
+  bast.mesh.instanceMatrix.needsUpdate = true; bast.mesh.material.opacity = o.o; bast.mesh.visible = o.o > 0.02;
+}
+
+/* ================= Sông Hoàng Giang, Đầm Cả ================= */
+{
+  const curve = new THREE.CatmullRomCurve3(D.river.map(([x, z]) => new THREE.Vector3(x, 0, z)), false, 'centripetal');
+  const n = 360, pts = curve.getSpacedPoints(n), pos = [], idx = [];
+  for (let i = 0; i <= n; i++) {
+    const a = pts[Math.max(0, i - 1)], b = pts[Math.min(n, i + 1)], t = new THREE.Vector3().subVectors(b, a).normalize();
+    const w = 24 * Math.min(1, i / 20, (n - i) / 20) * (1 + 0.15 * Math.sin(i * 0.21)), nx = -t.z, nz = t.x;
+    pos.push(pts[i].x + nx * w, 0.5, pts[i].z + nz * w, pts[i].x - nx * w, 0.5, pts[i].z - nz * w);
+    if (i) { const k = (i - 1) * 2; idx.push(k, k + 2, k + 1, k + 1, k + 2, k + 3); }
+  }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
+  const m = waterMat(); m.side = THREE.DoubleSide; m.transparent = false; scene.add(new THREE.Mesh(g, m));
+  const sh = new THREE.Shape(D.lake.map(([x, z]) => new THREE.Vector2(x, -z)));
+  const lg = new THREE.ShapeGeometry(sh); lg.rotateX(-Math.PI / 2); lg.translate(0, 0.45, 0);
+  const lm = waterMat(); lm.transparent = false; scene.add(new THREE.Mesh(lg, lm));
+}
+
+/* ================= Làng cây, nhà (minh hoạ) ================= */
+let houses;
+{
+  const G = D.groves, n = G.length;
+  const tm = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 1), new THREE.MeshStandardNodeMaterial({ roughness: 0.9, flatShading: true }), n);
+  const c = new THREE.Color();
+  G.forEach(([x, z, s], i) => { s *= 2.1; _p.set(x, s * 0.95, z); _q.identity(); _s.set(s * 1.25, s * 1.05, s * 1.25); tm.setMatrixAt(i, _m.compose(_p, _q, _s)); c.setHSL(0.27 + 0.05 * Math.sin(i * 1.7), 0.34, 0.30 + 0.06 * Math.cos(i * 2.3)); tm.setColorAt(i, c); });
+  scene.add(tm);
+  const H = G.filter((_, i) => i % 3 === 0);
+  const hm = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardNodeMaterial({ roughness: 0.85, flatShading: true }), H.length);
+  H.forEach(([x, z], i) => { const a = i * 2.39; _p.set(x + 16 * Math.cos(a), 3, z + 16 * Math.sin(a)); _q.setFromAxisAngle(_Y, a); _s.set(9, 6, 13); hm.setMatrixAt(i, _m.compose(_p, _q, _s)); c.setHSL(0.04 + 0.03 * Math.sin(i), 0.45, 0.62 + 0.12 * Math.cos(i * 1.3)); hm.setColorAt(i, c); });
+  hm.visible = false; scene.add(hm); houses = hm;
+}
+
+/* ================= Ghim ================= */
+const pinsEl = $('pins'), PINS = [];
+function addPin(key, kind, label, getPos, color) {
+  const el = document.createElement('button'); el.className = 'pin' + (kind === 'ring' ? ' ring' : ''); el.type = 'button';
+  el.innerHTML = `<i style="background:${color}"></i><span>${esc(label)}</span>`;
+  el.addEventListener('click', e => { e.stopPropagation(); select(key); });
+  pinsEl.appendChild(el); PINS.push({ key, kind, el, getPos, show: false });
+}
+const ringLabelAt = { noi: -1.35, trung: -2.35, ngoai: -0.95 };
+for (const r of D.rings) {
+  const i = (() => { let best = 1e9, bi = 0; r.pts.forEach(([x, z], k) => { const a = Math.atan2(z - r.c[1], x - r.c[0]), d = Math.abs(Math.atan2(Math.sin(a - ringLabelAt[r.id]), Math.cos(a - ringLabelAt[r.id]))); if (d < best) { best = d; bi = k; } }); return bi; })();
+  const [x, z] = r.pts[i];
+  addPin(r.id, 'ring', r.ten, () => _v.set(x, ringObj[r.id].cur.h * uEx.value + 6, z), COLOR[r.id]);
+}
+addPin('song', 'ring', 'Sông Hoàng Giang', (() => { const [x, z] = D.river[Math.floor(D.river.length * 0.45)]; return () => _v.set(x, 4, z); })(), COLOR.song);
+for (const [k, p] of Object.entries(D.poi)) addPin(k, 'poi', POI_TXT[k].t.replace(', Đền Thượng', '').replace(', khu Mả Tre', ''), () => _v.set(p.p[0], 10, p.p[1]), KIND[POI_TXT[k].k][0]);
+const _v = new THREE.Vector3();
+const PIN_ORDER = () => [...PINS].sort((a, b) => (b.key === sel) - (a.key === sel) || (b.kind === 'ring') - (a.kind === 'ring'));
+
+/* ================= Trạng thái, giai đoạn ================= */
+let phase = 5, sel = null, lesson = null;
+function setPhase(i, quiet) {
+  phase = i;
+  const P = PH[i];
+  for (const r of D.rings) {
+    const s = P.r[r.id], o = ringObj[r.id];
+    if (s) o.tgt = { b: s.b, t: s.t, h: s.h, o: s.ghost ? 0.3 : 1 }; else o.tgt = { b: o.cur.b > 2 ? o.cur.b : 12, t: o.cur.t > 1 ? o.cur.t : 5, h: 0, o: 0 };
+  }
+  houses.visible = i === 5;
+  document.querySelectorAll('.ph').forEach((b, k) => { b.classList.toggle('primary', k === i); b.setAttribute('aria-pressed', k === i); });
+  $('tlNow').textContent = P.ten;
+  const act = document.querySelector('.ph.primary'), tr = $('track'); if (act && innerWidth < 761) tr.scrollTo({ left: act.offsetLeft - (tr.clientWidth - act.offsetWidth) / 2, behavior: quiet === 'init' ? 'auto' : 'smooth' });
+  if (!quiet && !lesson) renderInfo();
+}
+function pinVisible(p) {
+  if (p.kind === 'ring') return p.key === 'song' || ringObj[p.key].cur.o > 0.2;
+  if (p.key === 'damca') return true;
+  return PH[phase].pins.includes(p.key) || p.key === sel;
+}
+
+/* ================= Bảng thông tin ================= */
+function factsTable(rows) { return '<table class="facts">' + rows.map(([a, b, s]) => `<tr><td>${a}</td><td>${b} ${s ? cite(s.split(' ').map(k => `[[${k}]]`).join(' ')) : ''}</td></tr>`).join('') + '</table>'; }
+function sectionSVG(id) {
+  const s = PH[phase].r[id] || PH[5].r[id], hao = RC[id].hao, k = 6.2, Y0 = 70;
+  const b = s.b, t = s.t, h = s.h, sh = (b - t) * 0.25, X0 = (b / 2 + 9) * k;
+  const X = m => (X0 + m * k).toFixed(1), Y = m => (Y0 - m * k).toFixed(1);
+  const xo = b / 2 + hao.gap, xw = xo + hao.w, dep = hao.d || 3;
+  const W = Math.round(X0 + (xw + 6) * k), est = !s.do;
+  const lab = (x, y, txt, a = 'middle') => `<text x="${x}" y="${y}" text-anchor="${a}" font-size="10.5" fill="#424245" font-weight="600">${txt}</text>`;
+  return `<svg viewBox="0 0 ${W} 112" role="img" aria-label="Mặt cắt lũy ${RING[id].ten}">
+  <rect x="0" y="${Y0}" width="${W}" height="42" fill="#EFE8DC"/>
+  <path d="M${X(xo)} ${Y0} L${X(xo + 1.5)} ${Y(-dep)} L${X(xw - 1.5)} ${Y(-dep)} L${X(xw)} ${Y0}Z" fill="#B9D3DB" stroke="#4D8FA8" stroke-width="1" ${hao.d ? '' : 'stroke-dasharray="3 3"'}/>
+  <path d="M${X(-b / 2)} ${Y0} L${X(-t / 2 + sh)} ${Y(h)} L${X(t / 2 + sh)} ${Y(h)} L${X(b / 2)} ${Y0}Z" fill="#B09068" stroke="#6E5638" stroke-width="1" ${est ? 'stroke-dasharray="4 3"' : ''}/>
+  <line x1="0" y1="${Y0}" x2="${W}" y2="${Y0}" stroke="#8E8E93" stroke-width="1"/>
+  <g transform="translate(${X(-b / 2 - 4)},${Y0}) scale(${k / 10})"><circle cx="0" cy="-14.5" r="1.6" fill="#1D1D1F"/><path d="M-1.5-12.5h3l.6 7h-1l-.4 5.5h-1.4l-.4-5.5h-1z" fill="#1D1D1F"/></g>
+  ${lab(X(0), Y0 + 15, `chân ${est ? '≈ ' : ''}${vn(b)} m`)}
+  ${lab(X(sh), +Y(h) - 5, `mặt ${est ? '≈ ' : ''}${vn(t)} m · cao ${est ? '≈ ' : ''}${vn(h)} m`)}
+  ${lab(X((xo + xw) / 2), Y0 + 15 + (hao.d ? 0 : 0), `hào ${hao.d ? '' : '≈ '}${hao.w} m`)}
+  ${lab(X((xo + xw) / 2), +Y(-dep) + 13, hao.d ? `sâu ${vn(hao.d)} m` : 'độ sâu chưa đo')}
+  ${lab(X(b / 2 + hao.gap / 2), Y0 - 6, `${hao.gap} m`)}
+  ${lab(8, 12, 'trong thành', 'start')}${lab(W - 8, 12, 'ngoài thành →', 'end')}
+  </svg><div class="small">Mặt cắt đúng tỉ lệ (người cao 1,6 m để so sánh). Nét đứt: số ước lượng; nét liền: số đo có nguồn.</div>`;
+}
+function ringCard(id) {
+  const r = RING[id], c = RC[id];
+  if (id === 'song') return `<div class="card"><div class="eyebrow" style="color:${COLOR.song}">Mạng nước</div><h2>${c.ten}</h2><p>${cite(c.mo)}</p><div class="est">${c.est}</div></div>`;
+  return `<div class="card"><div class="eyebrow" style="color:${COLOR[id]}">Vòng thành</div><h2>${r.ten}</h2><p>${cite(c.mo)}</p>
+    <div class="sec">${PH[phase].r[id] ? '' : '<div class="est">Ở giai đoạn này chưa có lũy; mặt cắt dưới đây là hiện trạng.</div>'}${sectionSVG(id)}</div>
+    <h3>Số đo</h3>${factsTable(c.so)}<h3>Niên đại</h3><p>${cite(c.nd)}</p><p class="small">${c.hao.ghi}</p></div>`;
+}
+function poiCard(k) {
+  const t = POI_TXT[k], [col, kind] = KIND[t.k];
+  return `<div class="card"><div class="eyebrow" style="color:${col}">${kind}</div><h2>${t.t}</h2><p>${cite(t.b)}</p>${t.est ? `<div class="est">${t.est}</div>` : ''}</div>`;
+}
+function renderInfo() {
+  const P = PH[phase];
+  const tags = `<span class="tag do">● số đo có nguồn</span><span class="tag uoc">○ ước lượng, phỏng dựng</span>`;
+  $('info').className = 'glass'; $('info').classList.remove('lesson');
+  $('info').innerHTML = `<div class="eyebrow">Giai đoạn đang xem</div><h2>${P.ten}</h2><p>${cite(P.b)}</p><div class="est">${cite(P.est)}</div>
+    ${sel ? (RING[sel] || sel === 'song' ? ringCard(sel) : poiCard(sel)) : '<div class="card hint">Chạm vào một vòng thành, dòng sông hoặc một ghim để xem số đo, mặt cắt và nguồn.</div>'}
+    <div>${tags}</div>
+    <div class="foot"><button class="btn" data-sheet="tv">Truyền thuyết và bằng chứng</button><button class="btn" data-sheet="yccd">Yêu cầu cần đạt</button><button class="btn" data-sheet="src">Nguồn</button></div>
+    <p class="small" style="margin-top:12px">Đường đi của ba vòng thành là sơ đồ phỏng dựng theo chu vi và hình dạng được mô tả, vì chưa có bản đồ mở có toạ độ tuyến thành. Mặt cắt, chu vi, số cửa theo tài liệu khảo cổ đã dẫn.</p>`;
+}
+function select(k, fly) {
+  sel = k === sel && !fly ? null : k;
+  for (const r of D.rings) ringObj[r.id].uHL.value = sel === r.id ? 1 : 0;
+  document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c.dataset.sel === sel));
+  PINS.forEach(p => p.el.classList.toggle('on', p.key === sel));
+  if (!lesson) renderInfo();
+  if (sel && fly !== false && !lesson) flyToKey(sel);
+}
+
+/* ================= Camera ================= */
+const HOME = { t: [-160, 0, 60], d: 6600, pol: 48, az: 28 };
+const MAP = { t: [-150, 0, 20], d: 8200, pol: 0.6, az: 0 };
+let flight = null;
+function camPose({ t, d, pol, az }) {
+  const p = pol * Math.PI / 180, a = az * Math.PI / 180;
+  return { pos: new THREE.Vector3(t[0] + d * Math.sin(p) * Math.sin(a), t[1] + d * Math.cos(p), t[2] + d * Math.sin(p) * Math.cos(a)), tgt: new THREE.Vector3(...t) };
+}
+function fly(pose, dur = 1.6) { const P = camPose(pose); flight = { p0: camera.position.clone(), t0: controls.target.clone(), p1: P.pos, t1: P.tgt, s: performance.now(), dur }; }
+function keyPos(k) {
+  if (RING[k]) { const r = RING[k]; return [r.c[0], r.c[1]]; }
+  if (k === 'song') return D.river[Math.floor(D.river.length * 0.45)];
+  return D.poi[k].p;
+}
+function flyToKey(k) {
+  const [x, z] = keyPos(k);
+  if (RING[k]) fly({ t: [x, 0, z + 40], d: { noi: 1500, trung: 3800, ngoai: 5200 }[k], pol: 50, az: 25 });
+  else if (k === 'song') fly({ t: [x, 0, z], d: 2600, pol: 55, az: 40 });
+  else fly({ t: [x, 0, z], d: 1100, pol: 55, az: 30 });
+}
+
+/* ================= Bài học theo bước ================= */
+const STEPS = [
+  { t: 'Một kinh đô ở đỉnh châu thổ', ph: 0, cam: { t: [-150, 0, 100], d: 7600, pol: 45, az: 20 },
+    b: 'Cổ Loa nằm trên vùng đất cao ráo bên tả ngạn sông Hoàng Giang, ở đỉnh tam giác châu thổ sông Hồng. Xung quanh là đồng bằng trồng lúa; dòng sông nối sông Hồng với sông Cầu. Cư dân Đông Sơn đã đúc đồng quanh đây từ rất sớm (di chỉ Đình Tràng, 56 lò đúc) [[thaogiang]].<br><br>Hãy để ý: đất cao để tránh lụt, sông để đi lại, ruộng để nuôi người, nghề đồng để làm công cụ và vũ khí. Đó là một phần cơ sở hình thành văn minh Văn Lang – Âu Lạc.' },
+  { t: 'Lũy sớm nhất', ph: 1, focus: 'xomthuong', cam: 'xom', sel: 'trung',
+    b: 'Nhà khảo cổ đào một hố cắt ngang lũy thành Trung gần cửa Bắc. Phần đáy sớm nhất có niên đại C14 khoảng thế kỷ IV TCN, và bên dưới còn một hệ phòng thủ nhỏ hơn của cư dân Đông Sơn [[kim16]] [[qdnd14]]. Thành không mọc lên trong một ngày.' },
+  { t: 'Thành Trung, lũy chính', ph: 2, cam: 'xom2', sel: 'trung',
+    b: 'Pha đắp chính của thành Trung khoảng 300–100 TCN. Ở hố Xóm Thượng, lũy thời An Dương Vương rộng 21,5 m, cao 4,5 m; hào cách chân lũy 6 m, rộng 12 m, sâu 4,8 m [[viwiki]]. Mở thẻ thành Trung bên phải để xem mặt cắt đúng tỉ lệ.',
+    ask: { q: 'Để biết lũy được đắp vào khoảng thời gian nào, các nhà khảo cổ dựa chủ yếu vào đâu?', o: ['Truyện kể dân gian về An Dương Vương', 'Niên đại C14 của mẫu trong các lớp đất đắp', 'Hình dáng vòng thành nhìn từ trên cao'], a: 1, e: 'Niên đại C14 đo trên mẫu lấy từ từng lớp đất đắp là tư liệu vật chất, kiểm tra được. Truyện kể là tư liệu truyền miệng, cần đối chiếu.' } },
+  { t: 'Nước cũng là một phần của thành', ph: 2, cam: { t: [700, 0, 900], d: 3200, pol: 55, az: 55 }, sel: 'song',
+    b: 'Sông Hoàng Giang làm hào tự nhiên ở phía nam và đông nam. Hào các vòng nối nhau và thông ra sông, tạo một mạng nước vừa để phòng thủ, vừa để thuyền bè đi lại [[viwiki]] [[enwiki]].' },
+  { t: 'Thành Nội: câu hỏi còn mở', ph: 3, cam: { t: [-70, 0, 60], d: 1500, pol: 52, az: 20 }, sel: 'noi',
+    b: 'Thành Nội gần hình chữ nhật, chu vi khoảng 1.650 m, có 18 ụ hoả hồi và một cửa phía nam [[viwiki]]. Hình học đều khác hẳn hai vòng ngoài, và có ý kiến cho rằng vòng này được làm hoặc sửa muộn hơn, thời Hán hay thời Ngô Quyền (939) [[viwiki]] [[thaogiang]]. Lịch sử có những câu hỏi chưa có lời đáp cuối cùng.' },
+  { t: 'Sức người đắp thành', ph: 2, cam: { t: [-150, 0, 40], d: 4300, pol: 58, az: -30 },
+    b: 'Khối lượng đất đào đắp ước tính khoảng 2,2 triệu m³ [[viwiki]]; riêng lũy giai đoạn sớm cần hơn 5 triệu ngày công [[kim16]]. Người xưa nện đất thành từng lớp, rải gốm ngói vỡ ở chân và rìa lũy để chống sụt, kè đá ở chân thành, đóng cọc tre gỗ nơi đất lầy [[viwiki]] [[thaogiang]].<br><br>Huy động và điều phối chừng ấy sức người cần một bộ máy tổ chức và quyền lực tập trung: một dấu hiệu của Nhà nước.' },
+  { t: 'Mũi tên và khuôn đúc', ph: 2, focus: 'cauvuc', sel: 'cauvuc',
+    b: 'Năm 1959, kho Cầu Vực lộ ra khoảng 10.000 mũi tên đồng, nặng 93 kg [[nd_muiten]]. Năm 2004–2007, ở Đền Thượng tìm thấy khuôn đá ba mang để đúc mũi tên, cùng dấu vết lò đúc [[seaa]]. Vũ khí được sản xuất hàng loạt ngay tại kinh đô.' },
+  { t: 'Trống đồng và lưỡi cày', ph: 2, focus: 'matre', sel: 'matre',
+    b: 'Năm 1982, trống đồng Mả Tre nặng 72 kg chứa khoảng 200 hiện vật đồng, nhiều nhất là lưỡi cày [[enwiki]] [[matre]]. Nông nghiệp lúa nước dùng cày là nền của đời sống vật chất; trống đồng còn gắn với đời sống tinh thần, lễ hội.<br><br>Các nguồn ghi số lượng khác nhau (96 hay 143 lưỡi cày): khi dùng tư liệu, cần ghi rõ nguồn.' },
+  { t: 'Truyền thuyết và bằng chứng', ph: 2, cam: MAP,
+    b: 'Sử cũ kể thành có 9 vòng xoáy như hình con ốc [[toanthu]]. Nhìn từ trên xuống, dấu tích hiện còn là 3 vòng khép kín, mỗi vòng có hào [[viwiki]]. Truyền thuyết nỏ thần gợi đến tài chế tạo vũ khí; bằng chứng là kho mũi tên và khuôn đúc.',
+    ask: { q: 'Dấu tích hiện còn cho thấy thành Cổ Loa có bao nhiêu vòng thành?', o: ['9 vòng xoáy ốc', '3 vòng khép kín, mỗi vòng có hào', '1 vòng duy nhất'], a: 1, e: 'Ba vòng: Nội, Trung, Ngoại. Hình ảnh 9 vòng xoáy ốc đến từ sử cũ và truyền thuyết.' } },
+  { t: 'Cổ Loa hôm nay', ph: 5, cam: HOME,
+    b: 'Cổ Loa là di tích quốc gia đặc biệt từ năm 2012 [[viwiki]]. Các đền, đình, am, giếng trong thành là nơi cộng đồng ghi nhớ lịch sử và truyền thuyết. Bảo tồn di tích là việc của sử học, của địa phương và của mỗi người.',
+    ask: { q: 'Phát biểu nào đúng nhất với bằng chứng khảo cổ hiện có?', o: ['Thành được xây xong đúng năm 257 TCN', 'Lũy chính thành Trung đắp khoảng 300–100 TCN, phù hợp khung thời gian Âu Lạc nhưng không chỉ ra năm cụ thể', 'Cả ba vòng thành chắc chắn có từ thời An Dương Vương'], a: 1, e: 'C14 cho một khoảng thời gian, không cho một năm. Niên đại thành Nội còn tranh luận.' } }
+];
+function stepCam(s) {
+  if (s.cam === 'xom' || s.cam === 'xom2') { const [x, z] = D.poi.xomthuong.p; return { t: [x, 0, z], d: s.cam === 'xom' ? 1300 : 900, pol: 60, az: s.cam === 'xom' ? 140 : 110 }; }
+  if (s.focus && !s.cam) { const [x, z] = D.poi[s.focus].p; return { t: [x, 0, z], d: 1200, pol: 55, az: 30 }; }
+  return s.cam;
+}
+function startLesson() { lesson = { i: 0, ans: {} }; $('bLesson').textContent = 'Thoát bài học'; showStep(); }
+function endLesson() { lesson = null; $('bLesson').textContent = 'Học theo bước'; renderInfo(); }
+function showStep() {
+  const L = lesson, s = STEPS[L.i], n = STEPS.length;
+  setPhase(s.ph, true);
+  sel = null; select(s.sel || null, false); if (!s.sel) select(null, false);
+  fly(stepCam(s), 1.8);
+  const a = s.ask, done = L.ans[L.i];
+  const box = $('info'); box.className = 'glass lesson';
+  box.innerHTML = `<div class="eyebrow">Học theo bước · ${L.i + 1}/${n}</div><div class="prog">${STEPS.map((_, k) => `<i class="${k <= L.i ? 'on' : ''}"></i>`).join('')}</div>
+    <h2>${s.t}</h2><p>${cite(s.b)}</p>
+    ${a ? `<div class="ask">${a.q}</div>${a.o.map((o, k) => `<button class="opt ${done != null ? (k === a.a ? 'ok' : (k === done ? 'bad' : '')) : ''}" data-k="${k}" ${done != null ? 'disabled' : ''}>${o}</button>`).join('')}<div id="fb">${done != null ? `<div class="fb">${done === a.a ? '<b>Chính xác.</b> ' : '<b>Chưa đúng.</b> '}${a.e}</div>` : ''}</div>` : ''}
+    ${s.sel ? (RING[s.sel] || s.sel === 'song' ? ringCard(s.sel) : poiCard(s.sel)) : ''}
+    <div class="nav"><button class="btn" id="lPrev" ${L.i ? '' : 'disabled'}>← Trước</button><button class="btn primary" id="lNext">${L.i === n - 1 ? 'Tổng kết' : 'Tiếp →'}</button></div>`;
+  box.scrollTop = 0;
+  box.querySelectorAll('.opt').forEach(b => b.onclick = () => { L.ans[L.i] = +b.dataset.k; showStep(); });
+  $('lPrev').onclick = () => { L.i--; showStep(); };
+  $('lNext').onclick = () => { if (L.i < n - 1) { L.i++; showStep(); } else summary(); };
+}
+function summary() {
+  const asks = STEPS.map((s, i) => [s, i]).filter(([s]) => s.ask), ok = asks.filter(([s, i]) => lesson.ans[i] === s.ask.a).length;
+  const box = $('info');
+  box.innerHTML = `<div class="eyebrow">Tổng kết</div><h2>Bạn trả lời đúng ${ok}/${asks.length} câu</h2>
+  <div class="card"><h3 style="margin-top:0">Ghi nhớ</h3><ul style="padding-left:18px;margin:0">
+  <li>Cổ Loa có 3 vòng thành đất, mỗi vòng có hào, nối với sông Hoàng Giang.</li>
+  <li>Lũy chính thành Trung đắp khoảng 300–100 TCN; có lũy sớm hơn từ thế kỷ IV TCN; thành được bồi đắp đến thế kỷ XV–XVI.</li>
+  <li>Khối lượng đất khoảng 2,2 triệu m³: dấu hiệu của tổ chức xã hội và Nhà nước.</li>
+  <li>Mũi tên, khuôn đúc, trống đồng và lưỡi cày cho biết về kỹ thuật luyện kim, nông nghiệp và đời sống tinh thần.</li>
+  <li>Truyền thuyết (9 vòng xoáy ốc, nỏ thần) cần được đối chiếu với bằng chứng.</li></ul></div>
+  <div class="card"><div class="eyebrow">Yêu cầu cần đạt</div><ul class="yccd" style="padding-left:18px;margin:6px 0 0">${YCCD.map(y => `<li>${y}</li>`).join('')}</ul></div>
+  <div class="nav"><button class="btn" id="lAgain">Học lại</button><button class="btn primary" id="lEnd">Khám phá tự do</button></div>`;
+  $('lAgain').onclick = startLesson; $('lEnd').onclick = endLesson;
+}
+
+/* ================= Bảng phụ ================= */
+function openSheet(kind) {
+  let h = '';
+  if (kind === 'tv') h = `<h2>Truyền thuyết và bằng chứng</h2><p class="small">Truyền thuyết là một loại tư liệu: nó cho biết người xưa nhớ và nghĩ gì về quá khứ. Bằng chứng khảo cổ cho biết điều gì đã để lại dấu vết vật chất. Hai loại tư liệu cần được đặt cạnh nhau, không gộp làm một.</p>
+    <table class="tv"><tr><th>Chủ đề</th><th>Truyền thuyết, sử cũ</th><th>Bằng chứng hiện có</th></tr>${TV.map(([a, b, c]) => `<tr><td>${a}</td><td>${cite(b)}</td><td>${cite(c)}</td></tr>`).join('')}</table>`;
+  if (kind === 'yccd') h = `<h2>Yêu cầu cần đạt</h2><p class="small">Chương trình GDPT 2018 môn Lịch sử, lớp 10, nội dung Văn minh Văn Lang – Âu Lạc (Thông tư 32/2018, sửa đổi bởi Thông tư 13/2022 và Thông tư 17/2025). Trích nguyên văn.</p><ul class="yccd">${YCCD.map(y => `<li>${y}</li>`).join('')}</ul>
+    <p class="small">Bài này dùng chung được cho cả ba bộ sách giáo khoa vì bám theo chương trình. Nội dung được viết mới từ các nguồn khảo cổ và sử liệu công khai, không chép từ sách giáo khoa.</p>`;
+  if (kind === 'src') h = `<h2>Nguồn</h2><p class="small">Các con số được đối chiếu nhiều nguồn; khi nguồn bất đồng, trang ghi cả hai. Bảng số liệu C14 đầy đủ nằm trong bài Antiquity 2010 (cần đăng ký), trang dùng số đã làm tròn công bố trong Archaeology 2016. Toạ độ đền, đình, am, giếng: © OpenStreetMap contributors (ODbL).</p><ol class="src">${D.nguon.map(n => `<li><a href="${n.url}" target="_blank" rel="noopener">${esc(n.ten)}</a></li>`).join('')}</ol>`;
+  $('sheetBox').innerHTML = `<button class="btn x" id="sheetX">Đóng</button>` + h;
+  $('sheet').classList.add('open'); $('sheetX').onclick = () => $('sheet').classList.remove('open');
+}
+$('sheet').addEventListener('click', e => { if (e.target.id === 'sheet') $('sheet').classList.remove('open'); });
+addEventListener('keydown', e => {
+  if (e.key === 'Escape') $('sheet').classList.remove('open');
+  if (e.target.closest && e.target.closest('input,textarea')) return;
+  if (e.key === 'ArrowRight' && !lesson) setPhase(Math.min(5, phase + 1));
+  if (e.key === 'ArrowLeft' && !lesson) setPhase(Math.max(0, phase - 1));
+});
+$('info').addEventListener('click', e => { const b = e.target.closest('[data-sheet]'); if (b) openSheet(b.dataset.sheet); });
+
+/* ================= Điều khiển ================= */
+$('track').innerHTML = PH.map((p, i) => `<button class="ph" data-i="${i}">${p.nhan}<small>${p.nho}</small></button>`).join('');
+$('track').addEventListener('click', e => { const b = e.target.closest('.ph'); if (!b) return; if (lesson) endLesson(); setPhase(+b.dataset.i); });
+$('chips').addEventListener('click', e => { const b = e.target.closest('.chip'); if (b) { if (lesson) endLesson(); select(b.dataset.sel); } });
+let exTgt = 6;
+$('segEx').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; exTgt = +b.dataset.v; $('segEx').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); $('badge').textContent = exTgt === 1 ? 'Sơ đồ phỏng dựng · tỉ lệ thật' : `Sơ đồ phỏng dựng · chiều cao ×${exTgt}`; });
+$('bHome').onclick = () => fly(HOME);
+$('bMap').onclick = () => fly(MAP);
+$('bLab').onclick = () => { const on = $('bLab').getAttribute('aria-pressed') !== 'true'; $('bLab').setAttribute('aria-pressed', on); pinsEl.classList.toggle('nolab', !on); };
+$('bLesson').onclick = () => lesson ? endLesson() : startLesson();
+
+// Chạm vào lũy: chiếu tia xuống mặt đất rồi tìm vòng gần nhất (lũy dựng bằng shader nên không bắt tia trực tiếp)
+const ray = new THREE.Raycaster(), plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0), hit = new THREE.Vector3();
+let down = null;
+renderer.domElement.addEventListener('pointerdown', e => { down = [e.clientX, e.clientY]; flight = null; });
+renderer.domElement.addEventListener('pointerup', e => {
+  if (!down || Math.hypot(e.clientX - down[0], e.clientY - down[1]) > 6) return; down = null;
+  const rc = renderer.domElement.getBoundingClientRect();
+  ray.setFromCamera(new THREE.Vector2((e.clientX - rc.left) / rc.width * 2 - 1, -((e.clientY - rc.top) / rc.height) * 2 + 1), camera);
+  if (!ray.ray.intersectPlane(plane, hit)) return;
+  const tol = Math.max(45, camera.position.distanceTo(hit) * 0.014);
+  let best = tol, key = null;
+  for (const r of D.rings) { if (ringObj[r.id].cur.o < 0.2) continue; for (const [x, z] of r.pts) { const d = Math.hypot(x - hit.x, z - hit.z); if (d < best) { best = d; key = r.id; } } }
+  for (const [x, z] of D.river) { const d = Math.hypot(x - hit.x, z - hit.z) - 40; if (d < best) { best = d; key = 'song'; } }
+  if (lesson) return;
+  select(key === sel ? null : key, false);
+});
+
+/* ================= Khung hình, vòng lặp ================= */
+let W = 1, H = 1;
+function layout() {
+  const r = host.getBoundingClientRect(); W = Math.max(1, r.width); H = Math.max(1, r.height);
+  renderer.setSize(W, H, false);
+  camera.aspect = W / H;
+  camera.fov = W / H < 1.2 ? Math.min(64, 2 * Math.atan(Math.tan(17 * Math.PI / 180) * 1.2 / (W / H)) * 180 / Math.PI) : 34;
+  if (innerWidth > 760) { const left = innerWidth > 1180 ? 420 : 356, right = innerWidth > 1180 ? 388 : 346; camera.setViewOffset(W, H, (right - left) / 2, 52, W, H); }
+  else camera.clearViewOffset();
+  camera.updateProjectionMatrix();
+}
+new ResizeObserver(layout).observe(host); layout();
+const P0 = camPose(HOME); camera.position.copy(P0.pos); controls.target.copy(P0.tgt);
+setPhase(5, 'init'); renderInfo();
+
+const clock = new THREE.Clock(), ease = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const NICE = [50, 100, 200, 250, 500, 1000, 2000, 5000];
+let first = true;
+renderer.setAnimationLoop(() => {
+  const dt = Math.min(0.05, clock.getDelta()), k = 1 - Math.exp(-dt * 3.2);
+  uEx.value += (exTgt - uEx.value) * k;
+  for (const r of D.rings) {
+    const o = ringObj[r.id];
+    for (const key of ['b', 't', 'h', 'o']) o.cur[key] += (o.tgt[key] - o.cur[key]) * k;
+    o.uB.value = o.cur.b; o.uT.value = o.cur.t; o.uH.value = o.cur.h; o.uO.value = o.cur.o;
+    o.mesh.visible = o.moat.visible = o.cur.o > 0.01;
+    o.mesh.material.depthWrite = o.cur.o > 0.6;
+  }
+  placeBastions();
+  if (flight) {
+    const ft = (performance.now() - flight.s) / 1000 / flight.dur, e = ease(Math.min(1, ft));
+    camera.position.lerpVectors(flight.p0, flight.p1, e); controls.target.lerpVectors(flight.t0, flight.t1, e);
+    if (ft >= 1) flight = null;
+  }
+  controls.update();
+  // ghim
+  const safeR = innerWidth > 760 ? W - (innerWidth > 1180 ? 392 : 350) : W, placed = [];
+  for (const p of PIN_ORDER()) {
+    const vis = pinVisible(p);
+    p.getPos(); _v.project(camera);
+    const x = (_v.x + 1) / 2 * W, y = (1 - _v.y) / 2 * H - 7;
+    const on = vis && _v.z < 1 && x > -20 && x < safeR - 10 && y > -10 && y < H + 10;
+    p.el.classList.toggle('hide', !on);
+    if (!on) continue;
+    p.el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px)`;
+    if (!p.w) p.w = p.el.querySelector('span').offsetWidth + 12;
+    const r = [x - 6, y - 11, x + (p.w || 20), y + 11], hitL = placed.some(q => r[0] < q[2] && r[2] > q[0] && r[1] < q[3] && r[3] > q[1]);
+    p.el.classList.toggle('dot', hitL && p.key !== sel);
+    if (!hitL || p.key === sel) placed.push(r);
+  }
+  // la bàn, thước tỉ lệ
+  $('roseSvg').style.transform = `rotate(${controls.getAzimuthalAngle()}rad)`;
+  const d = camera.position.distanceTo(controls.target), mpp = 2 * d * Math.tan(camera.fov * Math.PI / 360) / H;
+  let L = NICE[0]; for (const n of NICE) if (n / mpp <= 120) L = n;
+  $('scaleB').style.width = (L / mpp).toFixed(0) + 'px'; $('scaleT').textContent = L >= 1000 ? `${L / 1000} km` : `${L} m`;
+  renderer.render(scene, camera);
+  if (first) { first = false; $('loading').style.opacity = 0; setTimeout(() => $('loading').remove(), 600); }
+});
+window.coLoa = { setPhase, select, startLesson, fly, HOME, MAP, get phase() { return phase; } };
+</script>
+</body>
+</html>

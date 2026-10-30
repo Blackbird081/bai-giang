@@ -1,0 +1,1133 @@
+{
+ "tieu_de": "Chương trình giáo dục phổ thông môn Lịch sử – Lớp 10 (bản hiện hành sau sửa đổi 2025)",
+ "can_cu_phap_ly": [
+  "Thông tư 32/2018/TT-BGDĐT ngày 26/12/2018 (Chương trình GDPT 2018)",
+  "Thông tư 13/2022/TT-BGDĐT ngày 03/8/2022 (ban hành lại toàn văn Chương trình môn Lịch sử: \"Chương trình giáo dục phổ thông môn Lịch sử (Ban hành kèm theo Thông tư số 13/2022/TT-BGDĐT ngày 03 tháng 8 năm 2022...)\")",
+  "Thông tư 17/2025/TT-BGDĐT ngày 12/9/2025, Điều 1 khoản 3 và Phụ lục III \"Sửa đổi, bổ sung Chương trình giáo dục phổ thông môn Lịch sử - Lớp 10\""
+ ],
+ "nguon": [
+  {
+   "ten": "Thông tư 17/2025/TT-BGDĐT (bản scan có dấu, 22 trang, file 17-bgddt.pdf) – Cổng Trung tâm Phục vụ hành chính công tỉnh Nghệ An",
+   "url": "https://hcc.nghean.gov.vn/laws/detail/Thong-tu-so-17-2025-TT-BGDDT-cua-Bo-Giao-duc-va-Dao-tao-Sua-doi-bo-sung-mot-so-noi-dung-trong-Chuong-trinh-giao-duc-pho-thong-ban-hanh-kem-theo-Thong-tu-so-32-2018-TT-BGDDT-ngay-26-thang-12-nam-2018-cua-Bo-truong-Bo-Giao-duc-va-Dao-tao-1934/?download=1&id=0",
+   "ghi_chu": "Đọc trực tiếp ảnh trang 15–16 của PDF (Phụ lục III, Lịch sử lớp 10) và trang 1–2 (Điều 1–3). Lớp OCR trong PDF không có dấu tiếng Việt nên câu chữ được chép lại bằng mắt từ ảnh scan."
+  },
+  {
+   "ten": "Thông tư 13/2022/TT-BGDĐT – toàn văn Chương trình môn Lịch sử (bản HTML) – LuatVietnam",
+   "url": "https://luatvietnam.vn/giao-duc/thong-tu-13-2022-tt-bgddt-227351-d1.html",
+   "ghi_chu": "Văn bản gốc dùng làm nền: phần \"2. Nội dung cụ thể và yêu cầu cần đạt ở các lớp – LỚP 10\", \"CHUYÊN ĐỀ LỚP 10\" và mục VIII.2 thời lượng; tách bảng tự động từ HTML, giữ định dạng đậm/nghiêng để xác định cấp tiêu đề."
+  },
+  {
+   "ten": "Chương trình GDPT môn Lịch sử (TT 13/2022) – bản HTML trên HoaTieu.vn",
+   "url": "https://hoatieu.vn/chuong-trinh-giao-duc-pho-thong-tong-the-mon-lich-su-161491",
+   "ghi_chu": "Bản thứ hai dùng để đối chiếu từng dòng phần Lớp 10 và Chuyên đề lớp 10: khớp nội dung với LuatVietnam (HoaTieu có thêm lỗi tách chữ như \"sư u tầm\", \"k ế thừa\"). Không tìm được PDF gốc của Bộ cho TT13/2022 (sgd.bacgiang.gov.vn ngắt kết nối; thuvienphapluat.vn chặn bằng Cloudflare)."
+  },
+  {
+   "ten": "Công văn 3417/SGDĐT-GDTrH (12/2025) của Sở GDĐT Gia Lai về thực hiện CT GDPT sửa đổi theo TT17",
+   "url": "https://chuyenlequydongialai.edu.vn/wp-content/uploads/2025/12/3417_SGDDT-GDTrH_18122025.pdf",
+   "ghi_chu": "Đọc toàn văn (3 trang): xác nhận TT13/2022 vẫn tiếp tục thực hiện cùng TT17/2025 đối với Lịch sử THPT, áp dụng từ năm học 2025–2026; nêu CV 6158 và 6199/BGDĐT-GDPT."
+  },
+  {
+   "ten": "HoaTieu.vn và LuatVietnam – trang tóm tắt TT17/2025",
+   "url": "https://hoatieu.vn/phap-luat/thong-tu-17-2025-tt-bgddt-237960",
+   "ghi_chu": "Chỉ dùng để xác nhận Điều 1 khoản 3 (Phụ lục III); các trang này không đăng nguyên văn Phụ lục III."
+  },
+  {
+   "ten": "Danh mục bài SGK – VietJack và Loigiaihay",
+   "url": "https://vietjack.com/lich-su-10-cd/index.jsp",
+   "ghi_chu": "Dùng cho trường bo_sach (xem nguồn riêng từng bộ)."
+  }
+ ],
+ "sua_doi": "TT 13/2022/TT-BGDĐT (03/8/2022) đưa Lịch sử thành môn bắt buộc ở THPT (52 tiết/năm, phần cốt lõi) và ban hành lại toàn văn Chương trình môn Lịch sử. Lớp 10 gồm 7 chủ đề (Lịch sử và Sử học; Vai trò của Sử học; Một số nền văn minh thế giới thời cổ - trung đại; Các cuộc cách mạng công nghiệp; Văn minh Đông Nam Á; Một số nền văn minh trên đất nước Việt Nam trước 1858; Cộng đồng các dân tộc Việt Nam), phần Thực hành lịch sử, và 3 chuyên đề lựa chọn (35 tiết). Văn bản trong file này lấy bản TT13/2022 làm nền. TT 17/2025/TT-BGDĐT (12/9/2025), Phụ lục III, chỉ sửa ba chỗ ở lớp 10: (1) chủ đề văn minh Việt Nam trước 1858: nâng \"Nêu được\" thành \"Phân tích được\" cơ sở hình thành các nền văn minh Văn Lang - Âu Lạc, Champa, Phù Nam; thêm YCĐ sưu tầm, sử dụng tư liệu về Champa và về Phù Nam; viết lại YCĐ cơ sở hình thành văn minh Đại Việt (thêm ý đấu tranh gìn giữ văn hoá, bản sắc dân tộc thời Bắc thuộc); thêm YCĐ đề xuất giải pháp gìn giữ, phát huy giá trị các nền văn minh. (2) chủ đề Cộng đồng các dân tộc: \"Nêu được\" thành \"Phân tích được\" vai trò của khối đại đoàn kết dân tộc hiện nay. (3) Chuyên đề 10.3: cập nhật lần sửa đổi, bổ sung Hiến pháp 2013 năm 2025, gồm nội dung bối cảnh, YCĐ bối cảnh, một nội dung mới và một YCĐ mới về ý nghĩa của các nội dung sửa đổi \"đưa đất nước vào kỉ nguyên vươn mình\". TT17 có hiệu lực từ ngày 12/9/2025 (Điều 2; ngày và tháng được viết tay trên bản scan). Các Sở GDĐT hướng dẫn áp dụng trong dạy học và kiểm tra đánh giá từ năm học 2025–2026.",
+ "ghi_chu_trinh_bay": [
+  "Mỗi phần tử \"muc\" ứng với một hàng của bảng \"Nội dung | Yêu cầu cần đạt\". \"nhom\" là tiêu đề cấp trên (in đậm nghiêng trong văn bản), còn \"ten\" là tiêu đề hàng (in nghiêng). Khi một hàng có nhiều tiêu đề con thì chúng nằm trong \"tieu_muc\", và \"ycd\" của hàng áp cho cả hàng vì văn bản không tách YCĐ theo từng tiêu đề con.",
+  "Dấu gạch đầu dòng \"- \" đã được bỏ. Khoảng trắng thừa trước dấu câu (ví dụ \"Âu Lạc .\") đã được xoá. Ngoài hai điểm đó, chữ được giữ nguyên, kể cả lỗi in có trong cả hai bản nguồn: \"Nếu được thành tựu cơ bản của Cách mạng công nghiệp lần thứ nhất.\" (đúng ra là \"Nêu được\") và \"văn mình Đông Nam Á\" (đúng ra là \"văn minh\").",
+  "Mục có \"sua_doi_2025\": true đã được thay bằng câu chữ của TT17/2025. \"sua_doi_2025_chi_tiet\" ghi câu trước và sau khi sửa."
+ ],
+ "chu_de": [
+  {
+   "ten": "LỊCH SỬ VÀ SỬ HỌC",
+   "muc": [
+    {
+     "nhom": "Hiện thực lịch sử và lịch sử được con người nhận thức",
+     "ten": "Lịch sử",
+     "noi_dung": [
+      "Hiện thực lịch sử",
+      "Lịch sử được con người nhận thức"
+     ],
+     "ycd": [
+      "Trình bày được khái niệm lịch sử.",
+      "Phân biệt được hiện thực lịch sử và lịch sử được con người nhận thức."
+     ]
+    },
+    {
+     "nhom": "Hiện thực lịch sử và lịch sử được con người nhận thức",
+     "ten": "Sử học",
+     "noi_dung": [
+      "Khái niệm sử học",
+      "Đối tượng nghiên cứu của sử học",
+      "Chức năng, nhiệm vụ của sử học"
+     ],
+     "ycd": [
+      "Giải thích được khái niệm sử học.",
+      "Trình bày được đối tượng nghiên cứu của sử học.",
+      "Nêu được chức năng, nhiệm vụ của sử học."
+     ]
+    },
+    {
+     "ten": "Tri thức lịch sử và cuộc sống: Học tập và khám phá lịch sử suốt đời",
+     "noi_dung": [
+      "Sự cần thiết của việc học tập, khám phá lịch sử suốt đời",
+      "Thu thập thông tin, sử liệu, làm giàu tri thức lịch sử",
+      "Kết nối kiến thức, bài học lịch sử vào cuộc sống"
+     ],
+     "ycd": [
+      "Giải thích được sự cần thiết phải học tập và khám phá lịch sử suốt đời.",
+      "Biết cách sưu tầm, thu thập, xử lí thông tin, sử liệu để học tập, khám phá lịch sử.",
+      "Vận dụng kiến thức, bài học lịch sử để giải thích những vấn đề thời sự trong nước và thế giới, những vấn đề trong thực tiễn cuộc sống (ở mức độ đơn giản).",
+      "Quan tâm, yêu thích và tham gia các hoạt động tìm hiểu lịch sử, văn hoá của dân tộc Việt Nam và thế giới."
+     ]
+    }
+   ]
+  },
+  {
+   "ten": "VAI TRÒ CỦA SỬ HỌC",
+   "muc": [
+    {
+     "ten": "Sử học với công tác bảo tồn và phát huy giá trị di sản văn hoá, di sản thiên nhiên",
+     "noi_dung": [
+      "Mối quan hệ giữa sử học với công tác bảo tồn và phát huy giá trị các di sản văn hoá",
+      "Vai trò của công tác bảo tồn và phát huy giá trị di sản văn hoá và di sản thiên nhiên"
+     ],
+     "ycd": [
+      "Nêu được mối quan hệ giữa sử học với công tác bảo tồn và phát huy giá trị di sản văn hoá và di sản thiên nhiên.",
+      "Có ý thức vận động các bạn và mọi người ở xung quanh cùng tham gia bảo vệ các di sản văn hoá và di sản thiên nhiên ở địa phương."
+     ]
+    },
+    {
+     "ten": "Sử học với sự phát triển du lịch",
+     "noi_dung": [
+      "Vai trò của lịch sử và văn hoá đối với sự phát triển du lịch",
+      "Vai trò của du lịch đối với công tác bảo tồn di tích lịch sử, di sản văn hoá"
+     ],
+     "ycd": [
+      "Giải thích được vai trò của lịch sử và văn hoá đối với sự phát triển du lịch.",
+      "Nêu được tác động của du lịch với công tác bảo tồn di tích lịch sử, văn hoá."
+     ]
+    }
+   ]
+  },
+  {
+   "ten": "MỘT SỐ NỀN VĂN MINH THẾ GIỚI THỜI CỔ - TRUNG ĐẠI",
+   "muc": [
+    {
+     "ten": "Khái niệm văn minh",
+     "noi_dung": [
+      "Khái niệm văn minh",
+      "Phân biệt văn minh và văn hoá"
+     ],
+     "ycd": [
+      "Giải thích được khái niệm văn minh.",
+      "Phân biệt được khái niệm văn minh, văn hoá."
+     ]
+    },
+    {
+     "nhom": "Một số nền văn minh phương Đông",
+     "ten": "Văn minh Ai Cập",
+     "noi_dung": [
+      "Những thành tựu tiêu biểu",
+      "Ý nghĩa"
+     ],
+     "ycd": [
+      "Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về các nền văn minh cổ đại phương Đông.",
+      "Nêu được thành tựu tiêu biểu và ý nghĩa của văn minh Ai Cập về chữ viết, khoa học tự nhiên, kiến trúc, điêu khắc."
+     ]
+    },
+    {
+     "nhom": "Một số nền văn minh phương Đông",
+     "ten": "Văn minh Trung Hoa",
+     "noi_dung": [
+      "Những thành tựu tiêu biểu",
+      "Ý nghĩa"
+     ],
+     "ycd": [
+      "Nêu được thành tựu tiêu biểu và ý nghĩa của văn minh Trung Hoa về chữ viết, văn học nghệ thuật, sử học, khoa học tự nhiên, y học, thiên văn học, lịch pháp, tư tưởng, tôn giáo."
+     ]
+    },
+    {
+     "nhom": "Một số nền văn minh phương Đông",
+     "ten": "Văn minh Ấn Độ",
+     "noi_dung": [
+      "Những thành tựu tiêu biểu",
+      "Ý nghĩa"
+     ],
+     "ycd": [
+      "Nêu được những thành tựu tiêu biểu và ý nghĩa của văn minh Ấn Độ về chữ viết, văn học nghệ thuật, khoa học tự nhiên, tư tưởng, tôn giáo."
+     ]
+    },
+    {
+     "nhom": "Một số nền văn minh phương Tây",
+     "ten": "Văn minh Hy Lạp - La Mã",
+     "noi_dung": [
+      "Những thành tựu tiêu biểu",
+      "Ý nghĩa"
+     ],
+     "ycd": [
+      "Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về các nền văn minh phương Tây thời cổ - trung đại.",
+      "Nêu được những thành tựu tiêu biểu và ý nghĩa của văn minh Hy Lạp - La Mã về chữ viết, thiên văn học, lịch pháp, văn học, nghệ thuật, khoa học tự nhiên, tư tưởng, tôn giáo, thể thao."
+     ]
+    },
+    {
+     "nhom": "Một số nền văn minh phương Tây",
+     "ten": "Văn minh thời Phục hưng",
+     "noi_dung": [
+      "Những thành tựu tiêu biểu",
+      "Ý nghĩa"
+     ],
+     "ycd": [
+      "Nêu được những thành tựu tiêu biểu và ý nghĩa của văn minh thời Phục hưng về tư tưởng, văn học, nghệ thuật, khoa học kĩ thuật, thiên văn học."
+     ]
+    }
+   ]
+  },
+  {
+   "ten": "CÁC CUỘC CÁCH MẠNG CÔNG NGHIỆP TRONG LỊCH SỬ THẾ GIỚI",
+   "muc": [
+    {
+     "nhom": "Cách mạng công nghiệp thời cận đại",
+     "ten": "Cách mạng công nghiệp lần thứ nhất",
+     "noi_dung": [
+      "Những thành tựu cơ bản"
+     ],
+     "ycd": [
+      "Biết cách sưu tầm và sử dụng một số tư liệu để tìm hiểu về các cuộc cách mạng công nghiệp.",
+      "Nếu được thành tựu cơ bản của Cách mạng công nghiệp lần thứ nhất."
+     ]
+    },
+    {
+     "nhom": "Cách mạng công nghiệp thời cận đại",
+     "ten": "Cách mạng công nghiệp lần thứ hai",
+     "noi_dung": [
+      "Những thành tựu cơ bản"
+     ],
+     "ycd": [
+      "Nêu được những thành tựu cơ bản của Cách mạng công nghiệp lần thứ hai."
+     ]
+    },
+    {
+     "nhom": "Cách mạng công nghiệp thời cận đại",
+     "ten": "Ý nghĩa của Cách mạng công nghiệp lần thứ nhất và lần thứ hai",
+     "noi_dung": [
+      "Về kinh tế",
+      "Về xã hội, văn hoá"
+     ],
+     "ycd": [
+      "Nêu được ý nghĩa của Cách mạng công nghiệp lần thứ nhất và lần thứ hai về kinh tế, xã hội, văn hoá."
+     ]
+    },
+    {
+     "nhom": "Cách mạng công nghiệp thời hiện đại",
+     "ten": "Cách mạng công nghiệp lần thứ ba",
+     "noi_dung": [
+      "Những thành tựu cơ bản"
+     ],
+     "ycd": [
+      "Nêu được những thành tựu cơ bản của cuộc Cách mạng công nghiệp lần thứ ba."
+     ]
+    },
+    {
+     "nhom": "Cách mạng công nghiệp thời hiện đại",
+     "ten": "Cách mạng công nghiệp lần thứ tư (Cách mạng 4.0)",
+     "noi_dung": [
+      "Những thành tựu cơ bản"
+     ],
+     "ycd": [
+      "Nêu được những thành tựu cơ bản của cuộc Cách mạng công nghiệp lần thứ tư."
+     ]
+    },
+    {
+     "nhom": "Cách mạng công nghiệp thời hiện đại",
+     "ten": "Ý nghĩa của Cách mạng công nghiệp lần thứ ba và lần thứ tư",
+     "noi_dung": [
+      "Về kinh tế",
+      "Về xã hội, văn hoá"
+     ],
+     "ycd": [
+      "Nêu được ý nghĩa của Cách mạng công nghiệp lần thứ ba và lần thứ tư về kinh tế, xã hội, văn hoá.",
+      "Có thái độ trân trọng những thành quả của cuộc cách mạng công nghiệp đối với sự phát triển của lịch sử.",
+      "Vận dụng được những hiểu biết về tác động hai mặt của Cách mạng công nghiệp lần thứ ba và lần thứ tư để tuân thủ những quy định của pháp luật trong cách thức giao tiếp trên Internet, mạng xã hội."
+     ]
+    }
+   ]
+  },
+  {
+   "ten": "VĂN MINH ĐÔNG NAM Á THỜI CỔ - TRUNG ĐẠI",
+   "muc": [
+    {
+     "nhom": "Hành trình phát triển và thành tựu của văn mình Đông Nam Á thời cổ - trung đại",
+     "ten": "Hành trình phát triển và thành tựu của văn mình Đông Nam Á thời cổ - trung đại",
+     "noi_dung": [],
+     "tieu_muc": [
+      {
+       "ten": "Hành trình phát triển",
+       "noi_dung": []
+      },
+      {
+       "ten": "Một số thành tựu tiêu biểu",
+       "noi_dung": [
+        "Tôn giáo và tín ngưỡng",
+        "Văn tự và văn học",
+        "Kiến trúc và điêu khắc"
+       ]
+      }
+     ],
+     "ycd": [
+      "Biết cách sưu tầm và sử dụng một số tư liệu để tìm hiểu về lịch sử văn minh Đông Nam Á.",
+      "Trình bày được các thời kì phát triển của văn minh Đông Nam Á.",
+      "Nêu được một số thành tựu tiêu biểu của văn minh Đông Nam Á về tôn giáo và tín ngưỡng, văn tự và văn học, kiến trúc và điêu khắc.",
+      "Biết trân trọng giá trị trường tồn của các di sản văn minh Đông Nam Á, tham gia bảo tồn các di sản văn minh Đông Nam Á nói chung và ở Việt Nam nói riêng."
+     ]
+    }
+   ]
+  },
+  {
+   "ten": "MỘT SỐ NỀN VĂN MINH TRÊN ĐẤT NƯỚC VIỆT NAM (TRƯỚC NĂM 1858)",
+   "muc": [
+    {
+     "nhom": "Một số nền văn minh cổ trên đất nước Việt Nam",
+     "ten": "Văn minh Văn Lang - Âu Lạc",
+     "noi_dung": [
+      "Cơ sở hình thành",
+      "Những thành tựu tiêu biểu"
+     ],
+     "ycd": [
+      "Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Văn Lang - Âu Lạc.",
+      "Phân tích được cơ sở hình thành văn minh Văn Lang - Âu Lạc.",
+      "Nêu được những thành tựu tiêu biểu của nền văn minh Văn Lang - Âu Lạc về đời sống vật chất, đời sống tinh thần, tổ chức xã hội, Nhà nước."
+     ],
+     "sua_doi_2025": true,
+     "sua_doi_2025_chi_tiet": [
+      {
+       "loai": "sửa đổi",
+       "vi_tri": "ycd",
+       "truoc": "Nêu được cơ sở hình thành văn minh Văn Lang - Âu Lạc.",
+       "sau": "Phân tích được cơ sở hình thành văn minh Văn Lang - Âu Lạc.",
+       "can_cu": "TT 17/2025/TT-BGDĐT, Phụ lục III, mục 1",
+       "ghi_chu": "Văn bản TT17 viết câu thay thế không có dấu chấm cuối; dấu chấm được thêm cho thống nhất với chương trình."
+      }
+     ]
+    },
+    {
+     "nhom": "Một số nền văn minh cổ trên đất nước Việt Nam",
+     "ten": "Văn minh Champa",
+     "noi_dung": [
+      "Cơ sở hình thành",
+      "Những thành tựu tiêu biểu"
+     ],
+     "ycd": [
+      "Biết sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Champa.",
+      "Phân tích được cơ sở hình thành văn minh Champa.",
+      "Trình bày được những thành tựu tiêu biểu của văn minh Champa về đời sống vật chất, đời sống tinh thần, tổ chức xã hội, Nhà nước."
+     ],
+     "sua_doi_2025": true,
+     "sua_doi_2025_chi_tiet": [
+      {
+       "loai": "bổ sung",
+       "vi_tri": "ycd",
+       "truoc": null,
+       "sau": "Biết sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Champa.",
+       "can_cu": "TT 17/2025/TT-BGDĐT, Phụ lục III, mục 1",
+       "ghi_chu": "TT17: bổ sung \"sau dòng thứ 3, từ trên xuống, trang 16\", tức đứng trước YCĐ \"Nêu được cơ sở hình thành văn minh Champa\" (dòng 4)."
+      },
+      {
+       "loai": "sửa đổi",
+       "vi_tri": "ycd",
+       "truoc": "Nêu được cơ sở hình thành văn minh Champa.",
+       "sau": "Phân tích được cơ sở hình thành văn minh Champa.",
+       "can_cu": "TT 17/2025/TT-BGDĐT, Phụ lục III, mục 1"
+      }
+     ]
+    },
+    {
+     "nhom": "Một số nền văn minh cổ trên đất nước Việt Nam",
+     "ten": "Văn minh Phù Nam",
+     "noi_dung": [
+      "Cơ sở hình thành",
+      "Những thành tựu tiêu biểu"
+     ],
+     "ycd": [
+      "Biết sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Phù Nam.",
+      "Phân tích được cơ sở hình thành văn minh Phù Nam.",
+      "Trình bày được những thành tựu tiêu biểu của văn minh Phù Nam về đời sống vật chất, đời sống tinh thần, tổ chức xã hội, Nhà nước.",
+      "Biết vận dụng hiểu biết về các nền văn minh cổ để giới thiệu về đất nước, con người Việt Nam. Nhận thức được giá trị trường tồn của các nền văn minh cổ trên đất nước Việt Nam. Có ý thức trân trọng truyền thống lao động cần cù, sáng tạo của dân tộc Việt Nam trong lịch sử. Có trách nhiệm trong việc góp phần bảo tồn các di sản văn hoá của dân tộc."
+     ],
+     "sua_doi_2025": true,
+     "sua_doi_2025_chi_tiet": [
+      {
+       "loai": "bổ sung",
+       "vi_tri": "ycd",
+       "truoc": null,
+       "sau": "Biết sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Phù Nam.",
+       "can_cu": "TT 17/2025/TT-BGDĐT, Phụ lục III, mục 1",
+       "ghi_chu": "TT17: bổ sung \"sau dòng thứ 7, từ trên xuống, trang 16\", tức đứng trước YCĐ về cơ sở hình thành văn minh Phù Nam (dòng 8)."
+      },
+      {
+       "loai": "sửa đổi",
+       "vi_tri": "ycd",
+       "truoc": "Nêu được cơ sở hình thành văn minh Phù Nam.",
+       "sau": "Phân tích được cơ sở hình thành văn minh Phù Nam.",
+       "can_cu": "TT 17/2025/TT-BGDĐT, Phụ lục III, mục 1"
+      }
+     ]
+    },
+    {
+     "nhom": "Văn minh Đại Việt",
+     "ten": "Cơ sở hình thành và quá trình phát triển của văn minh Đại Việt",
+     "noi_dung": [
+      "Khái niệm văn minh Đại Việt",
+      "Cơ sở hình thành",
+      "Quá trình phát triển"
+     ],
+     "ycd": [
+      "Giải thích được khái niệm văn minh Đại Việt.",
+      "Phân tích được cơ sở hình thành văn minh Đại Việt về kế thừa văn minh Văn Lang - Âu Lạc, đấu tranh gìn giữ văn hoá, bản sắc dân tộc trong thời kì Bắc thuộc, nền độc lập tự chủ của đất nước, tiếp thu ảnh hưởng của văn hoá Trung Quốc, Ấn Độ.",
+      "Nêu được quá trình phát triển của văn minh Đại Việt."
+     ],
+     "sua_doi_2025": true,
+     "sua_doi_2025_chi_tiet": [
+      {
+       "loai": "sửa đổi",
+       "vi_tri": "ycd",
+       "truoc": "Trình bày được cơ sở hình thành văn minh Đại Việt về kế thừa văn minh Văn Lang - Âu Lạc, nền độc lập tự chủ của đất nước, tiếp thu ảnh hưởng của văn hoá Trung Quốc, Ấn Độ.",
+       "sau": "Phân tích được cơ sở hình thành văn minh Đại Việt về kế thừa văn minh Văn Lang - Âu Lạc, đấu tranh gìn giữ văn hoá, bản sắc dân tộc trong thời kì Bắc thuộc, nền độc lập tự chủ của đất nước, tiếp thu ảnh hưởng của văn hoá Trung Quốc, Ấn Độ.",
+       "can_cu": "TT 17/2025/TT-BGDĐT, Phụ lục III, mục 1"
+      }
+     ]
+    },
+    {
+     "nhom": "Văn minh Đại Việt",
+     "ten": "Một số thành tựu của văn minh Đại Việt",
+     "noi_dung": [
+      "Về kinh tế",
+      "Về chính trị",
+      "Về tư tưởng, tôn giáo",
+      "Về văn hoá, giáo dục, văn học, nghệ thuật"
+     ],
+     "ycd": [
+      "Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về những thành tựu của văn minh Đại Việt.",
+      "Nêu được một số thành tựu cơ bản của nền văn minh Đại Việt về kinh tế, chính trị, tư tưởng, tôn giáo, văn hoá, giáo dục, văn học, nghệ thuật."
+     ]
+    },
+    {
+     "nhom": "Văn minh Đại Việt",
+     "ten": "Ý nghĩa của văn minh Đại Việt trong lịch sử dân tộc Việt Nam",
+     "noi_dung": [],
+     "ycd": [
+      "Phân tích được ý nghĩa của nền văn minh Đại Việt trong lịch sử dân tộc Việt Nam.",
+      "Trân trọng giá trị của nền văn minh Đại Việt, vận dụng hiểu biết về văn minh Đại Việt để giới thiệu, quảng bá về đất nước, con người, di sản văn hoá Việt Nam.",
+      "Đề xuất được các giải pháp nhằm gìn giữ và phát huy những giá trị của các nền văn minh trên đất nước Việt Nam (trước năm 1858) trong cuộc sống hiện nay."
+     ],
+     "sua_doi_2025": true,
+     "sua_doi_2025_chi_tiet": [
+      {
+       "loai": "bổ sung",
+       "vi_tri": "ycd",
+       "truoc": null,
+       "sau": "Đề xuất được các giải pháp nhằm gìn giữ và phát huy những giá trị của các nền văn minh trên đất nước Việt Nam (trước năm 1858) trong cuộc sống hiện nay.",
+       "can_cu": "TT 17/2025/TT-BGDĐT, Phụ lục III, mục 1",
+       "ghi_chu": "TT17 chỉ ghi vị trí \"trên dòng thứ 6 cột bên trái từ dưới lên, trang 17\" (theo trang của bản PDF chương trình chính thức); việc đặt vào hàng \"Ý nghĩa của văn minh Đại Việt...\" (hàng cuối của chủ đề) là suy luận của người tổng hợp. Dấu chấm cuối được thêm."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "ten": "CỘNG ĐỒNG CÁC DÂN TỘC VIỆT NAM",
+   "muc": [
+    {
+     "ten": "Các dân tộc trên đất nước Việt Nam",
+     "noi_dung": [
+      "Thành phần dân tộc theo dân số",
+      "Thành phần dân tộc theo ngữ hệ"
+     ],
+     "ycd": [
+      "Nêu được thành phần dân tộc theo dân số.",
+      "Trình bày được việc phân chia tộc người theo ngữ hệ."
+     ]
+    },
+    {
+     "ten": "Khái quát về đời sống vật chất và tinh thần của cộng đồng các dân tộc Việt Nam",
+     "noi_dung": [
+      "Đời sống vật chất",
+      "Đời sống tinh thần"
+     ],
+     "ycd": [
+      "Trình bày được nét chính về đời sống vật chất của cộng đồng các dân tộc Việt Nam.",
+      "Nêu được nét chính về đời sống tinh thần của cộng đồng các dân tộc Việt Nam."
+     ]
+    },
+    {
+     "nhom": "Khối đại đoàn kết dân tộc trong lịch sử Việt Nam",
+     "ten": "Khối đại đoàn kết dân tộc trong lịch sử Việt Nam",
+     "noi_dung": [
+      "Sự hình thành khối đại đoàn kết dân tộc",
+      "Vai trò của khối đại đoàn kết dân tộc trong lịch sử dựng nước và giữ nước",
+      "Vai trò của khối đại đoàn kết dân tộc trong sự nghiệp xây dựng và bảo vệ Tổ quốc hiện nay"
+     ],
+     "ycd": [
+      "Nêu được nét chính về sự hình thành khối đại đoàn kết dân tộc trong lịch sử Việt Nam.",
+      "Nêu được vai trò, tầm quan trọng của khối đại đoàn kết dân tộc trong lịch sử dựng nước và giữ nước.",
+      "Phân tích được vai trò, tầm quan trọng của khối đại đoàn kết dân tộc trong sự nghiệp xây dựng và bảo vệ Tổ quốc hiện nay."
+     ],
+     "sua_doi_2025": true,
+     "sua_doi_2025_chi_tiet": [
+      {
+       "loai": "sửa đổi",
+       "vi_tri": "ycd",
+       "truoc": "Nêu được vai trò, tầm quan trọng của khối đại đoàn kết dân tộc trong sự nghiệp xây dựng và bảo vệ Tổ quốc hiện nay.",
+       "sau": "Phân tích được vai trò, tầm quan trọng của khối đại đoàn kết dân tộc trong sự nghiệp xây dựng và bảo vệ Tổ quốc hiện nay.",
+       "can_cu": "TT 17/2025/TT-BGDĐT, Phụ lục III, mục 2"
+      }
+     ]
+    },
+    {
+     "nhom": "Khối đại đoàn kết dân tộc trong lịch sử Việt Nam",
+     "ten": "Chính sách dân tộc của Đảng và Nhà nước hiện nay",
+     "noi_dung": [
+      "Quan điểm của Đảng và Nhà nước về chính sách dân tộc",
+      "Nội dung cơ bản trong chính sách dân tộc của Đảng và Nhà nước"
+     ],
+     "ycd": [
+      "Nêu được quan điểm nhất quán của Đảng và Nhà nước về chính sách dân tộc bình đẳng, đoàn kết, tôn trọng và giúp nhau cùng phát triển.",
+      "Nêu được nội dung cơ bản trong chính sách dân tộc của Đảng và Nhà nước hiện nay về phát triển kinh tế, văn hoá, xã hội, quốc phòng và an ninh.",
+      "Có ý thức trân trọng sự bình đẳng giữa các dân tộc, có hành động cụ thể góp phần tham gia vào việc giữ gìn khối đại đoàn kết dân tộc."
+     ]
+    }
+   ]
+  },
+  {
+   "ten": "THỰC HÀNH LỊCH SỬ",
+   "muc": [
+    {
+     "ten": null,
+     "noi_dung": [
+      "Tổ chức các hoạt động thực hành lịch sử tại lớp học.",
+      "Tiến hành các hoạt động giáo dục lịch sử gắn với thực địa (di sản lịch sử, văn hoá),...",
+      "Học tập tại các bảo tàng, xem phim tài liệu lịch sử.",
+      "Tổ chức các câu lạc bộ, các cuộc thi “Em yêu lịch sử”, “Nhà sử học trẻ tuổi”, các trò chơi lịch sử."
+     ],
+     "ycd": [
+      "Củng cố, khắc sâu kiến thức lịch sử.",
+      "Rèn luyện các kĩ năng thực hành bộ môn, phát triển năng lực lịch sử.",
+      "Tạo hứng thú trong học tập."
+     ]
+    }
+   ]
+  }
+ ],
+ "chuyen_de": [
+  {
+   "ten": "Chuyên đề 10.1: CÁC LĨNH VỰC CỦA SỬ HỌC",
+   "muc": [
+    {
+     "nhom": "Thông sử và Lịch sử theo lĩnh vực",
+     "ten": "Khái quát về một số cách trình bày lịch sử truyền thống",
+     "noi_dung": [
+      "Kể chuyện về quá khứ",
+      "Lịch sử biên niên",
+      "......"
+     ],
+     "ycd": [
+      "Tóm tắt được một số cách trình bày lịch sử truyền thống thông qua ví dụ cụ thể."
+     ]
+    },
+    {
+     "nhom": "Thông sử và Lịch sử theo lĩnh vực",
+     "ten": "Thông sử",
+     "noi_dung": [
+      "Khái niệm",
+      "Nội dung chính"
+     ],
+     "ycd": [
+      "Giải thích được khái niệm thông sử.",
+      "Nêu được nội dung chính của thông sử."
+     ]
+    },
+    {
+     "nhom": "Thông sử và Lịch sử theo lĩnh vực",
+     "ten": "Lịch sử theo lĩnh vực",
+     "noi_dung": [],
+     "tieu_muc": [
+      {
+       "ten": "Lịch sử theo lĩnh vực",
+       "noi_dung": [
+        "Khái quát về các lĩnh vực của lịch sử",
+        "Ý nghĩa của việc phân chia lịch sử theo lĩnh vực"
+       ]
+      },
+      {
+       "ten": "Lịch sử dân tộc và lịch sử thế giới",
+       "noi_dung": [
+        "Lịch sử dân tộc",
+        "Lịch sử thế giới"
+       ]
+      }
+     ],
+     "ycd": [
+      "Nêu được nét khái quát về các lĩnh vực của lịch sử",
+      "Giải thích được ý nghĩa của việc phân chia lịch sử theo lĩnh vực.",
+      "Nêu được khái niệm và nội dung chính của lịch sử dân tộc",
+      "Nêu được khái niệm và nội dung chính của lịch sử thế giới."
+     ]
+    },
+    {
+     "nhom": "Một số lĩnh vực của lịch sử Việt Nam",
+     "ten": "Một số lĩnh vực của lịch sử Việt Nam",
+     "noi_dung": [],
+     "tieu_muc": [
+      {
+       "ten": "Lịch sử văn hoá Việt Nam",
+       "noi_dung": [
+        "Đối tượng và phạm vi của lịch sử văn hoá Việt Nam",
+        "Khái lược tiến trình lịch sử văn hoá Việt Nam"
+       ]
+      },
+      {
+       "ten": "Lịch sử tư tưởng Việt Nam",
+       "noi_dung": [
+        "Đối tượng, phạm vi của lịch sử tư tưởng Việt Nam",
+        "Khái lược lịch sử tư tưởng Việt Nam"
+       ]
+      }
+     ],
+     "ycd": [
+      "Nêu được đối tượng và phạm vi của lịch sử văn hoá Việt Nam.",
+      "Tóm tắt được nét chính của lịch sử văn hoá Việt Nam trên đường thời gian.",
+      "Nêu được đối tượng và phạm vi của lịch sử tư tưởng Việt Nam.",
+      "Tóm tắt được nét chính của lịch sử tư tưởng Việt Nam trên đường thời gian."
+     ]
+    },
+    {
+     "nhom": "Một số lĩnh vực của lịch sử Việt Nam",
+     "ten": "Lịch sử xã hội Việt Nam",
+     "noi_dung": [
+      "Đối tượng của lịch sử xã hội",
+      "Khái lược về xã hội Việt Nam truyền thống và hiện đại"
+     ],
+     "ycd": [
+      "Giải thích được đối tượng của lịch sử xã hội.",
+      "Tóm tắt được nét chính của lịch sử xã hội Việt Nam trên đường thời gian."
+     ]
+    },
+    {
+     "nhom": "Một số lĩnh vực của lịch sử Việt Nam",
+     "ten": "Lịch sử kinh tế Việt Nam",
+     "noi_dung": [
+      "Đối tượng của lịch sử kinh tế",
+      "Khái lược lịch sử kinh tế Việt Nam"
+     ],
+     "ycd": [
+      "Giải thích được đối tượng của lịch sử kinh tế.",
+      "Tóm tắt được nét chính của lịch sử kinh tế Việt Nam trên đường thời gian."
+     ]
+    }
+   ]
+  },
+  {
+   "ten": "Chuyên đề 10.2: BẢO TỒN VÀ PHÁT HUY GIÁ TRỊ DI SẢN VĂN HOÁ Ở VIỆT NAM",
+   "muc": [
+    {
+     "nhom": "Di sản văn hoá",
+     "ten": "Di sản văn hoá",
+     "noi_dung": [],
+     "tieu_muc": [
+      {
+       "ten": "Khái niệm di sản văn hoá",
+       "noi_dung": [
+        "Khái niệm di sản văn hoá",
+        "Ý nghĩa của di sản văn hoá"
+       ]
+      },
+      {
+       "ten": "Phân loại di sản văn hoá và xếp hạng di tích lịch sử - văn hoá",
+       "noi_dung": [
+        "Phân loại di sản văn hóa",
+        "Xếp hạng di sản văn hoá"
+       ]
+      }
+     ],
+     "ycd": [
+      "Giải thích được khái niệm di sản văn hoá.",
+      "Nêu được ý nghĩa của di sản văn hoá: tài sản vô giá của cộng đồng, dân tộc, nhân loại được kế thừa từ các thế hệ trước cho các thế hệ mai sau.",
+      "Chỉ ra được một số cách phân loại, xếp hạng di sản văn hoá.",
+      "Phân tích được mục đích và ý nghĩa của việc phân loại, xếp hạng di sản văn hoá."
+     ]
+    },
+    {
+     "nhom": "Bảo tồn và phát huy giá trị di sản văn hoá",
+     "ten": "Mối quan hệ giữa bảo tồn và phát triển",
+     "noi_dung": [
+      "Khái niệm bảo tồn di sản văn hoá",
+      "Mối quan hệ giữa bảo tồn và phát huy giá trị di sản văn hoá"
+     ],
+     "ycd": [
+      "Giải thích được khái niệm bảo tồn di sản văn hoá.",
+      "Phân tích được mối quan hệ giữa bảo tồn và phát huy giá trị di sản văn hoá: bảo tồn phải đặt trong bối cảnh phát triển bền vững để bảo tồn không trở thành gánh nặng và rào cản của phát triển."
+     ]
+    },
+    {
+     "nhom": "Bảo tồn và phát huy giá trị di sản văn hoá",
+     "ten": "Giải pháp bảo tồn và phát huy giá trị di sản",
+     "noi_dung": [],
+     "tieu_muc": [
+      {
+       "ten": "Giải pháp bảo tồn và phát huy giá trị di sản",
+       "noi_dung": [
+        "Cơ sở khoa học của công tác bảo tồn, phát huy giá trị di sản văn hoá",
+        "Các giải pháp bảo tồn và phát huy giá trị di sản văn hoá"
+       ]
+      },
+      {
+       "ten": "Vai trò, trách nhiệm của các bên liên quan",
+       "noi_dung": [
+        "Vai trò của hệ thống chính trị, doanh nghiệp, cộng đồng dân cư và của mỗi cá nhân trong việc bảo tồn và phát huy giá trị di sản văn hoá.",
+        "Trách nhiệm của các bên liên quan: Nhà nước, tổ chức xã hội, nhà trường, cộng đồng, công dân trong việc bảo tồn và phát huy giá trị các di sản văn hoá"
+       ]
+      }
+     ],
+     "ycd": [
+      "Phân tích được cơ sở khoa học của công tác bảo tồn di sản văn hoá trong quá trình phát triển bền vững của đất nước.",
+      "Nêu được các giải pháp bảo tồn và phát huy giá trị di sản văn hoá: tuyên truyền giáo dục ý thức bảo tồn di sản, đầu tư cơ sở vật chất, tăng cường biện pháp bảo vệ di sản,...",
+      "Giải thích được vai trò của hệ thống chính trị, doanh nghiệp, cộng đồng dân cư và của mỗi cá nhân trong công tác bảo tồn và phát huy giá trị di sản văn hoá.",
+      "Trình bày được trách nhiệm của Nhà nước, tổ chức xã hội, nhà trường, cộng đồng, công dân trong việc bảo tồn và phát huy giá trị di sản thông qua ví dụ cụ thể.",
+      "Có ý thức trách nhiệm và sẵn sàng đóng góp và vận động người khác cùng tham gia vào việc bảo tồn và phát huy giá trị các di sản văn hoá ở địa phương và đất nước."
+     ]
+    },
+    {
+     "nhom": "Một số di sản văn hoá tiêu biểu của dân tộc Việt Nam (gợi ý)",
+     "ten": "Giới thiệu một số di sản văn hoá phi vật thể tiêu biểu",
+     "noi_dung": [
+      "Dân ca quan họ Bắc Ninh",
+      "Ca trù",
+      "Không gian văn hoá cồng chiêng Tây Nguyên",
+      "Nhã nhạc cung đình Huế",
+      "Đờn ca tài tử Nam Bộ",
+      "........"
+     ],
+     "ycd": [
+      "Xác định được vị trí phân bố các di sản văn hoá phi vật thể tiêu biểu trên bản đồ.",
+      "Giới thiệu được nét cơ bản về một trong số những di sản văn hoá phi vật thể tiêu biểu."
+     ]
+    },
+    {
+     "nhom": "Một số di sản văn hoá tiêu biểu của dân tộc Việt Nam (gợi ý)",
+     "ten": "Giới thiệu một số di sản văn hoá vật thể tiêu biểu",
+     "noi_dung": [
+      "Trống đồng Đông Sơn",
+      "Thành Cổ Loa",
+      "Hoàng thành Thăng Long",
+      "Văn Miếu - Quốc Tử Giám (Hà Nội)",
+      "Quảng trường Ba Đình và Di tích lịch sử Khu lưu niệm Chủ tịch Hồ Chí Minh",
+      "Thành Nhà Hồ",
+      "Cố đô Huế",
+      "Tháp Chăm",
+      "...."
+     ],
+     "ycd": [
+      "Xác định được vị trí phân bố các di sản lịch sử văn hoá vật thể tiêu biểu trên bản đồ.",
+      "Giới thiệu được nét cơ bản về một trong số di sản lịch sử văn hoá vật thể tiêu biểu."
+     ]
+    },
+    {
+     "nhom": "Một số di sản văn hoá tiêu biểu của dân tộc Việt Nam (gợi ý)",
+     "ten": "Giới thiệu một số di sản thiên nhiên tiêu biểu",
+     "noi_dung": [
+      "Các Công viên địa chất: Cao nguyên đá Đồng Văn, Non nước Cao Bằng",
+      "Vịnh Hạ Long",
+      "Vườn quốc gia Cúc Phương",
+      "Vườn quốc gia Cát Tiên",
+      "....."
+     ],
+     "ycd": [
+      "Xác định vị trí phân bố các di sản thiên nhiên tiêu biểu trên bản đồ.",
+      "Giới thiệu được những nét cơ bản về một trong số những di sản thiên nhiên tiêu biểu."
+     ]
+    },
+    {
+     "nhom": "Một số di sản văn hoá tiêu biểu của dân tộc Việt Nam (gợi ý)",
+     "ten": "Giới thiệu một số di sản phức hợp tiêu biểu",
+     "noi_dung": [
+      "Khu di tích - danh thắng Tràng An (Ninh Bình)",
+      "Khu di tích - danh thắng Yên Tử (Quảng Ninh)"
+     ],
+     "ycd": [
+      "Xác định được vị trí phân bố các di sản phức hợp tiêu biểu trên bản đồ.",
+      "Giới thiệu được những nét cơ bản về một trong số các di sản phức hợp tiêu biểu."
+     ]
+    }
+   ]
+  },
+  {
+   "ten": "Chuyên đề 10.3: NHÀ NƯỚC VÀ PHÁP LUẬT VIỆT NAM TRONG LỊCH SỬ",
+   "muc": [
+    {
+     "nhom": "Nhà nước và pháp luật trong lịch sử Việt Nam (trước năm 1858)",
+     "ten": "Nhà nước và pháp luật trong lịch sử Việt Nam (trước năm 1858)",
+     "noi_dung": [],
+     "tieu_muc": [
+      {
+       "ten": "Một số mô hình nhà nước quân chủ Việt Nam tiêu biểu",
+       "noi_dung": [
+        "Nhà nước quân chủ thời Lý - Trần",
+        "Nhà nước quân chủ thời Lê sơ",
+        "Nhà nước quân chủ thời Nguyễn"
+       ]
+      },
+      {
+       "ten": "Một số bộ luật tiêu biểu trong lịch sử Việt Nam trước năm 1858",
+       "noi_dung": [
+        "Quốc triều hình luật",
+        "Hoàng Việt luật lệ"
+       ]
+      }
+     ],
+     "ycd": [
+      "Sưu tầm tư liệu để tìm hiểu về một số mô hình nhà nước quân chủ Việt Nam tiêu biểu: Nhà nước quân chủ thời Lý - Trần, thời Lê sơ, thời Nguyễn.",
+      "Nêu và phân tích được đặc điểm của mô hình nhà nước quân chủ Việt Nam thông qua ví dụ cụ thể: Nhà nước quân chủ thời Lý - Trần, thời Lê sơ, thời Nguyễn.",
+      "Phân tích được nét chính của hai bộ luật tiêu biểu của nhà nước quân chủ Việt Nam: Quốc triều hình luật và Hoàng Việt luật lệ."
+     ]
+    },
+    {
+     "nhom": "Nhà nước Việt Nam Dân chủ Cộng hoà (1945 -1976)",
+     "ten": "Sự ra đời của Nhà nước Việt Nam Dân chủ Cộng hoà",
+     "noi_dung": [
+      "Bối cảnh ra đời của Nhà nước Việt Nam Dân chủ Cộng hoà",
+      "Ý nghĩa lịch sử của việc ra đời Nhà nước Việt Nam Dân chủ Cộng hoà"
+     ],
+     "ycd": [
+      "Phân tích được bối cảnh ra đời của Nhà nước Việt Nam Dân chủ Cộng hoà.",
+      "Nêu được ý nghĩa của việc ra đời Nhà nước Việt Nam Dân chủ Cộng hoà."
+     ]
+    },
+    {
+     "nhom": "Nhà nước Việt Nam Dân chủ Cộng hoà (1945 -1976)",
+     "ten": "Vai trò của Nhà nước Việt Nam Dân chủ Cộng hoà",
+     "noi_dung": [
+      "Đặc điểm và tính chất của Nhà nước Việt Nam Dân chủ Cộng hoà",
+      "Vai trò của Nhà nước Việt Nam Dân chủ Cộng hoà trong quá trình kháng chiến chống giặc ngoại xâm và xây dựng đất nước thời kì 1945 - 1976"
+     ],
+     "ycd": [
+      "Phân tích được đặc điểm và tính chất của Nhà nước Việt Nam Dân chủ Cộng hoà.",
+      "Nêu được vai trò của Nhà nước Việt Nam Dân chủ Cộng hoà trong quá trình kháng chiến chống giặc ngoại xâm và xây dựng đất nước thời kì 1945 - 1976."
+     ]
+    },
+    {
+     "nhom": "Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam từ năm 1976 đến nay",
+     "ten": "Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam từ năm 1976 đến nay",
+     "noi_dung": [],
+     "tieu_muc": [
+      {
+       "ten": "Sự ra đời của Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam",
+       "noi_dung": [
+        "Bối cảnh ra đời của Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam",
+        "Ý nghĩa lịch sử của việc ra đời Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam"
+       ]
+      },
+      {
+       "ten": "Vai trò của Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam",
+       "noi_dung": [
+        "Vai trò của Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam trong quá trình đổi mới và hội nhập quốc tế"
+       ]
+      }
+     ],
+     "ycd": [
+      "Phân tích được bối cảnh ra đời của Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam.",
+      "Nêu được ý nghĩa lịch sử của việc ra đời Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam.",
+      "Nêu được vai trò của Nhà nước Cộng hoà Xã hội chủ nghĩa Việt Nam trong quá trình đổi mới và hội nhập quốc tế."
+     ]
+    },
+    {
+     "nhom": "Một số bản Hiến pháp Việt Nam từ năm 1946 đến nay",
+     "ten": "Một số điểm chung của các bản Hiến pháp Việt Nam từ năm 1946 đến nay",
+     "noi_dung": [
+      "Bối cảnh ra đời của các bản Hiến pháp Việt Nam: các năm 1946, 1959, 1980, 1992, 2013 và năm 2025 (năm sửa đổi, bổ sung Hiến pháp năm 2013).",
+      "Một số điểm chung của các bản Hiến pháp Việt Nam"
+     ],
+     "ycd": [
+      "Nêu được bối cảnh ra đời của các bản Hiến pháp ở Việt Nam từ năm 1946 đến nay (1946, 1959, 1980, 1992, 2013 và năm 2025 (năm sửa đổi, bổ sung Hiến pháp năm 2013): những thay đổi quan trọng về chính trị, kinh tế, xã hội, văn hoá, gắn với một giai đoạn phát triển của lịch sử dân tộc.",
+      "Phân tích được một số điểm chính của các bản Hiến pháp Việt Nam: cơ sở pháp lí để xây dựng hệ thống pháp luật, tổ chức hoạt động của bộ máy Nhà nước,..."
+     ],
+     "sua_doi_2025": true,
+     "sua_doi_2025_chi_tiet": [
+      {
+       "loai": "sửa đổi",
+       "vi_tri": "noi_dung",
+       "truoc": "Bối cảnh ra đời của các bản Hiến pháp Việt Nam: các năm 1946, 1959, 1980, 1992 và 2013",
+       "sau": "Bối cảnh ra đời của các bản Hiến pháp Việt Nam: các năm 1946, 1959, 1980, 1992, 2013 và năm 2025 (năm sửa đổi, bổ sung Hiến pháp năm 2013).",
+       "can_cu": "TT 17/2025/TT-BGDĐT, Phụ lục III, mục 3"
+      },
+      {
+       "loai": "sửa đổi",
+       "vi_tri": "ycd",
+       "truoc": "Nêu được điểm chung về bối cảnh ra đời của các bản Hiến pháp ở Việt Nam từ năm 1946 đến nay (1946, 1959, 1980, 1992 và 2013): những thay đổi quan trọng về chính trị, kinh tế, xã hội, văn hoá, gắn với một giai đoạn phát triển của lịch sử dân tộc.",
+       "sau": "Nêu được bối cảnh ra đời của các bản Hiến pháp ở Việt Nam từ năm 1946 đến nay (1946, 1959, 1980, 1992, 2013 và năm 2025 (năm sửa đổi, bổ sung Hiến pháp năm 2013): những thay đổi quan trọng về chính trị, kinh tế, xã hội, văn hoá, gắn với một giai đoạn phát triển của lịch sử dân tộc.",
+       "can_cu": "TT 17/2025/TT-BGDĐT, Phụ lục III, mục 3",
+       "ghi_chu": "Câu thay thế chép đúng TT17 (kể cả dấu ngoặc không cân và việc bỏ cụm \"điểm chung về\")."
+      }
+     ]
+    },
+    {
+     "nhom": "Một số bản Hiến pháp Việt Nam từ năm 1946 đến nay",
+     "ten": "Hiến pháp đầu tiên của Việt Nam: Hiến pháp năm 1946",
+     "noi_dung": [],
+     "tieu_muc": [
+      {
+       "ten": "Hiến pháp đầu tiên của Việt Nam: Hiến pháp năm 1946",
+       "noi_dung": [
+        "Một số nội dung chính của Hiến pháp năm 1946",
+        "Ý nghĩa lịch sử"
+       ]
+      },
+      {
+       "ten": "Hiến pháp của thời kì đổi mới: Hiến pháp năm 1992 và Hiến pháp năm 2013",
+       "noi_dung": [
+        "Hiến pháp năm 1992: Hiến pháp đầu tiên của thời kì đổi mới",
+        "Hiến pháp năm 2013: Hiến pháp thứ hai của thời kì đổi mới",
+        "Hiến pháp năm 2013 (sửa đổi, bổ sung năm 2025)"
+       ]
+      }
+     ],
+     "ycd": [
+      "Nêu được một số nội dung chính của Hiến pháp năm 1946: ghi nhận thành quả của Cách mạng tháng Tám 1945, quyền bình đẳng và nghĩa vụ công dân, cơ cấu hệ thống chính trị,...",
+      "Phân tích được ý nghĩa của Hiến pháp năm 1946 - Hiến pháp đầu tiên trong lịch sử Việt Nam.",
+      "Nêu được một số nét chính của Hiến pháp năm 1992: ban hành trong những năm đầu của công cuộc Đổi mới, là cơ sở chính trị - pháp lí quan trọng để thực hiện công cuộc Đổi mới,...",
+      "Phân tích được điểm mới của Hiến pháp năm 2013: sự tiến bộ về tư tưởng dân chủ, cơ cấu Nhà nước, kĩ thuật lập hiến,...",
+      "Nêu được những nội dung sửa đổi, bổ sung Hiến pháp năm 2013 (sửa đổi, bổ sung năm 2025): Giải thích được ý nghĩa những nội dung sửa đổi, bổ sung Hiến pháp năm 2013 đối với công cuộc đổi mới, đưa đất nước vào kỉ nguyên vươn mình.",
+      "Có ý thức trân trọng lịch sử lập hiến của dân tộc, có trách nhiệm và sẵn sàng vận động người khác cùng tuân thủ pháp luật."
+     ],
+     "sua_doi_2025": true,
+     "sua_doi_2025_chi_tiet": [
+      {
+       "loai": "bổ sung",
+       "vi_tri": "tieu_muc[1].noi_dung",
+       "truoc": null,
+       "sau": "Hiến pháp năm 2013 (sửa đổi, bổ sung năm 2025)",
+       "can_cu": "TT 17/2025/TT-BGDĐT, Phụ lục III, mục 3",
+       "ghi_chu": "TT17: \"Tại nội dung Hiến pháp của thời kì đổi mới, bổ sung thêm Hiến pháp 2013 sửa đổi, bổ sung trang 26, dòng 2 từ dưới lên\". TT17 không nêu tiêu đề \"Hiến pháp của thời kì đổi mới: Hiến pháp năm 1992 và Hiến pháp năm 2013\" có được viết lại hay không, nên tiêu đề giữ nguyên."
+      },
+      {
+       "loai": "bổ sung",
+       "vi_tri": "ycd",
+       "truoc": null,
+       "sau": "Nêu được những nội dung sửa đổi, bổ sung Hiến pháp năm 2013 (sửa đổi, bổ sung năm 2025): Giải thích được ý nghĩa những nội dung sửa đổi, bổ sung Hiến pháp năm 2013 đối với công cuộc đổi mới, đưa đất nước vào kỉ nguyên vươn mình.",
+       "can_cu": "TT 17/2025/TT-BGDĐT, Phụ lục III, mục 3",
+       "ghi_chu": "Chép nguyên câu TT17 (một chuỗi). Có thể hiểu là 2 YCĐ: (1) \"Nêu được những nội dung sửa đổi, bổ sung Hiến pháp năm 2013 (sửa đổi, bổ sung năm 2025)\"; (2) \"Giải thích được ý nghĩa ... vươn mình.\" Vị trí trong danh sách YCĐ (sau YCĐ về Hiến pháp 2013, trước YCĐ thái độ) là suy luận."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "thoi_luong": {
+  "can_cu": "Mục VIII.2 Chương trình môn Lịch sử (TT13/2022); TT17/2025 không sửa thời lượng Lịch sử 10",
+  "cot_loi": "52 tiết/năm học, dạy học trong 35 tuần",
+  "ti_le_lop_10": {
+   "Lịch sử và Sử học; Vai trò của Sử học": "10%",
+   "Một số nền văn minh thế giới thời cổ - trung đại": "8%",
+   "Các cuộc cách mạng công nghiệp trong lịch sử thế giới": "11%",
+   "Văn minh Đông Nam Á thời cổ - trung đại": "6%",
+   "Một số nền văn minh trên đất nước Việt Nam (trước năm 1858)": "24%",
+   "Cộng đồng các dân tộc Việt Nam": "11%",
+   "ĐÁNH GIÁ ĐỊNH KÌ": "10%",
+   "THỰC HÀNH LỊCH SỬ": "20%"
+  },
+  "chuyen_de": "35 tiết; Chuyên đề 10.1: 10 tiết; Chuyên đề 10.2: 15 tiết; Chuyên đề 10.3: 10 tiết"
+ },
+ "bo_sach": [
+  {
+   "bo": "Kết nối tri thức với cuộc sống (NXB Giáo dục Việt Nam)",
+   "nguon": [
+    "https://vietjack.com/lich-su-10-kn/index.jsp",
+    "https://loigiaihay.com/sgk-lich-su-10-ket-noi-tri-thuc-voi-cuoc-song-c824.html"
+   ],
+   "ghi_chu": "Bản 13 bài, tên bài bám theo chương trình TT13/2022; VietJack và Loigiaihay (trang soạn bài) cùng liệt kê bản này. Trang PDF SGK của Loigiaihay (https://loigiaihay.com/sgk-lich-su-10-pdf-lich-su-10-ket-noi-tri-thuc-a175900.html) lại liệt kê bản 14 bài khác hẳn (Bài 3 Sử học với các lĩnh vực khoa học; Bài 4 Sử học với một số lĩnh vực, ngành nghề hiện đại; Bài 9 Cơ sở hình thành văn minh Đông Nam Á...; Bài 13 Đời sống vật chất và tinh thần...; Bài 14 Khối đại đoàn kết...), có lẽ là bản in lần đầu năm 2022. Chưa kiểm được bản đang lưu hành mới nhất.",
+   "chu_de": [
+    {
+     "ten": "Chủ đề 1: Lịch sử và sử học",
+     "bai": [
+      "Bài 1: Hiện thực lịch sử và lịch sử được con người nhận thức",
+      "Bài 2: Tri thức lịch sử và cuộc sống"
+     ]
+    },
+    {
+     "ten": "Chủ đề 2: Vai trò của sử học",
+     "bai": [
+      "Bài 3: Vai trò của sử học"
+     ]
+    },
+    {
+     "ten": "Chủ đề 3: Một số nền văn minh thế giới thời cổ - trung đại",
+     "bai": [
+      "Bài 4: Khái niệm văn minh. Một số nền văn minh phương Đông thời cổ - trung đại",
+      "Bài 5: Một số nền văn minh phương Tây thời cổ - trung đại"
+     ]
+    },
+    {
+     "ten": "Chủ đề 4: Các cuộc cách mạng công nghiệp trong lịch sử thế giới",
+     "bai": [
+      "Bài 6: Các cuộc cách mạng công nghiệp thời cận đại",
+      "Bài 7: Các cuộc cách mạng công nghiệp thời hiện đại"
+     ]
+    },
+    {
+     "ten": "Chủ đề 5: Văn minh Đông Nam Á thời cổ - trung đại",
+     "bai": [
+      "Bài 8: Hành trình phát triển và thành tựu của văn minh Đông Nam Á thời cổ - trung đại"
+     ]
+    },
+    {
+     "ten": "Chủ đề 6: Một số nền văn minh trên đất nước Việt Nam (trước năm 1858)",
+     "bai": [
+      "Bài 9: Một số nền văn minh cổ trên đất nước Việt Nam",
+      "Bài 10: Văn minh Đại Việt"
+     ]
+    },
+    {
+     "ten": "Chủ đề 7: Cộng đồng các dân tộc Việt Nam",
+     "bai": [
+      "Bài 11: Các dân tộc trên đất nước Việt Nam",
+      "Bài 12: Khái quát về đời sống vật chất và tinh thần của cộng đồng các dân tộc Việt Nam",
+      "Bài 13: Khối đại đoàn kết dân tộc trong lịch sử Việt Nam"
+     ]
+    }
+   ]
+  },
+  {
+   "bo": "Chân trời sáng tạo (NXB Giáo dục Việt Nam)",
+   "nguon": [
+    "https://vietjack.com/lich-su-10-ct/index.jsp",
+    "https://loigiaihay.com/sgk-lich-su-10-pdf-lich-su-10-chan-troi-sang-tao-a175898.html"
+   ],
+   "ghi_chu": "Hai nguồn trùng khớp nhau. Đã sửa hai lỗi gõ của nguồn: \"Ân Độ\" thành \"Ấn Độ\", \"tây âu thời phục hưng\" thành \"Tây Âu thời Phục hưng\". Sách chia theo Chương, không theo Chủ đề.",
+   "chu_de": [
+    {
+     "ten": "Chương I: Lịch sử và sử học, vai trò của sử học",
+     "bai": [
+      "Bài 1: Hiện thực lịch sử và nhận thức lịch sử",
+      "Bài 2: Tri thức lịch sử và cuộc sống",
+      "Bài 3: Sử học với các lĩnh vực khoa học khác",
+      "Bài 4: Sử học với một số lĩnh vực, ngành nghề hiện đại"
+     ]
+    },
+    {
+     "ten": "Chương II: Một số nền văn minh thế giới thời kì cổ - trung đại",
+     "bai": [
+      "Bài 5: Khái quát lịch sử văn minh thế giới cổ - trung đại",
+      "Bài 6: Văn minh Ai Cập",
+      "Bài 7: Văn minh Trung Hoa cổ - trung đại",
+      "Bài 8: Văn minh Ấn Độ cổ - trung đại",
+      "Bài 9: Văn minh Hy Lạp - La Mã cổ đại",
+      "Bài 10: Văn minh Tây Âu thời Phục hưng"
+     ]
+    },
+    {
+     "ten": "Chương III: Các cuộc cách mạng công nghiệp trong lịch sử thế giới",
+     "bai": [
+      "Bài 11: Các cuộc cách mạng công nghiệp thời kì cận đại",
+      "Bài 12: Các cuộc cách mạng công nghiệp thời kì hiện đại"
+     ]
+    },
+    {
+     "ten": "Chương IV: Văn minh Đông Nam Á cổ - trung đại",
+     "bai": [
+      "Bài 13: Cơ sở hình thành văn minh Đông Nam Á cổ - trung đại",
+      "Bài 14: Hành trình phát triển và thành tựu văn minh Đông Nam Á cổ - trung đại"
+     ]
+    },
+    {
+     "ten": "Chương V: Một số nền văn minh trên đất nước Việt Nam (trước năm 1858)",
+     "bai": [
+      "Bài 15: Văn minh Văn Lang – Âu Lạc",
+      "Bài 16: Văn minh Chăm-pa",
+      "Bài 17: Văn minh Phù Nam",
+      "Bài 18: Văn minh Đại Việt"
+     ]
+    },
+    {
+     "ten": "Chương VI: Cộng đồng các dân tộc Việt Nam",
+     "bai": [
+      "Bài 19: Các dân tộc trên đất nước Việt Nam",
+      "Bài 20: Khối đại đoàn kết dân tộc Việt Nam"
+     ]
+    }
+   ]
+  },
+  {
+   "bo": "Cánh diều (NXB Đại học Sư phạm)",
+   "nguon": [
+    "https://vietjack.com/lich-su-10-cd/index.jsp",
+    "https://loigiaihay.com/sgk-lich-su-10-canh-dieu-c850.html"
+   ],
+   "ghi_chu": "Lấy theo VietJack (17 bài). Loigiaihay thiếu Bài 5 và xếp nhầm Bài 2 vào Chủ đề 2. Các tên bài còn lại hai nguồn trùng nhau.",
+   "chu_de": [
+    {
+     "ten": "Chủ đề 1: Lịch sử và sử học",
+     "bai": [
+      "Bài 1: Hiện thực lịch sử và nhận thức lịch sử",
+      "Bài 2: Tri thức lịch sử và cuộc sống"
+     ]
+    },
+    {
+     "ten": "Chủ đề 2: Vai trò của sử học",
+     "bai": [
+      "Bài 3: Sử học với các lĩnh vực khoa học khác",
+      "Bài 4: Sử học với một số lĩnh vực, ngành hiện đại"
+     ]
+    },
+    {
+     "ten": "Chủ đề 3: Một số nền văn minh thế giới thời kì cổ - trung đại",
+     "bai": [
+      "Bài 5: Khái niệm văn minh",
+      "Bài 6: Một số nền văn minh phương Đông",
+      "Bài 7: Một số nền văn minh phương Tây"
+     ]
+    },
+    {
+     "ten": "Chủ đề 4: Các cuộc cách mạng công nghiệp trong lịch sử thế giới",
+     "bai": [
+      "Bài 8: Cách mạng công nghiệp thời kì cận đại",
+      "Bài 9: Cách mạng công nghiệp thời kì hiện đại"
+     ]
+    },
+    {
+     "ten": "Chủ đề 5: Văn minh Đông Nam Á",
+     "bai": [
+      "Bài 10: Cơ sở hình thành văn minh Đông Nam Á thời kì cổ - trung đại",
+      "Bài 11: Hành trình phát triển và thành tựu của văn minh Đông Nam Á thời kì cổ - trung đại"
+     ]
+    },
+    {
+     "ten": "Chủ đề 6: Một số nền văn minh trên đất nước Việt Nam (trước năm 1858)",
+     "bai": [
+      "Bài 12: Văn minh Văn Lang - Âu Lạc",
+      "Bài 13: Văn minh Chăm-pa, văn minh Phù Nam",
+      "Bài 14: Cơ sở hình thành và quá trình phát triển của văn minh Đại Việt",
+      "Bài 15: Một số thành tựu của văn minh Đại Việt"
+     ]
+    },
+    {
+     "ten": "Chủ đề 7: Cộng đồng các dân tộc Việt Nam",
+     "bai": [
+      "Bài 16: Các dân tộc trên đất nước Việt Nam",
+      "Bài 17: Khối đại đoàn kết dân tộc trong lịch sử Việt Nam"
+     ]
+    }
+   ]
+  }
+ ],
+ "thieu": [
+  "Chưa đọc được PDF gốc của Bộ GDĐT cho Chương trình môn Lịch sử (TT13/2022). Văn bản nền lấy từ hai bản HTML độc lập (LuatVietnam, HoaTieu), khớp nhau từng dòng nhưng vẫn là bản sao không chính thức.",
+  "Vị trí chính xác của YCĐ bổ sung \"Đề xuất được các giải pháp...\" và của YCĐ, nội dung mới về Hiến pháp 2013 (sửa đổi, bổ sung năm 2025) chỉ được TT17 mô tả bằng số trang/dòng của bản PDF gốc. Cách đặt trong file này là suy luận (xem ghi chú trong sua_doi_2025_chi_tiet).",
+  "Không đưa vào: phần I–IV, VI–VIII (trừ thời lượng) của chương trình môn Lịch sử và phần dành cho lớp 11, 12, vì ngoài phạm vi lớp 10.",
+  "Không lấy được tên bài của các sách Chuyên đề học tập Lịch sử 10."
+ ]
+}

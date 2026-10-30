@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F5F5F7">
+<title>Thành Cổ Loa</title>
+<meta name="description" content="Bài giảng 3D Lịch sử 10: ba vòng thành Cổ Loa phỏng dựng theo số đo khảo cổ, dòng thời gian từ thế kỷ IV TCN đến nay, hiện vật và truyền thuyết đối chiếu bằng chứng.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root,:root[data-theme]{
+  --lg-page:#F5F5F7;
+  --lg-wash:radial-gradient(1100px 560px at 6% -12%, rgba(120,170,255,.13), transparent 62%),
+            radial-gradient(900px 520px at 104% -6%, rgba(255,160,190,.10), transparent 60%),
+            radial-gradient(1200px 700px at 50% 118%, rgba(140,220,210,.09), transparent 62%),
+            linear-gradient(180deg,#FCFCFD 0%,#F3F3F6 100%);
+  --lg-fill:linear-gradient(180deg,rgba(255,255,255,.78) 0%,rgba(255,255,255,.6) 100%);
+  --lg-fill-strong:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.8) 100%);
+  --lg-blur:blur(28px) saturate(185%);
+  --lg-stroke:rgba(255,255,255,.92);
+  --lg-hair:rgba(15,23,42,.08);
+  --lg-shadow:0 0 0 .5px rgba(15,23,42,.07),0 1px 2px rgba(15,23,42,.05),0 14px 36px -12px rgba(15,23,42,.20);
+  --lg-shadow-lo:0 0 0 .5px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.05),0 6px 16px -8px rgba(15,23,42,.18);
+  --lg-inner:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(255,255,255,.4);
+  --lg-r:24px; --lg-r-md:18px; --lg-r-sm:14px;
+  --lg-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Segoe UI",Roboto,"Helvetica Neue","Noto Sans",Arial,system-ui,sans-serif;
+  --lg-ink:#1D1D1F; --lg-ink2:#424245; --lg-muted:#6E6E73;
+
+  --paper:#F5F5F7; --panel:#FFFFFF; --ink:#1D1D1F; --muted:#6E6E73; --line:rgba(15,23,42,.08); --hair:rgba(15,23,42,.14);
+  --accent:#9A5B13; --accent2:#7A4510; --crimson:#BE1740; --f-body:var(--lg-font); --r:22px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]),:root[data-theme]{
+  --lg-page:#F5F5F7;
+  --lg-wash:radial-gradient(1100px 560px at 6% -12%, rgba(120,170,255,.13), transparent 62%),
+            radial-gradient(900px 520px at 104% -6%, rgba(255,160,190,.10), transparent 60%),
+            radial-gradient(1200px 700px at 50% 118%, rgba(140,220,210,.09), transparent 62%),
+            linear-gradient(180deg,#FCFCFD 0%,#F3F3F6 100%);
+  --lg-fill:linear-gradient(180deg,rgba(255,255,255,.78) 0%,rgba(255,255,255,.6) 100%);
+  --lg-fill-strong:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.8) 100%);
+  --lg-blur:blur(28px) saturate(185%);
+  --lg-stroke:rgba(255,255,255,.92);
+  --lg-hair:rgba(15,23,42,.08);
+  --lg-shadow:0 0 0 .5px rgba(15,23,42,.07),0 1px 2px rgba(15,23,42,.05),0 14px 36px -12px rgba(15,23,42,.20);
+  --lg-shadow-lo:0 0 0 .5px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.05),0 6px 16px -8px rgba(15,23,42,.18);
+  --lg-inner:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(255,255,255,.4);
+  --lg-r:24px; --lg-r-md:18px; --lg-r-sm:14px;
+  --lg-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Segoe UI",Roboto,"Helvetica Neue","Noto Sans",Arial,system-ui,sans-serif;
+  --lg-ink:#1D1D1F; --lg-ink2:#424245; --lg-muted:#6E6E73;
+
+  --paper:#F5F5F7; --panel:#FFFFFF; --ink:#1D1D1F; --muted:#6E6E73; --line:rgba(15,23,42,.08); --hair:rgba(15,23,42,.14);
+  --accent:#9A5B13; --accent2:#7A4510; --crimson:#BE1740; --f-body:var(--lg-font); --r:22px;
+  color-scheme:light;
+}}
+body{background:var(--lg-wash)!important;background-attachment:fixed!important;color:var(--lg-ink);font-family:var(--lg-font);-webkit-font-smoothing:antialiased}
+html{background:var(--lg-page)}
+header.top,.ctrl,.timeline{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow),var(--lg-inner);border-radius:var(--lg-r)}
+.glass{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow),var(--lg-inner);border-radius:var(--lg-r-sm)}
+#info,.lesson{background:var(--lg-fill-strong);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow),var(--lg-inner);border-radius:var(--lg-r)}
+.btn,.ph{border-radius:999px!important;background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke)!important;box-shadow:var(--lg-shadow-lo),var(--lg-inner);color:var(--lg-ink);font-family:var(--lg-font);font-weight:600;transition:transform .15s ease,box-shadow .2s ease}
+.btn,.ph:hover{box-shadow:0 0 0 .5px rgba(15,23,42,.1),0 8px 22px -8px rgba(15,23,42,.25),var(--lg-inner)}
+.btn,.ph:active{transform:scale(.97)}
+.btn.primary{background:linear-gradient(180deg,#B26A1A 0%,#8E5110 100%)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 8px 20px -8px #B26A1A,inset 0 1px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(0,0,0,.08)!important}
+
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-size:14.5px;line-height:1.5}
+a{color:var(--accent2)}
+button{font:inherit;cursor:pointer}
+.eyebrow,.lbl{font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.app{position:fixed;inset:0;overflow:hidden}
+#stage{position:absolute;inset:0;background:#EEF1F4;touch-action:none}
+#stage canvas{display:block;width:100%!important;height:100%!important;outline:none}
+.leftcol{position:absolute;left:16px;top:16px;bottom:118px;width:404px;display:flex;flex-direction:column;gap:12px;pointer-events:none;z-index:5}
+.leftcol>*{pointer-events:auto}
+header.top{padding:14px 18px 16px}
+.crumb{display:flex;gap:6px;align-items:center;font-size:13px;margin-bottom:8px}
+.crumb a{text-decoration:none;color:var(--muted);font-weight:500}
+.crumb a:hover{color:var(--ink)}
+.crumb span{color:var(--hair)}
+h1{margin:2px 0 4px;font-size:30px;letter-spacing:-.02em;line-height:1.1}
+.sub{margin:0;color:var(--muted);font-size:13.5px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0 0;padding:0}
+.kpis div{background:rgba(255,255,255,.55);border-radius:14px;padding:7px 8px;border:1px solid rgba(255,255,255,.9)}
+.kpis dt{font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.kpis dd{margin:1px 0 0;font-weight:700;font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.ctrl{padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.ctrl .row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.ctrl .lbl{min-width:72px}
+.btn,.chip{padding:7px 13px;font-size:13px;line-height:1.2}
+.btn[aria-pressed="true"]{background:linear-gradient(180deg,#2C2C2E,#1D1D1F)!important;color:#fff!important;border-color:transparent!important}
+.chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid var(--lg-stroke);background:var(--lg-fill);box-shadow:var(--lg-shadow-lo),var(--lg-inner);font-weight:600;color:var(--ink)}
+.chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.chip[aria-pressed="true"]{outline:2px solid var(--accent);outline-offset:1px}
+.seg{border-radius:999px;overflow:hidden;background:rgba(118,118,128,.12);padding:2px;display:inline-flex;gap:2px}
+.seg button{border:0;border-radius:999px;background:transparent;padding:5px 12px;font-size:13px;font-weight:600;color:var(--ink)}
+.seg button[aria-pressed="true"]{background:#fff;box-shadow:0 1px 3px rgba(15,23,42,.14),0 0 0 .5px rgba(15,23,42,.06)}
+.timeline{position:absolute;left:16px;right:404px;bottom:16px;padding:10px 14px 12px;z-index:5}
+.tl-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
+#tlNow{font-size:12.5px;color:var(--muted)}
+.tl-track{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.tl-track:before{content:"";position:absolute;left:4%;right:4%;top:50%;height:2px;background:linear-gradient(90deg,rgba(178,106,26,.15),rgba(178,106,26,.5),rgba(178,106,26,.15));transform:translateY(-1px)}
+.ph{position:relative;padding:7px 6px;font-size:12px;line-height:1.2;text-align:center;white-space:nowrap}
+.ph small{display:block;font-weight:500;color:var(--muted);font-size:10.5px;margin-top:1px}
+.ph.primary{background:linear-gradient(180deg,#B26A1A 0%,#8E5110 100%)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 8px 20px -8px #B26A1A,inset 0 1px 0 rgba(255,255,255,.35)!important}
+.ph.primary small{color:rgba(255,255,255,.82)}
+#info{position:absolute;right:16px;top:16px;bottom:16px;width:372px;overflow:auto;padding:18px 18px 16px;z-index:5;overscroll-behavior:contain}
+#info h2{margin:2px 0 6px;font-size:21px;letter-spacing:-.015em;line-height:1.2}
+#info h3{margin:14px 0 6px;font-size:15px}
+#info p{margin:0 0 8px}
+.card{background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.95);border-radius:18px;padding:12px 14px;margin:12px 0;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.facts{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0 4px}
+.facts td{padding:5px 0;border-top:1px solid var(--line);vertical-align:top}
+.facts td:first-child{color:var(--muted);padding-right:10px;width:44%}
+.facts td:last-child{font-weight:600;font-variant-numeric:tabular-nums}
+.ref{display:inline-block;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:rgba(178,106,26,.12);color:var(--accent2);font-size:10px;font-weight:700;line-height:16px;text-align:center;text-decoration:none;vertical-align:2px;margin-left:2px}
+.ref:hover{background:var(--accent);color:#fff}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;margin:0 4px 4px 0}
+.tag.do{background:rgba(44,122,75,.1);color:#226040}
+.tag.uoc{background:rgba(178,106,26,.12);color:#7A4510}
+.tag.tt{background:rgba(91,95,168,.12);color:#3E4290}
+.est{font-size:12.5px;color:#7A4510;background:rgba(178,106,26,.08);border-radius:12px;padding:7px 10px;margin:8px 0}
+.hint{color:var(--muted);font-size:13px}
+.sec svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.foot{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.small{font-size:12px;color:var(--muted)}
+#pins{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
+.pin{position:absolute;left:0;top:0;pointer-events:auto;border:0;background:none;padding:0;display:flex;align-items:center;gap:6px;transform-origin:0 50%;white-space:nowrap;transition:opacity .25s}
+.pin i{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(15,23,42,.35);flex:none;margin-left:-6px}
+.pin span{font-size:12px;font-weight:600;color:var(--ink);background:rgba(255,255,255,.8);-webkit-backdrop-filter:blur(14px) saturate(180%);backdrop-filter:blur(14px) saturate(180%);border:1px solid rgba(255,255,255,.95);border-radius:999px;padding:2px 9px;box-shadow:var(--lg-shadow-lo)}
+.pin.ring span{font-size:12.5px;font-weight:700;letter-spacing:.01em}
+.pin.on span{background:var(--ink);color:#fff;border-color:transparent}
+.pin.hide{opacity:0;pointer-events:none}
+.pin.dot span{display:none}
+.nolab .pin:not(.on) span{display:none}
+.ov{position:absolute;z-index:4;pointer-events:none}
+#compass{right:404px;bottom:118px;display:flex;align-items:flex-end;gap:10px}
+#compass .rose{width:44px;height:44px;border-radius:50%;display:grid;place-items:center}
+#compass .rose svg{transition:transform .08s linear}
+#scale{padding:6px 10px 7px;font-size:11px;font-weight:600;color:var(--ink2);border-radius:14px}
+#scale b{display:block;height:5px;border:1.5px solid var(--ink2);border-top:0;margin-top:3px}
+#badge{left:436px;bottom:118px;font-size:11.5px;padding:5px 11px;border-radius:999px;color:var(--ink2)}
+#loading{position:absolute;inset:0;display:grid;place-items:center;z-index:3;background:#EEF1F4;color:var(--muted);font-weight:500;transition:opacity .5s}
+.sheet{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(245,245,247,.45);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.sheet.open{display:flex}
+.sheet .box{max-width:760px;width:100%;max-height:86vh;overflow:auto;padding:22px 24px}
+.sheet h2{margin:0 0 10px;font-size:22px;letter-spacing:-.015em}
+.sheet .x{float:right}
+.tv{width:100%;border-collapse:collapse;font-size:13.5px}
+.tv th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:6px 8px}
+.tv td{vertical-align:top;padding:9px 8px;border-top:1px solid var(--line)}
+.tv td:first-child{font-weight:700;width:20%}
+.tv td:nth-child(2){color:#3E4290;width:34%}
+ol.src{padding-left:22px;font-size:13px}
+ol.src li{margin:4px 0}
+ol.src a{word-break:break-word}
+.yccd li{margin:6px 0}
+/* bài học */
+.lesson .prog{display:flex;gap:4px;margin:4px 0 12px}
+.lesson .prog i{flex:1;height:4px;border-radius:2px;background:rgba(15,23,42,.1)}
+.lesson .prog i.on{background:var(--accent)}
+.lesson .ask{background:rgba(232,176,75,.14);border-radius:14px;padding:10px 12px;margin:10px 0 8px;font-weight:600}
+.lesson .opt{display:block;width:100%;text-align:left;margin:6px 0;padding:9px 12px;border-radius:14px;border:1px solid var(--lg-hair);background:rgba(255,255,255,.85);font-size:13.5px;color:var(--ink)}
+.lesson .opt.ok{border-color:#2C7A4B;background:rgba(44,122,75,.1)}
+.lesson .opt.bad{border-color:#B3261E;background:rgba(179,38,30,.07)}
+.lesson .fb{font-size:13px;border-radius:12px;padding:8px 10px;margin:6px 0;background:rgba(15,23,42,.04)}
+.lesson .nav{display:flex;gap:8px;justify-content:space-between;margin-top:14px}
+/* điện thoại */
+@media (max-width:760px){
+  .app{position:static;display:flex;flex-direction:column;gap:10px;padding:10px 10px calc(16px + env(safe-area-inset-bottom));overflow:visible}
+  .leftcol{display:contents}
+  header.top{order:1;padding:12px 14px 14px}
+  h1{font-size:25px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  #stagewrap{order:2;position:relative;height:58vh;min-height:330px;border-radius:24px;overflow:hidden;box-shadow:var(--lg-shadow)}
+  .timeline{order:3;position:static;padding:10px 10px 12px}
+  .tl-track{display:flex;overflow-x:auto;scrollbar-width:none;padding:2px}
+  .tl-track::-webkit-scrollbar{display:none}
+  .tl-track:before{display:none}
+  .ph{flex:none}
+  #info{order:4;position:static;width:auto;overflow:visible;padding:16px}
+  .ctrl{order:5}
+  #compass{right:10px;bottom:10px}
+  #badge{left:10px;top:10px;bottom:auto;font-size:11px}
+  .sheet .box{padding:18px 16px}
+  .tv td:first-child{width:auto}
+}
+@media (min-width:761px){ #stagewrap{position:absolute;inset:0} }
+@media (min-width:761px) and (max-width:1180px){
+  .leftcol{width:340px}
+  #info{width:330px}
+  .timeline{right:362px}
+  #compass{right:362px}
+  #badge{left:372px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="leftcol">
+    <header class="top">
+      <nav class="crumb"><a href="../../">← Bài Giảng</a><span>/</span><a href="../">Lịch sử 10</a></nav>
+      <div class="eyebrow">Văn minh Văn Lang – Âu Lạc</div>
+      <h1>Thành Cổ Loa</h1>
+      <p class="sub">Ba vòng thành đất phỏng dựng theo số đo khảo cổ, đặt trên đồng bằng ven sông Hoàng Giang. Kéo dòng thời gian để xem thành lớn dần qua các thời kỳ.</p>
+      <dl class="kpis">
+        <div><dt>Vòng thành</dt><dd>3</dd></div>
+        <div><dt>Tổng chu vi</dt><dd>&gt; 16 km</dd></div>
+        <div><dt>Đất đắp, ước</dt><dd>2,2 tr m³</dd></div>
+        <div><dt>Diện tích, ước</dt><dd>600 ha</dd></div>
+      </dl>
+    </header>
+    <div class="ctrl glass">
+      <div class="row"><span class="lbl">Chiều cao</span>
+        <div class="seg" id="segEx"><button data-v="1">Tỉ lệ thật</button><button data-v="3">×3</button><button data-v="6" aria-pressed="true">×6</button></div>
+      </div>
+      <div class="row" id="chips">
+        <button class="chip" data-sel="noi"><i style="background:#B26A1A"></i>Thành Nội</button>
+        <button class="chip" data-sel="trung"><i style="background:#2F7A64"></i>Thành Trung</button>
+        <button class="chip" data-sel="ngoai"><i style="background:#5559A6"></i>Thành Ngoại</button>
+        <button class="chip" data-sel="song"><i style="background:#4D8FA8"></i>Sông, hào</button>
+      </div>
+      <div class="row">
+        <button class="btn" id="bHome">Toàn cảnh</button>
+        <button class="btn" id="bMap">Nhìn từ trên</button>
+        <button class="btn" id="bLab" aria-pressed="true">Nhãn</button>
+        <button class="btn primary" id="bLesson">Học theo bước</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="stagewrap">
+    <div id="stage"><div id="loading">Đang dựng cảnh…</div></div>
+    <div id="pins"></div>
+    <div class="ov glass" id="badge">Sơ đồ phỏng dựng · chiều cao ×6</div>
+    <div class="ov" id="compass">
+      <div class="glass" id="scale"><span id="scaleT">500 m</span><b id="scaleB" style="width:80px"></b></div>
+      <div class="rose glass"><svg id="roseSvg" width="30" height="30" viewBox="-15 -15 30 30" aria-label="Hướng bắc"><path d="M0-12 5 2 0-1-5 2Z" fill="#BE1740"/><path d="M0 12 5 2 0-1-5 2Z" fill="#C7C7CC"/><text x="0" y="-5" font-size="0" fill="none">B</text></svg></div>
+    </div>
+  </div>
+
+  <div class="timeline glass">
+    <div class="tl-head"><span class="eyebrow">Dòng thời gian</span><span id="tlNow"></span></div>
+    <div class="tl-track" id="track"></div>
+  </div>
+
+  <aside id="info"></aside>
+</div>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true"><div class="box glass" id="sheetBox"></div></div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js",
+  "three/webgpu": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js",
+  "three/tsl": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.tsl.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three/webgpu';
+import * as TSL from 'three/tsl';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+const { uniform, attribute, float, vec2, vec3, mix, smoothstep, floor, fract, sin, cos, min, max, dot, abs, positionWorld, cameraPosition, screenUV } = TSL;
+
+const D = {"rings":[{"id":"noi","ten":"Thành Nội","pts":[[-335.6,-100.5],[-323.2,-101.8],[-310.8,-103.1],[-298.3,-104.4],[-285.9,-105.7],[-273.5,-107.0],[-261.0,-108.3],[-248.6,-109.6],[-236.2,-110.9],[-223.7,-112.2],[-211.3,-113.5],[-198.9,-114.9],[-186.4,-116.2],[-174.0,-117.5],[-161.6,-118.8],[-149.1,-120.1],[-136.7,-121.4],[-124.3,-122.7],[-111.8,-124.0],[-99.4,-125.3],[-87.0,-126.6],[-74.6,-127.9],[-62.1,-129.2],[-49.7,-130.5],[-37.3,-131.8],[-24.8,-133.1],[-12.4,-134.4],[0.0,-135.8],[12.5,-137.1],[24.9,-138.4],[37.3,-139.7],[49.8,-141.0],[62.2,-142.3],[74.6,-143.6],[87.1,-144.9],[99.5,-146.2],[111.9,-147.5],[124.4,-148.8],[136.8,-150.1],[149.2,-151.4],[161.6,-152.7],[162.5,-144.7],[163.3,-136.6],[164.2,-128.5],[165.0,-120.4],[165.9,-112.3],[166.7,-104.3],[167.6,-96.2],[168.4,-88.1],[169.3,-80.0],[170.1,-71.9],[171.0,-63.9],[171.8,-55.8],[172.7,-47.7],[173.5,-39.6],[174.4,-31.5],[175.2,-23.5],[176.1,-15.4],[176.9,-7.3],[177.8,0.8],[178.6,8.9],[179.5,16.9],[180.3,25.0],[181.2,33.1],[182.0,41.2],[182.9,49.3],[183.7,57.4],[184.6,65.4],[185.4,73.5],[186.3,81.6],[187.1,89.7],[188.0,97.8],[188.8,105.8],[189.7,113.9],[190.5,122.0],[191.4,130.1],[192.2,138.2],[193.1,146.2],[193.9,154.3],[194.8,162.4],[195.6,170.5],[183.2,171.8],[170.8,173.1],[158.3,174.4],[145.9,175.7],[133.5,177.0],[121.0,178.3],[108.6,179.6],[96.2,180.9],[83.7,182.2],[71.3,183.5],[58.9,184.9],[46.4,186.2],[34.0,187.5],[21.6,188.8],[9.1,190.1],[-3.3,191.4],[-15.7,192.7],[-28.2,194.0],[-40.6,195.3],[-53.0,196.6],[-65.4,197.9],[-77.9,199.2],[-90.3,200.5],[-102.7,201.8],[-115.2,203.1],[-127.6,204.4],[-140.0,205.8],[-152.5,207.1],[-164.9,208.4],[-177.3,209.7],[-189.8,211.0],[-202.2,212.3],[-214.6,213.6],[-227.1,214.9],[-239.5,216.2],[-251.9,217.5],[-264.4,218.8],[-276.8,220.1],[-289.2,221.4],[-301.6,222.7],[-302.5,214.7],[-303.3,206.6],[-304.2,198.5],[-305.0,190.4],[-305.9,182.3],[-306.7,174.3],[-307.6,166.2],[-308.4,158.1],[-309.3,150.0],[-310.1,141.9],[-311.0,133.9],[-311.8,125.8],[-312.7,117.7],[-313.5,109.6],[-314.4,101.5],[-315.2,93.5],[-316.1,85.4],[-316.9,77.3],[-317.8,69.2],[-318.6,61.1],[-319.5,53.1],[-320.3,45.0],[-321.2,36.9],[-322.0,28.8],[-322.9,20.7],[-323.7,12.6],[-324.6,4.6],[-325.4,-3.5],[-326.3,-11.6],[-327.1,-19.7],[-328.0,-27.8],[-328.8,-35.8],[-329.7,-43.9],[-330.5,-52.0],[-331.4,-60.1],[-332.2,-68.2],[-333.1,-76.2],[-333.9,-84.3],[-334.8,-92.4]],"c":[-70,35],"per":1650,"base":25,"top":9,"h":5,"bastions":18,"moat":20,"moat_gap":6,"gate_idx":[101]},{"id":"trung","ten":"Thành Trung","pts":[[1058.2,40.0],[1061.9,55.1],[1065.2,70.2],[1068.1,85.5],[1070.5,100.8],[1072.6,116.2],[1074.2,131.6],[1075.3,147.1],[1076.0,162.6],[1076.3,178.0],[1076.0,193.5],[1075.3,209.0],[1074.2,224.4],[1072.5,239.8],[1070.4,255.1],[1067.8,270.3],[1064.7,285.4],[1061.2,300.5],[1057.2,315.4],[1052.7,330.2],[1047.8,344.9],[1042.4,359.4],[1036.6,373.7],[1030.4,387.9],[1023.7,401.9],[1016.6,415.6],[1009.1,429.2],[1001.2,442.6],[993.0,455.7],[984.3,468.6],[975.4,481.3],[966.1,493.7],[956.5,505.9],[946.5,517.8],[936.3,529.5],[925.8,541.0],[915.1,552.1],[904.1,563.0],[892.9,573.7],[881.5,584.1],[870.0,594.2],[858.2,604.1],[846.3,613.8],[834.3,623.2],[822.1,632.4],[809.9,641.3],[797.6,650.0],[785.2,658.5],[772.7,666.8],[760.2,674.9],[747.7,682.8],[735.1,690.5],[722.6,698.0],[710.0,705.4],[697.5,712.6],[685.0,719.6],[672.5,726.6],[660.1,733.4],[647.7,740.1],[635.4,746.7],[623.2,753.2],[611.0,759.6],[598.9,766.0],[586.9,772.2],[574.9,778.5],[563.0,784.6],[551.2,790.8],[539.5,796.9],[527.9,803.0],[516.3,809.1],[504.8,815.1],[493.3,821.2],[482.0,827.2],[470.6,833.3],[459.4,839.3],[448.1,845.4],[437.0,851.5],[425.8,857.5],[414.7,863.6],[403.6,869.7],[392.5,875.8],[381.5,881.9],[370.4,888.0],[359.3,894.0],[348.2,900.1],[337.1,906.1],[326.0,912.1],[314.8,918.1],[303.6,924.1],[292.3,929.9],[281.0,935.8],[269.7,941.5],[258.2,947.2],[246.7,952.8],[235.2,958.3],[223.5,963.6],[211.8,968.9],[200.0,974.0],[188.1,979.0],[176.2,983.8],[164.1,988.5],[152.0,992.9],[139.8,997.2],[127.5,1001.3],[115.2,1005.2],[102.7,1008.8],[90.2,1012.2],[77.6,1015.4],[64.9,1018.3],[52.2,1021.0],[39.5,1023.4],[26.6,1025.5],[13.8,1027.4],[0.9,1028.9],[-12.1,1030.2],[-25.0,1031.2],[-38.0,1031.9],[-51.0,1032.3],[-64.0,1032.3],[-77.0,1032.1],[-90.0,1031.6],[-103.0,1030.8],[-115.9,1029.7],[-128.8,1028.2],[-141.7,1026.5],[-154.5,1024.5],[-167.3,1022.2],[-180.0,1019.7],[-192.7,1016.8],[-205.2,1013.7],[-217.7,1010.3],[-230.2,1006.7],[-242.5,1002.8],[-254.7,998.6],[-266.9,994.3],[-278.9,989.7],[-290.9,984.9],[-302.7,979.9],[-314.4,974.8],[-326.0,969.4],[-337.6,963.9],[-349.0,958.2],[-360.3,952.4],[-371.5,946.4],[-382.5,940.3],[-393.5,934.1],[-404.4,927.8],[-415.2,921.4],[-425.8,914.9],[-436.4,908.3],[-446.9,901.7],[-457.3,895.0],[-467.6,888.2],[-477.9,881.4],[-488.1,874.5],[-498.1,867.6],[-508.2,860.7],[-518.2,853.8],[-528.1,846.8],[-537.9,839.8],[-547.8,832.9],[-557.5,825.9],[-567.3,818.8],[-577.0,811.8],[-586.7,804.8],[-596.3,797.8],[-605.9,790.7],[-615.6,783.7],[-625.2,776.6],[-634.7,769.5],[-644.3,762.4],[-653.9,755.3],[-663.4,748.1],[-673.0,741.0],[-682.5,733.7],[-692.0,726.5],[-701.6,719.2],[-711.1,711.9],[-720.6,704.5],[-730.0,697.0],[-739.5,689.5],[-748.9,681.9],[-758.3,674.2],[-767.7,666.5],[-777.1,658.6],[-786.4,650.7],[-795.6,642.7],[-804.8,634.5],[-814.0,626.2],[-823.0,617.9],[-832.0,609.4],[-841.0,600.8],[-849.8,592.0],[-858.5,583.2],[-867.2,574.1],[-875.7,565.0],[-884.1,555.7],[-892.4,546.3],[-900.6,536.7],[-908.6,527.0],[-916.5,517.2],[-924.2,507.2],[-931.8,497.0],[-939.2,486.8],[-946.4,476.4],[-953.4,465.8],[-960.3,455.1],[-967.0,444.3],[-973.5,433.4],[-979.8,422.3],[-985.9,411.1],[-991.8,399.8],[-997.5,388.4],[-1003.0,376.8],[-1008.3,365.2],[-1013.4,353.4],[-1018.3,341.6],[-1023.0,329.7],[-1027.5,317.7],[-1031.7,305.6],[-1035.8,293.4],[-1039.7,281.2],[-1043.4,268.9],[-1047.0,256.5],[-1050.3,244.1],[-1053.5,231.7],[-1056.5,219.1],[-1059.3,206.6],[-1062.0,194.0],[-1064.6,181.3],[-1067.0,168.6],[-1069.2,155.9],[-1071.3,143.1],[-1073.3,130.4],[-1075.2,117.5],[-1077.0,104.7],[-1078.7,91.8],[-1080.3,78.9],[-1081.7,66.0],[-1083.2,53.0],[-1084.5,40.0],[-1085.7,27.0],[-1086.9,13.9],[-1088.1,0.8],[-1089.2,-12.4],[-1090.2,-25.6],[-1091.2,-38.8],[-1092.1,-52.1],[-1093.0,-65.4],[-1093.9,-78.8],[-1094.7,-92.3],[-1095.5,-105.8],[-1096.2,-119.4],[-1096.9,-133.0],[-1097.5,-146.7],[-1098.1,-160.5],[-1098.7,-174.4],[-1099.2,-188.3],[-1099.6,-202.4],[-1099.9,-216.5],[-1100.2,-230.7],[-1100.4,-245.0],[-1100.6,-259.3],[-1100.6,-273.8],[-1100.5,-288.3],[-1100.3,-303.0],[-1100.0,-317.7],[-1099.5,-332.4],[-1098.9,-347.3],[-1098.1,-362.2],[-1097.2,-377.2],[-1096.1,-392.3],[-1094.8,-407.4],[-1093.3,-422.5],[-1091.5,-437.7],[-1089.6,-452.9],[-1087.3,-468.2],[-1084.9,-483.4],[-1082.1,-498.7],[-1079.1,-513.9],[-1075.8,-529.2],[-1072.2,-544.3],[-1068.3,-559.5],[-1064.0,-574.6],[-1059.5,-589.6],[-1054.5,-604.5],[-1049.3,-619.3],[-1043.6,-634.0],[-1037.7,-648.5],[-1031.3,-662.9],[-1024.6,-677.1],[-1017.5,-691.2],[-1010.0,-705.0],[-1002.1,-718.6],[-993.8,-732.0],[-985.2,-745.1],[-976.2,-757.9],[-966.8,-770.5],[-957.0,-782.7],[-946.8,-794.7],[-936.3,-806.3],[-925.4,-817.5],[-914.1,-828.4],[-902.5,-839.0],[-890.6,-849.1],[-878.3,-858.9],[-865.7,-868.2],[-852.8,-877.1],[-839.5,-885.6],[-826.0,-893.7],[-812.3,-901.3],[-798.2,-908.4],[-783.9,-915.1],[-769.4,-921.4],[-754.7,-927.2],[-739.8,-932.5],[-724.7,-937.4],[-709.5,-941.8],[-694.0,-945.7],[-678.5,-949.2],[-662.9,-952.2],[-647.1,-954.8],[-631.3,-957.0],[-615.4,-958.7],[-599.5,-959.9],[-583.5,-960.8],[-567.6,-961.2],[-551.6,-961.3],[-535.7,-961.0],[-519.7,-960.2],[-503.9,-959.2],[-488.1,-957.8],[-472.3,-956.0],[-456.7,-954.0],[-441.1,-951.6],[-425.7,-949.0],[-410.4,-946.1],[-395.2,-942.9],[-380.1,-939.5],[-365.2,-935.9],[-350.5,-932.1],[-335.9,-928.1],[-321.4,-924.0],[-307.2,-919.7],[-293.0,-915.2],[-279.1,-910.7],[-265.3,-906.1],[-251.8,-901.4],[-238.3,-896.6],[-225.1,-891.8],[-212.0,-886.9],[-199.1,-882.0],[-186.4,-877.2],[-173.8,-872.3],[-161.4,-867.4],[-149.2,-862.6],[-137.0,-857.8],[-125.1,-853.0],[-113.3,-848.3],[-101.6,-843.7],[-90.0,-839.1],[-78.6,-834.6],[-67.2,-830.2],[-56.0,-825.9],[-44.8,-821.6],[-33.8,-817.5],[-22.8,-813.4],[-11.9,-809.4],[-1.1,-805.5],[9.6,-801.7],[20.3,-798.0],[31.0,-794.4],[41.6,-790.8],[52.2,-787.4],[62.7,-784.0],[73.2,-780.6],[83.7,-777.3],[94.2,-774.1],[104.7,-770.9],[115.2,-767.8],[125.6,-764.7],[136.1,-761.6],[146.5,-758.5],[157.0,-755.5],[167.5,-752.4],[177.9,-749.3],[188.4,-746.3],[198.9,-743.2],[209.4,-740.0],[219.9,-736.8],[230.4,-733.6],[241.0,-730.3],[251.5,-727.0],[262.0,-723.5],[272.5,-720.0],[283.0,-716.4],[293.6,-712.8],[304.1,-709.0],[314.6,-705.1],[325.1,-701.1],[335.5,-697.0],[346.0,-692.8],[356.4,-688.5],[366.9,-684.1],[377.3,-679.5],[387.6,-674.8],[398.0,-670.0],[408.3,-665.0],[418.5,-659.9],[428.8,-654.7],[439.0,-649.4],[449.2,-643.9],[459.3,-638.3],[469.4,-632.6],[479.4,-626.7],[489.4,-620.7],[499.4,-614.6],[509.3,-608.4],[519.2,-602.0],[529.1,-595.5],[538.9,-588.9],[548.7,-582.2],[558.5,-575.4],[568.2,-568.4],[577.9,-561.4],[587.5,-554.2],[597.2,-546.9],[606.8,-539.5],[616.4,-532.0],[626.0,-524.5],[635.6,-516.8],[645.2,-509.0],[654.7,-501.1],[664.3,-493.1],[673.8,-485.0],[683.4,-476.8],[692.9,-468.4],[702.5,-460.0],[712.0,-451.5],[721.6,-442.9],[731.2,-434.1],[740.8,-425.2],[750.3,-416.3],[759.9,-407.2],[769.5,-398.0],[779.1,-388.6],[788.7,-379.1],[798.3,-369.5],[807.9,-359.8],[817.5,-349.9],[827.0,-339.8],[836.6,-329.7],[846.1,-319.3],[855.6,-308.8],[865.0,-298.2],[874.4,-287.4],[883.7,-276.4],[893.0,-265.2],[902.1,-253.9],[911.2,-242.4],[920.2,-230.7],[929.1,-218.8],[937.9,-206.8],[946.5,-194.5],[954.9,-182.1],[963.2,-169.5],[971.4,-156.7],[979.3,-143.7],[987.0,-130.6],[994.5,-117.2],[1001.8,-103.7],[1008.8,-90.0],[1015.5,-76.2],[1022.0,-62.2],[1028.2,-48.0],[1034.0,-33.7],[1039.6,-19.2],[1044.7,-4.6],[1049.6,10.2],[1054.1,25.0]],"c":[-90,40],"per":6500,"base":21.5,"top":8,"h":6,"bastions":0,"moat":12,"moat_gap":6,"gate_idx":[120,181,251,345,11]},{"id":"ngoai","ten":"Thành Ngoại","pts":[[1224.2,-20.0],[1226.7,-1.7],[1228.8,16.6],[1230.4,35.0],[1231.7,53.5],[1232.5,71.9],[1232.8,90.4],[1232.8,108.9],[1232.2,127.4],[1231.2,145.8],[1229.8,164.3],[1227.9,182.7],[1225.5,201.0],[1222.7,219.3],[1219.5,237.5],[1215.8,255.6],[1211.6,273.7],[1207.0,291.6],[1201.9,309.4],[1196.4,327.0],[1190.4,344.5],[1184.0,361.9],[1177.2,379.1],[1170.0,396.1],[1162.3,412.9],[1154.3,429.5],[1145.8,446.0],[1137.0,462.2],[1127.7,478.2],[1118.1,493.9],[1108.2,509.4],[1097.9,524.7],[1087.2,539.7],[1076.2,554.5],[1064.9,569.0],[1053.3,583.3],[1041.4,597.2],[1029.2,610.9],[1016.8,624.4],[1004.1,637.5],[991.2,650.4],[978.0,663.0],[964.6,675.3],[951.0,687.3],[937.3,699.1],[923.3,710.6],[909.3,721.8],[895.0,732.7],[880.6,743.3],[866.2,753.7],[851.6,763.9],[836.9,773.7],[822.1,783.4],[807.2,792.8],[792.3,801.9],[777.4,810.8],[762.4,819.5],[747.4,828.0],[732.4,836.3],[717.3,844.4],[702.3,852.3],[687.2,860.0],[672.2,867.5],[657.2,874.9],[642.3,882.1],[627.4,889.2],[612.5,896.2],[597.6,903.0],[582.8,909.7],[568.1,916.3],[553.4,922.8],[538.8,929.2],[524.2,935.6],[509.7,941.8],[495.3,948.0],[480.9,954.2],[466.6,960.3],[452.3,966.3],[438.1,972.4],[424.0,978.4],[409.9,984.4],[395.8,990.4],[381.8,996.3],[367.8,1002.3],[353.9,1008.2],[340.0,1014.2],[326.1,1020.2],[312.3,1026.1],[298.4,1032.1],[284.6,1038.1],[270.8,1044.1],[256.9,1050.1],[243.1,1056.1],[229.2,1062.1],[215.3,1068.1],[201.4,1074.1],[187.5,1080.1],[173.5,1086.1],[159.4,1092.1],[145.3,1098.1],[131.2,1104.0],[117.0,1109.9],[102.7,1115.8],[88.3,1121.6],[73.9,1127.3],[59.3,1133.0],[44.7,1138.6],[30.0,1144.1],[15.2,1149.5],[0.3,1154.8],[-14.7,1160.0],[-29.7,1165.0],[-44.9,1169.9],[-60.2,1174.7],[-75.6,1179.2],[-91.1,1183.6],[-106.7,1187.9],[-122.4,1191.9],[-138.2,1195.7],[-154.0,1199.2],[-170.0,1202.6],[-186.0,1205.6],[-202.2,1208.5],[-218.4,1211.0],[-234.6,1213.3],[-251.0,1215.3],[-267.3,1216.9],[-283.8,1218.3],[-300.3,1219.3],[-316.8,1220.0],[-333.3,1220.4],[-349.8,1220.4],[-366.4,1220.0],[-383.0,1219.3],[-399.5,1218.2],[-416.0,1216.8],[-432.5,1215.0],[-448.9,1212.7],[-465.3,1210.1],[-481.7,1207.2],[-497.9,1203.8],[-514.1,1200.0],[-530.2,1195.8],[-546.1,1191.3],[-562.0,1186.3],[-577.7,1181.0],[-593.3,1175.3],[-608.7,1169.2],[-624.0,1162.7],[-639.1,1155.8],[-654.1,1148.6],[-668.8,1141.0],[-683.4,1133.1],[-697.7,1124.8],[-711.9,1116.1],[-725.9,1107.2],[-739.6,1097.9],[-753.1,1088.3],[-766.3,1078.3],[-779.4,1068.1],[-792.2,1057.6],[-804.7,1046.9],[-817.0,1035.8],[-829.1,1024.6],[-840.9,1013.0],[-852.4,1001.3],[-863.7,989.4],[-874.8,977.2],[-885.6,964.9],[-896.1,952.4],[-906.4,939.7],[-916.5,926.9],[-926.3,913.9],[-935.9,900.9],[-945.2,887.7],[-954.4,874.4],[-963.3,861.0],[-972.0,847.6],[-980.5,834.1],[-988.8,820.5],[-996.9,806.9],[-1004.8,793.2],[-1012.6,779.6],[-1020.2,765.9],[-1027.6,752.2],[-1034.9,738.5],[-1042.1,724.8],[-1049.1,711.1],[-1056.0,697.5],[-1062.9,683.9],[-1069.6,670.3],[-1076.3,656.7],[-1082.8,643.2],[-1089.4,629.7],[-1095.8,616.3],[-1102.3,602.9],[-1108.7,589.6],[-1115.1,576.3],[-1121.5,563.1],[-1127.8,549.9],[-1134.2,536.7],[-1140.6,523.6],[-1147.1,510.5],[-1153.5,497.5],[-1160.0,484.4],[-1166.6,471.4],[-1173.2,458.5],[-1179.8,445.5],[-1186.5,432.6],[-1193.3,419.6],[-1200.1,406.7],[-1207.1,393.7],[-1214.1,380.8],[-1221.1,367.8],[-1228.3,354.7],[-1235.5,341.7],[-1242.8,328.6],[-1250.1,315.4],[-1257.5,302.1],[-1265.0,288.8],[-1272.6,275.4],[-1280.2,262.0],[-1287.8,248.4],[-1295.5,234.7],[-1303.3,220.9],[-1311.0,207.0],[-1318.8,192.9],[-1326.6,178.7],[-1334.4,164.4],[-1342.2,150.0],[-1349.9,135.3],[-1357.7,120.6],[-1365.3,105.6],[-1372.9,90.5],[-1380.5,75.3],[-1388.0,59.8],[-1395.3,44.2],[-1402.6,28.4],[-1409.7,12.5],[-1416.7,-3.7],[-1423.5,-20.0],[-1430.2,-36.5],[-1436.6,-53.2],[-1442.9,-70.0],[-1448.9,-87.0],[-1454.8,-104.2],[-1460.3,-121.6],[-1465.6,-139.1],[-1470.6,-156.7],[-1475.4,-174.5],[-1479.8,-192.4],[-1483.9,-210.5],[-1487.7,-228.7],[-1491.1,-247.0],[-1494.2,-265.4],[-1496.8,-283.9],[-1499.1,-302.5],[-1501.1,-321.2],[-1502.6,-339.9],[-1503.6,-358.7],[-1504.3,-377.5],[-1504.5,-396.4],[-1504.3,-415.2],[-1503.6,-434.1],[-1502.5,-453.0],[-1500.9,-471.8],[-1498.8,-490.6],[-1496.3,-509.3],[-1493.3,-528.0],[-1489.8,-546.6],[-1485.8,-565.0],[-1481.4,-583.4],[-1476.5,-601.7],[-1471.0,-619.8],[-1465.1,-637.7],[-1458.8,-655.5],[-1451.9,-673.2],[-1444.6,-690.6],[-1436.8,-707.8],[-1428.5,-724.8],[-1419.8,-741.6],[-1410.7,-758.1],[-1401.1,-774.4],[-1391.0,-790.4],[-1380.5,-806.1],[-1369.7,-821.6],[-1358.4,-836.7],[-1346.7,-851.6],[-1334.6,-866.1],[-1322.1,-880.3],[-1309.3,-894.2],[-1296.1,-907.8],[-1282.6,-921.0],[-1268.8,-933.8],[-1254.6,-946.3],[-1240.1,-958.5],[-1225.4,-970.3],[-1210.4,-981.7],[-1195.1,-992.8],[-1179.6,-1003.5],[-1163.8,-1013.8],[-1147.8,-1023.8],[-1131.6,-1033.3],[-1115.2,-1042.6],[-1098.7,-1051.4],[-1082.0,-1059.9],[-1065.1,-1068.0],[-1048.1,-1075.8],[-1031.0,-1083.2],[-1013.7,-1090.3],[-996.4,-1097.0],[-979.0,-1103.3],[-961.5,-1109.4],[-943.9,-1115.1],[-926.3,-1120.4],[-908.7,-1125.5],[-891.0,-1130.2],[-873.3,-1134.7],[-855.6,-1138.8],[-837.9,-1142.6],[-820.2,-1146.2],[-802.5,-1149.5],[-784.9,-1152.5],[-767.3,-1155.2],[-749.7,-1157.7],[-732.2,-1160.0],[-714.7,-1162.0],[-697.3,-1163.8],[-680.0,-1165.4],[-662.7,-1166.8],[-645.5,-1167.9],[-628.4,-1168.9],[-611.3,-1169.7],[-594.4,-1170.3],[-577.5,-1170.7],[-560.7,-1171.0],[-544.0,-1171.1],[-527.4,-1171.1],[-510.9,-1170.9],[-494.5,-1170.6],[-478.2,-1170.2],[-462.0,-1169.6],[-445.8,-1168.9],[-429.8,-1168.1],[-413.8,-1167.1],[-398.0,-1166.1],[-382.2,-1165.0],[-366.5,-1163.8],[-350.9,-1162.5],[-335.4,-1161.0],[-320.0,-1159.5],[-304.7,-1158.0],[-289.4,-1156.3],[-274.3,-1154.6],[-259.1,-1152.7],[-244.1,-1150.8],[-229.2,-1148.8],[-214.3,-1146.8],[-199.5,-1144.7],[-184.7,-1142.5],[-170.0,-1140.2],[-155.4,-1137.8],[-140.8,-1135.4],[-126.3,-1132.9],[-111.8,-1130.3],[-97.4,-1127.7],[-83.0,-1124.9],[-68.7,-1122.1],[-54.5,-1119.2],[-40.2,-1116.3],[-26.1,-1113.2],[-11.9,-1110.1],[2.1,-1106.9],[16.2,-1103.5],[30.2,-1100.1],[44.2,-1096.7],[58.1,-1093.1],[72.0,-1089.4],[85.8,-1085.6],[99.7,-1081.8],[113.4,-1077.8],[127.2,-1073.7],[140.9,-1069.5],[154.6,-1065.3],[168.2,-1060.9],[181.8,-1056.4],[195.4,-1051.8],[208.9,-1047.1],[222.4,-1042.3],[235.9,-1037.4],[249.3,-1032.4],[262.7,-1027.2],[276.1,-1022.0],[289.4,-1016.6],[302.7,-1011.1],[316.0,-1005.5],[329.2,-999.8],[342.4,-994.0],[355.6,-988.0],[368.7,-982.0],[381.8,-975.8],[394.9,-969.5],[407.9,-963.1],[421.0,-956.6],[433.9,-950.0],[446.9,-943.2],[459.8,-936.3],[472.7,-929.4],[485.5,-922.3],[498.4,-915.0],[511.2,-907.7],[523.9,-900.2],[536.7,-892.7],[549.4,-885.0],[562.1,-877.2],[574.8,-869.2],[587.4,-861.2],[600.0,-853.0],[612.6,-844.7],[625.2,-836.3],[637.7,-827.7],[650.3,-819.1],[662.8,-810.3],[675.3,-801.3],[687.7,-792.3],[700.2,-783.1],[712.6,-773.8],[724.9,-764.3],[737.3,-754.7],[749.6,-745.0],[761.9,-735.1],[774.2,-725.1],[786.5,-714.9],[798.7,-704.6],[810.8,-694.1],[823.0,-683.5],[835.0,-672.7],[847.1,-661.7],[859.1,-650.6],[871.0,-639.3],[882.9,-627.9],[894.7,-616.3],[906.5,-604.5],[918.1,-592.5],[929.7,-580.3],[941.2,-568.0],[952.6,-555.5],[964.0,-542.8],[975.2,-529.9],[986.3,-516.8],[997.3,-503.5],[1008.1,-490.0],[1018.8,-476.4],[1029.4,-462.5],[1039.8,-448.4],[1050.1,-434.2],[1060.2,-419.7],[1070.1,-405.1],[1079.8,-390.2],[1089.3,-375.2],[1098.6,-359.9],[1107.7,-344.5],[1116.5,-328.9],[1125.1,-313.0],[1133.4,-297.1],[1141.5,-280.9],[1149.3,-264.5],[1156.9,-248.0],[1164.1,-231.3],[1171.0,-214.4],[1177.6,-197.4],[1183.9,-180.2],[1189.8,-162.9],[1195.4,-145.5],[1200.7,-127.9],[1205.6,-110.2],[1210.1,-92.3],[1214.2,-74.4],[1217.9,-56.3],[1221.2,-38.2]],"c":[-170,-20],"per":8000,"base":26,"top":9,"h":4,"bastions":0,"moat":20,"moat_gap":6,"gate_idx":[128,240,360,465]}],"river":[[1332.2,-1803.0],[1245.4,-1523.0],[1192.5,-1243.0],[1087.9,-963.0],[912.0,-683.0],[948.8,-646.6],[984.9,-608.4],[1020.3,-568.8],[1054.6,-527.2],[1087.6,-484.0],[1119.2,-438.9],[1149.0,-392.0],[1176.8,-343.4],[1202.3,-293.0],[1225.3,-241.0],[1245.5,-187.5],[1262.5,-132.8],[1276.2,-76.8],[1286.2,-20.0],[1292.4,37.4],[1294.6,95.3],[1292.8,153.1],[1286.7,210.7],[1276.6,267.7],[1262.2,323.9],[1243.7,378.7],[1221.3,432.1],[1195.2,483.7],[1165.5,533.1],[1132.5,580.5],[1096.6,625.3],[1058.2,667.8],[1017.5,707.7],[974.8,745.0],[930.8,779.7],[885.6,812.1],[839.4,842.2],[792.9,870.1],[746.1,896.1],[699.3,920.4],[652.8,943.3],[606.5,965.0],[560.6,985.8],[515.3,1005.8],[470.5,1025.3],[426.1,1044.5],[382.0,1063.4],[338.3,1082.4],[294.5,1101.4],[250.7,1120.3],[206.7,1139.1],[162.1,1157.8],[117.2,1176.1],[71.4,1193.8],[24.9,1210.7],[-22.4,1226.6],[-70.7,1241.0],[-120.0,1253.9],[-170.0,1264.6],[-220.8,1273.0],[-272.2,1278.7],[-324.1,1281.6],[-376.1,1281.2],[-428.1,1277.6],[-479.8,1270.4],[-530.9,1259.7],[-581.2,1245.3],[-630.2,1227.4],[-677.8,1205.9],[-723.7,1181.1],[-767.7,1153.1],[-1027.7,1340.4],[-1287.7,1465.8],[-1547.7,1524.4],[-1807.7,1572.6],[-2067.7,1676.4]],"lake":[[1761.0,-274.4],[1770.6,-252.9],[1773.5,-232.2],[1767.8,-212.9],[1753.2,-195.6],[1730.1,-180.7],[1700.4,-168.3],[1666.5,-158.5],[1631.0,-151.0],[1595.9,-145.6],[1562.6,-142.1],[1531.2,-140.0],[1501.0,-139.4],[1470.8,-140.0],[1439.4,-142.1],[1406.1,-145.6],[1371.0,-151.0],[1335.5,-158.5],[1301.6,-168.3],[1271.9,-180.7],[1248.8,-195.6],[1234.2,-212.9],[1228.5,-232.2],[1231.4,-252.9],[1241.0,-274.4],[1255.1,-295.9],[1271.2,-316.6],[1287.4,-335.9],[1302.9,-353.1],[1317.6,-368.1],[1332.8,-380.5],[1350.0,-390.3],[1371.0,-397.8],[1396.9,-403.2],[1428.0,-406.7],[1463.3,-408.8],[1501.0,-409.4],[1538.7,-408.8],[1574.0,-406.7],[1605.1,-403.2],[1631.0,-397.8],[1652.0,-390.3],[1669.2,-380.5],[1684.4,-368.1],[1699.1,-353.2],[1714.6,-335.9],[1730.8,-316.6],[1746.9,-295.9]],"poi":{"den":{"ten":"Đền Thượng: khuôn đúc mũi tên","p":[-171.3,105.0],"loai":"hien_vat"},"dinh":{"ten":"Đình Cổ Loa","p":[37.4,-42.0],"loai":"nay"},"am":{"ten":"Am Mỵ Châu","p":[14.5,-33.2],"loai":"truyen_thuyet"},"gieng":{"ten":"Giếng Trọng Thủy","p":[-212.9,195.7],"loai":"truyen_thuyet"},"cauvuc":{"ten":"Kho mũi tên Cầu Vực (vị trí phỏng chừng)","p":[-291.2,1132.5],"loai":"hien_vat"},"matre":{"ten":"Kho trống đồng Mả Tre (vị trí phỏng chừng)","p":[-560,520],"loai":"hien_vat"},"xomthuong":{"ten":"Hố khai quật Xóm Thượng 2007–2008","p":[-149.2,-862.6],"loai":"khao_co"},"dongdan":{"ten":"Hố khai quật Đống Dân 2012 (vị trí phỏng chừng)","p":[-1436.8,-707.8],"loai":"khao_co"},"damca":{"ten":"Đầm Cả (vị trí phỏng chừng)","p":[1501.0,-274.4],"loai":"nuoc"}},"groves":[[-1226.4,-2089.3,6.4],[-1112.9,-2106.0,5.6],[-1120.3,-2003.2,7.7],[-1298.7,-2080.5,6.6],[-1144.3,-1929.2,5.8],[-1249.3,-2239.1,7.8],[-1222.1,-1999.0,4.5],[-1144.5,-2164.8,8.5],[-1222.9,-2055.8,6.7],[-1291.8,-2096.6,7.1],[-1164.0,-2209.5,5.0],[-1187.5,-2024.2,8.0],[-1167.0,-2017.3,7.7],[-1068.8,-2103.0,6.4],[-1159.1,-2005.4,5.7],[-1151.9,-2199.6,5.7],[-1163.9,-2099.5,4.5],[-1254.7,-2083.0,6.4],[-1096.6,-2103.8,4.0],[-1138.1,-2129.6,7.2],[-1174.3,-2125.4,5.9],[792.3,-2559.3,7.9],[773.5,-2456.2,8.9],[779.5,-2522.2,8.7],[829.1,-2607.6,4.6],[924.1,-2441.9,8.0],[915.3,-2461.3,8.9],[800.0,-2619.7,6.7],[843.9,-2556.7,8.9],[785.3,-2634.5,8.7],[706.0,-2508.1,8.1],[848.7,-2513.6,5.5],[841.3,-2472.5,5.3],[803.4,-2547.3,8.6],[788.8,-2503.8,6.9],[896.1,-2606.8,8.6],[749.6,-2566.3,6.6],[207.0,-892.7,7.0],[129.0,-845.2,4.7],[146.5,-948.9,4.3],[-2877.1,15.7,5.4],[-2967.3,38.1,6.5],[-2839.2,129.8,8.4],[-2698.0,-24.8,8.5],[-2818.0,117.5,6.1],[-2888.0,82.8,7.4],[-2884.0,65.7,5.5],[-2753.3,128.9,8.7],[-2881.9,-7.8,5.3],[-2789.3,104.3,7.7],[-2719.6,125.8,4.8],[-2865.0,1.3,7.5],[-2769.3,42.0,6.1],[-2859.5,68.7,5.8],[-2881.1,110.6,7.5],[-2903.6,100.8,5.5],[-2807.2,36.3,8.6],[-2821.2,186.5,4.4],[-2861.3,195.4,4.9],[-2835.7,-84.9,8.2],[-2916.3,-106.5,6.0],[-2922.4,25.4,6.5],[-2866.8,94.7,8.0],[-2779.9,180.5,5.3],[-2810.4,47.8,5.3],[-2879.0,13.4,5.3],[-3028.6,-379.9,6.8],[-2918.0,-422.7,4.6],[-3018.5,-406.8,4.5],[-2955.6,-379.0,5.0],[-2990.2,-342.9,7.8],[-2988.0,-318.3,4.9],[-2975.2,-387.1,5.3],[-2854.3,-387.2,6.8],[-2938.0,-324.4,8.7],[-2865.9,-318.0,6.2],[-3100.3,-394.0,6.0],[-3074.2,-402.6,8.9],[-3040.3,-287.7,7.5],[-2820.3,-2419.3,4.3],[-2748.5,-2436.2,7.7],[-2768.4,-2414.0,4.4],[-2690.1,-2574.6,7.4],[-2777.3,-2404.6,5.5],[-2806.6,-2445.4,6.2],[-2781.8,-2277.5,8.9],[-2817.0,-2471.0,8.8],[-2790.9,-2394.5,4.0],[-2825.3,-2401.9,6.5],[-2741.7,-2376.6,4.0],[-2769.6,-2425.5,6.0],[-2752.5,-2451.9,5.5],[-2756.9,-2363.4,6.6],[-628.9,1868.3,8.4],[-615.8,2000.9,8.9],[-501.6,2051.8,7.2],[-440.0,1997.2,8.5],[-647.3,1879.4,8.1],[-513.3,2026.6,6.5],[-503.6,1852.2,8.1],[-695.8,1886.6,7.4],[-585.6,1913.7,4.2],[-523.6,2010.3,4.5],[-522.0,1884.3,7.1],[-642.2,1885.7,6.4],[-442.9,1963.7,7.7],[-654.6,1959.5,7.3],[-2434.6,-1739.9,8.0],[-2403.3,-1702.7,7.8],[-2420.2,-1559.9,6.3],[-2416.6,-1683.6,8.6],[-2437.5,-1639.5,7.2],[-2402.2,-1570.8,5.7],[-2494.8,-1748.2,7.1],[-2378.7,-1600.8,6.4],[-2400.9,-1666.1,5.1],[-2542.2,-1653.4,5.4],[-2549.2,-1635.2,9.0],[-2490.1,-1678.9,4.4],[767.2,2694.8,8.1],[765.0,2671.0,5.3],[732.3,2849.8,5.1],[656.3,2667.3,6.6],[725.8,2675.3,8.1],[544.2,2678.2,7.5],[707.5,2834.7,6.4],[696.0,2687.2,6.5],[633.6,2704.3,4.7],[656.1,2736.9,8.2],[806.8,2687.5,8.2],[806.6,2795.7,7.6],[737.3,2652.7,5.9],[489.4,2846.2,6.9],[642.7,2743.1,5.4],[721.0,2695.9,8.2],[653.7,2846.1,5.2],[681.8,2769.6,4.9],[567.6,2811.3,8.4],[727.6,2594.8,8.6],[772.4,2654.1,7.6],[798.3,2721.0,6.3],[691.8,2585.6,5.4],[842.6,2734.7,4.6],[626.8,2697.4,5.5],[335.1,-591.2,6.4],[250.1,-620.4,6.8],[317.8,-601.6,7.8],[298.9,-581.1,5.2],[418.7,-540.5,5.6],[291.8,-526.1,5.0],[292.2,-542.1,5.1],[363.2,-503.9,6.5],[412.1,-751.6,4.5],[329.2,-501.1,8.8],[429.4,-567.1,7.8],[2932.4,-2736.6,4.4],[2998.2,-2788.7,6.6],[2777.9,-2705.3,7.9],[2859.4,-2680.8,8.9],[2954.1,-2637.8,7.5],[2937.5,-2842.6,4.4],[2853.4,-2724.1,4.6],[2835.2,-2728.7,7.6],[2948.3,-2743.5,6.6],[2742.9,-2674.9,4.5],[2800.6,-2561.0,5.0],[2844.3,-2597.0,4.0],[2624.6,-2775.3,5.4],[2798.6,-2598.1,5.2],[2765.9,-2735.0,4.1],[2766.6,-2667.2,4.3],[2902.8,-2583.8,7.2],[2896.7,-2696.0,6.1],[2796.9,-2661.1,7.5],[2839.7,-2785.6,6.0],[2910.9,-2718.0,8.2],[2927.4,-2686.8,5.0],[2857.4,-2766.2,6.3],[2838.9,-2574.3,4.5],[2784.3,-2787.8,8.5],[2032.7,-1210.8,8.7],[2164.9,-1206.7,5.1],[2160.7,-1268.6,4.3],[2187.6,-1236.5,8.5],[2207.1,-1338.3,9.0],[2179.4,-1288.4,4.9],[2229.2,-1307.8,4.2],[2087.5,-1321.0,5.9],[2101.6,-1225.2,4.0],[2110.4,-1198.3,8.8],[2251.3,-1135.6,5.0],[2041.8,-1160.5,8.1],[2102.2,-1253.2,6.4],[2013.0,-1149.6,5.0],[2024.3,-1149.9,4.2],[2014.1,-1194.3,7.8],[2140.5,-1257.6,4.3],[2169.8,-1288.3,7.7],[2173.7,-1300.3,5.4],[2216.1,-1287.8,5.3],[2109.8,-1322.1,5.4],[2240.0,-1259.6,8.6],[2010.8,-1387.4,4.1],[2130.5,-1183.3,8.8],[2188.8,-1282.1,5.3],[-2290.8,-2327.5,6.5],[-2144.0,-2284.4,5.5],[-2319.9,-2330.7,5.2],[-2255.6,-2352.8,7.9],[-2374.7,-2340.7,6.0],[-2267.2,-2232.8,7.2],[-2392.8,-2283.2,4.8],[-2335.2,-2278.5,4.4],[-2339.5,-2327.0,6.1],[-2118.8,-2306.8,4.9],[-2253.4,-2235.5,8.5],[-2297.4,-2206.6,7.9],[-2298.3,-2414.8,5.5],[-2315.8,-2238.9,5.3],[-2310.5,-2218.1,4.9],[-2300.4,-2236.6,8.5],[-2295.9,-2269.5,5.3],[-2303.4,-2207.7,7.2],[-2242.5,-2247.1,4.2],[-2160.7,-2289.2,5.2],[-2369.8,-2271.6,8.4],[-2303.2,-2270.9,7.0],[-2284.0,-2333.8,4.4],[-1236.5,1839.8,5.3],[-1258.1,1730.4,4.5],[-1367.5,1841.4,5.1],[-1313.6,1925.1,5.0],[-1290.3,1991.4,7.3],[-1284.4,1906.9,5.6],[-1306.9,1856.4,5.6],[-1251.4,2016.1,6.7],[-1257.6,1909.3,6.0],[-1382.4,1865.8,4.5],[-1231.7,1989.2,6.0],[-1299.9,1955.5,8.8],[-1322.0,1980.4,5.8],[-1408.5,1966.9,9.0],[-1317.8,1931.8,7.6],[-1285.2,1904.0,8.5],[-1402.5,1956.5,6.0],[-1229.7,1844.5,4.8],[-1199.1,1905.0,7.2],[-1261.9,1880.5,7.1],[-1344.5,1956.9,4.7],[-1305.1,1979.9,8.6],[-1224.4,1948.1,8.0],[-1242.0,1887.2,4.6],[-1108.8,1830.0,6.4],[-1136.5,1949.4,5.9],[-2167.2,383.1,7.1],[-2114.2,459.1,6.4],[-2098.2,481.4,8.7],[-2042.9,544.6,4.7],[-1952.9,466.0,5.0],[-1979.2,399.9,7.4],[-2110.1,435.7,5.9],[-2210.4,527.0,7.9],[-2115.1,441.2,5.2],[-2130.9,532.6,6.5],[-2077.0,494.9,8.9],[-2153.9,506.1,7.1],[-2023.6,368.7,8.1],[-2100.6,504.9,5.8],[-2163.0,584.0,6.5],[814.9,-794.2,7.6],[841.7,-828.1,7.9],[804.7,-803.6,8.1],[791.0,-868.0,7.6],[240.7,-2657.2,8.1],[247.3,-2558.4,8.6],[210.2,-2570.5,6.5],[188.0,-2605.9,4.9],[283.0,-2483.9,7.4],[229.7,-2649.3,7.9],[260.6,-2566.3,7.2],[105.5,-2513.6,6.8],[69.1,-2693.1,4.5],[294.6,-2627.6,6.0],[212.2,-2675.7,9.0],[137.5,-2654.2,7.8],[155.2,-2607.8,7.7],[319.7,-2584.5,5.3],[66.9,-2777.8,6.9],[164.7,-2675.2,4.0],[234.9,-2614.9,7.1],[119.6,-2588.6,8.5],[230.0,-2586.2,7.3],[201.0,-2622.6,5.8],[-2916.1,-1776.8,6.1],[-2842.3,-1728.7,5.8],[-2811.0,-1800.5,4.1],[-2795.6,-1868.3,6.3],[-2794.4,-1749.0,7.3],[-2846.3,-1637.3,8.8],[-2708.6,-1719.4,8.5],[-2906.7,-1815.8,7.0],[-2911.5,-1773.2,4.8],[-2805.5,-1764.2,4.1],[-2814.3,-1726.3,8.6],[-2754.3,-1705.2,7.3],[-2807.0,-1695.9,6.6],[932.3,-422.4,5.9],[1011.3,-334.1,4.6],[1180.9,-527.4,5.5],[941.4,-452.4,6.7],[-1330.0,467.2,4.9],[-1282.3,484.5,8.9],[-1257.6,496.7,4.7],[-1265.1,497.2,4.3],[-1326.3,389.8,7.8],[-1268.9,446.5,5.2],[-1247.0,531.0,8.7],[-1306.0,454.5,4.7],[-1269.8,574.3,5.3],[-1347.9,643.5,4.2],[-393.6,-1324.8,4.2],[-491.7,-1246.1,8.1],[-418.1,-1088.1,4.3],[-434.4,-1324.5,8.8],[-537.1,-1297.9,6.6],[-324.4,-1352.9,5.2],[-306.8,-1058.6,7.8],[-257.3,-1265.5,7.7],[-295.6,-1026.4,7.2],[-479.1,-1261.0,7.0],[1664.7,1095.9,4.8],[1613.3,1239.2,6.9],[1779.9,1249.4,8.4],[1728.6,1239.5,5.5],[1686.0,1064.9,4.8],[1754.6,1237.8,5.6],[1684.1,1188.2,5.6],[1796.0,1370.6,7.6],[1869.0,1301.0,4.5],[1575.0,1327.7,8.0],[1717.3,1119.6,5.0],[1703.6,1168.6,5.0],[1711.1,1205.8,6.0],[1752.6,1089.9,6.5],[1672.6,1136.2,4.7],[1668.5,1150.7,7.7],[1787.3,1153.4,6.9],[1724.7,1120.8,5.1],[1700.1,1052.0,7.9],[1682.9,1063.7,7.4],[1676.6,1134.2,5.6],[1703.2,1171.0,6.1],[1747.5,1085.6,7.1],[1725.1,1267.4,6.3],[-1788.9,434.8,8.4],[-1637.4,408.1,4.1],[-1611.3,313.4,4.5],[-1687.0,495.6,7.6],[-1642.0,432.5,5.7],[-1642.3,383.2,5.0],[-1699.1,448.5,8.0],[-1730.5,493.3,7.7],[-1891.9,503.5,4.9],[-1848.6,432.5,7.6],[-1761.8,381.1,5.3],[-1705.0,463.4,4.4],[-1601.7,396.6,7.4],[-1716.1,430.3,5.5],[-1827.2,548.1,8.9],[-1508.5,440.1,6.3],[-1604.1,585.0,4.3],[-1672.9,402.8,7.2],[-1710.1,320.2,4.7],[-1753.0,332.5,8.0],[-1886.2,567.5,7.8],[-1758.4,348.2,6.3],[-1676.0,397.0,7.5],[161.1,2239.5,6.4],[99.0,2133.0,5.8],[21.5,2200.1,6.4],[35.1,2230.1,8.5],[90.4,2299.6,5.9],[133.8,2296.9,5.6],[136.8,2220.4,5.7],[-32.8,2200.1,5.0],[108.6,2276.3,7.0],[-64.8,2185.8,4.9],[-60.9,2287.3,5.0],[-14.6,2300.6,7.0],[-16.8,2072.8,4.5],[128.2,2199.7,7.2],[32.4,2329.0,5.1],[174.1,2314.3,7.4],[82.3,2274.4,6.1],[93.1,2180.7,6.8],[1284.3,-1264.3,6.5],[1327.8,-1278.5,8.2],[1254.5,-1388.0,5.9],[1411.2,-1226.9,7.2],[1417.0,-1255.3,7.4],[1379.5,-1298.5,8.9],[1337.3,-1283.4,7.6],[1277.6,-1317.5,8.3],[1269.6,-1213.2,6.6],[1328.8,-1320.1,6.2],[1349.6,-1324.0,8.1],[1311.3,-1190.0,8.9],[1252.6,-1374.8,5.7],[1298.4,-1218.5,6.9],[1241.4,-1364.2,4.2],[1297.7,-1416.0,6.7],[1378.9,-1254.2,4.0],[1380.7,-1125.6,7.0],[1255.1,-1375.8,8.5],[2804.1,-2357.4,7.5],[2790.1,-2351.8,5.1],[2838.5,-2358.8,7.8],[2912.7,-2265.3,4.2],[2900.9,-2444.9,7.3],[2788.6,-2196.1,7.9],[2827.1,-2312.2,5.5],[2823.0,-2262.7,6.2],[2774.5,-2418.5,4.3],[2859.0,-2299.8,4.6],[2911.0,-2376.7,8.6],[2865.9,-2287.7,5.9],[2738.9,-2381.7,8.9],[2805.8,-2280.5,4.5],[2847.3,-2329.7,4.8],[2883.9,-2290.9,7.4],[3008.7,-2165.4,4.4],[2902.2,-2318.5,4.1],[2867.1,-2342.8,7.7],[2885.7,-2270.9,7.9],[2845.8,-2425.7,7.6],[2962.1,-2241.8,7.5],[-678.9,1414.2,8.6],[-590.8,1548.6,4.3],[-528.4,1471.5,7.1],[-654.1,1581.8,7.0],[-479.4,1507.9,7.0],[-676.7,1698.9,7.6],[-649.1,1550.8,8.8],[-478.6,1659.1,4.8],[-582.1,1467.3,7.9],[-661.0,1559.2,7.8],[-636.2,1591.9,7.1],[-681.1,1440.5,7.0],[-530.8,1460.6,4.1],[-530.6,1650.5,6.9],[-555.6,1535.1,5.9],[-693.3,1627.2,5.2],[-709.6,1575.1,5.6],[-612.3,1583.5,8.6],[-597.4,1420.9,5.4],[-514.2,1656.7,9.0],[-492.8,1694.8,8.0],[-723.5,1506.9,6.5],[-692.8,1524.1,6.4],[-698.4,1626.2,7.6],[-2266.5,-43.8,6.0],[-2299.0,-220.5,6.9],[-2188.8,-62.2,6.7],[-2321.6,-81.0,4.3],[-2325.8,-15.5,5.3],[-2226.9,-119.6,6.5],[-2243.3,-20.0,4.5],[-2237.8,-120.6,6.9],[-2334.6,28.1,8.3],[-2254.0,92.1,6.5],[-2212.6,-116.5,6.3],[-2204.6,-36.3,4.2],[-2275.9,27.7,4.5],[-2217.9,69.7,6.8],[-2299.2,-91.4,8.6],[-2263.6,-35.1,6.2],[-2337.6,-119.2,4.7],[-3076.8,1201.2,5.9],[-2938.6,1012.5,5.8],[-2979.2,931.6,8.2],[-2846.7,923.6,7.2],[-2860.2,957.8,4.4],[-2978.3,1055.6,4.4],[-2883.8,969.6,4.9],[-2917.4,954.7,5.2],[-2964.8,967.0,8.7],[-2934.1,1000.5,6.8],[-2802.3,1036.6,5.3],[1515.0,340.4,8.9],[1577.1,451.6,7.8],[1638.0,399.0,5.5],[1441.4,374.1,4.5],[1516.2,486.4,4.6],[1498.1,443.1,5.2],[1605.9,520.6,4.1],[1530.9,393.0,4.2],[1584.7,416.5,8.7],[1638.5,329.2,4.7],[1510.4,448.4,8.6],[1594.3,355.8,6.3],[1470.7,548.3,6.4],[1513.4,410.1,5.1],[1644.1,476.8,6.8],[1627.3,549.9,5.3],[1505.7,459.6,5.4],[1574.0,384.7,4.8],[1479.2,441.6,8.5],[1686.6,565.8,4.3],[1622.5,374.4,5.1],[1483.4,446.3,5.3],[1560.3,501.7,9.0],[1699.7,436.2,4.5],[1503.8,582.6,4.3],[1531.7,380.4,8.9],[2150.1,-1087.9,6.6],[2112.2,-1074.2,8.7],[2213.0,-1053.1,4.2],[2180.6,-1087.0,4.9],[2275.0,-1188.3,5.2],[2270.7,-1032.8,8.1],[2315.0,-1190.2,7.8],[2245.1,-1083.6,7.3],[2196.3,-1150.5,5.5],[2335.2,-1110.7,6.6],[1278.6,490.0,4.4],[421.0,-401.3,6.9],[441.9,-297.5,4.5],[386.3,-338.4,4.1],[408.0,-298.2,5.2],[477.9,-211.4,4.8],[361.5,-180.3,8.8],[554.0,-243.3,7.7],[385.8,-129.7,7.2],[345.0,-251.2,6.2],[377.0,-237.7,4.9],[384.1,-185.3,6.9],[397.8,-296.5,4.6],[460.7,-320.8,5.1],[410.3,-159.8,6.3],[259.7,-159.7,4.1],[324.1,-343.6,7.0],[380.2,-274.2,8.9],[458.3,-241.4,6.0],[454.0,-357.0,8.2],[207.6,-343.2,5.6],[2021.2,2649.1,6.6],[2165.5,2625.3,5.2],[1920.4,2714.6,5.8],[1981.8,2663.0,6.2],[1993.4,2667.7,4.7],[2126.8,2645.2,8.7],[1922.5,2573.5,8.4],[2021.7,2655.8,7.2],[1997.4,2773.0,5.4],[1854.3,2626.3,7.1],[2007.5,2752.9,6.2],[2062.7,2650.6,5.5],[1986.5,2639.7,7.0],[2088.7,2645.2,5.3],[1923.2,2686.2,4.7],[2034.2,2694.2,5.5],[1959.7,2700.1,5.2],[2082.7,2714.2,8.2],[1937.7,2610.1,7.3],[2041.1,2773.1,6.3],[1915.7,2639.4,6.3],[1988.5,2716.5,5.1],[-387.1,1081.2,4.8],[-319.8,1068.6,6.6],[-227.5,928.4,7.8],[-332.2,838.3,6.1],[-283.0,1116.8,4.5],[-162.7,860.7,9.0],[-272.2,1083.0,7.2],[-436.7,1117.2,4.7],[-196.5,898.6,5.4],[-2867.1,1249.2,6.7],[-2799.4,1138.2,5.9],[-2809.1,1338.1,5.7],[-2729.9,1190.4,5.2],[-2909.7,1375.4,8.5],[-2808.5,1204.6,5.3],[-2776.9,1173.0,6.7],[-2861.1,1298.9,6.2],[-2772.2,1108.7,6.2],[-2843.5,1213.4,7.4],[-2833.5,1211.9,4.3],[-2814.5,1280.2,6.5],[-2919.5,1079.8,4.8],[-2796.1,1276.7,6.0],[-2807.6,1059.9,6.9],[-2865.5,1100.7,4.5],[-2867.4,1259.8,4.4],[-2840.0,1249.3,7.3],[-2841.7,1270.6,8.7],[-3010.1,1198.5,7.2],[-2951.2,1189.6,5.0],[-2767.3,1164.1,4.3],[-2854.4,1195.8,6.8],[-2899.9,1126.6,7.5],[-2818.6,1209.3,7.6],[873.3,2923.5,4.5],[829.3,2960.2,4.9],[823.0,2868.6,8.4],[878.9,2907.2,4.7],[842.4,3048.6,4.7],[729.2,2948.9,4.1],[963.2,3036.9,6.5],[739.4,2973.6,8.0],[749.8,2872.5,6.9],[844.1,2999.2,5.4],[1892.6,-1260.6,8.5],[1839.6,-1324.5,6.2],[1878.3,-1277.0,8.5],[1742.0,-1380.4,6.2],[1857.3,-1328.8,4.2],[2020.6,-1350.3,5.6],[1999.6,-1368.9,5.5],[1753.9,-1399.1,6.5],[1945.6,-1308.7,5.9],[1886.2,-1341.0,5.5],[1953.0,-1349.3,8.0],[-756.2,964.5,5.8],[-880.3,1134.0,5.7],[-944.7,1084.5,6.8],[-889.7,1067.3,6.9],[-3049.2,-153.8,4.7],[-3074.8,-282.2,8.5],[-3117.3,-264.9,5.2],[-3097.7,-260.3,8.4],[-2999.9,-171.3,6.7],[-3075.5,-110.5,5.9],[-3109.9,-305.6,5.6],[-3083.0,-210.9,4.9],[-3023.6,-279.4,7.3],[-2990.4,-172.9,5.8],[-3118.9,-230.0,4.3],[-3078.9,-183.3,4.6],[-3072.0,-285.6,6.0],[-2958.5,-295.3,8.4],[-3036.1,-258.4,5.4],[-2956.3,-210.3,7.3],[-2145.5,-2307.0,7.5],[-2458.1,-2225.6,6.0],[-2131.7,-2315.1,5.5],[-2170.7,-2202.3,5.1],[-2189.5,-2361.4,7.0],[-2264.9,-2247.8,4.8],[-2164.6,-2385.9,7.1],[-2073.9,-2329.8,5.1],[-2243.0,-2296.3,8.6],[-2202.2,-2377.7,8.7],[-2067.4,-2220.6,7.3],[-2042.0,-2380.6,6.9],[-2221.1,-2475.9,7.4],[-2098.5,-2283.3,7.9],[-2245.7,-2169.7,6.1],[-2167.5,-2545.1,7.1],[-2142.5,-2213.2,5.7],[-2086.2,-2321.0,5.7],[-2265.0,-2299.5,8.2],[-2216.8,-2356.8,7.4],[-2129.5,-2196.7,8.2],[-2879.7,1612.4,8.8],[-2793.7,1529.6,4.9],[-2771.5,1713.9,5.2],[-2846.1,1789.2,4.8],[-2852.2,1634.7,7.2],[-2765.1,1690.3,6.4],[-2943.3,1621.2,4.0],[-2847.9,1574.5,7.2],[-2846.5,1573.9,7.5],[-2878.8,1582.2,7.1],[-2780.2,1659.1,8.7],[-2852.5,1573.0,8.9],[-2796.4,1548.9,5.0],[-2838.5,1599.1,6.4],[-2345.3,-1493.3,5.0],[-2420.9,-1587.1,4.6],[-2433.6,-1444.1,5.8],[-2384.8,-1490.8,4.1],[-2281.6,-1520.1,4.4],[-2438.3,-1706.2,6.8],[-2335.2,-1463.1,6.2],[-2365.7,-1432.9,4.0],[-2310.0,-1563.1,7.1],[-2304.6,-1554.6,5.3],[-2397.1,-1476.1,4.1],[-744.8,2178.9,4.9],[-863.6,2125.3,8.6],[-716.0,2335.4,8.2],[-779.1,2166.3,4.9],[-748.1,2173.8,5.8],[-839.9,2207.3,8.2],[-774.8,2248.8,6.8],[-865.9,2135.1,7.5],[-636.6,2134.0,6.5],[-817.1,2228.7,5.5],[-801.1,2214.6,7.4],[-737.0,2293.4,8.8],[-759.2,2239.2,6.2],[-735.4,2333.0,4.0],[-701.8,2112.7,7.9],[-827.1,2254.3,7.3],[-849.0,2221.8,5.7],[-872.2,2267.5,8.1],[-741.6,2204.7,5.5],[-860.5,2260.0,5.7],[-766.2,2256.3,5.6],[-956.9,2274.4,8.5],[-2523.8,-333.6,7.1],[-2691.2,-327.7,7.4],[-2745.9,-342.1,6.9],[-2623.8,-328.3,7.2],[-2720.0,-243.7,8.4],[-2655.8,-297.0,7.4],[-2728.3,-295.3,7.3],[-2764.4,-238.4,6.1],[-2789.1,-321.8,6.0],[-2667.1,-275.8,8.4],[-2733.0,-315.0,8.3],[-2701.1,-273.6,6.7],[-2701.2,-223.7,6.8],[-2687.0,-214.6,4.6],[282.8,2251.4,8.3],[152.7,2186.8,4.7],[123.3,2298.7,8.2],[299.6,2268.8,8.8],[129.2,2292.9,7.4],[30.0,2249.8,5.0],[176.0,2305.1,5.9],[154.2,2251.9,4.2],[311.7,2328.5,8.8],[172.2,2309.2,4.7],[231.7,2284.0,8.9],[216.9,2333.3,7.6],[165.6,2353.3,8.2],[244.6,2192.6,4.1],[204.7,2352.0,6.6],[141.5,2290.1,6.4],[233.1,2240.6,5.8],[162.1,2384.4,4.2],[250.6,2272.4,5.8],[201.5,2286.7,8.9],[91.4,2346.0,6.4],[254.9,2324.5,4.8],[335.8,2240.6,7.3],[254.6,2220.4,5.3],[325.0,2298.3,5.3],[191.8,2305.7,9.0],[1737.3,2182.3,8.0],[1922.8,2193.7,8.1],[1849.6,2120.8,6.4],[1953.2,2297.3,6.0],[1946.7,2115.1,4.4],[1856.2,2226.8,8.5],[1861.8,2172.8,4.8],[1829.0,2244.2,6.9],[1829.7,2226.3,4.0],[1824.1,2153.8,4.1],[1681.0,2235.7,4.2],[1943.1,2266.7,5.4],[1867.5,2265.4,5.3],[1801.7,2147.9,8.8],[1898.0,2183.0,6.8],[1898.1,2043.1,7.9],[1813.0,2110.2,5.8],[1855.0,2306.1,8.4],[1977.6,2144.1,5.5],[1889.1,2069.5,6.5],[1836.6,2135.1,6.8],[1859.0,2197.7,5.7],[1786.7,2371.2,6.4],[1844.4,2222.6,5.2],[1857.5,2214.6,4.0],[-1566.2,-553.0,8.8],[-1391.1,-550.5,5.5],[-1368.4,-527.9,7.6],[-1355.9,-571.2,5.6],[-1406.1,-374.9,6.7],[-1400.9,-485.7,8.5],[-1412.2,-502.4,4.1],[-1394.2,-494.5,7.0],[-911.8,2429.4,8.0],[-893.3,2355.4,7.9],[-905.1,2299.8,8.7],[-964.4,2293.7,5.6],[-1010.0,2255.1,6.1],[-1008.5,2176.4,4.8],[-927.8,2310.8,6.6],[-940.1,2249.7,5.8],[-1034.5,2392.9,8.3],[-862.9,2467.5,6.9],[-963.4,2401.6,8.1],[-993.2,2307.7,7.2],[-1026.8,2233.1,7.5],[-1037.4,2281.0,6.6],[-983.6,2358.0,6.8],[-872.4,2379.9,8.9],[-918.0,2385.1,6.0],[-812.5,2283.6,7.1],[-912.6,2366.0,5.0],[-966.3,2251.7,7.0],[2854.0,-2175.6,8.3],[2753.5,-2178.9,5.8],[2719.0,-2167.6,8.3],[2773.4,-1944.1,8.5],[2700.9,-2063.4,7.9],[2839.3,-2077.5,4.1],[2792.0,-2239.7,7.4],[2708.2,-2053.8,5.9],[2794.6,-2131.9,7.3],[2749.1,-2107.9,4.1],[2724.7,-2144.9,5.8],[2704.0,-2029.0,5.4],[2797.7,-2151.0,8.9],[2758.2,-2171.6,8.7],[-2071.1,-1619.0,5.5],[-2102.2,-1605.0,8.4],[-2107.3,-1546.8,7.1],[-2060.9,-1621.2,4.3],[-2080.0,-1742.2,7.7],[-1991.8,-1573.7,6.2],[-2142.7,-1593.0,8.7],[-2157.6,-1724.5,4.8],[-2075.5,-1627.8,5.5],[-2172.6,-1609.3,7.8],[-2176.1,-1592.7,6.1],[-2172.4,-1689.0,6.0],[-2183.6,-1480.7,6.9],[-2077.9,-1514.5,4.1],[-2045.1,-1537.7,6.9],[-2143.4,-1715.4,4.2],[-2087.3,-1624.1,4.6],[-1928.2,-1657.7,6.6],[-1707.4,5.8,4.7],[-1759.4,-172.5,4.6],[-1803.0,-25.0,8.6],[-1781.8,-50.7,8.8],[-1669.1,-166.3,5.4],[-1729.1,-41.0,4.3],[-1672.9,-67.9,6.0],[-1815.6,-113.4,4.1],[-1791.9,-184.5,6.7],[-1855.5,-122.6,8.9],[403.2,-1387.3,6.1],[520.8,-1435.2,5.9],[419.7,-1402.7,9.0],[548.3,-1420.4,8.6],[449.7,-1327.4,5.9],[455.3,-1377.0,4.6],[520.2,-1525.7,8.5],[555.1,-1390.5,5.6],[399.0,-1493.7,5.6],[455.5,-1424.1,7.7],[503.2,-1490.1,7.0],[503.7,-1425.2,7.1],[449.7,-1491.8,7.6],[385.4,-1370.5,7.1],[425.3,-1478.9,7.1],[404.6,-1436.8,7.1],[438.2,-1271.0,6.4],[437.4,-1507.2,6.4],[-3148.8,-486.4,7.8],[-3205.8,-450.6,4.8],[-3244.3,-408.1,4.8],[-3197.7,-523.6,8.7],[-3111.9,-566.4,8.6],[-3203.6,-426.7,8.3],[-3239.3,-454.9,7.5],[-3221.8,-439.2,7.3],[-3233.4,-494.7,7.3],[-3183.7,-429.0,6.2],[-3098.8,-422.1,7.7],[-3136.0,-411.2,4.0],[-3119.3,-427.0,7.3],[-3235.7,-545.7,8.0],[-3176.2,-397.1,4.0],[-3180.3,-392.9,5.5],[-3324.7,-529.6,5.3],[-895.2,371.6,7.2],[-880.9,361.6,6.1],[-885.1,304.4,5.9],[-837.8,418.7,5.8],[-924.3,341.1,6.0],[-926.6,332.4,7.3],[-908.0,329.7,6.6],[-909.9,382.1,7.0],[-872.0,336.8,6.4],[-852.5,350.1,6.5],[2705.0,1072.1,4.2],[2671.3,1062.5,7.8],[2713.6,1108.1,5.1],[2823.4,1203.1,4.5],[2808.8,1204.6,6.8],[2808.8,1178.8,7.6],[2685.8,1145.5,7.5],[2628.6,1188.7,9.0],[2767.1,1013.4,4.7],[2666.4,1216.0,4.0],[2765.2,1139.0,5.3],[2688.5,1192.5,8.3],[2630.6,1114.3,6.1],[2765.8,1161.8,8.3],[2753.5,1012.3,5.3],[2716.0,1164.8,6.7],[2654.3,1198.7,6.4],[-87.6,799.6,5.0],[74.1,662.3,4.3],[-37.9,785.0,6.0],[-60.8,681.0,5.4],[12.6,649.9,7.6],[26.4,616.9,6.3],[65.7,675.3,8.4],[65.8,732.0,7.2],[129.0,747.8,4.4],[-40.2,680.5,8.6],[-120.5,658.5,6.5],[-52.3,612.4,5.5],[28.4,835.2,4.7],[37.5,682.0,4.5],[1001.6,-2646.8,4.3],[1014.2,-2545.3,7.5],[923.6,-2650.0,8.3],[1025.7,-2693.3,4.8],[881.1,-2637.0,8.4],[1024.5,-2780.9,7.6],[972.7,-2625.7,6.7],[1029.7,-2511.3,7.3],[1015.2,-2488.1,5.6],[1024.8,-2627.8,7.3],[976.5,-2719.7,4.7],[1017.8,-2618.4,6.0],[1055.7,-2660.3,7.3],[2542.8,1675.8,6.6],[2360.7,1742.4,7.8],[2215.8,1683.3,4.5],[2237.9,1693.2,7.0],[2348.0,1672.2,4.7],[2357.5,1826.5,8.2],[2399.8,1837.3,4.2],[2228.1,1573.3,5.7],[2473.3,1644.8,4.3],[2338.9,1746.1,5.2],[2375.0,1635.9,7.9],[2369.2,1705.2,6.8],[2450.2,1730.0,7.9],[2312.9,1635.8,4.2],[2345.6,1677.2,7.2],[2439.2,1747.6,5.8],[2206.0,1674.4,5.8],[2206.1,1761.3,4.0],[2140.1,1682.0,5.5],[2219.6,1820.4,5.2],[2253.8,1832.8,6.7],[2198.3,1834.2,6.8],[2274.0,1801.3,8.7],[2203.4,1874.4,8.9],[2316.6,1725.9,6.7],[2224.0,1818.4,4.5],[2339.0,1828.3,7.5],[2250.0,1899.3,4.4],[2285.7,1905.4,9.0],[2135.0,1832.2,4.5],[2189.8,1772.2,7.3],[2232.5,1838.5,7.9],[2093.0,1776.7,8.1],[2278.9,1815.4,4.5],[2248.3,1904.8,4.9],[2212.3,1814.9,7.8],[2184.7,1763.0,5.6],[-763.2,-623.6,7.9],[-717.2,-539.0,4.8],[-731.8,-720.8,5.0],[-672.3,-654.6,7.5],[-762.4,-604.0,8.4],[-684.2,-586.1,5.7],[-680.9,-566.1,4.3],[-752.2,-622.8,5.8],[-853.5,-552.4,8.9],[-876.8,-668.9,6.5],[-755.9,-687.3,5.3],[-787.9,-661.9,4.3],[-887.9,-580.1,7.4],[-732.0,-546.7,7.2],[-689.7,-638.2,7.7],[-852.2,-662.8,7.2],[-655.9,-555.4,8.0],[-766.6,-741.9,5.2],[-843.9,-653.2,8.4],[-912.4,-680.1,8.4],[-669.0,-574.1,6.0],[-851.7,-692.4,5.7],[-890.7,-488.8,5.1],[-2636.6,676.1,6.1],[-2578.0,861.4,7.0],[-2421.2,762.2,6.4],[-2608.1,837.1,4.7],[-2586.0,797.5,6.0],[-2575.7,809.6,5.7],[-2513.0,803.6,8.4],[-2630.8,853.5,5.2],[-2537.4,901.9,5.9],[-2502.7,763.6,5.7],[-2533.4,840.2,5.8],[-2499.9,673.2,8.8],[-2580.1,862.9,8.4],[-2533.9,713.2,8.3],[-2489.7,791.9,4.0],[-2538.2,779.7,5.2],[-2652.0,764.9,7.7],[-2648.4,624.9,7.7],[-2556.0,702.1,4.7],[-2557.0,752.2,6.1],[-2868.0,-2649.2,8.8],[-2880.6,-2517.3,7.2],[-2874.5,-2536.1,7.4],[-2745.5,-2641.2,5.8],[-2790.4,-2599.5,8.2],[-2850.3,-2677.6,6.2],[-2813.1,-2743.3,7.6],[-2814.1,-2614.6,5.6],[-2701.2,-2464.7,8.5],[-2756.7,-2522.5,6.9],[-2747.2,-2575.7,7.7],[-2849.9,-2640.1,7.8],[-2836.5,-2511.1,6.1],[-2713.8,-2609.8,8.0],[-2844.6,-2657.2,8.8],[-2840.9,-2699.8,5.4],[-2765.9,-2518.0,8.1],[-2796.5,-2658.2,4.7],[-2956.8,-2610.3,4.8],[-2817.2,-2638.6,5.6],[-2758.5,-2576.5,5.9],[-2638.8,-2632.9,4.9],[-2875.3,-2439.6,5.0],[-2846.5,-2528.1,4.5],[-2818.6,-2526.0,5.9],[-2760.3,-2608.4,5.0],[-1977.4,-2026.7,4.8],[-1889.3,-2039.3,5.4],[-2006.1,-2049.1,8.2],[-1929.4,-2011.5,6.0],[-1920.0,-2094.9,8.1],[-1884.5,-2054.8,6.2],[-1819.6,-2019.8,7.5],[-1938.2,-1936.9,5.8],[-1760.9,-2044.0,8.4],[-1827.5,-1972.0,8.1],[-1849.8,-2121.4,8.7],[-1883.7,-1988.5,7.6],[-1907.4,-2061.2,6.0],[-1838.4,-2129.9,8.2],[-1972.3,-1977.7,5.7],[-1832.6,-2109.0,4.7],[-1912.2,-2098.2,8.6],[-1917.3,-1979.2,7.4],[-1882.5,-2038.1,4.0],[-1951.5,-2049.1,6.2],[-1880.3,-1916.0,7.9],[-1964.4,-2150.0,4.7],[-1882.0,-1892.0,5.2],[-1865.3,-1985.9,4.2],[-1064.8,-2710.2,7.5],[-1119.3,-2776.9,5.4],[-1004.9,-2645.5,8.1],[-1098.7,-2636.6,5.1],[-1004.3,-2626.1,8.9],[-1070.4,-2747.1,7.5],[-971.5,-2626.0,5.6],[-993.1,-2682.4,4.7],[-1095.5,-2660.4,6.2],[-1211.2,-2727.5,4.2],[-1075.8,-2714.5,5.1],[-1135.5,-2730.9,5.7],[-1136.3,-2705.0,8.0],[-1057.5,-2555.1,8.0],[-1108.6,-2688.6,7.9],[-1010.0,-2669.8,6.1],[-1000.6,-2646.5,7.6],[-1152.6,-2720.5,6.6],[-1134.2,-2711.1,8.3],[-965.3,-2688.0,8.8],[-1189.8,-2504.6,4.4],[-1128.8,-2679.3,6.3],[-3163.3,-2002.2,4.6],[-3138.8,-1990.5,4.4],[-3188.3,-2100.1,7.9],[-3169.7,-2204.1,7.9],[-3163.1,-1980.4,8.2],[-3233.8,-1974.6,4.1],[-3205.0,-2188.7,4.1],[-3242.8,-2034.6,8.2],[-3271.7,-2182.6,6.7],[-3290.5,-2127.3,6.8],[-3224.8,-2032.4,4.5],[-3205.7,-2199.5,6.1],[-3089.8,-2072.1,7.9],[-3274.8,-1977.0,5.8],[-3138.2,-2146.1,4.4],[-3230.6,-2040.2,8.5],[-3063.7,-2112.7,6.6],[-3199.1,-2022.9,5.8],[-3290.1,-2229.5,5.0],[-3221.3,-1965.9,6.6],[-3181.3,-2203.7,4.8],[-3138.9,-2137.9,4.7],[-3112.0,-2019.8,6.7],[-3072.3,-2070.3,8.9],[-2591.2,-813.6,8.4],[-2597.2,-824.1,5.6],[-2674.2,-921.1,6.4],[-2601.3,-854.8,5.2],[-2513.9,-856.7,4.5],[-2601.5,-838.1,5.0],[-2660.4,-793.2,7.2],[-2591.0,-890.9,4.3],[-2574.6,-841.3,6.4],[-2655.7,-756.9,7.6],[-2564.4,-717.2,7.5],[-2609.0,-811.5,8.5],[-2994.2,2265.8,8.9],[-3032.6,2315.2,7.9],[-2997.5,2157.2,7.7],[-3011.7,2253.4,8.9],[-3035.6,2227.6,4.2],[-3032.2,2407.4,5.1],[-3118.1,2103.5,7.2],[-2994.1,2219.4,4.8],[-2924.9,2259.4,4.5],[-2933.3,2227.5,4.9],[-3027.3,2206.9,6.6],[-2945.0,2321.9,8.4],[-3037.8,2243.6,8.3],[-3163.9,2201.3,6.5],[-3110.5,2181.7,8.0],[-3021.2,2256.9,6.7],[-3059.8,2314.1,4.0],[-3042.4,2230.5,8.1],[-3012.7,2174.2,4.6],[-3069.9,2207.4,6.1],[-2894.5,2368.5,6.7],[-3060.6,2270.9,7.7],[654.6,-2078.7,5.5],[584.1,-2030.3,6.9],[584.0,-2069.3,4.4],[709.4,-2080.0,7.8],[622.8,-2041.4,8.9],[688.4,-2150.9,5.1],[613.5,-2225.4,4.4],[631.4,-2105.4,7.6],[589.1,-2141.8,8.6],[614.6,-2131.0,7.1],[592.8,-2056.9,4.7],[639.0,-2240.4,4.1],[576.5,-2080.6,4.8],[-1625.7,-1048.6,9.0],[-1635.1,-971.7,5.2],[-1648.3,-908.1,5.2],[-1516.9,-1019.0,5.6],[-1620.5,-1035.6,8.4],[-1612.1,-998.6,4.5],[-1608.3,-969.7,7.1],[-1694.3,-851.2,8.8],[-1590.4,-842.6,7.2],[-1796.3,-955.1,6.0],[-1544.2,-970.9,8.8],[-1595.1,-889.8,5.4],[-1626.3,-922.1,5.3],[-1681.1,-1122.6,4.9],[-1734.7,-875.1,7.5],[-1638.9,-1032.7,5.2],[-1636.7,-899.1,7.5],[-1622.2,-863.2,8.8],[-1694.2,-989.0,7.3],[-1724.1,-977.9,5.5],[-1612.0,-905.5,4.1],[-1661.0,-886.0,4.6],[-1820.8,-908.3,7.4],[-1653.6,-797.1,4.9],[-1587.9,-880.7,6.0],[-68.9,-3.7,4.5],[95.8,-68.4,8.2],[57.8,94.0,8.0],[82.7,-39.2,8.5],[93.5,44.0,6.9],[57.0,-17.2,8.9],[-38.1,26.2,6.8],[41.7,-16.7,4.1],[-64.6,-5.2,4.8],[-71.9,124.0,8.4],[-160.4,-31.7,5.2],[-128.5,70.9,4.0],[-109.1,65.4,4.3],[-219.9,122.9,5.7],[-219.9,109.9,7.1],[-10.5,104.9,5.9],[-232.2,101.0,4.5],[-1108.4,408.7,5.6],[-1097.2,366.0,4.9],[-1185.4,236.1,5.8],[-1140.7,348.6,5.1],[-1103.6,390.8,4.7],[-1346.9,361.5,6.5],[34.9,-711.2,5.5],[-87.0,-727.9,6.8],[43.2,-873.5,6.4],[0.7,-695.3,5.4],[-125.8,-707.6,9.0],[59.2,-897.1,5.3],[809.4,-902.8,8.7],[736.9,-875.5,8.6],[766.4,-880.0,5.4],[806.2,-941.1,6.6],[829.9,-991.3,7.3],[721.3,-890.8,5.2],[705.2,-965.9,8.0],[900.2,-994.5,5.0],[888.7,-819.3,6.9],[754.2,-836.6,5.8],[859.1,-836.8,7.1],[-1997.4,-187.3,8.6],[-2072.0,-226.3,7.8],[-1870.6,-288.1,6.3],[-2095.9,-81.5,8.9],[-1854.1,-149.2,6.7],[-2042.5,-226.1,7.7],[-2087.6,-168.3,5.9],[-2078.7,-245.6,9.0],[-2103.8,-358.7,4.6],[-2157.2,-257.0,7.1],[-2059.8,-310.7,6.3],[-2055.2,-171.8,5.7],[-2008.8,-308.7,8.1],[-2048.8,-346.5,7.9],[-2039.5,-226.4,7.1],[-2035.2,-162.6,5.0],[-2011.2,-154.3,7.8],[-2104.9,-148.1,7.2],[-1998.7,-226.1,6.3],[-2072.2,-351.1,4.2],[-1936.8,-304.7,6.1],[-2027.8,-254.3,8.0],[-1996.6,-273.3,5.2],[-1992.0,-209.5,8.5],[-2000.7,-298.1,4.1]],"nguon":[{"k":"kim10","ten":"Kim, Lai & Trinh 2010, 'Co Loa: an investigation of Vietnam's ancient capital', Antiquity 84(326):1011–1027 (toàn văn paywall, chỉ đọc abstract)","url":"https://doi.org/10.1017/S0003598X00067041"},{"k":"penn","ten":"Abstract Kim et al. 2010 (Penn ArchaeoBib)","url":"https://pennds.org/archaeobib/items/show/28231"},{"k":"kim16","ten":"Hilgers L. 2016, 'Vietnam's First City', Archaeology Jul/Aug 2016 (phỏng vấn Nam C. Kim)","url":"https://www.anthropology.wisc.edu/wp-content/uploads/2016/08/NCKim-Hilgers_VNs-First-City-Arch-Mag_2016.pdf"},{"k":"nsf","ten":"NSF grant BCS-0915410 (Kim, Co Loa)","url":"https://grantome.com/grant/NSF/BCS-0915410"},{"k":"tdar","ten":"Kim N.C., 'The Co Loa Settlement: Biography of an Anomalous Place' (tDAR)","url":"https://core.tdar.org/document/430824/the-co-loa-settlement-biography-of-an-anomalous-place"},{"k":"enwiki","ten":"Wikipedia tiếng Anh – Citadel of Cổ Loa (dẫn Kim 2015, Higham 1996)","url":"https://en.wikipedia.org/wiki/Citadel_of_C%E1%BB%95_Loa"},{"k":"viwiki","ten":"Wikipedia tiếng Việt – Thành Cổ Loa (dẫn Viện Sử học 1991)","url":"https://vi.wikipedia.org/wiki/Th%C3%A0nh_C%E1%BB%95_Loa"},{"k":"thaogiang","ten":"Nguyễn Thị Thảo Giang 2014, 'Đình Tràng trong mối quan hệ...', Thông báo khoa học BTLSQG số 1/2014","url":"https://baotanglichsu.vn/DataFiles/asset/upload/data_hung_/thong_bao_khoa_hoc/so_1_nam_2014/Dinh_Trang_trong_moi_quan_he..._Nguyen_Thi_Thao_Giang.pdf"},{"k":"laivantoi","ten":"Lại Văn Tới 2014, 'Quy hoạch và cấu trúc của các kinh thành Cổ Loa, Hoa Lư, Thăng Long', Tạp chí KHXH Việt Nam 2(75)","url":"https://vjol.info.vn/index.php/khxhvn/article/download/23240/19852/"},{"k":"husc","ten":"Lại Văn Tới, bài về Đình Tràng/lũy tiền tiêu, Tạp chí Khoa học ĐH Huế (JOS HUSC)","url":"https://jos.husc.edu.vn/UPLOADS/numbers/4/62_fulltext_2.5. Su - Lai Van Toi.pdf"},{"k":"thanhtra12","ten":"Báo Thanh Tra 28/9/2012 (TTXVN) – khai quật thành Ngoại 2012","url":"https://thanhtra.com.vn/van-hoa-the-thao-BE2162E3A/ha-noi-nhieu-phat-hien-moi-ve-thanh-ngoai-co-loa-FAA30275.html"},{"k":"nhandan11","ten":"Nhân Dân 19/4/2011 – Hỏi các nhà sử học (PGS.TS Nguyễn Hải Kế)","url":"https://nhandan.vn/hoi-cac-nha-su-hoc-post603970.html"},{"k":"phapluat11","ten":"Báo Pháp Luật VN 2011 – Đề nghị xây dựng hồ sơ UNESCO","url":"https://baophapluat.vn/de-nghi-xay-dung-ho-so-trinh-unesco-cong-nhan-khu-di-tich-thanh-co-loa-la-dsvh-the-gioi-post105114.html"},{"k":"nd_muiten","ten":"Nhân Dân – Mũi tên đồng Cổ Loa: Từ huyền thoại đến lịch sử","url":"https://nhandan.vn/mui-ten-dong-co-loa-tu-huyen-thoai-den-lich-su-post504549.html"},{"k":"vnx_muiten","ten":"VnExpress – Mũi tên ba cạnh của nỏ thần Liên Châu","url":"https://vnexpress.net/mui-ten-ba-canh-cua-no-than-lien-chau-2416187.html"},{"k":"matre","ten":"Trung tâm Bảo tồn Di sản Thăng Long–Hà Nội – Ma Tre relic","url":"https://hoangthanhthanglong.vn/en/ma-tre-relic-co-loa-commune/"},{"k":"dautu","ten":"Báo Đầu tư – Bảo vật quốc gia trống đồng Cổ Loa","url":"https://baodautu.vn/bat-mi-ve-bao-vat-quoc-gia-trong-dong-co-loa-ha-noi-tang-tphcm-d223209.html"},{"k":"seaa","ten":"Southeast Asian Archaeology (VietnamPlus 6/1/2021) – khuôn đúc mũi tên là bảo vật quốc gia","url":"https://southeastasianarchaeology.com/?p=35383"},{"k":"quocte21","ten":"Báo Quốc tế 7/1/2021 – 24 bảo vật quốc gia 2020","url":"https://baoquocte.vn/viet-nam-cong-nhan-them-24-bao-vat-quoc-gia-nam-2020-133335.html"},{"k":"qdnd14","ten":"QĐND 4/12/2014 – New discoveries beneath Co Loa","url":"https://en.qdnd.vn/culture-sports/culture/new-discoveries-beneath-co-loa-citadel-454674"},{"k":"tuoitre15","ten":"Tuổi Trẻ – Một năm bội thu khảo cổ (khai quật 2015)","url":"https://tuoitre.vn/mot-nam-boi-thu-nhieu-phat-hien-quy-ve-khao-co-970995.htm"},{"k":"sggp24","ten":"SGGP 20/4/2024 – Kỷ niệm 1.085 năm Ngô Quyền định đô Cổ Loa","url":"https://www.sggp.org.vn/ky-niem-1085-nam-duc-vua-ngo-quyen-xung-vuong-va-dinh-do-o-co-loa-post736268.html"},{"k":"ngonngu","ten":"Trần Trí Dõi & Trần Thị Hồng Hạnh 2007 – địa danh Cổ Loa (ngonngu.net)","url":"https://ngonngu.net/diadanh_coloa2_ttdoi/282"},{"k":"toanthu","ten":"Đại Việt sử ký toàn thư – Ngoại kỷ, An Dương Vương (Wikisource)","url":"https://zh.wikisource.org/wiki/%E5%A4%A7%E8%B6%8A%E5%8F%B2%E8%A8%98%E5%85%A8%E6%9B%B8/%E5%A4%96%E7%B4%80%E5%8D%B7%E4%B9%8B%E4%B8%80#%E5%AE%89%E9%99%BD%E7%8E%8B"},{"k":"unesco","ten":"UNESCO – Viet Nam States Party page (Tentative List)","url":"https://whc.unesco.org/en/statesparties/vn"},{"k":"osm","ten":"OpenStreetMap API – dữ liệu khung Cổ Loa (ODbL)","url":"https://api.openstreetmap.org/api/0.6/map?bbox=105.850,21.095,105.895,21.135"},{"k":"nd23","ten":"Nhân Dân 23/11/2023 – Triển lãm 'Thành Cổ Loa - Từ truyền thuyết đến hiện thực'","url":"https://nhandan.vn/khai-mac-trien-lam-thanh-co-loa-tu-truyen-thuyet-den-hien-thuc-post784056.html"}]};
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const NG = {}; D.nguon.forEach((n, i) => NG[n.k] = { ...n, i: i + 1 });
+const cite = s => s.replace(/\[\[([a-z0-9_]+)\]\]/g, (m, k) => NG[k] ? `<a class="ref" href="${NG[k].url}" target="_blank" rel="noopener" title="${esc(NG[k].ten)}">${NG[k].i}</a>` : '');
+const vn = (x, d = 1) => { const [i, f] = String(Math.round(x * 10 ** d) / 10 ** d).split('.'); return i.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (f ? ',' + f : ''); };
+const RING = {}; D.rings.forEach(r => RING[r.id] = r);
+const COLOR = { noi: '#B26A1A', trung: '#2F7A64', ngoai: '#5559A6', song: '#4D8FA8' };
+
+/* ================= Nội dung (viết mới, có dẫn nguồn) ================= */
+const RC = {
+  noi: {
+    mo: 'Vòng trong cùng, gần hình chữ nhật, là vòng duy nhất có hình học đều. Khu đền thờ An Dương Vương (Đền Thượng) và đình Cổ Loa nằm trong hoặc sát vòng này. Mặt ngoài lũy dốc đứng, mặt trong thoải.',
+    so: [['Chu vi', '≈ 1.650 m', 'viwiki nhandan11 thaogiang'], ['Cao trung bình', '≈ 5 m', 'viwiki'], ['Chân lũy', '20–30 m', 'viwiki'], ['Mặt lũy', '6–12 m', 'viwiki'], ['Ụ hoả hồi', '18 ụ nhô ra mặt ngoài', 'viwiki'], ['Cửa', '1, phía nam', 'viwiki nhandan11']],
+    nd: 'Niên đại còn tranh luận. Có ý kiến cho rằng vòng này được làm về sau, thời Ngô Quyền [[viwiki]] [[phapluat11]]; có ý kiến cho rằng hình dạng hiện nay là do tu sửa thời Hán, thời Mã Viện [[thaogiang]]. Vì vậy ở giai đoạn Âu Lạc cảnh để thành Nội mờ.',
+    hao: { gap: 6, w: 20, d: null, ghi: 'Hào rộng 10–30 m là số chung cho cả ba vòng; độ sâu chưa có số đo công bố.' }
+  },
+  trung: {
+    mo: 'Vòng giữa, không đều, đắp nối các gò đất tự nhiên nên uốn lượn. Đây là vòng được nghiên cứu kỹ nhất: hố khai quật Xóm Thượng gần cửa Bắc (2007–2008) cắt ngang toàn bộ bề rộng lũy.',
+    so: [['Chu vi', '≈ 6.500 m', 'viwiki nhandan11'], ['Lũy thời An Dương Vương, hố Xóm Thượng', 'rộng 21,5 m, cao 4,5 m', 'viwiki'], ['Cao hiện nay', '≈ 9 m; chỗ cao nhất 10 m', 'kim16 viwiki'], ['Mặt lũy trung bình', '≈ 10 m', 'viwiki'], ['Hào, hố Xóm Thượng', 'cách chân lũy 6 m, rộng 12 m, sâu 4,8 m', 'viwiki'], ['Cửa', '5 (có nguồn ghi 4)', 'viwiki nhandan11']],
+    nd: 'Niên đại C14 của nhóm Nam C. Kim: phần đáy sớm nhất khoảng thế kỷ IV TCN; pha giữa, tức lũy chính, khoảng 300–100 TCN, trước khi nhà Hán đến; lớp đổ cuối cùng khoảng thế kỷ XV–XVI [[kim16]] [[kim10]]. Mặt cắt có 3 thời kỳ, 5 giai đoạn đắp chính; dưới lũy chính còn một hệ phòng thủ nhỏ hơn của cư dân Đông Sơn [[kim16]] [[qdnd14]].',
+    hao: { gap: 6, w: 12, d: 4.8, ghi: 'Độ sâu 4,8 m là đáy hào cổ trong địa tầng, không phải mực nước hiện nay.' }
+  },
+  ngoai: {
+    mo: 'Vòng ngoài cùng, uốn theo địa hình. Phía nam và đông nam dùng sông Hoàng Giang làm hào tự nhiên. Vòng này bị phá hoại nặng nhất.',
+    so: [['Chu vi', '≈ 8.000 m', 'viwiki enwiki kim16'], ['Cao trung bình', '3–4 m; có chỗ hơn 8 m', 'viwiki'], ['Hố Đống Dân 2012', 'rộng 26 m, cao 2,5 m sau lần đắp thêm cuối', 'thanhtra12'], ['Giai đoạn 2 (hố Đống Dân)', 'rộng 14,18 m, cao 1,14 m', 'thanhtra12'], ['Cửa', '4', 'viwiki nhandan11'], ['Hào', 'rộng 10–30 m', 'viwiki']],
+    nd: 'Hố khai quật 72 m² gần gò Đống Dân (2012) cho thấy 4 giai đoạn đắp và 2 lần đắp thêm: có lũy và hào của cư dân Đông Sơn muộn, giai đoạn đắp thời An Dương Vương và một lần đắp thêm thời Lê. Đây là báo cáo sơ bộ, chưa có niên đại tuyệt đối [[thanhtra12]].',
+    hao: { gap: 6, w: 20, d: null, ghi: 'Phía nam và đông nam là sông Hoàng Giang; phần hào còn lại đào sát chân thành.' }
+  },
+  song: {
+    ten: 'Sông Hoàng Giang và hệ thống hào',
+    mo: 'Sông Hoàng (Hoàng Giang) xưa là một nhánh lớn nối sông Hồng với sông Cầu, nay bị bồi thành lạch nhỏ. Sông làm hào tự nhiên ở phía nam và đông nam thành Ngoại; hào các vòng nối với nhau, thông ra sông qua Cống Song và Cửa Khâu ở Đầm Cả [[viwiki]]. Mạng hào và hồ vừa để phòng thủ vừa để đi lại bằng thuyền [[enwiki]].',
+    est: 'Đường sông, bề rộng sông và vị trí Đầm Cả trong cảnh là minh hoạ, không phải bản đồ đo đạc.'
+  }
+};
+const POI_TXT = {
+  den: { t: 'Khuôn đúc mũi tên đồng, Đền Thượng', k: 'hien_vat', b: 'Khai quật 2004–2007 ở khu Đền Thượng, trong thành Nội: khuôn đá ba mang để đúc mũi tên ba cạnh, cùng nhiều mảnh khuôn vỡ, phế vật, đá nguyên liệu và dấu vết lò đúc; số mang khuôn ước tính hàng trăm. Văn hoá Đông Sơn, khoảng thế kỷ V–I TCN. Bộ sưu tập khuôn đúc Cổ Loa được công nhận bảo vật quốc gia (công bố 7/1/2021) [[seaa]] [[quocte21]] [[nd_muiten]].' },
+  cauvuc: { t: 'Kho mũi tên đồng Cầu Vực', k: 'hien_vat', b: 'Tháng 6/1959, công nhân đắp đường vào xưởng phim phát hiện một hố gần vuông, cạnh khoảng 1 m, sâu 1,2 m, chứa khoảng 10.000 mũi tên đồng nặng 93 kg, chia 7 loại dài 6–11 cm. Khoảng 3/4 còn nguyên dấu đúc, chưa dùng [[nd_muiten]] [[vnx_muiten]] [[enwiki]].', est: 'Vị trí ghim là phỏng chừng: nguồn chỉ ghi gần chân thành Ngoại, gần lối vào phía nam.' },
+  matre: { t: 'Trống đồng Cổ Loa, khu Mả Tre', k: 'hien_vat', b: 'Ngày 21/6/1982, khi làm ruộng ở khu Mả Tre (giữa thành Trung và thành Nội, phía tây nam cửa Nam), người dân phát hiện một trống đồng nặng 72 kg, cao 57 cm, mặt rộng 73,6 cm. Bên trong có khoảng 200 hiện vật đồng, nhiều nhất là lưỡi cày: 96 chiếc theo Higham [[enwiki]]; Trung tâm Bảo tồn Di sản Thăng Long – Hà Nội ghi 247 hiện vật với 143 lưỡi cày [[matre]]. Trống được công nhận bảo vật quốc gia năm 2015 [[dautu]].', est: 'Vị trí ghim là phỏng chừng theo mô tả "phía tây nam cửa Nam".' },
+  xomthuong: { t: 'Hố khai quật Xóm Thượng', k: 'khao_co', b: 'Hố cắt ngang toàn bộ bề rộng lũy thành Trung gần cửa Bắc (Nam C. Kim, Lại Văn Tới, Trịnh Hoàng Hiệp, 2007–2008): 3 thời kỳ, 5 giai đoạn đắp chính. Lũy thời An Dương Vương rộng 21,5 m, cao 4,5 m; hào cách chân lũy 6 m, rộng 12 m, sâu 4,8 m. Trong đất đắp có lớp ngói, gốm "Cổ Loa" [[kim16]] [[kim10]] [[viwiki]].' },
+  dongdan: { t: 'Hố khai quật Đống Dân 2012', k: 'khao_co', b: 'Hố 72 m² trên thành Ngoại gần gò Đống Dân: 4 giai đoạn đắp và 2 lần đắp thêm. Giai đoạn 2 rộng 14,18 m, cao 1,14 m; giai đoạn 3 cao thêm 0,6 m, đất lẫn mảnh ngói Cổ Loa; giai đoạn 4 cao thêm 0,25 m. Sau lần đắp thêm cuối, lũy rộng 26 m, cao 2,5 m so với mặt nền [[thanhtra12]].', est: 'Vị trí ghim là phỏng chừng.' },
+  dinh: { t: 'Đình Cổ Loa (Ngự Triều Di Quy)', k: 'nay', b: 'Cửa duy nhất của thành Nội nhìn vào kiến trúc Ngự Triều Di Quy [[viwiki]]. Đình là di tích thờ cúng của làng, có sau thời Âu Lạc rất lâu. Toạ độ theo OpenStreetMap [[osm]].' },
+  am: { t: 'Am Mỵ Châu', k: 'truyen_thuyet', b: 'Nơi thờ gắn với truyện Mỵ Châu – Trọng Thủy. Chưa có bằng chứng khảo cổ cho nhân vật và sự kiện trong truyện; am là di tích thờ cúng có muộn. Toạ độ theo OpenStreetMap [[osm]].' },
+  gieng: { t: 'Giếng Ngọc (giếng Trọng Thủy)', k: 'truyen_thuyet', b: 'Theo truyền thuyết là nơi Trọng Thủy tự vẫn. Đây là di tích gắn với truyện, không phải bằng chứng cho sự kiện. Toạ độ theo OpenStreetMap [[osm]].' },
+  damca: { t: 'Đầm Cả', k: 'nuoc', b: 'Hồ ở phía đông, nơi hào thành thông với sông Hoàng Giang qua Cống Song và Cửa Khâu [[viwiki]].', est: 'Vị trí và hình dạng hồ trong cảnh là phỏng chừng.' }
+};
+const KIND = { hien_vat: ['#B26A1A', 'Hiện vật'], khao_co: ['#2F7A64', 'Khảo cổ'], nay: ['#636366', 'Di tích ngày nay'], truyen_thuyet: ['#5559A6', 'Gắn với truyền thuyết'], nuoc: ['#4D8FA8', 'Mạng nước'] };
+
+// Mặt cắt lũy theo từng giai đoạn (b: chân, t: mặt, h: cao, m). do: số đo có nguồn; null: không có lũy
+const PH = [
+  { nhan: 'Trước TK IV TCN', nho: 'Đông Sơn', ten: 'Trước thế kỷ IV TCN', r: {}, pins: [],
+    b: 'Vùng đất cao ráo bên tả ngạn sông Hoàng, ở đỉnh tam giác châu thổ sông Hồng, giữa đồng bằng trồng lúa. Cư dân văn hoá Đông Sơn đã sống và đúc đồng quanh đây: di chỉ Đình Tràng gần đó có 56 lò đúc đồng, lớp Đông Sơn có niên đại C14 khoảng 780–620 TCN. Lưu ý đó là niên đại của di chỉ, không phải của thành [[thaogiang]].',
+    est: 'Chưa có lũy. Ruộng, làng cây trong cảnh là minh hoạ.' },
+  { nhan: 'Thế kỷ IV TCN', nho: 'lũy sớm', ten: 'Thế kỷ IV TCN: lũy sớm nhất', r: { trung: { b: 12, t: 5, h: 1.5 } }, pins: [],
+    b: 'Phần đáy sớm nhất của lũy thành Trung, gần cửa Bắc, có niên đại C14 khoảng thế kỷ IV TCN [[kim16]]. Bên dưới lũy chính còn một hệ phòng thủ nhỏ hơn có trước: hào, lũy, hào, ụ phòng vệ và tường chắn của cư dân Đông Sơn [[qdnd14]] [[kim10]].',
+    est: 'Lũy sớm trong cảnh là phỏng dựng: chỉ biết nó tồn tại dưới lũy chính; đường đi, bề rộng và chiều cao là ước lượng.' },
+  { nhan: '300–100 TCN', nho: 'Âu Lạc', ten: 'Khoảng 300–100 TCN: kinh đô Âu Lạc', r: { trung: { b: 21.5, t: 10, h: 4.5, do: 1 }, ngoai: { b: 14.2, t: 7, h: 2 }, noi: { b: 25, t: 9, h: 5, ghost: 1 } }, pins: ['den', 'cauvuc', 'matre'],
+    b: 'Pha đắp chính của thành Trung, khoảng 300–100 TCN, trước khi nhà Hán đô hộ năm 111 TCN [[kim16]] [[enwiki]]. Sử cũ gắn thành với An Dương Vương, niên đại truyền thống khoảng 257–207 TCN [[enwiki]]. Thành Ngoại cũng có giai đoạn đắp thời An Dương Vương [[thanhtra12]]. Dân số kinh đô được ước tính khoảng 5.000–10.000 người [[enwiki]].',
+    est: 'Thành Trung dùng số đo hố Xóm Thượng (rộng 21,5 m, cao 4,5 m). Thành Ngoại lấy theo giai đoạn 2 hố Đống Dân (rộng 14 m, cao khoảng 2 m). Thành Nội để mờ vì niên đại còn tranh luận.' },
+  { nhan: 'Năm 939', nho: 'Ngô Quyền', ten: 'Năm 939: Ngô Quyền đóng đô', r: { trung: { b: 22.5, t: 10, h: 6 }, ngoai: { b: 16, t: 7, h: 2.4 }, noi: { b: 25, t: 9, h: 5, do: 1 } }, pins: ['den', 'cauvuc', 'matre'],
+    b: 'Sau chiến thắng Bạch Đằng, mùa xuân năm 939 Ngô Quyền xưng vương và chọn Cổ Loa làm kinh đô [[sggp24]]. Thành đã được nhiều đời sử dụng và bồi đắp: nhà Triệu, thời Đông Hán (Mã Viện), Lý Phật Tử, Ngô Quyền [[viwiki]] [[thaogiang]].',
+    est: 'Chiều cao thành Trung và thành Ngoại ở giai đoạn này là ước lượng nằm giữa số đo thời Âu Lạc và hiện trạng.' },
+  { nhan: 'TK XV–XVI', nho: 'lớp cuối', ten: 'Thế kỷ XV–XVI: những lớp đắp cuối', r: { trung: { b: 25, t: 10, h: 9 }, ngoai: { b: 26, t: 9, h: 3.5 }, noi: { b: 25, t: 9, h: 5, do: 1 } }, pins: ['den', 'cauvuc', 'matre'],
+    b: 'Lớp đổ chặt trên cùng của lũy thành Trung có niên đại khoảng thế kỷ XV–XVI [[kim16]]; thành Ngoại có một lần đắp thêm thời Lê [[thanhtra12]].',
+    est: 'Cảnh dùng chiều cao hiện trạng: thành Trung khoảng 9 m [[kim16]], thành Ngoại trung bình 3–4 m [[viwiki]].' },
+  { nhan: 'Ngày nay', nho: 'di tích', ten: 'Ngày nay: di tích quốc gia đặc biệt', r: { trung: { b: 25, t: 10, h: 9, do: 1 }, ngoai: { b: 26, t: 9, h: 3.5, do: 1 }, noi: { b: 25, t: 9, h: 5, do: 1 } }, pins: ['den', 'cauvuc', 'matre', 'xomthuong', 'dongdan', 'dinh', 'am', 'gieng'],
+    b: 'Cổ Loa ở phía bắc Hà Nội, cách trung tâm khoảng 17 km [[enwiki]], được xếp hạng di tích quốc gia đặc biệt ngày 27/9/2012 [[viwiki]]. Nhiều đoạn lũy còn cao, phủ cây; trong thành có đền thờ An Dương Vương, đình Cổ Loa, am Mỵ Châu, giếng Ngọc [[osm]]. Phía nam và tây nam khu di tích đang đô thị hoá mạnh.',
+    est: 'Nhà cửa trong cảnh là minh hoạ mật độ làng, không đúng từng ngôi nhà.' }
+];
+const TV = [
+  ['Số vòng và hình "xoáy ốc"', 'Thành có 9 vòng xoáy như hình con ốc, nên gọi là Loa Thành [[toanthu]].', 'Dấu tích hiện còn là 3 vòng thành khép kín, mỗi vòng có hào, không phải một đường xoắn liên tục [[viwiki]]. Con số 9 có thể là cách mô tả cả các gò đống, ụ lũy rải rác.'],
+  ['Tên gọi "Loa"', '"Loa" là con ốc, nên thành xoáy ốc.', 'Học giả chưa thống nhất: Đào Duy Anh cho rằng có lẽ là phiên âm "Kẻ Loa" của dân gian; PGS.TS Nguyễn Hải Kế cho rằng hiểu theo nghĩa "ốc" là không có cơ sở [[nhandan11]] [[ngonngu]].'],
+  ['Nỏ thần', 'Rùa vàng cho vuốt làm lẫy nỏ, một phát bắn ra nhiều mũi tên.', 'Có bằng chứng sản xuất và tích trữ mũi tên đồng ba cạnh quy mô lớn: kho Cầu Vực khoảng 10.000 mũi, khuôn đúc ở Đền Thượng [[nd_muiten]] [[seaa]]. Các nguồn đã đọc không nêu hiện vật nào là chiếc nỏ "thần".'],
+  ['Mỵ Châu – Trọng Thủy', 'Trọng Thủy lừa Mỵ Châu đổi lẫy nỏ, Âu Lạc mất nước.', 'Không có bằng chứng khảo cổ cho nhân vật và sự kiện trong truyện. Việc nhà Triệu, rồi nhà Hán kiểm soát vùng này được sử sách ghi lại [[enwiki]].'],
+  ['Năm xây thành', 'An Dương Vương xây thành sau khi lập Âu Lạc, khoảng 257 TCN.', 'C14 cho lũy chính thành Trung khoảng 300–100 TCN và một lũy sớm hơn từ thế kỷ IV TCN [[kim16]]. Khung thời gian phù hợp với truyền thống, nhưng khảo cổ không xác định được một năm cụ thể.'],
+  ['Ai xây thành Nội', 'Cả ba vòng do An Dương Vương xây.', 'Còn tranh luận: thành Nội hình chữ nhật có thể được làm hoặc sửa muộn hơn, thời Hán hoặc thời Ngô Quyền [[viwiki]] [[thaogiang]].']
+];
+const YCCD = ['Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Văn Lang - Âu Lạc.', 'Phân tích được cơ sở hình thành văn minh Văn Lang - Âu Lạc.', 'Nêu được những thành tựu tiêu biểu của nền văn minh Văn Lang - Âu Lạc về đời sống vật chất, đời sống tinh thần, tổ chức xã hội, Nhà nước.'];
+
+/* ================= Renderer, cảnh, camera ================= */
+const host = $('stage');
+let renderer;
+try { renderer = new THREE.WebGPURenderer({ antialias: true, powerPreference: 'high-performance', forceWebGL: location.hash === '#webgl' }); await renderer.init(); }
+catch (e) { $('loading').textContent = 'Trình duyệt này chưa chạy được WebGPU hay WebGL 2.'; throw e; }
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 1.02;
+host.prepend(renderer.domElement);
+const scene = new THREE.Scene();
+const SKY = new THREE.Color('#EEF1F4');
+scene.backgroundNode = mix(uniform(new THREE.Color('#FFFFFF')), uniform(new THREE.Color('#E6EBF0')), smoothstep(0.15, 1.0, screenUV.y));
+if (TSL.fog && TSL.rangeFogFactor) scene.fogNode = TSL.fog(uniform(SKY), TSL.rangeFogFactor(7000, 15000));
+const camera = new THREE.PerspectiveCamera(34, 1, 8, 40000);
+scene.add(new THREE.HemisphereLight(0xFFFFFF, 0xB8AE96, 1.25));
+const sun = new THREE.DirectionalLight(0xFFF6EA, 2.2); sun.position.set(0.55, 0.5, 0.65); scene.add(sun);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.dampingFactor = 0.08; controls.minDistance = 120; controls.maxDistance = 15000; controls.maxPolarAngle = 1.42; controls.zoomSpeed = 1.1;
+controls.screenSpacePanning = false;
+
+/* ================= Mặt đất: ruộng lúa đồng bằng (shader thủ tục) ================= */
+const hash2 = v => fract(sin(dot(v, vec2(127.1, 311.7))).mul(43758.5453));
+{
+  const g = new THREE.PlaneGeometry(26000, 26000, 1, 1); g.rotateX(-Math.PI / 2);
+  const m = new THREE.MeshStandardNodeMaterial({ roughness: 0.95, metalness: 0 });
+  const p = positionWorld.xz;
+  const blk = floor(p.div(430));
+  const ang = hash2(blk).sub(0.5).mul(0.9);
+  const cs = cos(ang), sn = sin(ang);
+  const q = vec2(p.x.mul(cs).sub(p.y.mul(sn)), p.x.mul(sn).add(p.y.mul(cs)));
+  const sz = vec2(38, 26);
+  const f = fract(q.div(sz)), cell = floor(q.div(sz));
+  const edge = min(min(f.x, f.x.oneMinus()).mul(38), min(f.y, f.y.oneMinus()).mul(26));
+  const h = hash2(cell.add(blk.mul(17.0)));
+  const dist = positionWorld.sub(cameraPosition).length();
+  const near = smoothstep(4200, 1200, dist);
+  let col = mix(vec3(0.755, 0.81, 0.63), vec3(0.79, 0.835, 0.655), h);
+  col = mix(col, vec3(0.84, 0.82, 0.65), smoothstep(0.9, 0.94, h));
+  col = mix(col, vec3(0.72, 0.80, 0.78), smoothstep(0.05, 0.02, h));
+  const avg = vec3(0.775, 0.82, 0.645);
+  col = mix(avg, col, near.mul(0.85).add(0.15));
+  col = mix(col, vec3(0.88, 0.88, 0.80), smoothstep(1.1, 0.35, edge).mul(near).mul(0.55));
+  const r = p.sub(vec2(-120, 0)).length();
+  col = mix(col, vec3(0.92, 0.935, 0.945), smoothstep(4200, 8800, r));
+  m.colorNode = col;
+  const ground = new THREE.Mesh(g, m); scene.add(ground);
+}
+
+/* ================= Ba vòng thành: lũy hình thang đùn theo đường vòng ================= */
+const uEx = uniform(6);
+const ringObj = {};
+function gateMask(r, G = 15) {
+  const P = r.pts, n = P.length, cum = [0];
+  for (let i = 1; i <= n; i++) cum.push(cum[i - 1] + Math.hypot(P[i % n][0] - P[i - 1][0], P[i % n][1] - P[i - 1][1]));
+  const L = cum[n];
+  return P.map((_, i) => r.gate_idx.some(g => { let d = Math.abs(cum[i] - cum[g]); d = Math.min(d, L - d); return d < G; }));
+}
+function normals(P, c) {
+  const n = P.length;
+  return P.map((p, i) => {
+    const a = P[(i - 1 + n) % n], b = P[(i + 1) % n];
+    let tx = b[0] - a[0], tz = b[1] - a[1]; const l = Math.hypot(tx, tz) || 1; tx /= l; tz /= l;
+    let nx = tz, nz = -tx; if (nx * (p[0] - c[0]) + nz * (p[1] - c[1]) < 0) { nx = -nx; nz = -nz; }
+    return [nx, nz];
+  });
+}
+function runs(mask) { // các đoạn liên tục không phải cửa, trên vòng khép kín
+  const n = mask.length, out = []; let s = mask.findIndex(v => v); if (s < 0) return [[...Array(n).keys(), 0]];
+  let i = (s + 1) % n, cur = null;
+  for (let k = 0; k < n; k++, i = (i + 1) % n) {
+    if (!mask[i]) { if (!cur) cur = []; cur.push(i); } else if (cur) { out.push(cur); cur = null; }
+  }
+  if (cur) out.push(cur);
+  return out;
+}
+function buildWall(r) {
+  const P = r.pts, N = normals(P, r.c), mask = gateMask(r), R = runs(mask);
+  const aC = [], aN = [], aK = [], idx = []; let v = 0;
+  const rnd = i => 0.9 + 0.2 * (0.5 + 0.5 * Math.sin(i * 0.37 + r.per) * Math.cos(i * 0.11));
+  for (const run of R) {
+    const base = v;
+    run.forEach((i, j) => {
+      const jit = rnd(i);
+      for (const [s, top] of [[1, 0], [1, 1], [-1, 1], [-1, 0]]) { aC.push(P[i][0], P[i][1]); aN.push(N[i][0], N[i][1]); aK.push(s, top, jit); }
+      if (j > 0) { const a = base + (j - 1) * 4, b = base + j * 4; for (let k = 0; k < 3; k++) idx.push(a + k, b + k, a + k + 1, a + k + 1, b + k, b + k + 1); }
+    });
+    const m = run.length, e0 = base, e1 = base + (m - 1) * 4;
+    idx.push(e0, e0 + 1, e0 + 2, e0, e0 + 2, e0 + 3, e1, e1 + 2, e1 + 1, e1, e1 + 3, e1 + 2);
+    v += m * 4;
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(aK.length), 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(new Float32Array(aK.length).map((_, i) => i % 3 === 1 ? 1 : 0), 3));
+  g.setAttribute('aC', new THREE.Float32BufferAttribute(aC, 2)); g.setAttribute('aN', new THREE.Float32BufferAttribute(aN, 2)); g.setAttribute('aK', new THREE.Float32BufferAttribute(aK, 3));
+  g.setIndex(idx); g.boundingSphere = new THREE.Sphere(new THREE.Vector3(r.c[0], 0, r.c[1]), 3000);
+  const uB = uniform(1), uT = uniform(1), uH = uniform(0), uO = uniform(0), uHL = uniform(0);
+  const C = attribute('aC', 'vec2'), Nn = attribute('aN', 'vec2'), K = attribute('aK', 'vec3');
+  const off = mix(K.x.mul(uB.mul(0.5)), K.x.mul(uT.mul(0.5)).add(uB.sub(uT).mul(0.25)), K.y);
+  const mat = new THREE.MeshStandardNodeMaterial({ roughness: 0.92, metalness: 0, flatShading: true, transparent: true });
+  mat.positionNode = vec3(C.x.add(Nn.x.mul(off)), K.y.mul(uH).mul(uEx).mul(K.z).add(0.05), C.y.add(Nn.y.mul(off)));
+  const earth = mix(vec3(0.66, 0.50, 0.32), vec3(0.50, 0.56, 0.33), K.y);
+  const HLC = { noi: [0.88, 0.46, 0.12], trung: [0.22, 0.64, 0.46], ngoai: [0.42, 0.44, 0.88] }[r.id];
+  mat.colorNode = mix(earth, vec3(...HLC), uHL.mul(0.85));
+  mat.opacityNode = uO;
+  const mesh = new THREE.Mesh(g, mat); mesh.frustumCulled = false; scene.add(mesh);
+  // Hào: dải nước ngoài chân lũy, giãn theo bề rộng chân lũy
+  const hao = RC[r.id].hao, oc = RING.ngoai.c;
+  const mC = [], mN = [], mK = [], mi = []; let w = 0;
+  for (const run of R) {
+    const segs = []; let cur = [];
+    for (const i of run) {
+      const a = Math.atan2(P[i][1] - oc[1], P[i][0] - oc[0]);
+      const river = r.id === 'ngoai' && a > -0.5 && a < 2.0;
+      if (river) { if (cur.length) segs.push(cur); cur = []; } else cur.push(i);
+    }
+    if (cur.length) segs.push(cur);
+    for (const sg of segs) {
+      if (sg.length < 2) continue;
+      const b0 = w;
+      sg.forEach((i, j) => { for (const s of [-1, 1]) { mC.push(P[i][0], P[i][1]); mN.push(N[i][0], N[i][1]); mK.push(s); } if (j > 0) { const a = b0 + (j - 1) * 2, b = b0 + j * 2; mi.push(a, b, a + 1, a + 1, b, b + 1); } });
+      w += sg.length * 2;
+    }
+  }
+  const mg = new THREE.BufferGeometry();
+  mg.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(mK.length * 3), 3)); mg.setAttribute('normal', new THREE.Float32BufferAttribute(new Float32Array(mK.length * 3).map((_, i) => i % 3 === 1 ? 1 : 0), 3));
+  mg.setAttribute('aC', new THREE.Float32BufferAttribute(mC, 2)); mg.setAttribute('aN', new THREE.Float32BufferAttribute(mN, 2)); mg.setAttribute('aS', new THREE.Float32BufferAttribute(mK, 1));
+  mg.setIndex(mi);
+  const S = attribute('aS', 'float');
+  const mo = uB.mul(0.5).add(hao.gap).add(hao.w * 0.5).add(S.mul(hao.w * 0.5));
+  const wm = waterMat(); wm.positionNode = vec3(C.x.add(Nn.x.mul(mo)), float(0.6), C.y.add(Nn.y.mul(mo))); wm.opacityNode = uO.mul(0.95);
+  const moat = new THREE.Mesh(mg, wm); moat.frustumCulled = false; scene.add(moat);
+  ringObj[r.id] = { mesh, moat, uB, uT, uH, uO, uHL, cur: { b: 1, t: 1, h: 0, o: 0 }, tgt: { b: 1, t: 1, h: 0, o: 0 }, N };
+}
+function waterMat() {
+  const m = new THREE.MeshStandardNodeMaterial({ roughness: 0.18, metalness: 0.0, transparent: true });
+  const dist = positionWorld.sub(cameraPosition).length();
+  m.colorNode = mix(vec3(0.42, 0.62, 0.70), vec3(0.62, 0.76, 0.80), smoothstep(800, 6000, dist));
+  return m;
+}
+D.rings.forEach(buildWall);
+
+// 18 ụ hoả hồi ở mặt ngoài thành Nội
+const bast = (() => {
+  const r = RING.noi, P = r.pts, N = ringObj.noi.N, n = P.length, mask = gateMask(r, 30), list = [];
+  for (let k = 0; k < 18; k++) { let i = Math.round((k + 0.5) * n / 18) % n; while (mask[i]) i = (i + 1) % n; list.push(i); }
+  const bg = new THREE.CylinderGeometry(0.42, 0.62, 1, 4, 1); bg.rotateY(Math.PI / 4);
+  const mesh = new THREE.InstancedMesh(bg, new THREE.MeshStandardNodeMaterial({ color: 0xB59670, roughness: 0.92, flatShading: true, transparent: true }), 18);
+  mesh.frustumCulled = false; scene.add(mesh);
+  return { mesh, list, P, N };
+})();
+const _m = new THREE.Matrix4(), _q = new THREE.Quaternion(), _s = new THREE.Vector3(), _p = new THREE.Vector3(), _Y = new THREE.Vector3(0, 1, 0);
+function placeBastions() {
+  const o = ringObj.noi.cur, h = o.h * uEx.value;
+  bast.list.forEach((i, k) => {
+    const [x, z] = bast.P[i], [nx, nz] = bast.N[i], d = o.b * 0.5 + 6;
+    _p.set(x + nx * d * 0.62, h * 0.43, z + nz * d * 0.62); _q.setFromAxisAngle(_Y, Math.atan2(-nz, nx)); _s.set(30, Math.max(0.01, h * 0.86), 26);
+    bast.mesh.setMatrixAt(k, _m.compose(_p, _q, _s));
+  });
+  bast.mesh.instanceMatrix.needsUpdate = true; bast.mesh.material.opacity = o.o; bast.mesh.visible = o.o > 0.02;
+}
+
+/* ================= Sông Hoàng Giang, Đầm Cả ================= */
+{
+  const curve = new THREE.CatmullRomCurve3(D.river.map(([x, z]) => new THREE.Vector3(x, 0, z)), false, 'centripetal');
+  const n = 360, pts = curve.getSpacedPoints(n), pos = [], idx = [];
+  for (let i = 0; i <= n; i++) {
+    const a = pts[Math.max(0, i - 1)], b = pts[Math.min(n, i + 1)], t = new THREE.Vector3().subVectors(b, a).normalize();
+    const w = 24 * Math.min(1, i / 20, (n - i) / 20) * (1 + 0.15 * Math.sin(i * 0.21)), nx = -t.z, nz = t.x;
+    pos.push(pts[i].x + nx * w, 0.5, pts[i].z + nz * w, pts[i].x - nx * w, 0.5, pts[i].z - nz * w);
+    if (i) { const k = (i - 1) * 2; idx.push(k, k + 2, k + 1, k + 1, k + 2, k + 3); }
+  }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
+  const m = waterMat(); m.side = THREE.DoubleSide; m.transparent = false; scene.add(new THREE.Mesh(g, m));
+  const sh = new THREE.Shape(D.lake.map(([x, z]) => new THREE.Vector2(x, -z)));
+  const lg = new THREE.ShapeGeometry(sh); lg.rotateX(-Math.PI / 2); lg.translate(0, 0.45, 0);
+  const lm = waterMat(); lm.transparent = false; scene.add(new THREE.Mesh(lg, lm));
+}
+
+/* ================= Làng cây, nhà (minh hoạ) ================= */
+let houses;
+{
+  const G = D.groves, n = G.length;
+  const tm = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 1), new THREE.MeshStandardNodeMaterial({ roughness: 0.9, flatShading: true }), n);
+  const c = new THREE.Color();
+  G.forEach(([x, z, s], i) => { s *= 2.1; _p.set(x, s * 0.95, z); _q.identity(); _s.set(s * 1.25, s * 1.05, s * 1.25); tm.setMatrixAt(i, _m.compose(_p, _q, _s)); c.setHSL(0.27 + 0.05 * Math.sin(i * 1.7), 0.34, 0.30 + 0.06 * Math.cos(i * 2.3)); tm.setColorAt(i, c); });
+  scene.add(tm);
+  const H = G.filter((_, i) => i % 3 === 0);
+  const hm = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardNodeMaterial({ roughness: 0.85, flatShading: true }), H.length);
+  H.forEach(([x, z], i) => { const a = i * 2.39; _p.set(x + 16 * Math.cos(a), 3, z + 16 * Math.sin(a)); _q.setFromAxisAngle(_Y, a); _s.set(9, 6, 13); hm.setMatrixAt(i, _m.compose(_p, _q, _s)); c.setHSL(0.04 + 0.03 * Math.sin(i), 0.45, 0.62 + 0.12 * Math.cos(i * 1.3)); hm.setColorAt(i, c); });
+  hm.visible = false; scene.add(hm); houses = hm;
+}
+
+/* ================= Ghim ================= */
+const pinsEl = $('pins'), PINS = [];
+function addPin(key, kind, label, getPos, color) {
+  const el = document.createElement('button'); el.className = 'pin' + (kind === 'ring' ? ' ring' : ''); el.type = 'button';
+  el.innerHTML = `<i style="background:${color}"></i><span>${esc(label)}</span>`;
+  el.addEventListener('click', e => { e.stopPropagation(); select(key); });
+  pinsEl.appendChild(el); PINS.push({ key, kind, el, getPos, show: false });
+}
+const ringLabelAt = { noi: -1.35, trung: -2.35, ngoai: -0.95 };
+for (const r of D.rings) {
+  const i = (() => { let best = 1e9, bi = 0; r.pts.forEach(([x, z], k) => { const a = Math.atan2(z - r.c[1], x - r.c[0]), d = Math.abs(Math.atan2(Math.sin(a - ringLabelAt[r.id]), Math.cos(a - ringLabelAt[r.id]))); if (d < best) { best = d; bi = k; } }); return bi; })();
+  const [x, z] = r.pts[i];
+  addPin(r.id, 'ring', r.ten, () => _v.set(x, ringObj[r.id].cur.h * uEx.value + 6, z), COLOR[r.id]);
+}
+addPin('song', 'ring', 'Sông Hoàng Giang', (() => { const [x, z] = D.river[Math.floor(D.river.length * 0.45)]; return () => _v.set(x, 4, z); })(), COLOR.song);
+for (const [k, p] of Object.entries(D.poi)) addPin(k, 'poi', POI_TXT[k].t.replace(', Đền Thượng', '').replace(', khu Mả Tre', ''), () => _v.set(p.p[0], 10, p.p[1]), KIND[POI_TXT[k].k][0]);
+const _v = new THREE.Vector3();
+const PIN_ORDER = () => [...PINS].sort((a, b) => (b.key === sel) - (a.key === sel) || (b.kind === 'ring') - (a.kind === 'ring'));
+
+/* ================= Trạng thái, giai đoạn ================= */
+let phase = 5, sel = null, lesson = null;
+function setPhase(i, quiet) {
+  phase = i;
+  const P = PH[i];
+  for (const r of D.rings) {
+    const s = P.r[r.id], o = ringObj[r.id];
+    if (s) o.tgt = { b: s.b, t: s.t, h: s.h, o: s.ghost ? 0.3 : 1 }; else o.tgt = { b: o.cur.b > 2 ? o.cur.b : 12, t: o.cur.t > 1 ? o.cur.t : 5, h: 0, o: 0 };
+  }
+  houses.visible = i === 5;
+  document.querySelectorAll('.ph').forEach((b, k) => { b.classList.toggle('primary', k === i); b.setAttribute('aria-pressed', k === i); });
+  $('tlNow').textContent = P.ten;
+  const act = document.querySelector('.ph.primary'), tr = $('track'); if (act && innerWidth < 761) tr.scrollTo({ left: act.offsetLeft - (tr.clientWidth - act.offsetWidth) / 2, behavior: quiet === 'init' ? 'auto' : 'smooth' });
+  if (!quiet && !lesson) renderInfo();
+}
+function pinVisible(p) {
+  if (p.kind === 'ring') return p.key === 'song' || ringObj[p.key].cur.o > 0.2;
+  if (p.key === 'damca') return true;
+  return PH[phase].pins.includes(p.key) || p.key === sel;
+}
+
+/* ================= Bảng thông tin ================= */
+function factsTable(rows) { return '<table class="facts">' + rows.map(([a, b, s]) => `<tr><td>${a}</td><td>${b} ${s ? cite(s.split(' ').map(k => `[[${k}]]`).join(' ')) : ''}</td></tr>`).join('') + '</table>'; }
+function sectionSVG(id) {
+  const s = PH[phase].r[id] || PH[5].r[id], hao = RC[id].hao, k = 6.2, Y0 = 70;
+  const b = s.b, t = s.t, h = s.h, sh = (b - t) * 0.25, X0 = (b / 2 + 9) * k;
+  const X = m => (X0 + m * k).toFixed(1), Y = m => (Y0 - m * k).toFixed(1);
+  const xo = b / 2 + hao.gap, xw = xo + hao.w, dep = hao.d || 3;
+  const W = Math.round(X0 + (xw + 6) * k), est = !s.do;
+  const lab = (x, y, txt, a = 'middle') => `<text x="${x}" y="${y}" text-anchor="${a}" font-size="10.5" fill="#424245" font-weight="600">${txt}</text>`;
+  return `<svg viewBox="0 0 ${W} 112" role="img" aria-label="Mặt cắt lũy ${RING[id].ten}">
+  <rect x="0" y="${Y0}" width="${W}" height="42" fill="#EFE8DC"/>
+  <path d="M${X(xo)} ${Y0} L${X(xo + 1.5)} ${Y(-dep)} L${X(xw - 1.5)} ${Y(-dep)} L${X(xw)} ${Y0}Z" fill="#B9D3DB" stroke="#4D8FA8" stroke-width="1" ${hao.d ? '' : 'stroke-dasharray="3 3"'}/>
+  <path d="M${X(-b / 2)} ${Y0} L${X(-t / 2 + sh)} ${Y(h)} L${X(t / 2 + sh)} ${Y(h)} L${X(b / 2)} ${Y0}Z" fill="#B09068" stroke="#6E5638" stroke-width="1" ${est ? 'stroke-dasharray="4 3"' : ''}/>
+  <line x1="0" y1="${Y0}" x2="${W}" y2="${Y0}" stroke="#8E8E93" stroke-width="1"/>
+  <g transform="translate(${X(-b / 2 - 4)},${Y0}) scale(${k / 10})"><circle cx="0" cy="-14.5" r="1.6" fill="#1D1D1F"/><path d="M-1.5-12.5h3l.6 7h-1l-.4 5.5h-1.4l-.4-5.5h-1z" fill="#1D1D1F"/></g>
+  ${lab(X(0), Y0 + 15, `chân ${est ? '≈ ' : ''}${vn(b)} m`)}
+  ${lab(X(sh), +Y(h) - 5, `mặt ${est ? '≈ ' : ''}${vn(t)} m · cao ${est ? '≈ ' : ''}${vn(h)} m`)}
+  ${lab(X((xo + xw) / 2), Y0 + 15 + (hao.d ? 0 : 0), `hào ${hao.d ? '' : '≈ '}${hao.w} m`)}
+  ${lab(X((xo + xw) / 2), +Y(-dep) + 13, hao.d ? `sâu ${vn(hao.d)} m` : 'độ sâu chưa đo')}
+  ${lab(X(b / 2 + hao.gap / 2), Y0 - 6, `${hao.gap} m`)}
+  ${lab(8, 12, 'trong thành', 'start')}${lab(W - 8, 12, 'ngoài thành →', 'end')}
+  </svg><div class="small">Mặt cắt đúng tỉ lệ (người cao 1,6 m để so sánh). Nét đứt: số ước lượng; nét liền: số đo có nguồn.</div>`;
+}
+function ringCard(id) {
+  const r = RING[id], c = RC[id];
+  if (id === 'song') return `<div class="card"><div class="eyebrow" style="color:${COLOR.song}">Mạng nước</div><h2>${c.ten}</h2><p>${cite(c.mo)}</p><div class="est">${c.est}</div></div>`;
+  return `<div class="card"><div class="eyebrow" style="color:${COLOR[id]}">Vòng thành</div><h2>${r.ten}</h2><p>${cite(c.mo)}</p>
+    <div class="sec">${PH[phase].r[id] ? '' : '<div class="est">Ở giai đoạn này chưa có lũy; mặt cắt dưới đây là hiện trạng.</div>'}${sectionSVG(id)}</div>
+    <h3>Số đo</h3>${factsTable(c.so)}<h3>Niên đại</h3><p>${cite(c.nd)}</p><p class="small">${c.hao.ghi}</p></div>`;
+}
+function poiCard(k) {
+  const t = POI_TXT[k], [col, kind] = KIND[t.k];
+  return `<div class="card"><div class="eyebrow" style="color:${col}">${kind}</div><h2>${t.t}</h2><p>${cite(t.b)}</p>${t.est ? `<div class="est">${t.est}</div>` : ''}</div>`;
+}
+function renderInfo() {
+  const P = PH[phase];
+  const tags = `<span class="tag do">● số đo có nguồn</span><span class="tag uoc">○ ước lượng, phỏng dựng</span>`;
+  $('info').className = 'glass'; $('info').classList.remove('lesson');
+  $('info').innerHTML = `<div class="eyebrow">Giai đoạn đang xem</div><h2>${P.ten}</h2><p>${cite(P.b)}</p><div class="est">${cite(P.est)}</div>
+    ${sel ? (RING[sel] || sel === 'song' ? ringCard(sel) : poiCard(sel)) : '<div class="card hint">Chạm vào một vòng thành, dòng sông hoặc một ghim để xem số đo, mặt cắt và nguồn.</div>'}
+    <div>${tags}</div>
+    <div class="foot"><button class="btn" data-sheet="tv">Truyền thuyết và bằng chứng</button><button class="btn" data-sheet="yccd">Yêu cầu cần đạt</button><button class="btn" data-sheet="src">Nguồn</button></div>
+    <p class="small" style="margin-top:12px">Đường đi của ba vòng thành là sơ đồ phỏng dựng theo chu vi và hình dạng được mô tả, vì chưa có bản đồ mở có toạ độ tuyến thành. Mặt cắt, chu vi, số cửa theo tài liệu khảo cổ đã dẫn.</p>`;
+}
+function select(k, fly) {
+  sel = k === sel && !fly ? null : k;
+  for (const r of D.rings) ringObj[r.id].uHL.value = sel === r.id ? 1 : 0;
+  document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c.dataset.sel === sel));
+  PINS.forEach(p => p.el.classList.toggle('on', p.key === sel));
+  if (!lesson) renderInfo();
+  if (sel && fly !== false && !lesson) flyToKey(sel);
+}
+
+/* ================= Camera ================= */
+const HOME = { t: [-160, 0, 60], d: 6600, pol: 48, az: 28 };
+const MAP = { t: [-150, 0, 20], d: 8200, pol: 0.6, az: 0 };
+let flight = null;
+function camPose({ t, d, pol, az }) {
+  const p = pol * Math.PI / 180, a = az * Math.PI / 180;
+  return { pos: new THREE.Vector3(t[0] + d * Math.sin(p) * Math.sin(a), t[1] + d * Math.cos(p), t[2] + d * Math.sin(p) * Math.cos(a)), tgt: new THREE.Vector3(...t) };
+}
+function fly(pose, dur = 1.6) { const P = camPose(pose); flight = { p0: camera.position.clone(), t0: controls.target.clone(), p1: P.pos, t1: P.tgt, s: performance.now(), dur }; }
+function keyPos(k) {
+  if (RING[k]) { const r = RING[k]; return [r.c[0], r.c[1]]; }
+  if (k === 'song') return D.river[Math.floor(D.river.length * 0.45)];
+  return D.poi[k].p;
+}
+function flyToKey(k) {
+  const [x, z] = keyPos(k);
+  if (RING[k]) fly({ t: [x, 0, z + 40], d: { noi: 1500, trung: 3800, ngoai: 5200 }[k], pol: 50, az: 25 });
+  else if (k === 'song') fly({ t: [x, 0, z], d: 2600, pol: 55, az: 40 });
+  else fly({ t: [x, 0, z], d: 1100, pol: 55, az: 30 });
+}
+
+/* ================= Bài học theo bước ================= */
+const STEPS = [
+  { t: 'Một kinh đô ở đỉnh châu thổ', ph: 0, cam: { t: [-150, 0, 100], d: 7600, pol: 45, az: 20 },
+    b: 'Cổ Loa nằm trên vùng đất cao ráo bên tả ngạn sông Hoàng Giang, ở đỉnh tam giác châu thổ sông Hồng. Xung quanh là đồng bằng trồng lúa; dòng sông nối sông Hồng với sông Cầu. Cư dân Đông Sơn đã đúc đồng quanh đây từ rất sớm (di chỉ Đình Tràng, 56 lò đúc) [[thaogiang]].<br><br>Hãy để ý: đất cao để tránh lụt, sông để đi lại, ruộng để nuôi người, nghề đồng để làm công cụ và vũ khí. Đó là một phần cơ sở hình thành văn minh Văn Lang – Âu Lạc.' },
+  { t: 'Lũy sớm nhất', ph: 1, focus: 'xomthuong', cam: 'xom', sel: 'trung',
+    b: 'Nhà khảo cổ đào một hố cắt ngang lũy thành Trung gần cửa Bắc. Phần đáy sớm nhất có niên đại C14 khoảng thế kỷ IV TCN, và bên dưới còn một hệ phòng thủ nhỏ hơn của cư dân Đông Sơn [[kim16]] [[qdnd14]]. Thành không mọc lên trong một ngày.' },
+  { t: 'Thành Trung, lũy chính', ph: 2, cam: 'xom2', sel: 'trung',
+    b: 'Pha đắp chính của thành Trung khoảng 300–100 TCN. Ở hố Xóm Thượng, lũy thời An Dương Vương rộng 21,5 m, cao 4,5 m; hào cách chân lũy 6 m, rộng 12 m, sâu 4,8 m [[viwiki]]. Mở thẻ thành Trung bên phải để xem mặt cắt đúng tỉ lệ.',
+    ask: { q: 'Để biết lũy được đắp vào khoảng thời gian nào, các nhà khảo cổ dựa chủ yếu vào đâu?', o: ['Truyện kể dân gian về An Dương Vương', 'Niên đại C14 của mẫu trong các lớp đất đắp', 'Hình dáng vòng thành nhìn từ trên cao'], a: 1, e: 'Niên đại C14 đo trên mẫu lấy từ từng lớp đất đắp là tư liệu vật chất, kiểm tra được. Truyện kể là tư liệu truyền miệng, cần đối chiếu.' } },
+  { t: 'Nước cũng là một phần của thành', ph: 2, cam: { t: [700, 0, 900], d: 3200, pol: 55, az: 55 }, sel: 'song',
+    b: 'Sông Hoàng Giang làm hào tự nhiên ở phía nam và đông nam. Hào các vòng nối nhau và thông ra sông, tạo một mạng nước vừa để phòng thủ, vừa để thuyền bè đi lại [[viwiki]] [[enwiki]].' },
+  { t: 'Thành Nội: câu hỏi còn mở', ph: 3, cam: { t: [-70, 0, 60], d: 1500, pol: 52, az: 20 }, sel: 'noi',
+    b: 'Thành Nội gần hình chữ nhật, chu vi khoảng 1.650 m, có 18 ụ hoả hồi và một cửa phía nam [[viwiki]]. Hình học đều khác hẳn hai vòng ngoài, và có ý kiến cho rằng vòng này được làm hoặc sửa muộn hơn, thời Hán hay thời Ngô Quyền (939) [[viwiki]] [[thaogiang]]. Lịch sử có những câu hỏi chưa có lời đáp cuối cùng.' },
+  { t: 'Sức người đắp thành', ph: 2, cam: { t: [-150, 0, 40], d: 4300, pol: 58, az: -30 },
+    b: 'Khối lượng đất đào đắp ước tính khoảng 2,2 triệu m³ [[viwiki]]; riêng lũy giai đoạn sớm cần hơn 5 triệu ngày công [[kim16]]. Người xưa nện đất thành từng lớp, rải gốm ngói vỡ ở chân và rìa lũy để chống sụt, kè đá ở chân thành, đóng cọc tre gỗ nơi đất lầy [[viwiki]] [[thaogiang]].<br><br>Huy động và điều phối chừng ấy sức người cần một bộ máy tổ chức và quyền lực tập trung: một dấu hiệu của Nhà nước.' },
+  { t: 'Mũi tên và khuôn đúc', ph: 2, focus: 'cauvuc', sel: 'cauvuc',
+    b: 'Năm 1959, kho Cầu Vực lộ ra khoảng 10.000 mũi tên đồng, nặng 93 kg [[nd_muiten]]. Năm 2004–2007, ở Đền Thượng tìm thấy khuôn đá ba mang để đúc mũi tên, cùng dấu vết lò đúc [[seaa]]. Vũ khí được sản xuất hàng loạt ngay tại kinh đô.' },
+  { t: 'Trống đồng và lưỡi cày', ph: 2, focus: 'matre', sel: 'matre',
+    b: 'Năm 1982, trống đồng Mả Tre nặng 72 kg chứa khoảng 200 hiện vật đồng, nhiều nhất là lưỡi cày [[enwiki]] [[matre]]. Nông nghiệp lúa nước dùng cày là nền của đời sống vật chất; trống đồng còn gắn với đời sống tinh thần, lễ hội.<br><br>Các nguồn ghi số lượng khác nhau (96 hay 143 lưỡi cày): khi dùng tư liệu, cần ghi rõ nguồn.' },
+  { t: 'Truyền thuyết và bằng chứng', ph: 2, cam: MAP,
+    b: 'Sử cũ kể thành có 9 vòng xoáy như hình con ốc [[toanthu]]. Nhìn từ trên xuống, dấu tích hiện còn là 3 vòng khép kín, mỗi vòng có hào [[viwiki]]. Truyền thuyết nỏ thần gợi đến tài chế tạo vũ khí; bằng chứng là kho mũi tên và khuôn đúc.',
+    ask: { q: 'Dấu tích hiện còn cho thấy thành Cổ Loa có bao nhiêu vòng thành?', o: ['9 vòng xoáy ốc', '3 vòng khép kín, mỗi vòng có hào', '1 vòng duy nhất'], a: 1, e: 'Ba vòng: Nội, Trung, Ngoại. Hình ảnh 9 vòng xoáy ốc đến từ sử cũ và truyền thuyết.' } },
+  { t: 'Cổ Loa hôm nay', ph: 5, cam: HOME,
+    b: 'Cổ Loa là di tích quốc gia đặc biệt từ năm 2012 [[viwiki]]. Các đền, đình, am, giếng trong thành là nơi cộng đồng ghi nhớ lịch sử và truyền thuyết. Bảo tồn di tích là việc của sử học, của địa phương và của mỗi người.',
+    ask: { q: 'Phát biểu nào đúng nhất với bằng chứng khảo cổ hiện có?', o: ['Thành được xây xong đúng năm 257 TCN', 'Lũy chính thành Trung đắp khoảng 300–100 TCN, phù hợp khung thời gian Âu Lạc nhưng không chỉ ra năm cụ thể', 'Cả ba vòng thành chắc chắn có từ thời An Dương Vương'], a: 1, e: 'C14 cho một khoảng thời gian, không cho một năm. Niên đại thành Nội còn tranh luận.' } }
+];
+function stepCam(s) {
+  if (s.cam === 'xom' || s.cam === 'xom2') { const [x, z] = D.poi.xomthuong.p; return { t: [x, 0, z], d: s.cam === 'xom' ? 1300 : 900, pol: 60, az: s.cam === 'xom' ? 140 : 110 }; }
+  if (s.focus && !s.cam) { const [x, z] = D.poi[s.focus].p; return { t: [x, 0, z], d: 1200, pol: 55, az: 30 }; }
+  return s.cam;
+}
+function startLesson() { lesson = { i: 0, ans: {} }; $('bLesson').textContent = 'Thoát bài học'; showStep(); }
+function endLesson() { lesson = null; $('bLesson').textContent = 'Học theo bước'; renderInfo(); }
+function showStep() {
+  const L = lesson, s = STEPS[L.i], n = STEPS.length;
+  setPhase(s.ph, true);
+  sel = null; select(s.sel || null, false); if (!s.sel) select(null, false);
+  fly(stepCam(s), 1.8);
+  const a = s.ask, done = L.ans[L.i];
+  const box = $('info'); box.className = 'glass lesson';
+  box.innerHTML = `<div class="eyebrow">Học theo bước · ${L.i + 1}/${n}</div><div class="prog">${STEPS.map((_, k) => `<i class="${k <= L.i ? 'on' : ''}"></i>`).join('')}</div>
+    <h2>${s.t}</h2><p>${cite(s.b)}</p>
+    ${a ? `<div class="ask">${a.q}</div>${a.o.map((o, k) => `<button class="opt ${done != null ? (k === a.a ? 'ok' : (k === done ? 'bad' : '')) : ''}" data-k="${k}" ${done != null ? 'disabled' : ''}>${o}</button>`).join('')}<div id="fb">${done != null ? `<div class="fb">${done === a.a ? '<b>Chính xác.</b> ' : '<b>Chưa đúng.</b> '}${a.e}</div>` : ''}</div>` : ''}
+    ${s.sel ? (RING[s.sel] || s.sel === 'song' ? ringCard(s.sel) : poiCard(s.sel)) : ''}
+    <div class="nav"><button class="btn" id="lPrev" ${L.i ? '' : 'disabled'}>← Trước</button><button class="btn primary" id="lNext">${L.i === n - 1 ? 'Tổng kết' : 'Tiếp →'}</button></div>`;
+  box.scrollTop = 0;
+  box.querySelectorAll('.opt').forEach(b => b.onclick = () => { L.ans[L.i] = +b.dataset.k; showStep(); });
+  $('lPrev').onclick = () => { L.i--; showStep(); };
+  $('lNext').onclick = () => { if (L.i < n - 1) { L.i++; showStep(); } else summary(); };
+}
+function summary() {
+  const asks = STEPS.map((s, i) => [s, i]).filter(([s]) => s.ask), ok = asks.filter(([s, i]) => lesson.ans[i] === s.ask.a).length;
+  const box = $('info');
+  box.innerHTML = `<div class="eyebrow">Tổng kết</div><h2>Bạn trả lời đúng ${ok}/${asks.length} câu</h2>
+  <div class="card"><h3 style="margin-top:0">Ghi nhớ</h3><ul style="padding-left:18px;margin:0">
+  <li>Cổ Loa có 3 vòng thành đất, mỗi vòng có hào, nối với sông Hoàng Giang.</li>
+  <li>Lũy chính thành Trung đắp khoảng 300–100 TCN; có lũy sớm hơn từ thế kỷ IV TCN; thành được bồi đắp đến thế kỷ XV–XVI.</li>
+  <li>Khối lượng đất khoảng 2,2 triệu m³: dấu hiệu của tổ chức xã hội và Nhà nước.</li>
+  <li>Mũi tên, khuôn đúc, trống đồng và lưỡi cày cho biết về kỹ thuật luyện kim, nông nghiệp và đời sống tinh thần.</li>
+  <li>Truyền thuyết (9 vòng xoáy ốc, nỏ thần) cần được đối chiếu với bằng chứng.</li></ul></div>
+  <div class="card"><div class="eyebrow">Yêu cầu cần đạt</div><ul class="yccd" style="padding-left:18px;margin:6px 0 0">${YCCD.map(y => `<li>${y}</li>`).join('')}</ul></div>
+  <div class="nav"><button class="btn" id="lAgain">Học lại</button><button class="btn primary" id="lEnd">Khám phá tự do</button></div>`;
+  $('lAgain').onclick = startLesson; $('lEnd').onclick = endLesson;
+}
+
+/* ================= Bảng phụ ================= */
+function openSheet(kind) {
+  let h = '';
+  if (kind === 'tv') h = `<h2>Truyền thuyết và bằng chứng</h2><p class="small">Truyền thuyết là một loại tư liệu: nó cho biết người xưa nhớ và nghĩ gì về quá khứ. Bằng chứng khảo cổ cho biết điều gì đã để lại dấu vết vật chất. Hai loại tư liệu cần được đặt cạnh nhau, không gộp làm một.</p>
+    <table class="tv"><tr><th>Chủ đề</th><th>Truyền thuyết, sử cũ</th><th>Bằng chứng hiện có</th></tr>${TV.map(([a, b, c]) => `<tr><td>${a}</td><td>${cite(b)}</td><td>${cite(c)}</td></tr>`).join('')}</table>`;
+  if (kind === 'yccd') h = `<h2>Yêu cầu cần đạt</h2><p class="small">Chương trình GDPT 2018 môn Lịch sử, lớp 10, nội dung Văn minh Văn Lang – Âu Lạc (Thông tư 32/2018, sửa đổi bởi Thông tư 13/2022 và Thông tư 17/2025). Trích nguyên văn.</p><ul class="yccd">${YCCD.map(y => `<li>${y}</li>`).join('')}</ul>
+    <p class="small">Bài này dùng chung được cho cả ba bộ sách giáo khoa vì bám theo chương trình. Nội dung được viết mới từ các nguồn khảo cổ và sử liệu công khai, không chép từ sách giáo khoa.</p>`;
+  if (kind === 'src') h = `<h2>Nguồn</h2><p class="small">Các con số được đối chiếu nhiều nguồn; khi nguồn bất đồng, trang ghi cả hai. Bảng số liệu C14 đầy đủ nằm trong bài Antiquity 2010 (cần đăng ký), trang dùng số đã làm tròn công bố trong Archaeology 2016. Toạ độ đền, đình, am, giếng: © OpenStreetMap contributors (ODbL).</p><ol class="src">${D.nguon.map(n => `<li><a href="${n.url}" target="_blank" rel="noopener">${esc(n.ten)}</a></li>`).join('')}</ol>`;
+  $('sheetBox').innerHTML = `<button class="btn x" id="sheetX">Đóng</button>` + h;
+  $('sheet').classList.add('open'); $('sheetX').onclick = () => $('sheet').classList.remove('open');
+}
+$('sheet').addEventListener('click', e => { if (e.target.id === 'sheet') $('sheet').classList.remove('open'); });
+addEventListener('keydown', e => {
+  if (e.key === 'Escape') $('sheet').classList.remove('open');
+  if (e.target.closest && e.target.closest('input,textarea')) return;
+  if (e.key === 'ArrowRight' && !lesson) setPhase(Math.min(5, phase + 1));
+  if (e.key === 'ArrowLeft' && !lesson) setPhase(Math.max(0, phase - 1));
+});
+$('info').addEventListener('click', e => { const b = e.target.closest('[data-sheet]'); if (b) openSheet(b.dataset.sheet); });
+
+/* ================= Điều khiển ================= */
+$('track').innerHTML = PH.map((p, i) => `<button class="ph" data-i="${i}">${p.nhan}<small>${p.nho}</small></button>`).join('');
+$('track').addEventListener('click', e => { const b = e.target.closest('.ph'); if (!b) return; if (lesson) endLesson(); setPhase(+b.dataset.i); });
+$('chips').addEventListener('click', e => { const b = e.target.closest('.chip'); if (b) { if (lesson) endLesson(); select(b.dataset.sel); } });
+let exTgt = 6;
+$('segEx').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; exTgt = +b.dataset.v; $('segEx').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); $('badge').textContent = exTgt === 1 ? 'Sơ đồ phỏng dựng · tỉ lệ thật' : `Sơ đồ phỏng dựng · chiều cao ×${exTgt}`; });
+$('bHome').onclick = () => fly(HOME);
+$('bMap').onclick = () => fly(MAP);
+$('bLab').onclick = () => { const on = $('bLab').getAttribute('aria-pressed') !== 'true'; $('bLab').setAttribute('aria-pressed', on); pinsEl.classList.toggle('nolab', !on); };
+$('bLesson').onclick = () => lesson ? endLesson() : startLesson();
+
+// Chạm vào lũy: chiếu tia xuống mặt đất rồi tìm vòng gần nhất (lũy dựng bằng shader nên không bắt tia trực tiếp)
+const ray = new THREE.Raycaster(), plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0), hit = new THREE.Vector3();
+let down = null;
+renderer.domElement.addEventListener('pointerdown', e => { down = [e.clientX, e.clientY]; flight = null; });
+renderer.domElement.addEventListener('pointerup', e => {
+  if (!down || Math.hypot(e.clientX - down[0], e.clientY - down[1]) > 6) return; down = null;
+  const rc = renderer.domElement.getBoundingClientRect();
+  ray.setFromCamera(new THREE.Vector2((e.clientX - rc.left) / rc.width * 2 - 1, -((e.clientY - rc.top) / rc.height) * 2 + 1), camera);
+  if (!ray.ray.intersectPlane(plane, hit)) return;
+  const tol = Math.max(45, camera.position.distanceTo(hit) * 0.014);
+  let best = tol, key = null;
+  for (const r of D.rings) { if (ringObj[r.id].cur.o < 0.2) continue; for (const [x, z] of r.pts) { const d = Math.hypot(x - hit.x, z - hit.z); if (d < best) { best = d; key = r.id; } } }
+  for (const [x, z] of D.river) { const d = Math.hypot(x - hit.x, z - hit.z) - 40; if (d < best) { best = d; key = 'song'; } }
+  if (lesson) return;
+  select(key === sel ? null : key, false);
+});
+
+/* ================= Khung hình, vòng lặp ================= */
+let W = 1, H = 1;
+function layout() {
+  const r = host.getBoundingClientRect(); W = Math.max(1, r.width); H = Math.max(1, r.height);
+  renderer.setSize(W, H, false);
+  camera.aspect = W / H;
+  camera.fov = W / H < 1.2 ? Math.min(64, 2 * Math.atan(Math.tan(17 * Math.PI / 180) * 1.2 / (W / H)) * 180 / Math.PI) : 34;
+  if (innerWidth > 760) { const left = innerWidth > 1180 ? 420 : 356, right = innerWidth > 1180 ? 388 : 346; camera.setViewOffset(W, H, (right - left) / 2, 52, W, H); }
+  else camera.clearViewOffset();
+  camera.updateProjectionMatrix();
+}
+new ResizeObserver(layout).observe(host); layout();
+const P0 = camPose(HOME); camera.position.copy(P0.pos); controls.target.copy(P0.tgt);
+setPhase(5, 'init'); renderInfo();
+
+const clock = new THREE.Clock(), ease = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const NICE = [50, 100, 200, 250, 500, 1000, 2000, 5000];
+let first = true;
+renderer.setAnimationLoop(() => {
+  const dt = Math.min(0.05, clock.getDelta()), k = 1 - Math.exp(-dt * 3.2);
+  uEx.value += (exTgt - uEx.value) * k;
+  for (const r of D.rings) {
+    const o = ringObj[r.id];
+    for (const key of ['b', 't', 'h', 'o']) o.cur[key] += (o.tgt[key] - o.cur[key]) * k;
+    o.uB.value = o.cur.b; o.uT.value = o.cur.t; o.uH.value = o.cur.h; o.uO.value = o.cur.o;
+    o.mesh.visible = o.moat.visible = o.cur.o > 0.01;
+    o.mesh.material.depthWrite = o.cur.o > 0.6;
+  }
+  placeBastions();
+  if (flight) {
+    const ft = (performance.now() - flight.s) / 1000 / flight.dur, e = ease(Math.min(1, ft));
+    camera.position.lerpVectors(flight.p0, flight.p1, e); controls.target.lerpVectors(flight.t0, flight.t1, e);
+    if (ft >= 1) flight = null;
+  }
+  controls.update();
+  // ghim
+  const safeR = innerWidth > 760 ? W - (innerWidth > 1180 ? 392 : 350) : W, placed = [];
+  for (const p of PIN_ORDER()) {
+    const vis = pinVisible(p);
+    p.getPos(); _v.project(camera);
+    const x = (_v.x + 1) / 2 * W, y = (1 - _v.y) / 2 * H - 7;
+    const on = vis && _v.z < 1 && x > -20 && x < safeR - 10 && y > -10 && y < H + 10;
+    p.el.classList.toggle('hide', !on);
+    if (!on) continue;
+    p.el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px)`;
+    if (!p.w) p.w = p.el.querySelector('span').offsetWidth + 12;
+    const r = [x - 6, y - 11, x + (p.w || 20), y + 11], hitL = placed.some(q => r[0] < q[2] && r[2] > q[0] && r[1] < q[3] && r[3] > q[1]);
+    p.el.classList.toggle('dot', hitL && p.key !== sel);
+    if (!hitL || p.key === sel) placed.push(r);
+  }
+  // la bàn, thước tỉ lệ
+  $('roseSvg').style.transform = `rotate(${controls.getAzimuthalAngle()}rad)`;
+  const d = camera.position.distanceTo(controls.target), mpp = 2 * d * Math.tan(camera.fov * Math.PI / 360) / H;
+  let L = NICE[0]; for (const n of NICE) if (n / mpp <= 120) L = n;
+  $('scaleB').style.width = (L / mpp).toFixed(0) + 'px'; $('scaleT').textContent = L >= 1000 ? `${L / 1000} km` : `${L} m`;
+  renderer.render(scene, camera);
+  if (first) { first = false; $('loading').style.opacity = 0; setTimeout(() => $('loading').remove(), 600); }
+});
+window.coLoa = { setPhase, select, startLesson, fly, HOME, MAP, get phase() { return phase; } };
+</script>
+</body>
+</html>

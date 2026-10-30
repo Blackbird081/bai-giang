@@ -1,6 +1,6 @@
 # Bài Giảng
 
-Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài: hai hành trình 3D phóng tới nguyên tử của phân tử thật, lộ trình theo chương trình GDPT 2018 và thư viện 54 bài thí nghiệm. three.js r180, WebGPU với dự phòng WebGL 2, mỗi trang là một tệp HTML tự chứa.
+Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài: hai hành trình 3D phóng tới nguyên tử của phân tử thật, Thành Cổ Loa dựng theo số đo khảo cổ, lộ trình theo chương trình GDPT 2018 và thư viện 54 bài thí nghiệm. three.js r180, WebGPU với dự phòng WebGL 2, mỗi trang là một tệp HTML tự chứa.
 
 | Trang | Địa chỉ |
 |---|---|
@@ -9,9 +9,11 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Ribosome trên bàn (AR, mở trên điện thoại) | https://nclamvn.github.io/bai-giang/te-bao/ar.html |
 | Vào Ty Thể (ATP synthase PDB 6J5I) | https://nclamvn.github.io/bai-giang/ty-the/ |
 | Lộ trình Sinh học tế bào lớp 10 | https://nclamvn.github.io/bai-giang/chu-de/sinh-hoc-te-bao/ |
+| Thành Cổ Loa (Lịch sử 10) | https://nclamvn.github.io/bai-giang/lich-su-10/co-loa/ |
+| Lộ trình Lịch sử 10 | https://nclamvn.github.io/bai-giang/lich-su-10/ |
 | 54 bài thí nghiệm | https://nclamvn.github.io/bai-giang/#thu-vien |
 
-- Bản trên Claude: trang chính https://claude.ai/artifact/GKx2jb4nALqKE6FUDnLGXu · Tế Bào https://claude.ai/artifact/68y1264YdVFXQnzmHg5mrW · Ty Thể https://claude.ai/artifact/PLNECoseboZiMU7MXKREzy
+- Bản trên Claude: trang chính https://claude.ai/artifact/GKx2jb4nALqKE6FUDnLGXu · Tế Bào https://claude.ai/artifact/68y1264YdVFXQnzmHg5mrW · Cổ Loa https://claude.ai/artifact/FWgFyz3VTEfC6Ltg6apt4M · Ty Thể https://claude.ai/artifact/PLNECoseboZiMU7MXKREzy
 - Bản offline một file cho lớp học: [`offline/hanh-trinh-te-bao-offline.html`](offline/hanh-trinh-te-bao-offline.html) (9 MB) và [`offline/vao-ty-the-offline.html`](offline/vao-ty-the-offline.html) (7,6 MB); bấm "Download raw file", mở bằng Chrome hoặc Edge, không cần mạng.
 - Địa chỉ cũ (`ty-the.html`, `ar.html`, `chu-de-sinh-hoc-te-bao.html`, `thu-vien/`) tự chuyển sang địa chỉ mới.
 - Kế hoạch đồ hoạ: https://claude.ai/artifact/EdyMQyM2rYKcfFYwgFisvM · Hồ sơ nguồn: https://claude.ai/artifact/FmWrnRkoZDdedueUbAcUqh
@@ -31,6 +33,16 @@ Nút **Lên lớp** mở bài "Hành trình của một phân tử protein tiế
 
 [`thu-vien/gdpt2018.json`](thu-vien/gdpt2018.json) đối chiếu cả 54 bài thư viện cùng hai trang Tế Bào và Ty Thể với chương trình Vật lí, Hoá học, Sinh học, Địa lí, Khoa học tự nhiên, Lịch sử và Địa lí: 349 yêu cầu cần đạt trích nguyên văn, mỗi trích dẫn đã so khớp bằng máy với văn bản nguồn (nguồn ghi trong tệp). Đã soát các lần sửa đổi chương trình (Thông tư 13/2022, 17/2025). Trang thư viện lọc được theo lớp và hiện yêu cầu cần đạt trên từng thẻ bài. Đối chiếu chưa qua giáo viên bộ môn duyệt.
 
+## Lịch sử 10 và Thành Cổ Loa
+[`lich-su-10/`](lich-su-10/) là lộ trình Lịch sử lớp 10 theo **chương trình** môn Lịch sử (TT 32/2018, ban hành lại bởi TT 13/2022, sửa đổi bởi TT 17/2025), nên dùng chung cho ba bộ sách Kết nối tri thức, Chân trời sáng tạo, Cánh diều. Mỗi mục có yêu cầu cần đạt trích nguyên văn (dữ liệu [`lich-su-10/chuong-trinh.json`](lich-su-10/chuong-trinh.json)), cảnh 3D đã có hoặc dự kiến, và tên bài tương ứng của ba bộ sách để đối chiếu. Nội dung bài được viết mới từ nguồn khảo cổ và sử liệu công khai; không chép sách giáo khoa.
+
+[`lich-su-10/co-loa/`](lich-su-10/co-loa/) là bài mẫu: ba vòng thành Cổ Loa trên đồng bằng ven sông Hoàng Giang.
+- Số đo có nguồn: chu vi ba vòng (1.650 m, 6.500 m, 8.000 m), mặt cắt lũy (hố Xóm Thượng: rộng 21,5 m, cao 4,5 m; hào cách chân 6 m, rộng 12 m, sâu 4,8 m; hố Đống Dân 2012), số cửa, 18 ụ hoả hồi, niên đại C14 của nhóm Nam C. Kim. Toạ độ đền, đình, am, giếng theo OpenStreetMap (ODbL).
+- Phỏng dựng, ghi rõ trên trang: đường đi cụ thể của từng vòng (chưa có bản đồ mở có toạ độ tuyến thành), vị trí cửa, vị trí kho mũi tên và trống đồng, đường sông, chiều cao ở các giai đoạn chưa có số đo.
+- Dòng thời gian 6 mốc (trước thế kỷ IV TCN → ngày nay) làm lũy cao lên, rộng ra theo mặt cắt từng giai đoạn; thành Nội để mờ ở thời Âu Lạc vì niên đại còn tranh luận. Chiều cao xem được ở tỉ lệ thật, ×3, ×6.
+- Chế độ học theo bước: 10 bước, 3 câu hỏi; bảng "Truyền thuyết và bằng chứng"; 27 nguồn có đánh số.
+- Dựng bằng `python3 tools/build_co_loa.py` (hình học, dữ liệu) từ `tools/co-loa.template.html`; lộ trình bằng `python3 tools/build_ls10.py`.
+
 ## AR: ribosome trên bàn học
 [`te-bao/ar.html`](te-bao/ar.html) dùng model-viewer để đặt bề mặt phân tử của ribosome 3J7R lên mặt bàn thật bằng điện thoại (ARCore/ARKit). Tỉ lệ 1 Å = 1 mm, tức phóng to 10 triệu lần, ribosome cao khoảng 30 cm. Có nút làm mờ 40S hoặc 60S để lộ tRNA và mRNA. Trên máy tính, trang hiện mã QR để học sinh quét. Mô hình [`te-bao/assets/ribosome-3j7r.glb`](te-bao/assets/ribosome-3j7r.glb) (4,2 MB, 231 nghìn tam giác) dựng bằng `tools/build_glb.py`: marching cubes trên mật độ nguyên tử theo từng nhóm, rút gọn lưới, màu theo thang tuyến tính của glTF.
 
@@ -48,6 +60,7 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `te-bao/ar.html`, `te-bao/assets/` | Trang AR và mô hình GLB của ribosome |
 | `ty-the/index.html` | Vào Ty Thể, dữ liệu ATP synthase nhúng sẵn |
 | `chu-de/sinh-hoc-te-bao/` | Lộ trình Sinh học tế bào lớp 10 |
+| `lich-su-10/`, `lich-su-10/co-loa/` | Lộ trình Lịch sử 10 (`tools/build_ls10.py`), bài Thành Cổ Loa (`tools/build_co_loa.py`, `tools/co-loa.template.html`, nguồn `tools/co_loa_nguon.json`) |
 | `thu-vien/` | 54 bài tiếng Việt (CC BY-NC 4.0), ảnh bìa, `catalog.vi.json`, đối chiếu chương trình `gdpt2018.json`, công cụ Việt hoá `_viet-hoa/` |
 | `src/head.part`, `src/body.part`, `src/script.part` | CSS, HTML, JS của trang Tế Bào |
 | `tools/liquid_glass.py` | Chuẩn giao diện chung: nền trắng, kính lỏng |

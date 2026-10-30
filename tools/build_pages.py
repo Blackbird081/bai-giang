@@ -5,10 +5,11 @@ Nguồn: thu-vien/catalog.vi.json (54 bài), thu-vien/gdpt2018.json (đối chi�
 Cấu trúc trang (GitHub Pages):
   index.html                           trang chính Bài Giảng: hành trình 3D, lộ trình, thư viện 54 bài
   te-bao/  ty-the/                     hai hành trình 3D (dựng riêng)
+  lich-su-10/  lich-su-10/co-loa/      lộ trình Lịch sử 10 (tools/build_ls10.py), bài Thành Cổ Loa (tools/build_co_loa.py)
   chu-de/sinh-hoc-te-bao/              lộ trình Sinh học tế bào lớp 10
   thu-vien/<bài>.html                  54 bài; thu-vien/index.html chuyển về mục Thư viện của trang chính
   ty-the.html, ar.html, chu-de-sinh-hoc-te-bao.html   trang chuyển hướng từ địa chỉ cũ
-Nếu truyền --artifact <thư mục> <url tế bào> <url ty thể> <url trang chính>: bản cho trang đăng trên Claude,
+Nếu truyền --artifact <thư mục> <url tế bào> <url ty thể> <url trang chính> <url Cổ Loa>: bản cho trang đăng trên Claude,
 nơi trang chính, 54 bài và trang chủ đề nằm cùng một thư mục.
 Chạy từ thư mục gốc repo:  python3 tools/build_pages.py [--artifact out_dir cell_url mito_url hub_url]
 """
@@ -222,16 +223,18 @@ def write(rel, text):
 
 
 if __name__ == '__main__':
-    write('index.html', library({'__L_CELL__': 'te-bao/', '__L_MITO__': 'ty-the/', '__L_CHUDE__': 'chu-de/sinh-hoc-te-bao/', '__L_BASE__': 'thu-vien/', '__L_GDPT__': 'thu-vien/gdpt2018.json'}))
+    write('index.html', library({'__L_CELL__': 'te-bao/', '__L_MITO__': 'ty-the/', '__L_CHUDE__': 'chu-de/sinh-hoc-te-bao/', '__L_COLOA__': 'lich-su-10/co-loa/', '__L_LS10__': 'lich-su-10/', '__L_BASE__': 'thu-vien/', '__L_GDPT__': 'thu-vien/gdpt2018.json'}))
     write('chu-de/sinh-hoc-te-bao/index.html', chu_de({'__L_CELL__': '../../te-bao/', '__L_MITO__': '../../ty-the/', '__L_LIB__': '../../'}, lambda f: '../../thu-vien/' + f))
     write('thu-vien/index.html', redirect('../#thu-vien', 'Thư viện'))
     write('chu-de-sinh-hoc-te-bao.html', redirect('chu-de/sinh-hoc-te-bao/', 'Sinh Học Tế Bào 10'))
     write('ty-the.html', redirect('ty-the/', 'Vào Ty Thể'))
     write('ar.html', redirect('te-bao/ar.html', 'Ribosome trên bàn'))
     print('đã dựng trang chính, trang chủ đề và các trang chuyển hướng')
-    if len(sys.argv) > 5 and sys.argv[1] == '--artifact':
-        out = pathlib.Path(sys.argv[2]); cell, mito, hub = sys.argv[3], sys.argv[4], sys.argv[5]
-        art = {'__L_CELL__': cell, '__L_MITO__': mito, '__L_CHUDE__': 'chu-de-sinh-hoc-te-bao.html', '__L_BASE__': '', '__L_GDPT__': 'https://github.com/nclamvn/bai-giang/blob/main/thu-vien/gdpt2018.json'}
+    if len(sys.argv) > 6 and sys.argv[1] == '--artifact':
+        out = pathlib.Path(sys.argv[2]); cell, mito, hub, coloa = sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6]
+        art = {'__L_CELL__': cell, '__L_MITO__': mito, '__L_CHUDE__': 'chu-de-sinh-hoc-te-bao.html', '__L_COLOA__': coloa, '__L_LS10__': 'lich-su-10.html', '__L_BASE__': '', '__L_GDPT__': 'https://github.com/nclamvn/bai-giang/blob/main/thu-vien/gdpt2018.json'}
+        import build_ls10
+        open(out / 'lich-su-10.html', 'w', encoding='utf-8').write(build_ls10.build(hub, coloa, 'covers/co-loa.webp'))
         open(out / 'index_art.html', 'w', encoding='utf-8').write(library(art))
         open(out / 'chu-de-sinh-hoc-te-bao.html', 'w', encoding='utf-8').write(chu_de({'__L_CELL__': cell, '__L_MITO__': mito, '__L_LIB__': hub}, lambda f: f))
         print('đã dựng bản cho trang đăng vào', out)
