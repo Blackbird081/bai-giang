@@ -174,6 +174,8 @@ header.top,.ctrl{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur
 .pin i{background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:var(--lg-shadow-lo)}
 .pin span{background:rgba(255,255,255,.78);-webkit-backdrop-filter:blur(14px) saturate(180%);backdrop-filter:blur(14px) saturate(180%);border:1px solid rgba(255,255,255,.9);border-radius:999px;padding:2px 9px;box-shadow:var(--lg-shadow-lo)}
 #toast{background:rgba(29,29,31,.74);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border-radius:999px;padding:8px 16px}
+.homecrumb{display:inline-block;font:600 12px var(--lg-font);color:var(--lg-muted);text-decoration:none;margin-bottom:2px}
+.homecrumb:hover{color:var(--crimson)}
 </style>
 </head>
 <body>
@@ -181,7 +183,7 @@ header.top,.ctrl{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur
   <header class="top">
     <div class="brand">
       <svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect x="3" y="9" width="34" height="22" rx="11" fill="#E7A33A"/><rect x="6" y="12" width="28" height="16" rx="8" fill="#B0531D"/><path d="M11 13v8M16 27v-8M21 13v8M26 27v-8M30 14v6" stroke="#FFE3A6" stroke-width="2.2" stroke-linecap="round"/></svg>
-      <div class="tt"><h1>Vào <em>Ty Thể</em></h1><p>ATP synthase thật · PDB 6J5I · phóng tới nguyên tử · lên lớp</p></div>
+      <div class="tt"><a class="homecrumb" href="../">← Bài Giảng</a><h1>Vào <em>Ty Thể</em></h1><p>ATP synthase thật · PDB 6J5I · phóng tới nguyên tử · lên lớp</p></div>
     </div>
     <dl class="kpis">
       <div><dt>Nguyên tử thật</dt><dd class="c" id="kAtoms">…</dd></div>
@@ -212,7 +214,7 @@ header.top,.ctrl{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur
     <button class="btn" id="homeBtn">Về toàn cảnh</button>
     <button class="btn" id="fsBtn">Toàn màn hình</button>
     <span class="sp"></span>
-    <a class="btn" id="backLink" href="index.html">← Về tế bào</a>
+    <a class="btn" id="backLink" href="../te-bao/">← Hành Trình Vào Tế Bào</a>
   </div>
   <div class="legend" id="legend"></div>
   <footer>Cấu trúc: <a href="https://www.rcsb.org/structure/6J5I" target="_blank" rel="noopener">PDB 6J5I</a> và <a href="https://www.rcsb.org/structure/6J5K" target="_blank" rel="noopener">6J5K</a> (Gu và cs., <i>Science</i> 2019), ATP synthase ty thể lợn. Đã bỏ protein ức chế IF1 có trong mẫu. Phím: <span class="mono">D</span> phóng, <span class="mono">Space</span> tạm dừng, <span class="mono">M</span> màng, <span class="mono">→ ←</span> chuyển bước khi lên lớp.</footer>

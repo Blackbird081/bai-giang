@@ -4,8 +4,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thư viện bài học 3D</title>
-<meta name="description" content="54 bài thí nghiệm 3D tương tác lý, hoá, sinh, địa bằng tiếng Việt, Việt hoá từ Tongjiang Lab (CC BY-NC 4.0), cùng bài Hành Trình Vào Tế Bào.">
+<title>Bài Giảng</title>
+<meta name="description" content="Bài giảng 3D tương tác bằng tiếng Việt: hành trình vào tế bào và ty thể tới từng nguyên tử, lộ trình theo chương trình GDPT 2018 và thư viện 54 bài thí nghiệm lý, hoá, sinh, địa.">
 <style>
 :root{--bg:#F5F7FB;--panel:#FFFFFF;--ink:#0F1B2D;--ink2:#46536A;--muted:#6B778C;--line:rgba(15,27,45,.10);--accent:#BE1740;--blue:#2F6BFF;--gold:#E8B04B;
   --phys:#2F6BFF;--chem:#E0533D;--bio:#1E9E6A;--geo:#B7791F;--r:14px;--f:"Segoe UI","Roboto","Helvetica Neue","Noto Sans",Arial,system-ui,sans-serif}
@@ -64,6 +64,31 @@ footer a{color:var(--blue)}
 .card details ul{margin:6px 0 0;padding-left:18px;display:grid;gap:4px;color:var(--ink2)}
 .card details .mu{font-size:11.5px;color:var(--muted);margin-top:6px}
 .card details .gc{margin-top:6px;color:var(--ink2)}
+header.hub{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:10px;z-index:10;padding:8px 10px 8px 12px;margin-bottom:22px;border-radius:999px;background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow),var(--lg-inner)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-.01em}
+.brand svg{width:34px;height:34px}
+.hubnav{display:flex;gap:4px;flex-wrap:wrap}
+.hubnav a{color:var(--lg-ink);text-decoration:none;font-weight:600;font-size:14px;padding:7px 13px;border-radius:999px}
+.hubnav a:hover{background:rgba(118,118,128,.12)}
+.hero{padding:18px 4px 6px}
+.hero h1{margin:0;font-size:clamp(30px,4.6vw,54px);line-height:1.08;letter-spacing:-.035em;max-width:16ch}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,#D42150,#E8A13A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin:14px 0 0;color:var(--lg-ink2);font-size:17px;max-width:68ch}
+h2.sec{margin:34px 4px 12px;font-size:22px;letter-spacing:-.02em;scroll-margin-top:84px}
+.journeys{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.journey{display:grid;grid-template-rows:auto 1fr;text-decoration:none;color:inherit;border-radius:28px;overflow:hidden;background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow),var(--lg-inner);transition:transform .2s ease,box-shadow .2s ease}
+.journey:hover{transform:translateY(-3px);box-shadow:0 0 0 .5px rgba(15,23,42,.08),0 24px 48px -18px rgba(15,23,42,.3),var(--lg-inner)}
+.journey img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.journey div{padding:16px 18px 18px;display:grid;gap:6px}
+.journey b{font-size:21px;letter-spacing:-.02em}
+.journey span{color:var(--lg-ink2);font-size:14.5px}
+.journey i,.unit i{font-style:normal;font-weight:600;color:#C2184A;font-size:14px;margin-top:4px}
+.unit{display:flex;align-items:center;justify-content:space-between;gap:18px;text-decoration:none;color:inherit;padding:18px 22px;border-radius:24px;background:var(--lg-fill),linear-gradient(110deg,rgba(30,158,106,.10),rgba(47,107,255,.08));-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow),var(--lg-inner)}
+.unit div{display:grid;gap:4px}
+.unit .k{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#16774F}
+.unit b{font-size:20px;letter-spacing:-.02em}
+.unit div span:last-child{color:var(--lg-ink2);font-size:14.5px;max-width:80ch}
+@media (max-width:640px){.hubnav a{padding:6px 9px;font-size:13px}.unit{flex-direction:column;align-items:flex-start}}
 @media (max-width:640px){.feature{grid-template-columns:1fr}.count{margin-left:0;width:100%}}
 @media (prefers-reduced-motion: reduce){.card{transition:none}}
 /* ===== Nền trắng, kính lỏng (tools/liquid_glass.py) ===== */
@@ -134,17 +159,22 @@ footer{border-top:1px solid var(--lg-hair)}
 </head>
 <body>
 <div class="wrap">
-  <header class="top">
-    <div>
-      <h1>Thư viện bài học <em>3D</em></h1>
-      <p>54 bài thí nghiệm 3D tương tác Vật lí, Hoá học, Sinh học, Địa lí bằng tiếng Việt. Mỗi bài là một thế giới 3D có bảng điều khiển, câu hỏi chính, các bước giáo viên bấm theo và phần kiểm tra cuối bài. Mở bằng Chrome hoặc Edge, chạy được không cần mạng.</p>
-    </div>
+  <header class="hub">
+    <div class="brand"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E23A62"/><stop offset="1" stop-color="#B0123C"/></linearGradient></defs><rect x="2" y="2" width="44" height="44" rx="13" fill="url(#bg1)"/><circle cx="21" cy="22" r="10" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="19" cy="20" r="3.4" fill="#fff"/><circle cx="33.5" cy="33" r="4" fill="#FFD27A"/></svg><span>Bài Giảng</span></div>
+    <nav class="hubnav" aria-label="Mục chính"><a href="#hanh-trinh">Hành trình 3D</a><a href="#lo-trinh">Lộ trình</a><a href="#thu-vien">Thư viện</a></nav>
   </header>
-  <div class="features">
-    <div class="feature"><div><b>Hành Trình Vào Tế Bào</b><span>Tế bào nhân thực đang hoạt động, phóng liền mạch xuống 222.336 nguyên tử của ribosome thật (PDB 3J7R), có chế độ lên lớp và AR đặt ribosome lên bàn.</span></div><a class="btn pri" href="__L_CELL__">Mở bài tế bào</a></div>
-    <div class="feature mito"><div><b>Vào Ty Thể</b><span>Từ một ty thể xuống 37.733 nguyên tử của ATP synthase thật (PDB 6J5I): dòng H⁺ làm vòng c quay, ba vị trí β lần lượt tạo ATP. Có chế độ lên lớp 10 bước.</span></div><a class="btn pri" href="__L_MITO__">Mở bài ty thể</a></div>
-    <div class="feature unit"><div><b>Chủ đề Sinh học tế bào · lớp 10</b><span>Lộ trình 6 bài theo chương trình GDPT 2018, kèm yêu cầu cần đạt trích nguyên văn và bảng những yêu cầu chưa có bài.</span></div><a class="btn pri" href="__L_CHUDE__">Xem lộ trình</a></div>
+  <section class="hero">
+    <h1>Học khoa học bằng <em>thế giới 3D</em> sống động</h1>
+    <p>Bài giảng tương tác bằng tiếng Việt cho lớp học: phóng từ một tế bào xuống từng nguyên tử của phân tử thật, theo lộ trình của chương trình GDPT 2018, cùng 54 bài thí nghiệm Vật lí, Hoá học, Sinh học, Địa lí. Mở bằng Chrome, Edge hoặc Safari, chiếu lên màn hình lớn là dạy được.</p>
+  </section>
+  <h2 class="sec" id="hanh-trinh">Hành trình 3D tới nguyên tử</h2>
+  <div class="journeys">
+    <a class="journey" href="__L_CELL__"><img src="__L_BASE__covers/te-bao.webp" alt=""><div><b>Hành Trình Vào Tế Bào</b><span>Tế bào nhân thực đang hoạt động, phóng liền mạch xuống 222.336 nguyên tử của ribosome thật (PDB 3J7R). Chế độ lên lớp 10 bước, AR đặt ribosome lên bàn.</span><i>Vào bài →</i></div></a>
+    <a class="journey mito" href="__L_MITO__"><img src="__L_BASE__covers/ty-the.webp" alt=""><div><b>Vào Ty Thể</b><span>Từ một ty thể xuống 37.733 nguyên tử của ATP synthase thật (PDB 6J5I): dòng H⁺ làm vòng c quay, ba vị trí β lần lượt tạo ATP. Chế độ lên lớp 10 bước.</span><i>Vào bài →</i></div></a>
   </div>
+  <h2 class="sec" id="lo-trinh">Lộ trình theo chương trình GDPT 2018</h2>
+  <a class="unit" href="__L_CHUDE__"><div><span class="k">Lớp 10 · 6 bài</span><b>Sinh học tế bào</b><span>Tế Bào → vận chuyển qua màng → co và phản co nguyên sinh → Vào Ty Thể → enzyme → nguyên phân. Mỗi bài kèm yêu cầu cần đạt trích nguyên văn chương trình, bảng chỉ rõ yêu cầu nào chưa có bài.</span></div><i>Xem lộ trình →</i></a>
+  <h2 class="sec" id="thu-vien">Thư viện 54 bài thí nghiệm</h2>
   <div class="tools" role="search">
     <input id="q" type="search" placeholder="Tìm bài: ví dụ “ammonia”, “nguyên phân”, “gió mùa”" aria-label="Tìm bài học">
     <button class="chip" data-s="" aria-pressed="true">Tất cả</button>
@@ -177,6 +207,7 @@ const COL = { phys: 'var(--phys)', chem: 'var(--chem)', bio: 'var(--bio)', geo: 
 const norm = (s) => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
 let subj = '', grade = ''; try { const u = new URLSearchParams(location.search); subj = u.get('mon') || ''; grade = u.get('lop') || ''; } catch (e) {}
 const GD = __GDPT__;
+const BASE = '__L_BASE__';
 const gOf = (l) => (GD[l.slug] || { khop: [] });
 const chinh = (l) => gOf(l).khop.filter((m) => m.muc_do === 'chinh');
 const short = (m) => (m.muc || m.chu_de).split(' › ').pop().replace(/\s*\(.*\)\s*$/, '');
@@ -198,10 +229,10 @@ function render() {
   document.querySelectorAll('.chip.g').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.g === grade)));
   document.getElementById('grid').innerHTML = list.length ? list.map((l) => `
     <article class="card">
-      <img class="cover" src="${esc(l.cover)}" alt="" loading="lazy">
+      <img class="cover" src="${esc(BASE + l.cover)}" alt="" loading="lazy">
       <div class="bd">
         <div class="meta"><span class="s" style="color:${COL[l.subject]}">${esc(l.mon)}</span><span>${l.steps.length} bước</span><span>${esc(l.type)}</span></div>
-        <h2><a href="${esc(l.file)}">${esc(l.title)}</a></h2>
+        <h2><a href="${esc(BASE + l.file)}">${esc(l.title)}</a></h2>
         <p>${esc(l.question)}</p>
         <div class="tb">SGK gốc: ${esc(l.textbook[0] || '')}</div>
         ${gdHtml(l)}

@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""Dựng trang thư viện và trang chủ đề từ một nguồn dữ liệu duy nhất.
+"""Dựng trang chính Bài Giảng và trang chủ đề từ một nguồn dữ liệu duy nhất.
 
-Nguồn: thu-vien/catalog.vi.json (54 bài), thu-vien/gdpt2018.json (đối chiếu chương trình), tools/thu-vien.template.html.
-Ra:
-  thu-vien/index.html                  thư viện (bản GitHub Pages)
-  chu-de-sinh-hoc-te-bao.html          lộ trình chủ đề Sinh học tế bào lớp 10 (bản GitHub Pages)
-  và nếu truyền --artifact <thư mục> <url tế bào> <url ty thể> <url thư viện>: bản cho trang đăng trên Claude,
-  nơi thư viện, 54 bài và trang chủ đề nằm cùng một thư mục.
-Chạy từ thư mục gốc repo:  python3 tools/build_pages.py [--artifact out_dir cell_url mito_url lib_url]
+Nguồn: thu-vien/catalog.vi.json (54 bài), thu-vien/gdpt2018.json (đối chiếu chương trình), tools/bai-giang.template.html.
+Cấu trúc trang (GitHub Pages):
+  index.html                           trang chính Bài Giảng: hành trình 3D, lộ trình, thư viện 54 bài
+  te-bao/  ty-the/                     hai hành trình 3D (dựng riêng)
+  chu-de/sinh-hoc-te-bao/              lộ trình Sinh học tế bào lớp 10
+  thu-vien/<bài>.html                  54 bài; thu-vien/index.html chuyển về mục Thư viện của trang chính
+  ty-the.html, ar.html, chu-de-sinh-hoc-te-bao.html   trang chuyển hướng từ địa chỉ cũ
+Nếu truyền --artifact <thư mục> <url tế bào> <url ty thể> <url trang chính>: bản cho trang đăng trên Claude,
+nơi trang chính, 54 bài và trang chủ đề nằm cùng một thư mục.
+Chạy từ thư mục gốc repo:  python3 tools/build_pages.py [--artifact out_dir cell_url mito_url hub_url]
 """
 import json, sys, html, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -16,7 +19,7 @@ import liquid_glass as LG
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CAT = json.load(open(ROOT / 'thu-vien/catalog.vi.json', encoding='utf-8'))
 GD = json.load(open(ROOT / 'thu-vien/gdpt2018.json', encoding='utf-8'))
-TPL = open(ROOT / 'tools/thu-vien.template.html', encoding='utf-8').read()
+TPL = open(ROOT / 'tools/bai-giang.template.html', encoding='utf-8').read()
 E = lambda s: html.escape(str(s), quote=True)
 
 
@@ -172,7 +175,7 @@ footer{{font-size:13.5px;color:var(--ink2);border-top:1px solid var(--line);padd
   <div class="lbl">Chủ đề · lớp 10 · chương trình GDPT 2018</div>
   <h1>Sinh học <em>tế bào</em> bằng mô hình 3D</h1>
   <p>Lộ trình 6 bài cho mạch Sinh học tế bào lớp 10, sắp theo thứ tự nội dung của chương trình môn Sinh học (Thông tư 32/2018/TT-BGDĐT). Mỗi bài ghi yêu cầu cần đạt mà bài dạy trực tiếp, trích nguyên văn chương trình. Bảng cuối trang liệt kê toàn bộ yêu cầu của mạch này và chỉ rõ yêu cầu nào chưa có bài. Thời lượng là gợi ý; giáo viên tự điều chỉnh.</p>
-  <div class="nav"><a class="btn" href="{E(links['__L_LIB__'])}">← Thư viện 54 bài</a><a class="btn" href="{E(links['__L_CELL__'])}">Hành Trình Vào Tế Bào</a><a class="btn" href="{E(links['__L_MITO__'])}">Vào Ty Thể</a></div>
+  <div class="nav"><a class="btn" href="{E(links['__L_LIB__'])}">← Bài Giảng</a><a class="btn" href="{E(links['__L_CELL__'])}">Hành Trình Vào Tế Bào</a><a class="btn" href="{E(links['__L_MITO__'])}">Vào Ty Thể</a></div>
 </header>
 <section class="kpi" aria-label="Mức phủ yêu cầu cần đạt">
   <div class="ok"><span class="lbl">Có bài dạy trực tiếp</span><b>{n_ok}/{total}</b></div>
@@ -203,14 +206,28 @@ document.querySelectorAll('.chip').forEach((c) => c.addEventListener('click', ()
 '''
 
 
+def redirect(to, title):
+    return (f'<!doctype html>\n<html lang="vi"><head><meta charset="utf-8"><title>{E(title)}</title>'
+            f'<meta http-equiv="refresh" content="0; url={E(to)}"><link rel="canonical" href="{E(to)}">'
+            f'<script>location.replace({json.dumps(to)} + location.hash)</script></head>'
+            f'<body style="font-family:system-ui;padding:24px">Trang đã chuyển tới <a href="{E(to)}">{E(to)}</a>.</body></html>\n')
+
+
+def write(rel, text):
+    p = ROOT / rel; p.parent.mkdir(parents=True, exist_ok=True); p.write_text(text, encoding='utf-8')
+
+
 if __name__ == '__main__':
-    repo = {'__L_CELL__': '../index.html', '__L_MITO__': '../ty-the.html', '__L_CHUDE__': '../chu-de-sinh-hoc-te-bao.html', '__L_GDPT__': 'gdpt2018.json'}
-    open(ROOT / 'thu-vien/index.html', 'w', encoding='utf-8').write(library(repo))
-    open(ROOT / 'chu-de-sinh-hoc-te-bao.html', 'w', encoding='utf-8').write(chu_de({'__L_CELL__': 'index.html', '__L_MITO__': 'ty-the.html', '__L_LIB__': 'thu-vien/'}, lambda f: 'thu-vien/' + f))
-    print('đã dựng thu-vien/index.html và chu-de-sinh-hoc-te-bao.html')
+    write('index.html', library({'__L_CELL__': 'te-bao/', '__L_MITO__': 'ty-the/', '__L_CHUDE__': 'chu-de/sinh-hoc-te-bao/', '__L_BASE__': 'thu-vien/', '__L_GDPT__': 'thu-vien/gdpt2018.json'}))
+    write('chu-de/sinh-hoc-te-bao/index.html', chu_de({'__L_CELL__': '../../te-bao/', '__L_MITO__': '../../ty-the/', '__L_LIB__': '../../'}, lambda f: '../../thu-vien/' + f))
+    write('thu-vien/index.html', redirect('../#thu-vien', 'Thư viện'))
+    write('chu-de-sinh-hoc-te-bao.html', redirect('chu-de/sinh-hoc-te-bao/', 'Sinh Học Tế Bào 10'))
+    write('ty-the.html', redirect('ty-the/', 'Vào Ty Thể'))
+    write('ar.html', redirect('te-bao/ar.html', 'Ribosome trên bàn'))
+    print('đã dựng trang chính, trang chủ đề và các trang chuyển hướng')
     if len(sys.argv) > 5 and sys.argv[1] == '--artifact':
-        out = pathlib.Path(sys.argv[2]); cell, mito, lib = sys.argv[3], sys.argv[4], sys.argv[5]
-        art = {'__L_CELL__': cell, '__L_MITO__': mito, '__L_CHUDE__': 'chu-de-sinh-hoc-te-bao.html', '__L_GDPT__': 'https://github.com/nclamvn/bai-giang/blob/main/thu-vien/gdpt2018.json'}
+        out = pathlib.Path(sys.argv[2]); cell, mito, hub = sys.argv[3], sys.argv[4], sys.argv[5]
+        art = {'__L_CELL__': cell, '__L_MITO__': mito, '__L_CHUDE__': 'chu-de-sinh-hoc-te-bao.html', '__L_BASE__': '', '__L_GDPT__': 'https://github.com/nclamvn/bai-giang/blob/main/thu-vien/gdpt2018.json'}
         open(out / 'index_art.html', 'w', encoding='utf-8').write(library(art))
-        open(out / 'chu-de-sinh-hoc-te-bao.html', 'w', encoding='utf-8').write(chu_de({'__L_CELL__': cell, '__L_MITO__': mito, '__L_LIB__': lib}, lambda f: f))
+        open(out / 'chu-de-sinh-hoc-te-bao.html', 'w', encoding='utf-8').write(chu_de({'__L_CELL__': cell, '__L_MITO__': mito, '__L_LIB__': hub}, lambda f: f))
         print('đã dựng bản cho trang đăng vào', out)
