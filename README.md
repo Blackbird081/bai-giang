@@ -2,7 +2,7 @@
 
 Tế bào nhân thực 3D đang hoạt động, phóng liền mạch từ toàn cảnh xuống 222.336 nguyên tử của một ribosome thật (PDB 3J7R) trên lưới nội chất. three.js r180, WebGPU với dự phòng WebGL 2, một trang HTML tự chứa.
 
-- Trang công khai (GitHub Pages): https://nclamvn.github.io/hanh-trinh-te-bao/ · Vào Ty Thể: [`ty-the.html`](ty-the.html) · AR: [`ar.html`](ar.html) · Thư viện 54 bài: [`thu-vien/`](thu-vien/) · Lộ trình Sinh học tế bào lớp 10: [`chu-de-sinh-hoc-te-bao.html`](chu-de-sinh-hoc-te-bao.html)
+- Trang công khai (GitHub Pages): https://nclamvn.github.io/bai-giang/ · Vào Ty Thể: [`ty-the.html`](ty-the.html) · AR: [`ar.html`](ar.html) · Thư viện 54 bài: [`thu-vien/`](thu-vien/) · Lộ trình Sinh học tế bào lớp 10: [`chu-de-sinh-hoc-te-bao.html`](chu-de-sinh-hoc-te-bao.html)
 - Bản đang chạy trên Claude: https://claude.ai/artifact/68y1264YdVFXQnzmHg5mrW (bản 11)
 - Vào Ty Thể trên Claude: https://claude.ai/artifact/PLNECoseboZiMU7MXKREzy · Thư viện và lộ trình lớp 10 trên Claude: https://claude.ai/artifact/GKx2jb4nALqKE6FUDnLGXu
 - Bản offline một file cho lớp học: [`offline/hanh-trinh-te-bao-offline.html`](offline/hanh-trinh-te-bao-offline.html) (9 MB, bấm "Download raw file", mở bằng Chrome hoặc Edge, không cần mạng); Vào Ty Thể: [`offline/vao-ty-the-offline.html`](offline/vao-ty-the-offline.html) (7,6 MB)

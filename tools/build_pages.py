@@ -191,7 +191,7 @@ footer{{font-size:13.5px;color:var(--ink2);border-top:1px solid var(--line);padd
 </tbody></table>
 <footer>
   <div><b>Nguồn.</b> <a href="{E(src['url'])}" target="_blank" rel="noopener">{E(src['ten'])}</a>. Mọi yêu cầu cần đạt trên trang được so khớp bằng máy với văn bản này. Đã soát Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT: không sửa môn Sinh học. Kể cả hai chuyên đề học tập 10.1 và 10.2 thuộc mạch này.</div>
-  <div><b>Trạng thái.</b> “Có bài” khi ít nhất một bài trong lộ trình dạy trực tiếp yêu cầu đó; “Liên quan” khi chỉ có bài hỗ trợ hoặc mở rộng. Đối chiếu do người soạn thực hiện, chưa qua giáo viên bộ môn duyệt; góp ý tại <a href="https://github.com/nclamvn/hanh-trinh-te-bao/issues" target="_blank" rel="noopener">GitHub Issues</a>.</div>
+  <div><b>Trạng thái.</b> “Có bài” khi ít nhất một bài trong lộ trình dạy trực tiếp yêu cầu đó; “Liên quan” khi chỉ có bài hỗ trợ hoặc mở rộng. Đối chiếu do người soạn thực hiện, chưa qua giáo viên bộ môn duyệt; góp ý tại <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">GitHub Issues</a>.</div>
   <div>Bài 2, 3, 5, 6 là bản tiếng Việt của Tongjiang Lab, giấy phép CC BY-NC 4.0, chỉ dùng phi thương mại. Trong các bài này, “SGK gốc” là sách giáo khoa Trung Quốc mà bài được thiết kế theo.</div>
 </footer>
 </div>
@@ -210,7 +210,7 @@ if __name__ == '__main__':
     print('đã dựng thu-vien/index.html và chu-de-sinh-hoc-te-bao.html')
     if len(sys.argv) > 5 and sys.argv[1] == '--artifact':
         out = pathlib.Path(sys.argv[2]); cell, mito, lib = sys.argv[3], sys.argv[4], sys.argv[5]
-        art = {'__L_CELL__': cell, '__L_MITO__': mito, '__L_CHUDE__': 'chu-de-sinh-hoc-te-bao.html', '__L_GDPT__': 'https://github.com/nclamvn/hanh-trinh-te-bao/blob/main/thu-vien/gdpt2018.json'}
+        art = {'__L_CELL__': cell, '__L_MITO__': mito, '__L_CHUDE__': 'chu-de-sinh-hoc-te-bao.html', '__L_GDPT__': 'https://github.com/nclamvn/bai-giang/blob/main/thu-vien/gdpt2018.json'}
         open(out / 'index_art.html', 'w', encoding='utf-8').write(library(art))
         open(out / 'chu-de-sinh-hoc-te-bao.html', 'w', encoding='utf-8').write(chu_de({'__L_CELL__': cell, '__L_MITO__': mito, '__L_LIB__': lib}, lambda f: f))
         print('đã dựng bản cho trang đăng vào', out)
