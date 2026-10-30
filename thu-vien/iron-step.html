@@ -86,7 +86,32 @@
 html,body{background:var(--lg-page)}
 body{background:var(--lg-wash)!important;background-attachment:fixed!important;-webkit-font-smoothing:antialiased}
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"><style id="lg-mobile">
+/* Điện thoại: thanh trên gọn, hai bảng thành tấm trượt dưới, chuyển bằng thanh chọn Bước này / Điều khiển / Xem 3D */
+#mtabs{display:none}
+@media (max-width:700px){
+  header#top{left:8px!important;right:8px!important;top:calc(6px + env(safe-area-inset-top))!important;width:auto!important;height:auto!important;padding:6px 8px!important;border-radius:18px!important}
+  header#top .row1{overflow-x:auto;scrollbar-width:none;flex-wrap:nowrap!important;gap:8px}
+  header#top .row1::-webkit-scrollbar{display:none}
+  header#top h1{font-size:15px!important;white-space:nowrap}
+  header#top .chain5{display:none!important}
+  nav#steps{top:calc(52px + env(safe-area-inset-top))!important;left:8px!important;right:8px!important;width:auto!important;overflow-x:auto;scrollbar-width:none;border-radius:16px!important}
+  nav#steps::-webkit-scrollbar{display:none}
+  #eqb{left:50%!important;top:calc(98px + env(safe-area-inset-top))!important;transform:translateX(-50%) scale(.82)!important;transform-origin:top center;width:min(380px,108vw)!important;max-width:none!important}
+  aside#left,aside#right{left:8px!important;right:8px!important;width:auto!important;top:auto!important;bottom:calc(56px + env(safe-area-inset-bottom))!important;height:42svh!important;max-height:42svh!important;transform:none!important;border-radius:20px!important}
+  body:not(.m-right) aside#right,body.m-right aside#left,body.m-3d aside#left,body.m-3d aside#right{display:none!important}
+  aside .phead .fold{display:none!important}
+  footer#foot{left:8px!important;right:8px!important;width:auto!important;bottom:calc(6px + env(safe-area-inset-bottom))!important;height:auto!important;border-radius:18px!important}
+  footer#foot .foot2{display:none!important}
+  #mtabs{display:flex;position:fixed;z-index:60;left:50%;transform:translateX(-50%);bottom:calc(64px + 42svh + env(safe-area-inset-bottom));gap:2px;padding:3px;border-radius:999px;
+    background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.9);
+    box-shadow:0 0 0 .5px rgba(15,23,42,.08),0 8px 22px -8px rgba(15,23,42,.25)}
+  body.m-3d #mtabs{bottom:calc(64px + env(safe-area-inset-bottom))}
+  #mtabs button{white-space:nowrap;border:0;background:transparent;padding:6px 13px;border-radius:999px;font:600 12.5px -apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;color:#1D1D1F;cursor:pointer}
+  #mtabs button[aria-pressed="true"]{background:#fff;box-shadow:0 1px 3px rgba(15,23,42,.16),0 0 0 .5px rgba(15,23,42,.06)}
+}
+</style>
+</head>
 <body>
 <canvas id="gl" tabindex="0"></canvas>
 <script type="module">var Y0=Object.defineProperty;var Su=(i,e)=>{for(var t in e)Y0(i,t,{get:e[t],enumerable:!0})};/**
@@ -5230,5 +5255,10 @@ float rsN(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
   float ring = smoothstep(0.62, 1.0, 0.5 + 0.5 * sin(w));
   diffuseColor.rgb *= 1.0 - 0.10 * ring - 0.07 * rsN(vRsPos.xz * vec2(5.0, 45.0)); }`)},n.customProgramCacheKey=()=>"fe-wood")})}var Dt=Aa.panel,Bi=Aa.toast;function I1(i,e){return{curve:Ca(!1),dash:Ca(!0),at:[e.t,e.phi]}}var q0={ref:Mo,main:{key:"phi",label:Dt.readPhi,fmt:i=>i.toFixed(1),smooth:.35,cal:(i,e)=>e.stage===0?Dt.calPhiPrecip:Dt.calPhiSolute},subs:[{key:"color",label:Dt.readColor,value:i=>Dt.colorWords[i.colorKey]||"",cal:Dt.calColor},{key:"kscn",label:Dt.readKscn,value:i=>Dt.kscnWords[i.kscnKey]||"",cal:Dt.calKscn},{key:"ions",label:Dt.readIons,value:i=>i.c3==null?Dt.noSolution:`${i.c3} / ${i.c2}`,cal:Dt.calIons}],sliders:[{key:"tube",label:Dt.tube,icon:"cube",min:0,max:ah.length-1,step:1,ref:Mo.tube,fmt:i=>Dt.tubeNames[Math.round(i)]||"",ticks:[{v:0,t:Dt.tickTube13}]},{key:"t",label:Dt.t,icon:"gauge",min:0,max:120,step:5,unit:Dt.unitS,ref:Mo.t,fmt:i=>i.toFixed(0),ticks:[{v:10,t:Dt.tickTGrey},{v:45,t:Dt.tickTRust}]}],switches:[{key:"seal",label:Dt.seal,icon:"wind",on:Dt.sealOn,off:Dt.sealOff,toast:{on:Bi.sealOn,off:Bi.sealOff}},{key:"kscn",label:Dt.kscn,icon:"target",on:Dt.kscnOn,off:Dt.kscnOff,toast:{on:Bi.kscnOn,off:Bi.kscnOff}},{key:"fe",label:Dt.fe,icon:"recycle",on:Dt.feOn,off:Dt.feOff,toast:{on:Bi.feOn,off:Bi.feOff}},{key:"cl2",label:Dt.cl2,icon:"flame",on:Dt.cl2On,off:Dt.cl2Off,toast:{on:Bi.cl2On,off:Bi.cl2Off}},{key:"hno3",label:Dt.hno3,icon:"drop",on:Dt.hno3On,off:Dt.hno3Off,toast:{on:Bi.hno3On,off:Bi.hno3Off}}],chart:{title:Dt.curve,legend:Dt.legend,x:{min:0,max:120,ticks:[0,30,60,90,120]},y:{min:0,max:100,ticks:[0,50,100]},data:(i,e)=>I1(i,e)},exam:{ok:(i,e)=>ch(i,e),hold:15,score:15,events:[{at:6,set:{cl2:!0},toast:Bi.examAbn1},{at:11,set:{fe:!1},toast:Bi.examAbn2}],solve:{tube:2,t:30,seal:!1,kscn:!0,fe:!0,cl2:!1,hno3:!1},goal:{title:Dt.goal,tip:Dt.goalTitle,short:Dt.goalBandShort}}};c0({C:Aa,world:wu,model:mu,console:q0});
 </script>
+<script id="lg-mobile-js">(()=>{const t=document.createElement('div');t.id='mtabs';t.setAttribute('role','tablist');t.setAttribute('aria-label','Chọn bảng');
+const M=[['m-left','Bước này'],['m-right','Điều khiển'],['m-3d','Xem 3D']];
+const set=k=>{document.body.classList.remove('m-left','m-right','m-3d');document.body.classList.add(k);t.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.k===k)));for(const a of document.querySelectorAll('aside'))a.classList.remove('collapsed');};
+M.forEach(([k,l])=>{const b=document.createElement('button');b.type='button';b.dataset.k=k;b.textContent=l;b.onclick=()=>set(k);t.appendChild(b)});
+const go=()=>{document.body.appendChild(t);set('m-left')};document.readyState==='loading'?addEventListener('DOMContentLoaded',go):go()})()</script>
 </body>
 </html>

@@ -995,7 +995,7 @@ function endBench(cancelled) {
 let toastTimer; function toast(m) { const t = $('toast'); t.textContent = m; t.classList.add('on'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('on'), 3200); }
 
 /* ================= Kích thước, điều khiển ================= */
-function resize() { const w = host.clientWidth, h = host.clientHeight; if (!w || !h) return; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); updateScale(); }
+function resize() { const w = host.clientWidth, h = host.clientHeight; if (!w || !h) return; renderer.setSize(w, h, false); camera.aspect = w / h; camera.fov = w / h < 1.2 ? Math.min(64, 2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(17)) * 1.2 / (w / h)) * 180 / Math.PI) : 34; camera.updateProjectionMatrix(); updateScale(); }
 new ResizeObserver(resize).observe(host);
 function applyTier(name, announce) { tierName = name; $('tier').value = name; renderer.setPixelRatio(TIERS[name].pr); resize(); rebuildCut(); if (announce) toast(name === 'chuan' ? 'Đã chuyển sang mức Chuẩn để giữ khung hình mượt.' : 'Đã chuyển sang mức Cao.'); }
 document.querySelectorAll('#stainSeg button').forEach(b => b.addEventListener('click', () => setStain(+b.dataset.stain)));

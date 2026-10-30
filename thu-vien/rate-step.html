@@ -86,7 +86,32 @@
 html,body{background:var(--lg-page)}
 body{background:var(--lg-wash)!important;background-attachment:fixed!important;-webkit-font-smoothing:antialiased}
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"><style id="lg-mobile">
+/* Điện thoại: thanh trên gọn, hai bảng thành tấm trượt dưới, chuyển bằng thanh chọn Bước này / Điều khiển / Xem 3D */
+#mtabs{display:none}
+@media (max-width:700px){
+  header#top{left:8px!important;right:8px!important;top:calc(6px + env(safe-area-inset-top))!important;width:auto!important;height:auto!important;padding:6px 8px!important;border-radius:18px!important}
+  header#top .row1{overflow-x:auto;scrollbar-width:none;flex-wrap:nowrap!important;gap:8px}
+  header#top .row1::-webkit-scrollbar{display:none}
+  header#top h1{font-size:15px!important;white-space:nowrap}
+  header#top .chain5{display:none!important}
+  nav#steps{top:calc(52px + env(safe-area-inset-top))!important;left:8px!important;right:8px!important;width:auto!important;overflow-x:auto;scrollbar-width:none;border-radius:16px!important}
+  nav#steps::-webkit-scrollbar{display:none}
+  #eqb{left:50%!important;top:calc(98px + env(safe-area-inset-top))!important;transform:translateX(-50%) scale(.82)!important;transform-origin:top center;width:min(380px,108vw)!important;max-width:none!important}
+  aside#left,aside#right{left:8px!important;right:8px!important;width:auto!important;top:auto!important;bottom:calc(56px + env(safe-area-inset-bottom))!important;height:42svh!important;max-height:42svh!important;transform:none!important;border-radius:20px!important}
+  body:not(.m-right) aside#right,body.m-right aside#left,body.m-3d aside#left,body.m-3d aside#right{display:none!important}
+  aside .phead .fold{display:none!important}
+  footer#foot{left:8px!important;right:8px!important;width:auto!important;bottom:calc(6px + env(safe-area-inset-bottom))!important;height:auto!important;border-radius:18px!important}
+  footer#foot .foot2{display:none!important}
+  #mtabs{display:flex;position:fixed;z-index:60;left:50%;transform:translateX(-50%);bottom:calc(64px + 42svh + env(safe-area-inset-bottom));gap:2px;padding:3px;border-radius:999px;
+    background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.9);
+    box-shadow:0 0 0 .5px rgba(15,23,42,.08),0 8px 22px -8px rgba(15,23,42,.25)}
+  body.m-3d #mtabs{bottom:calc(64px + env(safe-area-inset-bottom))}
+  #mtabs button{white-space:nowrap;border:0;background:transparent;padding:6px 13px;border-radius:999px;font:600 12.5px -apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;color:#1D1D1F;cursor:pointer}
+  #mtabs button[aria-pressed="true"]{background:#fff;box-shadow:0 1px 3px rgba(15,23,42,.16),0 0 0 .5px rgba(15,23,42,.06)}
+}
+</style>
+</head>
 <body>
 <canvas id="gl" tabindex="0"></canvas>
 <script type="module">var w0=Object.defineProperty;var pu=(i,t)=>{for(var e in t)w0(i,e,{get:t[e],enumerable:!0})};/**
@@ -5235,5 +5260,10 @@ varying vec3 vHmPos;
 float hmH(vec3 p){ p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }`).replace("#include <color_fragment>",`#include <color_fragment>
 diffuseColor.rgb *= 1.0 - 0.10 * smoothstep(0.55, 0.95, hmH(floor(vHmPos * 420.0)));`)},r.customProgramCacheKey=()=>"rate-hammer",r.needsUpdate=!0)}})}var mn=Sa.panel,La=Sa.toast,u1=i=>i.toFixed(0)+"\xD7",M0={ref:bo,main:{key:"t",label:mn.read.t,fmt:Ta,smooth:.4,cal:()=>mn.cal.t},subs:[{key:"tCtrl",label:mn.read.tCtrl,value:i=>i.tCtrl,fmt:Ta,cal:mn.cal.tCtrl,bar:[0,150]},{key:"tH2",label:mn.read.tH2,value:i=>i.tH,fmt:Ta,cal:mn.cal.tH2,bar:[0,80]},{key:"vcat",label:mn.read.vcat,value:i=>i.vcat,fmt:u1,cal:mn.cal.vcat,bar:[0,10]}],sliders:[{key:"V_thio",label:mn.v,icon:"drop",min:Pn.V_MIN,max:Pn.V_MAX,step:.1,unit:mn.unitV,ref:bo.V_thio,fmt:i=>i.toFixed(1),ticks:[{v:1,t:"\u1ed0ng pha lo\u00e3ng"},{v:2,t:"\u1ed0ng g\u1ed1c"}]},{key:"T_bath",label:mn.t,icon:"thermo",min:Pn.T_MIN,max:Pn.T_MAX,step:1,unit:mn.unitT,ref:bo.T_bath,fmt:i=>i.toFixed(0),fill:"heat",ticks:[{v:15,t:"N\u01b0\u1edbc l\u1ea1nh ~15"},{v:25,t:"Nhi\u1ec7t \u0111\u1ed9 ph\u00f2ng 25"},{v:55,t:"N\u01b0\u1edbc n\u00f3ng ~55"}]},{key:"c_acid",label:mn.ca,icon:"gauge",min:Pn.CA_MIN,max:Pn.CA_MAX,step:.5,unit:mn.unitC,ref:bo.c_acid,fmt:i=>i.toFixed(1),band:[1,4]}],switches:[{key:"mno2",label:mn.mno2,icon:"flame",on:mn.mno2On,off:mn.mno2Off,toast:{on:La.mno2On,off:La.mno2Off}},{key:"dilute",label:mn.dilute,icon:"drop",on:mn.diluteOn,off:mn.diluteOff,bad:i=>i.dilute===!1,toast:{on:La.diluteOn,off:La.diluteOff}}],chart:{title:mn.curve,legend:mn.legend,x:{min:0,max:80,ticks:[0,20,40,60,80]},y:{min:0,max:14,ticks:[0,5,10]},line:10,data:(i,t)=>({curve:[[0,0],[t.tH,10]],dash:[[0,0],[64,10]],at:[t.tH,10]})},exam:{ok:(i,t)=>nu(i,t),hold:Pn.WIN_HOLD,score:15,events:[{at:5,set:{T_bath:45},toast:La.examAbn}],solve:{V_thio:1,T_bath:25,c_acid:1,mno2:!1,dilute:!0},goal:{title:mn.goal,tip:mn.goalTitle,short:mn.goalBandShort}}};Qp({C:Sa,world:fu,model:iu,console:M0});
 </script>
+<script id="lg-mobile-js">(()=>{const t=document.createElement('div');t.id='mtabs';t.setAttribute('role','tablist');t.setAttribute('aria-label','Chọn bảng');
+const M=[['m-left','Bước này'],['m-right','Điều khiển'],['m-3d','Xem 3D']];
+const set=k=>{document.body.classList.remove('m-left','m-right','m-3d');document.body.classList.add(k);t.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.k===k)));for(const a of document.querySelectorAll('aside'))a.classList.remove('collapsed');};
+M.forEach(([k,l])=>{const b=document.createElement('button');b.type='button';b.dataset.k=k;b.textContent=l;b.onclick=()=>set(k);t.appendChild(b)});
+const go=()=>{document.body.appendChild(t);set('m-left')};document.readyState==='loading'?addEventListener('DOMContentLoaded',go):go()})()</script>
 </body>
 </html>

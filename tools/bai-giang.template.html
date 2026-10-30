@@ -88,6 +88,35 @@ h2.sec{margin:34px 4px 12px;font-size:22px;letter-spacing:-.02em;scroll-margin-t
 .unit .k{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#16774F}
 .unit b{font-size:20px;letter-spacing:-.02em}
 .unit div span:last-child{color:var(--lg-ink2);font-size:14.5px;max-width:80ch}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+/* Điện thoại */
+.brand span{white-space:nowrap}
+@media (max-width:640px){
+  .wrap{padding:12px 14px calc(36px + env(safe-area-inset-bottom))}
+  header.hub{top:max(8px,env(safe-area-inset-top));padding:6px 6px 6px 8px;margin-bottom:14px}
+  .brand{gap:8px;font-size:16px}.brand svg{width:28px;height:28px}
+  .hubnav{flex-wrap:nowrap;gap:0}
+  .hubnav a{padding:7px 9px;font-size:13px;white-space:nowrap}
+  .hero{padding:6px 2px 0}.hero h1{font-size:34px;letter-spacing:-.03em}.hero p{font-size:15.5px;margin-top:10px}
+  h2.sec{margin:26px 2px 10px;font-size:20px}
+  .journeys{grid-template-columns:1fr;gap:12px}.journey{border-radius:22px}.journey div{padding:14px 16px 16px}.journey b{font-size:19px}
+  .unit{padding:16px 18px;border-radius:20px}
+  .tools{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-inline:-14px;padding:2px 14px 6px;scroll-padding-inline:14px}
+  .tools::-webkit-scrollbar{display:none}
+  .tools input{flex:0 0 calc(100vw - 28px)}
+  .tools .chip,.tools .lbl{flex:0 0 auto}
+  .tools .count{display:none}
+  .tools[role=search]{flex-wrap:wrap;overflow:visible;margin-inline:0;padding:0}
+  .tools[role=search]{gap:8px}
+  .tools[role=search] .chips{flex:1 1 100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-14px;padding:2px 14px 6px}
+  .tools[role=search] .chips::-webkit-scrollbar{display:none}
+  .tools[role=search] .chip{flex:0 0 auto}
+  .hubnav .xl{display:none}
+  .grid{grid-template-columns:1fr;gap:12px}
+  .card .bd{padding:12px 14px 14px}
+  .card .tb{display:none}
+}
+@media (max-width:380px){.hubnav a{padding:7px 7px;font-size:12.5px}.brand span{font-size:15px}}
 .foot{margin-top:48px;padding:20px 4px 8px;border-top:1px solid var(--lg-hair);display:grid;gap:8px;font-size:12.5px;line-height:1.55;color:var(--lg-muted)}
 .foot a{color:inherit;text-decoration:underline;text-decoration-color:rgba(110,110,115,.35);text-underline-offset:2px}
 .foot a:hover{color:var(--lg-ink);text-decoration-color:currentColor}
@@ -173,7 +202,7 @@ __DECOR__
 <div class="wrap">
   <header class="hub">
     <div class="brand"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E23A62"/><stop offset="1" stop-color="#B0123C"/></linearGradient></defs><rect x="2" y="2" width="44" height="44" rx="13" fill="url(#bg1)"/><circle cx="21" cy="22" r="10" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="19" cy="20" r="3.4" fill="#fff"/><circle cx="33.5" cy="33" r="4" fill="#FFD27A"/></svg><span>Bài Giảng</span></div>
-    <nav class="hubnav" aria-label="Mục chính"><a href="#hanh-trinh">Hành trình 3D</a><a href="#lo-trinh">Lộ trình</a><a href="#thu-vien">Thư viện</a></nav>
+    <nav class="hubnav" aria-label="Mục chính"><a href="#hanh-trinh">Hành trình<span class="xl"> 3D</span></a><a href="#lo-trinh">Lộ trình</a><a href="#thu-vien">Thư viện</a></nav>
   </header>
   <section class="hero">
     <h1>Học khoa học bằng <em>thế giới 3D</em> sống động</h1>
@@ -189,11 +218,11 @@ __DECOR__
   <h2 class="sec" id="thu-vien">Thư viện 54 bài thí nghiệm</h2>
   <div class="tools" role="search">
     <input id="q" type="search" placeholder="Tìm bài: ví dụ “ammonia”, “nguyên phân”, “gió mùa”" aria-label="Tìm bài học">
-    <button class="chip" data-s="" aria-pressed="true">Tất cả</button>
+    <div class="chips"><button class="chip" data-s="" aria-pressed="true">Tất cả</button>
     <button class="chip" data-s="phys" aria-pressed="false"><i style="background:var(--phys)"></i>Vật lí</button>
     <button class="chip" data-s="chem" aria-pressed="false"><i style="background:var(--chem)"></i>Hoá học</button>
     <button class="chip" data-s="bio" aria-pressed="false"><i style="background:var(--bio)"></i>Sinh học</button>
-    <button class="chip" data-s="geo" aria-pressed="false"><i style="background:var(--geo)"></i>Địa lí</button>
+    <button class="chip" data-s="geo" aria-pressed="false"><i style="background:var(--geo)"></i>Địa lí</button></div>
     <span class="count" id="count"></span>
   </div>
   <div class="tools grade" aria-label="Lọc theo lớp trong chương trình GDPT 2018">

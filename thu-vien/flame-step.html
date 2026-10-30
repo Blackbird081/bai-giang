@@ -86,7 +86,32 @@
 html,body{background:var(--lg-page)}
 body{background:var(--lg-wash)!important;background-attachment:fixed!important;-webkit-font-smoothing:antialiased}
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"><style id="lg-mobile">
+/* Điện thoại: thanh trên gọn, hai bảng thành tấm trượt dưới, chuyển bằng thanh chọn Bước này / Điều khiển / Xem 3D */
+#mtabs{display:none}
+@media (max-width:700px){
+  header#top{left:8px!important;right:8px!important;top:calc(6px + env(safe-area-inset-top))!important;width:auto!important;height:auto!important;padding:6px 8px!important;border-radius:18px!important}
+  header#top .row1{overflow-x:auto;scrollbar-width:none;flex-wrap:nowrap!important;gap:8px}
+  header#top .row1::-webkit-scrollbar{display:none}
+  header#top h1{font-size:15px!important;white-space:nowrap}
+  header#top .chain5{display:none!important}
+  nav#steps{top:calc(52px + env(safe-area-inset-top))!important;left:8px!important;right:8px!important;width:auto!important;overflow-x:auto;scrollbar-width:none;border-radius:16px!important}
+  nav#steps::-webkit-scrollbar{display:none}
+  #eqb{left:50%!important;top:calc(98px + env(safe-area-inset-top))!important;transform:translateX(-50%) scale(.82)!important;transform-origin:top center;width:min(380px,108vw)!important;max-width:none!important}
+  aside#left,aside#right{left:8px!important;right:8px!important;width:auto!important;top:auto!important;bottom:calc(56px + env(safe-area-inset-bottom))!important;height:42svh!important;max-height:42svh!important;transform:none!important;border-radius:20px!important}
+  body:not(.m-right) aside#right,body.m-right aside#left,body.m-3d aside#left,body.m-3d aside#right{display:none!important}
+  aside .phead .fold{display:none!important}
+  footer#foot{left:8px!important;right:8px!important;width:auto!important;bottom:calc(6px + env(safe-area-inset-bottom))!important;height:auto!important;border-radius:18px!important}
+  footer#foot .foot2{display:none!important}
+  #mtabs{display:flex;position:fixed;z-index:60;left:50%;transform:translateX(-50%);bottom:calc(64px + 42svh + env(safe-area-inset-bottom));gap:2px;padding:3px;border-radius:999px;
+    background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.9);
+    box-shadow:0 0 0 .5px rgba(15,23,42,.08),0 8px 22px -8px rgba(15,23,42,.25)}
+  body.m-3d #mtabs{bottom:calc(64px + env(safe-area-inset-bottom))}
+  #mtabs button{white-space:nowrap;border:0;background:transparent;padding:6px 13px;border-radius:999px;font:600 12.5px -apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;color:#1D1D1F;cursor:pointer}
+  #mtabs button[aria-pressed="true"]{background:#fff;box-shadow:0 1px 3px rgba(15,23,42,.16),0 0 0 .5px rgba(15,23,42,.06)}
+}
+</style>
+</head>
 <body>
 <canvas id="gl" tabindex="0"></canvas>
 <script type="module">var E0=Object.defineProperty;var iu=(i,t)=>{for(var e in t)E0(i,e,{get:t[e],enumerable:!0})};/**
@@ -5251,5 +5276,10 @@ varying vec3 vHmPos;
 float hmH(vec3 p){ p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }`).replace("#include <color_fragment>",`#include <color_fragment>
 diffuseColor.rgb *= 1.0 - 0.10 * smoothstep(0.55, 0.95, hmH(floor(vHmPos * 420.0)));`)},r.customProgramCacheKey=()=>"fl-hammer",r.needsUpdate=!0)}})}var Be=Ma.panel,zs=Ma.toast;function d1(i){let t=Be.flameWords[i.tintKey]||"";return i.flameKey==="mixed"?t+Be.flameMixed:t}var M0=i=>i.map(([t,e])=>[t,+(e*100).toFixed(1)]);function u1(i,t){let e=M0(ms(i)),n=M0(ms(i,{onlyTint:!0})),s=l=>l.map(([c,h])=>[c,+(100-h).toFixed(1)]),r=i.cobalt?n:e,o=i.absorb?s(r):r,a=o.reduce((l,c)=>Math.abs(c[0]-t.lam)<Math.abs(l[0]-t.lam)?c:l,o[0]);return{curve:o,dash:i.cobalt?i.absorb?s(e):e:void 0,at:[t.lam,a[1]]}}var w0={ref:go,main:{key:"lam",label:Be.readLam,fmt:i=>i.toFixed(1),smooth:.3,cal:(i,t)=>t.lamKind==="band"?Be.calLamBand:Be.calLam,pill:{ok:(i,t)=>t.resolved,yes:Be.pillResolved,no:Be.pillMerged}},subs:[{key:"flame",label:Be.readFlame,value:i=>d1(i),cal:Be.calFlame},{key:"e",label:Be.readE,value:i=>`${i.energyEV.toFixed(2)} eV`,cal:Be.calE},{key:"res",label:Be.readRes,value:i=>i.resolved?Be.resSplit:Be.resMerged,cal:Be.calRes}],sliders:[{key:"salt",label:Be.salt,icon:"scale",min:0,max:Qc.length-1,step:1,ref:go.salt,fmt:i=>Be.saltNames[Math.round(i)]||"",ticks:[{v:2,t:Be.tickK},{v:4,t:Be.tickSr}]},{key:"slit",label:Be.slit,icon:"gauge",min:.05,max:.5,step:.05,unit:Be.unitSlit,ref:go.slit,fmt:i=>i.toFixed(2),ticks:[{v:.3,t:Be.tickSlitMerge}]}],switches:[{key:"cobalt",label:Be.cobalt,icon:"drop",on:Be.cobaltOn,off:Be.cobaltOff,toast:{on:zs.cobaltOn,off:zs.cobaltOff}},{key:"clean",label:Be.clean,icon:"wind",on:Be.cleanOn,off:Be.cleanOff,toast:{on:zs.cleanOn,off:zs.cleanOff}},{key:"absorb",label:Be.absorb,icon:"flame",on:Be.absorbOn,off:Be.absorbOff,toast:{on:zs.absorbOn,off:zs.absorbOff}}],chart:{title:Be.curve,legend:Be.legend,x:{min:394,max:780,ticks:[400,500,600,700,780]},y:{min:0,max:100,ticks:[0,50,100]},data:(i,t)=>u1(i,t)},exam:{ok:(i,t)=>th(i,t),hold:15,score:15,events:[{at:5,set:{cobalt:!1},toast:zs.examAbn1},{at:10,set:{clean:!1},toast:zs.examAbn2}],solve:{salt:2,slit:.05,cobalt:!0,clean:!0,absorb:!1},goal:{title:Be.goal,tip:Be.goalTitle,short:Be.goalBandShort}}};Vp({C:Ma,world:nu,model:Qd,console:w0});
 </script>
+<script id="lg-mobile-js">(()=>{const t=document.createElement('div');t.id='mtabs';t.setAttribute('role','tablist');t.setAttribute('aria-label','Chọn bảng');
+const M=[['m-left','Bước này'],['m-right','Điều khiển'],['m-3d','Xem 3D']];
+const set=k=>{document.body.classList.remove('m-left','m-right','m-3d');document.body.classList.add(k);t.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.k===k)));for(const a of document.querySelectorAll('aside'))a.classList.remove('collapsed');};
+M.forEach(([k,l])=>{const b=document.createElement('button');b.type='button';b.dataset.k=k;b.textContent=l;b.onclick=()=>set(k);t.appendChild(b)});
+const go=()=>{document.body.appendChild(t);set('m-left')};document.readyState==='loading'?addEventListener('DOMContentLoaded',go):go()})()</script>
 </body>
 </html>
