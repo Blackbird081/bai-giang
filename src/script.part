@@ -217,13 +217,13 @@ renderer.domElement.tabIndex = 0;
 renderer.domElement.setAttribute('aria-label', 'Tế bào 3D. Kéo để xoay, cuộn để phóng, bấm vào bào quan để xem.');
 
 const scene = new THREE.Scene();
-const BG = { colorTop: new THREE.Color('#F7F2EE'), colorBot: new THREE.Color('#F2BDC9'), temTop: new THREE.Color('#D6D6D0'), temBot: new THREE.Color('#EDEDE8') };
+const BG = { colorTop: new THREE.Color('#ECEEF3'), colorBot: new THREE.Color('#FFFFFF'), temTop: new THREE.Color('#D6D6D0'), temBot: new THREE.Color('#EDEDE8') };
 const bgTop = uniform(BG.colorTop.clone()), bgBot = uniform(BG.colorBot.clone());
 scene.backgroundNode = mix(bgTop, bgBot, float(1).sub(smoothstep(0.0, 0.62, screenUV.sub(vec2(0.5, 0.56)).length())).mul(0.85));
 const camera = new THREE.PerspectiveCamera(34, 1, 0.05, 400);
 const HOME = { pos: new THREE.Vector3(21, 27, 31), target: new THREE.Vector3(0, -1.5, 0) };
 camera.position.copy(HOME.pos);
-const hemi = new THREE.HemisphereLight(0xffffff, 0xe7c9cf, 1.0);
+const hemi = new THREE.HemisphereLight(0xffffff, 0xdfe3ea, 1.0);
 const key = new THREE.DirectionalLight(0xfff1e6, 2.0); key.position.set(18, 34, 16);
 const rimL = new THREE.DirectionalLight(0xffd3dc, 1.1); rimL.position.set(-28, 6, -24);
 scene.add(hemi, key, rimL);

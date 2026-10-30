@@ -13,7 +13,80 @@
 .subs .sub span,.subs .sub small,.subs .sub i{white-space:normal!important;overflow:visible!important;text-overflow:clip!important}
 .slh b{font-size:17px!important}
 </style>
-</head>
+<style id="lg-theme">
+/* Giao diện chung của dự án: nền trắng, kính lỏng (tools/liquid_glass.py). Chỉ đổi màu nền, vật liệu kính, bo góc, phông; không đổi mô hình hay số liệu. */
+:root,:root[data-theme]{
+  --lg-page:#F5F5F7;
+  --lg-wash:radial-gradient(1100px 560px at 6% -12%, rgba(120,170,255,.13), transparent 62%),
+            radial-gradient(900px 520px at 104% -6%, rgba(255,160,190,.10), transparent 60%),
+            radial-gradient(1200px 700px at 50% 118%, rgba(140,220,210,.09), transparent 62%),
+            linear-gradient(180deg,#FCFCFD 0%,#F3F3F6 100%);
+  --lg-fill:linear-gradient(180deg,rgba(255,255,255,.78) 0%,rgba(255,255,255,.6) 100%);
+  --lg-fill-strong:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.8) 100%);
+  --lg-blur:blur(28px) saturate(185%);
+  --lg-stroke:rgba(255,255,255,.92);
+  --lg-hair:rgba(15,23,42,.08);
+  --lg-shadow:0 0 0 .5px rgba(15,23,42,.07),0 1px 2px rgba(15,23,42,.05),0 14px 36px -12px rgba(15,23,42,.20);
+  --lg-shadow-lo:0 0 0 .5px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.05),0 6px 16px -8px rgba(15,23,42,.18);
+  --lg-inner:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(255,255,255,.4);
+  --lg-r:24px; --lg-r-md:18px; --lg-r-sm:14px;
+  --lg-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Segoe UI",Roboto,"Helvetica Neue","Noto Sans",Arial,system-ui,sans-serif;
+  --lg-ink:#1D1D1F; --lg-ink2:#424245; --lg-muted:#6E6E73;
+
+  --tint:#F5F5F7;
+  --ink:#1D1D1F; --ink2:#424245; --ink3:#6E6E73;
+  --line:rgba(15,23,42,.08); --line-soft:rgba(15,23,42,.05); --line-2:rgba(15,23,42,.2);
+  --glass:rgba(255,255,255,.72); --glass-2:rgba(255,255,255,.64); --glass-bar:rgba(255,255,255,.66);
+  --glass-back:rgba(255,255,255,.86); --glass-solid:rgba(255,255,255,.88); --white-92:rgba(255,255,255,.9);
+  --glass-blur:blur(28px) saturate(185%);
+  --glass-edge:1px solid rgba(255,255,255,.92);
+  --glass-glow:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(255,255,255,.4);
+  --shadow-1:0 0 0 .5px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.05),0 6px 16px -8px rgba(15,23,42,.16);
+  --shadow-2:0 0 0 .5px rgba(15,23,42,.07),0 2px 6px rgba(15,23,42,.05),0 18px 44px -14px rgba(15,23,42,.22);
+  --shade-1:rgba(15,23,42,.08); --shade-2:rgba(15,23,42,.22);
+  --r-card:16px; --r-ctrl:14px; --r-panel:24px;
+  --font:var(--lg-font)!important;
+  --num:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Helvetica Neue",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]),:root[data-theme]{
+  --lg-page:#F5F5F7;
+  --lg-wash:radial-gradient(1100px 560px at 6% -12%, rgba(120,170,255,.13), transparent 62%),
+            radial-gradient(900px 520px at 104% -6%, rgba(255,160,190,.10), transparent 60%),
+            radial-gradient(1200px 700px at 50% 118%, rgba(140,220,210,.09), transparent 62%),
+            linear-gradient(180deg,#FCFCFD 0%,#F3F3F6 100%);
+  --lg-fill:linear-gradient(180deg,rgba(255,255,255,.78) 0%,rgba(255,255,255,.6) 100%);
+  --lg-fill-strong:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.8) 100%);
+  --lg-blur:blur(28px) saturate(185%);
+  --lg-stroke:rgba(255,255,255,.92);
+  --lg-hair:rgba(15,23,42,.08);
+  --lg-shadow:0 0 0 .5px rgba(15,23,42,.07),0 1px 2px rgba(15,23,42,.05),0 14px 36px -12px rgba(15,23,42,.20);
+  --lg-shadow-lo:0 0 0 .5px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.05),0 6px 16px -8px rgba(15,23,42,.18);
+  --lg-inner:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(255,255,255,.4);
+  --lg-r:24px; --lg-r-md:18px; --lg-r-sm:14px;
+  --lg-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Segoe UI",Roboto,"Helvetica Neue","Noto Sans",Arial,system-ui,sans-serif;
+  --lg-ink:#1D1D1F; --lg-ink2:#424245; --lg-muted:#6E6E73;
+
+  --tint:#F5F5F7;
+  --ink:#1D1D1F; --ink2:#424245; --ink3:#6E6E73;
+  --line:rgba(15,23,42,.08); --line-soft:rgba(15,23,42,.05); --line-2:rgba(15,23,42,.2);
+  --glass:rgba(255,255,255,.72); --glass-2:rgba(255,255,255,.64); --glass-bar:rgba(255,255,255,.66);
+  --glass-back:rgba(255,255,255,.86); --glass-solid:rgba(255,255,255,.88); --white-92:rgba(255,255,255,.9);
+  --glass-blur:blur(28px) saturate(185%);
+  --glass-edge:1px solid rgba(255,255,255,.92);
+  --glass-glow:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(255,255,255,.4);
+  --shadow-1:0 0 0 .5px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.05),0 6px 16px -8px rgba(15,23,42,.16);
+  --shadow-2:0 0 0 .5px rgba(15,23,42,.07),0 2px 6px rgba(15,23,42,.05),0 18px 44px -14px rgba(15,23,42,.22);
+  --shade-1:rgba(15,23,42,.08); --shade-2:rgba(15,23,42,.22);
+  --r-card:16px; --r-ctrl:14px; --r-panel:24px;
+  --font:var(--lg-font)!important;
+  --num:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Helvetica Neue",system-ui,sans-serif;
+  color-scheme:light;
+}}
+html,body{background:var(--lg-page)}
+body{background:var(--lg-wash)!important;background-attachment:fixed!important;-webkit-font-smoothing:antialiased}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></head>
 <body>
 <canvas id="gl" tabindex="0"></canvas>
 <script type="module">var O0=Object.defineProperty;var gu=(i,t)=>{for(var e in t)O0(i,e,{get:t[e],enumerable:!0})};/**

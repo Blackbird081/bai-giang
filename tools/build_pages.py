@@ -10,6 +10,8 @@ Ra:
 Chạy từ thư mục gốc repo:  python3 tools/build_pages.py [--artifact out_dir cell_url mito_url lib_url]
 """
 import json, sys, html, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import liquid_glass as LG
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CAT = json.load(open(ROOT / 'thu-vien/catalog.vi.json', encoding='utf-8'))
@@ -98,15 +100,20 @@ def chu_de(links, lesson_href):
             rows.append(f'<tr class="{st}"><td>{E(h["muc"].replace(" › ", " › "))}</td><td>{E(y)}</td><td><span class="st {st}">{label}</span>{f"<div class=mu>{E(names)}</div>" if names else ""}</td></tr>')
     total = n_ok + n_rel + n_no
     src = GD['nguon']['Sinh học'][0]
+    LG_CSS = LG.root('''
+  --paper:#F5F5F7; --panel:#FFFFFF; --ink:#1D1D1F; --ink2:#424245; --muted:#6E6E73; --line:rgba(15,23,42,.08); --f-body:var(--lg-font); --f-mono:var(--lg-font); --r:22px;
+''') + LG.BODY + 'html{background:var(--lg-page)} header h1{letter-spacing:-.025em} .lbl{font-weight:600;letter-spacing:.07em} .kpi b{font-variant-numeric:tabular-nums}\n' \
+        + LG.glass('.kpi div,.step', 'var(--lg-r)') + LG.glass('table', 'var(--lg-r)') + LG.pill_buttons('.btn,.chip', '.btn.pri', '#D42150', '#B0123C') \
+        + '.chip[aria-pressed="true"]{background:linear-gradient(180deg,#2C2C2E,#1D1D1F)!important;color:#fff!important}.ask{border-left:0;border-radius:14px;background:rgba(232,176,75,.14)} th{background:rgba(255,255,255,.5)} .step .vis img{border-radius:16px}\n'
     return f'''<!doctype html>
-<html lang="vi">
+<html lang="vi" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sinh Học Tế Bào 10</title>
 <meta name="description" content="Lộ trình 6 bài 3D cho chủ đề Sinh học tế bào lớp 10 theo chương trình GDPT 2018, kèm yêu cầu cần đạt trích nguyên văn và bảng những yêu cầu chưa có bài.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style>
 :root{{--paper:#F6F3F0;--panel:#FFFFFF;--ink:#1B1416;--ink2:#4A3E41;--muted:#74676A;--line:#E6DDD9;--crimson:#BE1740;--gold:#A87A22;--gold-soft:#F6EBD3;--ok:#2C7A4B;--okbg:rgba(44,122,75,.12);--relbg:rgba(168,122,34,.14);--nobg:rgba(116,103,106,.12);
   --f-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--r:14px}}
@@ -155,6 +162,7 @@ td:first-child{{width:24%;color:var(--ink2);font-size:13px}} td:last-child{{widt
 .chip{{padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:600 13px var(--f-body);cursor:pointer}}
 .chip[aria-pressed="true"]{{background:var(--ink);color:var(--panel);border-color:var(--ink)}}
 footer{{font-size:13.5px;color:var(--ink2);border-top:1px solid var(--line);padding-top:14px;display:grid;gap:6px}}
+{LG_CSS}
 @media (max-width:820px){{.step{{grid-template-columns:1fr}} .step .no{{display:none}} td:first-child{{display:none}} td:last-child{{width:32%}}}}
 </style>
 </head>

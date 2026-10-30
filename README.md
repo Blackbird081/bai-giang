@@ -3,7 +3,7 @@
 Tế bào nhân thực 3D đang hoạt động, phóng liền mạch từ toàn cảnh xuống 222.336 nguyên tử của một ribosome thật (PDB 3J7R) trên lưới nội chất. three.js r180, WebGPU với dự phòng WebGL 2, một trang HTML tự chứa.
 
 - Trang công khai (GitHub Pages): https://nclamvn.github.io/hanh-trinh-te-bao/ · Vào Ty Thể: [`ty-the.html`](ty-the.html) · AR: [`ar.html`](ar.html) · Thư viện 54 bài: [`thu-vien/`](thu-vien/) · Lộ trình Sinh học tế bào lớp 10: [`chu-de-sinh-hoc-te-bao.html`](chu-de-sinh-hoc-te-bao.html)
-- Bản đang chạy trên Claude: https://claude.ai/artifact/68y1264YdVFXQnzmHg5mrW (bản 10)
+- Bản đang chạy trên Claude: https://claude.ai/artifact/68y1264YdVFXQnzmHg5mrW (bản 11)
 - Vào Ty Thể trên Claude: https://claude.ai/artifact/PLNECoseboZiMU7MXKREzy · Thư viện và lộ trình lớp 10 trên Claude: https://claude.ai/artifact/GKx2jb4nALqKE6FUDnLGXu
 - Bản offline một file cho lớp học: [`offline/hanh-trinh-te-bao-offline.html`](offline/hanh-trinh-te-bao-offline.html) (9 MB, bấm "Download raw file", mở bằng Chrome hoặc Edge, không cần mạng); Vào Ty Thể: [`offline/vao-ty-the-offline.html`](offline/vao-ty-the-offline.html) (7,6 MB)
 - Kế hoạch đồ hoạ: https://claude.ai/artifact/EdyMQyM2rYKcfFYwgFisvM
@@ -30,6 +30,9 @@ Nút **Lên lớp** mở bài "Hành trình của một phân tử protein tiế
 ## Thư viện 54 bài 3D tiếng Việt
 [`thu-vien/`](thu-vien/) là bản tiếng Việt của [Tongjiang Lab](https://github.com/smithjohn78390/tongjiang-lab) (铜匠实验室): 10 lý, 25 hoá, 5 sinh, 14 địa. Bản này được tác giả đồng ý cho dùng phi thương mại. Đã dịch 14.536 đoạn, khoảng 245 nghìn chữ Hán; kiểm tự động giữ nguyên biến, thẻ và ký tự thoát; cả 54 bài đúng cú pháp; không còn chữ Hán hiển thị. **Thư mục này theo giấy phép CC BY-NC 4.0 của bản gốc, không phải MIT.** Xem [`thu-vien/GHI-CONG.md`](thu-vien/GHI-CONG.md).
 
+## Giao diện
+Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liquid_glass.py): nền trắng, vật liệu kính lỏng phỏng theo iOS 27 và macOS 27 (nền mờ, bão hoà màu, viền sáng bên trong, bóng mềm, góc bo lớn, nút dạng viên thuốc), phông hệ thống (SF Pro trên máy Apple, Inter ở nơi khác). Giao diện luôn sáng, kể cả khi máy đặt chế độ tối. 54 bài thư viện nhận cùng chuẩn qua khối CSS `lg-theme` mà `vi_tool.py apply` chèn vào.
+
 ## Cấu trúc
 | Đường dẫn | Nội dung |
 |---|---|
@@ -41,6 +44,7 @@ Nút **Lên lớp** mở bài "Hành trình của một phân tử protein tiế
 | `ar.html`, `assets/` | Trang AR và mô hình GLB của ribosome |
 | `thu-vien/` | 54 bài tiếng Việt (CC BY-NC 4.0), trang thư viện, công cụ Việt hoá trong `_viet-hoa/`, đối chiếu chương trình `gdpt2018.json` |
 | `tools/build_atp.py` | Quy trình xử lý trước: mmCIF 6J5I và 6J5K → dữ liệu ATP synthase nén |
+| `tools/liquid_glass.py` | Chuẩn giao diện chung: nền trắng, kính lỏng |
 | `tools/build_pages.py`, `tools/thu-vien.template.html` | Dựng trang thư viện và trang chủ đề từ `catalog.vi.json` và `gdpt2018.json` |
 | `tools/build_glb.py` | Dựng GLB bề mặt phân tử từ dữ liệu ribosome |
 | `offline/` | Bản offline một file: three.js và dữ liệu nhúng sẵn |
