@@ -153,7 +153,7 @@ header h1{{margin:4px 0 6px;font-size:clamp(26px,3.4vw,38px);line-height:1.15;le
 header h1 em{{font-style:normal;color:var(--crimson)}}
 header p{{margin:0;max-width:78ch;color:var(--ink2)}}
 .nav{{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}}
-.btn{{display:inline-flex;align-items:center;padding:8px 13px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;white-space:nowrap}}
+.btn{{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;white-space:nowrap}}
 .btn.pri{{background:var(--crimson);border-color:var(--crimson);color:#fff}}
 .kpi{{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}}
 .kpi div{{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}}
@@ -193,7 +193,7 @@ footer{{font-size:13px;line-height:1.55;color:var(--lg-muted);border-top:1px sol
 {LG.SITE_BAR_CSS}
 :root{{--muted:var(--bg-ink3);--ink2:var(--bg-ink2);--f-body:var(--bg-font);--f-mono:var(--bg-mono)}}
 .wrap{{padding-top:32px}}
-@media (max-width:640px){{.wrap{{padding:max(12px,env(safe-area-inset-top)) 14px calc(36px + env(safe-area-inset-bottom));gap:16px}} header h1{{font-size:28px}} header p{{font-size:15px}} .nav .btn{{font-size:13px;padding:7px 12px}} .kpi{{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}} .kpi div{{padding:10px 12px}} .kpi b{{font-size:22px}} .step{{padding:12px;gap:10px;border-radius:20px}} .step h3{{font-size:17.5px}} .ycd ul{{font-size:13.5px}} table{{font-size:13px}} th,td{{padding:8px 10px}}}}
+@media (max-width:640px){{.wrap{{padding:max(12px,env(safe-area-inset-top)) 14px calc(36px + env(safe-area-inset-bottom));gap:16px}} header h1{{font-size:28px}} header p{{font-size:15px}} .nav .btn{{font-size:14px;padding:0 14px;min-height:44px}} .kpi{{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}} .kpi div{{padding:10px 12px}} .kpi b{{font-size:22px}} .step{{padding:12px;gap:10px;border-radius:20px}} .step h3{{font-size:17.5px}} .ycd ul{{font-size:13.5px}} table{{font-size:13px}} th,td{{padding:8px 10px}}}}
 @media (max-width:820px){{.step{{grid-template-columns:1fr}} .step .no{{display:none}} td:first-child{{display:none}} td:last-child{{width:32%}}}}
 </style>
 </head>

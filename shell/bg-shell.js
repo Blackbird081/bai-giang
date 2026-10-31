@@ -635,7 +635,7 @@
     const st = document.createElement('style');
     st.textContent = FONTFACE(R) + TOKENS_CSS + `body{margin:0;font:500 var(--bg-fs-sm)/1.5 var(--bg-font);color:var(--bg-ink);background:var(--bg-page);-webkit-font-smoothing:antialiased}
       .w{max-width:420px;margin:0 auto;padding:calc(28px + env(safe-area-inset-top)) 20px 32px}
-      .h{display:flex;align-items:center;gap:12px;margin-bottom:28px}.h svg{width:36px;height:36px}.h b{font-size:var(--bg-fs-md)}
+      .h{display:flex;align-items:center;gap:12px;margin-bottom:28px;min-height:44px}.h svg{width:36px;height:36px}.h b{font-size:var(--bg-fs-md)}
       h2{margin:0 0 6px;font-size:var(--bg-fs-xl);letter-spacing:-.015em;line-height:1.2}p{margin:0 0 20px;color:var(--bg-ink2)}
       form{display:grid;gap:12px}
       input{width:100%;height:64px;padding:0 16px;border-radius:var(--bg-r-md);border:1.5px solid var(--bg-hair2);background:var(--bg-surface);font:600 30px var(--bg-mono);letter-spacing:10px;text-align:center;text-transform:uppercase;color:var(--bg-ink)}

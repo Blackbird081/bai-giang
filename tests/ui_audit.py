@@ -57,6 +57,7 @@ PROBE = r"""(args) => {
         const label = (e.getAttribute('aria-label') || e.textContent || e.value || e.tagName).trim().replace(/\s+/g, ' ').slice(0, 24);
         // chữ liên kết trong đoạn văn không tính (vùng bấm là cả dòng chữ)
         if (e.tagName === 'A' && getComputedStyle(e).display === 'inline' && e.closest('p,li,td')) continue;
+        if (e.closest('.card h3')) continue; // liên kết phủ cả thẻ (::after), vùng bấm là cả thẻ
         out.tap.push([Math.round(r.width), Math.round(r.height), label]); } } }
   const root = new URL('./', document.baseURI); const site = location.origin + '/';
   for (const a of document.querySelectorAll('a[href]')) { if (!vis(a)) continue; const u = new URL(a.getAttribute('href'), location.href);
