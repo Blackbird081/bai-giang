@@ -87,6 +87,11 @@ h2.sec{margin:34px 4px 12px;font-size:22px;letter-spacing:-.02em;scroll-margin-t
 .unit div{display:grid;gap:4px}
 .unit.hist{scroll-margin-top:96px;margin-top:12px;background:var(--lg-fill),linear-gradient(110deg,rgba(178,106,26,.13),rgba(232,161,58,.08))}
 .unit.hist .k{color:#8E5110}
+.unit.kit{margin-top:12px;scroll-margin-top:96px;background:var(--lg-fill),linear-gradient(110deg,rgba(15,23,42,.05),rgba(194,24,74,.06))}
+.unit.kit .k{color:#5b5b63}
+.unit .kitl{display:flex;flex-direction:column;gap:6px;align-items:flex-end;white-space:nowrap}
+.unit .kitl a{font-weight:600;color:#C2184A;text-decoration:none;font-size:14px}
+@media (max-width:640px){.unit .kitl{align-items:flex-start}}
 .journeys.robo{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
 .journey.rb b{font-size:19px}
 .unit.rb{margin-top:16px;background:var(--lg-fill),linear-gradient(110deg,rgba(227,86,42,.12),rgba(201,154,46,.08))}
@@ -226,6 +231,7 @@ __DECOR__
   <h2 class="sec" id="lo-trinh">Lộ trình theo chương trình GDPT 2018</h2>
   <a class="unit" href="__L_CHUDE__"><div><span class="k">Lớp 10 · 6 bài</span><b>Sinh học tế bào</b><span>Tế Bào → vận chuyển qua màng → co và phản co nguyên sinh → Vào Ty Thể → enzyme → nguyên phân. Mỗi bài kèm yêu cầu cần đạt trích nguyên văn chương trình, bảng chỉ rõ yêu cầu nào chưa có bài.</span></div><i>Xem lộ trình →</i></a>
   <a class="unit hist" id="lich-su-10" href="__L_LS10__"><div><span class="k">Lớp 10 · Lịch sử · ba bộ sách</span><b>Lịch sử 10 bằng mô hình 3D</b><span>Lộ trình theo chương trình môn Lịch sử (sửa đổi 2025): 7 chủ đề, yêu cầu cần đạt trích nguyên văn, cảnh 3D cho từng mục. Bài mẫu Thành Cổ Loa đã có; các cảnh khác đang được dựng dần.</span></div><i>Xem lộ trình →</i></a>
+  <div class="unit kit" id="len-lop"><div><span class="k">Dụng cụ lên lớp · dùng chung cho mọi bài 3D</span><b>Lên lớp bằng bút trình chiếu, màn hình giáo viên hoặc điện thoại</b><span>Trong bài, bấm Lên lớp (hoặc Shift P): bút trình chiếu và phím mũi tên chuyển bước, B tắt màn chiếu cho cả lớp tập trung. Nút Điều khiển mở màn hình giáo viên có ghi chú và đáp án trên laptop, hoặc nối điện thoại bằng mã QR. Trước khi dạy, chạy Kiểm máy trên chiếc máy sẽ chiếu.</span></div><span class="kitl"><a href="__L_KIEM__">Kiểm máy →</a><a href="__L_REMOTE__">Trang điều khiển →</a></span></div>
   <h2 class="sec" id="robotics">Robotics · đại học, kỹ sư</h2>
   <div class="journeys robo">
     <a class="journey rb" href="__L_R_UR5E__"><img src="__L_BASE__covers/robo-ur5e.webp" alt="" loading="lazy"><div><b>Cánh tay robot 6 trục</b><span>UR5e đúng bảng DH của Universal Robots: động học nghịch 8 nghiệm, Jacobian, điểm kỳ dị, MoveJ và MoveL, mô men trọng lực, gắp và đặt.</span><i>Vào mô phỏng →</i></div></a>

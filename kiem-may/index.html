@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kiểm máy</title>
+<meta name="description" content="Đo xem máy của trường chạy các bài giảng 3D mượt đến đâu: khung hình mỗi giây, thời gian tải, card đồ hoạ. Xuất báo cáo gửi lại nhóm làm bài.">
+<style>
+:root{--ink:#1c1c1e;--ink2:#5b5b63;--hair:rgba(15,23,42,.1);--accent:#C2184A;--ok:#2C7A4B;--mid:#B26A1A;--bad:#B3261E;--fill:rgba(255,255,255,.78)}
+*{box-sizing:border-box}
+body{margin:0;background:#f4f4f7;color:var(--ink);font:500 15px/1.5 "Inter","SF Pro Text",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px}
+a{color:var(--accent)}
+.top a{text-decoration:none;font-weight:600}
+h1{margin:6px 0 4px;font-size:32px;letter-spacing:-.02em}
+.lead{color:var(--ink2);max-width:70ch;margin:0 0 18px}
+.card{background:#fff;border-radius:20px;padding:18px 20px;box-shadow:0 0 0 .5px rgba(15,23,42,.06),0 12px 32px -18px rgba(15,23,42,.3);margin-top:14px}
+.dev{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 18px}
+.dev div span{display:block;font-size:12px;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em}
+.dev div b{font-size:14.5px;word-break:break-word}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+button{font:600 15px inherit;font-family:inherit;border:0;border-radius:999px;height:44px;padding:0 20px;cursor:pointer;background:#fff;color:var(--ink);box-shadow:0 0 0 1px var(--hair)}
+button.pri{background:var(--accent);color:#fff;box-shadow:none}
+button:disabled{opacity:.5;cursor:default}
+label.ck{display:inline-flex;gap:8px;align-items:center;font-size:14px;color:var(--ink2)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--hair);vertical-align:top}
+th{font-size:12px;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.v{display:inline-block;padding:2px 10px;border-radius:999px;font-weight:700;font-size:12.5px}
+.v.ok{background:rgba(44,122,75,.12);color:var(--ok)}.v.mid{background:rgba(178,106,26,.14);color:var(--mid)}.v.bad{background:rgba(179,38,30,.1);color:var(--bad)}.v.wait{background:rgba(15,23,42,.06);color:var(--ink2)}
+#run{position:fixed;inset:0;display:none;background:#000;z-index:10}
+#run.show{display:block}
+#run iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
+#bar{position:absolute;left:50%;top:14px;transform:translateX(-50%);z-index:2;background:rgba(20,20,22,.82);color:#fff;border-radius:999px;padding:8px 16px;font-size:13.5px;display:flex;gap:12px;align-items:center;white-space:nowrap}
+#bar i{display:block;width:160px;height:4px;border-radius:2px;background:rgba(255,255,255,.2);overflow:hidden}#bar i b{display:block;height:100%;width:0;background:#fff}
+#bar button{height:28px;padding:0 12px;font-size:13px;background:rgba(255,255,255,.14);color:#fff;box-shadow:none}
+.small{font-size:13px;color:var(--ink2)}
+textarea{width:100%;min-height:120px;font:12px ui-monospace,monospace;border-radius:12px;border:1px solid var(--hair);padding:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="../">← Bài Giảng</a></div>
+  <h1>Kiểm máy</h1>
+  <p class="lead">Mở trang này trên đúng chiếc máy sẽ dùng để chiếu trong lớp (cắm sạc, mở toàn màn hình nếu được). Trang lần lượt mở từng bài giảng, đo độ mượt trong 10 giây, rồi cho ra báo cáo. Gửi báo cáo cho nhóm làm bài để chỉnh đồ hoạ cho vừa máy của trường. Không thu thông tin cá nhân nào.</p>
+
+  <div class="card"><div class="dev" id="dev"></div></div>
+
+  <div class="card">
+    <div class="row"><button class="pri" id="go">Bắt đầu kiểm</button><label class="ck"><input type="checkbox" id="quick"> Kiểm nhanh (4 bài, khoảng 1 phút)</label><span class="small" id="eta"></span></div>
+    <table style="margin-top:14px"><thead><tr><th>Bài</th><th>Tải xong</th><th>Khung hình/giây</th><th>1% chậm nhất</th><th>Khung giật &gt; 50 ms</th><th>Kết luận</th></tr></thead><tbody id="tb"></tbody></table>
+    <p class="small">Đạt: từ 30 khung hình mỗi giây. Tạm được: 20–30, chuyển động còn hơi giật. Chưa đạt: dưới 20. "1% chậm nhất" cho biết lúc nặng nhất trang còn bao nhiêu khung mỗi giây.</p>
+  </div>
+
+  <div class="card" id="out" hidden>
+    <b>Báo cáo</b>
+    <p class="small">Bấm "Sao chép" rồi dán vào tin nhắn, hoặc tải tệp CSV mở bằng Excel.</p>
+    <div class="row"><button id="copy">Sao chép</button><button id="csv">Tải tệp CSV</button><button id="json">Tải tệp JSON</button></div>
+    <textarea id="txt" readonly style="margin-top:10px"></textarea>
+  </div>
+</div>
+<div id="run"><div id="bar"><span id="barT">Đang chuẩn bị…</span><i><b id="barP"></b></i><button id="stopRun">Dừng</button></div></div>
+<script>
+const LESSONS = [
+  {id: 'te-bao', name: 'Hành Trình Vào Tế Bào', url: '../te-bao/', quick: true},
+  {id: 'ty-the', name: 'Vào Ty Thể', url: '../ty-the/', quick: true},
+  {id: 'co-loa', name: 'Thành Cổ Loa', url: '../lich-su-10/co-loa/', quick: true},
+  {id: 'ur5e', name: 'Robotics: cánh tay UR5e', url: '../robotics/ur5e/', quick: true},
+  {id: 'hexapod', name: 'Robotics: robot sáu chân', url: '../robotics/hexapod/'},
+  {id: 'crazyflie', name: 'Robotics: drone Crazyflie', url: '../robotics/crazyflie/'},
+  {id: 'turtlebot3', name: 'Robotics: xe TurtleBot3', url: '../robotics/turtlebot3/'},
+  {id: 'mitosis', name: 'Thư viện: nguyên phân', url: '../thu-vien/mitosis-step.html'},
+  {id: 'ammonia', name: 'Thư viện: tổng hợp ammonia', url: '../thu-vien/ammonia-step.html'},
+  {id: 'karst', name: 'Thư viện: địa hình karst', url: '../thu-vien/karst-step.html'},
+];
+const WARM = 4000, MEASURE = 10000, LOAD_MAX = 45000;
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[c]);
+
+// ---------- thông tin máy ----------
+function gpuInfo() {
+  try {
+    const c = document.createElement('canvas'), gl = c.getContext('webgl2') || c.getContext('webgl');
+    if (!gl) return {renderer: 'Không có WebGL', vendor: ''};
+    const ext = gl.getExtension('WEBGL_debug_renderer_info');
+    const r = {renderer: ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER), vendor: ext ? gl.getParameter(ext.UNMASKED_VENDOR_WEBGL) : gl.getParameter(gl.VENDOR), webgl2: !!c.getContext('webgl2'), maxTex: gl.getParameter(gl.MAX_TEXTURE_SIZE)};
+    const lose = gl.getExtension('WEBGL_lose_context'); if (lose) lose.loseContext();
+    return r;
+  } catch (e) { return {renderer: 'Lỗi: ' + e.message, vendor: ''}; }
+}
+const DEV = {
+  time: new Date().toISOString(), ua: navigator.userAgent, platform: (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '',
+  cores: navigator.hardwareConcurrency || null, memoryGB: navigator.deviceMemory || null,
+  screen: `${screen.width}×${screen.height}`, viewport: `${innerWidth}×${innerHeight}`, dpr: devicePixelRatio, webgpu: 'gpu' in navigator, gpu: gpuInfo(),
+};
+const browser = (() => { const u = navigator.userAgent; const m = u.match(/(Edg|OPR|Chrome|Firefox|Version)\/([\d.]+)/); const name = /Edg\//.test(u) ? 'Edge' : /OPR\//.test(u) ? 'Opera' : /Chrome\//.test(u) ? 'Chrome' : /Firefox\//.test(u) ? 'Firefox' : /Safari\//.test(u) ? 'Safari' : 'Khác'; return m ? `${name} ${m[2].split('.')[0]}` : name; })();
+$('dev').innerHTML = [['Card đồ hoạ', DEV.gpu.renderer], ['Trình duyệt', browser + (DEV.webgpu ? ' · có WebGPU' : '')], ['Hệ điều hành', DEV.platform || '?'], ['Nhân CPU', DEV.cores || '?'], ['Bộ nhớ (ước)', DEV.memoryGB ? DEV.memoryGB + ' GB' : '?'], ['Màn hình', `${DEV.screen} · tỉ lệ điểm ảnh ${DEV.dpr}`]]
+  .map(([k, v]) => `<div><span>${k}</span><b>${esc(v)}</b></div>`).join('');
+if (/swiftshader|llvmpipe|software|basic render/i.test(DEV.gpu.renderer)) $('dev').insertAdjacentHTML('afterend', '<p style="margin:12px 0 0;padding:10px 12px;border-radius:12px;background:rgba(179,38,30,.08);color:#B3261E;font-weight:600">Máy đang vẽ bằng phần mềm, không dùng card đồ hoạ, nên bài 3D sẽ rất chậm. Vào cài đặt trình duyệt, bật "Dùng tăng tốc đồ hoạ khi có thể" (Chrome, Edge: Cài đặt › Hệ thống), khởi động lại trình duyệt rồi kiểm lại.</p>');
+
+// ---------- đo một bài ----------
+let abort = false;
+function verdict(fps) { return fps == null ? ['wait', 'Lỗi'] : fps >= 30 ? ['ok', 'Đạt'] : fps >= 20 ? ['mid', 'Tạm được'] : ['bad', 'Chưa đạt']; }
+function measure(L, k, n) {
+  return new Promise((done) => {
+    const run = $('run'), f = document.createElement('iframe'); f.allow = 'fullscreen; xr-spatial-tracking';
+    const t0 = performance.now(); let loaded = 0, settled = false;
+    const finish = (r) => { if (settled) return; settled = true; clearInterval(prog); f.remove(); done(r); };
+    const total = LOAD_MAX + WARM + MEASURE; let phase = 'Đang tải';
+    const prog = setInterval(() => { if (abort) finish({error: 'đã dừng'}); $('barT').textContent = `${k + 1}/${n} · ${L.name} · ${phase}`; $('barP').style.width = Math.min(100, (performance.now() - t0) / (loaded ? (loaded - t0) + WARM + MEASURE : total) * 100) + '%'; }, 200);
+    const timeout = setTimeout(() => { if (!loaded) finish({error: 'quá 45 giây chưa tải xong'}); }, LOAD_MAX);
+    f.onload = () => {
+      clearTimeout(timeout); loaded = performance.now(); phase = 'Khởi động';
+      let w; try { w = f.contentWindow; w.requestAnimationFrame; } catch (e) { finish({load: loaded - t0, error: 'không đo được (khác nguồn)'}); return; }
+      const errs = []; try { w.addEventListener('error', (e) => errs.push(String(e.message).slice(0, 120))); } catch (e) { /* bỏ qua */ }
+      setTimeout(() => {
+        phase = 'Đang đo'; const dts = []; let last = 0, start = 0;
+        const tick = (t) => { if (settled) return; if (!start) { start = t; last = t; } else { dts.push(t - last); last = t; } if (t - start < MEASURE) w.requestAnimationFrame(tick); else end(t - start); };
+        const end = (span) => {
+          const s = dts.slice().sort((a, b) => b - a), n1 = Math.max(1, Math.floor(s.length * 0.01));
+          const worst = s.slice(0, n1).reduce((a, b) => a + b, 0) / n1;
+          let tier = null; try { if (w.LIVE) tier = w.LIVE.tier; } catch (e) { /* bỏ qua */ }
+          finish({load: loaded - t0, fps: dts.length / (span / 1000), low1: 1000 / worst, long: dts.filter((d) => d > 50).length, frames: dts.length, tier, errors: errs.slice(0, 3)});
+        };
+        w.requestAnimationFrame(tick);
+        setTimeout(() => { if (!settled && !dts.length) finish({load: loaded - t0, error: 'trang không vẽ khung hình nào'}); }, MEASURE + 4000);
+      }, WARM);
+    };
+    f.src = L.url; run.appendChild(f);
+  });
+}
+
+// ---------- chạy tất cả ----------
+const RESULTS = [];
+function row(L, r) {
+  const [c, t] = r ? verdict(r.error ? null : r.fps) : ['wait', 'Chờ'];
+  return `<tr id="r-${L.id}"><td>${esc(L.name)}${r && r.error ? `<div class="small">${esc(r.error)}</div>` : ''}${r && r.tier != null ? `<div class="small">bậc đồ hoạ tự chọn: ${r.tier}</div>` : ''}</td><td class="n">${r && r.load ? (r.load / 1000).toFixed(1) + ' s' : '–'}</td><td class="n"><b>${r && r.fps ? r.fps.toFixed(0) : '–'}</b></td><td class="n">${r && r.low1 ? r.low1.toFixed(0) : '–'}</td><td class="n">${r && r.frames ? r.long : '–'}</td><td><span class="v ${c}">${t}</span></td></tr>`;
+}
+function list() { return $('quick').checked ? LESSONS.filter((l) => l.quick) : LESSONS; }
+function drawTable() { $('tb').innerHTML = list().map((L) => row(L, (RESULTS.find((x) => x.id === L.id) || {}).r)).join(''); $('eta').textContent = `khoảng ${Math.ceil(list().length * 22 / 60)} phút`; }
+$('quick').onchange = drawTable; drawTable();
+$('stopRun').onclick = () => { abort = true; };
+$('go').onclick = async () => {
+  abort = false; RESULTS.length = 0; drawTable(); $('go').disabled = true; $('run').classList.add('show');
+  try { if (document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen(); } catch (e) { /* không bắt buộc */ }
+  const L = list();
+  for (let k = 0; k < L.length && !abort; k++) { const r = await measure(L[k], k, L.length); RESULTS.push({id: L[k].id, name: L[k].name, r}); drawTable(); }
+  $('run').classList.remove('show'); $('go').disabled = false; if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+  report();
+};
+function report() {
+  const rep = {kiemMay: 1, device: DEV, browser, viewportDuringTest: `${innerWidth}×${innerHeight}`, results: RESULTS.map(({id, name, r}) => ({id, name, loadS: r.load ? +(r.load / 1000).toFixed(2) : null, fps: r.fps ? +r.fps.toFixed(1) : null, low1: r.low1 ? +r.low1.toFixed(1) : null, longFrames: r.long ?? null, tier: r.tier ?? null, verdict: verdict(r.error ? null : r.fps)[1], error: r.error || null}))};
+  const json = JSON.stringify(rep, null, 2); $('txt').value = json; $('out').hidden = false;
+  const dl = (name, type, text) => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], {type})); a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); };
+  const day = new Date().toISOString().slice(0, 10);
+  $('copy').onclick = async () => { try { await navigator.clipboard.writeText(json); $('copy').textContent = 'Đã sao chép'; } catch (e) { $('txt').select(); document.execCommand('copy'); $('copy').textContent = 'Đã sao chép'; } };
+  $('json').onclick = () => dl(`kiem-may-${day}.json`, 'application/json', json);
+  $('csv').onclick = () => {
+    const head = ['bai', 'tai_xong_s', 'khung_hinh_giay', 'cham_nhat_1pt', 'khung_giat', 'bac_do_hoa', 'ket_luan', 'loi', 'card_do_hoa', 'trinh_duyet', 'man_hinh'];
+    const q = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+    const lines = rep.results.map((x) => [x.name, x.loadS, x.fps, x.low1, x.longFrames, x.tier, x.verdict, x.error, DEV.gpu.renderer, browser, DEV.screen].map(q).join(','));
+    dl(`kiem-may-${day}.csv`, 'text/csv;charset=utf-8', '﻿' + head.join(',') + '\n' + lines.join('\n'));
+  };
+}
+</script>
+</body>
+</html>

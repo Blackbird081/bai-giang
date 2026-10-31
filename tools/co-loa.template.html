@@ -197,6 +197,7 @@ ol.src a{word-break:break-word}
 
 <div class="sheet" id="sheet" role="dialog" aria-modal="true"><div class="box glass" id="sheetBox"></div></div>
 
+<!--BG-SHELL-->
 <script type="importmap">
 { "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js",
@@ -814,9 +815,10 @@ function stepCam(s) {
   return s.cam;
 }
 function startLesson() { lesson = { i: 0, ans: {} }; $('bLesson').textContent = 'Thoát bài học'; showStep(); }
-function endLesson() { lesson = null; $('bLesson').textContent = 'Học theo bước'; renderInfo(); }
+function endLesson() { lesson = null; $('bLesson').textContent = 'Học theo bước'; renderInfo(); window.BGShell && BGShell.update(-1); }
 function showStep() {
   const L = lesson, s = STEPS[L.i], n = STEPS.length;
+  window.BGShell && BGShell.update(L.i);
   setPhase(s.ph, true);
   sel = null; select(s.sel || null, false); if (!s.sel) select(null, false);
   fly(stepCam(s), 1.8);
@@ -846,6 +848,15 @@ function summary() {
   <div class="nav"><button class="btn" id="lAgain">Học lại</button><button class="btn primary" id="lEnd">Khám phá tự do</button></div>`;
   $('lAgain').onclick = startLesson; $('lEnd').onclick = endLesson;
 }
+
+/* ================= Vỏ Bài Giảng: lên lớp, màn hình giáo viên, điện thoại ================= */
+if (window.BGShell) BGShell.mount({
+  id: 'co-loa', title: 'Thành Cổ Loa', subject: 'Lịch sử 10', objectives: YCCD, accent: '#B26A1A',
+  layout: { minWidth: 1100, dock: 'right:auto;left:50%;transform:translateX(-50%);top:14px;bottom:auto', hud: 'left:50%;transform:translateX(-50%);bottom:auto;top:62px' },
+  steps: STEPS.map(s => ({ t: s.t, note: s.b.replace(/\s*\[\[[^\]]+\]\]/g, ''), ask: s.ask ? { q: s.ask.q, o: s.ask.o, a: s.ask.a, e: s.ask.e } : null })),
+  go: i => { if (!lesson) lesson = { i: 0, ans: {} }; $('bLesson').textContent = 'Thoát bài học'; lesson.i = i; showStep(); },
+  end: () => { if (lesson) endLesson(); },
+});
 
 /* ================= Bảng phụ ================= */
 function openSheet(kind) {

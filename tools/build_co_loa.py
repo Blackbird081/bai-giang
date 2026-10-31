@@ -154,7 +154,10 @@ def build(home, hub, cell, mito):
     s = tpl.replace('__LG_CSS__', css).replace('__DATA__', json.dumps(DATA, ensure_ascii=False, separators=(',', ':'))).replace('__HUB__', hub).replace('__HOME__', home)
     s = s.replace('__FONT__', LG.FONT_LINK)
     assert '__' not in s, 'còn chỗ giữ chỗ: ' + s[s.find('__') - 40:s.find('__') + 40]
-    return s
+    # vỏ Bài Giảng (chế độ lên lớp, màn hình giáo viên, điện thoại) nhúng thẳng để bài chạy offline
+    shell = (ROOT / 'shell/bg-shell.js').read_text(encoding='utf-8')
+    assert '<!--BG-SHELL-->' in s
+    return s.replace('<!--BG-SHELL-->', '<script>\n' + shell + '</script>')
 
 
 if __name__ == '__main__':

@@ -1473,7 +1473,7 @@ function startLesson() {
 function lessonOffset() { const card = $('lesson'), W = host.clientWidth, H = host.clientHeight; const dx = lesson && W > 760 && !card.hidden ? Math.round((card.offsetWidth + 12) / 2) : 0; if (dx) camera.setViewOffset(W, H, -dx, 0, W, H); else camera.clearViewOffset(); }
 new ResizeObserver(() => lessonOffset()).observe($('lesson')); new ResizeObserver(() => lessonOffset()).observe(host);
 function endLesson() {
-  if (!lesson) return; clearInterval(lesson.poll); lesson = null; lessonOffset();
+  if (!lesson) return; clearInterval(lesson.poll); lesson = null; lessonOffset(); window.BGShell && BGShell.update(-1);
   host.classList.remove('lessoning'); $('lesson').hidden = true; $('lessonBtn').textContent = 'Lên lớp';
   if (sel) showCallout();
 }
@@ -1486,6 +1486,7 @@ function goStep(i) {
   try { s.go(); } catch (e) { console.warn('Bước bài giảng lỗi:', e); }
   if (s.quiz) { lesson.qi = 0; lesson.score = 0; lesson.first = true; lesson.done = false; }
   renderLesson();
+  window.BGShell && BGShell.update(i);
 }
 function renderLesson() {
   if (!lesson) return; const s = LESSON.steps[lesson.i], n = LESSON.steps.length;
@@ -1531,6 +1532,20 @@ function renderQuiz() {
   }
 }
 function nextQuizSoon() { setTimeout(() => { if (!lesson || !LESSON.steps[lesson.i].quiz) return; lesson.qi++; lesson.first = true; if (lesson.qi >= LESSON.quiz.length) lesson.done = true; else { clearSel(); flyHome(); } renderLesson(); }, 2200); }
+
+/* Vỏ Bài Giảng: lên lớp bằng bút trình chiếu, màn hình giáo viên, điện thoại (shell/bg-shell.js) */
+if (window.BGShell) BGShell.mount({
+  id: 'te-bao', title: 'Hành Trình Vào Tế Bào', subject: 'Sinh học 10', accent: '#C2184A',
+  layout: { minWidth: 900,
+    dock: () => { const r = document.getElementById('viewport').getBoundingClientRect(); return `top:${Math.round(r.top + 12)}px;right:${Math.round(innerWidth - r.right + 56)}px;bottom:auto`; },
+    hud: () => { const r = document.getElementById('viewport').getBoundingClientRect(); return `left:${Math.round(r.left + r.width / 2)}px;transform:translateX(-50%);top:${Math.round(r.bottom - 112)}px;bottom:auto`; } },
+  objectives: ["Phân tích được mối quan hệ phù hợp giữa cấu tạo và chức năng của thành tế bào (ở tế bào thực vật) và màng sinh chất.", "Nêu được cấu tạo và chức năng của tế bào chất.", "Trình bày được cấu trúc của nhân tế bào và chức năng quan trọng của nhân.", "Phân tích được mối quan hệ giữa cấu tạo và chức năng của các bào quan trong tế bào.", "Trình bày được hiện tượng nhập bào và xuất bào thông qua biến dạng của màng sinh chất. Lấy được ví dụ minh hoạ.", "Dựa vào sơ đồ thông tin giữa các tế bào, trình bày được các quá trình: + Tiếp nhận: Một phân tử truyền tin liên kết vào một protein thụ thể làm thụ thể thay đổi hình dạng; + Truyền tin: các chuỗi tương tác phân tử chuyển tiếp tín hiệu từ các thụ thể tới các phân tử đích trong tế bào; + Đáp ứng: Tế bào phát tín hiệu điều khiển phiên mã, dịch mã hoặc điều hoà hoạt động của tế bào."],
+  steps: LESSON.steps.map((s) => s.quiz
+    ? { t: s.t, note: 'Ba câu kiểm tra, học sinh trả lời trên màn chiếu:\n' + LESSON.quiz.map((q, k) => `${k + 1}. ${q.q}\n   Đáp án: ${q.ok}`).join('\n') }
+    : { t: s.t, note: s.b + (s.n ? '\n\nGhi chú cho giáo viên: ' + s.n : ''), ask: { q: String(s.a).replace(/<[^>]+>/g, ''), o: [], a: -1 } }),
+  go: (i) => { if (!lesson) startLesson(); goStep(i); },
+  end: () => { if (lesson) endLesson(); },
+});
 $('lessonBtn').addEventListener('click', () => lesson ? endLesson() : startLesson());
 $('lsX').addEventListener('click', (e) => { e.stopPropagation(); endLesson(); });
 $('lsMin').addEventListener('click', (e) => { e.stopPropagation(); if (lesson) { lesson.compact = !lesson.compact; renderLesson(); } });
