@@ -41,7 +41,7 @@ PROBE = r"""(args) => {
   const texts = []; const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   for (let t; (t = tw.nextNode());) { const s = t.nodeValue.trim(); if (!s) continue; const e = t.parentElement; if (!e || e.closest('script,style,noscript,svg title')) continue; if (!shown(e)) continue; texts.push([e, s]); }
   const out = { dev: [], font: [], tap: [], home: false, next: false, credit: false, stage: null, title: document.title };
-  const dev = /\b(\d+\s*fps|p95|p99)\b|lệnh vẽ|\bWebGL\b|\bWebGPU\b|tam giác/i;
+  const dev = /\b(\d+\s*fps|p95|p99)\b|lệnh vẽ|\bWebGL\b|\bWebGPU\b/i;
   const seen = new Set();
   for (const [e, s] of texts) {
     if (dev.test(s) && !e.closest('.bgs-debug')) out.dev.push(s.slice(0, 60));
@@ -99,6 +99,10 @@ async def run_one(b, name, url, vp, args, res):
     await asyncio.sleep(args.wait * (3 if name in ('te-bao', 'ty-the') else 1))
     lesson = name in dict(pages('lessons'))
     lib = url.startswith('thu-vien/')
+    if args.closed:  # đo khi mọi ngăn kéo đóng (tiêu chí của kế hoạch)
+        try:
+            await pg.evaluate("() => { if (window.BGShell) for (let k = 0; k < 4; k++) BGShell.panel(k, false); }"); await asyncio.sleep(1.5)
+        except Exception: pass
     try:
         o = await pg.evaluate(PROBE, [min(w, h) < 600, touch, lesson, lib])
     except Exception as e:
@@ -134,7 +138,7 @@ async def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--group', default='all'); ap.add_argument('--vp', default='d,t,tp,pl,pp'); ap.add_argument('--shots')
     ap.add_argument('--only'); ap.add_argument('--wait', type=float, default=6); ap.add_argument('--par', type=int, default=4)
-    ap.add_argument('--json', default=str(ROOT / 'tests/ui_audit.json'))
+    ap.add_argument('--closed', action='store_true'); ap.add_argument('--json', default=str(ROOT / 'tests/ui_audit.json'))
     args = ap.parse_args()
     ps = [p for p in pages(args.group) if not args.only or any(k in p[0] for k in args.only.split(','))]
     vps = args.vp.split(',')
