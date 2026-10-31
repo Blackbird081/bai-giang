@@ -69,14 +69,27 @@
       const i = current(); if (i < 0) return;
       const n = readNote(); steps[i].note = n.note; steps[i].ask = n.ask;
       if (syncing) return;
-      if (window.BGShell.state.on) window.BGShell.update(i); else window.BGShell.refresh();
+      window.BGShell.update(i);
     };
+    // ghi công và ghi chú minh hoạ của bản gốc: đưa vào cuối bảng Bước này (chân trang của bản gốc đã ẩn)
+    const lp = document.getElementById('left'), pb = lp && lp.querySelector('.pbody');
+    const noteTxt = txt(document.querySelector('footer#foot .note'));
+    if (pb && !pb.querySelector('.bg-credit')) {
+      const c = document.createElement('div'); c.className = 'bg-credit';
+      c.innerHTML = (noteTxt ? `<p>${noteTxt.replace(/[&<>]/g, (x) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;'})[x])}</p>` : '') +
+        '<p>Bài gốc: <a href="https://lab.tongjiang.app/" target="_blank" rel="noopener">Tongjiang Lab</a> · giấy phép CC BY-NC 4.0 · bản Việt hoá phi thương mại của Bài Giảng.</p>';
+      pb.appendChild(c);
+    }
     window.BGShell.mount({
       id: location.pathname.split('/').pop().replace(/\.html$/, ''), title, subject: 'Thư viện thí nghiệm', variant: 'pho-thong',
       objectives: mq ? ['Câu hỏi chính của bài: ' + mq] : [], steps,
-      // thanh lên lớp dựng đứng, sát mép trái bảng điều khiển bên phải của bài; dải bước ẩn vì bài đã có "Bước i / n" ở chân trang
-      layout: {minWidth: 700, compact: true, vertical: true, hud: 'display:none!important',
-        dock: () => { const r = document.getElementById('right'), rr = r && r.getBoundingClientRect(); const side = rr && rr.width > 60 && rr.height > innerHeight * 0.5, st = document.getElementById('steps'), sb = st ? st.getBoundingClientRect().bottom + 10 : 150; const x = side ? innerWidth - rr.left + 10 : 14; const y = side ? Math.max(rr.top, sb) : sb; return `top:${Math.round(y)}px;right:${Math.round(x)}px;bottom:auto;left:auto`; }},
+      // hai bảng của bản gốc là ngăn kéo của thanh đầu bài trên màn rộng; điện thoại, máy tính bảng dựng giữ tấm trượt của bản gốc
+      panels: [
+        { label: 'Bước này', icon: 'list', sel: 'aside#left', side: 'left', desktop: true, open: () => innerWidth >= 1100 },
+        { label: 'Điều khiển', icon: 'sliders', sel: 'aside#right', side: 'right', desktop: true, open: () => innerWidth >= 1600 },
+      ],
+      credit: 'Bài gốc của Tongjiang Lab (lab.tongjiang.app), giấy phép CC BY-NC 4.0; Bài Giảng Việt hoá và dùng phi thương mại.' + (noteTxt ? ' ' + noteTxt : ''),
+      keys: [['1–9', 'nhảy tới bước'], ['Q', 'kiểm tra'], ['← →', 'bước trước, bước sau']],
       go: (i) => {
         const cs = document.querySelectorAll('nav#steps .chip'); const c = cs[i]; if (!c) return;
         syncing = true; c.click(); syncing = false;

@@ -27,7 +27,8 @@ body.cmp .turn{display:none}
 body.cmp #app{width:100vw!important;height:100svh!important;transform:none!important}
 body.cmp #gl{width:100vw!important;height:100svh!important}
 body.cmp #app>.ui{display:none}
-.mob{display:none;position:fixed;z-index:20;font-family:Inter,system-ui,sans-serif;color:#2a2521;-webkit-font-smoothing:antialiased}
+body.bgs-on .ui .back{display:none}
+.mob{display:none;position:fixed;z-index:20;font-family:var(--bg-font,Inter,system-ui,sans-serif);color:#2a2521;-webkit-font-smoothing:antialiased}
 body.cmp .mob{display:block}
 .mob.top{left:10px;right:10px;top:calc(10px + env(safe-area-inset-top));display:none;align-items:center;gap:10px;padding:8px 12px 8px 8px;background:rgba(252,249,244,.94);border:1px solid #eadfcd;border-radius:6px;box-shadow:0 10px 26px -18px rgba(60,40,20,.5);margin-right:150px}
 body.cmp .mob.top{display:flex}
@@ -48,6 +49,21 @@ body.cmp .mob.top{display:flex}
 body.full .mob.back{display:block!important}
 @media (orientation:landscape) and (max-height:520px){.mob.cap{left:auto;right:10px;width:min(46vw,440px);top:calc(64px + env(safe-area-inset-top));max-height:none}.mob.top{margin-right:calc(min(46vw,440px) + 10px)}}
 .mob.back button{height:40px;padding:0 14px;border:0;border-radius:4px;background:#2a2521;color:#fff;font:700 11px 'JetBrains Mono',monospace;letter-spacing:1px;box-shadow:0 8px 20px -10px rgba(0,0,0,.5)}
+/* Bản 14: thẻ lời giảng kiểu nhà; cảnh 3D là màn hình ở mọi cỡ màn, bảng số là ngăn kéo của thanh đầu bài */
+body.bgs-on .mob.top,body.bgs-on .mob.back{display:none!important}
+body.bgs-on .turn{display:none!important}
+.mob.cap{left:16px;right:auto;bottom:16px;width:min(440px,calc(100vw - 32px));padding:14px 16px 14px;border-radius:8px;max-height:min(52svh,520px)}
+.mob.cap .k{font:600 13px/1.3 var(--bg-font,Inter,sans-serif);letter-spacing:.01em;text-transform:none;color:#B8401A}
+.mob.cap .k span:last-child{font-family:var(--bg-mono,monospace);color:#6E6257}
+.mob.cap .t{font-size:20px;line-height:1.25;margin:4px 0 6px}
+.mob.cap .b{font-size:15px;line-height:1.6;color:#3d352e}
+.mob.cap .e{font:500 13px/1.5 var(--bg-mono,monospace);background:#f4ebdc;border-radius:4px;padding:5px 8px;display:inline-block}
+.mob .row{margin-top:12px;flex-wrap:wrap;overflow:visible}
+.mob .row button{height:44px;padding:0 14px;font:600 14px var(--bg-font,Inter,sans-serif);letter-spacing:0;border-radius:6px}
+body.bgs-nav-on .mob.cap{left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));width:auto;bottom:calc(76px + env(safe-area-inset-bottom));max-height:40svh}
+body.bgs-nav-on .mob .row{flex-wrap:nowrap;overflow-x:auto}
+@media (orientation:landscape) and (max-height:520px){.mob.cap,body.bgs-nav-on .mob.cap{left:auto;right:max(8px,env(safe-area-inset-right));width:min(46vw,440px);top:calc(var(--bg-bar,48px) + 8px);bottom:auto;max-height:calc(100svh - var(--bg-bar,48px) - 16px)}}
+html[data-chieu] .mob.cap{background:#fff}html[data-chieu] .mob.cap .b{font-size:18px;color:#000}html[data-chieu] .mob.cap .t{font-size:24px}
 `;
 
 export function runLive({stage: st, ui, sim, views, script, captions, keys = {}, idle = 25, chip = [800, 152], W = 1600, H = 900, firstView = 'hero'}) {
@@ -67,18 +83,21 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
 
   // bậc chất lượng
   const TIERS = [{samples: 8, ao: true, shadow: 4096, pr: 2}, {samples: 4, ao: false, shadow: 2048, pr: 1.5}, {samples: 2, ao: false, shadow: 1024, pr: 1}];
+  const RM = matchMedia('(prefers-reduced-motion: reduce)');
   const light = matchMedia('(pointer: coarse)').matches || Math.min(innerWidth, innerHeight) < 700;
   const qp = new URLSearchParams(location.search).get('q');
   let tier = qp !== null ? Math.min(2, +qp) : light ? 2 : 0, scale = 1;
   // màn hẹp (điện thoại, máy tính bảng dựng đứng): cảnh 3D phủ màn hình, lời giảng thành thẻ đọc được, bảng số mở khi cần
   let compact = false, full = false;
-  const wantCompact = () => innerWidth < 900 || innerHeight < 500;
+  const wantCompact = () => !!window.BGShell || innerWidth < 900 || innerHeight < 500; // có vỏ: cảnh trước ở mọi cỡ màn
+  const barH = () => (document.body.classList.contains('bgs-on') ? (document.querySelector('.bgs-bar')?.getBoundingClientRect().height || 0) : 0);
   const fit = () => {
     compact = wantCompact() && !full;
     document.body.classList.toggle('cmp', compact); document.body.classList.toggle('full', wantCompact() && full);
     if (compact) { scale = 1; app.style.transform = ''; st.resize(innerWidth, innerHeight, clamp(devicePixelRatio || 1, 0.75, Math.min(1.5, TIERS[tier].pr))); return; }
-    scale = Math.min(innerWidth / W, innerHeight / H);
-    app.style.transform = `translate(${(innerWidth - W * scale) / 2}px, ${(innerHeight - H * scale) / 2}px) scale(${scale})`;
+    const top = barH(), avail = innerHeight - top;
+    scale = Math.min(innerWidth / W, avail / H);
+    app.style.transform = `translate(${(innerWidth - W * scale) / 2}px, ${top + (avail - H * scale) / 2}px) scale(${scale})`;
     st.resize(W, H, clamp((devicePixelRatio || 1) * scale, 0.75, TIERS[tier].pr));
   };
   const applyTier = () => { const {pr, ...q} = TIERS[tier]; st.setQuality(q); fit(); };
@@ -91,7 +110,7 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
   const mShow = (c, i) => {
     if (!c) return; mI = i;
     const q = (sel) => mCap.querySelector(sel);
-    q('.k').firstChild.textContent = c.k || ''; q('.k').lastChild.textContent = `${String(i + 1).padStart(2, '0')} / ${String(captions.length).padStart(2, '0')}`;
+    q('.k').firstChild.textContent = c.k ? c.k.charAt(0) + c.k.slice(1).toLocaleLowerCase('vi') : ''; q('.k').lastChild.textContent = `${i + 1}/${captions.length}`;
     q('.t').textContent = c.t; q('.b').innerHTML = c.b; q('.e').textContent = c.e || '';
   };
 
@@ -186,19 +205,20 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
   };
   const classEnd = () => { CL.on = false; };
   const mViews = Object.keys(views);
-  const vLabel = (k) => (ui.btn['v_' + k] ? ui.btn['v_' + k].textContent.trim() : k.toUpperCase());
-  mCap.querySelector('[data-r]').innerHTML = `<button data-m="tour" class="acc">TỰ CHẠY</button>${mViews.map((k) => `<button data-v="${k}">${vLabel(k)}</button>`).join('')}<button data-m="min">THU GỌN</button><button data-m="full">BẢNG SỐ</button>`;
+  const cap1 = (t) => { const x = String(t || '').trim().toLocaleLowerCase('vi'); return x.charAt(0).toLocaleUpperCase('vi') + x.slice(1); };
+  const vLabel = (k) => cap1(ui.btn['v_' + k] ? ui.btn['v_' + k].textContent : k);
+  mCap.querySelector('[data-r]').innerHTML = `<button data-m="tour" class="acc">Tự chạy</button>${mViews.map((k) => `<button data-v="${k}">${vLabel(k)}</button>`).join('')}<button data-m="min">Thu gọn</button>${window.BGShell ? '' : '<button data-m="full">Bảng số</button>'}`;
   mCap.addEventListener('click', (e) => {
     const b = e.target.closest('button'); if (!b) return;
     if (b.dataset.v) { takeOver(); setView(b.dataset.v); }
     if (b.dataset.m === 'tour') { if (AP.on) takeOver(); else startTour(); }
-    if (b.dataset.m === 'min') { mCap.classList.toggle('min'); b.textContent = mCap.classList.contains('min') ? 'MỞ LỜI GIẢNG' : 'THU GỌN'; }
+    if (b.dataset.m === 'min') { mCap.classList.toggle('min'); b.textContent = mCap.classList.contains('min') ? 'Mở lời giảng' : 'Thu gọn'; }
     if (b.dataset.m === 'full') { full = true; fit(); }
   });
   mBack.addEventListener('click', () => { full = false; fit(); });
   const mSync = () => {
     mCap.querySelectorAll('[data-v]').forEach((b) => b.classList.toggle('on', b.dataset.v === view));
-    const t = mCap.querySelector('[data-m="tour"]'); t.textContent = AP.on ? 'DỪNG TỰ CHẠY' : 'TỰ CHẠY'; t.classList.toggle('acc', !AP.on);
+    const t = mCap.querySelector('[data-m="tour"]'); t.textContent = AP.on ? 'Dừng tự chạy' : 'Tự chạy'; t.classList.toggle('acc', !AP.on);
   };
 
   // khung hình
@@ -250,13 +270,14 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
     const since = T - viewAt0;
     const tgt = views[view](since, sim);
     tgt.az += off.az; tgt.el = clamp(tgt.el + off.el, -30, 88); tgt.d *= off.k;
-    const k = 1 - Math.exp(-dt / (AP.on ? 0.22 : 0.35));
+    const k = RM.matches ? 1 : 1 - Math.exp(-dt / (AP.on ? 0.22 : 0.35)); // giảm chuyển động: camera cắt thẳng tới góc mới
     cam.az += wrap(tgt.az - cam.az) * k;
     for (const key of ['tx', 'ty', 'tz', 'el', 'd', 'sx', 'sy']) cam[key] += ((tgt[key] ?? 0) - (cam[key] ?? 0)) * k;
     let cf = cam;
     if (compact) { // màn hẹp: lùi camera theo tỉ lệ khung, đẩy vật sang chỗ trống bên cạnh thẻ lời giảng
       const asp = innerWidth / innerHeight, land = asp > 1 && innerHeight < 520;
-      cf = {...cam, d: cam.d * Math.pow(clamp(1.78 / asp, 1, 2.6), 0.6), sx: land ? -Math.min(innerWidth * 0.46, 440) / 2 : 0, sy: land ? 0 : -innerHeight * 0.16};
+      const wide = innerWidth >= 900 && !land, cw = Math.min(440, innerWidth - 32) + 16, mini = mCap.classList.contains('min');
+      cf = {...cam, d: cam.d * Math.pow(clamp(1.78 / asp, 1, 2.6), 0.6), sx: land ? -Math.min(innerWidth * 0.46, 440) / 2 : wide && !mini ? cw / 2 : 0, sy: land || wide ? 0 : -innerHeight * 0.16};
     }
     st.frame({...cf, az: cf.az * D2R, el: cf.el * D2R}, sim.shadowAt?.());
     sim.draw({T, view, since, auto: AP.on});
@@ -275,11 +296,12 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
   if (window.BGShell) {
     const strip = (h) => String(h || '').replace(/<[^>]+>/g, '');
     window.BGShell.mount({
-      id: location.pathname.split('/').filter(Boolean).pop() || 'robotics', title: document.title, subject: 'Robotics · đại học', variant: 'dai-hoc', accent: '#e3562a', objectives: [],
-      steps: captions.map((c) => ({t: c.t, note: [c.k, strip(c.b), c.e].filter(Boolean).join('\n\n')})),
+      id: location.pathname.split('/').filter(Boolean).pop() || 'robotics', title: document.title, subject: 'Robotics · đại học', variant: 'dai-hoc', objectives: [],
+      steps: captions.map((c) => ({t: c.t, note: [c.k, strip(c.b), c.e].filter(Boolean).join('\n\n'), sr: strip(c.b)})),
       go: classGo, end: classEnd,
-      layout: {minWidth: 0, compact: () => innerWidth < 1400, hud: 'display:none!important',
-        dock: () => { if (compact) return 'top:calc(10px + env(safe-area-inset-top));right:10px;bottom:auto;left:auto'; const r = app.getBoundingClientRect(), k = r.width / W; return `top:${Math.round(r.top + 98 * k)}px;right:${Math.round(innerWidth - (r.left + 1256 * k))}px;bottom:auto;left:auto`; }},
+      panels: [{label: 'Bảng số', icon: 'chart', open: false, apply: (o) => { full = o; fit(); }}],
+      keys: Object.entries(keys).slice(0, 8).map(([k, a]) => [k.toUpperCase(), (ui.btn[a] ? cap1(ui.btn[a].textContent) : a)]),
+      credit: 'Mô phỏng chạy trực tiếp trong trình duyệt, dựng trên teardown của elvarofficial và claude-motion của whaleyxbt (MIT). Thông số máy lấy từ tài liệu của hãng; chỗ giả định ghi rõ trong bảng số.',
     });
   }
   void cap;

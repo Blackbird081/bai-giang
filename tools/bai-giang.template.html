@@ -1,282 +1,235 @@
 <!doctype html>
 <html lang="vi" data-theme="light">
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bài Giảng</title>
-<meta name="description" content="Bài giảng 3D tương tác bằng tiếng Việt: hành trình vào tế bào và ty thể tới từng nguyên tử, lộ trình theo chương trình GDPT 2018 và thư viện 54 bài thí nghiệm lý, hoá, sinh, địa.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4F4F6">
+<title>Bài Giảng · bài học 3D tiếng Việt</title>
+<meta name="description" content="Bài học 3D tương tác bằng tiếng Việt cho lớp học: tế bào tới từng nguyên tử, Thành Cổ Loa theo số đo khảo cổ, robot chạy bằng số liệu thật, 54 bài thí nghiệm lí, hoá, sinh, địa. Miễn phí cho trường học, chạy được offline.">
+<link rel="preload" href="__L_ROOT__design/fonts/be-vietnam-pro-vietnamese-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="__L_ROOT__design/house.css">
 <style>
-:root{--bg:#F5F7FB;--panel:#FFFFFF;--ink:#0F1B2D;--ink2:#46536A;--muted:#6B778C;--line:rgba(15,27,45,.10);--accent:#BE1740;--blue:#2F6BFF;--gold:#E8B04B;
-  --phys:#2F6BFF;--chem:#E0533D;--bio:#1E9E6A;--geo:#B7791F;--r:14px;--f:"Segoe UI","Roboto","Helvetica Neue","Noto Sans",Arial,system-ui,sans-serif}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0E131B;--panel:#161D28;--ink:#E8EDF5;--ink2:#B4BFD0;--muted:#8A96A8;--line:rgba(232,237,245,.12)}}
-:root[data-theme="dark"]{--bg:#0E131B;--panel:#161D28;--ink:#E8EDF5;--ink2:#B4BFD0;--muted:#8A96A8;--line:rgba(232,237,245,.12)}
+/* Trang chính Bài Giảng · bản 14. Token ở design/house.css (tools/design.py). */
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f);line-height:1.5}
-.wrap{max-width:1400px;margin:0 auto;padding:20px 16px 48px}
-header.top{display:flex;flex-wrap:wrap;align-items:end;gap:12px 24px;margin-bottom:16px}
-header.top h1{margin:0;font-size:clamp(24px,3vw,34px);line-height:1.15}
-header.top h1 em{font-style:normal;color:var(--accent)}
-header.top p{margin:4px 0 0;color:var(--ink2);max-width:72ch}
-.feature{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;background:linear-gradient(110deg,rgba(190,23,64,.10),rgba(232,176,75,.12));border:1px solid rgba(190,23,64,.22);border-radius:var(--r);padding:16px 18px;margin-bottom:18px}
-.feature b{display:block;font-size:18px}
-.feature span{color:var(--ink2);font-size:14px}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;cursor:pointer;white-space:nowrap}
-.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
-.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px}
-.tools input{flex:1 1 260px;min-width:0;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:15px var(--f)}
-.chip{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:600 13px var(--f);cursor:pointer}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--panel);border-color:var(--ink)}
-.chip i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
-.count{color:var(--muted);font-size:13px;margin-left:auto}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
-.card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;color:inherit;transition:transform .15s ease,box-shadow .15s ease}
-.card:hover,.card:focus-visible{transform:translateY(-2px);box-shadow:0 10px 26px rgba(15,27,45,.12);outline:none}
-.card img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#dfe6f2;display:block}
-.card .bd{padding:12px 14px 14px;display:grid;gap:6px}
-.card .meta{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
-.card .meta .s{font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.card h2{margin:0;font-size:16.5px;line-height:1.3}
-.card p{margin:0;font-size:13.5px;color:var(--ink2)}
-.card .tb{font-size:12px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.empty{padding:40px;text-align:center;color:var(--muted)}
-footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink2);font-size:13.5px;display:grid;gap:6px}
-footer a{color:var(--blue)}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:18px}
-.features .feature{margin:0;grid-template-columns:1fr;align-content:space-between}
-.features .feature.mito{background:linear-gradient(110deg,rgba(231,163,58,.16),rgba(176,83,29,.10));border-color:rgba(176,83,29,.28)}
-.features .feature.unit{background:linear-gradient(110deg,rgba(30,158,106,.12),rgba(47,107,255,.08));border-color:rgba(30,158,106,.28)}
-.features .feature .btn{justify-self:start}
-.tools.grade{margin-top:-6px}
-.tools .lbl{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-right:2px}
-.card{position:relative}
-.card .cover{display:block}
-.card h2 a{color:inherit;text-decoration:none}
-.card h2 a::after{content:"";position:absolute;inset:0;z-index:0}
-.card .gd{position:relative;z-index:1;font-size:12.5px;border-top:1px solid var(--line);padding-top:7px;margin-top:2px}
-.card .gd .tag{display:inline-block;font-weight:700;font-size:11.5px;letter-spacing:.03em;padding:2px 8px;border-radius:999px;background:rgba(30,158,106,.12);color:#16774F;margin:0 4px 4px 0}
-.card .gd .tag.rel{background:rgba(107,119,140,.14);color:var(--ink2)}
-.card .gd .tag.out{background:rgba(183,121,31,.15);color:#8A5A12}
-.card details summary{cursor:pointer;color:var(--blue);font-weight:600;list-style:none}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--bg-bar) + 16px)}
+html,body{margin:0;background:var(--bg-page,#F4F4F6)}
+body{font-family:var(--bg-font);color:var(--bg-ink);font-size:var(--bg-fs-sm);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.i{width:20px;height:20px;flex:none;display:block}
+/* thanh trên */
+.top{position:sticky;top:0;z-index:50;background:rgba(244,244,246,.86);-webkit-backdrop-filter:var(--bg-blur);backdrop-filter:var(--bg-blur);border-bottom:1px solid var(--bg-hair)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:var(--bg-bar)}
+.brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;text-decoration:none;letter-spacing:-.01em;flex:none;min-height:44px;min-width:44px}
+.brand svg{width:30px;height:30px}
+.nav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:var(--bg-r-sm);text-decoration:none;font-weight:600;color:var(--bg-ink2);white-space:nowrap}
+.nav a:hover{background:var(--bg-hair);color:var(--bg-ink)}
+.nav a.t{color:var(--bg-ink);background:var(--bg-surface);box-shadow:var(--bg-sh-1)}
+/* màn đầu */
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:48px;align-items:center;padding:56px 0 40px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:var(--bg-fs-xs);font-weight:600;color:var(--bg-ink3)}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--bg-ok)}
+.hero h1{margin:14px 0 16px;font:600 clamp(36px,4.4vw,56px)/1.1 var(--bg-serif);letter-spacing:-.02em;max-width:16ch}
+.hero p.lead{margin:0;font-size:var(--bg-fs-md);color:var(--bg-ink2);max-width:46ch;line-height:1.6}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;border-radius:var(--bg-r-sm);font-weight:600;text-decoration:none;border:1px solid var(--bg-hair2);background:var(--bg-surface);color:var(--bg-ink);transition:transform var(--bg-t-fast) var(--bg-ease),box-shadow var(--bg-t-fast)}
+.btn:hover{box-shadow:var(--bg-sh-1)}
+.btn:active{transform:scale(.98)}
+.btn.pri{background:var(--bg-brand);color:var(--bg-brand-ink);border-color:transparent}
+.facts{display:flex;flex-wrap:wrap;gap:8px 20px;margin:28px 0 0;padding:0;list-style:none;color:var(--bg-ink2);font-size:var(--bg-fs-xs)}
+.facts li{display:flex;align-items:center;gap:8px}
+.facts b{font:600 var(--bg-fs-sm) var(--bg-mono);color:var(--bg-ink)}
+.show{position:relative;aspect-ratio:16/10;border-radius:var(--bg-r-lg);overflow:hidden;background:#dfe2e8;box-shadow:var(--bg-sh-2)}
+.show figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.2s var(--bg-ease-io)}
+.show figure.on{opacity:1}
+.show img{width:100%;height:100%;object-fit:cover}
+.show figcaption{position:absolute;left:16px;bottom:16px;right:16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.show figcaption a{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px;border-radius:999px;background:rgba(255,255,255,.92);-webkit-backdrop-filter:var(--bg-blur);backdrop-filter:var(--bg-blur);text-decoration:none;font-weight:600;box-shadow:var(--bg-sh-1)}
+.show figcaption a span{color:var(--bg-ink3);font-weight:500}
+.dots{display:flex;gap:6px}
+.dots button{width:28px;height:28px;border:0;border-radius:50%;background:none;cursor:pointer;display:grid;place-items:center;padding:0}
+.dots button i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.dots button[aria-current="true"] i{background:#fff;width:20px;border-radius:4px}
+/* mục */
+section{padding:40px 0}
+.sh{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:0 0 20px}
+.sh h2{margin:0;font-size:var(--bg-fs-xl);line-height:1.2;letter-spacing:-.015em}
+.sh p{margin:6px 0 0;color:var(--bg-ink2);max-width:62ch}
+.sh a.more{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;text-decoration:none;color:var(--bg-ink2);white-space:nowrap}
+.sh a.more:hover{color:var(--bg-ink)}
+/* một mẫu thẻ bài cho mọi bài */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:20px}
+.card{position:relative;display:flex;flex-direction:column;background:var(--bg-surface);border-radius:var(--bg-r-md);overflow:hidden;box-shadow:var(--bg-sh-1);transition:transform var(--bg-t-mid) var(--bg-ease),box-shadow var(--bg-t-mid) var(--bg-ease)}
+.card:hover,.card:focus-within{transform:translateY(-3px);box-shadow:var(--bg-sh-2)}
+.card .cv{aspect-ratio:16/10;background:#e3e5ea;overflow:hidden}
+.card .cv img{width:100%;height:100%;object-fit:cover;transition:transform var(--bg-t-slow) var(--bg-ease)}
+.card:hover .cv img{transform:scale(1.03)}
+.card .bd{display:grid;gap:6px;padding:14px 16px 16px;flex:1;align-content:start}
+.card .mt{display:flex;align-items:center;gap:8px;font-size:var(--bg-fs-xs);color:var(--bg-ink3);font-weight:500}
+.card .mt i{width:8px;height:8px;border-radius:50%;flex:none}
+.card .mt b{font-weight:600;color:var(--bg-ink2)}
+.card h3{margin:0;font-size:var(--bg-fs-md);line-height:1.3;letter-spacing:-.01em}
+.card h3 a{text-decoration:none}
+.card h3 a::after{content:"";position:absolute;inset:0;z-index:0}
+.card p{margin:0;color:var(--bg-ink2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .lv{position:absolute;top:12px;left:12px;z-index:1;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.92);font-size:var(--bg-fs-xs);font-weight:600}
+.card .gd{position:relative;z-index:1;margin-top:6px;padding-top:10px;border-top:1px solid var(--bg-hair);font-size:var(--bg-fs-xs);color:var(--bg-ink2)}
+.card .gd .tag{display:inline-block;margin:0 6px 6px 0;padding:3px 10px;border-radius:999px;background:color-mix(in srgb,var(--bg-ok) 10%,transparent);color:var(--bg-ok);font-weight:600}
+.card .gd .tag.out{background:color-mix(in srgb,var(--bg-warn) 12%,transparent);color:var(--bg-warn)}
+.card details summary{cursor:pointer;list-style:none;display:flex;align-items:center;min-height:36px;font-weight:600;color:var(--bg-ink2)}
 .card details summary::-webkit-details-marker{display:none}
-.card details summary::before{content:"▸ ";}
-.card details[open] summary::before{content:"▾ ";}
-.card details ul{margin:6px 0 0;padding-left:18px;display:grid;gap:4px;color:var(--ink2)}
-.card details .mu{font-size:11.5px;color:var(--muted);margin-top:6px}
-.card details .gc{margin-top:6px;color:var(--ink2)}
-header.hub{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:10px;z-index:10;padding:8px 10px 8px 12px;margin-bottom:22px;border-radius:999px;background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow),var(--lg-inner)}
-.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-.01em}
-.brand svg{width:34px;height:34px}
-.hubnav{display:flex;gap:4px;flex-wrap:wrap}
-.hubnav a{color:var(--lg-ink);text-decoration:none;font-weight:600;font-size:14px;padding:7px 13px;border-radius:999px}
-.hubnav a:hover{background:rgba(118,118,128,.12)}
-.hero{padding:18px 4px 6px}
-.hero h1{margin:0;font-size:clamp(30px,4.6vw,54px);line-height:1.08;letter-spacing:-.035em;max-width:16ch}
-.hero h1 em{font-style:normal;background:linear-gradient(100deg,#D42150,#E8A13A);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{margin:14px 0 0;color:var(--lg-ink2);font-size:17px;max-width:68ch}
-h2.sec{margin:34px 4px 12px;font-size:22px;letter-spacing:-.02em;scroll-margin-top:84px}
-.journeys{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
-.journey{display:grid;grid-template-rows:auto 1fr;text-decoration:none;color:inherit;border-radius:28px;overflow:hidden;background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow),var(--lg-inner);transition:transform .2s ease,box-shadow .2s ease}
-.journey:hover{transform:translateY(-3px);box-shadow:0 0 0 .5px rgba(15,23,42,.08),0 24px 48px -18px rgba(15,23,42,.3),var(--lg-inner)}
-.journey img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
-.journey div{padding:16px 18px 18px;display:grid;gap:6px}
-.journey b{font-size:21px;letter-spacing:-.02em}
-.journey span{color:var(--lg-ink2);font-size:14.5px}
-.journey i,.unit i{font-style:normal;font-weight:600;color:#C2184A;font-size:14px;margin-top:4px}
-.unit{display:flex;align-items:center;justify-content:space-between;gap:18px;text-decoration:none;color:inherit;padding:18px 22px;border-radius:24px;background:var(--lg-fill),linear-gradient(110deg,rgba(30,158,106,.10),rgba(47,107,255,.08));-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow),var(--lg-inner)}
-.unit div{display:grid;gap:4px}
-.unit.hist{scroll-margin-top:96px;margin-top:12px;background:var(--lg-fill),linear-gradient(110deg,rgba(178,106,26,.13),rgba(232,161,58,.08))}
-.unit.hist .k{color:#8E5110}
-.unit.kit{margin-top:12px;scroll-margin-top:96px;background:var(--lg-fill),linear-gradient(110deg,rgba(15,23,42,.05),rgba(194,24,74,.06))}
-.unit.kit .k{color:#5b5b63}
-.unit .kitl{display:flex;flex-direction:column;gap:6px;align-items:flex-end;white-space:nowrap}
-.unit .kitl a{font-weight:600;color:#C2184A;text-decoration:none;font-size:14px}
-@media (max-width:640px){.unit .kitl{align-items:flex-start}}
-.journeys.robo{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.journey.rb b{font-size:19px}
-.unit.rb{margin-top:16px;background:var(--lg-fill),linear-gradient(110deg,rgba(227,86,42,.12),rgba(201,154,46,.08))}
-.unit.rb .k{color:#B23E17}
-.unit.rb i,.journey.rb i{color:#C2481D}
-.unit.hist i,.journey.hist i{color:#9A5B13}
-.unit .k{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#16774F}
-.unit b{font-size:20px;letter-spacing:-.02em}
-.unit div span:last-child{color:var(--lg-ink2);font-size:14.5px;max-width:80ch}
-.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-/* Điện thoại */
-.brand span{white-space:nowrap}
+.card details summary::after{content:"";width:8px;height:8px;margin-left:8px;border-right:1.75px solid currentColor;border-bottom:1.75px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform var(--bg-t-fast)}
+.card details[open] summary::after{transform:rotate(225deg) translate(-2px,0)}
+.card details ul{margin:6px 0 0;padding-left:18px;display:grid;gap:6px}
+.card details .mu{color:var(--bg-ink3);margin-top:8px}
+/* lộ trình */
+.routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.route{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center;padding:16px;border-radius:var(--bg-r-md);background:var(--bg-surface);box-shadow:var(--bg-sh-1);text-decoration:none;transition:box-shadow var(--bg-t-mid)}
+.route:hover{box-shadow:var(--bg-sh-2)}
+.route img{width:120px;aspect-ratio:1;object-fit:cover;border-radius:var(--bg-r-sm)}
+.route .k{font-size:var(--bg-fs-xs);font-weight:600;color:var(--bg-ink3)}
+.route b{display:block;font-size:var(--bg-fs-lg);letter-spacing:-.01em;margin:2px 0 4px}
+.route span.d{color:var(--bg-ink2)}
+.route .go{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-weight:600}
+/* giáo viên */
+.teach{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tile{display:grid;gap:8px;align-content:start;padding:20px;border-radius:var(--bg-r-md);background:var(--bg-surface);box-shadow:var(--bg-sh-1);text-decoration:none}
+.tile .ic{width:44px;height:44px;border-radius:var(--bg-r-sm);display:grid;place-items:center;background:var(--bg-page)}
+.tile b{font-size:var(--bg-fs-md)}
+.tile span{color:var(--bg-ink2)}
+.tile kbd{font:600 var(--bg-fs-xs) var(--bg-mono);background:var(--bg-page);border:1px solid var(--bg-hair);border-radius:6px;padding:1px 6px}
+a.tile:hover{box-shadow:var(--bg-sh-2)}
+/* bộ lọc thư viện */
+.filters{display:grid;gap:12px;margin:0 0 20px}
+.search{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 16px;border-radius:var(--bg-r-sm);background:var(--bg-surface);box-shadow:var(--bg-sh-1)}
+.search input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:var(--bg-fs-sm);color:var(--bg-ink);outline:none;min-height:44px}
+.search:focus-within{box-shadow:0 0 0 2px var(--bg-focus)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.row .lb{font-size:var(--bg-fs-xs);font-weight:600;color:var(--bg-ink3);min-width:44px}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--bg-hair2);background:var(--bg-surface);font:600 var(--bg-fs-xs) var(--bg-font);color:var(--bg-ink2);cursor:pointer}
+.chip i{width:8px;height:8px;border-radius:50%}
+.chip[aria-pressed="true"]{background:var(--bg-ink);color:var(--bg-page);border-color:transparent}
+.count{margin-left:auto;font-size:var(--bg-fs-xs);color:var(--bg-ink3)}
+.empty{grid-column:1/-1;padding:48px;text-align:center;color:var(--bg-ink3)}
+/* chân trang */
+.foot{margin-top:24px;padding:32px 0 48px;border-top:1px solid var(--bg-hair);color:var(--bg-ink3);font-size:var(--bg-fs-xs)}
+.foot .fl{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--bg-ink2);margin-bottom:12px}
+.foot .fl b{color:var(--bg-ink)}
+.foot p{margin:0 0 8px;max-width:96ch}
+.foot a{text-decoration:underline;text-underline-offset:2px}
+.foot details summary{cursor:pointer;font-weight:600;color:var(--bg-ink2);min-height:44px;display:flex;align-items:center;width:max-content}
+.foot ul{margin:4px 0 0;padding-left:18px;display:grid;gap:6px}
+@media (max-width:980px){.hero{grid-template-columns:1fr;gap:28px;padding:32px 0 24px}.teach{grid-template-columns:1fr}}
 @media (max-width:640px){
-  .wrap{padding:12px 14px calc(36px + env(safe-area-inset-bottom))}
-  header.hub{top:max(8px,env(safe-area-inset-top));padding:6px 6px 6px 8px;margin-bottom:14px}
-  .brand{gap:8px;font-size:16px}.brand svg{width:28px;height:28px}
-  .hubnav{flex-wrap:nowrap;gap:0}
-  .hubnav a{padding:7px 9px;font-size:13px;white-space:nowrap}
-  .hero{padding:6px 2px 0}.hero h1{font-size:34px;letter-spacing:-.03em}.hero p{font-size:15.5px;margin-top:10px}
-  h2.sec{margin:26px 2px 10px;font-size:20px}
-  .journeys{grid-template-columns:1fr;gap:12px}.journey{border-radius:22px}.journey div{padding:14px 16px 16px}.journey b{font-size:19px}
-  .unit{padding:16px 18px;border-radius:20px}
-  .tools{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-inline:-14px;padding:2px 14px 6px;scroll-padding-inline:14px}
-  .tools::-webkit-scrollbar{display:none}
-  .tools input{flex:0 0 calc(100vw - 28px)}
-  .tools .chip,.tools .lbl{flex:0 0 auto}
-  .tools .count{display:none}
-  .tools[role=search]{flex-wrap:wrap;overflow:visible;margin-inline:0;padding:0}
-  .tools[role=search]{gap:8px}
-  .tools[role=search] .chips{flex:1 1 100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-14px;padding:2px 14px 6px}
-  .tools[role=search] .chips::-webkit-scrollbar{display:none}
-  .tools[role=search] .chip{flex:0 0 auto}
-  .hubnav .xl{display:none}
-  .grid{grid-template-columns:1fr;gap:12px}
-  .card .bd{padding:12px 14px 14px}
-  .card .tb{display:none}
+  .wrap{padding:0 16px}
+  .top .wrap{gap:4px}.brand span,.nav .lt,.nav .xl{display:none}.nav a{padding:0 10px}
+  .hero{padding:24px 0 8px}.hero h1{font-size:34px;margin:10px 0 12px}.hero p.lead{font-size:var(--bg-fs-sm)}.cta{margin-top:18px}.btn{flex:1;justify-content:center}
+  .show,.facts{display:none}
+  section{padding:24px 0}.sh{flex-direction:column;align-items:start;gap:4px}.sh h2{font-size:var(--bg-fs-lg)}
+  .grid{grid-template-columns:1fr;gap:16px}
+  .route{grid-template-columns:88px 1fr;gap:14px}.route img{width:88px}
+  .row{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:2px 16px}.row::-webkit-scrollbar{display:none}.chip{flex:none}.count{display:none}
 }
-@media (max-width:380px){.hubnav a{padding:7px 7px;font-size:12.5px}.brand span{font-size:15px}}
-@media (max-width:460px){.brand span{display:none}.hubnav a{padding:6px 8px;font-size:13px}}
-.foot{margin-top:48px;padding:20px 4px 8px;border-top:1px solid var(--lg-hair);display:grid;gap:8px;font-size:12.5px;line-height:1.55;color:var(--lg-muted)}
-.foot a{color:inherit;text-decoration:underline;text-decoration-color:rgba(110,110,115,.35);text-underline-offset:2px}
-.foot a:hover{color:var(--lg-ink);text-decoration-color:currentColor}
-.foot .fl{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--lg-ink2)}
-.foot .fl b{font-weight:600;color:var(--lg-ink)}
-.foot p{margin:0;max-width:96ch}
-.foot details summary{cursor:pointer;list-style:none;color:var(--lg-ink2);font-weight:500;width:max-content}
-.foot details summary::-webkit-details-marker{display:none}
-.foot details summary::after{content:" ›";display:inline-block;transition:transform .2s}
-.foot details[open] summary::after{transform:rotate(90deg)}
-.foot ul{margin:8px 0 0;padding-left:16px;display:grid;gap:4px;max-width:110ch}
-@media (max-width:640px){.hubnav a{padding:6px 9px;font-size:13px}.unit{flex-direction:column;align-items:flex-start}}
-@media (max-width:640px){.feature{grid-template-columns:1fr}.count{margin-left:0;width:100%}}
-@media (prefers-reduced-motion: reduce){.card{transition:none}}
-/* ===== Nền trắng, kính lỏng (tools/liquid_glass.py) ===== */
-:root,:root[data-theme]{
-  --lg-page:#F5F5F7;
-  --lg-wash:radial-gradient(1100px 560px at 6% -12%, rgba(120,170,255,.13), transparent 62%),
-            radial-gradient(900px 520px at 104% -6%, rgba(255,160,190,.10), transparent 60%),
-            radial-gradient(1200px 700px at 50% 118%, rgba(140,220,210,.09), transparent 62%),
-            linear-gradient(180deg,#FCFCFD 0%,#F3F3F6 100%);
-  --lg-fill:linear-gradient(180deg,rgba(255,255,255,.78) 0%,rgba(255,255,255,.6) 100%);
-  --lg-fill-strong:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.8) 100%);
-  --lg-blur:blur(28px) saturate(185%);
-  --lg-stroke:rgba(255,255,255,.92);
-  --lg-hair:rgba(15,23,42,.08);
-  --lg-shadow:0 0 0 .5px rgba(15,23,42,.07),0 1px 2px rgba(15,23,42,.05),0 14px 36px -12px rgba(15,23,42,.20);
-  --lg-shadow-lo:0 0 0 .5px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.05),0 6px 16px -8px rgba(15,23,42,.18);
-  --lg-inner:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(255,255,255,.4);
-  --lg-r:24px; --lg-r-md:18px; --lg-r-sm:14px;
-  --lg-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Segoe UI",Roboto,"Helvetica Neue","Noto Sans",Arial,system-ui,sans-serif;
-  --lg-ink:#1D1D1F; --lg-ink2:#424245; --lg-muted:#6E6E73;
-
-  --bg:#F5F5F7; --panel:#FFFFFF; --ink:#1D1D1F; --ink2:#424245; --muted:#6E6E73; --line:rgba(15,23,42,.08); --f:var(--lg-font); --r:22px;
-  color-scheme:light;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]),:root[data-theme]{
-  --lg-page:#F5F5F7;
-  --lg-wash:radial-gradient(1100px 560px at 6% -12%, rgba(120,170,255,.13), transparent 62%),
-            radial-gradient(900px 520px at 104% -6%, rgba(255,160,190,.10), transparent 60%),
-            radial-gradient(1200px 700px at 50% 118%, rgba(140,220,210,.09), transparent 62%),
-            linear-gradient(180deg,#FCFCFD 0%,#F3F3F6 100%);
-  --lg-fill:linear-gradient(180deg,rgba(255,255,255,.78) 0%,rgba(255,255,255,.6) 100%);
-  --lg-fill-strong:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.8) 100%);
-  --lg-blur:blur(28px) saturate(185%);
-  --lg-stroke:rgba(255,255,255,.92);
-  --lg-hair:rgba(15,23,42,.08);
-  --lg-shadow:0 0 0 .5px rgba(15,23,42,.07),0 1px 2px rgba(15,23,42,.05),0 14px 36px -12px rgba(15,23,42,.20);
-  --lg-shadow-lo:0 0 0 .5px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.05),0 6px 16px -8px rgba(15,23,42,.18);
-  --lg-inner:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(255,255,255,.4);
-  --lg-r:24px; --lg-r-md:18px; --lg-r-sm:14px;
-  --lg-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter","Segoe UI",Roboto,"Helvetica Neue","Noto Sans",Arial,system-ui,sans-serif;
-  --lg-ink:#1D1D1F; --lg-ink2:#424245; --lg-muted:#6E6E73;
-
-  --bg:#F5F5F7; --panel:#FFFFFF; --ink:#1D1D1F; --ink2:#424245; --muted:#6E6E73; --line:rgba(15,23,42,.08); --f:var(--lg-font); --r:22px;
-  color-scheme:light;
-}}
-body{background:var(--lg-wash)!important;background-attachment:fixed!important;color:var(--lg-ink);font-family:var(--lg-font);-webkit-font-smoothing:antialiased}
-
-html{background:var(--lg-page)}
-header.top h1{letter-spacing:-.025em}
-.card{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow),var(--lg-inner);border-radius:var(--lg-r)}
-.features .feature{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow),var(--lg-inner);border-radius:var(--lg-r)}
-
-.card{border:1px solid var(--lg-stroke)}
-.card:hover,.card:focus-within{transform:translateY(-3px);box-shadow:0 0 0 .5px rgba(15,23,42,.08),0 22px 44px -16px rgba(15,23,42,.28),var(--lg-inner)}
-.card img{border-radius:18px 18px 0 0}
-.features .feature{background:var(--lg-fill),linear-gradient(110deg,rgba(190,23,64,.10),rgba(232,176,75,.10))!important}
-.features .feature.mito{background:var(--lg-fill),linear-gradient(110deg,rgba(231,163,58,.16),rgba(176,83,29,.08))!important}
-.features .feature.unit{background:var(--lg-fill),linear-gradient(110deg,rgba(30,158,106,.12),rgba(47,107,255,.08))!important}
-.tools input{border-radius:999px;background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow-lo),var(--lg-inner);padding:11px 18px}
-.chip[aria-pressed="true"]{background:linear-gradient(180deg,#2C2C2E,#1D1D1F)!important;color:#fff!important;border-color:transparent!important}
-.card .gd .tag{border-radius:999px}
-footer{border-top:1px solid var(--lg-hair)}
-.btn,.chip{border-radius:999px!important;background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke)!important;box-shadow:var(--lg-shadow-lo),var(--lg-inner);color:var(--lg-ink);font-family:var(--lg-font);font-weight:600;transition:transform .15s ease,box-shadow .2s ease}
-.btn,.chip:hover{box-shadow:0 0 0 .5px rgba(15,23,42,.1),0 8px 22px -8px rgba(15,23,42,.25),var(--lg-inner)}
-.btn,.chip:active{transform:scale(.97)}
-.btn.pri{background:linear-gradient(180deg,#D42150 0%,#B0123C 100%)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 8px 20px -8px #D42150,inset 0 1px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(0,0,0,.08)!important}
-__PAPER_CSS__</style>
+@media (prefers-reduced-motion:reduce){.show figure{transition:none}}
+html[data-chieu]{--bg-ink2:#141414;--bg-ink3:#262626}
+</style>
 </head>
 <body>
-__DECOR__
-<div class="wrap">
-  <header class="hub">
-    <div class="brand"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E23A62"/><stop offset="1" stop-color="#B0123C"/></linearGradient></defs><rect x="2" y="2" width="44" height="44" rx="13" fill="url(#bg1)"/><circle cx="21" cy="22" r="10" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="19" cy="20" r="3.4" fill="#fff"/><circle cx="33.5" cy="33" r="4" fill="#FFD27A"/></svg><span>Bài Giảng</span></div>
-    <nav class="hubnav" aria-label="Mục chính"><a href="#hanh-trinh">Hành trình<span class="xl"> 3D</span></a><a href="#lo-trinh">Lộ trình</a><a href="#robotics">Robotics</a><a href="#thu-vien">Thư viện</a></nav>
-  </header>
-  <section class="hero">
-    <h1>Học bằng <em>thế giới 3D</em> sống động</h1>
-    <p>Bài giảng tương tác bằng tiếng Việt cho lớp học: phóng từ một tế bào xuống từng nguyên tử của phân tử thật, dựng lại kinh đô cổ theo số đo khảo cổ, cho robot thật chạy bằng số liệu của hãng, theo lộ trình của chương trình GDPT 2018, cùng 54 bài thí nghiệm Vật lí, Hoá học, Sinh học, Địa lí. Mở bằng Chrome, Edge hoặc Safari, chiếu lên màn hình lớn là dạy được.</p>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Bài Giảng, trang chính"><svg viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="#1E2A44"/><path d="M8 8.5h6.2c2.6 0 4.1 1.2 4.1 3.1 0 1.3-.8 2.3-2 2.6 1.6.3 2.6 1.4 2.6 2.9 0 2.2-1.7 3.4-4.5 3.4H8z" fill="none" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"/><path d="M8 14.2h6" stroke="#fff" stroke-width="1.9"/><circle cx="21.2" cy="19.6" r="1.7" fill="#fff"/></svg><span>Bài Giảng</span></a>
+    <nav class="nav" aria-label="Mục chính"><a href="#bai-hoc">Bài học</a><a class="lt" href="#lo-trinh">Lộ trình</a><a href="#thu-vien">Thư viện</a><a class="t" href="#cho-giao-vien"><span class="xl">Cho&nbsp;</span>giáo viên</a></nav>
+  </div>
+</header>
+<main class="wrap">
+  <section class="hero" aria-labelledby="h1">
+    <div>
+      <span class="eyebrow"><i aria-hidden="true"></i>Miễn phí cho trường học · chạy được offline</span>
+      <h1 id="h1">Học bằng thế giới 3D sống động</h1>
+      <p class="lead">Bài học 3D tiếng Việt cho lớp học: đi vào tế bào tới từng nguyên tử, dựng lại Thành Cổ Loa theo số đo khảo cổ, cho robot chạy bằng số liệu thật.</p>
+      <div class="cta">
+        <a class="btn pri" href="#bai-hoc"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2.5 9 9.5-4.5L21.5 9 12 13.5z"/><path d="M6.5 11v4.5c1.5 1.5 3.4 2.25 5.5 2.25s4-.75 5.5-2.25V11"/></svg>Tự học</a>
+        <a class="btn" href="#cho-giao-vien"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8.5 20h7M12 16.5V20"/></svg>Lên lớp</a>
+      </div>
+      <ul class="facts"><li><b>61</b> bài 3D</li><li><b>5</b> môn và Robotics</li><li>Bút trình chiếu, điện thoại làm điều khiển</li></ul>
+    </div>
+    <div class="show" id="show" aria-roledescription="trình chiếu" aria-label="Bài học nổi bật">
+      <figure class="on"><img src="__L_BASE__covers/te-bao.webp" alt="Tế bào nhân thực cắt hở, nhìn thấy nhân và các bào quan" fetchpriority="high"><figcaption><a href="__L_CELL__">Hành Trình Vào Tế Bào <span>Sinh học 10</span></a></figcaption></figure>
+      <figure><img src="__L_BASE__covers/co-loa.webp" alt="Ba vòng thành Cổ Loa trên đồng bằng" loading="lazy"><figcaption><a href="__L_COLOA__">Thành Cổ Loa <span>Lịch sử 10</span></a></figcaption></figure>
+      <figure><img src="__L_BASE__covers/ty-the.webp" alt="ATP synthase dựng từ toạ độ nguyên tử" loading="lazy"><figcaption><a href="__L_MITO__">Vào Ty Thể <span>Sinh học 10</span></a></figcaption></figure>
+      <figure><img src="__L_BASE__covers/robo-ur5e.webp" alt="Cánh tay robot UR5e trên bàn thí nghiệm" loading="lazy"><figcaption><a href="__L_R_UR5E__">Cánh tay robot 6 trục <span>Đại học</span></a></figcaption></figure>
+      <div class="dots" id="dots" style="position:absolute;right:12px;top:12px" role="tablist" aria-label="Chọn ảnh"></div>
+    </div>
   </section>
-  <h2 class="sec" id="hanh-trinh">Hành trình 3D</h2>
-  <div class="journeys">
-    <a class="journey" href="__L_CELL__"><img src="__L_BASE__covers/te-bao.webp" alt=""><div><b>Hành Trình Vào Tế Bào</b><span>Tế bào nhân thực đang hoạt động, phóng liền mạch xuống 222.336 nguyên tử của ribosome thật (PDB 3J7R). Chế độ lên lớp 10 bước, AR đặt ribosome lên bàn.</span><i>Vào bài →</i></div></a>
-    <a class="journey mito" href="__L_MITO__"><img src="__L_BASE__covers/ty-the.webp" alt=""><div><b>Vào Ty Thể</b><span>Từ một ty thể xuống 37.733 nguyên tử của ATP synthase thật (PDB 6J5I): dòng H⁺ làm vòng c quay, ba vị trí β lần lượt tạo ATP. Chế độ lên lớp 10 bước.</span><i>Vào bài →</i></div></a>
-    <a class="journey hist" href="__L_COLOA__"><img src="__L_BASE__covers/co-loa.webp" alt=""><div><b>Thành Cổ Loa</b><span>Ba vòng thành đất dựng theo số đo khảo cổ trên đồng bằng ven sông Hoàng Giang. Dòng thời gian từ thế kỷ IV TCN đến nay, mặt cắt lũy đúng tỉ lệ, truyền thuyết đặt cạnh bằng chứng.</span><i>Vào bài →</i></div></a>
-  </div>
-  <h2 class="sec" id="lo-trinh">Lộ trình theo chương trình GDPT 2018</h2>
-  <a class="unit" href="__L_CHUDE__"><div><span class="k">Lớp 10 · 6 bài</span><b>Sinh học tế bào</b><span>Tế Bào → vận chuyển qua màng → co và phản co nguyên sinh → Vào Ty Thể → enzyme → nguyên phân. Mỗi bài kèm yêu cầu cần đạt trích nguyên văn chương trình, bảng chỉ rõ yêu cầu nào chưa có bài.</span></div><i>Xem lộ trình →</i></a>
-  <a class="unit hist" id="lich-su-10" href="__L_LS10__"><div><span class="k">Lớp 10 · Lịch sử · ba bộ sách</span><b>Lịch sử 10 bằng mô hình 3D</b><span>Lộ trình theo chương trình môn Lịch sử (sửa đổi 2025): 7 chủ đề, yêu cầu cần đạt trích nguyên văn, cảnh 3D cho từng mục. Bài mẫu Thành Cổ Loa đã có; các cảnh khác đang được dựng dần.</span></div><i>Xem lộ trình →</i></a>
-  <div class="unit kit" id="len-lop"><div><span class="k">Dụng cụ lên lớp · dùng chung cho mọi bài 3D</span><b>Lên lớp bằng bút trình chiếu, màn hình giáo viên hoặc điện thoại</b><span>Trong bài, bấm Lên lớp (hoặc Shift P): bút trình chiếu và phím mũi tên chuyển bước, B tắt màn chiếu cho cả lớp tập trung. Nút Điều khiển mở màn hình giáo viên có ghi chú và đáp án trên laptop, hoặc nối điện thoại bằng mã QR. Trước khi dạy, chạy Kiểm máy trên chiếc máy sẽ chiếu.</span></div><span class="kitl"><a href="__L_KIEM__">Kiểm máy →</a><a href="__L_REMOTE__">Trang điều khiển →</a></span></div>
-  <h2 class="sec" id="robotics">Robotics · đại học, kỹ sư</h2>
-  <div class="journeys robo">
-    <a class="journey rb" href="__L_R_UR5E__"><img src="__L_BASE__covers/robo-ur5e.webp" alt="" loading="lazy"><div><b>Cánh tay robot 6 trục</b><span>UR5e đúng bảng DH của Universal Robots: động học nghịch 8 nghiệm, Jacobian, điểm kỳ dị, MoveJ và MoveL, mô men trọng lực, gắp và đặt.</span><i>Vào mô phỏng →</i></div></a>
-    <a class="journey rb" href="__L_R_HEXAPOD__"><img src="__L_BASE__covers/robo-hexapod.webp" alt="" loading="lazy"><div><b>Robot 6 chân</b><span>PhantomX AX 18 servo: dáng đi tripod, tetrapod, wave, đa giác chống đỡ, biên ổn định tĩnh, mô men servo.</span><i>Vào mô phỏng →</i></div></a>
-    <a class="journey rb" href="__L_R_CRAZYFLIE__"><img src="__L_BASE__covers/robo-crazyflie.webp" alt="" loading="lazy"><div><b>Drone 4 cánh</b><span>Crazyflie 27 g theo số đo ETH Zürich, bốn vòng PID xếp tầng chép từ firmware gốc: cú gió, hệ số quá cao, lật.</span><i>Vào mô phỏng →</i></div></a>
-    <a class="journey rb" href="__L_R_TURTLEBOT3__"><img src="__L_BASE__covers/robo-turtlebot3.webp" alt="" loading="lazy"><div><b>Xe tự hành vi sai</b><span>TurtleBot3 Burger: odometry trôi, LiDAR 360 tia, bản đồ lưới chiếm chỗ, bám đường pure pursuit, định vị.</span><i>Vào mô phỏng →</i></div></a>
-  </div>
-  <a class="unit rb" href="__L_ROBO__"><div><span class="k">Đại học · kỹ sư · 4 mô phỏng chạy trực tiếp</span><b>Robotics bằng mô phỏng thật</b><span>Số liệu từ tài liệu hãng, mã nguồn mở và bài báo gốc; mỗi trang là một bài giảng tự chạy có con trỏ và lời giảng, chạm vào để tự cầm lái. Kèm nguồn từng con số và ghi rõ chỗ nào là giả định.</span></div><i>Xem mục lục →</i></a>
-  <h2 class="sec" id="thu-vien">Thư viện 54 bài thí nghiệm</h2>
-  <div class="tools" role="search">
-    <input id="q" type="search" placeholder="Tìm bài: ví dụ “ammonia”, “nguyên phân”, “gió mùa”" aria-label="Tìm bài học">
-    <div class="chips"><button class="chip" data-s="" aria-pressed="true">Tất cả</button>
-    <button class="chip" data-s="phys" aria-pressed="false"><i style="background:var(--phys)"></i>Vật lí</button>
-    <button class="chip" data-s="chem" aria-pressed="false"><i style="background:var(--chem)"></i>Hoá học</button>
-    <button class="chip" data-s="bio" aria-pressed="false"><i style="background:var(--bio)"></i>Sinh học</button>
-    <button class="chip" data-s="geo" aria-pressed="false"><i style="background:var(--geo)"></i>Địa lí</button></div>
-    <span class="count" id="count"></span>
-  </div>
-  <div class="tools grade" aria-label="Lọc theo lớp trong chương trình GDPT 2018">
-    <span class="lbl">GDPT 2018</span>
-    <button class="chip g" data-g="" aria-pressed="true">Mọi lớp</button>
-    <button class="chip g" data-g="thcs" aria-pressed="false">THCS (6–9)</button>
-    <button class="chip g" data-g="10" aria-pressed="false">Lớp 10</button>
-    <button class="chip g" data-g="11" aria-pressed="false">Lớp 11</button>
-    <button class="chip g" data-g="12" aria-pressed="false">Lớp 12</button>
-    <button class="chip g" data-g="out" aria-pressed="false">Chỉ liên quan, vượt chương trình</button>
-  </div>
-  <main class="grid" id="grid" aria-live="polite"></main>
+
+  <section id="bai-hoc" aria-labelledby="h-bai">
+    <div class="sh"><div><h2 id="h-bai">Bài học 3D</h2><p>Mỗi bài có chế độ học theo bước và chế độ lên lớp. Bấm vật trong cảnh để xem số đo và nguồn.</p></div></div>
+    <div class="grid">
+      __FEATURED__
+    </div>
+  </section>
+
+  <section id="lo-trinh" aria-labelledby="h-lt">
+    <div class="sh"><div><h2 id="h-lt">Lộ trình theo chương trình GDPT 2018</h2><p>Các bài xếp theo thứ tự của chương trình, kèm yêu cầu cần đạt trích nguyên văn.</p></div></div>
+    <div class="routes">
+      <a class="route" href="__L_CHUDE__"><img src="__L_BASE__covers/te-bao.webp" alt="" loading="lazy"><div><span class="k">Sinh học · lớp 10 · 6 bài</span><b>Sinh học tế bào</b><span class="d">Tế bào, vận chuyển qua màng, ty thể, enzyme, nguyên phân.</span><span class="go">Xem lộ trình <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="route" href="__L_LS10__"><img src="__L_BASE__covers/co-loa.webp" alt="" loading="lazy"><div><span class="k">Lịch sử · lớp 10 · ba bộ sách</span><b>Lịch sử 10</b><span class="d">Văn minh Văn Lang – Âu Lạc qua Thành Cổ Loa; thêm cảnh theo từng chủ đề.</span><span class="go">Xem lộ trình <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="route" href="__L_ROBO__"><img src="__L_BASE__covers/robo-hexapod.webp" alt="" loading="lazy"><div><span class="k">Đại học · kỹ sư · 4 mô phỏng</span><b>Robotics</b><span class="d">Cánh tay, robot sáu chân, drone, xe tự hành; số liệu từ tài liệu của hãng.</span><span class="go">Xem mục lục <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+    </div>
+  </section>
+
+  <section id="cho-giao-vien" aria-labelledby="h-gv">
+    <div class="sh"><div><h2 id="h-gv">Cho giáo viên</h2><p>Mọi bài 3D lên lớp theo cùng một cách. Học một lần, dùng cho mọi bài.</p></div></div>
+    <div class="teach">
+      <div class="tile"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span><b>Lên lớp trong mọi bài</b><span>Bấm <b>Lên lớp</b> trên thanh đầu bài hoặc <kbd>Shift P</kbd>. Bút trình chiếu và phím mũi tên chuyển bước, <kbd>B</kbd> màn đen, <kbd>F</kbd> toàn màn hình.</span></div>
+      <a class="tile" href="__L_REMOTE__"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.75" width="10" height="18.5" rx="2.5"/><path d="M11 18h2"/></svg></span><b>Màn hình giáo viên, điện thoại</b><span>Trong bài: menu <b>Thêm</b> → Màn hình giáo viên (ghi chú, đáp án, bước sau) hoặc quét mã bằng điện thoại.</span></a>
+      <a class="tile" href="__L_KIEM__"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><b>Kiểm máy trước giờ dạy</b><span>Chạy thử mọi bài trên máy của lớp, xem bài nào chạy mượt và bài nào nên dùng mức nhẹ.</span></a>
+    </div>
+  </section>
+
+  <section id="thu-vien" aria-labelledby="h-tv">
+    <div class="sh"><div><h2 id="h-tv">Thư viện 54 bài thí nghiệm</h2><p>Vật lí, Hoá học, Sinh học, Địa lí. Mỗi bài đối chiếu với yêu cầu cần đạt của chương trình GDPT 2018.</p></div></div>
+    <div class="filters">
+      <label class="search"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><input id="q" type="search" placeholder="Tìm bài: ammonia, nguyên phân, gió mùa…" aria-label="Tìm bài học"></label>
+      <div class="row" role="group" aria-label="Lọc theo môn"><span class="lb">Môn</span>
+        <button class="chip" data-s="" aria-pressed="true">Tất cả</button>
+        <button class="chip" data-s="phys" aria-pressed="false"><i style="background:var(--bg-s-ly)"></i>Vật lí</button>
+        <button class="chip" data-s="chem" aria-pressed="false"><i style="background:var(--bg-s-hoa)"></i>Hoá học</button>
+        <button class="chip" data-s="bio" aria-pressed="false"><i style="background:var(--bg-s-sinh)"></i>Sinh học</button>
+        <button class="chip" data-s="geo" aria-pressed="false"><i style="background:var(--bg-s-dia)"></i>Địa lí</button>
+        <span class="count" id="count" aria-live="polite"></span>
+      </div>
+      <div class="row" role="group" aria-label="Lọc theo lớp"><span class="lb">Lớp</span>
+        <button class="chip g" data-g="" aria-pressed="true">Mọi lớp</button>
+        <button class="chip g" data-g="thcs" aria-pressed="false">THCS 6–9</button>
+        <button class="chip g" data-g="10" aria-pressed="false">Lớp 10</button>
+        <button class="chip g" data-g="11" aria-pressed="false">Lớp 11</button>
+        <button class="chip g" data-g="12" aria-pressed="false">Lớp 12</button>
+        <button class="chip g" data-g="out" aria-pressed="false">Mở rộng</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
   <footer class="foot">
     <div class="fl"><b>Bài Giảng</b><span>Mã nguồn MIT · <a href="https://github.com/nclamvn/bai-giang" target="_blank" rel="noopener">GitHub</a> · <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">Góp ý</a></span></div>
-    <p>54 bài thí nghiệm là bản tiếng Việt của <a href="https://lab.tongjiang.app" target="_blank" rel="noopener">Tongjiang Lab</a> © 2026 铜匠十点睡觉, theo giấy phép <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.vi" target="_blank" rel="noopener">CC BY-NC 4.0</a>, được tác giả đồng ý, chỉ dùng phi thương mại. Đã dịch và đổi giao diện; mô hình, mô phỏng, số liệu giữ nguyên.</p>
+    <p>54 bài thí nghiệm là bản tiếng Việt của <a href="https://lab.tongjiang.app" target="_blank" rel="noopener">Tongjiang Lab</a> © 2026 铜匠十点睡觉, theo giấy phép <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.vi" target="_blank" rel="noopener">CC BY-NC 4.0</a>, được tác giả đồng ý cho dùng phi thương mại. Bài học được viết mới từ nguồn khoa học công khai, không chép sách giáo khoa.</p>
     <details>
       <summary>Nguồn và ghi chú</summary>
       <ul>
-        <li>Mã nguồn gốc: <a href="https://github.com/smithjohn78390/tongjiang-lab" target="_blank" rel="noopener">smithjohn78390/tongjiang-lab</a>. Nút “Danh mục” trong mỗi bài dẫn về trang này.</li>
-        <li>“SGK gốc” trong bài là sách giáo khoa Nhân Giáo 2019 (Trung Quốc) mà bài được thiết kế theo, không phải SGK Việt Nam.</li>
+        <li>Mã nguồn gốc của thư viện: <a href="https://github.com/smithjohn78390/tongjiang-lab" target="_blank" rel="noopener">smithjohn78390/tongjiang-lab</a>. Bài gốc được thiết kế theo sách Nhân Giáo 2019 (Trung Quốc); đối chiếu với chương trình Việt Nam do Bài Giảng làm.</li>
         <li>Đối chiếu GDPT 2018 (<a href="__L_GDPT__">dữ liệu</a>), cập nhật 30/10/2026, đã soát Thông tư 13/2022 và 17/2025. __SOURCES__</li>
-        <li>Bản dịch và bảng đối chiếu chưa qua giáo viên bộ môn duyệt. three.js theo giấy phép MIT.</li>
+        <li>Bản dịch và bảng đối chiếu chưa qua giáo viên bộ môn duyệt. three.js theo giấy phép MIT. Phông Be Vietnam Pro, Noto Serif, JetBrains Mono theo giấy phép SIL OFL.</li>
       </ul>
     </details>
   </footer>
-</div>
+</main>
 <script>
 const LESSONS = __CATALOG__;
-const COL = { phys: 'var(--phys)', chem: 'var(--chem)', bio: 'var(--bio)', geo: 'var(--geo)' };
+const COL = { phys: 'var(--bg-s-ly)', chem: 'var(--bg-s-hoa)', bio: 'var(--bg-s-sinh)', geo: 'var(--bg-s-dia)' };
 const norm = (s) => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
 let subj = '', grade = ''; try { const u = new URLSearchParams(location.search); subj = u.get('mon') || ''; grade = u.get('lop') || ''; } catch (e) {}
 const GD = __GDPT__;
@@ -285,37 +238,43 @@ const gOf = (l) => (GD[l.slug] || { khop: [] });
 const chinh = (l) => gOf(l).khop.filter((m) => m.muc_do === 'chinh');
 const short = (m) => (m.muc || m.chu_de).split(' › ').pop().replace(/\s*\(.*\)\s*$/, '');
 const monShort = { 'Sinh học': 'Sinh', 'Vật lí': 'Lí', 'Hoá học': 'Hoá', 'Địa lí': 'Địa', 'Khoa học tự nhiên': 'KHTN', 'Lịch sử và Địa lí': 'LS&ĐL' };
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 function gradeOk(l) { if (!grade) return true; const c = chinh(l); if (grade === 'out') return !c.length; if (grade === 'thcs') return c.some((m) => m.lop <= 9); return c.some((m) => String(m.lop) === grade); }
 function gdHtml(l) {
   const g = gOf(l), c = chinh(l), r = g.khop.filter((m) => m.muc_do !== 'chinh');
-  const seen = new Set(), tags = c.filter((m) => { const k = m.mon + m.lop + short(m); if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 3).map((m) => `<span class="tag">${esc(monShort[m.mon] || m.mon)} ${m.lop} · ${esc(short(m))}</span>`).join('');
-  const head = tags || '<span class="tag out">Liên quan, vượt chương trình</span>';
-  const li = (arr) => arr.map((m) => m.ycd.map((y) => `<li>${esc(y)} <span class="mu">(${esc(m.mon)} ${m.lop} · ${esc(short(m))})</span></li>`).join('')).join('');
-  return `<div class="gd">${head}<details><summary>Yêu cầu cần đạt GDPT 2018</summary>${c.length ? `<div class="mu">Bài dạy trực tiếp</div><ul>${li(c)}</ul>` : ''}${r.length ? `<div class="mu">Liên quan, hỗ trợ</div><ul>${li(r)}</ul>` : ''}${g.ghi_chu ? `<div class="gc">${esc(g.ghi_chu)}</div>` : ''}</details></div>`;
+  const seen = new Set(), tags = c.filter((m) => { const k = m.mon + m.lop + short(m); if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 2).map((m) => `<span class="tag">${esc(monShort[m.mon] || m.mon)} ${m.lop} · ${esc(short(m))}</span>`).join('');
+  const head = tags || '<span class="tag out">Mở rộng, ngoài chương trình</span>';
+  const li = (arr) => arr.map((m) => m.ycd.map((y) => `<li>${esc(y)}</li>`).join('')).join('');
+  return `<div class="gd">${head}<details><summary>Yêu cầu cần đạt</summary>${c.length ? `<div class="mu">Bài dạy trực tiếp</div><ul>${li(c)}</ul>` : ''}${r.length ? `<div class="mu">Liên quan</div><ul>${li(r)}</ul>` : ''}${g.ghi_chu ? `<div class="mu">${esc(g.ghi_chu)}</div>` : ''}</details></div>`;
 }
-const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 function render() {
   const q = norm(document.getElementById('q').value.trim());
-  const list = LESSONS.filter((l) => (!subj || l.subject === subj) && gradeOk(l) && (!q || norm([l.title, l.question, l.steps.join(' '), l.textbook.join(' '), gOf(l).khop.map((m) => m.muc + ' ' + m.ycd.join(' ')).join(' ')].join(' ')).includes(q)));
-  document.getElementById('count').textContent = `${list.length} / ${LESSONS.length} bài`;
+  const list = LESSONS.filter((l) => (!subj || l.subject === subj) && gradeOk(l) && (!q || norm([l.title, l.question, l.steps.join(' '), gOf(l).khop.map((m) => m.muc + ' ' + m.ycd.join(' ')).join(' ')].join(' ')).includes(q)));
+  document.getElementById('count').textContent = `${list.length} bài`;
   document.querySelectorAll('.chip:not(.g)').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.s === subj)));
   document.querySelectorAll('.chip.g').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.g === grade)));
   document.getElementById('grid').innerHTML = list.length ? list.map((l) => `
     <article class="card">
-      <img class="cover" src="${esc(BASE + l.cover)}" alt="" loading="lazy">
+      <div class="cv"><img src="${esc(BASE + l.cover)}" alt="" loading="lazy"></div>
       <div class="bd">
-        <div class="meta"><span class="s" style="color:${COL[l.subject]}">${esc(l.mon)}</span><span>${l.steps.length} bước</span><span>${esc(l.type)}</span></div>
-        <h2><a href="${esc(BASE + l.file)}">${esc(l.title)}</a></h2>
+        <div class="mt"><i style="background:${COL[l.subject]}"></i><b>${esc(l.mon)}</b><span>${l.steps.length} bước</span></div>
+        <h3><a href="${esc(BASE + l.file)}">${esc(l.title)}</a></h3>
         <p>${esc(l.question)}</p>
-        <div class="tb">SGK gốc: ${esc(l.textbook[0] || '')}</div>
         ${gdHtml(l)}
       </div>
-    </article>`).join('') : '<div class="empty">Không có bài nào khớp. Thử từ khoá khác.</div>';
+    </article>`).join('') : '<div class="empty">Không có bài nào khớp. Thử từ khoá khác hoặc bỏ bớt bộ lọc.</div>';
 }
 document.getElementById('q').addEventListener('input', render);
 document.querySelectorAll('.chip:not(.g)').forEach((c) => c.addEventListener('click', () => { subj = c.dataset.s; render(); }));
 document.querySelectorAll('.chip.g').forEach((c) => c.addEventListener('click', () => { grade = c.dataset.g; render(); }));
 render();
+// ảnh màn đầu: đổi chậm, dừng khi rê chuột hoặc khi máy đặt giảm chuyển động
+{ const figs = [...document.querySelectorAll('#show figure')], dots = document.getElementById('dots'); let k = 0, hold = false;
+  const set = (i) => { k = (i + figs.length) % figs.length; figs.forEach((f, j) => { f.classList.toggle('on', j === k); f.toggleAttribute('inert', j !== k); }); dots.querySelectorAll('button').forEach((b, j) => b.setAttribute('aria-current', String(j === k))); };
+  dots.innerHTML = figs.map((f, j) => `<button role="tab" aria-label="Ảnh ${j + 1}: ${esc(f.querySelector('a').firstChild.textContent.trim())}"><i></i></button>`).join('');
+  dots.querySelectorAll('button').forEach((b, j) => b.addEventListener('click', () => { set(j); hold = true; }));
+  const sh = document.getElementById('show'); sh.addEventListener('pointerenter', () => { hold = true; }); sh.addEventListener('pointerleave', () => { hold = false; });
+  set(0); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => { if (!hold && !document.hidden) set(k + 1); }, 6000); }
 </script>
 </body>
 </html>

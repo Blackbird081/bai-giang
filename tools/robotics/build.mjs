@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import esbuild from 'esbuild';
+import {execFileSync} from 'node:child_process';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(HERE, '..', '..');
@@ -27,7 +28,7 @@ const inline = (cssFile) => {
 };
 const FONTS = [400, 600, 700].map((w) => inline(path.join(NM, `@fontsource/jetbrains-mono/${w}.css`))).join('\n') + '\n' + inline(path.join(NM, '@fontsource-variable/inter/wght.css'));
 
-const SHELL = (await esbuild.transform(fs.readFileSync(path.join(REPO, 'shell/bg-shell.js'), 'utf8'), {minify: true, target: 'es2020', legalComments: 'none'})).code.replace(/<\/script/g, '<\\/script'); // vỏ Bài Giảng: lên lớp, màn hình giáo viên, điện thoại
+// vỏ Bài Giảng v2 nhúng sau khi đóng gói bằng tools/inject_shell.py (token, phông, màn tải, thứ tự bài)
 const names = args.length ? args : fs.readdirSync(HERE).filter((d) => fs.existsSync(path.join(HERE, d, 'main.js')));
 for (const name of names) {
   const dir = path.join(HERE, name), t0 = Date.now();
@@ -52,10 +53,6 @@ ${FONTS}
 <body>
 <div id="app"></div>
 <!-- Dựng trên teardown của elvarofficial và claude-motion của whaleyxbt (MIT). Mã nguồn: github.com/nclamvn/bai-giang/tree/main/tools/robotics -->
-<!--BG-SHELL:start-->
-<script>
-${SHELL}</script>
-<!--BG-SHELL:end-->
 <script type="module">
 ${js}
 </script>
@@ -65,5 +62,6 @@ ${js}
   const out = outDir ? path.join(outDir, `${name}.html`) : path.join(REPO, 'robotics', name, 'index.html');
   fs.mkdirSync(path.dirname(out), {recursive: true});
   fs.writeFileSync(out, html);
+  execFileSync('python3', [path.join(REPO, 'tools/inject_shell.py'), ...(hub ? [`--root=${hub}`] : []), `--as=robotics/${name}/index.html`, out], {stdio: 'inherit'});
   console.log(`${path.relative(process.cwd(), out)}  ${(html.length / 1024).toFixed(0)} KB  ${Date.now() - t0} ms`);
 }

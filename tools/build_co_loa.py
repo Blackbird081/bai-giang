@@ -152,12 +152,12 @@ def build(home, hub, cell, mito):
 """) + LG.BODY + 'html{background:var(--lg-page)}\n' + LG.glass('header.top,.ctrl,.timeline', 'var(--lg-r)') + LG.glass('.glass', 'var(--lg-r-sm)') \
         + LG.glass('#info,.lesson', 'var(--lg-r)', strong=True) + LG.pill_buttons('.btn,.ph', '.btn.primary', '#B26A1A', '#8E5110')
     s = tpl.replace('__LG_CSS__', css).replace('__DATA__', json.dumps(DATA, ensure_ascii=False, separators=(',', ':'))).replace('__HUB__', hub).replace('__HOME__', home)
-    s = s.replace('__FONT__', LG.FONT_LINK)
+    s = s.replace('__FONT__', '')
     assert '__' not in s, 'còn chỗ giữ chỗ: ' + s[s.find('__') - 40:s.find('__') + 40]
-    # vỏ Bài Giảng (chế độ lên lớp, màn hình giáo viên, điện thoại) nhúng thẳng để bài chạy offline
-    shell = (ROOT / 'shell/bg-shell.js').read_text(encoding='utf-8')
-    assert '<!--BG-SHELL-->' in s
-    return s.replace('<!--BG-SHELL-->', '<script>\n' + shell + '</script>')
+    # vỏ Bài Giảng v2 (thanh đầu bài, ngăn kéo, lên lớp, màn tải) nhúng thẳng để bài chạy offline
+    import inject_shell
+    s = s.replace('<!--BG-SHELL-->', '')
+    return inject_shell.inject(s, key='lich-su-10/co-loa/index.html', root=None if hub.startswith('../') else hub)
 
 
 if __name__ == '__main__':

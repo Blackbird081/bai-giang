@@ -5,10 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kiểm máy</title>
 <meta name="description" content="Đo xem máy của trường chạy các bài giảng 3D mượt đến đâu: khung hình mỗi giây, thời gian tải, card đồ hoạ. Xuất báo cáo gửi lại nhóm làm bài.">
+<link rel="stylesheet" href="../design/house.css">
 <style>
 :root{--ink:#1c1c1e;--ink2:#5b5b63;--hair:rgba(15,23,42,.1);--accent:#C2184A;--ok:#2C7A4B;--mid:#B26A1A;--bad:#B3261E;--fill:rgba(255,255,255,.78)}
 *{box-sizing:border-box}
-body{margin:0;background:#f4f4f7;color:var(--ink);font:500 15px/1.5 "Inter","SF Pro Text",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg-page);color:var(--bg-ink);font:500 15px/1.6 var(--bg-font);-webkit-font-smoothing:antialiased}
+:root{--ink:var(--bg-ink);--ink2:var(--bg-ink2);--accent:var(--bg-brand)}
+.sum{display:grid;gap:6px;padding:20px 22px;border-radius:20px;margin-top:14px;background:#fff;box-shadow:var(--bg-sh-1)}
+.sum b.big{font-size:26px;letter-spacing:-.015em;line-height:1.25}
+.sum.ok{box-shadow:inset 4px 0 0 var(--bg-ok),var(--bg-sh-1)}.sum.mid{box-shadow:inset 4px 0 0 #B26A1A,var(--bg-sh-1)}.sum.bad{box-shadow:inset 4px 0 0 var(--bg-bad),var(--bg-sh-1)}
+.sum ul{margin:4px 0 0;padding-left:20px}
+details.dt summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}
 .wrap{max-width:980px;margin:0 auto;padding:28px 20px 60px}
 a{color:var(--accent)}
 .top a{text-decoration:none;font-weight:600}
@@ -16,7 +23,7 @@ h1{margin:6px 0 4px;font-size:32px;letter-spacing:-.02em}
 .lead{color:var(--ink2);max-width:70ch;margin:0 0 18px}
 .card{background:#fff;border-radius:20px;padding:18px 20px;box-shadow:0 0 0 .5px rgba(15,23,42,.06),0 12px 32px -18px rgba(15,23,42,.3);margin-top:14px}
 .dev{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 18px}
-.dev div span{display:block;font-size:12px;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em}
+.dev div span{display:block;font-size:13px;color:var(--ink2);font-weight:600}
 .dev div b{font-size:14.5px;word-break:break-word}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 button{font:600 15px inherit;font-family:inherit;border:0;border-radius:999px;height:44px;padding:0 20px;cursor:pointer;background:#fff;color:var(--ink);box-shadow:0 0 0 1px var(--hair)}
@@ -25,9 +32,9 @@ button:disabled{opacity:.5;cursor:default}
 label.ck{display:inline-flex;gap:8px;align-items:center;font-size:14px;color:var(--ink2)}
 table{width:100%;border-collapse:collapse;font-size:14px}
 th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--hair);vertical-align:top}
-th{font-size:12px;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+th{font-size:13px;color:var(--ink2);font-weight:600}
 td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
-.v{display:inline-block;padding:2px 10px;border-radius:999px;font-weight:700;font-size:12.5px}
+.v{display:inline-block;padding:2px 10px;border-radius:999px;font-weight:700;font-size:13px}
 .v.ok{background:rgba(44,122,75,.12);color:var(--ok)}.v.mid{background:rgba(178,106,26,.14);color:var(--mid)}.v.bad{background:rgba(179,38,30,.1);color:var(--bad)}.v.wait{background:rgba(15,23,42,.06);color:var(--ink2)}
 #run{position:fixed;inset:0;display:none;background:#000;z-index:10}
 #run.show{display:block}
@@ -36,17 +43,31 @@ td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
 #bar i{display:block;width:160px;height:4px;border-radius:2px;background:rgba(255,255,255,.2);overflow:hidden}#bar i b{display:block;height:100%;width:0;background:#fff}
 #bar button{height:28px;padding:0 12px;font-size:13px;background:rgba(255,255,255,.14);color:#fff;box-shadow:none}
 .small{font-size:13px;color:var(--ink2)}
-textarea{width:100%;min-height:120px;font:12px ui-monospace,monospace;border-radius:12px;border:1px solid var(--hair);padding:10px}
+textarea{width:100%;min-height:120px;font:13px var(--bg-mono);border-radius:12px;border:1px solid var(--hair);padding:10px}
+</style>
+<style>
+.sitebar{position:sticky;top:0;z-index:50;background:rgba(244,244,246,.86);-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);border-bottom:1px solid var(--bg-hair,rgba(16,24,40,.1));font-family:var(--bg-font)}
+.sitebar .in{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;height:var(--bg-bar,56px)}
+.sitebar .brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;color:var(--bg-ink,#15171C);text-decoration:none;min-height:44px;min-width:44px;letter-spacing:-.01em;flex:none}
+.sitebar .brand svg{width:30px;height:30px}
+.sitebar .crumbs{display:flex;align-items:center;gap:8px;min-width:0;color:var(--bg-ink3,#626773);font-size:15px}
+.sitebar .crumbs a{color:inherit;text-decoration:none}.sitebar .crumbs a:hover{color:var(--bg-ink)}
+.sitebar .crumbs b{color:var(--bg-ink);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sitebar nav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.sitebar nav a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;text-decoration:none;font-weight:600;color:var(--bg-ink2,#454A55);white-space:nowrap}
+.sitebar nav a:hover{background:var(--bg-hair)}
+@media (max-width:760px){.sitebar .in{padding:0 12px;gap:8px}.sitebar .brand span,.sitebar nav{display:none}.sitebar .crumbs{font-size:15px}}
 </style>
 </head>
 <body>
+<header class="sitebar"><div class="in"><a class="brand" href="../" aria-label="Bài Giảng, trang chính"><svg viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="#1E2A44"/><path d="M8 8.5h6.2c2.6 0 4.1 1.2 4.1 3.1 0 1.3-.8 2.3-2 2.6 1.6.3 2.6 1.4 2.6 2.9 0 2.2-1.7 3.4-4.5 3.4H8z" fill="none" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"/><path d="M8 14.2h6" stroke="#fff" stroke-width="1.9"/><circle cx="21.2" cy="19.6" r="1.7" fill="#fff"/></svg><span>Bài Giảng</span></a><div class="crumbs"><span aria-hidden="true">/</span><a href="../#cho-giao-vien">Cho giáo viên</a><span aria-hidden="true">/</span><b>Kiểm máy</b></div></div></header>
 <div class="wrap">
-  <div class="top"><a href="../">← Bài Giảng</a></div>
   <h1>Kiểm máy</h1>
   <p class="lead">Mở trang này trên đúng chiếc máy sẽ dùng để chiếu trong lớp (cắm sạc, mở toàn màn hình nếu được). Trang lần lượt mở từng bài giảng, đo độ mượt trong 10 giây, rồi cho ra báo cáo. Gửi báo cáo cho nhóm làm bài để chỉnh đồ hoạ cho vừa máy của trường. Không thu thông tin cá nhân nào.</p>
 
   <div class="card"><div class="dev" id="dev"></div></div>
 
+  <div class="sum" id="sum" hidden></div>
   <div class="card">
     <div class="row"><button class="pri" id="go">Bắt đầu kiểm</button><label class="ck"><input type="checkbox" id="quick"> Kiểm nhanh (4 bài, khoảng 1 phút)</label><span class="small" id="eta"></span></div>
     <table style="margin-top:14px"><thead><tr><th>Bài</th><th>Tải xong</th><th>Khung hình/giây</th><th>1% chậm nhất</th><th>Khung giật &gt; 50 ms</th><th>Kết luận</th></tr></thead><tbody id="tb"></tbody></table>
@@ -149,7 +170,20 @@ $('go').onclick = async () => {
   $('run').classList.remove('show'); $('go').disabled = false; if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
   report();
 };
+// kết luận một dòng cho giáo viên; bảng số chi tiết vẫn ở dưới
+function summary() {
+  const done = RESULTS.filter((x) => x.r && !x.r.error), ok = done.filter((x) => x.r.fps >= 30), mid = done.filter((x) => x.r.fps >= 20 && x.r.fps < 30), bad = RESULTS.filter((x) => !x.r || x.r.error || x.r.fps < 20);
+  const cls = bad.length ? 'bad' : mid.length ? 'mid' : 'ok';
+  const lib = RESULTS.filter((x) => /^Thư viện/.test(x.name)), libOk = lib.length && lib.every((x) => x.r && x.r.fps >= 30);
+  $('sum').className = 'sum ' + cls; $('sum').hidden = false;
+  $('sum').innerHTML = `<span class="small">Kết luận cho máy này</span><b class="big">${ok.length === RESULTS.length ? 'Dạy được mọi bài đã kiểm' : `Dạy mượt ${ok.length} trên ${RESULTS.length} bài đã kiểm`}</b>
+    ${lib.length ? `<span>${libOk ? 'Ba bài thư viện mẫu đều mượt; 54 bài thư viện dùng chung một khung nên nhiều khả năng cũng mượt.' : 'Bài thư viện mẫu chưa mượt hẳn; khi dạy bài thư viện, thêm ?q=2 vào địa chỉ để dùng mức nhẹ.'}</span>` : ''}
+    ${mid.length ? `<span>Nên dùng mức nhẹ (thêm <b>?q=2</b> vào địa chỉ bài): ${mid.map((x) => esc(x.name)).join(', ')}.</span>` : ''}
+    ${bad.length ? `<span>Chưa dạy được trên máy này: ${bad.map((x) => esc(x.name)).join(', ')}. Thử trình duyệt Chrome hoặc Edge mới, cắm sạc, đóng bớt ứng dụng.</span>` : ''}`;
+  $('sum').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 function report() {
+  summary();
   const rep = {kiemMay: 1, device: DEV, browser, viewportDuringTest: `${innerWidth}×${innerHeight}`, results: RESULTS.map(({id, name, r}) => ({id, name, loadS: r.load ? +(r.load / 1000).toFixed(2) : null, fps: r.fps ? +r.fps.toFixed(1) : null, low1: r.low1 ? +r.low1.toFixed(1) : null, longFrames: r.long ?? null, tier: r.tier ?? null, verdict: verdict(r.error ? null : r.fps)[1], error: r.error || null}))};
   const json = JSON.stringify(rep, null, 2); $('txt').value = json; $('out').hidden = false;
   const dl = (name, type, text) => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], {type})); a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); };

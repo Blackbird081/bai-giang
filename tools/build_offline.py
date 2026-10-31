@@ -52,6 +52,13 @@ if data != '-':  # '-': trang đã tự nhúng dữ liệu (ví dụ ty-the.html
     emb = f'<script type="text/plain" id="ribo-b64">{b64}</script>\n'
     i = html.index('<script type="importmap">')
     html = html[:i] + emb + html[i:]
+# phông tự lưu nhúng thẳng (bản offline không có thư mục design/), liên kết về trang chính trỏ tới site
+ROOTDIR = pathlib.Path(__file__).resolve().parent.parent
+def _font(m):
+    f = ROOTDIR / 'design/fonts' / m.group(1)
+    return 'url(data:font/woff2;base64,' + base64.b64encode(f.read_bytes()).decode() + ')'
+html = re.sub(r"url\((?:\.\./)*design/fonts/([a-z0-9-]+\.woff2)\)", _font, html)
+html = re.sub(r'<meta name="bg-root" content="[^"]*">', '<meta name="bg-root" content="https://nclamvn.github.io/bai-giang/">', html)
 html = html.replace('<title>', '<meta name="offline-build" content="three ' + version + '">\n<title>', 1)
 if not html.lstrip().lower().startswith('<!doctype'):
     html = '<!doctype html>\n<html lang="vi">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n' + html

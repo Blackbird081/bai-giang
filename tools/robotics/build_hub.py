@@ -4,7 +4,9 @@
   python3 tools/robotics/build_hub.py            → robotics/index.html (GitHub Pages, liên kết tương đối)
   build(links) trả về HTML, dùng cho bản đăng trên Claude (liên kết do build_pages.py truyền vào).
 """
-import html, pathlib
+import html, sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent.parent))
+import liquid_glass as LG, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 E = lambda s: html.escape(str(s), quote=True)
@@ -58,10 +60,10 @@ CSS = '''
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;
   background-image:linear-gradient(rgba(150,120,80,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(150,120,80,.07) 1px,transparent 1px);background-size:24px 24px}
 a{color:inherit}
-.mono{font-family:"JetBrains Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;font-size:11px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;font-size:13px}
 .top{display:flex;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line)}
 .top .code{background:var(--or);color:#fff;display:grid;place-content:center;padding:0 26px;font:700 20px "JetBrains Mono",monospace;letter-spacing:1px;text-decoration:none}
-.top .code small{display:block;font-size:9.5px;letter-spacing:2px;margin-top:2px;opacity:.9}
+.top .code small{display:block;font-size:13px;letter-spacing:2px;margin-top:2px;opacity:.9}
 .top .t{padding:18px 24px}
 .top h1{margin:2px 0 0;font-size:32px;letter-spacing:-.02em;line-height:1.1}
 .top h1 span{color:var(--or);font-weight:400}
@@ -78,24 +80,24 @@ a{color:inherit}
 .card .img b{position:absolute;left:0;top:0;background:var(--or);color:#fff;font:700 13px "JetBrains Mono",monospace;letter-spacing:1px;padding:8px 12px}
 .card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
 .card h2{margin:0;font-size:22px;letter-spacing:-.02em;line-height:1.2}
-.card h2 small{display:block;font:500 11px "JetBrains Mono",monospace;letter-spacing:.12em;color:var(--mute);text-transform:uppercase;margin-bottom:4px}
+.card h2 small{display:block;font:500 13px "JetBrains Mono",monospace;letter-spacing:.12em;color:var(--mute);text-transform:uppercase;margin-bottom:4px}
 .card p{margin:0}
 .card ul{margin:0;padding-left:18px}.card li{margin:2px 0}
-.nums{font:12px/1.6 "JetBrains Mono",monospace;color:#5d5348;background:#f6efe3;border-left:3px solid var(--or);padding:8px 10px}
+.nums{font:13px/1.6 "JetBrains Mono",monospace;color:#5d5348;background:#f6efe3;border-left:3px solid var(--or);padding:8px 10px}
 details{border-top:1px solid var(--line);padding-top:8px}
 summary{cursor:pointer;font-weight:600;font-size:14px}
 details ol{margin:8px 0 0;padding-left:20px;font-size:13.5px}details li{margin:3px 0}
 .note{font-size:13px;color:#6d6357}
-.go{margin-top:auto;display:inline-flex;align-self:flex-start;align-items:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;font:700 12px "JetBrains Mono",monospace;letter-spacing:1.5px;padding:10px 16px;border-radius:4px}
+.go{margin-top:auto;display:inline-flex;align-self:flex-start;align-items:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;font:700 13px "JetBrains Mono",monospace;letter-spacing:1.5px;padding:10px 16px;border-radius:4px}
 .go:hover{background:var(--or)}
-h3.sec{font:700 12px "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;margin:40px 0 12px;display:flex;align-items:center;gap:10px}
+h3.sec{font:700 13px "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;margin:40px 0 12px;display:flex;align-items:center;gap:10px}
 h3.sec:before{content:"";width:3px;height:14px;background:var(--or)}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .box{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:16px 18px;font-size:14.5px}
 .box p{margin:0 0 8px}.box p:last-child{margin:0}
 table.keys{border-collapse:collapse;width:100%;font-size:13.5px}
 table.keys td{padding:4px 6px;border-bottom:1px solid var(--line);vertical-align:top}
-table.keys td:first-child{font:600 12px "JetBrains Mono",monospace;white-space:nowrap;color:#5d5348}
+table.keys td:first-child{font:600 13px "JetBrains Mono",monospace;white-space:nowrap;color:#5d5348}
 @media (max-width:860px){.intro,.grid,.cols{grid-template-columns:1fr}.top h1{font-size:25px}.top .code{padding:0 16px}.wrap{padding:20px 16px 48px}}
 '''
 
@@ -115,7 +117,7 @@ def build(links):
     <ul>{learn}</ul>
     <div class="nums">{E(r['nums'])}</div>
     <details><summary>Nguồn số liệu</summary><ol>{src}</ol><p class="note">{E(r['note'])}</p></details>
-    <a class="go" href="{E(links['sims'][k])}">VÀO MÔ PHỎNG →</a>
+    <a class="go" href="{E(links['sims'][k])}">Vào mô phỏng <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </article>''')
     return f'''<!doctype html>
@@ -125,13 +127,22 @@ def build(links):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Robotics</title>
 <meta name="description" content="Bốn bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, drone Crazyflie, xe tự hành TurtleBot3.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap&subset=vietnamese" rel="stylesheet">
-<style>{CSS}</style>
+{LG.font_link(links['hub'])}
+<style>{CSS}{LG.SITE_BAR_CSS}
+html[data-x]{{}}body{{font-family:var(--bg-font)}}
+.mono{{font-family:var(--bg-font);letter-spacing:.01em;text-transform:none;font-weight:600}}
+.top{{display:block;padding:32px 24px 8px;max-width:1180px;margin:0 auto;border:0;background:none}}
+.top .t{{padding:0}}
+h3.sec{{font:700 20px var(--bg-font);letter-spacing:-.01em;text-transform:none}}
+.card h2 small{{font:600 13px var(--bg-font);letter-spacing:.01em;text-transform:none}}
+.card .img b{{font:600 13px var(--bg-mono)}}
+.go{{font:600 15px var(--bg-font);letter-spacing:0;min-height:44px;padding:0 18px;border-radius:6px}}
+.sitebar{{background:rgba(242,230,210,.9)}}
+</style>
 </head>
 <body>
+{LG.site_bar(links['hub'], [('Lộ trình', links['hub'] + '#lo-trinh'), ('Robotics', None)])}
 <header class="top">
-  <a class="code" href="{E(links['hub'])}">RB<small>← BÀI GIẢNG</small></a>
   <div class="t"><div class="mono" style="color:var(--mute)">Đại học · kỹ sư · mô phỏng chạy trực tiếp</div><h1>Robotics <span>/</span></h1>
   <div class="mono" style="margin-top:6px;color:#6d6357">Động học · động lực học · điều khiển · cảm biến · định vị</div></div>
 </header>

@@ -79,7 +79,7 @@ def build(hub, coloa, cover):
             y = ''.join(f'<li>{E(x)}</li>' for x in m['ycd'])
             sua = ' <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span>' if m.get('sua_doi_2025') else ''
             rows.append(f'''<div class="muc {st}">
-  <div class="mh"><h4>{E(ten)}{sua}</h4><span class="st {st}">{ {'co': 'Đã có', 'du': 'Dự kiến', 'tl': 'Tư liệu'}[st] }</span></div>
+  <div class="mh"><h4>{E(ten)}{sua}</h4><span class="st {st}">{ {'co': 'Có bài 3D', 'du': 'Sắp có', 'tl': 'Tư liệu'}[st] }</span></div>
   <div class="canh"><b>{E(canh)}</b>{(' · ' + E(mo)) if mo else ''}</div>
   <details{' open' if st == 'co' else ''}><summary>Yêu cầu cần đạt ({len(m['ycd'])})</summary><ul>{y}</ul></details>
   {link}
@@ -107,13 +107,15 @@ def build(hub, coloa, cover):
 <meta name="theme-color" content="#F5F5F7">
 <title>Lịch Sử 10</title>
 <meta name="description" content="Lộ trình bài giảng 3D Lịch sử lớp 10 theo chương trình GDPT 2018 (sửa đổi 2025), dùng chung cho ba bộ sách; yêu cầu cần đạt trích nguyên văn; bài mẫu Thành Cổ Loa.">
-{LG.FONT_LINK}
+{LG.font_link(hub)}
 <style>
 {css}
-*{{box-sizing:border-box}} body{{margin:0;line-height:1.55;font-size:15px}}
+*{{box-sizing:border-box}} body{{margin:0;line-height:1.6;font-size:15px;font-family:var(--bg-font)}}
+{LG.SITE_BAR_CSS}
+.muc.du .canh{{color:var(--bg-ink3)}} .muc.du h4{{font-weight:600}}
 a{{color:var(--accent2)}}
 .wrap{{max-width:1080px;margin:0 auto;padding:28px 18px 60px;display:grid;gap:20px}}
-.lbl{{font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}}
+.lbl{{font-size:13px;font-weight:600;color:var(--muted)}}
 .crumb a{{text-decoration:none;color:var(--muted);font-weight:500;font-size:14px}}
 h1{{margin:6px 0 8px;font-size:clamp(30px,4.2vw,44px);letter-spacing:-.025em;line-height:1.08}}
 h1 em{{font-style:normal;color:var(--accent)}}
@@ -124,7 +126,7 @@ header p{{margin:0;max-width:74ch;color:var(--ink2)}}
 .feat h2{{margin:0;font-size:26px;letter-spacing:-.02em}}
 .feat p{{margin:0;color:var(--ink2)}}
 .feat .btn{{justify-self:start;text-decoration:none;padding:9px 16px}}
-.kpi{{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}}
+.kpi{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}}
 .kpi div{{padding:12px 14px}}
 .kpi b{{display:block;font-size:26px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}}
 h2.sec{{margin:14px 0 0;font-size:22px;letter-spacing:-.015em}}
@@ -140,23 +142,22 @@ h2.sec{{margin:14px 0 0;font-size:22px;letter-spacing:-.015em}}
 .muc ul{{margin:4px 0 2px;padding-left:20px;font-size:14px}}
 .muc .btn{{justify-self:start;text-decoration:none;margin:4px 0 6px;padding:7px 14px;font-size:13.5px}}
 .muc.co{{background:linear-gradient(90deg,rgba(178,106,26,.07),transparent 70%);border-radius:14px;padding:10px 12px;border-top-color:transparent}}
-.st{{font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:999px;white-space:nowrap}}
+.st{{font-size:13px;font-weight:700;padding:2px 9px;border-radius:999px;white-space:nowrap}}
 .st.co{{background:rgba(44,122,75,.12);color:#226040}} .st.du,.st.tl{{background:rgba(118,118,128,.12);color:var(--muted)}}
-.new{{font-size:10.5px;font-weight:700;color:#7A4510;background:rgba(178,106,26,.12);border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:2px}}
+.new{{font-size:13px;font-weight:700;color:#7A4510;background:rgba(178,106,26,.12);border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:2px}}
 .bs{{border-top:1px solid var(--line);padding-top:10px}}
 .bsg{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:6px}}
-.bsg b{{font-size:12.5px}} .bsg ul{{margin:4px 0 0;padding-left:16px;font-size:12.5px;color:var(--ink2)}}
-.cdx{{padding:14px 18px}} .cdx summary{{cursor:pointer}} .small{{font-size:12.5px;color:var(--muted)}}
-footer{{font-size:12.5px;color:var(--muted);border-top:1px solid var(--lg-hair);padding-top:18px;display:grid;gap:8px}}
+.bsg b{{font-size:13px}} .bsg ul{{margin:4px 0 0;padding-left:16px;font-size:13px;color:var(--ink2)}}
+.cdx{{padding:14px 18px}} .cdx summary{{cursor:pointer}} .small{{font-size:13px;color:var(--muted)}}
+footer{{font-size:13px;color:var(--muted);border-top:1px solid var(--lg-hair);padding-top:18px;display:grid;gap:8px}}
 footer ul{{margin:0;padding-left:18px}} footer a{{color:inherit}}
 @media (max-width:760px){{.wrap{{padding:16px 12px 40px;gap:14px}} .feat{{grid-template-columns:1fr}} .feat img{{min-height:0;aspect-ratio:16/10}} .kpi{{grid-template-columns:repeat(2,minmax(0,1fr))}} .bsg{{grid-template-columns:1fr}} .cd{{padding:14px}} .ch h3{{font-size:18px}}}}
 </style>
 </head>
 <body>
-{LG.decor_html()}
+{LG.site_bar(hub, [('Lộ trình', hub + '#lo-trinh'), ('Lịch sử 10', None)])}
 <div class="wrap">
 <header>
-  <nav class="crumb"><a href="{E(hub)}">← Bài Giảng</a></nav>
   <div class="lbl" style="margin-top:12px">Lịch sử · lớp 10 · chương trình GDPT 2018, sửa đổi 2025</div>
   <h1>Lịch sử 10 bằng <em>mô hình 3D</em></h1>
   <p>Lộ trình bám theo chương trình môn Lịch sử, nên dùng chung được cho cả ba bộ sách Kết nối tri thức, Chân trời sáng tạo và Cánh diều. Mỗi mục ghi nguyên văn yêu cầu cần đạt và cảnh 3D sẽ dựng. Nội dung bài được viết mới từ nguồn khảo cổ, sử liệu công khai, có dẫn nguồn từng con số; phần phỏng dựng luôn được ghi rõ. Trang không chép nội dung sách giáo khoa.</p>
@@ -168,10 +169,9 @@ footer ul{{margin:0;padding-left:18px}} footer a{{color:inherit}}
   <span class="btn primary">Vào bài →</span></div>
 </a>
 <section class="kpi" aria-label="Tổng quan">
-  <div class="glass"><span class="lbl">Chủ đề</span><b>7 + thực hành</b></div>
-  <div class="glass"><span class="lbl">Yêu cầu cần đạt</span><b>{n_y}</b></div>
-  <div class="glass"><span class="lbl">Bài 3D đã có</span><b>{n_co}</b></div>
-  <div class="glass"><span class="lbl">Cảnh dự kiến</span><b>{n_du}</b></div>
+  <div class="glass"><span class="lbl">Bài 3D</span><b>Thành Cổ Loa</b></div>
+  <div class="glass"><span class="lbl">Chủ đề theo chương trình</span><b>7 + thực hành</b></div>
+  <div class="glass"><span class="lbl">Yêu cầu cần đạt, trích nguyên văn</span><b>{n_y}</b></div>
 </section>
 <h2 class="sec">Lộ trình theo chương trình</h2>
 {''.join(secs)}

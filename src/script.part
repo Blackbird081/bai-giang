@@ -1109,12 +1109,12 @@ const PH_ROWS = [['Lysosome', 4.7, 4.7, 'lyso'], ['Endosome muộn', 5.5, 5.5, n
 function renderPH() {
   const W = 360, rowH = 24, top = 20, L = 122, Rr = 316, X = (v) => L + (v - 4) / 4 * (Rr - L), k = sel ? sel.key : null, H = top + PH_ROWS.length * rowH + 6;
   let o = `<svg class="phsvg" viewBox="0 0 ${W} ${H}" role="img" aria-label="pH các khoang tế bào trên thang 4 đến 8"><defs><linearGradient id="phg" x1="0" x2="1"><stop offset="0" stop-color="#BE1740"/><stop offset="1" stop-color="#C9922E"/></linearGradient></defs>`;
-  for (const v of [4, 5, 6, 7, 8]) o += `<line x1="${X(v)}" x2="${X(v)}" y1="${top - 4}" y2="${H - 4}" style="stroke:var(--line)"/><text x="${X(v)}" y="11" text-anchor="middle" style="fill:var(--muted);font:10px 'IBM Plex Mono',monospace">${v}</text>`;
+  for (const v of [4, 5, 6, 7, 8]) o += `<line x1="${X(v)}" x2="${X(v)}" y1="${top - 4}" y2="${H - 4}" style="stroke:var(--line)"/><text x="${X(v)}" y="11" text-anchor="middle" style="fill:var(--muted);font:13px 'IBM Plex Mono',monospace">${v}</text>`;
   PH_ROWS.forEach(([name, a, b, key2], i) => { const y = top + i * rowH + rowH / 2, on = key2 && key2 === k;
     if (on) o += `<rect x="0" y="${y - rowH / 2 + 1}" width="${W}" height="${rowH - 2}" rx="5" style="fill:var(--crimson-soft)"/>`;
-    o += `<text x="6" y="${y + 4}" style="fill:var(--ink);font:${on ? 600 : 400} 12px 'Be Vietnam Pro',sans-serif">${name}</text><line x1="${L}" x2="${Rr}" y1="${y}" y2="${y}" style="stroke:var(--line)" stroke-dasharray="2 3"/>`;
+    o += `<text x="6" y="${y + 4}" style="fill:var(--ink);font:${on ? 600 : 400} 13px 'Be Vietnam Pro',sans-serif">${name}</text><line x1="${L}" x2="${Rr}" y1="${y}" y2="${y}" style="stroke:var(--line)" stroke-dasharray="2 3"/>`;
     if (b > a) o += `<line x1="${X(a)}" x2="${X(b)}" y1="${y}" y2="${y}" stroke="url(#phg)" stroke-width="5" stroke-linecap="round"/>`;
-    o += `<circle cx="${X(a)}" cy="${y}" r="4.5" fill="#BE1740"/>${b > a ? `<circle cx="${X(b)}" cy="${y}" r="4.5" fill="#C9922E"/>` : ''}<text x="${X(b) + 9}" y="${y + 4}" style="fill:var(--muted);font:11px 'IBM Plex Mono',monospace">${fmt(a, 1)}${b > a ? '–' + fmt(b, 1) : ''}</text>`; });
+    o += `<circle cx="${X(a)}" cy="${y}" r="4.5" fill="#BE1740"/>${b > a ? `<circle cx="${X(b)}" cy="${y}" r="4.5" fill="#C9922E"/>` : ''}<text x="${X(b) + 9}" y="${y + 4}" style="fill:var(--muted);font:13px 'IBM Plex Mono',monospace">${fmt(a, 1)}${b > a ? '–' + fmt(b, 1) : ''}</text>`; });
   $('phPanel').innerHTML = o + '</svg>';
 }
 const cssv = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
@@ -1534,18 +1534,6 @@ function renderQuiz() {
 function nextQuizSoon() { setTimeout(() => { if (!lesson || !LESSON.steps[lesson.i].quiz) return; lesson.qi++; lesson.first = true; if (lesson.qi >= LESSON.quiz.length) lesson.done = true; else { clearSel(); flyHome(); } renderLesson(); }, 2200); }
 
 /* Vỏ Bài Giảng: lên lớp bằng bút trình chiếu, màn hình giáo viên, điện thoại (shell/bg-shell.js) */
-if (window.BGShell) BGShell.mount({
-  id: 'te-bao', title: 'Hành Trình Vào Tế Bào', subject: 'Sinh học 10', accent: '#C2184A',
-  layout: { minWidth: 900,
-    dock: () => { const r = document.getElementById('viewport').getBoundingClientRect(); return `top:${Math.round(r.top + 12)}px;right:${Math.round(innerWidth - r.right + 56)}px;bottom:auto`; },
-    hud: () => { const r = document.getElementById('viewport').getBoundingClientRect(); return `left:${Math.round(r.left + r.width / 2)}px;transform:translateX(-50%);top:${Math.round(r.bottom - 112)}px;bottom:auto`; } },
-  objectives: ["Phân tích được mối quan hệ phù hợp giữa cấu tạo và chức năng của thành tế bào (ở tế bào thực vật) và màng sinh chất.", "Nêu được cấu tạo và chức năng của tế bào chất.", "Trình bày được cấu trúc của nhân tế bào và chức năng quan trọng của nhân.", "Phân tích được mối quan hệ giữa cấu tạo và chức năng của các bào quan trong tế bào.", "Trình bày được hiện tượng nhập bào và xuất bào thông qua biến dạng của màng sinh chất. Lấy được ví dụ minh hoạ.", "Dựa vào sơ đồ thông tin giữa các tế bào, trình bày được các quá trình: + Tiếp nhận: Một phân tử truyền tin liên kết vào một protein thụ thể làm thụ thể thay đổi hình dạng; + Truyền tin: các chuỗi tương tác phân tử chuyển tiếp tín hiệu từ các thụ thể tới các phân tử đích trong tế bào; + Đáp ứng: Tế bào phát tín hiệu điều khiển phiên mã, dịch mã hoặc điều hoà hoạt động của tế bào."],
-  steps: LESSON.steps.map((s) => s.quiz
-    ? { t: s.t, note: 'Ba câu kiểm tra, học sinh trả lời trên màn chiếu:\n' + LESSON.quiz.map((q, k) => `${k + 1}. ${q.q}\n   Đáp án: ${q.ok}`).join('\n') }
-    : { t: s.t, note: s.b + (s.n ? '\n\nGhi chú cho giáo viên: ' + s.n : ''), ask: { q: String(s.a).replace(/<[^>]+>/g, ''), o: [], a: -1 } }),
-  go: (i) => { if (!lesson) startLesson(); goStep(i); },
-  end: () => { if (lesson) endLesson(); },
-});
 $('lessonBtn').addEventListener('click', () => lesson ? endLesson() : startLesson());
 $('lsX').addEventListener('click', (e) => { e.stopPropagation(); endLesson(); });
 $('lsMin').addEventListener('click', (e) => { e.stopPropagation(); if (lesson) { lesson.compact = !lesson.compact; renderLesson(); } });
@@ -1563,18 +1551,34 @@ addEventListener('keydown', (e) => {
 
 // Ngăn kéo bên phải và chế độ toàn màn hình
 { const main = document.querySelector('.main'), tab = $('drawerTab'), stage = document.querySelector('.stage');
-  const setDrawer = (open) => { main.classList.toggle('wide', !open); tab.setAttribute('aria-expanded', String(open)); tab.textContent = open ? '›' : '‹'; tab.title = open ? 'Ẩn bảng thông tin (phím I)' : 'Hiện bảng thông tin (phím I)'; try { localStorage.setItem('cell.drawer', open ? '1' : '0'); } catch (e) {} };
-  let open = true; try { open = localStorage.getItem('cell.drawer') !== '0'; } catch (e) {}
-  setDrawer(open);
+  const setDrawer = (open) => { main.classList.toggle('wide', !open); tab.setAttribute('aria-expanded', String(open)); tab.textContent = open ? '›' : '‹'; tab.title = open ? 'Ẩn bảng thông tin (phím I)' : 'Hiện bảng thông tin (phím I)'; };
+  // bảng thông tin là ngăn kéo của vỏ (nút "Thông tin" trên thanh đầu bài); mặc định đóng để cảnh 3D chiếm màn hình
+  window.__cellDrawer = setDrawer;
+  if (!window.BGShell) setDrawer(true);
   const fit = () => document.documentElement.style.setProperty('--st', Math.round(stage.getBoundingClientRect().top + scrollY) + 'px');
   fit(); addEventListener('resize', fit); new ResizeObserver(fit).observe(document.querySelector('.topbar'));
   const toggleFs = async () => { try { if (document.fullscreenElement) await document.exitFullscreen(); else await stage.requestFullscreen(); } catch (e) { toast('Trình xem này chặn chế độ toàn màn hình. Hãy mở trang ở tab riêng hoặc nhấn F11.'); } };
   tab.addEventListener('click', (e) => { e.stopPropagation(); setDrawer(main.classList.contains('wide')); });
   $('fsBtn').addEventListener('click', toggleFs);
   document.addEventListener('fullscreenchange', () => { $('fsBtn').textContent = document.fullscreenElement ? 'Thoát toàn màn hình' : 'Toàn màn hình'; });
-  addEventListener('keydown', (e) => { if (e.target.closest('input,select,textarea') || e.ctrlKey || e.metaKey || e.altKey) return; if (e.key === 'i' || e.key === 'I') setDrawer(main.classList.contains('wide')); else if (e.key === 'f' || e.key === 'F') toggleFs(); });
+  addEventListener('keydown', (e) => { if (e.target.closest('input,select,textarea') || e.ctrlKey || e.metaKey || e.altKey) return; if (e.key === 'i' || e.key === 'I') { if (window.BGShell) BGShell.panel(0); else setDrawer(main.classList.contains('wide')); } else if (e.key === 'f' || e.key === 'F') toggleFs(); });
 }
 
 // Cột phải: ẩn dải mờ khi đã cuộn tới đáy
 { const ai = document.getElementById('asideIn'), as = document.getElementById('aside'); const upd = () => as.classList.toggle('end', ai.scrollTop + ai.clientHeight >= ai.scrollHeight - 4); ai.addEventListener('scroll', upd, { passive: true }); new ResizeObserver(upd).observe(ai); upd(); }
+
+// Vỏ Bài Giảng: thanh đầu bài, ngăn kéo, lên lớp (gắn sau cùng để ngăn kéo đã sẵn)
+if (window.BGShell) BGShell.mount({
+  id: 'te-bao', title: 'Hành Trình Vào Tế Bào', subject: 'Sinh học 10', accent: '#C2184A',
+  panels: [{ label: 'Thông tin', icon: 'info', side: 'right', open: false, desktop: true, apply: (open) => window.__cellDrawer && window.__cellDrawer(open) }],
+  keys: [['Kéo, cuộn', 'xoay, phóng to'], ['I', 'mở, đóng bảng thông tin'], ['1–4', 'đổi thuốc nhuộm'], ['R', 'về toàn cảnh'], ['Space', 'chạy hoặc dừng mô phỏng'], ['H', 'thu gọn thẻ bài giảng']],
+  credit: 'Hình khối, vị trí, kích thước bào quan và màu là minh hoạ; chỉ số có nhãn đã kiểm là đã đối chiếu nguồn. Cấu trúc nguyên tử của ribosome và ATP synthase lấy từ Protein Data Bank.',
+  objectives: ["Phân tích được mối quan hệ phù hợp giữa cấu tạo và chức năng của thành tế bào (ở tế bào thực vật) và màng sinh chất.", "Nêu được cấu tạo và chức năng của tế bào chất.", "Trình bày được cấu trúc của nhân tế bào và chức năng quan trọng của nhân.", "Phân tích được mối quan hệ giữa cấu tạo và chức năng của các bào quan trong tế bào.", "Trình bày được hiện tượng nhập bào và xuất bào thông qua biến dạng của màng sinh chất. Lấy được ví dụ minh hoạ.", "Dựa vào sơ đồ thông tin giữa các tế bào, trình bày được các quá trình: + Tiếp nhận: Một phân tử truyền tin liên kết vào một protein thụ thể làm thụ thể thay đổi hình dạng; + Truyền tin: các chuỗi tương tác phân tử chuyển tiếp tín hiệu từ các thụ thể tới các phân tử đích trong tế bào; + Đáp ứng: Tế bào phát tín hiệu điều khiển phiên mã, dịch mã hoặc điều hoà hoạt động của tế bào."],
+  steps: LESSON.steps.map((s) => s.quiz
+    ? { t: s.t, note: 'Ba câu kiểm tra, học sinh trả lời trên màn chiếu:\n' + LESSON.quiz.map((q, k) => `${k + 1}. ${q.q}\n   Đáp án: ${q.ok}`).join('\n') }
+    : { t: s.t, note: s.b + (s.n ? '\n\nGhi chú cho giáo viên: ' + s.n : ''), ask: { q: String(s.a).replace(/<[^>]+>/g, ''), o: [], a: -1 } }),
+  go: (i) => { if (!lesson) startLesson(); goStep(i); },
+  end: () => { if (lesson) endLesson(); },
+});
+if (new URLSearchParams(location.search).has('debug')) document.body.classList.add('debug');
 </script>
