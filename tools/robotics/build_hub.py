@@ -138,6 +138,7 @@ h3.sec{{font:700 20px var(--bg-font);letter-spacing:-.01em;text-transform:none}}
 .card .img b{{font:600 13px var(--bg-mono)}}
 .go{{font:600 15px var(--bg-font);letter-spacing:0;min-height:44px;padding:0 18px;border-radius:6px}}
 .sitebar{{background:rgba(242,230,210,.9)}}
+.card .img b{{background:#B23E17}} .card h2 small{{color:#6E6257}}
 </style>
 </head>
 <body>

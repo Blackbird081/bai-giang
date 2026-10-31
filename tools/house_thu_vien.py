@@ -30,6 +30,7 @@ body.bgs-on footer#foot .foot2{display:none!important}
 body.bgs-on footer#foot .nav{gap:8px}
 body.bgs-on footer#foot .navbtn{height:44px;padding:0 18px;font-size:15px;border-radius:999px}
 body.bgs-on footer#foot .cur{font:600 14px var(--bg-mono);color:var(--bg-ink2)}
+.exbadge{color:var(--bg-ink2,#454A55)!important}
 .bg-credit{margin:14px 2px 4px;padding-top:10px;border-top:1px solid var(--line,rgba(16,24,40,.1));font-size:13px;line-height:1.55;color:var(--bg-ink3,#626773)}
 .bg-credit a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .bg-credit p{margin:0 0 6px}

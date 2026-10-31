@@ -65,7 +65,10 @@
     const title = txt(document.querySelector('header#top h1')) || document.title;
     const mq = txt(document.querySelector('header#top .mq b'));
     let syncing = false;
+    // trợ năng: danh sách của bản gốc có con không phải <li> (axe: list); gán vai trò để trình đọc màn hình đọc đúng
+    const fixLists = () => document.querySelectorAll('ol,ul').forEach((l) => { for (const c of l.children) if (!/^(LI|SCRIPT|TEMPLATE)$/.test(c.tagName) && !c.hasAttribute('role')) c.setAttribute('role', 'listitem'); });
     const sync = () => {
+      fixLists();
       const i = current(); if (i < 0) return;
       const n = readNote(); steps[i].note = n.note; steps[i].ask = n.ask;
       if (syncing) return;

@@ -4,3 +4,4 @@ data/
 local.html
 __pycache__/
 tests/ui_audit.json
+tests/a11y_audit.json

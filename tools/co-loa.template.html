@@ -699,7 +699,7 @@ function renderFrame() { if (post) post.render(); else renderer.render(scene, ca
 const pinsEl = $('pins'), PINS = [];
 function addPin(key, kind, label, getPos, color) {
   const el = document.createElement('button'); el.className = 'pin' + (kind === 'ring' ? ' ring' : ''); el.type = 'button';
-  el.innerHTML = `<i style="background:${color}"></i><span>${esc(label)}</span>`;
+  el.innerHTML = `<i style="background:${color}"></i><span>${esc(label)}</span>`; el.setAttribute('aria-label', label); // ghim dạng chấm vẫn có tên cho trình đọc màn hình
   el.addEventListener('click', e => { e.stopPropagation(); select(key); });
   pinsEl.appendChild(el); PINS.push({ key, kind, el, getPos, show: false });
 }

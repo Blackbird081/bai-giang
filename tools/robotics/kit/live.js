@@ -17,7 +17,7 @@ html,body{background:#f2e6d2;overflow:hidden;margin:0}
 .bt{pointer-events:auto;cursor:pointer}
 .bt:hover{filter:brightness(.96)}
 .hit{position:absolute;pointer-events:auto;cursor:ew-resize}
-.tourchip{position:absolute;transform:translateX(-50%);display:flex;align-items:center;gap:7px;height:22px;padding:0 11px;border:1px solid #eadfcd;border-radius:4px;background:rgba(252,249,244,.95);color:#2a2521;font:700 9px 'JetBrains Mono',monospace;letter-spacing:1.3px;white-space:nowrap;cursor:pointer;pointer-events:auto}
+.tourchip{position:absolute;transform:translateX(-50%);display:flex;align-items:center;gap:7px;height:24px;padding:0 12px;border:1px solid #eadfcd;border-radius:4px;background:rgba(252,249,244,.95);color:#2a2521;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;white-space:nowrap;cursor:pointer;pointer-events:auto}
 .tourchip i{display:block;width:6px;height:6px;border-radius:50%;background:#e3562a}
 .tourchip.on i{animation:blink 1.2s steps(2) infinite}
 @keyframes blink{50%{opacity:.15}}
@@ -284,7 +284,7 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
     ui.pointer(cursor);
     if (tourChip.classList.contains('on') !== AP.on || !tourChip.firstChild) {
       tourChip.classList.toggle('on', AP.on);
-      tourChip.innerHTML = AP.on ? '<i></i>BÀI GIẢNG TỰ CHẠY · BẤM ĐỂ TỰ ĐIỀU KHIỂN' : '▶ CHẠY LẠI BÀI GIẢNG';
+      tourChip.innerHTML = AP.on ? '<i></i>Bài giảng đang tự chạy · bấm để tự điều khiển' : '▶ Chạy lại bài giảng';
     }
     if (compact && (frame.n = (frame.n || 0) + 1) % 15 === 0) mSync();
     if (!window.SIM_SHOWN) { window.SIM_SHOWN = true; dispatchEvent(new Event('simframe')); }

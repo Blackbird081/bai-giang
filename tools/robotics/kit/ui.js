@@ -6,29 +6,38 @@ const CSS = `
 .ui{position:absolute;inset:0;pointer-events:none}
 .mo{font-family:'JetBrains Mono',ui-monospace,monospace}
 .cp{position:absolute;background:${C.panel};border:1px solid ${C.line};border-radius:6px;box-shadow:0 2px 10px rgba(120,90,50,.08)}
-.ph{position:absolute;display:flex;align-items:center;gap:9px;font:700 10.5px 'JetBrains Mono',monospace;letter-spacing:1.6px;white-space:nowrap}
+.ph{position:absolute;display:flex;align-items:center;gap:9px;font:700 12.5px Inter,system-ui,sans-serif;letter-spacing:0;white-space:nowrap}
 .ph i{display:block;width:3px;height:13px;background:${C.or}}
-.pn{position:absolute;font:500 9.5px 'JetBrains Mono',monospace;color:${C.mute};letter-spacing:1px}
-.sm{font:500 9px 'JetBrains Mono',monospace;letter-spacing:1.3px;color:${C.mute};text-transform:uppercase;white-space:nowrap}
-.v{font:600 11px 'JetBrains Mono',monospace;white-space:nowrap}
-.bt{position:absolute;height:22px;padding:0 9px;display:flex;align-items:center;justify-content:center;border:1px solid ${C.faint};border-radius:4px;background:#fffdf9;font:700 9.2px 'JetBrains Mono',monospace;letter-spacing:1.1px;color:${C.ink};white-space:nowrap;transition:background .15s,color .15s}
+.pn{position:absolute;font:500 11px 'JetBrains Mono',monospace;color:#7d7165;letter-spacing:0}
+.sm{font:500 11px Inter,system-ui,sans-serif;letter-spacing:0;color:#6e6257;white-space:nowrap}
+.v{font:600 12px 'JetBrains Mono',monospace;white-space:nowrap}
+.bt{position:absolute;height:22px;padding:0 9px;display:flex;align-items:center;justify-content:center;border:1px solid ${C.faint};border-radius:4px;background:#fffdf9;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;color:${C.ink};white-space:nowrap;transition:background .15s,color .15s}
 .bt.on{background:${C.ink};color:#fff;border-color:${C.ink}}
 .bt.acc{background:${C.or};color:#fff;border-color:${C.or}}
 .call{position:absolute;white-space:nowrap;transition:opacity .25s}
-.call b{display:flex;align-items:center;gap:6px;font:700 9.2px 'JetBrains Mono',monospace;letter-spacing:1.2px;color:${C.ink};background:rgba(252,249,244,.86);padding:1px 4px;border-radius:2px}
+.call b{display:flex;align-items:center;gap:6px;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;color:${C.ink};background:rgba(252,249,244,.86);padding:1px 4px;border-radius:2px}
 .call b i{display:block;width:6px;height:6px;background:${C.or}}
-.call span{display:block;font:500 8px 'JetBrains Mono',monospace;letter-spacing:1px;color:${C.mute};margin-top:1px;padding-left:16px}
+.call span{display:block;font:500 10px 'JetBrains Mono',monospace;letter-spacing:0;color:#7d7165;margin-top:1px;padding-left:16px}
 .cur{position:absolute;left:0;top:0;z-index:50;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
 .ring{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1.5px solid ${C.or};opacity:0;z-index:49}
 .cap{position:absolute;transition:opacity .35s}
-.cap .k{font:700 9px 'JetBrains Mono',monospace;letter-spacing:1.6px;color:${C.or}}
+.cap .k{font:600 11.5px Inter,system-ui,sans-serif;letter-spacing:0;color:#B8401A}
 .cap .t{font-size:15px;font-weight:700;margin:3px 0 5px;letter-spacing:-.1px}
-.cap .b{font-size:11.6px;line-height:1.5;color:#4d453c}
-.cap .e{font:600 10.5px 'JetBrains Mono',monospace;color:${C.ink};background:#f4ebdc;border-radius:3px;padding:4px 7px;margin-top:6px;display:inline-block}
+.cap .b{font-size:12.5px;line-height:1.45;color:#3d352e}
+.cap .e{font:600 11.5px 'JetBrains Mono',monospace;color:${C.ink};background:#f4ebdc;border-radius:3px;padding:4px 7px;margin-top:6px;display:inline-block}
 .back{position:absolute;pointer-events:auto;text-decoration:none;font:700 9px 'JetBrains Mono',monospace;letter-spacing:1.6px;color:#fff;opacity:.9}
 .back:hover{opacity:1;text-decoration:underline}
 .alert{position:absolute;font:700 9.5px 'JetBrains Mono',monospace;letter-spacing:1.4px;color:#fff;background:${C.or};padding:3px 8px;border-radius:3px;white-space:nowrap;transition:opacity .2s}
 `;
+// nhãn trong dữ liệu viết hoa: đổi sang chữ thường kiểu câu, giữ từ viết tắt ASCII ngắn (TCP, DH, PID, MOVEJ) và số
+const ACR = new Set('TCP DH IK FK PID PD PI ISO ROS LDS IMU ESC PWM AMCL SLAM LIDAR MOVEJ MOVEL DOF RX RY RZ CPU GPU API EKF UR CW CCW BLDC AX OK DC USB SE TB GPS RPM'.split(' '));
+export const sc = (t) => {
+  const s = String(t ?? ''); if (/</.test(s)) return s; // HTML: giữ nguyên
+  const up = (x) => x === x.toLocaleUpperCase('vi') && x !== x.toLocaleLowerCase('vi');
+  const w = s.split(/(\s+)/).map((x) => { if (!up(x)) return x; const core = x.replace(/[^A-Za-z0-9À-ỹđĐ]/g, ''); if (/\d/.test(core) || ACR.has(core) || /^[A-Z]$/.test(core)) return x; return x.toLocaleLowerCase('vi'); }).join('');
+  const i = w.search(/[A-Za-zÀ-ỹđĐ]/), j = s.search(/[A-Za-zÀ-ỹđĐ]/);
+  return i < 0 || !up(s.charAt(j)) ? w : w.slice(0, i) + w.charAt(i).toLocaleUpperCase('vi') + w.slice(i + 1);
+};
 const el = (h) => { const d = document.createElement('div'); d.innerHTML = h.trim(); return d.firstElementChild; };
 const fx = (v, n = 2) => (Number.isFinite(v) ? v.toFixed(n) : '—');
 export {fx};
@@ -44,22 +53,22 @@ export function createUI(app) {
     add(`<div style="position:absolute;left:0;top:0;width:160px;height:89px;background:${C.or}"></div>`);
     add(`<div class="mo" style="position:absolute;left:24px;top:30px;color:#fff;font-size:22px;font-weight:700;letter-spacing:1px">${code}</div>`);
     if (hub) add(`<a class="back" href="${hub}" style="left:24px;top:63px">${hubLabel}</a>`);
-    add(`<div class="sm" style="position:absolute;left:182px;top:22px;letter-spacing:2.2px">${kicker}</div>`);
+    add(`<div class="sm" style="position:absolute;left:182px;top:20px">${sc(kicker)}</div>`);
     add(`<div style="position:absolute;left:181px;top:37px;font-size:31px;font-weight:700;letter-spacing:-.6px;line-height:1">${title} <span style="color:${C.or};font-weight:400">/</span></div>`);
-    add(`<div class="mo" style="position:absolute;left:182px;top:76px;font-size:11px;letter-spacing:2px;color:#6d6357">${sub}</div>`);
+    add(`<div class="sm" style="position:absolute;left:182px;top:76px;font-size:12px;color:#6d6357">${sc(sub)}</div>`);
     right.forEach(([v, n], i) => {
       const x = 1110 + i * 120;
       if (i) add(`<div style="position:absolute;left:${x - 12}px;top:34px;width:1px;height:42px;background:${C.faint}"></div>`);
       add(`<div style="position:absolute;left:${x}px;top:32px;font-size:24px;font-weight:700;color:${i === 0 ? C.or : C.ink};letter-spacing:-.5px">${v}</div>`);
-      add(`<div class="sm" style="position:absolute;left:${x}px;top:64px">${n}</div>`);
+      add(`<div class="sm" style="position:absolute;left:${x}px;top:64px">${sc(n)}</div>`);
     });
   };
   ui.panel = (x, y, w, h, title, n) => {
     add(`<div class="cp" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"></div>`);
-    if (title) add(`<div class="ph" style="left:${x + 14}px;top:${y + 13}px"><i></i>${title}</div>`);
+    if (title) add(`<div class="ph" style="left:${x + 14}px;top:${y + 12}px"><i></i>${sc(title)}</div>`);
     if (n) add(`<div class="pn" style="right:${1600 - x - w + 14}px;top:${y + 15}px">${n}</div>`);
   };
-  ui.text = (x, y, html, cls = 'sm', style = '') => add(`<div class="${cls}" style="position:absolute;left:${x}px;top:${y}px;${style}">${html}</div>`);
+  ui.text = (x, y, html, cls = 'sm', style = '') => add(`<div class="${cls}" style="position:absolute;left:${x}px;top:${y}px;${style}">${cls === 'sm' ? sc(html) : html}</div>`);
   ui.rule = (x, y, w) => add(`<div style="position:absolute;left:${x}px;top:${y}px;width:${w}px;height:1px;background:${C.line}"></div>`);
   // thanh đo: nhãn trái, rãnh, số phải; set(k ∈ [0,1] hoặc [-1,1] nếu center, chữ, màu)
   ui.bar = (x, y, w, label, {lw = 52, vw = 64, center = false, mark = null} = {}) => {
@@ -100,7 +109,7 @@ export function createUI(app) {
   };
   ui.svg = (x, y, w, h) => add(`<svg style="position:absolute;left:${x}px;top:${y}px;overflow:visible" width="${w}" height="${h}"></svg>`);
   ui.button = (key, x, y, w, label, cls = '') => {
-    btn[key] = add(`<div class="bt ${cls}" style="left:${x}px;top:${y}px;width:${w}px">${label}</div>`);
+    btn[key] = add(`<div class="bt ${cls}" style="left:${x}px;top:${y}px;width:${w}px">${sc(label)}</div>`);
     ui.spots[key] = [x + w / 2, y + 11];
     return btn[key];
   };
@@ -145,7 +154,7 @@ export function createUI(app) {
   // nhãn có đường dẫn: items [{key,title,sub}] ; update([{key, p:[x,y]|null, dx, dy}], k)
   const leaderSvg = add(`<svg style="position:absolute;inset:0;overflow:visible" width="1600" height="900"></svg>`);
   const calls = {};
-  ui.callouts = (items) => { for (const it of items) calls[it.key] = add(`<div class="call" style="opacity:0"><b><i></i>${it.title}</b>${it.sub ? `<span>${it.sub}</span>` : ''}</div>`); };
+  ui.callouts = (items) => { for (const it of items) calls[it.key] = add(`<div class="call" style="opacity:0"><b><i></i>${sc(it.title)}</b>${it.sub ? `<span>${sc(it.sub)}</span>` : ''}</div>`); };
   ui.drawCallouts = (list, k = 1) => {
     let g = '';
     const seen = new Set();
