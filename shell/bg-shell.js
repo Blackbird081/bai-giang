@@ -64,6 +64,10 @@
   .bgs-toast{left:50%;top:16px;transform:translateX(-50%);padding:9px 16px;border-radius:999px;font-weight:600;opacity:0;transition:opacity .25s;pointer-events:none}
   .bgs-toast.show{opacity:1}
   @media (max-width:640px){.bgs-dock .bgs-lbl{display:none}.bgs-hud{max-width:calc(100vw - 200px)}}
+  .bgs-dock.bgs-compact .bgs-lbl{display:none}
+  .bgs-dock.bgs-compact .bgs-b{padding:0 10px}
+  .bgs-dock.bgs-vert{flex-direction:column}
+  @media (pointer:coarse){.bgs-b{height:44px;min-width:44px;justify-content:center}.bgs-dock{gap:4px}}
   @media print{.bgs{display:none!important}}`;
 
   const ICON = {
@@ -295,11 +299,20 @@
     toast = mk('bgs-toast bgs-glass', '');
     if (L.accent) for (const n of [dock, hud, modal, toast]) n.style.setProperty('--bgs-accent', L.accent);
     // vị trí riêng cho từng bài trên màn rộng (tránh đè bảng của bài); màn hẹp dùng mặc định
-    if (L.layout) {
-      const val = (v) => (typeof v === 'function' ? v() : v) || '';
-      const apply = () => { const wide = innerWidth >= (L.layout.minWidth || 900); dock.style.cssText = wide ? val(L.layout.dock) : ''; hud.style.cssText = wide ? val(L.layout.hud) : ''; if (L.accent) for (const n of [dock, hud]) n.style.setProperty('--bgs-accent', L.accent); };
-      apply(); addEventListener('resize', apply); S.relayout = apply;
-    }
+    // vị trí: mỗi bài đặt riêng trên màn rộng để không đè bảng của bài. Điện thoại (cạnh ngắn < 560 px) ẩn thanh lên lớp:
+    // học sinh dùng điện thoại để tự học, giáo viên lên lớp từ máy tính; phím và ?lenlop vẫn dùng được.
+    const Ly = L.layout || {};
+    const val = (v) => (typeof v === 'function' ? v() : v) || '';
+    const apply = () => {
+      const wide = innerWidth >= (Ly.minWidth ?? 900), phone = Math.min(innerWidth, innerHeight) < 560;
+      dock.style.cssText = wide ? val(Ly.dock) : ''; hud.style.cssText = wide ? val(Ly.hud) : '';
+      dock.classList.toggle('bgs-compact', !!val(Ly.compact) || !wide); dock.classList.toggle('bgs-vert', !!Ly.vertical && wide);
+      if (phone && !S.on) dock.style.display = 'none';
+      if (phone) hud.style.display = 'none';
+      if (L.accent) for (const n of [dock, hud]) n.style.setProperty('--bgs-accent', L.accent);
+    };
+    apply(); addEventListener('resize', apply); S.relayout = apply;
+    if (typeof Ly.dock === 'function' || typeof Ly.hud === 'function') setInterval(apply, 1200); // bảng của bài có thể gập, mở
     dock.addEventListener('click', (e) => {
       const b = e.target.closest('[data-k]'); if (!b) return;
       if (b.dataset.k === 'class') S.on ? stop() : start();
@@ -344,6 +357,6 @@
     });
   }
 
-  const api = { version: VERSION, mount, update, go, next, prev, start, stop, phonePage, runRemote, get state() { return snapshot(); }, _handle: handle };
+  const api = { version: VERSION, mount, update, refresh: () => broadcast(), go, next, prev, start, stop, phonePage, runRemote, get state() { return snapshot(); }, _handle: handle };
   window.BGShell = api;
 })();

@@ -27,6 +27,7 @@ const inline = (cssFile) => {
 };
 const FONTS = [400, 600, 700].map((w) => inline(path.join(NM, `@fontsource/jetbrains-mono/${w}.css`))).join('\n') + '\n' + inline(path.join(NM, '@fontsource-variable/inter/wght.css'));
 
+const SHELL = (await esbuild.transform(fs.readFileSync(path.join(REPO, 'shell/bg-shell.js'), 'utf8'), {minify: true, target: 'es2020', legalComments: 'none'})).code.replace(/<\/script/g, '<\\/script'); // vỏ Bài Giảng: lên lớp, màn hình giáo viên, điện thoại
 const names = args.length ? args : fs.readdirSync(HERE).filter((d) => fs.existsSync(path.join(HERE, d, 'main.js')));
 for (const name of names) {
   const dir = path.join(HERE, name), t0 = Date.now();
@@ -51,6 +52,10 @@ ${FONTS}
 <body>
 <div id="app"></div>
 <!-- Dựng trên teardown của elvarofficial và claude-motion của whaleyxbt (MIT). Mã nguồn: github.com/nclamvn/bai-giang/tree/main/tools/robotics -->
+<!--BG-SHELL:start-->
+<script>
+${SHELL}</script>
+<!--BG-SHELL:end-->
 <script type="module">
 ${js}
 </script>

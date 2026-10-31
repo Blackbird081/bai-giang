@@ -282,7 +282,7 @@ const sim = {
     tickTxt.textContent = `ENCODER  TRÁI ${S.tL}  PHẢI ${S.tR} xung`;
     // bảng 02
     const err = Math.hypot(o.x - t.x, o.y - t.y);
-    odoTxt.innerHTML = `ODOM&nbsp;&nbsp;x ${fx(o.x, 3)}&nbsp;&nbsp;y ${fx(o.y, 3)}&nbsp;&nbsp;θ ${fx(o.th * D, 1)}°<br><span style="color:${C.mute}">THẬT&nbsp;&nbsp;x ${fx(t.x, 3)}&nbsp;&nbsp;y ${fx(t.y, 3)}&nbsp;&nbsp;θ ${fx(t.th * D, 1)}°</span>`;
+    odoTxt.innerHTML = `ODOM&nbsp;&nbsp;x ${fx(o.x, 3)}&nbsp;&nbsp;y ${fx(o.y, 3)}&nbsp;&nbsp;θ ${fx(((o.th * D) % 360 + 540) % 360 - 180, 1)}°<br><span style="color:${C.mute}">THẬT&nbsp;&nbsp;x ${fx(t.x, 3)}&nbsp;&nbsp;y ${fx(t.y, 3)}&nbsp;&nbsp;θ ${fx(((t.th * D) % 360 + 540) % 360 - 180, 1)}°</span>`;
     S.errH.push(err * 1000); if (S.errH.length > 400) S.errH.shift(); errChart.lim.max = Math.max(100, Math.ceil(Math.max(...S.errH) / 100) * 100); errChart.set([S.errH]);
     errLbl.textContent = `SAI SỐ (mm) · TRẦN ${errChart.lim.max}${S.amcl ? ' · ĐỊNH VỊ' : ''}`;
     sRad.set(S.radErr / 0.02, `${fx(S.radErr * 100, 2)} %`); sSlip.set(S.slip / 0.1, `${fx(S.slip * 100, 1)} %`);

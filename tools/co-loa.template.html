@@ -113,7 +113,7 @@ ol.src a{word-break:break-word}
 .lesson .fb{font-size:13px;border-radius:12px;padding:8px 10px;margin:6px 0;background:rgba(15,23,42,.04)}
 .lesson .nav{display:flex;gap:8px;justify-content:space-between;margin-top:14px}
 /* điện thoại */
-@media (max-width:760px){
+@media (max-width:760px),(orientation:landscape) and (max-height:520px){
   .app{position:static;display:flex;flex-direction:column;gap:10px;padding:10px 10px calc(16px + env(safe-area-inset-bottom));overflow:visible}
   .leftcol{display:contents}
   header.top{order:1;padding:12px 14px 14px}
@@ -132,8 +132,9 @@ ol.src a{word-break:break-word}
   .sheet .box{padding:18px 16px}
   .tv td:first-child{width:auto}
 }
-@media (min-width:761px){ #stagewrap{position:absolute;inset:0} }
-@media (min-width:761px) and (max-width:1180px){
+@media (min-width:761px) and (min-height:521px),(min-width:761px) and (orientation:portrait){ #stagewrap{position:absolute;inset:0} }
+@media (orientation:landscape) and (max-height:520px){ #stagewrap{order:0;height:calc(100svh - 20px);min-height:0} header.top{order:1} }
+@media (min-width:761px) and (max-width:1180px) and (min-height:521px),(min-width:761px) and (max-width:1180px) and (orientation:portrait){
   .leftcol{width:340px}
   #info{width:330px}
   .timeline{right:362px}

@@ -57,6 +57,22 @@ BGShell.update(i);   // i < 0 nghĩa là bài đã thoát
 
 Nhúng vỏ vào tệp HTML: `python3 tools/inject_shell.py <tệp>` (Tế Bào chạy trong `build.sh`; Cổ Loa nhúng trong `tools/build_co_loa.py`). Vỏ nằm trong chính tệp nên bài vẫn chạy offline; chỉ phần điện thoại tải PeerJS và thư viện QR từ jsDelivr khi giáo viên bấm.
 
+## Bài đã gắn vỏ
+
+| Nhóm | Cách gắn | Bước lên lớp |
+|---|---|---|
+| Tế Bào, Ty Thể, Cổ Loa | `BGShell.mount` trong mã bài | Các bước "học theo bước" của bài; ghi chú và đáp án từ chính nội dung bài |
+| 4 mô phỏng robotics | `kit/live.js` gắn sẵn, `build.mjs` nhúng vỏ | Mỗi lời giảng một bước; nhảy tới bước = tua nhanh chuyến tham quan tới đầu đoạn (dưới 0,1 s), chạy hết đoạn thì dừng chờ giáo viên |
+| 54 bài thư viện | `shell/adapter-thu-vien.js`, nhúng bằng `inject_shell.py --adapter=thu-vien` | Thanh bước của bài; ghi chú lấy từ khung "Bước này" khi bước được mở |
+
+## Máy tính, máy tính bảng, điện thoại
+
+- Máy tính và máy tính bảng xoay ngang: bố cục đầy đủ; thanh lên lớp đặt ở chỗ trống riêng của từng bài.
+- Máy tính bảng dựng đứng, điện thoại: thanh lên lớp thu thành biểu tượng; trên điện thoại (cạnh ngắn dưới 560 px) thanh lên lớp ẩn, vì điện thoại dùng để tự học hoặc làm điều khiển.
+- Robotics trên màn hẹp (rộng dưới 900 px hoặc cao dưới 500 px): cảnh 3D phủ màn hình, lời giảng thành thẻ đọc được, nút góc nhìn, tự chạy, thu gọn; nút "Bảng số" mở lại bàn điều khiển đầy đủ. Hai ngón để thu phóng.
+- Bài thư viện: điện thoại và máy tính bảng dựng đứng dùng tấm trượt dưới; điện thoại xoay ngang đặt cảnh 3D bên trái, bảng bên phải. Tâm chiếu của camera được dời về giữa khung trống (`setViewOffset`) để cảnh không bị bảng che.
+- Cổ Loa, Tế Bào, Ty Thể khi điện thoại xoay ngang: thanh trên gọn, khung 3D gần đủ màn hình.
+
 ## Chuẩn chất lượng
 
 - Từ 30 khung hình mỗi giây trên máy chuẩn của trường (laptop chip đồ hoạ tích hợp, Android tầm trung). Đo bằng `kiem-may/`.

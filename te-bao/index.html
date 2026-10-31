@@ -58,6 +58,8 @@ body{color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;
 .stage{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;min-width:0}
 #viewport{position:relative;height:clamp(420px,68vh,820px);touch-action:none;background:var(--stage)}
 #viewport canvas{display:block;width:100%;height:100%;outline:none}
+/* Điện thoại xoay ngang: thanh trên gọn, khung 3D gần đủ màn hình (cuộn xuống để thấy bảng điều khiển) */
+@media (orientation:landscape) and (max-height:520px){.topbar{padding:6px 10px!important;gap:8px!important}.kpis,.tt p,.ticker{display:none!important}.tt h1{font-size:17px!important}.emblem{width:30px;height:30px}#viewport{height:calc(100svh - 64px);min-height:0}.lesson{width:min(340px,48%)!important;max-height:calc(100% - 16px)!important;font-size:13.5px}#illusNote{display:none}}
 .ov{position:absolute;pointer-events:none;font-family:var(--f-mono);color:var(--stage-ink)}
 .glass{background:var(--glass);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(190,23,64,.18);border-radius:8px}
 .mode-chip{left:12px;top:10px;display:flex;flex-direction:column;gap:1px;padding:6px 10px;max-width:46%}
@@ -603,6 +605,10 @@ html{background:var(--lg-page)}
   .bgs-toast{left:50%;top:16px;transform:translateX(-50%);padding:9px 16px;border-radius:999px;font-weight:600;opacity:0;transition:opacity .25s;pointer-events:none}
   .bgs-toast.show{opacity:1}
   @media (max-width:640px){.bgs-dock .bgs-lbl{display:none}.bgs-hud{max-width:calc(100vw - 200px)}}
+  .bgs-dock.bgs-compact .bgs-lbl{display:none}
+  .bgs-dock.bgs-compact .bgs-b{padding:0 10px}
+  .bgs-dock.bgs-vert{flex-direction:column}
+  @media (pointer:coarse){.bgs-b{height:44px;min-width:44px;justify-content:center}.bgs-dock{gap:4px}}
   @media print{.bgs{display:none!important}}`;
 
   const ICON = {
@@ -834,11 +840,20 @@ html{background:var(--lg-page)}
     toast = mk('bgs-toast bgs-glass', '');
     if (L.accent) for (const n of [dock, hud, modal, toast]) n.style.setProperty('--bgs-accent', L.accent);
     // vị trí riêng cho từng bài trên màn rộng (tránh đè bảng của bài); màn hẹp dùng mặc định
-    if (L.layout) {
-      const val = (v) => (typeof v === 'function' ? v() : v) || '';
-      const apply = () => { const wide = innerWidth >= (L.layout.minWidth || 900); dock.style.cssText = wide ? val(L.layout.dock) : ''; hud.style.cssText = wide ? val(L.layout.hud) : ''; if (L.accent) for (const n of [dock, hud]) n.style.setProperty('--bgs-accent', L.accent); };
-      apply(); addEventListener('resize', apply); S.relayout = apply;
-    }
+    // vị trí: mỗi bài đặt riêng trên màn rộng để không đè bảng của bài. Điện thoại (cạnh ngắn < 560 px) ẩn thanh lên lớp:
+    // học sinh dùng điện thoại để tự học, giáo viên lên lớp từ máy tính; phím và ?lenlop vẫn dùng được.
+    const Ly = L.layout || {};
+    const val = (v) => (typeof v === 'function' ? v() : v) || '';
+    const apply = () => {
+      const wide = innerWidth >= (Ly.minWidth ?? 900), phone = Math.min(innerWidth, innerHeight) < 560;
+      dock.style.cssText = wide ? val(Ly.dock) : ''; hud.style.cssText = wide ? val(Ly.hud) : '';
+      dock.classList.toggle('bgs-compact', !!val(Ly.compact) || !wide); dock.classList.toggle('bgs-vert', !!Ly.vertical && wide);
+      if (phone && !S.on) dock.style.display = 'none';
+      if (phone) hud.style.display = 'none';
+      if (L.accent) for (const n of [dock, hud]) n.style.setProperty('--bgs-accent', L.accent);
+    };
+    apply(); addEventListener('resize', apply); S.relayout = apply;
+    if (typeof Ly.dock === 'function' || typeof Ly.hud === 'function') setInterval(apply, 1200); // bảng của bài có thể gập, mở
     dock.addEventListener('click', (e) => {
       const b = e.target.closest('[data-k]'); if (!b) return;
       if (b.dataset.k === 'class') S.on ? stop() : start();
@@ -883,7 +898,7 @@ html{background:var(--lg-page)}
     });
   }
 
-  const api = { version: VERSION, mount, update, go, next, prev, start, stop, phonePage, runRemote, get state() { return snapshot(); }, _handle: handle };
+  const api = { version: VERSION, mount, update, refresh: () => broadcast(), go, next, prev, start, stop, phonePage, runRemote, get state() { return snapshot(); }, _handle: handle };
   window.BGShell = api;
 })();
 </script>

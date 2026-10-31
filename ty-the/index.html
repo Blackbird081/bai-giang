@@ -102,6 +102,7 @@ footer{font-size:12.5px;color:var(--muted);padding:2px 4px}
 .callrot{display:inline-block;width:12px;height:12px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;vertical-align:-1px}
 @media (max-width:760px){ .stage{height:72dvh} .kpis{gap:14px} .kpis dd{font-size:16px} #note{display:none} .tt h1{font-size:19px} .lesson{top:auto;bottom:12px;max-height:55%} }
 @media (prefers-reduced-motion: reduce){ #toast{transition:none} }
+@media (orientation:landscape) and (max-height:520px){ .wrap{padding:6px 8px 10px;gap:6px} header.top{padding:6px 10px;gap:8px} .kpis,.tt p{display:none} .tt h1{font-size:17px} .logo{width:28px;height:28px} .stage{height:calc(100svh - 64px);min-height:0} .lesson{width:min(340px,48%);max-height:calc(100% - 16px);font-size:13.5px;padding:10px 12px;gap:6px} .lesson h2{font-size:17px} #note{display:none} }
 /* ===== Nền trắng, kính lỏng (tools/liquid_glass.py) ===== */
 :root,:root[data-theme]{
   --lg-page:#F5F5F7;
@@ -313,6 +314,10 @@ header.top,.ctrl{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur
   .bgs-toast{left:50%;top:16px;transform:translateX(-50%);padding:9px 16px;border-radius:999px;font-weight:600;opacity:0;transition:opacity .25s;pointer-events:none}
   .bgs-toast.show{opacity:1}
   @media (max-width:640px){.bgs-dock .bgs-lbl{display:none}.bgs-hud{max-width:calc(100vw - 200px)}}
+  .bgs-dock.bgs-compact .bgs-lbl{display:none}
+  .bgs-dock.bgs-compact .bgs-b{padding:0 10px}
+  .bgs-dock.bgs-vert{flex-direction:column}
+  @media (pointer:coarse){.bgs-b{height:44px;min-width:44px;justify-content:center}.bgs-dock{gap:4px}}
   @media print{.bgs{display:none!important}}`;
 
   const ICON = {
@@ -544,11 +549,20 @@ header.top,.ctrl{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur
     toast = mk('bgs-toast bgs-glass', '');
     if (L.accent) for (const n of [dock, hud, modal, toast]) n.style.setProperty('--bgs-accent', L.accent);
     // vị trí riêng cho từng bài trên màn rộng (tránh đè bảng của bài); màn hẹp dùng mặc định
-    if (L.layout) {
-      const val = (v) => (typeof v === 'function' ? v() : v) || '';
-      const apply = () => { const wide = innerWidth >= (L.layout.minWidth || 900); dock.style.cssText = wide ? val(L.layout.dock) : ''; hud.style.cssText = wide ? val(L.layout.hud) : ''; if (L.accent) for (const n of [dock, hud]) n.style.setProperty('--bgs-accent', L.accent); };
-      apply(); addEventListener('resize', apply); S.relayout = apply;
-    }
+    // vị trí: mỗi bài đặt riêng trên màn rộng để không đè bảng của bài. Điện thoại (cạnh ngắn < 560 px) ẩn thanh lên lớp:
+    // học sinh dùng điện thoại để tự học, giáo viên lên lớp từ máy tính; phím và ?lenlop vẫn dùng được.
+    const Ly = L.layout || {};
+    const val = (v) => (typeof v === 'function' ? v() : v) || '';
+    const apply = () => {
+      const wide = innerWidth >= (Ly.minWidth ?? 900), phone = Math.min(innerWidth, innerHeight) < 560;
+      dock.style.cssText = wide ? val(Ly.dock) : ''; hud.style.cssText = wide ? val(Ly.hud) : '';
+      dock.classList.toggle('bgs-compact', !!val(Ly.compact) || !wide); dock.classList.toggle('bgs-vert', !!Ly.vertical && wide);
+      if (phone && !S.on) dock.style.display = 'none';
+      if (phone) hud.style.display = 'none';
+      if (L.accent) for (const n of [dock, hud]) n.style.setProperty('--bgs-accent', L.accent);
+    };
+    apply(); addEventListener('resize', apply); S.relayout = apply;
+    if (typeof Ly.dock === 'function' || typeof Ly.hud === 'function') setInterval(apply, 1200); // bảng của bài có thể gập, mở
     dock.addEventListener('click', (e) => {
       const b = e.target.closest('[data-k]'); if (!b) return;
       if (b.dataset.k === 'class') S.on ? stop() : start();
@@ -593,7 +607,7 @@ header.top,.ctrl{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur
     });
   }
 
-  const api = { version: VERSION, mount, update, go, next, prev, start, stop, phonePage, runRemote, get state() { return snapshot(); }, _handle: handle };
+  const api = { version: VERSION, mount, update, refresh: () => broadcast(), go, next, prev, start, stop, phonePage, runRemote, get state() { return snapshot(); }, _handle: handle };
   window.BGShell = api;
 })();
 </script>
@@ -1098,7 +1112,7 @@ $('diveBtn').addEventListener('click', () => dive ? endDive(false) : startDive()
 /* Vỏ Bài Giảng: lên lớp bằng bút trình chiếu, màn hình giáo viên, điện thoại (shell/bg-shell.js) */
 if (window.BGShell) BGShell.mount({
   id: 'ty-the', title: 'Vào Ty Thể', subject: 'Sinh học 10', accent: '#C2184A',
-  layout: { minWidth: 900, dock: 'top:124px;right:30px;bottom:auto', hud: 'left:50%;transform:translateX(-50%);top:124px;bottom:auto' },
+  layout: { minWidth: 700, dock: 'top:124px;right:30px;bottom:auto', hud: 'left:50%;transform:translateX(-50%);top:124px;bottom:auto' },
   objectives: ["Trình bày được quá trình tổng hợp và phân giải ATP gắn liền với quá trình tích lũy, giải phóng năng lượng.", "Phân tích được mối quan hệ giữa cấu tạo và chức năng của các bào quan trong tế bào."],
   steps: [...LESSON.map((s) => ({ t: s.t, note: String(s.b).replace(/<[^>]+>/g, ''), ask: { q: String(s.a).replace(/<[^>]+>/g, ''), o: [], a: -1 } })),
     ...QUIZ.map((q, k) => ({ t: `Câu đố ${k + 1}/${QUIZ.length}`, note: q.kind === 'pick' ? 'Học sinh bấm vào mô hình 3D. ' + q.okMsg : q.okMsg, ask: { q: q.q, o: q.opts || [], a: q.kind === 'mcq' ? q.ok : -1, e: q.kind === 'pick' ? 'Đáp án: bộ phận ' + q.ok.join(', ') : '' } }))],
