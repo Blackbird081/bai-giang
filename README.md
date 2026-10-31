@@ -1,6 +1,6 @@
 # Bài Giảng
 
-Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài: hai hành trình 3D phóng tới nguyên tử của phân tử thật, Thành Cổ Loa dựng theo số đo khảo cổ, lộ trình theo chương trình GDPT 2018 và thư viện 54 bài thí nghiệm. three.js r180, WebGPU với dự phòng WebGL 2, mỗi trang là một tệp HTML tự chứa.
+Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài: hai hành trình 3D phóng tới nguyên tử của phân tử thật, Thành Cổ Loa dựng theo số đo khảo cổ, bốn mô phỏng robotics cho đại học và kỹ sư, lộ trình theo chương trình GDPT 2018 và thư viện 54 bài thí nghiệm. three.js r180, WebGPU với dự phòng WebGL 2, mỗi trang là một tệp HTML tự chứa.
 
 | Trang | Địa chỉ |
 |---|---|
@@ -11,6 +11,11 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Lộ trình Sinh học tế bào lớp 10 | https://nclamvn.github.io/bai-giang/chu-de/sinh-hoc-te-bao/ |
 | Thành Cổ Loa (Lịch sử 10) | https://nclamvn.github.io/bai-giang/lich-su-10/co-loa/ |
 | Lộ trình Lịch sử 10 | https://nclamvn.github.io/bai-giang/lich-su-10/ |
+| Robotics: mục lục 4 mô phỏng | https://nclamvn.github.io/bai-giang/robotics/ |
+| Cánh tay robot 6 trục (UR5e) | https://nclamvn.github.io/bai-giang/robotics/ur5e/ |
+| Robot 6 chân (PhantomX AX) | https://nclamvn.github.io/bai-giang/robotics/hexapod/ |
+| Drone 4 cánh (Crazyflie 2.x) | https://nclamvn.github.io/bai-giang/robotics/crazyflie/ |
+| Xe tự hành vi sai (TurtleBot3 Burger) | https://nclamvn.github.io/bai-giang/robotics/turtlebot3/ |
 | 54 bài thí nghiệm | https://nclamvn.github.io/bai-giang/#thu-vien |
 
 - Bản trên Claude: trang chính https://claude.ai/artifact/GKx2jb4nALqKE6FUDnLGXu · Tế Bào https://claude.ai/artifact/68y1264YdVFXQnzmHg5mrW · Cổ Loa https://claude.ai/artifact/FWgFyz3VTEfC6Ltg6apt4M · Ty Thể https://claude.ai/artifact/PLNECoseboZiMU7MXKREzy
@@ -44,6 +49,21 @@ Nút **Lên lớp** mở bài "Hành trình của một phân tử protein tiế
 - Chế độ học theo bước: 10 bước, 3 câu hỏi; bảng "Truyền thuyết và bằng chứng"; 27 nguồn có đánh số.
 - Dựng bằng `python3 tools/build_co_loa.py` (hình học, dữ liệu) từ `tools/co-loa.template.html`; lộ trình bằng `python3 tools/build_ls10.py`.
 
+## Robotics: bốn mô phỏng chạy trực tiếp
+[`robotics/`](robotics/) dành cho đại học và kỹ sư. Mỗi trang là một bảng điều khiển 1600 × 900 kiểu phòng thí nghiệm: robot 3D ở giữa, các bảng số đo hai bên, khung lời giảng ở dưới. Mở ra là bài giảng tự chạy (con trỏ bấm từng nút, lời giảng theo từng bước); chạm vào là tự cầm lái, 25 giây không thao tác thì bài giảng chạy lại. Mọi thanh đo và biểu đồ là trạng thái thật của mô phỏng.
+
+| Robot | Nội dung | Số liệu |
+|---|---|---|
+| UR5e, cánh tay 6 trục | FK theo DH, IK giải tích 8 nghiệm (Hawkins 2013), Jacobian, chỉ số Yoshikawa, kỳ dị vai, MoveJ/MoveL bậc năm, mô men trọng lực, gắp và đặt | Bảng DH, khối lượng và trọng tâm khâu của Universal Robots; giới hạn khớp từ Universal_Robots_ROS2_Description |
+| PhantomX AX, 6 chân | IK chân 3 bậc, dáng đi tripod/tetrapod/wave theo β, đa giác chống đỡ, biên ổn định tĩnh và dọc, mô men servo | Cấu hình Phoenix (KurtE), AX-12A (ROBOTIS); femur/tibia tác giả ghi "đoán", khối lượng 2 kg là giả định |
+| Crazyflie 2.x, drone | Thân cứng 6 bậc, lực và mô men từng rô-to, PID xếp tầng vị trí → vận tốc → góc → tốc độ góc, bộ trộn legacy, nhiễu con quay, trễ động cơ | Förster 2015 (ETH Zürich), hệ số và cấu trúc từ crazyflie-firmware |
+| TurtleBot3 Burger, xe vi sai | Động học vi sai, encoder 4096 xung, odometry trôi, LiDAR LDS-02, bản đồ lưới log-odds, pure pursuit, dừng an toàn, phục hồi | ROBOTIS e-Manual, turtlebot3 (burger.yaml, URDF), firmware OpenCR; phòng, vật cản, độ lệch bánh là giả định để dạy; "định vị liên tục" mô phỏng kết quả AMCL |
+
+- Kiểm bằng máy: UR5e FK(IK) sai 1,5·10⁻¹² m trên 2000 tư thế; hexapod IK/FK khớp 3·10⁻¹⁶; drone giữ độ cao quanh 36–37k PWM, cú đẩy 2,5 mN·m hồi phục ở hệ số gốc; TurtleBot3 chạy 100 s kịch bản bài giảng không va chạm.
+- Phương pháp, phong cách bàn điều khiển và cách tổ chức trang theo [teardown](https://github.com/elvarofficial/teardown) (elvarofficial) dựa trên [claude-motion](https://github.com/whaleyxbt/claude-motion) (whaleyxbt), MIT; giấy phép gốc ở [`tools/robotics/LICENSE-teardown`](tools/robotics/LICENSE-teardown).
+- Mã: [`tools/robotics/`](tools/robotics/). `kit/` (sân khấu three.js r186 WebGL với GTAO, bảng điều khiển, vỏ trang tự chạy có 3 bậc chất lượng), mỗi robot một thư mục: phần tính (`kin.js`, `gait.js`, `quad.js`, `diff.js`) không phụ thuộc three.js, `main.js` là phần vẽ và kịch bản bài giảng. Dựng: `cd tools/robotics && npm ci && node build.mjs` (mỗi trang một tệp ~0,95 MB, nhúng sẵn three.js và phông có tiếng Việt); mục lục bằng `python3 tools/build_pages.py`.
+- Thêm `?q=2` vào địa chỉ để ép bậc đồ hoạ thấp nhất trên máy yếu.
+
 ## AR: ribosome trên bàn học
 [`te-bao/ar.html`](te-bao/ar.html) dùng model-viewer để đặt bề mặt phân tử của ribosome 3J7R lên mặt bàn thật bằng điện thoại (ARCore/ARKit). Tỉ lệ 1 Å = 1 mm, tức phóng to 10 triệu lần, ribosome cao khoảng 30 cm. Có nút làm mờ 40S hoặc 60S để lộ tRNA và mRNA. Trên máy tính, trang hiện mã QR để học sinh quét. Mô hình [`te-bao/assets/ribosome-3j7r.glb`](te-bao/assets/ribosome-3j7r.glb) (4,2 MB, 231 nghìn tam giác) dựng bằng `tools/build_glb.py`: marching cubes trên mật độ nguyên tử theo từng nhóm, rút gọn lưới, màu theo thang tuyến tính của glTF.
 
@@ -62,6 +82,7 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `ty-the/index.html` | Vào Ty Thể, dữ liệu ATP synthase nhúng sẵn |
 | `chu-de/sinh-hoc-te-bao/` | Lộ trình Sinh học tế bào lớp 10 |
 | `lich-su-10/`, `lich-su-10/co-loa/` | Lộ trình Lịch sử 10 (`tools/build_ls10.py`), bài Thành Cổ Loa (`tools/build_co_loa.py`, `tools/co-loa.template.html`, nguồn `tools/co_loa_nguon.json`) |
+| `robotics/`, `robotics/<robot>/` | Mục lục Robotics (`tools/robotics/build_hub.py`) và 4 mô phỏng (dựng từ `tools/robotics/` bằng `node build.mjs`) |
 | `thu-vien/` | 54 bài tiếng Việt (CC BY-NC 4.0), ảnh bìa, `catalog.vi.json`, đối chiếu chương trình `gdpt2018.json`, công cụ Việt hoá `_viet-hoa/` |
 | `src/head.part`, `src/body.part`, `src/script.part` | CSS, HTML, JS của trang Tế Bào |
 | `tools/liquid_glass.py` | Chuẩn giao diện chung: nền trắng, kính lỏng |
@@ -109,6 +130,7 @@ base64 -w 0 ribosome.bin > te-bao/ribosome.b64.txt
 - Mã và nội dung của Hành Trình Vào Tế Bào, trang AR, công cụ: MIT (tệp `LICENSE`).
 - `thu-vien/`: CC BY-NC 4.0, theo bản gốc Tongjiang Lab; chỉ dùng phi thương mại.
 - Dữ liệu cấu trúc: RCSB PDB 3J7R, 6J5I, 6J5K.
+- `tools/robotics/`: MIT; phần phỏng theo teardown và claude-motion giữ giấy phép MIT gốc (`tools/robotics/LICENSE-teardown`). three.js MIT, phông Inter và JetBrains Mono OFL.
 
 ## Nguồn
 - Voorhees RM, Fernández IS, Scheres SHW, Hegde RS. Structure of the mammalian ribosome-Sec61 complex to 3.4 Å resolution. Cell 2014. doi:10.1016/j.cell.2014.05.024. Toạ độ từ RCSB PDB 3J7R.

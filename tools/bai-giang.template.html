@@ -87,6 +87,11 @@ h2.sec{margin:34px 4px 12px;font-size:22px;letter-spacing:-.02em;scroll-margin-t
 .unit div{display:grid;gap:4px}
 .unit.hist{scroll-margin-top:96px;margin-top:12px;background:var(--lg-fill),linear-gradient(110deg,rgba(178,106,26,.13),rgba(232,161,58,.08))}
 .unit.hist .k{color:#8E5110}
+.journeys.robo{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.journey.rb b{font-size:19px}
+.unit.rb{margin-top:16px;background:var(--lg-fill),linear-gradient(110deg,rgba(227,86,42,.12),rgba(201,154,46,.08))}
+.unit.rb .k{color:#B23E17}
+.unit.rb i,.journey.rb i{color:#C2481D}
 .unit.hist i,.journey.hist i{color:#9A5B13}
 .unit .k{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#16774F}
 .unit b{font-size:20px;letter-spacing:-.02em}
@@ -120,6 +125,7 @@ h2.sec{margin:34px 4px 12px;font-size:22px;letter-spacing:-.02em;scroll-margin-t
   .card .tb{display:none}
 }
 @media (max-width:380px){.hubnav a{padding:7px 7px;font-size:12.5px}.brand span{font-size:15px}}
+@media (max-width:460px){.brand span{display:none}.hubnav a{padding:6px 8px;font-size:13px}}
 .foot{margin-top:48px;padding:20px 4px 8px;border-top:1px solid var(--lg-hair);display:grid;gap:8px;font-size:12.5px;line-height:1.55;color:var(--lg-muted)}
 .foot a{color:inherit;text-decoration:underline;text-decoration-color:rgba(110,110,115,.35);text-underline-offset:2px}
 .foot a:hover{color:var(--lg-ink);text-decoration-color:currentColor}
@@ -205,11 +211,11 @@ __DECOR__
 <div class="wrap">
   <header class="hub">
     <div class="brand"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E23A62"/><stop offset="1" stop-color="#B0123C"/></linearGradient></defs><rect x="2" y="2" width="44" height="44" rx="13" fill="url(#bg1)"/><circle cx="21" cy="22" r="10" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="19" cy="20" r="3.4" fill="#fff"/><circle cx="33.5" cy="33" r="4" fill="#FFD27A"/></svg><span>Bài Giảng</span></div>
-    <nav class="hubnav" aria-label="Mục chính"><a href="#hanh-trinh">Hành trình<span class="xl"> 3D</span></a><a href="#lo-trinh">Lộ trình</a><a href="#thu-vien">Thư viện</a></nav>
+    <nav class="hubnav" aria-label="Mục chính"><a href="#hanh-trinh">Hành trình<span class="xl"> 3D</span></a><a href="#lo-trinh">Lộ trình</a><a href="#robotics">Robotics</a><a href="#thu-vien">Thư viện</a></nav>
   </header>
   <section class="hero">
     <h1>Học bằng <em>thế giới 3D</em> sống động</h1>
-    <p>Bài giảng tương tác bằng tiếng Việt cho lớp học: phóng từ một tế bào xuống từng nguyên tử của phân tử thật, dựng lại kinh đô cổ theo số đo khảo cổ, theo lộ trình của chương trình GDPT 2018, cùng 54 bài thí nghiệm Vật lí, Hoá học, Sinh học, Địa lí. Mở bằng Chrome, Edge hoặc Safari, chiếu lên màn hình lớn là dạy được.</p>
+    <p>Bài giảng tương tác bằng tiếng Việt cho lớp học: phóng từ một tế bào xuống từng nguyên tử của phân tử thật, dựng lại kinh đô cổ theo số đo khảo cổ, cho robot thật chạy bằng số liệu của hãng, theo lộ trình của chương trình GDPT 2018, cùng 54 bài thí nghiệm Vật lí, Hoá học, Sinh học, Địa lí. Mở bằng Chrome, Edge hoặc Safari, chiếu lên màn hình lớn là dạy được.</p>
   </section>
   <h2 class="sec" id="hanh-trinh">Hành trình 3D</h2>
   <div class="journeys">
@@ -220,6 +226,14 @@ __DECOR__
   <h2 class="sec" id="lo-trinh">Lộ trình theo chương trình GDPT 2018</h2>
   <a class="unit" href="__L_CHUDE__"><div><span class="k">Lớp 10 · 6 bài</span><b>Sinh học tế bào</b><span>Tế Bào → vận chuyển qua màng → co và phản co nguyên sinh → Vào Ty Thể → enzyme → nguyên phân. Mỗi bài kèm yêu cầu cần đạt trích nguyên văn chương trình, bảng chỉ rõ yêu cầu nào chưa có bài.</span></div><i>Xem lộ trình →</i></a>
   <a class="unit hist" id="lich-su-10" href="__L_LS10__"><div><span class="k">Lớp 10 · Lịch sử · ba bộ sách</span><b>Lịch sử 10 bằng mô hình 3D</b><span>Lộ trình theo chương trình môn Lịch sử (sửa đổi 2025): 7 chủ đề, yêu cầu cần đạt trích nguyên văn, cảnh 3D cho từng mục. Bài mẫu Thành Cổ Loa đã có; các cảnh khác đang được dựng dần.</span></div><i>Xem lộ trình →</i></a>
+  <h2 class="sec" id="robotics">Robotics · đại học, kỹ sư</h2>
+  <div class="journeys robo">
+    <a class="journey rb" href="__L_R_UR5E__"><img src="__L_BASE__covers/robo-ur5e.webp" alt="" loading="lazy"><div><b>Cánh tay robot 6 trục</b><span>UR5e đúng bảng DH của Universal Robots: động học nghịch 8 nghiệm, Jacobian, điểm kỳ dị, MoveJ và MoveL, mô men trọng lực, gắp và đặt.</span><i>Vào mô phỏng →</i></div></a>
+    <a class="journey rb" href="__L_R_HEXAPOD__"><img src="__L_BASE__covers/robo-hexapod.webp" alt="" loading="lazy"><div><b>Robot 6 chân</b><span>PhantomX AX 18 servo: dáng đi tripod, tetrapod, wave, đa giác chống đỡ, biên ổn định tĩnh, mô men servo.</span><i>Vào mô phỏng →</i></div></a>
+    <a class="journey rb" href="__L_R_CRAZYFLIE__"><img src="__L_BASE__covers/robo-crazyflie.webp" alt="" loading="lazy"><div><b>Drone 4 cánh</b><span>Crazyflie 27 g theo số đo ETH Zürich, bốn vòng PID xếp tầng chép từ firmware gốc: cú gió, hệ số quá cao, lật.</span><i>Vào mô phỏng →</i></div></a>
+    <a class="journey rb" href="__L_R_TURTLEBOT3__"><img src="__L_BASE__covers/robo-turtlebot3.webp" alt="" loading="lazy"><div><b>Xe tự hành vi sai</b><span>TurtleBot3 Burger: odometry trôi, LiDAR 360 tia, bản đồ lưới chiếm chỗ, bám đường pure pursuit, định vị.</span><i>Vào mô phỏng →</i></div></a>
+  </div>
+  <a class="unit rb" href="__L_ROBO__"><div><span class="k">Đại học · kỹ sư · 4 mô phỏng chạy trực tiếp</span><b>Robotics bằng mô phỏng thật</b><span>Số liệu từ tài liệu hãng, mã nguồn mở và bài báo gốc; mỗi trang là một bài giảng tự chạy có con trỏ và lời giảng, chạm vào để tự cầm lái. Kèm nguồn từng con số và ghi rõ chỗ nào là giả định.</span></div><i>Xem mục lục →</i></a>
   <h2 class="sec" id="thu-vien">Thư viện 54 bài thí nghiệm</h2>
   <div class="tools" role="search">
     <input id="q" type="search" placeholder="Tìm bài: ví dụ “ammonia”, “nguyên phân”, “gió mùa”" aria-label="Tìm bài học">
