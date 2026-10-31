@@ -113,8 +113,35 @@ for cx, cz in centers:
 ei = nearest_idx(outer, -0.15, oc); ex, ez = outer[ei]
 POI['damca'] = {'ten': 'Đầm Cả (vị trí phỏng chừng)', 'p': [round(ex + 330, 1), round(ez - 60, 1)], 'loai': 'nuoc'}
 lake = [[round(ex + 330 + 260 * math.cos(t) * (1 + .12 * math.sin(3 * t)), 1), round(ez - 60 + 150 * math.sin(t) * (1 + .1 * math.cos(2 * t)), 1)] for t in [i * 2 * math.pi / 48 for i in range(48)]]
+# Làng (minh hoạ mật độ cư trú): tâm và bán kính, tránh lũy, hào, sông, hồ. Nội dung làng sinh trong trình duyệt.
+def clear_of(x, z, rr):
+    for r in RINGS:
+        for px, pz in r['pts'][::2]:
+            if (px - x) ** 2 + (pz - z) ** 2 < (rr + 55) ** 2: return False
+    for px, pz in river:
+        if (px - x) ** 2 + (pz - z) ** 2 < (rr + 70) ** 2: return False
+    for px, pz in lake:
+        if (px - x) ** 2 + (pz - z) ** 2 < (rr + 40) ** 2: return False
+    for k in ('den', 'dinh', 'am', 'gieng'):
+        px, pz = POI[k]['p']
+        if (px - x) ** 2 + (pz - z) ** 2 < (rr + 25) ** 2: return False
+    return True
+villages = []
+rv = random.Random(11)
+seed_v = [[*ll(21.1205, 105.87327), 80]]  # làng Cổ Loa (OSM)
+villages.append([-75.0, 30.0, 128.0])  # khu dân cư, đền đình trong thành Nội (hiện trạng)
+for x, z, rr in seed_v:
+    if clear_of(x, z, rr): villages.append([x, z, rr])
+tries = 0
+while len(villages) < 48 and tries < 20000:
+    tries += 1
+    x, z = rv.uniform(-4600, 4300), rv.uniform(-4300, 4300); rr = rv.uniform(70, 150)
+    if math.hypot(x + 150, z) > 5300: continue
+    if not clear_of(x, z, rr): continue
+    if any(math.hypot(x - a, z - b) < rr + c + 140 for a, b, c in villages): continue
+    villages.append([round(x, 1), round(z, 1), round(rr, 1)])
 NGUON = json.loads((ROOT / 'tools/co_loa_nguon.json').read_text(encoding='utf-8'))
-DATA = {'rings': [{k: v for k, v in r.items() if k not in ('gates',)} for r in RINGS], 'river': river, 'lake': lake, 'poi': POI, 'groves': groves, 'nguon': NGUON}
+DATA = {'rings': [{k: v for k, v in r.items() if k not in ('gates',)} for r in RINGS], 'river': river, 'lake': lake, 'poi': POI, 'groves': groves[::3], 'villages': villages, 'nguon': NGUON}
 
 
 def build(home, hub, cell, mito):
@@ -133,7 +160,7 @@ def build(home, hub, cell, mito):
 if __name__ == '__main__':
     out = ROOT / 'lich-su-10/co-loa/index.html'; out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(build('../', '../../', '../../te-bao/', '../../ty-the/'), encoding='utf-8')
-    print('đã dựng', out.relative_to(ROOT), f'({out.stat().st_size // 1024} KB, {len(groves)} cây)')
+    print('đã dựng', out.relative_to(ROOT), f'({out.stat().st_size // 1024} KB, {len(villages)} làng)')
     if len(sys.argv) > 3 and sys.argv[1] == '--artifact':
         pathlib.Path(sys.argv[2]).write_text(build(sys.argv[3] + '#lich-su-10', sys.argv[3], '', ''), encoding='utf-8')
         print('đã dựng bản đăng', sys.argv[2])

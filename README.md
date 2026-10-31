@@ -40,6 +40,7 @@ Nút **Lên lớp** mở bài "Hành trình của một phân tử protein tiế
 - Số đo có nguồn: chu vi ba vòng (1.650 m, 6.500 m, 8.000 m), mặt cắt lũy (hố Xóm Thượng: rộng 21,5 m, cao 4,5 m; hào cách chân 6 m, rộng 12 m, sâu 4,8 m; hố Đống Dân 2012), số cửa, 18 ụ hoả hồi, niên đại C14 của nhóm Nam C. Kim. Toạ độ đền, đình, am, giếng theo OpenStreetMap (ODbL).
 - Phỏng dựng, ghi rõ trên trang: đường đi cụ thể của từng vòng (chưa có bản đồ mở có toạ độ tuyến thành), vị trí cửa, vị trí kho mũi tên và trống đồng, đường sông, chiều cao ở các giai đoạn chưa có số đo.
 - Dòng thời gian 6 mốc (trước thế kỷ IV TCN → ngày nay) làm lũy cao lên, rộng ra theo mặt cắt từng giai đoạn; thành Nội để mờ ở thời Âu Lạc vì niên đại còn tranh luận. Chiều cao xem được ở tỉ lệ thật, ×3, ×6.
+- Đồ hoạ thực: bầu trời vật lý và nắng chiều có bóng đổ, ruộng lúa đồng bằng (thửa dài, bờ ruộng, mương, ruộng ngâm nước phản chiếu trời), lũy đất bo tròn theo mặt cắt, hào và sông có mặt nước động, 48 làng có lũy tre, vườn, ao. Nhà theo thời kỳ: nhà sàn mái cong phỏng theo hình nhà trên trống đồng Ngọc Lũ (thời cổ), nhà ngói (thế kỷ XV–XVI), nhà hiện nay; cây phủ lũy ở hiện trạng. Mặc định tỉ lệ thật, có ×2, ×4. Máy tính có thêm che khuất môi trường (GTAO); điện thoại tắt hậu kỳ, giảm bóng và mật độ cây.
 - Chế độ học theo bước: 10 bước, 3 câu hỏi; bảng "Truyền thuyết và bằng chứng"; 27 nguồn có đánh số.
 - Dựng bằng `python3 tools/build_co_loa.py` (hình học, dữ liệu) từ `tools/co-loa.template.html`; lộ trình bằng `python3 tools/build_ls10.py`.
 
