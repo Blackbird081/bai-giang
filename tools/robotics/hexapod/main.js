@@ -1,6 +1,7 @@
 // Robot sáu chân: trang chạy trực tiếp. Dáng đi, đa giác chống đỡ, biên ổn định và mô men servo đều đọc từ gait.js.
 import * as THREE from 'three';
 import {createStage, MAT} from '../kit/stage.js';
+import * as SH from '../kit/shapes.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
 import {LEG, LEGS, NAMES, VN, GAITS, SERVO, legIK, legPoints, footAt, hull, margin} from './gait.js';
@@ -14,24 +15,59 @@ const world = new THREE.Group(); world.rotation.x = -Math.PI / 2; st.scene.add(w
 const body = new THREE.Group(); world.add(body);
 const mk = (geo, mat, parent = body) => { const m = new THREE.Mesh(geo, mat); m.castShadow = m.receiveShadow = true; parent.add(m); return m; };
 
-// ---------------- hình khối
-const plateMat = MAT.glossy('#2e3033'), servoMat = MAT.dark(), bracketMat = MAT.alu(), footMat = MAT.rubber();
+// ---------------- hình khối (bo cạnh, vật liệu thật: nhựa phủ bóng, nhôm anod, cao su)
+const plateMat = MAT.pcb('#25272a'), servoMat = MAT.satin('#222326'), bracketMat = MAT.anod('#c4c8cc'), footMat = MAT.rubber(), hornMat = MAT.anod('#9ca2a8');
 const outline = [[0.15, 0.05], [0.02, 0.118], [-0.02, 0.118], [-0.15, 0.05], [-0.15, -0.05], [-0.02, -0.118], [0.02, -0.118], [0.15, -0.05]];
-const plateGeo = (() => { const s = new THREE.Shape(outline.map(([x, y]) => new THREE.Vector2(x, y))); return new THREE.ExtrudeGeometry(s, {depth: 0.003, bevelEnabled: true, bevelSize: 0.002, bevelThickness: 0.001, bevelSegments: 2}); })();
+const plateGeo = (() => {
+  const sh = new THREE.Shape(outline.map(([x, y]) => new THREE.Vector2(x, y)));
+  for (const [x, y] of [[0.075, 0.035], [-0.075, 0.035], [0.075, -0.035], [-0.075, -0.035]]) sh.holes.push(SH.slotHole(x, y, 0.05, 0.014));
+  for (const [x, y] of [[0, 0.085], [0, -0.085], [0.12, 0], [-0.12, 0]]) sh.holes.push(SH.hole(x, y, 0.009));
+  return SH.slab(sh, 0.004, 0.0012, 6);
+})();
 const topP = mk(plateGeo, plateMat), botP = mk(plateGeo, plateMat);
-const board = mk(new THREE.BoxGeometry(0.09, 0.06, 0.012), MAT.plastic('#30553f')); board.userData.z = 0.032;
-const batt = mk(new THREE.BoxGeometry(0.1, 0.034, 0.024), MAT.plastic('#3a3d41')); batt.userData.z = -0.004;
-const battLabel = mk(new THREE.BoxGeometry(0.06, 0.035, 0.012), MAT.accent()); battLabel.userData.z = -0.004;
-const servoGeo = new THREE.BoxGeometry(0.032, 0.05, 0.04), linkGeo = new THREE.BoxGeometry(1, 1, 1);
+// bộ điều khiển ArbotiX: mạch xanh, chip, chân cắm
+const board = new THREE.Group(); body.add(board);
+mk(SH.rbox(0.09, 0.06, 0.0016, 0.0006), MAT.pcb('#1f5a3c'), board);
+mk(SH.rbox(0.018, 0.018, 0.003, 0.0005), MAT.chip(), board).position.set(0.01, 0.006, 0.002);
+for (let k = 0; k < 6; k++) mk(SH.rbox(0.0025, 0.016, 0.006, 0.0004), MAT.chip(), board).position.set(-0.036 + k * 0.006, -0.018, 0.0038);
+mk(SH.rbox(0.012, 0.009, 0.005, 0.0008), MAT.steel(), board).position.set(0.035, 0.02, 0.0033);
+const batt = mk(SH.rbox(0.1, 0.034, 0.024, 0.004), MAT.satin('#3a3d41'));
+const battLabel = mk(SH.rbox(0.06, 0.0352, 0.0242, 0.002), MAT.accent());
+// servo AX-12A 32 × 50 × 40 mm: thân bo cạnh, đường ghép vỏ, đĩa trục (horn) và ổ đỡ ở hai mặt vuông góc với trục quay
+const horn = () => SH.merge([SH.roundCyl(0.0105, 0, 0.0028, 0.0008, 0.0012, 32), ...[0, 1, 2, 3].map((k) => { const g = SH.roundCyl(0.0013, 0.0028, 0.0038, 0, 0.0005, 10); g.translate(0.0075 * Math.cos((k * Math.PI) / 2 + 0.785), 0.0075 * Math.sin((k * Math.PI) / 2 + 0.785), 0); return g; })]);
+function servoGeo(axis) { // axis 'z' hoặc 'y': trục quay của khớp
+  const parts = [SH.rbox(0.032, 0.05, 0.04, 0.004)];
+  const seam = SH.rbox(0.0328, 0.0508, 0.0016, 0.0006); seam.translate(0, 0, 0.006); parts.push(seam);
+  for (const sgn of [1, -1]) {
+    const h = horn(); if (sgn < 0) h.rotateX(Math.PI);
+    if (axis === 'z') h.translate(0, 0, sgn * 0.02); else { h.rotateX(-Math.PI / 2); h.translate(0, sgn * 0.025, 0); }
+    parts.push(h);
+  }
+  for (const sx of [-1, 1]) { const ear = SH.rbox(0.004, 0.044, 0.03, 0.0012); ear.translate(sx * 0.0175, 0, 0); parts.push(ear); }
+  return SH.merge(parts);
+}
+const servoZ = servoGeo('z'), servoY = servoGeo('y');
+// khung nhôm: thanh coxa (khối chữ U), hai má đùi có lỗ, ống chân thuôn có lỗ giảm nhẹ, đế cao su
+const L0 = {coxa: LEG.coxa, femur: LEG.femur, tibia: LEG.tibia};
+const coxaGeo = SH.rbox(0.012, L0.coxa, 0.03, 0.003);
+const femGeo = (() => { const g = SH.linkBar(L0.femur, 0.022, 0.003, 0.0045); g.translate(0, -L0.femur / 2, 0); return g; })();
+const tibGeo = (() => {
+  const L = L0.tibia, sh = new THREE.Shape();
+  sh.moveTo(-0.013, -L / 2); sh.lineTo(0.013, -L / 2); sh.quadraticCurveTo(0.012, 0, 0.006, L / 2); sh.lineTo(-0.006, L / 2); sh.quadraticCurveTo(-0.012, 0, -0.013, -L / 2);
+  sh.holes.push(SH.slotHole(0, -L * 0.22, 0.008, 0.026), SH.slotHole(0, L * 0.12, 0.006, 0.022));
+  const g = SH.slab(sh, 0.004, 0.0012, 12); g.rotateY(Math.PI / 2); return g;
+})();
+const footGeo = SH.lathe([[0, -0.009], [0.006, -0.008], [0.009, -0.004], [0.008, 0.002], [0.0055, 0.008], [0, 0.009]], 24);
 const legMeshes = LEGS.map(() => ({
-  hipServo: mk(servoGeo, servoMat), coxa: mk(linkGeo, bracketMat), femServo: mk(servoGeo, servoMat), femA: mk(linkGeo, bracketMat), femB: mk(linkGeo, bracketMat),
-  kneeServo: mk(servoGeo, servoMat), tibia: mk(linkGeo, MAT.glossy('#2e3033')), foot: mk(new THREE.SphereGeometry(0.009, 16, 12), footMat),
+  hipServo: mk(servoZ, servoMat), coxa: mk(coxaGeo, bracketMat), femServo: mk(servoY, servoMat), femA: mk(femGeo, bracketMat), femB: mk(femGeo, bracketMat),
+  kneeServo: mk(servoY, servoMat), tibia: mk(tibGeo, MAT.pcb('#2a2c30')), foot: mk(footGeo, footMat),
 }));
+for (const m of legMeshes) { m.coxa.userData.L0 = L0.coxa; m.femA.userData.L0 = m.femB.userData.L0 = L0.femur; m.tibia.userData.L0 = L0.tibia; }
 const v3 = (p) => new THREE.Vector3(p[0], p[1], p[2]), Zup = new THREE.Vector3(0, 0, 1), M4 = new THREE.Matrix4();
 const orient = (m, a, b, side, w, t) => { // hộp nối a→b, bề rộng w theo side, dày t
   const A = v3(a), B = v3(b), Y = B.clone().sub(A), L = Y.length(); Y.normalize();
   const X = side.clone().sub(Y.clone().multiplyScalar(side.dot(Y))).normalize(), Z = new THREE.Vector3().crossVectors(X, Y);
-  m.matrixAutoUpdate = true; m.position.copy(A).add(B).multiplyScalar(0.5); m.quaternion.setFromRotationMatrix(M4.makeBasis(X, Y, Z)); m.scale.set(w, L, t);
+  m.matrixAutoUpdate = true; m.position.copy(A).add(B).multiplyScalar(0.5); m.quaternion.setFromRotationMatrix(M4.makeBasis(X, Y, Z)); m.scale.set(1, L / (m.userData.L0 || L), 1); void w; void t;
 };
 const place = (m, p, X, Y) => { const Z = new THREE.Vector3().crossVectors(X, Y); m.position.copy(v3(p)); m.quaternion.setFromRotationMatrix(M4.makeBasis(X, Y, Z)); };
 // sàn: dấu chân, đa giác chống đỡ, hình chiếu trọng tâm
@@ -124,8 +160,7 @@ const sim = {
     const out = S.out || solve(), p = S.pose, c = Math.cos(p.yaw), s = Math.sin(p.yaw), g = GAITS[S.gait];
     const toW = (q) => [p.x + q[0] * c - q[1] * s, p.y + q[0] * s + q[1] * c, q[2]];
     body.position.set(p.x, p.y, 0); body.rotation.set(0, 0, p.yaw);
-    topP.position.z = S.h + 0.024; botP.position.z = S.h - 0.026; board.position.z = S.h + 0.04; batt.position.z = S.h + 0.004; battLabel.position.z = S.h + 0.004;
-    battLabel.scale.set(1, 1.02, 1.02);
+    topP.position.z = S.h + 0.024; botP.position.z = S.h - 0.026; board.position.z = S.h + 0.034; batt.position.z = S.h + 0.004; battLabel.position.z = S.h + 0.004;
     // chân
     out.forEach((o, i) => {
       const m = legMeshes[i], P = o.P, ex = P.ex, ey = P.ey, side = new THREE.Vector3(-ey, ex, 0), fwd = new THREE.Vector3(ex, ey, 0);

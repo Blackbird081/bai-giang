@@ -2,6 +2,7 @@
 // trên và cẳng tay đặt lệch bên đúng các khoảng d của bảng DH, bích dụng cụ, kẹp hai ngón. update(F, s) đặt khung.
 import * as THREE from 'three';
 import {MAT} from '../kit/stage.js';
+import {rbox, lathe, roundCyl, flaredTube, alongX, alongY} from '../kit/shapes.js';
 import {DH} from './kin.js';
 
 export const TOOL = 0.14; // TCP cách bích 140 mm (đầu ngón kẹp)
@@ -11,36 +12,47 @@ export function buildArm() {
   const root = new THREE.Group(); root.rotation.x = -Math.PI / 2; // khung robot z lên → three y lên
   const L = [];
   for (let i = 0; i <= 6; i++) { const g = new THREE.Group(); g.matrixAutoUpdate = false; root.add(g); L.push(g); }
-  const cover = MAT.glossy('#e4e6e8'), alu = MAT.alu(), dark = MAT.dark(), steel = MAT.steel();
+  const cover = MAT.shell('#eceef0'), cap = MAT.satin('#5b636c'), alu = MAT.anod('#c3c8cd'), dark = MAT.satin('#2c2f33'), steel = MAT.steel();
   const rings = [];
   const mesh = (geo, mat, parent) => { const m = new THREE.Mesh(geo, mat); m.castShadow = m.receiveShadow = true; parent.add(m); return m; };
-  // trụ dọc theo trục z của khung, từ z0 đến z1
-  const zcyl = (parent, r, z0, z1, mat, seg = 48) => { const m = mesh(new THREE.CylinderGeometry(r, r, z1 - z0, seg), mat, parent); m.rotation.x = Math.PI / 2; m.position.z = (z0 + z1) / 2; return m; };
-  const xcyl = (parent, r, x0, x1, z, mat) => { const m = mesh(new THREE.CylinderGeometry(r, r, x1 - x0, 40), mat, parent); m.rotation.z = Math.PI / 2; m.position.set((x0 + x1) / 2, 0, z); return m; };
-  const ycyl = (parent, r, y0, y1, mat) => { const m = mesh(new THREE.CylinderGeometry(r, r, y1 - y0, 48), mat, parent); m.position.y = (y0 + y1) / 2; return m; };
-  // vỏ khớp: thân bọc nhựa, hai nắp xám, vòng nhấn đổi màu khi khớp đang quay
+  // ống nối theo trục x (cánh tay), hai đầu loe vào vỏ khớp
+  const xtube = (parent, r, x0, x1, z, mat) => { const m = mesh(alongX(flaredTube(r, r * 1.32, Math.min(x0, x1), Math.max(x0, x1), 0.045)), mat, parent); m.position.z = z; return m; };
+  // vỏ khớp: thân trụ bo mép phủ bóng, hai nắp vòm xám, vòng nhấn đổi màu khi khớp đang quay
   const housing = (parent, r, z0, z1, j) => {
-    zcyl(parent, r, z0 + 0.006, z1 - 0.006, cover);
-    zcyl(parent, r * 0.93, z0, z0 + 0.006, steel); zcyl(parent, r * 0.93, z1 - 0.006, z1, steel);
-    const rm = new THREE.MeshStandardMaterial({color: '#cfc6b8', roughness: 0.5});
-    const ring = zcyl(parent, r * 1.004, z1 - 0.022, z1 - 0.012, rm); rings[j] = rm; ring.castShadow = false;
+    const c = 0.011, f = r * 0.16;
+    mesh(roundCyl(r, z0 + c * 0.7, z1 - c * 0.7, f, f, 64), cover, parent);
+    mesh(lathe([[0, z0], [r * 0.7, z0], [r * 0.86, z0 + 0.002], [r * 0.93, z0 + 0.006], [r * 0.95, z0 + c]], 64), cap, parent);
+    mesh(lathe([[r * 0.95, z1 - c], [r * 0.93, z1 - 0.006], [r * 0.86, z1 - 0.002], [r * 0.7, z1], [0, z1]], 64), cap, parent);
+    const rm = new THREE.MeshStandardMaterial({color: '#cfc6b8', roughness: 0.45});
+    const a = z1 - c - 0.004, b = a + 0.005;
+    const ring = mesh(lathe([[r * 0.98, a], [r * 1.008, a + 0.001], [r * 1.008, b - 0.001], [r * 0.98, b]], 64), rm, parent); rings[j] = rm; ring.castShadow = false;
   };
-  // 0 đế: bích Ø151, thân trụ, vỏ khớp 1
-  zcyl(L[0], 0.0755, 0, 0.012, dark); housing(L[0], 0.064, 0.012, 0.105, 0);
-  // 1 vai: cột nối từ đế lên (trục y1 = z0), vỏ khớp 2 nằm ngang
-  ycyl(L[1], 0.064, -DH[0].d + 0.105, -0.05, cover); housing(L[1], 0.064, -0.066, S1 + 0.066, 1);
+  // 0 đế: bích Ø151 có 4 bu lông, thân trụ, vỏ khớp 1
+  mesh(lathe([[0, 0], [0.0755, 0], [0.0755, 0.007], [0.072, 0.0105], [0.064, 0.012], [0, 0.012]], 64), dark, L[0]);
+  for (let k = 0; k < 4; k++) { const a = Math.PI / 4 + (k * Math.PI) / 2, b = mesh(roundCyl(0.0055, 0.0105, 0.0145, 0.0015, 0.0015, 16), steel, L[0]); b.position.set(0.066 * Math.cos(a), 0.066 * Math.sin(a), 0); }
+  housing(L[0], 0.064, 0.012, 0.105, 0);
+  // 1 vai: cổ nối từ đế lên (trục y1 = z0), vỏ khớp 2 nằm ngang
+  mesh(alongY(lathe([[0, -DH[0].d + 0.1], [0.06, -DH[0].d + 0.1], [0.06, -0.075], [0.054, -0.06], [0, -0.06]], 64)), cover, L[1]);
+  housing(L[1], 0.064, -0.066, S1 + 0.066, 1);
   // 2 cánh tay trên: ống từ khuỷu (gốc khung 2) tới vai (x = −a2), lệch bên S1; vỏ khớp 3
-  xcyl(L[2], 0.044, 0.03, -DH[1].a - 0.03, S1, alu); housing(L[2], 0.056, S2 - 0.05, S1 + 0.056, 2);
+  xtube(L[2], 0.043, 0.02, -DH[1].a - 0.02, S1, alu); housing(L[2], 0.056, S2 - 0.05, S1 + 0.056, 2);
   // 3 cẳng tay: ống từ cổ tay 1 tới khuỷu (x = −a3), lệch S2; vỏ khớp 4
-  xcyl(L[3], 0.037, 0.03, -DH[2].a - 0.03, S2, alu); housing(L[3], 0.046, S2 - 0.046, DH[3].d + 0.046, 3);
+  xtube(L[3], 0.036, 0.02, -DH[2].a - 0.02, S2, alu); housing(L[3], 0.046, S2 - 0.046, DH[3].d + 0.046, 3);
   // 4 cổ tay 2, 5 cổ tay 3
   housing(L[4], 0.046, -0.046, DH[4].d - 0.046, 4);
   housing(L[5], 0.046, -0.046, DH[5].d - 0.012, 5);
-  // 6 bích ISO 9409-1-50-4-M6 và kẹp
-  zcyl(L[6], 0.032, -0.012, 0, steel);
+  // 6 bích ISO 9409-1-50-4-M6 và kẹp hai ngón
+  mesh(lathe([[0, -0.012], [0.032, -0.012], [0.032, -0.003], [0.03, 0], [0, 0]], 48), steel, L[6]);
   const grip = new THREE.Group(); L[6].add(grip);
-  const body = mesh(new THREE.BoxGeometry(0.05, 0.13, 0.06), dark, grip); body.position.z = 0.03;
-  const fingers = [-1, 1].map((s) => { const f = mesh(new THREE.BoxGeometry(0.012, 0.024, 0.08), MAT.plastic('#3a3d41'), grip); f.position.set(0, s * 0.03, 0.1); f.userData.s = s; return f; });
+  mesh(roundCyl(0.036, 0, 0.012, 0.002, 0.003, 48), dark, grip);
+  const body = mesh(rbox(0.05, 0.13, 0.05, 0.008), dark, grip); body.position.z = 0.037;
+  const rail = mesh(rbox(0.016, 0.12, 0.006, 0.002), steel, grip); rail.position.z = 0.064;
+  const fingers = [-1, 1].map((s) => {
+    const f = new THREE.Group(); grip.add(f); f.userData.s = s;
+    mesh(rbox(0.014, 0.022, 0.074, 0.004), MAT.anod('#7c8288'), f).position.z = 0.103;
+    const pad = mesh(rbox(0.012, 0.004, 0.034, 0.0015), MAT.rubber(), f); pad.position.set(0, -s * 0.012, 0.12);
+    return f;
+  });
   const tcp = new THREE.Object3D(); tcp.position.z = TOOL; L[6].add(tcp);
   // trục khung DH (x cam, y xanh lá, z xanh dương), bật bằng nút KHUNG DH
   const axes = [];

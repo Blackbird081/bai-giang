@@ -121,7 +121,7 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
   const perf = {n: 0, sum: 0, slow: 0, age: 0};
   const frame = (now) => {
     const dt = Math.min(0.05, Math.max(0, (now - last) / 1000)); last = now; T += dt;
-    if (tier < TIERS.length - 1) {
+    if (qp === null && tier < TIERS.length - 1) { // ?q= ép bậc thì không tự hạ
       perf.age += dt;
       if (perf.age > 0.6) {
         perf.sum += dt; perf.n++;

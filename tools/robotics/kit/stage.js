@@ -121,6 +121,15 @@ export const MAT = {
   glossy: (c) => new THREE.MeshPhysicalMaterial({color: c, metalness: 0.0, roughness: 0.3, clearcoat: 0.6, clearcoatRoughness: 0.35}),
   accent: () => new THREE.MeshStandardMaterial({color: '#e3562a', metalness: 0.1, roughness: 0.45}),
   rubber: () => new THREE.MeshStandardMaterial({color: '#232323', metalness: 0, roughness: 0.85}),
+  // vật liệu bề mặt thật: lớp phủ bóng mỏng cho nhựa ép, sơn tĩnh điện, gốm; kim loại anod hoá; mạch in; kính khói
+  shell: (c = '#eef0f1') => new THREE.MeshPhysicalMaterial({color: c, metalness: 0, roughness: 0.42, clearcoat: 0.55, clearcoatRoughness: 0.28, envMapIntensity: 0.8}),
+  satin: (c) => new THREE.MeshPhysicalMaterial({color: c, metalness: 0, roughness: 0.5, clearcoat: 0.25, clearcoatRoughness: 0.45}),
+  anod: (c = '#b9bec4') => new THREE.MeshPhysicalMaterial({color: c, metalness: 0.65, roughness: 0.45, clearcoat: 0.2, clearcoatRoughness: 0.5, envMapIntensity: 0.6}),
+  pcb: (c = '#1c1e21') => new THREE.MeshPhysicalMaterial({color: c, metalness: 0.05, roughness: 0.45, clearcoat: 0.8, clearcoatRoughness: 0.2}),
+  gold: () => new THREE.MeshStandardMaterial({color: '#d4a94e', metalness: 0.9, roughness: 0.45, envMapIntensity: 0.6}),
+  chip: () => new THREE.MeshStandardMaterial({color: '#141517', metalness: 0.1, roughness: 0.6}),
+  glass: (c = '#1d2226') => new THREE.MeshPhysicalMaterial({color: c, metalness: 0, roughness: 0.08, clearcoat: 1, clearcoatRoughness: 0.05, transparent: true, opacity: 0.55, envMapIntensity: 1}),
+  tire: () => new THREE.MeshStandardMaterial({color: '#1e1f21', metalness: 0, roughness: 0.78}),
 };
 // X-quang: làm mờ mọi vật liệu trong nhóm (giữ bản gốc trong userData để trả lại)
 export function xray(root, k, keep = () => false) {

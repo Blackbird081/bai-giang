@@ -2,6 +2,8 @@
 // encoder) chạy song song; LiDAR quét từ tư thế thật, bản đồ dựng theo tư thế robot tin là đúng.
 import * as THREE from 'three';
 import {createStage, MAT} from '../kit/stage.js';
+import * as SH from '../kit/shapes.js';
+const {alongY} = SH;
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
 import {TB, WHEEL_MAX, ROOM, BOXES, CYLS, PATH, ray, collides, rng, createGrid} from './diff.js';
@@ -23,34 +25,59 @@ const wallMat = MAT.plastic('#dccbad'), boxMat = MAT.plastic('#c79f6e'), cylMat 
   for (const c of CYLS) { const m = mk(new THREE.CylinderGeometry(c.r, c.r, 0.26, 40), cylMat, world); m.rotation.x = Math.PI / 2; m.position.set(c.x, c.y, 0.13); }
 }
 // ---------------- robot Burger: 4 tầng tấm "waffle", 2 bánh XL430, bi đỡ, OpenCR, Raspberry Pi, pin, LDS-02
+// tấm "waffle" 138 mm có lưới lỗ (dùng chung một hình cho 4 tầng)
+const waffleGeo = (() => {
+  const sh = SH.rrect(0.138, 0.138, 0.02);
+  for (let a = -5; a <= 5; a++) for (let b = -5; b <= 5; b++) { const x = a * 0.0115, y = b * 0.0115; if (Math.hypot(x, y) > 0.072 || (Math.abs(x) > 0.055 && Math.abs(y) > 0.055)) continue; sh.holes.push(SH.hole(x, y, 0.0032)); }
+  return SH.slab(sh, 0.003, 0.0008, 4);
+})();
+const plainPlate = SH.slab(SH.rrect(0.138, 0.138, 0.02), 0.003, 0.0008, 6);
+// bánh 66 mm: lốp có gai, mâm 6 nan, trục theo y
+const wheelGeo = (() => {
+  const r = TB.r, w = 0.018;
+  const tire = SH.lathe([[0.022, -w / 2], [r - 0.003, -w / 2], [r - 0.0005, -w / 2 + 0.002], [r, -w / 2 + 0.004], [r, w / 2 - 0.004], [r - 0.0005, w / 2 - 0.002], [r - 0.003, w / 2], [0.022, w / 2]], 48);
+  const tread = SH.ringOf(30, () => { const g = SH.rbox(0.0024, 0.003, w * 0.82, 0.0008); g.translate(0, r + 0.0006, 0); return g; });
+  return alongY(SH.merge([tire, tread]));
+})();
+const hubGeo = (() => { const parts = [SH.roundCyl(0.022, -0.0075, 0.0075, 0.0015, 0.0015, 36), SH.roundCyl(0.008, -0.0095, 0.0095, 0.0015, 0.0015, 20)]; return alongY(SH.merge(parts)); })();
+const servoGeo = SH.merge([SH.rbox(0.0285, 0.0465, 0.034, 0.0035), (() => { const g = SH.roundCyl(0.0095, 0, 0.0025, 0.0006, 0.001, 24); g.rotateX(-Math.PI / 2); g.translate(0, 0, 0.004); return g; })()]);
 function buildBurger(ghost) {
   const g = new THREE.Group();
-  const plate = ghost ? new THREE.MeshBasicMaterial({color: '#3c79a8', transparent: true, opacity: 0.22, depthWrite: false}) : MAT.glossy('#36393d');
+  const plate = ghost ? new THREE.MeshBasicMaterial({color: '#3c79a8', transparent: true, opacity: 0.22, depthWrite: false}) : MAT.pcb('#2b2e32');
   const m2 = (geo, mat) => { if (ghost) { const m = new THREE.Mesh(geo, plate); g.add(m); return m; } return mk(geo, mat || plate, g); };
-  const plateGeo = (() => { const s = new THREE.Shape(); const w = 0.069, r = 0.02; s.moveTo(-w + r, -w); s.lineTo(w - r, -w); s.quadraticCurveTo(w, -w, w, -w + r); s.lineTo(w, w - r); s.quadraticCurveTo(w, w, w - r, w); s.lineTo(-w + r, w); s.quadraticCurveTo(-w, w, -w, w - r); s.lineTo(-w, -w + r); s.quadraticCurveTo(-w, -w, -w + r, -w); return new THREE.ExtrudeGeometry(s, {depth: 0.003, bevelEnabled: false}); })();
-  for (const z of [0.012, 0.062, 0.105, 0.148]) { const p = m2(plateGeo, null); p.position.z = z; }
+  for (const z of [0.0135, 0.0635, 0.1065, 0.1495]) { const p = m2(ghost ? plainPlate : waffleGeo, null); p.position.z = z; }
   if (!ghost) {
-    for (const [x, y] of [[0.055, 0.055], [-0.055, 0.055], [0.055, -0.055], [-0.055, -0.055]]) { const s = mk(new THREE.CylinderGeometry(0.003, 0.003, 0.136, 8), MAT.steel(), g); s.rotation.x = Math.PI / 2; s.position.set(x, y, 0.08); }
-    for (const sd of [-1, 1]) { const sv = mk(new THREE.BoxGeometry(0.034, 0.0285, 0.0465), MAT.dark(), g); sv.position.set(0.0, sd * 0.045, 0.038); }
-    const opencr = mk(new THREE.BoxGeometry(0.105, 0.075, 0.006), MAT.plastic('#2c2f6b'), g); opencr.position.z = 0.072;
-    const rpi = mk(new THREE.BoxGeometry(0.085, 0.056, 0.012), MAT.plastic('#2f6b45'), g); rpi.position.z = 0.115;
-    const batt = mk(new THREE.BoxGeometry(0.087, 0.032, 0.026), MAT.plastic('#2b2b2b'), g); batt.position.set(0.0, 0, 0.03);
-    const lbl = mk(new THREE.BoxGeometry(0.05, 0.033, 0.012), MAT.accent(), g); lbl.position.set(0.0, 0, 0.03);
-    const caster = mk(new THREE.SphereGeometry(0.008, 16, 12), MAT.steel(), g); caster.position.set(-0.081, 0, 0.008);
+    const post = SH.lathe([[0, 0], [0.0032, 0], [0.0032, 0.003], [0.0026, 0.004], [0.0026, 0.044], [0.0032, 0.045], [0.0032, 0.048], [0, 0.048]], 6);
+    for (const z0 of [0.015, 0.065, 0.108]) for (const [x, y] of [[0.058, 0.058], [-0.058, 0.058], [0.058, -0.058], [-0.058, -0.058]]) { const s = mk(post, MAT.anod('#c8ccd0'), g); s.position.set(x, y, z0); s.scale.z = z0 > 0.1 ? 0.88 : z0 > 0.06 ? 0.86 : 1.02; }
+    for (const sd of [-1, 1]) { const sv = mk(servoGeo, MAT.satin('#1f2023'), g); sv.position.set(0.0, sd * 0.045, 0.039); sv.rotation.x = sd > 0 ? 0 : Math.PI; sv.rotation.z = 0; }
+    // OpenCR: mạch xanh tím than, chip STM32, cổng; Raspberry Pi 4: mạch xanh lá, SoC, cổng USB/Ethernet
+    const opencr = mk(SH.rbox(0.105, 0.075, 0.0016, 0.002), MAT.pcb('#25306b'), g); opencr.position.z = 0.0715;
+    mk(SH.rbox(0.014, 0.014, 0.0016, 0.0005), MAT.chip(), g).position.set(0.01, 0.005, 0.0735);
+    for (const [x, y, w, h, t] of [[-0.045, 0.02, 0.012, 0.014, 0.006], [-0.045, -0.015, 0.01, 0.008, 0.004], [0.03, -0.028, 0.03, 0.005, 0.006]]) mk(SH.rbox(w, h, t, 0.0008), x < 0 ? MAT.steel() : MAT.chip(), g).position.set(x, y, 0.0725 + t / 2);
+    const rpi = mk(SH.rbox(0.085, 0.056, 0.0016, 0.003), MAT.pcb('#2d6a46'), g); rpi.position.z = 0.1145;
+    mk(SH.rbox(0.015, 0.015, 0.0024, 0.0008), MAT.anod('#b8bcc0'), g).position.set(0.005, 0.004, 0.1165);
+    for (const [x, y] of [[-0.036, 0.016], [-0.036, -0.004]]) mk(SH.rbox(0.017, 0.013, 0.015, 0.001), MAT.steel(), g).position.set(x, y, 0.123);
+    mk(SH.rbox(0.021, 0.016, 0.013, 0.001), MAT.steel(), g).position.set(-0.036, -0.022, 0.122);
+    // pin LiPo 11,1 V 1800 mAh, nhãn cam
+    mk(SH.rbox(0.087, 0.032, 0.026, 0.004), MAT.satin('#2b2b2c'), g).position.set(0, 0, 0.03);
+    mk(SH.rbox(0.05, 0.0324, 0.0264, 0.002), MAT.accent(), g).position.set(0, 0, 0.03);
+    // bi đỡ: chụp nhựa và viên bi thép
+    mk(SH.lathe([[0, 0.006], [0.009, 0.006], [0.0095, 0.0105], [0.007, 0.0135], [0, 0.0135]], 24), MAT.satin('#2a2b2e'), g).position.set(-0.081, 0, 0);
+    const caster = mk(new THREE.SphereGeometry(0.0075, 20, 14), MAT.steel(), g); caster.position.set(-0.081, 0, 0.0075);
   }
   const wheels = [-1, 1].map((sd) => {
     const w = new THREE.Group(); w.position.set(0, sd * TB.L / 2, TB.r); g.add(w);
-    if (!ghost) {
-      const tire = mk(new THREE.CylinderGeometry(TB.r, TB.r, 0.018, 36), MAT.rubber(), w);
-      const hub = mk(new THREE.CylinderGeometry(0.02, 0.02, 0.019, 6), MAT.plastic('#cfd2d4'), w); hub.position.y = 0;
-      void tire;
-    }
+    if (!ghost) { mk(wheelGeo, MAT.tire(), w); mk(hubGeo, MAT.satin('#d4d6d8'), w); for (let k = 0; k < 6; k++) { const b = mk(SH.roundCyl(0.0018, 0.0075, 0.0095, 0, 0.0006, 8), MAT.steel(), w); b.rotation.x = -sd * Math.PI / 2; b.position.set(0.014 * Math.cos(k * 1.047), 0, 0.014 * Math.sin(k * 1.047)); } }
     return w;
   });
+  // LDS-02: đế đen, mâm quay có cửa sổ quang kính khói
   const lid = new THREE.Group(); lid.position.set(TB.lidar.x, 0, 0.152); g.add(lid);
-  const lbase = m2(new THREE.BoxGeometry(0.09, 0.07, 0.016), MAT.dark()); lbase.position.set(TB.lidar.x, 0, 0.159);
-  const turret = ghost ? null : mk(new THREE.CylinderGeometry(0.031, 0.031, 0.022, 32), MAT.plastic('#202224'), lid);
-  if (turret) { turret.rotation.x = Math.PI / 2; turret.position.z = 0.03; const win = mk(new THREE.BoxGeometry(0.012, 0.004, 0.01), MAT.accent(), turret); win.position.set(0.028, 0, 0); }
+  const lbase = m2(SH.rbox(0.096, 0.07, 0.016, 0.004), MAT.satin('#1d1e20')); lbase.position.set(TB.lidar.x, 0, 0.159);
+  if (!ghost) {
+    mk(SH.lathe([[0, 0.016], [0.033, 0.016], [0.0335, 0.019], [0.0335, 0.03], [0.031, 0.034], [0, 0.034]], 48), MAT.satin('#202224'), lid);
+    const win = mk(SH.lathe([[0.0337, 0.021], [0.0342, 0.0215], [0.0342, 0.0285], [0.0337, 0.029]], 48), MAT.glass('#30363b'), lid); void win;
+    mk(SH.rbox(0.008, 0.012, 0.007, 0.0015), MAT.accent(), lid).position.set(0.03, 0, 0.025);
+  }
   return {g, wheels, lid};
 }
 const bot = buildBurger(false), ghost = buildBurger(true);
@@ -224,7 +251,7 @@ const sim = {
   shadowAt() { return new THREE.Vector3(S.truth.x * 0.5, 0.1, -S.truth.y * 0.5); },
   draw() {
     const t = S.truth, o = S.odom;
-    bot.g.position.set(t.x, t.y, 0); bot.g.rotation.z = t.th; ghost.g.position.set(o.x, o.y, 0); ghost.g.rotation.z = o.th; ghost.g.visible = disp.ghost;
+    bot.g.position.set(t.x, t.y, 0); bot.g.rotation.z = t.th; ghost.g.position.set(o.x, o.y, 0); ghost.g.rotation.z = o.th; ghost.g.visible = disp.ghost && Math.hypot(o.x - t.x, o.y - t.y) + 0.05 * Math.abs(o.th - t.th) > 0.015; // trùng nhau thì ẩn bóng để thấy rõ robot
     bot.wheels[0].rotation.y = S.phiR; bot.wheels[1].rotation.y = S.phiL; bot.lid.rotation.z += 0.21;
     // tia LiDAR từ tư thế thật
     const lx = t.x + TB.lidar.x * Math.cos(t.th), ly = t.y + TB.lidar.x * Math.sin(t.th), pa = rayGeo.attributes.position.array, ha = hitGeo.attributes.position.array;
@@ -278,7 +305,7 @@ const sim = {
     const W = (x, y, z, b = t) => st.project(b.x + x * Math.cos(b.th) - y * Math.sin(b.th), z, -(b.y + x * Math.sin(b.th) + y * Math.cos(b.th)));
     const kk = disp.labels ? 1 : 0;
     ui.drawCallouts([
-      {key: 'lds', p: W(TB.lidar.x, 0, 0.19), dx: -100, dy: -70}, {key: 'wheel', p: W(0, -TB.L / 2 - 0.01, 0.04), dx: 80, dy: 50}, {key: 'rpi', p: W(0.04, 0.02, 0.122), dx: 90, dy: -60},
+      {key: 'lds', p: W(TB.lidar.x, 0, 0.19), dx: -110, dy: -30}, {key: 'wheel', p: W(0, -TB.L / 2 - 0.01, 0.04), dx: 80, dy: 50}, {key: 'rpi', p: W(0.04, 0.02, 0.122), dx: 90, dy: -60},
       {key: 'opencr', p: W(0.05, 0.03, 0.075), dx: 100, dy: -20}, {key: 'bat', p: W(0.04, 0.0, 0.03), dx: -110, dy: 40}, {key: 'ghost', p: disp.ghost && err > 0.05 ? W(0, 0, 0.16, o) : null, dx: -90, dy: -50},
     ], kk * (cur.v === 'close' || cur.v === 'follow' ? 1 : 0));
   },
@@ -290,7 +317,7 @@ const views = {
   hero: (tt) => (cur.v = 'hero', {tx: 0.0, ty: 0.0, tz: 0.1, az: 20 + 6 * Math.sin(tt * 0.1), el: 52, d: 8.2, sx: 0, sy: -30}),
   follow: () => (cur.v = 'follow', {...Tg(), az: (S.truth.th * D + 90) - 140, el: 32, d: 1.5, sx: 0, sy: -40}),
   top: () => (cur.v = 'top', {tx: 0, ty: 0, tz: 0.05, az: 0, el: 88, d: 8.4, sx: 0, sy: -30}),
-  close: () => (cur.v = 'close', {...Tg(), ty: 0.1, az: (S.truth.th * D + 90) - 120, el: 24, d: 0.75, sx: 0, sy: -40}),
+  close: () => (cur.v = 'close', {...Tg(), ty: 0.1, az: (S.truth.th * D + 90) + 60, el: 26, d: 0.7, sx: 0, sy: -40}),
 };
 
 // ---------------- bài giảng

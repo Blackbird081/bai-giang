@@ -2,6 +2,7 @@
 // (thân cứng 6 bậc tự do theo Förster 2015, PID xếp tầng theo crazyflie-firmware).
 import * as THREE from 'three';
 import {createStage, MAT} from '../kit/stage.js';
+import * as SH from '../kit/shapes.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
 import {createQuad, MOTORS, P, GAINS} from './quad.js';
@@ -15,29 +16,56 @@ const world = new THREE.Group(); world.rotation.x = -Math.PI / 2; st.scene.add(w
 const drone = new THREE.Group(); world.add(drone);
 const mk = (geo, mat, parent = drone) => { const m = new THREE.Mesh(geo, mat); m.castShadow = m.receiveShadow = true; parent.add(m); return m; };
 
-// ---------------- hình khối Crazyflie (92 mm giữa hai động cơ chéo, mạch in hình chữ thập)
-const pcb = MAT.glossy('#1f2124'), white = MAT.plastic('#f1efe9'), silver = MAT.steel(), propMat = MAT.plastic('#e9e6df');
+// ---------------- hình khối Crazyflie 2.1 (92 mm giữa hai động cơ chéo): khung là chính mạch in hình chữ X,
+// giá động cơ nhựa trắng kiêm chân đế, động cơ coreless 7 × 16 mm, cánh 47-17 có xoắn, pin dưới mạch, hàng chân cắm cho deck
+const pcb = MAT.pcb('#17181a'), white = MAT.shell('#f2f0ea'), silver = MAT.anod('#c9ccd0'), propMat = MAT.satin('#ebe8e1');
+propMat.side = THREE.DoubleSide;
 const H0 = 0.017; // độ cao mạch in so với đáy chân đế động cơ
-mk(new THREE.BoxGeometry(0.034, 0.034, 0.0016), pcb).position.z = H0;
-for (const m of MOTORS) {
-  const arm = mk(new THREE.BoxGeometry(Math.hypot(m.x, m.y) - 0.004, 0.007, 0.0016), pcb);
-  arm.position.set(m.x / 2, m.y / 2, H0); arm.rotation.z = Math.atan2(m.y, m.x);
+{
+  const parts = [SH.slab(SH.rrect(0.034, 0.034, 0.004), 0.0016, 0.0003, 6)];
+  for (const m of MOTORS) { const L = Math.hypot(m.x, m.y), g = SH.slab(SH.rrect(L, 0.0075, 0.0037, L / 2, 0), 0.0016, 0.0003, 6); g.rotateZ(Math.atan2(m.y, m.x)); parts.push(g); const pad = SH.slab(SH.rrect(0.011, 0.011, 0.0055), 0.0016, 0.0003, 8); pad.translate(m.x, m.y, 0); parts.push(pad); }
+  mk(SH.merge(parts), pcb).position.z = H0;
 }
+// linh kiện: vi điều khiển, chip radio, IMU, hàng chân cắm 2 × 10 cho deck, đèn LED ở đầu tay
+const comp = (w, h, t, x, y, mat) => { const m = mk(SH.rbox(w, h, t, Math.min(w, h, t) * 0.25), mat); m.position.set(x, y, H0 + 0.0008 + t / 2); return m; };
+comp(0.0075, 0.0075, 0.0011, 0.004, 0.002, MAT.chip()); comp(0.0055, 0.0055, 0.0009, -0.007, -0.006, MAT.chip()); comp(0.003, 0.003, 0.0009, 0.0, -0.007, MAT.chip());
+for (const sy of [-1, 1]) {
+  const hdr = SH.merge([SH.rbox(0.026, 0.0026, 0.0026, 0.0004), ...Array.from({length: 10}, (_, k) => { const g = new THREE.BoxGeometry(0.0006, 0.0006, 0.0034); g.translate(-0.0117 + k * 0.0026, 0, 0.0018); return g; })]);
+  const hm = mk(hdr, MAT.chip()); hm.position.set(0, sy * 0.0135, H0 + 0.0021);
+  const pins = mk(new THREE.BoxGeometry(0.0235, 0.0006, 0.0006), MAT.gold()); pins.position.set(0, sy * 0.0135, H0 + 0.0052);
+}
+MOTORS.forEach((m, k) => { const led = new THREE.Mesh(SH.rbox(0.002, 0.0014, 0.0008, 0.0003), new THREE.MeshBasicMaterial({color: k === 0 || k === 3 ? (k === 0 ? '#ff4b3a' : '#5fe08a') : '#5aa7ff'})); led.position.set(m.x * 0.72, m.y * 0.72, H0 + 0.0012); drone.add(led); });
+// cánh quạt 47 mm: biên dạng dây cung thay đổi theo bán kính, xoắn giảm dần ra đầu cánh
+const bladeGeo = (() => {
+  const R = 0.0235, r0 = 0.0028, n = 14, up = [], lo = [];
+  for (let i = 0; i <= n; i++) { const x = r0 + ((R - r0) * i) / n, t = (x - r0) / (R - r0), c = 0.0026 + 0.0046 * Math.sin(Math.PI * Math.min(1, t * 0.9 + 0.12)) ** 0.7 * (1 - 0.55 * t * t); up.push([x, c * 0.42]); lo.push([x, -c * 0.58]); }
+  const sh = new THREE.Shape(); sh.moveTo(r0, lo[0][1]); for (const [x, y] of lo) sh.lineTo(x, y);
+  sh.quadraticCurveTo(R + 0.0012, 0, up[n][0], up[n][1]); for (let i = n; i >= 0; i--) sh.lineTo(up[i][0], up[i][1]);
+  const g = SH.slab(sh, 0.0006, 0.00015, 6), P = g.attributes.position;
+  for (let i = 0; i < P.count; i++) { const x = P.getX(i), y = P.getY(i), z = P.getZ(i), a = 0.42 - 0.26 * Math.min(1, (x - r0) / (R - r0)); P.setXY(i, x, y * Math.cos(a) - z * Math.sin(a)); P.setZ(i, y * Math.sin(a) + z * Math.cos(a) + 0.0006 * Math.sin(Math.PI * (x / R))); }
+  g.computeVertexNormals();
+  const b2 = g.clone(); b2.rotateZ(Math.PI);
+  return SH.merge([g, b2, SH.roundCyl(0.0028, -0.0012, 0.0016, 0.0004, 0.0009, 24)]);
+})();
+const bladeGeoM = bladeGeo.clone(); bladeGeoM.scale(1, -1, 1); // cánh quay ngược chiều là ảnh gương
+const mountGeo = SH.merge([SH.lathe([[0, 0], [0.0042, 0], [0.0047, 0.001], [0.0047, 0.0115], [0.0057, 0.0125], [0.0057, 0.0162], [0.0049, 0.017], [0, 0.017]], 32),
+  ...[0, 1].map((k) => { const g = SH.rbox(0.0024, 0.0072, 0.0034, 0.0007); g.translate(0, 0, H0 - 0.0008); g.rotateZ(k * Math.PI); return g; })]);
+const canGeo = SH.merge([SH.lathe([[0, 0.0165], [0.0035, 0.0165], [0.0036, 0.0175], [0.0036, 0.0245], [0.0031, 0.0256], [0.0009, 0.0258], [0.0007, 0.0268], [0, 0.0268]], 32)]);
 const motorG = MOTORS.map((m) => {
   const g = new THREE.Group(); g.position.set(m.x, m.y, 0); drone.add(g);
-  const mount = mk(new THREE.CylinderGeometry(0.0048, 0.0052, 0.016, 20), white, g); mount.rotation.x = Math.PI / 2; mount.position.z = 0.008;
-  const can = mk(new THREE.CylinderGeometry(0.0035, 0.0035, 0.009, 20), silver, g); can.rotation.x = Math.PI / 2; can.position.z = 0.0205;
-  const prop = new THREE.Group(); prop.position.z = 0.026; g.add(prop);
-  for (const s of [0, Math.PI]) { const b = mk(new THREE.BoxGeometry(0.0225, 0.0052, 0.0007), propMat, prop); b.position.x = 0.0115 * Math.cos(s); b.position.y = 0.0115 * Math.sin(s); b.rotation.z = s; b.rotation.x = 0.18; }
-  const hub = mk(new THREE.CylinderGeometry(0.0022, 0.0022, 0.003, 12), white, prop); hub.rotation.x = Math.PI / 2;
+  mk(mountGeo, white, g).rotation.z = Math.atan2(m.y, m.x);
+  mk(canGeo, silver, g);
+  const prop = new THREE.Group(); prop.position.z = 0.0262; g.add(prop);
+  mk(m.s > 0 ? bladeGeo : bladeGeoM, propMat, prop);
   const disc = new THREE.Mesh(new THREE.CircleGeometry(0.0235, 40), new THREE.MeshBasicMaterial({color: '#f4efe6', transparent: true, opacity: 0, depthWrite: false, side: THREE.DoubleSide})); disc.position.z = 0.0265; g.add(disc);
   const arrow = new THREE.Mesh(new THREE.CylinderGeometry(0.0016, 0.0016, 1, 10), new THREE.MeshBasicMaterial({color: '#e3562a'})); arrow.rotation.x = Math.PI / 2; g.add(arrow);
   const tip = new THREE.Mesh(new THREE.ConeGeometry(0.004, 0.009, 14), new THREE.MeshBasicMaterial({color: '#e3562a'})); tip.rotation.x = Math.PI / 2; g.add(tip);
   return {g, prop, disc, arrow, tip, ang: 0};
 });
-mk(new THREE.BoxGeometry(0.03, 0.02, 0.0072), MAT.plastic('#9aa3ab')).position.z = H0 - 0.0045; // pin 250 mAh dưới mạch
-mk(new THREE.BoxGeometry(0.009, 0.009, 0.0012), MAT.plastic('#0d0e10')).position.set(0.004, 0, H0 + 0.0014); // vi điều khiển
-const deck = mk(new THREE.BoxGeometry(0.014, 0.004, 0.0016), MAT.accent()); deck.position.set(-0.011, 0, H0 + 0.0012);
+// pin LiPo 250 mAh dưới mạch: vỏ bạc có nhãn
+mk(SH.rbox(0.03, 0.02, 0.0072, 0.0018), MAT.anod('#a9aeb4')).position.z = H0 - 0.0045;
+mk(SH.rbox(0.018, 0.0204, 0.0074, 0.0012), MAT.satin('#2e3134')).position.set(-0.002, 0, H0 - 0.0045);
+const deck = mk(SH.rbox(0.014, 0.004, 0.0016, 0.0005), MAT.accent()); deck.position.set(-0.011, 0, H0 + 0.0012);
 const axes = new THREE.Group(); drone.add(axes); axes.position.z = H0;
 [['#e3562a', [1, 0, 0]], ['#2fa36b', [0, 1, 0]], ['#3c79a8', [0, 0, 1]]].forEach(([c, d]) => {
   const m = new THREE.Mesh(new THREE.CylinderGeometry(0.0009, 0.0009, 0.07, 8), new THREE.MeshBasicMaterial({color: c}));
@@ -135,7 +163,7 @@ const sim = {
     xrayD(disp.xray ? 1 : 0);
     // bảng 01
     S.pwm.forEach((c, i) => mb[i].set(c / 65535, `${Math.round(c).toLocaleString('en').replace(/,/g, ' ')} · ${fx((S.f[i] / P.g) * 1000, 1)} g`));
-    thrTxt.innerHTML = `Tổng lực đẩy <b>${fx((ftot / P.g) * 1000, 1)} g</b> · trọng lượng ${fx(P.m * 1000, 1)} g · T/W = ${fx(ftot / W, 2)}`;
+    thrTxt.innerHTML = `Lực đẩy <b>${fx((ftot / P.g) * 1000, 1)} g</b> · nặng ${fx(P.m * 1000, 1)} g · T/W ${fx(ftot / W, 2)}`;
     // bảng 02: sơ đồ xếp tầng, vòng đang chạy tô cam
     const on = (m) => (m ? C.or : C.faint), modePos = S.mode === 'pos' || S.mode === 'land';
     const box = (x, y, w, t1, t2, act) => `<rect x="${x}" y="${y}" width="${w}" height="34" rx="3" fill="${act ? '#fff4ee' : '#fbf6ee'}" stroke="${on(act)}"/><text x="${x + 6}" y="${y + 14}" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="${C.ink}">${t1}</text><text x="${x + 6}" y="${y + 27}" font-family="JetBrains Mono" font-size="8" fill="${C.mute}">${t2}</text>`;
