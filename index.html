@@ -115,13 +115,17 @@ a.tile:hover{box-shadow:var(--bg-sh-2)}
 .count{margin-left:auto;font-size:var(--bg-fs-xs);color:var(--bg-ink3)}
 .empty{grid-column:1/-1;padding:48px;text-align:center;color:var(--bg-ink3)}
 /* chân trang */
-.foot{margin-top:24px;padding:32px 0 48px;border-top:1px solid var(--bg-hair);color:var(--bg-ink3);font-size:var(--bg-fs-xs)}
-.foot .fl{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--bg-ink2);margin-bottom:12px}
-.foot .fl b{color:var(--bg-ink)}
-.foot p{margin:0 0 8px;max-width:96ch}
-.foot a{text-decoration:underline;text-underline-offset:2px}
-.foot details summary{cursor:pointer;font-weight:600;color:var(--bg-ink2);min-height:44px;display:flex;align-items:center;width:max-content}
-.foot ul{margin:4px 0 0;padding-left:18px;display:grid;gap:6px}
+.foot{margin-top:40px;padding:28px 0 56px;border-top:1px solid var(--bg-hair);color:var(--bg-ink3);font-size:13px;line-height:1.7}
+.foot .fl{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;margin-bottom:10px}
+.foot .fl b{color:var(--bg-ink2);font-weight:600}
+.foot p{margin:0 0 6px;max-width:82ch}
+.foot a{color:inherit;text-decoration:underline;text-decoration-color:var(--bg-hair2);text-underline-offset:3px}
+.foot a:hover{color:var(--bg-ink);text-decoration-color:currentColor}
+.foot details summary{cursor:pointer;list-style:none;color:var(--bg-ink3);min-height:44px;display:inline-flex;align-items:center}
+.foot details summary::-webkit-details-marker{display:none}
+.foot details summary::after{content:"";width:6px;height:6px;margin-left:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.foot details[open] summary::after{transform:rotate(225deg)}
+.foot ul{margin:0;padding-left:16px;display:grid;gap:2px;max-width:96ch}
 @media (max-width:980px){.hero{grid-template-columns:1fr;gap:28px;padding:32px 0 24px}.teach{grid-template-columns:1fr}}
 @media (max-width:640px){
   .wrap{padding:0 16px}
@@ -235,14 +239,15 @@ html[data-chieu]{--bg-ink2:#141414;--bg-ink3:#262626}
   </section>
 
   <footer class="foot">
-    <div class="fl"><b>Bài Giảng</b><span>Mã nguồn MIT · <a href="https://github.com/nclamvn/bai-giang" target="_blank" rel="noopener">GitHub</a> · <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">Góp ý</a></span></div>
-    <p>54 bài thí nghiệm là bản tiếng Việt của <a href="https://lab.tongjiang.app" target="_blank" rel="noopener">Tongjiang Lab</a> © 2026 铜匠十点睡觉, theo giấy phép <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.vi" target="_blank" rel="noopener">CC BY-NC 4.0</a>, được tác giả đồng ý cho dùng phi thương mại. Bài học được viết mới từ nguồn khoa học công khai, không chép sách giáo khoa.</p>
+    <div class="fl"><span><b>Bài Giảng</b> · © 2026 Nguyễn Cảnh Lâm</span><span><a href="https://github.com/nclamvn/bai-giang" target="_blank" rel="noopener">Mã nguồn</a> · <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">Góp ý</a></span></div>
+    <p>Bài học, mô phỏng, vỏ lên lớp, hệ thiết kế và lộ trình GDPT 2018 do Bài Giảng phát triển, viết mới từ nguồn khoa học công khai. Dùng tự do cho trường học, phi thương mại.</p>
+    <p>Thư viện thí nghiệm phát triển tiếp từ <a href="https://lab.tongjiang.app" target="_blank" rel="noopener">Tongjiang Lab</a> (<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.vi" target="_blank" rel="noopener">CC BY-NC 4.0</a>, tác giả đồng ý): Việt hoá, đối chiếu chương trình, làm lại giao diện. Robotics tham khảo teardown và claude-motion; dựng bằng three.js (MIT).</p>
     <details>
       <summary>Nguồn và ghi chú</summary>
       <ul>
-        <li>Mã nguồn gốc của thư viện: <a href="https://github.com/smithjohn78390/tongjiang-lab" target="_blank" rel="noopener">smithjohn78390/tongjiang-lab</a>. Bài gốc được thiết kế theo sách Nhân Giáo 2019 (Trung Quốc); đối chiếu với chương trình Việt Nam do Bài Giảng làm.</li>
+        <li>Mã nguồn gốc của thư viện: <a href="https://github.com/smithjohn78390/tongjiang-lab" target="_blank" rel="noopener">smithjohn78390/tongjiang-lab</a>, thiết kế theo sách Nhân Giáo 2019 (Trung Quốc).</li>
         <li>Đối chiếu GDPT 2018 (<a href="thu-vien/gdpt2018.json">dữ liệu</a>), cập nhật 30/10/2026, đã soát Thông tư 13/2022 và 17/2025. Văn bản chương trình: <a href="https://se.ctu.edu.vn/images/upload/bmsh/CTTT_2018" target="_blank" rel="noopener" title="Chương trình giáo dục phổ thông môn Sinh học (ban hành kèm theo Thông tư số 32/2018/TT-BGDĐT ngày 26/12/2018 của Bộ trưởng Bộ GD&amp;ĐT), bản PDF 65 trang của Bộ, bản sao lưu tại Trường Đại học Sư phạm – Đại học Cần Thơ (đã đọc toàn văn; trích nguyên văn từ đây)">Sinh học</a> · <a href="https://thcsandong.haiphong.edu.vn/van-ban-nganh/chuong-trinh-giao-duc-pho-thong-mon-vat-li-ban-hanh-kem-theo-thong-tu-so-322018/ctmb/20405/91189" target="_blank" rel="noopener" title="Chương trình giáo dục phổ thông môn Vật lí (ban hành kèm Thông tư 32/2018/TT-BGDĐT), bản PDF của Bộ GD&amp;ĐT ngày 27/12/2018, đăng lại trên trang Trường THCS An Đồng, Hải Phòng">Vật lí</a> <a href="https://thcsandong.haiphong.edu.vn/van-ban-nganh/chuong-trinh-giao-duc-pho-thong-mon-khoa-hoc-tu-nhien-ban-hanh-kem-theo-thong-t/ctmb/20405/91188" target="_blank" rel="noopener" title="Chương trình giáo dục phổ thông môn Khoa học tự nhiên (ban hành kèm Thông tư 32/2018/TT-BGDĐT), bản PDF của Bộ GD&amp;ĐT ngày 27/12/2018, đăng lại trên trang Trường THCS An Đồng, Hải Phòng">2</a> · <a href="https://cdn.thuvienphapluat.vn//uploads/tintuc/2025/04/09/chuong-trinh-giao-duc-pho-thong-hoa-hoc.doc" target="_blank" rel="noopener" title="Chương trình giáo dục phổ thông môn Hoá học (ban hành kèm Thông tư 32/2018/TT-BGDĐT) – bản toàn văn .doc do Thư viện Pháp luật đăng">Hoá học</a> <a href="https://hoatieu.vn/tai-lieu/chuong-trinh-giao-duc-pho-thong-mon-hoa-hoc-1395" target="_blank" rel="noopener" title="Bản đối chiếu: Chương trình GDPT môn Hoá học trên HoaTieu.vn">2</a> · <a href="https://cdn.thuvienphapluat.vn//uploads/Hoidapphapluat/2024/TTTT/241017/GDPT/9.CT_%C4%90ia%20li.doc" target="_blank" rel="noopener" title="Chương trình giáo dục phổ thông môn Địa lí (ban hành kèm Thông tư 32/2018/TT-BGDĐT), bản .doc của Bộ GD&amp;ĐT lưu trên Thư viện Pháp luật">Địa lí</a> <a href="https://quantri.quangich.com///data/thcsthanhxuan/thcsthanhxuan/attachments/2020_3/7_ctlich_su_va_dia_li_thcs_53202020.pdf" target="_blank" rel="noopener" title="Chương trình giáo dục phổ thông môn Lịch sử và Địa lí cấp THCS (ban hành kèm Thông tư 32/2018/TT-BGDĐT), bản PDF ngày 27/12/2018 do trường THCS Thanh Xuân đăng">2</a>.</li>
-        <li>Bản dịch và bảng đối chiếu chưa qua giáo viên bộ môn duyệt. three.js theo giấy phép MIT. Phông Be Vietnam Pro, Noto Serif, JetBrains Mono theo giấy phép SIL OFL.</li>
+        <li>Bản dịch và bảng đối chiếu chưa qua giáo viên bộ môn duyệt. Phông Be Vietnam Pro, Noto Serif, JetBrains Mono theo giấy phép SIL OFL.</li>
       </ul>
     </details>
   </footer>

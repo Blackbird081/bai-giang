@@ -80,7 +80,7 @@
     if (pb && !pb.querySelector('.bg-credit')) {
       const c = document.createElement('div'); c.className = 'bg-credit';
       c.innerHTML = (noteTxt ? `<p>${noteTxt.replace(/[&<>]/g, (x) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;'})[x])}</p>` : '') +
-        '<p>Bài gốc: <a href="https://lab.tongjiang.app/" target="_blank" rel="noopener">Tongjiang Lab</a> · giấy phép CC BY-NC 4.0 · bản Việt hoá phi thương mại của Bài Giảng.</p>';
+        '<p>Phát triển tiếp từ bài gốc của <a href="https://lab.tongjiang.app/" target="_blank" rel="noopener">Tongjiang Lab</a> (CC BY-NC 4.0): Việt hoá, đối chiếu chương trình, giao diện Bài Giảng. Dùng phi thương mại.</p>';
       pb.appendChild(c);
     }
     window.BGShell.mount({
@@ -91,7 +91,7 @@
         { label: 'Bước này', icon: 'list', sel: 'aside#left', side: 'left', desktop: true, open: () => innerWidth >= 1100 },
         { label: 'Điều khiển', icon: 'sliders', sel: 'aside#right', side: 'right', desktop: true, open: () => innerWidth >= 1600 },
       ],
-      credit: 'Bài gốc của Tongjiang Lab (lab.tongjiang.app), giấy phép CC BY-NC 4.0; Bài Giảng Việt hoá và dùng phi thương mại.' + (noteTxt ? ' ' + noteTxt : ''),
+      credit: 'Phát triển tiếp từ bài gốc của Tongjiang Lab (lab.tongjiang.app, CC BY-NC 4.0): Bài Giảng Việt hoá, đối chiếu chương trình GDPT 2018 và làm lại giao diện. Dùng phi thương mại.' + (noteTxt ? ' ' + noteTxt : ''),
       keys: [['1–9', 'nhảy tới bước'], ['Q', 'kiểm tra'], ['← →', 'bước trước, bước sau']],
       go: (i) => {
         const cs = document.querySelectorAll('nav#steps .chip'); const c = cs[i]; if (!c) return;
