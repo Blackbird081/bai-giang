@@ -44,6 +44,7 @@ PROBE = r"""(args) => {
   const dev = /\b(\d+\s*fps|p95|p99)\b|lệnh vẽ|\bWebGL\b|\bWebGPU\b/i;
   const seen = new Set();
   for (const [e, s] of texts) {
+    if (e.closest('footer.foot')) continue; // chân trang chủ ý nhỏ, nhạt (12 px)
     if (dev.test(s) && !e.closest('.bgs-debug')) out.dev.push(s.slice(0, 60));
     const k = e.offsetWidth ? e.getBoundingClientRect().width / e.offsetWidth : 1; // bài thu phóng cả khung bằng transform
     const fs = parseFloat(getComputedStyle(e).fontSize) * (k > 0.2 && k < 5 && Math.abs(k - 1) > 0.05 ? k : 1); const lim = 13; // điện thoại: mục tiêu 14 px cho trang mục, 13 px là sàn cho mọi trang

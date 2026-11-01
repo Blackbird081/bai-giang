@@ -115,17 +115,15 @@ a.tile:hover{box-shadow:var(--bg-sh-2)}
 .count{margin-left:auto;font-size:var(--bg-fs-xs);color:var(--bg-ink3)}
 .empty{grid-column:1/-1;padding:48px;text-align:center;color:var(--bg-ink3)}
 /* chân trang */
-.foot{margin-top:40px;padding:28px 0 56px;border-top:1px solid var(--bg-hair);color:var(--bg-ink3);font-size:13px;line-height:1.7}
-.foot .fl{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;margin-bottom:10px}
-.foot .fl b{color:var(--bg-ink2);font-weight:600}
-.foot p{margin:0 0 6px;max-width:82ch}
-.foot a{color:inherit;text-decoration:underline;text-decoration-color:var(--bg-hair2);text-underline-offset:3px}
-.foot a:hover{color:var(--bg-ink);text-decoration-color:currentColor}
-.foot details summary{cursor:pointer;list-style:none;color:var(--bg-ink3);min-height:44px;display:inline-flex;align-items:center}
+.foot{margin-top:32px;padding:20px 0 36px;border-top:1px solid var(--bg-hair);color:var(--bg-ink3);font-size:12px;line-height:1.6;letter-spacing:.01em}
+.foot .fl{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;margin-bottom:4px}
+.foot a{color:inherit;text-decoration:none;border-bottom:1px solid var(--bg-hair2);white-space:nowrap}
+.foot a:hover{color:var(--bg-ink2);border-color:currentColor}
+.foot details summary{cursor:pointer;list-style:none;display:inline}
 .foot details summary::-webkit-details-marker{display:none}
-.foot details summary::after{content:"";width:6px;height:6px;margin-left:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px)}
-.foot details[open] summary::after{transform:rotate(225deg)}
-.foot ul{margin:0;padding-left:16px;display:grid;gap:2px;max-width:96ch}
+.foot details summary::after{content:"";display:inline-block;width:5px;height:5px;margin:0 0 2px 7px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg)}
+.foot details[open] summary::after{transform:rotate(225deg);margin-bottom:-1px}
+.foot ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:2px;max-width:100ch}
 @media (max-width:980px){.hero{grid-template-columns:1fr;gap:28px;padding:32px 0 24px}.teach{grid-template-columns:1fr}}
 @media (max-width:640px){
   .wrap{padding:0 16px}
@@ -219,15 +217,12 @@ html[data-chieu]{--bg-ink2:#141414;--bg-ink3:#262626}
   </section>
 
   <footer class="foot">
-    <div class="fl"><span><b>Bài Giảng</b> · © 2026 Nguyễn Cảnh Lâm</span><span><a href="https://github.com/nclamvn/bai-giang" target="_blank" rel="noopener">Mã nguồn</a> · <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">Góp ý</a></span></div>
-    <p>Bài học, mô phỏng, vỏ lên lớp, hệ thiết kế và lộ trình GDPT 2018 do Bài Giảng phát triển, viết mới từ nguồn khoa học công khai. Dùng tự do cho trường học, phi thương mại.</p>
-    <p>Thư viện thí nghiệm phát triển tiếp từ <a href="https://lab.tongjiang.app" target="_blank" rel="noopener">Tongjiang Lab</a> (<a href="https://creativecommons.org/licenses/by-nc/4.0/deed.vi" target="_blank" rel="noopener">CC BY-NC 4.0</a>, tác giả đồng ý): Việt hoá, đối chiếu chương trình, làm lại giao diện. Robotics tham khảo teardown và claude-motion; dựng bằng three.js (MIT).</p>
+    <div class="fl"><span>© 2026 Sáng Ăn Khoai · Bài Giảng</span><span><a href="https://github.com/nclamvn/bai-giang" target="_blank" rel="noopener">Mã nguồn</a> · <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">Góp ý</a></span></div>
     <details>
-      <summary>Nguồn và ghi chú</summary>
+      <summary>Thư viện thí nghiệm phát triển từ <a href="https://lab.tongjiang.app" target="_blank" rel="noopener">Tongjiang Lab</a>, <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.vi" target="_blank" rel="noopener">CC BY-NC 4.0</a>. Phi thương mại.</summary>
       <ul>
-        <li>Mã nguồn gốc của thư viện: <a href="https://github.com/smithjohn78390/tongjiang-lab" target="_blank" rel="noopener">smithjohn78390/tongjiang-lab</a>, thiết kế theo sách Nhân Giáo 2019 (Trung Quốc).</li>
-        <li>Đối chiếu GDPT 2018 (<a href="__L_GDPT__">dữ liệu</a>), cập nhật 30/10/2026, đã soát Thông tư 13/2022 và 17/2025. __SOURCES__</li>
-        <li>Bản dịch và bảng đối chiếu chưa qua giáo viên bộ môn duyệt. Phông Be Vietnam Pro, Noto Serif, JetBrains Mono theo giấy phép SIL OFL.</li>
+        <li>Mã gốc: <a href="https://github.com/smithjohn78390/tongjiang-lab" target="_blank" rel="noopener">tongjiang-lab</a>. Robotics tham khảo teardown, claude-motion; three.js (MIT); phông SIL OFL.</li>
+        <li>Đối chiếu GDPT 2018 (<a href="__L_GDPT__">dữ liệu</a>), cập nhật 30/10/2026; chưa qua giáo viên bộ môn duyệt. __SOURCES__</li>
       </ul>
     </details>
   </footer>
