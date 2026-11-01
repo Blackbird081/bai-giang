@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Kiểm trợ năng bằng axe-core (WCAG 2 A, AA) cho các trang của Bài Giảng (kế hoạch nâng cấp UI, việc 4.5).
+"""Kiểm trợ năng bằng axe-core (WCAG 2 A, AA) cho các trang của Sáng Ăn Khoai (kế hoạch nâng cấp UI, việc 4.5).
 
 Cần axe.min.js của axe-core (npm pack axe-core, giải nén) và máy chủ tĩnh ở gốc repo (python3 -m http.server 8777).
 Dùng: python3 tests/a11y_audit.py <đường dẫn axe.min.js> [trang…]   (mặc định: trang mục và vài bài mẫu)

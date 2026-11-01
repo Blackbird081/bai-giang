@@ -1,6 +1,6 @@
 # Hệ thiết kế và vỏ bài học chung (bản 14)
 
-Mọi trang của Bài Giảng dùng một bộ token, một bộ phông, một bộ biểu tượng và một vỏ bài học (`shell/bg-shell.js` v2). Giáo viên học cách dùng một bài là dùng được mọi bài; học sinh đi từ bài này sang bài khác mà không thấy như rời khỏi trang.
+Mọi trang của Sáng Ăn Khoai dùng một bộ token, một bộ phông, một bộ biểu tượng và một vỏ bài học (`shell/bg-shell.js` v2). Giáo viên học cách dùng một bài là dùng được mọi bài; học sinh đi từ bài này sang bài khác mà không thấy như rời khỏi trang.
 
 ## Nguồn duy nhất
 

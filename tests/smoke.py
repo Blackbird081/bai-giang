@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Kiểm nhanh (CI): mỗi trang mở được, không có lỗi JS, bài học gắn được vỏ Bài Giảng, không còn link riêng tư.
+"""Kiểm nhanh (CI): mỗi trang mở được, không có lỗi JS, bài học gắn được vỏ Sáng Ăn Khoai, không còn link riêng tư.
 
 Cần máy chủ tĩnh ở gốc repo:  python3 -m http.server 8777
 Dùng:  python3 tests/smoke.py [cổng]

@@ -28,7 +28,7 @@ const inline = (cssFile) => {
 };
 const FONTS = [400, 600, 700].map((w) => inline(path.join(NM, `@fontsource/jetbrains-mono/${w}.css`))).join('\n') + '\n' + inline(path.join(NM, '@fontsource-variable/inter/wght.css'));
 
-// vỏ Bài Giảng v2 nhúng sau khi đóng gói bằng tools/inject_shell.py (token, phông, màn tải, thứ tự bài)
+// vỏ Sáng Ăn Khoai v2 nhúng sau khi đóng gói bằng tools/inject_shell.py (token, phông, màn tải, thứ tự bài)
 const names = args.length ? args : fs.readdirSync(HERE).filter((d) => fs.existsSync(path.join(HERE, d, 'main.js')));
 for (const name of names) {
   const dir = path.join(HERE, name), t0 = Date.now();

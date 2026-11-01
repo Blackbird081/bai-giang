@@ -1,7 +1,7 @@
 {
   "name": "bai-giang-robotics",
   "private": true,
-  "description": "Mô phỏng robot 3D cho Bài Giảng, dựng trên bộ khung teardown (MIT).",
+  "description": "Mô phỏng robot 3D cho Sáng Ăn Khoai, dựng trên bộ khung teardown (MIT).",
   "license": "MIT",
   "type": "module",
   "scripts": {"build": "node build.mjs"},

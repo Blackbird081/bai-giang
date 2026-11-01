@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Kiểm giao diện tự động cho cả site Bài Giảng (kế hoạch nâng cấp UI, phần "Bộ kiểm thử").
+"""Kiểm giao diện tự động cho cả site Sáng Ăn Khoai (kế hoạch nâng cấp UI, phần "Bộ kiểm thử").
 
 Mỗi trang chạy ở 5 cỡ màn, đo những thứ đo được bằng máy:
   dev     chuỗi số đo kỹ thuật lộ ra màn học sinh (fps, p95, lệnh vẽ, WebGL, WebGPU)
   font    cỡ chữ nhỏ nhất của chữ đang hiện (ngưỡng 13 px máy tính, 14 px điện thoại; nhãn trong cảnh 3D tính riêng)
   tap     vùng bấm nhỏ hơn 44 × 44 px trên màn cảm ứng
-  home    có đường về trang chính Bài Giảng
+  home    có đường về trang chính Sáng Ăn Khoai
   next    có thẻ "Bài tiếp theo" (chỉ với bài học)
   stage   tỉ lệ diện tích cảnh 3D không bị phần tử nổi che (lấy mẫu lưới 48 × 30 điểm)
   credit  bài thư viện có dòng ghi công Tongjiang Lab

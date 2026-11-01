@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Đưa 54 bài thư viện (bản Việt hoá của Tongjiang Lab, CC BY-NC 4.0) về giao diện nhà Bài Giảng (kế hoạch nâng cấp UI, Đợt 3).
+"""Đưa 54 bài thư viện (bản Việt hoá của Tongjiang Lab, CC BY-NC 4.0) về giao diện nhà Sáng Ăn Khoai (kế hoạch nâng cấp UI, Đợt 3).
 
 Không sửa mã mô phỏng gốc. Chỉ:
   1. chèn lớp CSS <style id="bg-house"> trước </head>: token, phông, màu nhấn theo môn, bỏ ba hàng thanh trên của bản gốc
@@ -14,7 +14,7 @@ sys.path.insert(0, str(ROOT / 'tools'))
 import inject_shell, minfont  # noqa: E402
 
 HOUSE = r"""<style id="bg-house">
-/* Giao diện nhà Bài Giảng cho bài thư viện. Sinh bởi tools/house_thu_vien.py; không sửa tay. */
+/* Giao diện nhà Sáng Ăn Khoai cho bài thư viện. Sinh bởi tools/house_thu_vien.py; không sửa tay. */
 html:root,html:root[data-theme]{--font:var(--bg-font)!important;--sci:var(--bg-accent,#2F6BFF);--sci-d:color-mix(in srgb,var(--bg-accent,#2F6BFF) 78%,#000);--sci-30:color-mix(in srgb,var(--bg-accent,#2F6BFF) 30%,transparent);--sci-28:color-mix(in srgb,var(--bg-accent,#2F6BFF) 28%,transparent);--sci-26:color-mix(in srgb,var(--bg-accent,#2F6BFF) 26%,transparent);--sci-22:color-mix(in srgb,var(--bg-accent,#2F6BFF) 22%,transparent);--sci-12:color-mix(in srgb,var(--bg-accent,#2F6BFF) 12%,transparent);--sci-8:color-mix(in srgb,var(--bg-accent,#2F6BFF) 8%,transparent);--sci-4:color-mix(in srgb,var(--bg-accent,#2F6BFF) 4%,transparent);--sci-0:color-mix(in srgb,var(--bg-accent,#2F6BFF) 0%,transparent);--num:var(--bg-font);--fs-xs:13px;--fs-b:14px;--fs-t:14px;--lg-font:var(--bg-font);
   --grad:linear-gradient(100deg,var(--bg-accent,#2F6BFF) 0%,color-mix(in srgb,var(--bg-accent,#2F6BFF) 72%,#000) 100%);--grad-soft:color-mix(in srgb,var(--bg-accent,#2F6BFF) 10%,transparent);
   --ink:var(--bg-ink,#15171C);--ink2:var(--bg-ink2,#454A55);--ink3:var(--bg-ink3,#626773);--glass:rgba(255,255,255,.9);--glass-2:rgba(255,255,255,.88);--glass-bar:rgba(255,255,255,.9);--glass-blur:blur(20px) saturate(170%)}

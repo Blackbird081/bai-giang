@@ -1,10 +1,12 @@
-# Bài Giảng
+<img src="design/logo/sang-an-khoai.png" alt="" width="96" align="right">
+
+# Sáng Ăn Khoai
 
 Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài: hai hành trình 3D phóng tới nguyên tử của phân tử thật, Thành Cổ Loa dựng theo số đo khảo cổ, bốn mô phỏng robotics cho đại học và kỹ sư, lộ trình theo chương trình GDPT 2018 và thư viện 54 bài thí nghiệm. three.js r180, WebGPU với dự phòng WebGL 2, mỗi trang là một tệp HTML tự chứa.
 
 | Trang | Địa chỉ |
 |---|---|
-| Trang chính Bài Giảng | https://nclamvn.github.io/bai-giang/ |
+| Trang chính Sáng Ăn Khoai | https://nclamvn.github.io/bai-giang/ |
 | Hành Trình Vào Tế Bào (ribosome PDB 3J7R) | https://nclamvn.github.io/bai-giang/te-bao/ |
 | Ribosome trên bàn (AR, mở trên điện thoại) | https://nclamvn.github.io/bai-giang/te-bao/ar.html |
 | Vào Ty Thể (ATP synthase PDB 6J5I) | https://nclamvn.github.io/bai-giang/ty-the/ |
@@ -85,7 +87,7 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 ## Cấu trúc
 | Đường dẫn | Nội dung |
 |---|---|
-| `index.html` | Trang chính Bài Giảng (dựng bằng `tools/build_pages.py` từ `tools/bai-giang.template.html`) |
+| `index.html` | Trang chính Sáng Ăn Khoai (dựng bằng `tools/build_pages.py` từ `tools/bai-giang.template.html`) |
 | `te-bao/index.html`, `te-bao/ribosome.b64.txt` | Hành Trình Vào Tế Bào (ghép từ `src/`) và dữ liệu ribosome nén (2,1 MB) |
 | `te-bao/ar.html`, `te-bao/assets/` | Trang AR và mô hình GLB của ribosome |
 | `ty-the/index.html` | Vào Ty Thể, dữ liệu ATP synthase nhúng sẵn |

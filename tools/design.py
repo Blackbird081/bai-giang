@@ -7,7 +7,7 @@ Ra:
   shell/bg-shell.js    khối giữa /*TOKENS:start*/ và /*TOKENS:end*/ (token + biểu tượng nhúng sẵn cho mọi bài 3D)
 Chạy: python3 tools/design.py
 """
-import json, pathlib, re
+import base64, json, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 T = json.load(open(ROOT / 'design/tokens.json', encoding='utf-8'))
@@ -125,6 +125,7 @@ def main():
           f'  const FONTFACE = (root) => {{ const U = {json.dumps(T["unicode"])}; return {json.dumps([[f, w, slug] for f, w, slug in T["fonts"]])}.map(([f, w, s]) => [\'latin\', \'vietnamese\'].map((u) => `@font-face{{font-family:\'${{f}}\';font-style:normal;font-weight:${{w}};font-display:swap;src:url(${{root}}design/fonts/${{s}}-${{u}}-${{w}}-normal.woff2) format(\'woff2\');unicode-range:${{U[u]}}}}`).join(\'\\n\')).join(\'\\n\'); }};\n'
           f'  const ICON_PATHS = {json.dumps(ICONS, ensure_ascii=False)};\n'
           f'  const SUBJECT = {json.dumps(T["subject"])};\n'
+          f'  const LOGO_SRC = "data:image/webp;base64,{base64.b64encode((ROOT / "design/logo/mark-96.webp").read_bytes()).decode()}";\n'
           '  /*TOKENS:end*/')
     p = ROOT / 'shell/bg-shell.js'
     s = p.read_text(encoding='utf-8')

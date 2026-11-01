@@ -1,4 +1,4 @@
-/* Gắn vỏ Bài Giảng vào 54 bài thư viện (bản Việt hoá của Tongjiang Lab, CC BY-NC 4.0).
+/* Gắn vỏ Sáng Ăn Khoai vào 54 bài thư viện (bản Việt hoá của Tongjiang Lab, CC BY-NC 4.0).
  * Bài thư viện là bản đóng gói sẵn, nên vỏ điều khiển qua giao diện của chính bài: thanh bước nav#steps (nút .chip,
  * nút đang chọn có lớp .on), khung "Bước này" bên trái (câu hỏi, tự tay thử, kết luận, ý chính).
  * Ghi chú cho giáo viên của mỗi bước được đọc từ khung "Bước này" khi bước đó được mở.
@@ -90,7 +90,7 @@
     if (pb && !pb.querySelector('.bg-credit')) {
       const c = document.createElement('div'); c.className = 'bg-credit';
       c.innerHTML = (noteTxt ? `<p>${noteTxt.replace(/[&<>]/g, (x) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;'})[x])}</p>` : '') +
-        '<p>Phát triển tiếp từ bài gốc của <a href="https://lab.tongjiang.app/" target="_blank" rel="noopener">Tongjiang Lab</a> (CC BY-NC 4.0): Việt hoá, đối chiếu chương trình, giao diện Bài Giảng. Dùng phi thương mại.</p>';
+        '<p>Phát triển tiếp từ bài gốc của <a href="https://lab.tongjiang.app/" target="_blank" rel="noopener">Tongjiang Lab</a> (CC BY-NC 4.0): Việt hoá, đối chiếu chương trình, giao diện Sáng Ăn Khoai. Dùng phi thương mại.</p>';
       pb.appendChild(c);
     }
     window.BGShell.mount({
@@ -101,7 +101,7 @@
         { label: 'Bước này', icon: 'list', sel: 'aside#left', side: 'left', desktop: true, open: () => innerWidth >= 1100 || sheet() },
         { label: 'Điều khiển', icon: 'sliders', sel: 'aside#right', side: 'right', desktop: true, open: () => innerWidth >= 1600 || sheet() },
       ],
-      credit: 'Phát triển tiếp từ bài gốc của Tongjiang Lab (lab.tongjiang.app, CC BY-NC 4.0): Bài Giảng Việt hoá, đối chiếu chương trình GDPT 2018 và làm lại giao diện. Dùng phi thương mại.' + (noteTxt ? ' ' + noteTxt : ''),
+      credit: 'Phát triển tiếp từ bài gốc của Tongjiang Lab (lab.tongjiang.app, CC BY-NC 4.0): Sáng Ăn Khoai Việt hoá, đối chiếu chương trình GDPT 2018 và làm lại giao diện. Dùng phi thương mại.' + (noteTxt ? ' ' + noteTxt : ''),
       keys: [['1–9', 'nhảy tới bước'], ['Q', 'kiểm tra'], ['← →', 'bước trước, bước sau']],
       go: (i) => {
         const cs = document.querySelectorAll('nav#steps .chip'); const c = cs[i]; if (!c) return;

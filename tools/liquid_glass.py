@@ -8,7 +8,8 @@ Giao diện luôn sáng: khối @media dark bên dưới ghim lại đúng các 
 
 def font_link(root='../'):
     """Phông tự lưu và token chung (design/house.css, sinh bởi tools/design.py). root: đường dẫn từ trang về gốc site."""
-    return f'<link rel="stylesheet" href="{root}design/house.css">'
+    return (f'<link rel="stylesheet" href="{root}design/house.css">'
+            f'<link rel="icon" type="image/png" sizes="32x32" href="{root}design/logo/favicon-32.png"><link rel="apple-touch-icon" href="{root}design/logo/apple-touch-icon.png">')
 
 
 FONT_LINK = font_link('../')  # giữ tên cũ cho các bản dựng chưa đổi
@@ -97,14 +98,14 @@ def decor_html():
 
 
 # ---------- Thanh trên chung của các trang mục (trang chính, chủ đề, lộ trình, mục lục Robotics) ----------
-LOGO_SVG = ('<svg viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="#1E2A44"/>'
-            '<path d="M8 8.5h6.2c2.6 0 4.1 1.2 4.1 3.1 0 1.3-.8 2.3-2 2.6 1.6.3 2.6 1.4 2.6 2.9 0 2.2-1.7 3.4-4.5 3.4H8z" fill="none" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"/>'
-            '<path d="M8 14.2h6" stroke="#fff" stroke-width="1.9"/><circle cx="21.2" cy="19.6" r="1.7" fill="#fff"/></svg>')
+def logo(root):
+    """Dấu Sáng Ăn Khoai (mặt cậu bé vẽ sáp màu, design/logo/)."""
+    return f'<img src="{root}design/logo/mark-128.webp" alt="" width="32" height="32">'
 SITE_BAR_CSS = """
 .sitebar{position:sticky;top:0;z-index:50;background:rgba(244,244,246,.86);-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);border-bottom:1px solid var(--bg-hair,rgba(16,24,40,.1));font-family:var(--bg-font)}
 .sitebar .in{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;height:var(--bg-bar,56px)}
 .sitebar .brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;color:var(--bg-ink,#15171C);text-decoration:none;min-height:44px;min-width:44px;letter-spacing:-.01em;flex:none}
-.sitebar .brand svg{width:30px;height:30px}
+.sitebar .brand img{width:32px;height:32px;display:block}
 .sitebar .crumbs{display:flex;align-items:center;gap:8px;min-width:0;color:var(--bg-ink3,#626773);font-size:15px}
 .sitebar .crumbs a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}.sitebar .crumbs a:hover{color:var(--bg-ink)}
 .sitebar .crumbs b{color:var(--bg-ink);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -119,5 +120,5 @@ def site_bar(root, crumbs=()):
     """Thanh trên của trang mục: logo về trang chính, đường dẫn hiện tại, các mục chính. crumbs: [(chữ, href hoặc None)]."""
     cr = ''.join((f'<span aria-hidden="true">/</span><a href="{h}">{t}</a>' if h else f'<span aria-hidden="true">/</span><b>{t}</b>') for t, h in crumbs)
     nav = ''.join(f'<a href="{root}{h}">{t}</a>' for t, h in (('Bài học', '#bai-hoc'), ('Lộ trình', '#lo-trinh'), ('Thư viện', '#thu-vien'), ('Cho giáo viên', '#cho-giao-vien')))
-    return (f'<header class="sitebar"><div class="in"><a class="brand" href="{root}" aria-label="Bài Giảng, trang chính">{LOGO_SVG}<span>Bài Giảng</span></a>'
+    return (f'<header class="sitebar"><div class="in"><a class="brand" href="{root}" aria-label="Sáng Ăn Khoai, trang chính">{logo(root)}<span>Sáng Ăn Khoai</span></a>'
             f'<div class="crumbs">{cr}</div><nav aria-label="Mục chính">{nav}</nav></div></header>')

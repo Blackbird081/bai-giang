@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Dựng lại toàn bộ site Bài Giảng theo đúng thứ tự, một lệnh.
+"""Dựng lại toàn bộ site Sáng Ăn Khoai theo đúng thứ tự, một lệnh.
 
   python3 tools/build_all.py            dựng tất cả (robotics cần `cd tools/robotics && npm ci` một lần)
   python3 tools/build_all.py --check    dựng rồi báo lỗi nếu tệp đã dựng trong git lệch với nguồn (CI dùng)

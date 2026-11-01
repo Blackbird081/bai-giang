@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Dựng trang chính Bài Giảng và trang chủ đề từ một nguồn dữ liệu duy nhất.
+"""Dựng trang chính Sáng Ăn Khoai và trang chủ đề từ một nguồn dữ liệu duy nhất.
 
 Nguồn: thu-vien/catalog.vi.json (54 bài), thu-vien/gdpt2018.json (đối chiếu chương trình), tools/bai-giang.template.html.
 Cấu trúc trang (GitHub Pages):
-  index.html                           trang chính Bài Giảng: hành trình 3D, lộ trình, thư viện 54 bài
+  index.html                           trang chính Sáng Ăn Khoai: hành trình 3D, lộ trình, thư viện 54 bài
   te-bao/  ty-the/                     hai hành trình 3D (dựng riêng)
   lich-su-10/  lich-su-10/co-loa/      lộ trình Lịch sử 10 (tools/build_ls10.py), bài Thành Cổ Loa (tools/build_co_loa.py)
   robotics/  robotics/<robot>/          mục lục Robotics (tools/robotics/build_hub.py), 4 mô phỏng (tools/robotics, node build.mjs)
@@ -223,7 +223,7 @@ footer{{font-size:13px;line-height:1.55;color:var(--lg-muted);border-top:1px sol
 <footer>
   <div><b>Nguồn.</b> <a href="{E(src['url'])}" target="_blank" rel="noopener">{E(src['ten'])}</a>. Mọi yêu cầu cần đạt trên trang được so khớp bằng máy với văn bản này. Đã soát Thông tư 13/2022/TT-BGDĐT và 17/2025/TT-BGDĐT: không sửa môn Sinh học. Kể cả hai chuyên đề học tập 10.1 và 10.2 thuộc mạch này.</div>
   <div><b>Trạng thái.</b> “Có bài” khi ít nhất một bài trong lộ trình dạy trực tiếp yêu cầu đó; “Liên quan” khi chỉ có bài hỗ trợ hoặc mở rộng. Đối chiếu do người soạn thực hiện, chưa qua giáo viên bộ môn duyệt; góp ý tại <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">GitHub Issues</a>.</div>
-  <div>Bài 2, 3, 5, 6 là bản tiếng Việt của Tongjiang Lab, giấy phép CC BY-NC 4.0, chỉ dùng phi thương mại. Bài gốc được thiết kế theo sách Nhân Giáo 2019 (Trung Quốc); đối chiếu với chương trình Việt Nam do Bài Giảng làm.</div>
+  <div>Bài 2, 3, 5, 6 là bản tiếng Việt của Tongjiang Lab, giấy phép CC BY-NC 4.0, chỉ dùng phi thương mại. Bài gốc được thiết kế theo sách Nhân Giáo 2019 (Trung Quốc); đối chiếu với chương trình Việt Nam do Sáng Ăn Khoai làm.</div>
 </footer>
 </div>
 <script>

@@ -13,7 +13,7 @@ three.js đóng gói trong mỗi bài theo giấy phép MIT (xem THIRD_PARTY_NOT
 - Không thay đổi mô hình 3D, mô phỏng hay số liệu. Trích dẫn sách giáo khoa vẫn là bộ sách Nhân Giáo 2019 (Trung Quốc); trong bài, chữ “SGK” trơn được ghi thành “SGK gốc” để không nhầm với SGK Việt Nam.
 - Giao diện (bản 14, 11/2026), chỉ thêm lớp ngoài, không sửa mã mô phỏng gốc:
   - khối CSS `lg-theme` và `bg-house` (sinh bởi `tools/house_thu_vien.py`): nền trắng, phông Be Vietnam Pro tự lưu trữ, màu nhấn theo môn, cỡ chữ tối thiểu 13 px (`tools/minfont.py` nâng các cỡ nhỏ hơn), vùng bấm từ 44 px trên màn cảm ứng;
-  - ẩn ba hàng thanh trên của bản gốc, thay bằng thanh đầu bài chung của Bài Giảng (`shell/bg-shell.js`, bộ gắn `shell/adapter-thu-vien.js`): về trang chính, thứ tự bài trong môn, tiến độ bước, bảng Bước này và Điều khiển dạng ngăn kéo, chế độ Lên lớp, điều khiển bằng điện thoại, chế độ máy chiếu;
+  - ẩn ba hàng thanh trên của bản gốc, thay bằng thanh đầu bài chung của Sáng Ăn Khoai (`shell/bg-shell.js`, bộ gắn `shell/adapter-thu-vien.js`): về trang chính, thứ tự bài trong môn, tiến độ bước, bảng Bước này và Điều khiển dạng ngăn kéo, chế độ Lên lớp, điều khiển bằng điện thoại, chế độ máy chiếu;
   - chân bài thành viên thuốc chuyển bước; dòng ghi công Tongjiang Lab hiện trong bảng Bước này của mọi bài.
 - Bổ sung (ngoài bài gốc): đối chiếu từng bài với chương trình GDPT 2018 trong `gdpt2018.json`, hiện trên trang thư viện.
 - Bản dịch do AI thực hiện, có kiểm tự động (giữ nguyên biến, thẻ, ký tự thoát; đúng cú pháp cả 54 bài; không còn chữ Hán hiển thị). **Chưa qua giáo viên bộ môn duyệt.** Báo lỗi tại https://github.com/nclamvn/bai-giang/issues.

@@ -154,7 +154,7 @@ def build(home, hub, cell, mito):
     s = tpl.replace('__LG_CSS__', css).replace('__DATA__', json.dumps(DATA, ensure_ascii=False, separators=(',', ':'))).replace('__HUB__', hub).replace('__HOME__', home)
     s = s.replace('__FONT__', '')
     assert '__' not in s, 'còn chỗ giữ chỗ: ' + s[s.find('__') - 40:s.find('__') + 40]
-    # vỏ Bài Giảng v2 (thanh đầu bài, ngăn kéo, lên lớp, màn tải) nhúng thẳng để bài chạy offline
+    # vỏ Sáng Ăn Khoai v2 (thanh đầu bài, ngăn kéo, lên lớp, màn tải) nhúng thẳng để bài chạy offline
     import inject_shell
     s = s.replace('<!--BG-SHELL-->', '')
     return inject_shell.inject(s, key='lich-su-10/co-loa/index.html', root=None if hub.startswith('../') else hub)

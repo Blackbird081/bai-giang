@@ -1548,7 +1548,7 @@ function renderQuiz() {
 }
 function nextQuizSoon() { setTimeout(() => { if (!lesson || !LESSON.steps[lesson.i].quiz) return; lesson.qi++; lesson.first = true; if (lesson.qi >= LESSON.quiz.length) lesson.done = true; else { clearSel(); flyHome(); } renderLesson(); }, 2200); }
 
-/* Vỏ Bài Giảng: lên lớp bằng bút trình chiếu, màn hình giáo viên, điện thoại (shell/bg-shell.js) */
+/* Vỏ Sáng Ăn Khoai: lên lớp bằng bút trình chiếu, màn hình giáo viên, điện thoại (shell/bg-shell.js) */
 $('lessonBtn').addEventListener('click', () => lesson ? endLesson() : startLesson());
 $('lsX').addEventListener('click', (e) => { e.stopPropagation(); endLesson(); });
 $('lsMin').addEventListener('click', (e) => { e.stopPropagation(); if (lesson) { lesson.compact = !lesson.compact; renderLesson(); } });
@@ -1582,7 +1582,7 @@ addEventListener('keydown', (e) => {
 // Cột phải: ẩn dải mờ khi đã cuộn tới đáy
 { const ai = document.getElementById('asideIn'), as = document.getElementById('aside'); const upd = () => as.classList.toggle('end', ai.scrollTop + ai.clientHeight >= ai.scrollHeight - 4); ai.addEventListener('scroll', upd, { passive: true }); new ResizeObserver(upd).observe(ai); upd(); }
 
-// Vỏ Bài Giảng: thanh đầu bài, ngăn kéo, lên lớp (gắn sau cùng để ngăn kéo đã sẵn)
+// Vỏ Sáng Ăn Khoai: thanh đầu bài, ngăn kéo, lên lớp (gắn sau cùng để ngăn kéo đã sẵn)
 if (window.BGShell) BGShell.mount({
   id: 'te-bao', title: 'Hành Trình Vào Tế Bào', subject: 'Sinh học 10', accent: '#C2184A',
   panels: [{ label: 'Thông tin', icon: 'info', side: 'right', open: false, desktop: true, apply: (open) => window.__cellDrawer && window.__cellDrawer(open) }],

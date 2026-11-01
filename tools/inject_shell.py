@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Nhúng vỏ Bài Giảng (shell/bg-shell.js, đã rút gọn) vào trang bài học, giữa <!--BG-SHELL:start--> và <!--BG-SHELL:end-->.
+"""Nhúng vỏ Sáng Ăn Khoai (shell/bg-shell.js, đã rút gọn) vào trang bài học, giữa <!--BG-SHELL:start--> và <!--BG-SHELL:end-->.
 
 Cùng lúc đặt:
   <meta name="bg-root">  đường dẫn từ bài về gốc site (phông, trang chính, bài tiếp theo)
@@ -88,10 +88,11 @@ def inject(html: str, adapter=None, key=None, root=None) -> str:
     html = re.sub(r'<!--BG-SHELL:start-->.*?<!--BG-SHELL:end-->\n?', '', html, flags=re.S)
     html = re.sub(r'<!--BG-LOAD:start-->.*?<!--BG-LOAD:end-->', '', html, flags=re.S)
     html = re.sub(r'<meta name="bg-root"[^>]*>\n?', '', html)
+    html = re.sub(r'<link rel="(?:icon|apple-touch-icon)"[^>]*>\n?', '', html)  # favicon của Sáng Ăn Khoai thay favicon cũ
     html = re.sub(r'<!--BG-TOKENS:start-->.*?<!--BG-TOKENS:end-->\n?', '', html, flags=re.S)
     html = re.sub(r'<head>\n+', '<head>\n', html, count=1)  # không để dòng trống dồn lại sau mỗi lần chạy
     # token và phông có sẵn trong <head> để chữ đúng ngay khung hình đầu, trước khi mã của vỏ chạy
-    head = f'<meta name="bg-root" content="{root}">\n<!--BG-TOKENS:start--><style id="bg-tokens">' + D.fontface(root=root + 'design/fonts/') + D.tokens_css() + '</style><!--BG-TOKENS:end-->\n'
+    head = f'<meta name="bg-root" content="{root}">\n<link rel="icon" type="image/png" sizes="32x32" href="{root}design/logo/favicon-32.png"><link rel="apple-touch-icon" href="{root}design/logo/apple-touch-icon.png">\n<!--BG-TOKENS:start--><style id="bg-tokens">' + D.fontface(root=root + 'design/fonts/') + D.tokens_css() + '</style><!--BG-TOKENS:end-->\n'
     html = html.replace('<head>', '<head>\n' + head, 1) if '<head>' in html else re.sub(r'(<head[^>]*>)', lambda m: m.group(1) + head, html, count=1)
     m = re.search(r'<body[^>]*>', html)
     if m and seq: html = html[:m.end()] + loader(seq, root) + html[m.end():]

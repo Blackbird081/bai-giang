@@ -189,7 +189,7 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
   canvas.addEventListener('pointerup', endDrag); canvas.addEventListener('pointercancel', endDrag);
   canvas.addEventListener('wheel', (e) => { e.preventDefault(); takeOver(); off.k = clamp(off.k * Math.exp(e.deltaY * 0.0012), 0.3, 3); }, {passive: false});
 
-  // chế độ lên lớp (vỏ Bài Giảng): mỗi lời giảng là một bước; nhảy tới bước i = tua nhanh chuyến tham quan tới đầu đoạn đó
+  // chế độ lên lớp (vỏ Sáng Ăn Khoai): mỗi lời giảng là một bước; nhảy tới bước i = tua nhanh chuyến tham quan tới đầu đoạn đó
   const capAt = []; for (const e of E) if (e.cap !== undefined && capAt[e.cap] === undefined) capAt[e.cap] = e.at;
   const CL = {on: false, i: 0};
   const classGo = (i) => {
@@ -292,7 +292,7 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
   };
   warmComposer(st.renderer, st.composer, st.scene, st.camera).then(() => requestAnimationFrame(frame));
   window.LIVE = {st, cam, sim, startTour, takeOver, setView, classGo, classEnd, get tier() { return tier; }, get T() { return T; }, get auto() { return AP.on; }, get compact() { return compact; }};
-  // vỏ Bài Giảng: lên lớp bằng bút trình chiếu, màn hình giáo viên, điện thoại (shell/bg-shell.js nhúng khi đóng gói)
+  // vỏ Sáng Ăn Khoai: lên lớp bằng bút trình chiếu, màn hình giáo viên, điện thoại (shell/bg-shell.js nhúng khi đóng gói)
   if (window.BGShell) {
     const strip = (h) => String(h || '').replace(/<[^>]+>/g, '');
     window.BGShell.mount({
