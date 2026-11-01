@@ -167,6 +167,8 @@ body.bgs-nav-on .lesson .nav{display:none!important}
 @media (max-width:760px){.pin:not(.ring):not(.on) span{display:none}} /* điện thoại: nhãn vòng thành và vật đang chọn, ghim khác là chấm */
 html[data-chieu] #info,html[data-chieu] .leftcol>*,html[data-chieu] .timeline{background:#fff!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 html[data-chieu] #info{font-size:18px}html[data-chieu] #info h2{font-size:28px}html[data-chieu] .hint,html[data-chieu] .small{color:#1a1a1a}
+/* màn cảm ứng: vùng bấm của ghim từ 44 px, padding bù margin nên chấm và nhãn không dời chỗ */
+@media (pointer:coarse){.pin{padding:16px 19px;margin:-16px -19px}}
 </style>
 </head>
 <body>
@@ -225,12 +227,27 @@ html[data-chieu] #info{font-size:18px}html[data-chieu] #info h2{font-size:28px}h
 
 <!--BG-SHELL-->
 <script type="importmap">
-{ "imports": {
+{
+ "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js",
   "three/webgpu": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js",
   "three/tsl": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.tsl.js",
   "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
-} }
+ },
+ "integrity": {
+  "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js": "sha384-SkTLw/lN3jv1UIxteuivToEdXgaEiflmc3P+f8n+GoIqsbu3KE8adYoNlmTYWg0u",
+  "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.tsl.js": "sha384-mTV2JED+dL4P7GN+ME+E4dwyCszzmZWF7VS6S/Y42R6oMgcD9K9bIQAZlxiyC5J7",
+  "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.core.js": "sha384-r1q8Si7xFBrvMv3Q4yjQkKhkYZ2lp+wn/bPPzNZTsc8DY4uPJmm2vheuz1Yn+8m8",
+  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/controls/OrbitControls.js": "sha384-tLl9+KfQJPCciIc85xSuJobNxPRrzSLDNrDFvDDTKE7fA9XvUq4UImkENfnQRUvW",
+  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/environments/RoomEnvironment.js": "sha384-WonUB49tSHm5CcExDQcL5s5lZy4/MNADu2G8l7KoDzrZ7T3zKnU3JSic+kMfHWQU",
+  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/objects/SkyMesh.js": "sha384-Ndo9sn3syj5Rbcb6XAwo+uLfL89l2Mtc6XtkT9FYR2ZXJz7vll8F2USUdTrd2jjd",
+  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/tsl/display/BloomNode.js": "sha384-+yqj9lMYDxcuo7sz+GC8xoTVyFE+PkbhEf6To8Z1ToSpFpCQsILYqGXR6J98Kic7",
+  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/tsl/display/DepthOfFieldNode.js": "sha384-vEUM7LTfQoSfRhLjiU5nzU2n/uC3pJA6QkBbaNs1qxC0QVCMMWDU4NWpvFCaJqXK",
+  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/tsl/display/GaussianBlurNode.js": "sha384-sdwLh/+GDgeWs5eLoVAu2pHcooktwXrTgWmjPEU6jguATGgM2FU3l2s6EijkczPb",
+  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/tsl/display/GTAONode.js": "sha384-w5pzloSXfpmnhPUjWhpashl6Xi6AUk6Gz+HceNkZCvU33r4Z4eK3+0fHeXB5IBGM",
+  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/utils/BufferGeometryUtils.js": "sha384-Qy9m6qi71cTFsL476nB1aK+wPxxPgU6H6pn/++8gOgy4/vTtkDuFBfPo22hBhx36"
+ }
+}
 </script>
 <script type="module">
 import * as THREE from 'three/webgpu';
@@ -326,6 +343,7 @@ let renderer;
 try { renderer = new THREE.WebGPURenderer({ antialias: true, powerPreference: 'high-performance', forceWebGL: location.hash.includes('webgl') }); await renderer.init(); }
 catch (e) { $('loading').textContent = 'Trình duyệt này chưa chạy được WebGPU hay WebGL 2.'; throw e; }
 renderer.setPixelRatio(Math.min(devicePixelRatio, matchMedia('(max-width: 760px), (pointer: coarse)').matches ? 1.5 : 2));
+addEventListener('bg:lite', () => renderer.setPixelRatio(1)); // vỏ báo máy chậm: giảm điểm ảnh, giữ mọi hiệu ứng
 host.prepend(renderer.domElement);
 /* ================= Cảnh thực: bầu trời vật lý, bóng đổ, ruộng lúa, lũy đất, nước, làng ================= */
 const MOBILE = matchMedia('(max-width: 760px), (pointer: coarse)').matches;
@@ -772,7 +790,7 @@ function poiCard(k) {
 function renderInfo() {
   const P = PH[phase];
   const tags = `<span class="tag do">● số đo có nguồn</span><span class="tag uoc">○ ước lượng, phỏng dựng</span>`;
-  $('info').className = 'glass'; $('info').classList.remove('lesson');
+  $('info').classList.add('glass'); $('info').classList.remove('lesson'); // giữ lớp ngăn kéo của vỏ (bgs-pnl, bgs-off)
   $('info').innerHTML = `<div class="eyebrow">Giai đoạn đang xem</div><h2>${P.ten}</h2><p>${cite(P.b)}</p><div class="est">${cite(P.est)}</div>
     ${sel ? (RING[sel] || sel === 'song' ? ringCard(sel) : poiCard(sel)) : '<div class="card hint">Chạm vào một vòng thành, dòng sông hoặc một ghim để xem số đo, mặt cắt và nguồn.</div>'}
     <div>${tags}</div>
@@ -849,7 +867,7 @@ function showStep() {
   sel = null; select(s.sel || null, false); if (!s.sel) select(null, false);
   fly(stepCam(s), 1.8);
   const a = s.ask, done = L.ans[L.i];
-  const box = $('info'); box.className = 'glass lesson';
+  const box = $('info'); box.classList.add('glass', 'lesson');
   box.innerHTML = `<div class="eyebrow">Học theo bước · ${L.i + 1}/${n}</div><div class="prog">${STEPS.map((_, k) => `<i class="${k <= L.i ? 'on' : ''}"></i>`).join('')}</div>
     <h2>${s.t}</h2><p>${cite(s.b)}</p>
     ${a ? `<div class="ask">${a.q}</div>${a.o.map((o, k) => `<button class="opt ${done != null ? (k === a.a ? 'ok' : (k === done ? 'bad' : '')) : ''}" data-k="${k}" ${done != null ? 'disabled' : ''}>${o}</button>`).join('')}<div id="fb">${done != null ? `<div class="fb">${done === a.a ? '<b>Chính xác.</b> ' : '<b>Chưa đúng.</b> '}${a.e}</div>` : ''}</div>` : ''}

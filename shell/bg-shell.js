@@ -18,11 +18,13 @@
   const REMOTE_URL = SITE + 'dieu-khien/';
   const PEERJS = 'https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js';
   const QRLIB = 'https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js';
+  // mã băm toàn vẹn (tools/sri.py): CDN có bị tráo tệp thì trình duyệt từ chối chạy
+  const SRI = { [PEERJS]: 'sha384-nlUQ8ZqCbvStErob+biJNzSgltf6urV3VGqhfIfzhmg9RXmpeRm76ELw0pYnKlTR', [QRLIB]: 'sha384-8FWZA6BGMXhsfO+BLtrJK0We6gg5o1JyO8xQm6peWDEUs17ACA5ziE/NIAkl9z2k' };
 
   /*TOKENS:start*/
   // sinh bằng tools/design.py từ design/tokens.json; không sửa tay
   const TOKENS_CSS = ":root{--bg-page:#F4F4F6;--bg-surface:#FFFFFF;--bg-glass:rgba(255,255,255,.88);--bg-glass-strong:rgba(255,255,255,.95);--bg-ink:#15171C;--bg-ink2:#454A55;--bg-ink3:#626773;--bg-hair:rgba(16,24,40,.10);--bg-hair2:rgba(16,24,40,.18);--bg-brand:#1E2A44;--bg-brand-ink:#FFFFFF;--bg-focus:#2F6FEB;--bg-ok:#1F7A4D;--bg-warn:#8A5200;--bg-bad:#B3261E;--bg-scrim:rgba(16,20,30,.32);--bg-s-sinh:#C2184A;--bg-s-su:#B26A1A;--bg-s-robo:#D9481C;--bg-s-ly:#2459C9;--bg-s-hoa:#0E7C66;--bg-s-toan:#6B4BC8;--bg-s-dia:#2E7D32;--bg-s-cong:#5B6472;--bg-fs-xs:calc(13px * var(--bg-k));--bg-fs-sm:calc(15px * var(--bg-k));--bg-fs-md:calc(17px * var(--bg-k));--bg-fs-lg:calc(20px * var(--bg-k));--bg-fs-xl:calc(26px * var(--bg-k));--bg-fs-2xl:calc(34px * var(--bg-k));--bg-fs-3xl:calc(48px * var(--bg-k));--bg-k:1;--bg-font:\"Be Vietnam Pro\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif;--bg-serif:\"Noto Serif\", Georgia, \"Times New Roman\", serif;--bg-mono:\"JetBrains Mono\", ui-monospace, \"SFMono-Regular\", Menlo, monospace;--bg-r-lg:20px;--bg-r-md:14px;--bg-r-sm:10px;--bg-r-pill:999px;--bg-sh-1:0 0 0 .5px rgba(16,24,40,.06), 0 6px 18px -10px rgba(16,24,40,.28);--bg-sh-2:0 0 0 .5px rgba(16,24,40,.06), 0 18px 44px -18px rgba(16,24,40,.34);--bg-blur:blur(20px) saturate(170%);--bg-t-fast:120ms;--bg-t-mid:240ms;--bg-t-slow:600ms;--bg-ease:cubic-bezier(.2,.8,.2,1);--bg-ease-io:cubic-bezier(.65,0,.35,1);--bg-bar:56px;--bg-tap:44px;--bg-accent:var(--bg-brand)}\n@media (max-width:640px),(max-height:520px){:root{--bg-bar:48px;--bg-fs-xs:calc(14px * var(--bg-k))}}\nhtml[data-bg-variant=\"dai-hoc\"]{--bg-page:#F2E6D2;--bg-glass:rgba(251,247,240,.97);--bg-glass-strong:#FBF7F0;--bg-ink:#2A2521;--bg-ink2:#544A41;--bg-ink3:#6E6257;--bg-hair:#E3D6C1;--bg-hair2:#D2C2A8;--bg-brand:#2A2521;--bg-blur:none;--bg-r-lg:8px;--bg-r-md:6px;--bg-r-sm:4px}\nhtml[data-chieu]{--bg-ink:#000000;--bg-ink2:#141414;--bg-ink3:#262626;--bg-glass:#FFFFFF;--bg-glass-strong:#FFFFFF;--bg-hair:rgba(0,0,0,.30);--bg-hair2:rgba(0,0,0,.45);--bg-blur:none;--bg-k:1.25}\n@media (prefers-reduced-motion:reduce){:root{--bg-t-fast:1ms;--bg-t-mid:1ms;--bg-t-slow:1ms}}\n";
-  const FONTFACE = (root) => "@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:swap;src:url(${R}be-vietnam-pro-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}\n@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:swap;src:url(${R}be-vietnam-pro-vietnamese-400-normal.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}\n@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:swap;src:url(${R}be-vietnam-pro-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}\n@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:swap;src:url(${R}be-vietnam-pro-vietnamese-500-normal.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}\n@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;font-display:swap;src:url(${R}be-vietnam-pro-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}\n@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;font-display:swap;src:url(${R}be-vietnam-pro-vietnamese-600-normal.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}\n@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-display:swap;src:url(${R}be-vietnam-pro-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}\n@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-display:swap;src:url(${R}be-vietnam-pro-vietnamese-700-normal.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}\n@font-face{font-family:'Noto Serif';font-style:normal;font-weight:600;font-display:swap;src:url(${R}noto-serif-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}\n@font-face{font-family:'Noto Serif';font-style:normal;font-weight:600;font-display:swap;src:url(${R}noto-serif-vietnamese-600-normal.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}\n@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(${R}jetbrains-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}\n@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(${R}jetbrains-mono-vietnamese-500-normal.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}\n@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:600;font-display:swap;src:url(${R}jetbrains-mono-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}\n@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:600;font-display:swap;src:url(${R}jetbrains-mono-vietnamese-600-normal.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}".split("${R}").join(root + "design/fonts/");
+  const FONTFACE = (root) => { const U = {"latin": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD", "vietnamese": "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB"}; return [["Be Vietnam Pro", 400, "be-vietnam-pro"], ["Be Vietnam Pro", 500, "be-vietnam-pro"], ["Be Vietnam Pro", 600, "be-vietnam-pro"], ["Be Vietnam Pro", 700, "be-vietnam-pro"], ["Noto Serif", 600, "noto-serif"], ["JetBrains Mono", 500, "jetbrains-mono"], ["JetBrains Mono", 600, "jetbrains-mono"]].map(([f, w, s]) => ['latin', 'vietnamese'].map((u) => `@font-face{font-family:'${f}';font-style:normal;font-weight:${w};font-display:swap;src:url(${root}design/fonts/${s}-${u}-${w}-normal.woff2) format('woff2');unicode-range:${U[u]}}`).join('\n')).join('\n'); };
   const ICON_PATHS = {"home": "<path d=\"M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z\"/>", "chev-l": "<path d=\"m14.5 6-6 6 6 6\"/>", "chev-r": "<path d=\"m9.5 6 6 6-6 6\"/>", "arrow-r": "<path d=\"M5 12h14M13 6l6 6-6 6\"/>", "arrow-l": "<path d=\"M19 12H5M11 6l-6 6 6 6\"/>", "play": "<path d=\"M8 5.5v13l10.5-6.5z\" fill=\"currentColor\"/>", "stop": "<rect x=\"6.5\" y=\"6.5\" width=\"11\" height=\"11\" rx=\"2\" fill=\"currentColor\"/>", "phone": "<rect x=\"7\" y=\"2.75\" width=\"10\" height=\"18.5\" rx=\"2.5\"/><path d=\"M11 18h2\"/>", "screen": "<rect x=\"3\" y=\"4.5\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"M8.5 20h7M12 16.5V20\"/>", "full": "<path d=\"M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5\"/>", "more": "<circle cx=\"5.5\" cy=\"12\" r=\"1.4\" fill=\"currentColor\"/><circle cx=\"12\" cy=\"12\" r=\"1.4\" fill=\"currentColor\"/><circle cx=\"18.5\" cy=\"12\" r=\"1.4\" fill=\"currentColor\"/>", "close": "<path d=\"M6 6l12 12M18 6 6 18\"/>", "list": "<path d=\"M9 6.5h11M9 12h11M9 17.5h11\"/><circle cx=\"4.75\" cy=\"6.5\" r=\"1.1\" fill=\"currentColor\"/><circle cx=\"4.75\" cy=\"12\" r=\"1.1\" fill=\"currentColor\"/><circle cx=\"4.75\" cy=\"17.5\" r=\"1.1\" fill=\"currentColor\"/>", "chart": "<path d=\"M4 20V4M4 20h16\"/><path d=\"m7.5 15 3.5-4 3 2.5 5-6.5\"/>", "info": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 11v5.5M12 7.6v.1\"/>", "sliders": "<path d=\"M4 7h10M18 7h2M4 17h4M12 17h8\"/><circle cx=\"16\" cy=\"7\" r=\"2\"/><circle cx=\"10\" cy=\"17\" r=\"2\"/>", "book": "<path d=\"M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15H5.5A1.5 1.5 0 0 0 4 20.5zM20 5.5A1.5 1.5 0 0 0 18.5 4H13v15h5.5a1.5 1.5 0 0 1 1.5 1.5z\"/>", "keys": "<rect x=\"2.75\" y=\"6\" width=\"18.5\" height=\"12\" rx=\"2\"/><path d=\"M6.5 10h1M10 10h1M13.5 10h1M17 10h.5M7.5 14h9\"/>", "projector": "<rect x=\"2.75\" y=\"8\" width=\"18.5\" height=\"9\" rx=\"2\"/><circle cx=\"15.5\" cy=\"12.5\" r=\"2.25\"/><path d=\"M6 12.5h4M6 17v2M18 17v2\"/>", "check": "<path d=\"m5 12.5 4.5 4.5L19 7.5\"/>", "filter": "<path d=\"M4 6h16M7 12h10M10 18h4\"/>", "external": "<path d=\"M14 4h6v6M20 4l-8.5 8.5M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5\"/>", "download": "<path d=\"M12 4v11M7 10.5l5 5 5-5M5 20h14\"/>", "hand": "<path d=\"M8 13V6.5a1.5 1.5 0 0 1 3 0V12M11 11V4.5a1.5 1.5 0 0 1 3 0V11M14 11V6a1.5 1.5 0 0 1 3 0v8a6 6 0 0 1-6 6h-.5a6 6 0 0 1-4.6-2.2L4.6 15.4a1.5 1.5 0 0 1 2.3-1.9L8 15\"/>", "rotate": "<path d=\"M20 12a8 8 0 1 1-2.35-5.65M20 4v4.5h-4.5\"/>", "pinch": "<path d=\"M7 7l3 3M17 7l-3 3M7 17l3-3M17 17l-3-3\"/><path d=\"M5 9V5h4M19 9V5h-4M5 15v4h4M19 15v4h-4\"/>", "tap": "<circle cx=\"12\" cy=\"9\" r=\"3\"/><path d=\"M12 15v5M8.5 5.5a5 5 0 0 1 7 0\"/>", "black": "<rect x=\"3\" y=\"4.5\" width=\"18\" height=\"12\" rx=\"2\" fill=\"currentColor\"/><path d=\"M8.5 20h7M12 16.5V20\"/>", "clock": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M12 7.5V12l3 2\"/>", "help": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M9.6 9.4a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .9-1 1.6v.6M12 17v.1\"/>", "layers": "<path d=\"m12 4 8.5 4.5L12 13 3.5 8.5z\"/><path d=\"m3.5 12.5 8.5 4.5 8.5-4.5M3.5 16.5 12 21l8.5-4.5\"/>", "grad": "<path d=\"m2.5 9 9.5-4.5L21.5 9 12 13.5z\"/><path d=\"M6.5 11v4.5c1.5 1.5 3.4 2.25 5.5 2.25s4-.75 5.5-2.25V11M21.5 9v5\"/>", "spark": "<path d=\"M12 3.5v4M12 16.5v4M3.5 12h4M16.5 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6\"/>"};
   const SUBJECT = {"sinh": "#C2184A", "su": "#B26A1A", "robo": "#D9481C", "ly": "#2459C9", "hoa": "#0E7C66", "toan": "#6B4BC8", "dia": "#2E7D32", "cong": "#5B6472"};
   /*TOKENS:end*/
@@ -110,11 +112,6 @@
   .bgs-card p{margin:8px 0;color:var(--bg-ink2);line-height:1.6}
   .bgs-card a{color:var(--bg-focus);text-decoration:underline;text-underline-offset:2px}
   .bgs-card .x{position:absolute;right:12px;top:12px}
-  .bgs-opt{display:grid!important;grid-template-columns:auto 1fr;gap:14px;align-items:start;width:100%;text-align:left;margin-top:12px;padding:14px;border-radius:var(--bg-r-md);border:1px solid var(--bg-hair)!important}
-  .bgs-opt:hover{border-color:var(--bg-ink3)!important}
-  .bgs-opt b{display:block;font-size:var(--bg-fs-sm);margin-bottom:2px}
-  .bgs-opt i{font-style:normal;color:var(--bg-ink2);line-height:1.5}
-  .bgs-ico{width:40px;height:40px;border-radius:var(--bg-r-sm);background:var(--bg-hair);display:grid;place-items:center}
   .bgs-qr{display:grid;justify-items:center;gap:8px;margin-top:14px}
   .bgs-qr img{width:220px;height:220px;image-rendering:pixelated}
   .bgs-code{font:600 26px var(--bg-mono);letter-spacing:4px}
@@ -130,16 +127,19 @@
   /* màn tải (khung do inject_shell.py đặt sẵn trong HTML) */
   #bgs-load{transition:opacity var(--bg-t-slow) var(--bg-ease)}
   #bgs-load.out{opacity:0;pointer-events:none}
+  /* chế độ nhẹ: máy yếu (khung hình chậm kéo dài) thì bỏ làm mờ nền sau bảng, bảng đục hơn; cảnh 3D giữ nguyên */
+  html:root[data-bg-lite]{--bg-glass:rgba(255,255,255,.97)!important;--bg-glass-strong:#fff!important;--bg-blur:none!important;--lg-blur:none!important;--glass-blur:none!important;--lg-fill:linear-gradient(180deg,rgba(255,255,255,.97),rgba(255,255,255,.94))!important;--lg-fill-strong:linear-gradient(180deg,#fff,rgba(255,255,255,.97))!important;--glass:rgba(255,255,255,.97)!important;--glass-2:rgba(255,255,255,.96)!important;--glass-bar:rgba(255,255,255,.97)!important}
+  html[data-bg-lite] *,html[data-bg-lite] *::before,html[data-bg-lite] *::after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
   /* cỡ màn */
   @media (max-width:1100px){.bgs-home b{display:none}.bgs-b .l{display:none}.bgs-b.lb{padding:0;width:40px}.bgs-prog .r{display:none}}
   @media (max-width:640px),(max-height:520px){.bgs-desk{display:none!important}.bgs-bar{gap:2px;padding-left:max(6px,env(safe-area-inset-left));padding-right:max(6px,env(safe-area-inset-right))}.bgs-sep,.bgs-prog,.bgs-cls,.bgs-nextb{display:none!important}.bgs-crumb .s{display:none}.bgs-crumb h1{font-size:var(--bg-fs-sm)}.bgs-home{padding:0 6px}.bgs-pop{position:fixed!important;left:8px!important;right:8px!important;top:auto!important;bottom:max(8px,env(safe-area-inset-bottom))!important;max-width:none;max-height:75svh}.bgs-next{bottom:calc(76px + env(safe-area-inset-bottom));right:8px;width:calc(100vw - 16px)}}
-  @media (pointer:coarse){.bgs-b,.bgs-prog,.bgs-home{min-height:44px;height:44px}.bgs-b.ic,.bgs-b.lb{width:44px}}
+  @media (pointer:coarse){.bgs-b,.bgs-prog,.bgs-home{min-height:44px;height:44px}.bgs-home{min-width:44px;justify-content:center}.bgs-cls{min-width:44px}.bgs-b.ic,.bgs-b.lb{width:44px}}
   @media print{.bgs{display:none!important}}`;
 
   const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[c]);
   const fmt = (ms) => { const s = Math.floor(ms / 1000); return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; };
-  const loadScript = (src) => new Promise((ok, no) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = () => no(new Error('Không tải được ' + src)); document.head.appendChild(s); });
+  const loadScript = (src) => new Promise((ok, no) => { const s = document.createElement('script'); if (SRI[src]) { s.integrity = SRI[src]; s.crossOrigin = 'anonymous'; } s.src = src; s.onload = ok; s.onerror = () => no(new Error('Không tải được ' + src)); document.head.appendChild(s); });
   const store = { get: (k, d) => { try { const v = localStorage.getItem(k); return v == null ? d : v; } catch (e) { return d; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* trình duyệt chặn bộ nhớ */ } } };
   const root = () => { const m = document.querySelector('meta[name="bg-root"]'); return m ? m.content : SITE; };
   const isPhone = () => Math.min(innerWidth, innerHeight) < 560 || innerWidth < 640;
@@ -404,11 +404,6 @@
       ${L.credit ? `<p>${L.credit}</p>` : ''}
       <p class="bgs-small">Bài Giảng: bài học 3D tiếng Việt, dùng tự do cho trường học, phi thương mại. <a href="${esc(root())}">Trang chính</a></p>`);
   }
-  function connectMenu() {
-    openModal(`<h3>Điều khiển bài giảng</h3><p>Bút trình chiếu cắm USB dùng được ngay. Chọn thêm nếu cần:</p>
-      <button class="bgs-opt" data-k="window"><span class="bgs-ico">${ico('screen')}</span><span><b>Màn hình giáo viên trên máy này</b><i>Cửa sổ thứ hai có bước hiện tại, bước sau, ghi chú và đáp án. Kéo sang màn laptop khi máy chiếu mở rộng màn hình. Không cần mạng.</i></span></button>
-      <button class="bgs-opt" data-k="phone"><span class="bgs-ico">${ico('phone')}</span><span><b>Điện thoại của giáo viên</b><i>Quét mã để chuyển bước từ điện thoại. Cần mạng ở cả hai máy.</i></span></button>`);
-  }
   function openWindow() {
     const w = window.open('', 'bgs-teacher-' + (S.L.id || 'bai'), 'width=760,height=820');
     if (!w) { say('Trình duyệt chặn cửa sổ mới: cho phép cửa sổ bật lên rồi thử lại'); return; }
@@ -426,7 +421,7 @@
       if (!window.Peer) await loadScript(PEERJS);
       if (!window.qrcode) await loadScript(QRLIB);
     } catch (e) { openModal(`<h3>Không tải được bộ kết nối</h3><p>Máy cần mạng Internet để dùng điện thoại làm điều khiển. Khi không có mạng, dùng màn hình giáo viên trên máy này hoặc bút trình chiếu.</p>`); return; }
-    const code = Array.from(crypto.getRandomValues(new Uint8Array(4)), (b) => 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[b % 32]).join('');
+    const code = Array.from(crypto.getRandomValues(new Uint8Array(6)), (b) => 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[b % 32]).join('');
     const id = 'baigiang-' + code.toLowerCase();
     if (S.peer) { try { S.peer.destroy(); } catch (e) { /* bỏ qua */ } }
     const peer = new window.Peer(id); S.peer = peer;
@@ -437,11 +432,20 @@
       openModal(`<h3>Quét để điều khiển</h3><p>Mở camera điện thoại và quét mã, hoặc vào <b>${esc(REMOTE_URL.replace('https://', ''))}</b> rồi nhập mã.</p>
         <div class="bgs-qr">${qr.createImgTag(6, 8)}<div class="bgs-code">${code}</div><div class="bgs-small">Hai máy nối trực tiếp (WebRTC), không lưu gì trên máy chủ.</div></div>`);
     });
+    // điện thoại đầu tiên nối thẳng; từ máy thứ hai, giáo viên phải bấm Cho phép trên màn chiếu
+    let phones = 0;
     peer.on('connection', (conn) => {
+      let ok = false;
       const link = { send: (m) => conn.open && conn.send(m) };
-      conn.on('open', () => { S.links.add(link); closeModal(); say('Đã nối điện thoại'); if (!S.on) start(); broadcast(); });
-      conn.on('data', handle);
-      conn.on('close', () => { S.links.delete(link); render(); say('Điện thoại đã ngắt'); });
+      const accept = () => { if (ok) return; ok = true; phones++; S.links.add(link); closeModal(); say(phones > 1 ? `Đã nối thêm thiết bị · ${phones}` : 'Đã nối điện thoại'); if (!S.on) start(); broadcast(); };
+      conn.on('open', () => {
+        if (!phones) return accept();
+        openModal(`<h3>Thêm một thiết bị muốn điều khiển</h3><p>Đang có ${phones} điện thoại nối. Chỉ cho phép nếu đó là máy của bạn hoặc đồng nghiệp.</p><p style="display:flex;gap:8px;margin-top:16px"><button class="bgs-b pri" data-ok>Cho phép</button><button class="bgs-b" data-no>Từ chối</button></p>`);
+        modal.querySelector('[data-ok]').onclick = accept;
+        modal.querySelector('[data-no]').onclick = () => { try { conn.close(); } catch (e) { /* đã đóng */ } closeModal(); };
+      });
+      conn.on('data', (m) => { if (ok) handle(m); });
+      conn.on('close', () => { if (!ok) return; ok = false; phones--; S.links.delete(link); render(); say('Điện thoại đã ngắt'); });
     });
   }
 
@@ -554,12 +558,38 @@
 
   /* ---------- màn tải, gợi ý lần đầu ---------- */
   function dropLoader() {
-    const ld = document.getElementById('bgs-load'); if (!ld) return;
-    const done = () => { ld.classList.add('out'); setTimeout(() => ld.remove(), 700); };
+    const ld = document.getElementById('bgs-load'); if (!ld) return void setTimeout(perfWatch, 3000);
+    const done = () => { const bi = ld.querySelector('i'); if (bi) bi.style.width = '100%'; ld.classList.add('out'); setTimeout(() => ld.remove(), 700); setTimeout(perfWatch, 1500); };
     let n = 0; const wait = () => { const c = document.querySelector('canvas'); if ((c && c.width > 0) || ++n > 40) requestAnimationFrame(() => requestAnimationFrame(done)); else setTimeout(wait, 100); };
     wait();
   }
-  setTimeout(() => { const ld = document.getElementById('bgs-load'); if (ld) { ld.classList.add('out'); setTimeout(() => ld.remove(), 700); } }, 25000);
+  setTimeout(() => { const ld = document.getElementById('bgs-load'); if (ld) { ld.classList.add('out'); setTimeout(() => ld.remove(), 700); } perfWatch(); }, 25000);
+  /* đo nhịp khung hình: 3 lượt liền (mỗi lượt 90 khung hoặc 2,5 giây) có p90 trên 25 ms thì bật chế độ nhẹ một lần, phát sự kiện 'bg:lite'
+     để bài tự hạ độ phân giải. Máy đủ mạnh giữ nguyên kính mờ. ?lite=1 ép bật, ?lite=0 tắt hẳn. Tab ẩn: trình duyệt tự dừng. */
+  function lite(why) {
+    const H = document.documentElement; if (H.dataset.bgLite) return;
+    H.dataset.bgLite = '1'; dispatchEvent(new CustomEvent('bg:lite', { detail: { why } }));
+  }
+  function perfWatch() {
+    if (perfWatch.on) return; perfWatch.on = true;
+    const q = location.search;
+    if (/[?&]lite=1/.test(q)) return lite('ép');
+    if (/[?&]lite=0/.test(q)) return;
+    let last = 0, buf = [], slow = 0, t0 = 0;
+    const tick = (t) => {
+      if (document.documentElement.dataset.bgLite) return;
+      if (last && !document.hidden) { const dt = t - last; if (dt < 5000) buf.push(dt); }
+      last = t; if (!t0) t0 = t;
+      if (buf.length >= 90 || (buf.length >= 8 && t - t0 > 2500)) {
+        t0 = t;
+        buf.sort((a, b) => a - b); const p90 = buf[Math.floor(buf.length * 0.9)]; buf = [];
+        slow = p90 > 25 ? slow + 1 : 0;
+        if (slow >= 3) return lite(Math.round(p90) + ' ms');
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
   function firstHint(L) {
     if (L.hints === false || store.get('bg-hint', '') === '2') return;
     const touch = matchMedia('(pointer: coarse)').matches;
@@ -610,9 +640,6 @@
     black.addEventListener('click', () => setBlack(false));
     modal.addEventListener('click', (e) => {
       if (e.target === modal || e.target.closest('[data-x]')) closeModal();
-      const o = e.target.closest('.bgs-opt'); if (!o) return;
-      if (o.dataset.k === 'window') openWindow();
-      if (o.dataset.k === 'phone') openPhone();
     });
     addEventListener('keydown', onKey, true);
     const q = new URLSearchParams(location.search);
@@ -645,15 +672,15 @@
     document.head.appendChild(st);
     const code0 = decodeURIComponent(location.hash.slice(1)).trim().toUpperCase();
     const askCode = () => new Promise((ok) => {
-      document.body.innerHTML = `<div class="w"><a class="h" href="${R}" style="text-decoration:none;color:inherit">${LOGO}<b>Bài Giảng</b></a><h2>Điều khiển bài giảng</h2><p>Nhập mã 4 ký tự hiện trên màn chiếu.</p>
-        <form id="f"><input id="c" maxlength="4" inputmode="text" autocapitalize="characters" autocomplete="off" aria-label="Mã kết nối" placeholder="····"><button id="g" disabled>Kết nối</button></form>
+      document.body.innerHTML = `<div class="w"><a class="h" href="${R}" style="text-decoration:none;color:inherit">${LOGO}<b>Bài Giảng</b></a><h2>Điều khiển bài giảng</h2><p>Nhập mã 6 ký tự hiện trên màn chiếu.</p>
+        <form id="f"><input id="c" maxlength="6" inputmode="text" autocapitalize="characters" autocomplete="off" aria-label="Mã kết nối" placeholder="······"><button id="g" disabled>Kết nối</button></form>
         <div class="f">Hai máy nối trực tiếp, không lưu gì trên máy chủ. Cần mạng Internet.</div></div>`;
       const c = document.getElementById('c'), g = document.getElementById('g');
-      c.addEventListener('input', () => { c.value = c.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); g.disabled = c.value.length !== 4; });
-      document.getElementById('f').onsubmit = (e) => { e.preventDefault(); if (c.value.length === 4) ok(c.value); };
+      c.addEventListener('input', () => { c.value = c.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); g.disabled = c.value.length !== 6; });
+      document.getElementById('f').onsubmit = (e) => { e.preventDefault(); if (c.value.length === 6) ok(c.value); };
       c.focus();
     });
-    const code = /^[A-Z0-9]{4}$/.test(code0) ? code0 : await askCode();
+    const code = /^[A-Z0-9]{6}$/.test(code0) ? code0 : await askCode();
     let handler = null, conn = null;
     const ui = runRemote(document, { send: (m) => conn && conn.open && conn.send(m), onMessage: (fn) => { handler = fn; } }, 'pho-thong', 'phone', R);
     ui.status('Đang tải bộ kết nối…');
@@ -671,7 +698,7 @@
     addEventListener('offline', () => ui.status('Điện thoại mất mạng'));
   }
 
-  const api = { version: VERSION, mount, update, refresh: () => broadcast(), go, next, prev, start, stop, phonePage, runRemote, projector, panel: togglePanel, say,
+  const api = { version: VERSION, mount, update, refresh: () => broadcast(), go, next, prev, start, stop, phonePage, runRemote, projector, panel: togglePanel, say, lite,
     get state() { return snapshot(); }, _handle: handle, icon: ico };
   window.BGShell = api;
 })();

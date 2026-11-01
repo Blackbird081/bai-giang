@@ -1,0 +1,33 @@
+# Đóng gói hai bản offline một tệp và đăng lên Releases.
+# Chạy khi đẩy thẻ offline-* (ví dụ: git tag offline-2026.11.01 && git push origin offline-2026.11.01) hoặc bấm Run workflow.
+# Bản offline không nằm trong git để repo không phình thêm ~17 MB mỗi lần dựng lại.
+name: Bản offline
+on:
+  push:
+    tags: ['offline-*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tên thẻ phát hành (offline-YYYY.MM.DD)'
+        required: true
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lấy three.js 0.180.0 từ npm
+        run: |
+          mkdir -p /tmp/three && cd /tmp/three && npm pack three@0.180.0 --silent && tar xzf three-0.180.0.tgz
+      - name: Đóng gói
+        run: |
+          mkdir -p offline
+          python3 tools/build_offline.py te-bao/index.html te-bao/ribosome.b64.txt /tmp/three/package offline/hanh-trinh-te-bao-offline.html
+          python3 tools/build_offline.py ty-the/index.html - /tmp/three/package offline/vao-ty-the-offline.html
+      - name: Đăng lên Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag || github.ref_name }}
+        run: |
+          gh release create "$TAG" offline/*.html --title "Bản offline · $TAG" --target "$GITHUB_SHA" --latest --notes "Hai bài mở bằng Chrome hoặc Edge, không cần mạng: Hành Trình Vào Tế Bào và Vào Ty Thể. Dựng từ commit $GITHUB_SHA."

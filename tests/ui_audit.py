@@ -59,6 +59,7 @@ PROBE = r"""(args) => {
         // chữ liên kết trong đoạn văn không tính (vùng bấm là cả dòng chữ)
         if (e.tagName === 'A' && getComputedStyle(e).display === 'inline' && e.closest('p,li,td')) continue;
         if (e.closest('.card h3')) continue; // liên kết phủ cả thẻ (::after), vùng bấm là cả thẻ
+        if (e.closest('.bgs-crumb .s')) continue; // liên kết chữ trong dòng phụ đề (WCAG 2.5.8, ngoại lệ liên kết trong dòng); điều hướng chính là logo và menu
         out.tap.push([Math.round(r.width), Math.round(r.height), label]); } } }
   const root = new URL('./', document.baseURI); const site = location.origin + '/';
   for (const a of document.querySelectorAll('a[href]')) { if (!vis(a)) continue; const u = new URL(a.getAttribute('href'), location.href);

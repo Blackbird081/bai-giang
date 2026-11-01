@@ -1,6 +1,6 @@
 # Bước A · Phóng từ tế bào xuống nguyên tử (bản 6)
 
-Ngày: 26/10/2026 · Sản phẩm: https://claude.ai/artifact/68y1264YdVFXQnzmHg5mrW
+Ngày: 26/10/2026 · Sản phẩm: https://nclamvn.github.io/bai-giang/te-bao/
 
 ## Dữ liệu và nguồn
 - Cấu trúc: PDB 3J7R, "Structure of the translating mammalian ribosome-Sec61 complex". Voorhees RM, Fernández IS, Scheres SHW, Hegde RS. Cell 2014. doi:10.1016/j.cell.2014.05.024. Ribosome lợn (Sus scrofa), cryo-EM, độ phân giải 3,9 Å theo RCSB.

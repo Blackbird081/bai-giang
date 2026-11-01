@@ -95,7 +95,8 @@ section{padding:40px 0}
 .route span.d{color:var(--bg-ink2)}
 .route .go{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-weight:600}
 /* giáo viên */
-.teach{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.teach{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media (max-width:1240px){.teach{grid-template-columns:repeat(2,1fr)}}
 .tile{display:grid;gap:8px;align-content:start;padding:20px;border-radius:var(--bg-r-md);background:var(--bg-surface);box-shadow:var(--bg-sh-1);text-decoration:none}
 .tile .ic{width:44px;height:44px;border-radius:var(--bg-r-sm);display:grid;place-items:center;background:var(--bg-page)}
 .tile b{font-size:var(--bg-fs-md)}
@@ -189,6 +190,7 @@ html[data-chieu]{--bg-ink2:#141414;--bg-ink3:#262626}
       <div class="tile"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span><b>Lên lớp trong mọi bài</b><span>Bấm <b>Lên lớp</b> trên thanh đầu bài hoặc <kbd>Shift P</kbd>. Bút trình chiếu và phím mũi tên chuyển bước, <kbd>B</kbd> màn đen, <kbd>F</kbd> toàn màn hình.</span></div>
       <a class="tile" href="__L_REMOTE__"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.75" width="10" height="18.5" rx="2.5"/><path d="M11 18h2"/></svg></span><b>Màn hình giáo viên, điện thoại</b><span>Trong bài: menu <b>Thêm</b> → Màn hình giáo viên (ghi chú, đáp án, bước sau) hoặc quét mã bằng điện thoại.</span></a>
       <a class="tile" href="__L_KIEM__"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><b>Kiểm máy trước giờ dạy</b><span>Chạy thử mọi bài trên máy của lớp, xem bài nào chạy mượt và bài nào nên dùng mức nhẹ.</span></a>
+      <a class="tile" href="https://github.com/nclamvn/bai-giang/releases/latest" target="_blank" rel="noopener"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M5 19h14"/></svg></span><b>Bản offline cho phòng không mạng</b><span>Tế Bào và Ty Thể, mỗi bài một tệp HTML (8–10 MB). Tải về, mở bằng Chrome hoặc Edge, không cần Internet.</span></a>
     </div>
   </section>
 
@@ -219,9 +221,9 @@ html[data-chieu]{--bg-ink2:#141414;--bg-ink3:#262626}
   <footer class="foot">
     <div class="fl"><span>© 2026 Sáng Ăn Khoai · Bài Giảng</span><span><a href="https://github.com/nclamvn/bai-giang" target="_blank" rel="noopener">Mã nguồn</a> · <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">Góp ý</a></span></div>
     <details>
-      <summary>Thư viện thí nghiệm phát triển từ <a href="https://lab.tongjiang.app" target="_blank" rel="noopener">Tongjiang Lab</a>, <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.vi" target="_blank" rel="noopener">CC BY-NC 4.0</a>. Phi thương mại.</summary>
+      <summary>Thư viện thí nghiệm phát triển từ Tongjiang Lab, CC BY-NC 4.0. Phi thương mại.</summary>
       <ul>
-        <li>Mã gốc: <a href="https://github.com/smithjohn78390/tongjiang-lab" target="_blank" rel="noopener">tongjiang-lab</a>. Robotics tham khảo teardown, claude-motion; three.js (MIT); phông SIL OFL.</li>
+        <li>Bản gốc: <a href="https://lab.tongjiang.app" target="_blank" rel="noopener">Tongjiang Lab</a> (<a href="https://github.com/smithjohn78390/tongjiang-lab" target="_blank" rel="noopener">mã nguồn</a>), giấy phép <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.vi" target="_blank" rel="noopener">CC BY-NC 4.0</a>. Robotics tham khảo teardown, claude-motion; three.js (MIT); phông SIL OFL.</li>
         <li>Đối chiếu GDPT 2018 (<a href="__L_GDPT__">dữ liệu</a>), cập nhật 30/10/2026; chưa qua giáo viên bộ môn duyệt. __SOURCES__</li>
       </ul>
     </details>

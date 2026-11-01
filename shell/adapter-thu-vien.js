@@ -60,6 +60,8 @@
     return {note: parts.join('\n\n'), ask: q ? {q, o: [], a: -1} : null};
   }
 
+  // máy tính bảng dựng đứng: hai bảng là tấm trượt của bản gốc (như điện thoại), không phải ngăn kéo
+  const sheet = () => matchMedia('(orientation: portrait) and (max-width: 1100px)').matches;
   function mount(chips) {
     const steps = [...chips].map((c) => ({t: txt(c.querySelector('.nm')) || txt(c), note: '', ask: null}));
     const title = txt(document.querySelector('header#top h1')) || document.title;
@@ -74,6 +76,14 @@
       if (syncing) return;
       window.BGShell.update(i);
     };
+    // điện thoại: hộp phương trình thu về hai dòng (nhãn, phương trình), chạm để xem điều kiện và thẻ; nhường chỗ cho cảnh 3D
+    const eq = document.getElementById('eqb');
+    if (eq && !eq.dataset.bgTap) {
+      eq.dataset.bgTap = '1'; eq.tabIndex = 0; eq.setAttribute('role', 'button'); eq.setAttribute('aria-expanded', 'false');
+      const tog = () => eq.setAttribute('aria-expanded', String(eq.classList.toggle('bg-open')));
+      eq.addEventListener('click', tog);
+      eq.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tog(); } });
+    }
     // ghi công và ghi chú minh hoạ của bản gốc: đưa vào cuối bảng Bước này (chân trang của bản gốc đã ẩn)
     const lp = document.getElementById('left'), pb = lp && lp.querySelector('.pbody');
     const noteTxt = txt(document.querySelector('footer#foot .note'));
@@ -88,8 +98,8 @@
       objectives: mq ? ['Câu hỏi chính của bài: ' + mq] : [], steps,
       // hai bảng của bản gốc là ngăn kéo của thanh đầu bài trên màn rộng; điện thoại, máy tính bảng dựng giữ tấm trượt của bản gốc
       panels: [
-        { label: 'Bước này', icon: 'list', sel: 'aside#left', side: 'left', desktop: true, open: () => innerWidth >= 1100 },
-        { label: 'Điều khiển', icon: 'sliders', sel: 'aside#right', side: 'right', desktop: true, open: () => innerWidth >= 1600 },
+        { label: 'Bước này', icon: 'list', sel: 'aside#left', side: 'left', desktop: true, open: () => innerWidth >= 1100 || sheet() },
+        { label: 'Điều khiển', icon: 'sliders', sel: 'aside#right', side: 'right', desktop: true, open: () => innerWidth >= 1600 || sheet() },
       ],
       credit: 'Phát triển tiếp từ bài gốc của Tongjiang Lab (lab.tongjiang.app, CC BY-NC 4.0): Bài Giảng Việt hoá, đối chiếu chương trình GDPT 2018 và làm lại giao diện. Dùng phi thương mại.' + (noteTxt ? ' ' + noteTxt : ''),
       keys: [['1–9', 'nhảy tới bước'], ['Q', 'kiểm tra'], ['← →', 'bước trước, bước sau']],

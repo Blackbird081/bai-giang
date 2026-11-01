@@ -122,7 +122,7 @@ def main():
     # khối nhúng vào vỏ: token, phông (đường dẫn tính lúc chạy theo gốc site), biểu tượng
     js = ('/*TOKENS:start*/\n  // sinh bằng tools/design.py từ design/tokens.json; không sửa tay\n'
           f'  const TOKENS_CSS = {json.dumps(tokens_css())};\n'
-          f'  const FONTFACE = (root) => {json.dumps(fontface(root_expr="R"))}.split("${{R}}").join(root + "design/fonts/");\n'
+          f'  const FONTFACE = (root) => {{ const U = {json.dumps(T["unicode"])}; return {json.dumps([[f, w, slug] for f, w, slug in T["fonts"]])}.map(([f, w, s]) => [\'latin\', \'vietnamese\'].map((u) => `@font-face{{font-family:\'${{f}}\';font-style:normal;font-weight:${{w}};font-display:swap;src:url(${{root}}design/fonts/${{s}}-${{u}}-${{w}}-normal.woff2) format(\'woff2\');unicode-range:${{U[u]}}}}`).join(\'\\n\')).join(\'\\n\'); }};\n'
           f'  const ICON_PATHS = {json.dumps(ICONS, ensure_ascii=False)};\n'
           f'  const SUBJECT = {json.dumps(T["subject"])};\n'
           '  /*TOKENS:end*/')

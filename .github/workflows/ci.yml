@@ -1,0 +1,38 @@
+# Kiểm mỗi lần đẩy mã: cú pháp, tệp đã dựng khớp nguồn, mã băm CDN còn đúng, các trang mở được không lỗi.
+name: Kiểm tra
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Cài công cụ dựng robotics (esbuild, three)
+        run: cd tools/robotics && npm ci
+      - name: Cú pháp
+        run: |
+          python -m py_compile tools/*.py tools/robotics/*.py tests/*.py
+          node --check shell/bg-shell.js
+          node --check shell/adapter-thu-vien.js
+      - name: Tệp đã dựng khớp với nguồn
+        run: python tools/build_all.py --check
+      - name: Mã băm toàn vẹn của tệp CDN
+        run: python tools/sri.py --check
+      - name: Mở thử các trang
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+          python -m http.server 8777 >/dev/null 2>&1 &
+          sleep 2
+          python tests/smoke.py 8777

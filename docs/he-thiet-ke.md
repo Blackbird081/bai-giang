@@ -39,9 +39,11 @@ Hai biến thể dùng chung thanh đầu bài, phông, biểu tượng, cách l
 - **Ngăn kéo**: bảng của bài trượt vào, ra từ nút trên thanh. `desktop: true` nghĩa là chỉ là ngăn kéo trên màn rộng; trên điện thoại bảng nằm trong trang.
 - **Thanh dưới trên điện thoại**: bước trước · tên bước · bước sau; vuốt ngang trên thanh để chuyển bước.
 - **Bài tiếp theo**: nút trên thanh và thẻ hiện ở bước cuối, đọc từ `tools/chuoi_bai.py`.
-- **Màn tải**: `tools/inject_shell.py` đặt ảnh bìa của bài ngay đầu `<body>`; vỏ gỡ khi cảnh đã vẽ khung hình đầu.
+- **Màn tải**: `tools/inject_shell.py` đặt ảnh bìa của bài ngay đầu `<body>`; thanh tiến độ chạy theo sự kiện thật (mỗi tệp tải xong, trang đọc xong, canvas có khung đầu), vỏ đặt 100 % rồi gỡ khi cảnh đã vẽ khung hình đầu.
+- **Chế độ nhẹ**: vỏ đo nhịp khung hình sau khi gỡ màn tải; 3 lượt liền có p90 trên 25 ms thì đặt `html[data-bg-lite]` (bỏ làm mờ nền sau mọi bảng, bảng đục hơn) và phát sự kiện `bg:lite` để bài tự giảm điểm ảnh (Ty Thể, Cổ Loa). Cảnh và hiệu ứng 3D giữ nguyên; máy đủ mạnh không bao giờ vào chế độ này. `?lite=1` ép bật, `?lite=0` tắt hẳn. Tế Bào và robotics có bậc chất lượng tự hạ riêng.
 - **Màn hình giáo viên**: cửa sổ thứ hai kiểu người trình bày: bước hiện tại, bước sau, ghi chú lớn, đồng hồ, câu hỏi có nút hiện đáp án.
-- **Điện thoại làm điều khiển**: `dieu-khien/`, nửa trên là bước và ghi chú, nửa dưới hai vùng bấm lớn, rung nhẹ khi chuyển bước, dải báo khi mất kết nối.
+- **Điện thoại làm điều khiển**: `dieu-khien/`, nửa trên là bước và ghi chú, nửa dưới hai vùng bấm lớn, rung nhẹ khi chuyển bước, dải báo khi mất kết nối. Mã nối 6 ký tự (khoảng 1 tỉ tổ hợp, sinh bằng `crypto.getRandomValues`); điện thoại đầu tiên nối thẳng, từ thiết bị thứ hai màn chiếu hỏi giáo viên Cho phép hay Từ chối. Màn chiếu chỉ nhận 7 lệnh cố định; chữ hiện trên điện thoại đều được thoát ký tự HTML.
+- **Tệp từ CDN**: three.js, PeerJS, qrcode, model-viewer đều có mã băm toàn vẹn (SRI; import map có khoá `integrity`), giữ trong `tools/sri.py`; CI kiểm lại với CDN mỗi lần đẩy mã.
 - **Chế độ Máy chiếu**: menu Thêm hoặc `?chieu`; chữ lớn hơn 1,25 lần, chữ đen, bảng nền đặc; nhớ trên máy.
 - **Trợ năng**: nhãn cho mọi nút biểu tượng, vùng báo bước cho trình đọc màn hình, vòng tiêu điểm 2 px, `lang="vi"`, giảm chuyển động theo cài đặt máy (thời lượng 1 ms, ảnh màn đầu không tự đổi).
 - **Gợi ý lần đầu**: kéo để xoay, cuộn hoặc hai ngón để phóng, bấm vào vật; hiện 3 giây, tối đa hai lần mỗi máy.
@@ -77,6 +79,8 @@ Nhúng: `python3 tools/inject_shell.py <tệp>`. Tế Bào chạy trong `build.s
 | 54 bài thư viện | cảnh 3D, bảng Bước này mở trên màn rộng từ 1100 px, viên thuốc chuyển bước ở giữa | Bước này (trái), Điều khiển (phải, mở sẵn từ 1600 px) |
 
 ## Kiểm tự động
+
+Một lệnh dựng lại cả site: `python3 tools/build_all.py` (`--check` báo lỗi nếu tệp đã dựng lệch nguồn; CI chạy lệnh này). Kiểm nhanh: `python3 tests/smoke.py`.
 
 `python3 tests/ui_audit.py --group all` (cần `python3 -m http.server 8777` ở gốc repo) đo ở 5 cỡ màn: chuỗi số đo kỹ thuật lộ ra, cỡ chữ nhỏ nhất, vùng bấm dưới 44 px, đường về trang chính, bài tiếp theo, tỉ lệ cảnh 3D không bị che, ghi công Tongjiang, lỗi JavaScript. Không đo độ mượt (trình duyệt trong máy chủ vẽ bằng phần mềm); độ mượt đo bằng `kiem-may/` trên máy thật.
 

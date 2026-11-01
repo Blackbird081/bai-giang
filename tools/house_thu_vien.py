@@ -42,11 +42,23 @@ body.bgs-on footer#foot .cur{font:600 14px var(--bg-mono);color:var(--bg-ink2)}
   body.bgs-nav-on #mtabs{bottom:calc(84px + 42svh + env(safe-area-inset-bottom))!important}
   body.bgs-nav-on.m-3d #mtabs{bottom:calc(84px + env(safe-area-inset-bottom))!important}
   #mtabs button{min-height:40px;padding:0 14px!important;font:600 14px var(--bg-font)!important}
+  /* thanh ba nút đè lên nhãn 3D: nền đặc để nhãn phía sau không lộ qua */
+  #mtabs{background:rgba(244,244,246,.98)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:0 6px 18px -8px rgba(16,24,40,.28),0 0 0 .5px rgba(16,24,40,.08)!important}
 }
 @media (max-width:700px),(orientation:portrait) and (max-width:1100px){body.bgs-on #eqb{transform:translateX(-50%)!important;width:min(380px,calc(100vw - 24px))!important}}
+/* điện thoại: chữ nhỏ nhất 14 px (minfont viết các cỡ ngưỡng thành var(--bg-fs-min)) */
+@media (max-width:700px){html:root{--bg-fs-min:14px;--fs-xs:14px;--fs-b:15px;--fs-t:15px}}
+@media (max-width:700px){
+  body.bgs-on #eqb{cursor:pointer;padding-bottom:10px!important}
+  body.bgs-on #eqb:not(.bg-open) .bt,body.bgs-on #eqb:not(.bg-open) .btags,body.bgs-on #eqb:not(.bg-open) .bcal{display:none!important}
+  body.bgs-on #eqb:not(.bg-open) .beq{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  body.bgs-on #eqb::after{content:"Chạm để xem điều kiện";display:block;margin-top:4px;font:500 13px var(--bg-font);color:var(--bg-ink3)}
+  body.bgs-on #eqb.bg-open::after{content:"Chạm để thu gọn"}
+}
 /* màn cảm ứng: vùng bấm từ 44 px */
 @media (pointer:coarse){aside#left button,aside#right button,#mtabs button,footer#foot button,aside .chip{min-height:44px!important}aside .seg button{min-height:40px}}
 @media (orientation:portrait) and (min-width:701px) and (max-width:1100px){body.bgs-nav-on #mtabs{bottom:calc(84px + 38svh + env(safe-area-inset-bottom))!important}}
+@media (orientation:portrait) and (min-width:641px) and (max-width:1100px){body.bgs-on .bgs-desk{display:none!important}}
 @media (orientation:landscape) and (max-height:520px){
   body.bgs-on aside#left,body.bgs-on aside#right{top:calc(var(--bg-bar) + env(safe-area-inset-top) + 8px)!important}
   body.bgs-nav-on footer#foot{display:none!important}

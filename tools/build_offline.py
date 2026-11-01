@@ -63,5 +63,5 @@ html = html.replace('<title>', '<meta name="offline-build" content="three ' + ve
 if not html.lstrip().lower().startswith('<!doctype'):
     html = '<!doctype html>\n<html lang="vi">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n' + html
 pathlib.Path(out).parent.mkdir(parents=True, exist_ok=True)
-pathlib.Path(out).write_text(html, encoding='utf-8')
+pathlib.Path(out).parent.mkdir(parents=True, exist_ok=True); pathlib.Path(out).write_text(html, encoding="utf-8")
 print(f'{out}: {len(html.encode()) / 1e6:.1f} MB, {len(imports)} module, dữ liệu ribosome {len(b64) / 1e6:.1f} MB')

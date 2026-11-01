@@ -53,13 +53,19 @@ def loader(seq, root):
     if not seq: return ''
     cover = root + seq['cover']
     t = H.escape(seq['title'])
-    return ('<!--BG-LOAD:start--><div id="bgs-load" role="progressbar" aria-label="Đang tải bài" style="position:fixed;inset:0;z-index:2147483600;'
+    return ('<!--BG-LOAD:start--><div id="bgs-load" role="progressbar" aria-label="Đang tải bài" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8" style="position:fixed;inset:0;z-index:2147483600;'
             f'background:#E9EAEE url(\'{cover}\') center/cover no-repeat;display:flex;align-items:flex-end;justify-content:center;padding:0 16px max(10vh,72px);transition:opacity .6s cubic-bezier(.2,.8,.2,1)">'
             '<div style="width:min(360px,100%);padding:14px 18px 16px;border-radius:16px;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);'
             'box-shadow:0 18px 44px -18px rgba(16,24,40,.4);font:600 17px/1.35 \'Be Vietnam Pro\',system-ui,sans-serif;color:#15171C">'
-            f'<div style="font-size:13px;font-weight:500;color:#626773">Đang dựng cảnh 3D</div><div>{t}</div>'
-            '<div style="height:4px;border-radius:2px;background:rgba(16,24,40,.1);margin-top:12px;overflow:hidden"><i style="display:block;height:100%;width:38%;border-radius:2px;background:#1E2A44;animation:bgsl 1.3s cubic-bezier(.65,0,.35,1) infinite"></i></div></div>'
-            '<style>@keyframes bgsl{from{transform:translateX(-100%)}to{transform:translateX(270%)}}#bgs-load.out{opacity:0;pointer-events:none}@media (prefers-reduced-motion:reduce){#bgs-load i{animation:none;width:100%!important;opacity:.35}}</style></div><!--BG-LOAD:end-->')
+            f'<div id="bgs-load-k" style="font-size:13px;font-weight:500;color:#626773">Đang tải bài</div><div>{t}</div>'
+            '<div style="height:4px;border-radius:2px;background:rgba(16,24,40,.1);margin-top:12px;overflow:hidden"><i style="display:block;height:100%;width:8%;border-radius:2px;background:#1E2A44;transition:width .5s cubic-bezier(.2,.8,.2,1)"></i></div></div>'
+            '<style>#bgs-load.out{opacity:0;pointer-events:none}@media (prefers-reduced-motion:reduce){#bgs-load i{transition:none}}</style>'
+            # tiến độ theo sự kiện thật: mỗi tệp tải xong, trang đã đọc xong, canvas có khung đầu; vỏ đặt 100% khi gỡ màn tải
+            '<script>(function(){var L=document.getElementById("bgs-load"),b=L.querySelector("i"),k=document.getElementById("bgs-load-k"),p=.08,n=0;'
+            'function set(v,t){if(v>p){p=v;b.style.width=Math.round(p*100)+"%";L.setAttribute("aria-valuenow",Math.round(p*100))}if(t)k.textContent=t}'
+            'try{new PerformanceObserver(function(l){l.getEntries().forEach(function(){n++;set(p+(.8-p)*.18,"Đang tải "+n+" tệp")})}).observe({type:"resource",buffered:true})}catch(e){}'
+            'document.addEventListener("DOMContentLoaded",function(){set(Math.max(p,.5))});'
+            'var w=setInterval(function(){var c=document.querySelector("canvas");if(!document.body.contains(L))return clearInterval(w);if(c&&c.width>0){set(.92,"Đang dựng cảnh 3D");clearInterval(w)}},150)})()</script></div><!--BG-LOAD:end-->')
 
 
 def patch_free_rect(html: str) -> str:
@@ -83,6 +89,7 @@ def inject(html: str, adapter=None, key=None, root=None) -> str:
     html = re.sub(r'<!--BG-LOAD:start-->.*?<!--BG-LOAD:end-->', '', html, flags=re.S)
     html = re.sub(r'<meta name="bg-root"[^>]*>\n?', '', html)
     html = re.sub(r'<!--BG-TOKENS:start-->.*?<!--BG-TOKENS:end-->\n?', '', html, flags=re.S)
+    html = re.sub(r'<head>\n+', '<head>\n', html, count=1)  # không để dòng trống dồn lại sau mỗi lần chạy
     # token và phông có sẵn trong <head> để chữ đúng ngay khung hình đầu, trước khi mã của vỏ chạy
     head = f'<meta name="bg-root" content="{root}">\n<!--BG-TOKENS:start--><style id="bg-tokens">' + D.fontface(root=root + 'design/fonts/') + D.tokens_css() + '</style><!--BG-TOKENS:end-->\n'
     html = html.replace('<head>', '<head>\n' + head, 1) if '<head>' in html else re.sub(r'(<head[^>]*>)', lambda m: m.group(1) + head, html, count=1)

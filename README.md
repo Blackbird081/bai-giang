@@ -18,10 +18,9 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Xe tự hành vi sai (TurtleBot3 Burger) | https://nclamvn.github.io/bai-giang/robotics/turtlebot3/ |
 | 54 bài thí nghiệm | https://nclamvn.github.io/bai-giang/#thu-vien |
 
-- Bản trên Claude: trang chính https://claude.ai/artifact/GKx2jb4nALqKE6FUDnLGXu · Tế Bào https://claude.ai/artifact/68y1264YdVFXQnzmHg5mrW · Cổ Loa https://claude.ai/artifact/FWgFyz3VTEfC6Ltg6apt4M · Ty Thể https://claude.ai/artifact/PLNECoseboZiMU7MXKREzy
-- Bản offline một file cho lớp học: [`offline/hanh-trinh-te-bao-offline.html`](offline/hanh-trinh-te-bao-offline.html) (9 MB) và [`offline/vao-ty-the-offline.html`](offline/vao-ty-the-offline.html) (7,6 MB); bấm "Download raw file", mở bằng Chrome hoặc Edge, không cần mạng.
+- Bản offline một file cho lớp học, tải ở [Releases](https://github.com/nclamvn/bai-giang/releases/latest): [Hành Trình Vào Tế Bào](https://github.com/nclamvn/bai-giang/releases/latest/download/hanh-trinh-te-bao-offline.html) (9 MB) và [Vào Ty Thể](https://github.com/nclamvn/bai-giang/releases/latest/download/vao-ty-the-offline.html) (8 MB). Mở bằng Chrome hoặc Edge, không cần mạng.
 - Địa chỉ cũ (`ty-the.html`, `ar.html`, `chu-de-sinh-hoc-te-bao.html`, `thu-vien/`) tự chuyển sang địa chỉ mới.
-- Kế hoạch đồ hoạ: https://claude.ai/artifact/EdyMQyM2rYKcfFYwgFisvM · Hồ sơ nguồn: https://claude.ai/artifact/FmWrnRkoZDdedueUbAcUqh
+- Ghi chép kỹ thuật Bước A (nguồn dữ liệu, cách vẽ, phần minh hoạ): [`docs/buoc-a-phong-toi-nguyen-tu.md`](docs/buoc-a-phong-toi-nguyen-tu.md)
 
 ## Lên lớp
 Nút **Lên lớp** mở bài "Hành trình của một phân tử protein tiết": 10 bước giáo viên bấm (phím → hoặc bút trình chiếu), mỗi bước có câu hỏi cho cả lớp, cuối bài là phần kiểm tra học sinh bấm đúng bào quan trên mô hình 3D và một câu trắc nghiệm, có tính điểm. Khung bài giảng (câu hỏi dẫn dắt, các bước, kiểm tra) học theo cách làm của [Tongjiang Lab](https://github.com/smithjohn78390/tongjiang-lab); nội dung và mã viết mới hoàn toàn, không dùng tài nguyên của dự án đó.
@@ -70,7 +69,7 @@ Nút **Lên lớp** mở bài "Hành trình của một phân tử protein tiế
 Mọi bài 3D (Tế Bào, Ty Thể, Cổ Loa, 4 mô phỏng robotics, 54 bài thư viện) dùng chung một vỏ [`shell/bg-shell.js`](shell/bg-shell.js):
 - Shift P hoặc nút Lên lớp; bút trình chiếu, phím mũi tên, PageUp/PageDown chuyển bước; B màn đen; F toàn màn hình; thêm `?lenlop` vào địa chỉ để mở sẵn chế độ lên lớp.
 - Màn hình giáo viên: cửa sổ thứ hai trên cùng máy, có ghi chú, câu hỏi kèm đáp án, yêu cầu cần đạt; không cần mạng.
-- Điện thoại: [`dieu-khien/`](dieu-khien/), quét mã QR hoặc nhập mã 4 ký tự (WebRTC qua PeerJS, cần mạng).
+- Điện thoại: [`dieu-khien/`](dieu-khien/), quét mã QR hoặc nhập mã 6 ký tự (WebRTC qua PeerJS, cần mạng); từ thiết bị thứ hai, giáo viên phải bấm Cho phép trên màn chiếu.
 - [`kiem-may/`](kiem-may/): đo khung hình mỗi giây, thời gian tải, card đồ hoạ của từng bài trên máy của trường; cảnh báo khi trình duyệt vẽ bằng phần mềm; xuất JSON, CSV.
 - Đặc tả: [`docs/he-thiet-ke.md`](docs/he-thiet-ke.md). Nhúng vỏ: `python3 tools/inject_shell.py` (54 bài thư viện thêm `--adapter=thu-vien`).
 
@@ -100,27 +99,24 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `tools/build_pages.py` | Dựng trang chính, trang chủ đề và các trang chuyển hướng |
 | `tools/build_ribosome.py`, `tools/build_atp.py`, `tools/build_glb.py` | Xử lý trước dữ liệu PDB, có cổng kiểm sai số |
 | `tools/build_offline.py` | Đóng gói bản offline một file |
-| `offline/` | Hai bản offline |
+| `offline/` | Nơi `tools/build_offline.py` ghi hai bản offline (không đưa vào git; bản phát hành ở Releases) |
 | `tests/` | Kiểm bằng Playwright |
 | `docs/` | Ghi chép Bước A: nguồn dữ liệu, kỹ thuật vẽ, phần minh hoạ |
 
 ## Chạy
 ```bash
-./build.sh                      # ghép te-bao/index.html và kiểm cú pháp
-python3 tools/build_pages.py    # dựng trang chính và trang chủ đề
+python3 tools/build_all.py      # dựng lại toàn bộ site theo đúng thứ tự (robotics cần: cd tools/robotics && npm ci)
 python3 -m http.server 8765     # mở http://localhost:8765 (cần phục vụ qua HTTP để tải dữ liệu)
+python3 tests/smoke.py 8765     # mở thử các trang, báo lỗi JS
 ```
-Thêm `#webgl` vào cuối địa chỉ để ép chạy WebGL 2.
+Thêm `#webgl` vào cuối địa chỉ để ép chạy WebGL 2. Thêm `?lite=1` để xem chế độ nhẹ (vỏ tự bật khi máy chậm kéo dài: bỏ làm mờ nền sau bảng, giảm điểm ảnh; cảnh và hiệu ứng 3D giữ nguyên), `?lite=0` để tắt hẳn.
 
-Đóng gói lại bản offline (cần `npm i three@0.180.0`):
+Mỗi lần đẩy lên `main`, GitHub Actions (`.github/workflows/ci.yml`) kiểm cú pháp, kiểm tệp đã dựng khớp với nguồn (`build_all.py --check`), kiểm mã băm toàn vẹn của tệp CDN (`tools/sri.py --check`) và mở thử các trang.
+
+Bản offline: đẩy một thẻ `offline-*` (ví dụ `git tag offline-2026.11.01 && git push origin offline-2026.11.01`), Actions (`.github/workflows/offline-release.yml`) đóng gói hai bản và đăng lên Releases. Đóng gói tay:
 ```bash
 python3 tools/build_offline.py te-bao/index.html te-bao/ribosome.b64.txt node_modules/three offline/hanh-trinh-te-bao-offline.html
 python3 tools/build_offline.py ty-the/index.html - node_modules/three offline/vao-ty-the-offline.html
-```
-
-Dựng lại thư viện và trang chủ đề sau khi sửa `catalog.vi.json` hoặc `gdpt2018.json`:
-```bash
-python3 tools/build_pages.py
 ```
 
 ## Dựng lại dữ liệu ATP synthase
@@ -141,7 +137,8 @@ base64 -w 0 ribosome.bin > te-bao/ribosome.b64.txt
 - Mã và nội dung của Hành Trình Vào Tế Bào, trang AR, công cụ: MIT (tệp `LICENSE`).
 - `thu-vien/`: CC BY-NC 4.0, theo bản gốc Tongjiang Lab; chỉ dùng phi thương mại.
 - Dữ liệu cấu trúc: RCSB PDB 3J7R, 6J5I, 6J5K.
-- `tools/robotics/`: MIT; phần phỏng theo teardown và claude-motion giữ giấy phép MIT gốc (`tools/robotics/LICENSE-teardown`). three.js MIT, phông Inter và JetBrains Mono OFL.
+- `tools/robotics/`: MIT; phần phỏng theo teardown và claude-motion giữ giấy phép MIT gốc (`tools/robotics/LICENSE-teardown`). three.js MIT.
+- Phông Be Vietnam Pro, Noto Serif, JetBrains Mono: SIL Open Font License 1.1, tự lưu trữ trong `design/fonts/` kèm giấy phép.
 
 ## Nguồn
 - Voorhees RM, Fernández IS, Scheres SHW, Hegde RS. Structure of the mammalian ribosome-Sec61 complex to 3.4 Å resolution. Cell 2014. doi:10.1016/j.cell.2014.05.024. Toạ độ từ RCSB PDB 3J7R.

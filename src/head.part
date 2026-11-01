@@ -422,4 +422,6 @@ html[data-chieu] .card,html[data-chieu] .lesson,html[data-chieu] .callout,html[d
 html[data-chieu] .small,html[data-chieu] .why,html[data-chieu] .src,html[data-chieu] .lbl,html[data-chieu] .eyebrow{color:#1a1a1a!important}
 html[data-chieu] .lesson h3{font-size:24px!important}html[data-chieu] .lesson p{font-size:18px!important}
 html[data-chieu] .card{font-size:17px}
+/* màn cảm ứng: vùng bấm từ 44 px; ghim mở rộng vùng bấm bằng padding bù margin nên vị trí không đổi */
+@media (pointer:coarse){.controls .btn,.controls select,.seg button{min-height:44px}.seg button{min-width:44px}.herotag{padding:9px!important;margin:-9px!important}}
 </style>
