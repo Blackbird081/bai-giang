@@ -8,3 +8,6 @@ tests/a11y_audit.json
 
 # bản offline phát hành ở Releases (.github/workflows/offline-release.yml), không đưa vào git
 offline/*.html
+
+# logo và favicon
+!design/logo/*.png
