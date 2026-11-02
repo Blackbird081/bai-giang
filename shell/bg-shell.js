@@ -36,7 +36,7 @@
   const CSS = `
   .bgs,.bgs *{box-sizing:border-box}
   .bgs{position:fixed;z-index:2147483000;font:500 var(--bg-fs-sm)/1.4 var(--bg-font);color:var(--bg-ink);-webkit-font-smoothing:antialiased;letter-spacing:0}
-  .bgs button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;margin:0;padding:0}
+  :where(.bgs) button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;margin:0;padding:0}
   .bgs a{color:inherit;text-decoration:none}
   .bgs-i{width:20px;height:20px;flex:none;display:block}
   .bgs-glass{background:var(--bg-glass);-webkit-backdrop-filter:var(--bg-blur);backdrop-filter:var(--bg-blur);box-shadow:var(--bg-sh-1)}
@@ -52,11 +52,11 @@
   .bgs-crumb .s{font-size:var(--bg-fs-xs);color:var(--bg-ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .bgs-crumb .s a:hover{color:var(--bg-ink);text-decoration:underline;text-underline-offset:2px}
   .bgs-crumb h1{margin:1px 0 0;font:700 var(--bg-fs-md)/1.2 var(--bg-font);letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .bgs-tools{display:flex;align-items:center;gap:4px;flex:none}
+  .bgs-tools{display:flex;align-items:center;gap:6px;flex:none}
   .bgs-b{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:40px;min-width:40px;padding:0 12px;border-radius:var(--bg-r-sm);font-weight:600;white-space:nowrap;transition:background var(--bg-t-fast) var(--bg-ease),color var(--bg-t-fast)}
   .bgs-b:hover{background:var(--bg-hair)}
   .bgs-b[aria-pressed="true"]{background:var(--bg-ink);color:var(--bg-page)}
-  .bgs-b.pri{background:var(--bg-brand);color:var(--bg-brand-ink)}
+  .bgs-b.pri{background:var(--bg-brand);color:var(--bg-brand-ink);padding:0 16px 0 14px;margin-left:4px}
   .bgs-b.pri:hover{filter:brightness(1.12)}
   .bgs-b.on{background:var(--bg-bad);color:#fff}
   .bgs-b.ic{padding:0;width:40px}
