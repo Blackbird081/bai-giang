@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#050816">
 <title>Neuron và xung thần kinh · Sáng Ăn Khoai</title>
-<meta name="description" content="Bài 3D Sinh học 11: neuron, điện thế màng, dẫn truyền nhảy cóc qua eo Ranvier và synapse hoá học. Bản thử phong cách điện ảnh.">
+<meta name="description" content="Bài 3D Sinh học 11: neuron, điện thế màng, dẫn truyền nhảy cóc qua eo Ranvier và synapse hoá học, phong cách điện ảnh.">
 <style>
-/* Neuron và xung thần kinh · bản thử phong cách điện ảnh (tools/than-kinh.template.html → tools/build_than_kinh.py) */
+/* Neuron và xung thần kinh · phong cách điện ảnh (tools/than-kinh.template.html → tools/build_than_kinh.py) */
 :root{--nk-bg:#050816;--nk-ink:#E8ECFF;--nk-ink2:#A9B2D6;--nk-ink3:#7C86AD;--nk-line:rgba(160,175,255,.22);--nk-gold:#FFB547;--nk-cyan:#6FE3FF;--nk-violet:#B78CFF;--nk-pink:#FF7AC6}
 html,body{margin:0;height:100%;background:var(--nk-bg);color:var(--nk-ink);overflow:hidden;font-family:var(--bg-font,"Be Vietnam Pro",system-ui,sans-serif)}
 #stage{position:fixed;inset:0}
 #stage canvas{display:block;width:100%;height:100%;outline:none}
 .hud{position:fixed;z-index:5;pointer-events:none;font:500 13px/1.45 var(--bg-mono,"JetBrains Mono",monospace);color:var(--nk-ink2);letter-spacing:.02em}
 .hud .k{font-size:13px;color:var(--nk-ink3);text-transform:uppercase;letter-spacing:.08em}
-.box{border:1px solid var(--nk-line);background:linear-gradient(180deg,rgba(14,20,48,.72),rgba(8,12,30,.62));border-radius:10px;padding:10px 14px;box-shadow:0 0 0 1px rgba(0,0,0,.2),0 18px 40px -24px rgba(0,0,0,.8)}
-body.bgs-on .hud.top{top:calc(var(--bg-bar,56px) + 14px)}
+.box{box-sizing:border-box;border:1px solid var(--nk-line);background:linear-gradient(180deg,rgba(14,20,48,.72),rgba(8,12,30,.62));border-radius:10px;padding:10px 14px;box-shadow:0 0 0 1px rgba(0,0,0,.2),0 18px 40px -24px rgba(0,0,0,.8)}
+body.bgs-on #title,body.bgs-on #vm,body.bgs-on #tag{top:calc(var(--bg-bar,56px) + 14px)}
 #title{left:18px;top:18px}
 #title .brand{font:600 13px var(--bg-mono,monospace);color:var(--nk-gold);letter-spacing:.12em}
 #title h1{margin:4px 0 2px;font:700 30px/1.05 var(--bg-font,system-ui);letter-spacing:.06em;color:#fff;text-shadow:0 0 18px rgba(183,140,255,.55)}
@@ -31,6 +31,17 @@ body.bgs-on .hud.top{top:calc(var(--bg-bar,56px) + 14px)}
 #shot h2{margin:4px 0 6px;font:700 19px/1.3 var(--bg-font,system-ui);color:#fff;letter-spacing:.01em;text-transform:none}
 #shot p{margin:0;font:500 14px/1.55 var(--bg-font,system-ui);color:var(--nk-ink)}
 #shot .src{margin-top:8px;font-size:13px;color:var(--nk-ink3)}
+#shot{pointer-events:auto}
+#ask{margin-top:10px;padding-top:10px;border-top:1px solid var(--nk-line)}
+#ask b{display:block;margin-bottom:6px;font:600 14px/1.45 var(--bg-font,system-ui);color:#fff}
+#ask button{display:block;width:100%;text-align:left;min-height:40px;margin:0 0 6px;padding:8px 12px;border:1px solid var(--nk-line);border-radius:10px;background:rgba(14,20,48,.7);color:var(--nk-ink);font:500 14px/1.4 var(--bg-font,system-ui);cursor:pointer}
+#ask button:hover:not(:disabled){border-color:var(--nk-gold)}
+#ask.rev button.ok{border-color:#5BE3A0;background:rgba(40,160,110,.25);color:#fff}
+#ask.rev button.pick:not(.ok){border-color:#FF6B8B;background:rgba(200,60,90,.22)}
+#ask .e{display:none;margin-top:4px;font:500 13px/1.5 var(--bg-font,system-ui);color:var(--nk-ink2)}
+#ask.rev .e{display:block}
+@media (pointer:coarse){#ask button,#play button{min-height:44px}}
+body.clean .hud,body.clean #fade{display:none!important}
 #read{right:18px;bottom:18px;width:300px}
 #read .r{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px dashed rgba(160,175,255,.14)}
 #read .r:last-child{border:0}
@@ -44,11 +55,11 @@ body.bgs-on .hud.top{top:calc(var(--bg-bar,56px) + 14px)}
 #live{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff4d6d;margin-right:6px;box-shadow:0 0 8px #ff4d6d;vertical-align:1px}
 #fade{position:fixed;inset:0;z-index:4;background:#000;opacity:0;pointer-events:none}
 #play{position:fixed;z-index:6;left:50%;bottom:64px;transform:translateX(-50%);display:flex;gap:8px;pointer-events:auto}
-#play button{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--nk-line);background:rgba(14,20,48,.8);color:#fff;font:600 14px var(--bg-font,system-ui);cursor:pointer}
+#play button{min-height:44px;padding:0 16px;white-space:nowrap;border-radius:999px;border:1px solid var(--nk-line);background:rgba(14,20,48,.8);color:#fff;font:600 14px var(--bg-font,system-ui);cursor:pointer}
 #play button:hover{border-color:var(--nk-gold)}
 body.film #play,body.film .bgs{display:none!important}
 @media (max-width:900px){#loc,#scale{display:none}#read{display:none}#vm{width:220px}#vm .val{font-size:26px}#title h1{font-size:22px}#play{bottom:auto;top:calc(var(--bg-bar,56px) + 120px)}}
-@media (max-width:560px){#vm{display:none}#shot{bottom:calc(76px + env(safe-area-inset-bottom))}}
+@media (max-width:560px){#vm{display:none}#shot{bottom:calc(76px + env(safe-area-inset-bottom))}#title{padding:8px 12px}#title .brand{display:none}body.bgs-on #tag{left:18px;transform:none;top:calc(var(--bg-bar,56px) + 82px);max-width:calc(100vw - 36px);font-size:13px;line-height:1.4;letter-spacing:0;border-radius:12px;box-sizing:border-box}#play{left:18px;transform:none;top:calc(var(--bg-bar,56px) + 138px)}}
 @media (prefers-reduced-motion:reduce){#fade{transition:none}}
 </style>
 </head>
@@ -61,7 +72,7 @@ body.film #play,body.film .bgs{display:none!important}
   <div class="row"><span class="val" id="vmVal">−70<small>mV</small></span><span class="k">tua chậm</span></div>
   <canvas id="vmC" width="600" height="140" aria-hidden="true"></canvas>
   <div class="lg"><span>ngưỡng −55</span><span>nghỉ −70</span><span>đỉnh +30</span></div></div>
-<div class="hud box" id="shot" aria-live="polite"><div class="k"><b id="shotN">CẢNH 1/4</b> · <span id="shotK">MẠNG NEURON</span></div><h2 id="shotH"></h2><p id="shotP"></p><div class="src" id="shotS"></div></div>
+<div class="hud box" id="shot" aria-live="polite"><div class="k"><b id="shotN">CẢNH 1/4</b> · <span id="shotK">MẠNG NEURON</span></div><h2 id="shotH"></h2><p id="shotP"></p><div class="src" id="shotS"></div><div id="ask" hidden></div></div>
 <div class="hud box" id="loc"><div class="k">Vị trí trên neuron</div><svg viewBox="0 0 210 58" aria-hidden="true"><path d="M10 34 C 30 20, 40 46, 52 30 L 160 34 C 175 35, 182 26, 196 22 M 160 34 C 176 40, 184 44, 198 46" fill="none" stroke="rgba(160,175,255,.55)" stroke-width="2"/><circle cx="30" cy="31" r="9" fill="rgba(183,140,255,.35)" stroke="rgba(183,140,255,.8)"/><circle id="locDot" cx="30" cy="31" r="4.5" fill="#FFB547"/></svg></div>
 <div class="hud box" id="read"><div class="k" style="margin-bottom:4px">Số đọc</div>
   <div class="r"><span>Kênh Na⁺</span><b id="rNa">đóng</b></div>
@@ -81,7 +92,8 @@ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 const $ = (id) => document.getElementById(id);
 const Q = new URLSearchParams(location.search);
 const FILM = Q.has('film');
-if (FILM) document.body.classList.add('film');
+if (FILM) { document.body.classList.add('film'); document.getElementById('bgs-load')?.remove(); }
+if (Q.has('clean')) document.body.classList.add('clean');
 const DUR = 20;
 
 /* ---------- số giả ngẫu nhiên có hạt giống: mỗi lần mở trang là cùng một neuron ---------- */
@@ -238,10 +250,10 @@ post.outputNode = vec4(col.rgb.add(glow.rgb).mul(vig), 1);
 /* ---------- dòng thời gian: 4 cảnh, xung nhảy cóc, điện thế màng ---------- */
 const T_AP = 10.4, T_NODE = (k) => T_AP + 0.3 + k * 0.38, T_TERM = T_NODE(11) + 0.35;
 const SHOTS = [
-  { a: 0, b: 5, n: 'MẠNG NEURON', h: 'Mỗi neuron là một tế bào truyền tin', p: 'Não người có khoảng 86 tỉ neuron. Neuron nhận tín hiệu qua các sợi nhánh, tổng hợp ở thân và truyền đi dọc một sợi trục dài tới neuron khác.', s: 'Nguồn: Azevedo và cs., J Comp Neurol 2009' },
-  { a: 5, b: 10, n: 'THÂN NEURON', h: 'Thân neuron tổng hợp tín hiệu', p: 'Thân neuron chứa nhân. Tín hiệu từ nhiều sợi nhánh dồn về; khi điện thế màng ở gò sợi trục vượt ngưỡng, khoảng −55 mV, một xung thần kinh xuất hiện.', s: 'Nguồn: OpenStax, Anatomy and Physiology 2e, mục 12.4' },
-  { a: 10, b: 15.5, n: 'DẪN TRUYỀN NHẢY CÓC', h: 'Xung nhảy qua các eo Ranvier', p: 'Bao myelin cách điện quanh sợi trục. Xung không chạy liên tục mà nhảy từ eo Ranvier này sang eo kế tiếp, nên đi nhanh hơn nhiều so với trên sợi không có myelin.', s: 'Nguồn: OpenStax, Anatomy and Physiology 2e, mục 12.4' },
-  { a: 15.5, b: 20, n: 'SYNAPSE', h: 'Chất dẫn truyền vượt khe synapse', p: 'Xung tới chuỳ synapse làm các túi giải phóng chất dẫn truyền vào khe synapse. Chất dẫn truyền gắn vào thụ thể ở màng sau, tín hiệu sang neuron kế tiếp.', s: 'Nguồn: OpenStax, Anatomy and Physiology 2e, mục 12.5' },
+  { a: 0, b: 5, n: 'MẠNG NEURON', h: 'Mỗi neuron là một tế bào truyền tin', p: 'Não người có khoảng 86 tỉ neuron. Neuron nhận tín hiệu qua các sợi nhánh, tổng hợp ở thân và truyền đi dọc một sợi trục dài tới neuron khác.', s: 'Nguồn: Azevedo và cs., J Comp Neurol 2009', ask: { q: 'Bộ phận nào của neuron nhận tín hiệu từ neuron khác?', o: ['Sợi trục', 'Sợi nhánh', 'Bao myelin'], a: 1, e: 'Sợi nhánh nhận tín hiệu và dẫn về thân neuron; sợi trục truyền tín hiệu đi.' } },
+  { a: 5, b: 10, n: 'THÂN NEURON', h: 'Thân neuron tổng hợp tín hiệu', p: 'Thân neuron chứa nhân. Tín hiệu từ nhiều sợi nhánh dồn về; khi điện thế màng ở gò sợi trục vượt ngưỡng, khoảng −55 mV, một xung thần kinh xuất hiện.', s: 'Nguồn: OpenStax, Anatomy and Physiology 2e, mục 12.4', ask: { q: 'Xung thần kinh xuất hiện khi nào?', o: ['Khi điện thế màng vượt ngưỡng, khoảng −55 mV', 'Khi neuron ở trạng thái nghỉ, −70 mV', 'Khi bao myelin mở ra'], a: 0, e: 'Điện thế màng ở gò sợi trục phải vượt ngưỡng thì kênh Na⁺ mới mở hàng loạt, tạo điện thế hoạt động.' } },
+  { a: 10, b: 15.5, n: 'DẪN TRUYỀN NHẢY CÓC', h: 'Xung nhảy qua các eo Ranvier', p: 'Bao myelin cách điện quanh sợi trục. Xung không chạy liên tục mà nhảy từ eo Ranvier này sang eo kế tiếp, nên đi nhanh hơn nhiều so với trên sợi không có myelin.', s: 'Nguồn: OpenStax, Anatomy and Physiology 2e, mục 12.4', ask: { q: 'Vì sao xung đi nhanh hơn trên sợi trục có bao myelin?', o: ['Myelin dẫn điện như dây đồng', 'Sợi có myelin luôn ngắn hơn', 'Xung nhảy cóc qua các eo Ranvier'], a: 2, e: 'Myelin cách điện; điện thế hoạt động chỉ phát sinh ở các eo Ranvier nên xung nhảy từ eo này sang eo khác.' } },
+  { a: 15.5, b: 20, n: 'SYNAPSE', h: 'Chất dẫn truyền vượt khe synapse', p: 'Xung tới chuỳ synapse làm các túi giải phóng chất dẫn truyền vào khe synapse. Chất dẫn truyền gắn vào thụ thể ở màng sau, tín hiệu sang neuron kế tiếp.', s: 'Nguồn: OpenStax, Anatomy and Physiology 2e, mục 12.5', ask: { q: 'Chất dẫn truyền thần kinh được giải phóng từ đâu?', o: ['Thụ thể ở màng sau synapse', 'Các túi ở chuỳ synapse', 'Nhân của neuron'], a: 1, e: 'Túi chứa chất dẫn truyền ở chuỳ synapse hoà vào màng trước, giải phóng chất dẫn truyền vào khe synapse.' } },
 ];
 const ease = (x) => x < 0 ? 0 : x > 1 ? 1 : x * x * (3 - 2 * x);
 const shotOf = (t) => SHOTS.findIndex((s) => t >= s.a && t < s.b);
@@ -335,13 +347,24 @@ $('bRe').onclick = () => { t = 0; playing = true; stopAt = null; $('bPlay').text
 window.NEURON = { duration: DUR, renderAt: async (tt) => { playing = false; t = tt; update(tt); await post.renderAsync(); }, shots: SHOTS };
 if (FILM) { playing = false; update(t); await post.renderAsync(); } else requestAnimationFrame(frame);
 
+const escH = (x) => String(x).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+function showAsk(i) {
+  const a = SHOTS[i].ask, box = $('ask'); if (!a) { box.hidden = true; return; }
+  box.className = ''; box.hidden = false;
+  box.innerHTML = `<b>${escH(a.q)}</b>` + a.o.map((o, k) => `<button type="button" data-o="${k}" class="${k === a.a ? 'ok' : ''}">${escH(o)}</button>`).join('') + `<div class="e">${escH(a.e)}</div>`;
+}
+$('ask').addEventListener('click', (e) => { const b = e.target.closest('[data-o]'); if (!b) return; $('ask').querySelectorAll('button').forEach((x) => x.disabled = true); b.classList.add('pick'); $('ask').classList.add('rev'); });
+addEventListener('keydown', (e) => { if (e.code === 'Space' && !e.target.closest('input,textarea,button')) { e.preventDefault(); $('bPlay').click(); } });
 /* ---------- vỏ bài Sáng Ăn Khoai: mỗi cảnh là một bước ---------- */
 if (!FILM) (function mount(n) {
   if (!window.BGShell) return n < 100 && setTimeout(() => mount(n + 1), 100);
-  BGShell.mount({ id: 'than-kinh', title: 'Neuron và xung thần kinh', subject: 'Sinh học 11 · bản thử', nav: true,
-    steps: SHOTS.map((s) => ({ t: s.h, note: s.p + '\n' + s.s })),
-    go: (i) => { t = SHOTS[i].a + 0.3; stopAt = SHOTS[i].b; playing = true; $('bPlay').textContent = 'Tạm dừng'; },
-    credit: 'Bản thử phong cách điện ảnh của Sáng Ăn Khoai. Neuron dựng hoàn toàn bằng mã; màu và tỉ lệ là minh hoạ. Số liệu: OpenStax, Anatomy and Physiology 2e (CC BY 4.0); Azevedo và cs., 2009.' });
+  BGShell.mount({ id: 'than-kinh', title: 'Neuron và xung thần kinh', subject: 'Sinh học 11', nav: true,
+    objectives: ['Mô tả được cấu tạo neuron: thân, sợi nhánh, sợi trục, bao myelin, chuỳ synapse', 'Giải thích được điện thế nghỉ, điện thế hoạt động và sự lan truyền xung thần kinh', 'Trình bày được quá trình truyền tin qua synapse hoá học'],
+    keys: [['Space', 'phát, tạm dừng'], ['← →', 'cảnh trước, cảnh sau']],
+    steps: SHOTS.map((s) => ({ t: s.h, note: s.p + '\n' + s.s, ask: s.ask })),
+    go: (i) => { t = SHOTS[i].a + 0.3; stopAt = SHOTS[i].b; playing = true; $('bPlay').textContent = 'Tạm dừng'; showAsk(i); },
+    end: () => { $('ask').hidden = true; },
+    credit: 'Bài của Sáng Ăn Khoai, phong cách điện ảnh. Neuron dựng hoàn toàn bằng mã; màu và tỉ lệ là minh hoạ. Số liệu: OpenStax, Anatomy and Physiology 2e (CC BY 4.0); Azevedo và cs., 2009.' });
 })(0);
 </script>
 </body>

@@ -8,6 +8,7 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 |---|---|
 | Trang chính Sáng Ăn Khoai | https://nclamvn.github.io/bai-giang/ |
 | Cơ thể người 3D (Khoa học tự nhiên 8, BodyVista Việt hoá) | https://nclamvn.github.io/bai-giang/co-the-nguoi/ |
+| Neuron và xung thần kinh (Sinh học 11, phong cách điện ảnh) | https://nclamvn.github.io/bai-giang/than-kinh/ |
 | Hành Trình Vào Tế Bào (ribosome PDB 3J7R) | https://nclamvn.github.io/bai-giang/te-bao/ |
 | Ribosome trên bàn (AR, mở trên điện thoại) | https://nclamvn.github.io/bai-giang/te-bao/ar.html |
 | Vào Ty Thể (ATP synthase PDB 6J5I) | https://nclamvn.github.io/bai-giang/ty-the/ |
@@ -47,6 +48,13 @@ Bài [`co-the-nguoi/`](co-the-nguoi/) phát triển từ [BodyVista](https://git
 - Mô hình nén EXT_meshopt_compression: 292,7 MB còn 86,6 MB, hình học không giản lược.
 - Dựng: `cd tools/co-the-nguoi && npm ci --ignore-scripts` (một lần), rồi `python3 tools/co-the-nguoi/build.py`. Chi tiết: [`tools/co-the-nguoi/README.md`](tools/co-the-nguoi/README.md).
 - Mô hình Z-Anatomy (CC BY-SA 4.0, có phần chỉ dùng phi thương mại) và BodyParts3D (CC BY-SA 2.1 Nhật Bản). Bài này chỉ dùng phi thương mại. Xem [`co-the-nguoi/GHI-CONG.md`](co-the-nguoi/GHI-CONG.md).
+
+## Neuron và xung thần kinh (Sinh học 11)
+Bài [`than-kinh/`](than-kinh/) kể bốn cảnh trong 20 giây, phong cách điện ảnh: neuron giữa mạng lưới, điện thế màng vượt ngưỡng ở gò sợi trục, xung nhảy cóc qua eo Ranvier, synapse giải phóng chất dẫn truyền. Mỗi cảnh là một bước có câu hỏi và nguồn.
+- Dựng hoàn toàn bằng mã: three.js WebGPU (tự lùi về WebGL 2), vật liệu TSL phát sáng theo góc nhìn, bloom. Hình minh hoạ, không theo tỉ lệ.
+- Dòng thời gian tất định: `?film` ẩn giao diện để quay video, `?clean` ẩn chữ, `window.NEURON.renderAt(t)` dựng đúng một khung hình.
+- Nguồn tại [`tools/than-kinh.template.html`](tools/than-kinh.template.html), dựng bằng `python3 tools/build_than_kinh.py`.
+- Số liệu: OpenStax Anatomy and Physiology 2e mục 12.4, 12.5 (điện thế nghỉ khoảng −70 mV, ngưỡng khoảng −55 mV); Azevedo và cs. 2009 (khoảng 86 tỉ neuron trong não người).
 
 ## Lịch sử 10 và Thành Cổ Loa
 [`lich-su-10/`](lich-su-10/) là lộ trình Lịch sử lớp 10 theo **chương trình** môn Lịch sử (TT 32/2018, ban hành lại bởi TT 13/2022, sửa đổi bởi TT 17/2025), nên dùng chung cho ba bộ sách Kết nối tri thức, Chân trời sáng tạo, Cánh diều. Mỗi mục có yêu cầu cần đạt trích nguyên văn (dữ liệu [`lich-su-10/chuong-trinh.json`](lich-su-10/chuong-trinh.json)), cảnh 3D đã có hoặc dự kiến, và tên bài tương ứng của ba bộ sách để đối chiếu. Nội dung bài được viết mới từ nguồn khảo cổ và sử liệu công khai; không chép sách giáo khoa.
@@ -99,6 +107,7 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `index.html` | Trang chính Sáng Ăn Khoai (dựng bằng `tools/build_pages.py` từ `tools/bai-giang.template.html`) |
 | `te-bao/index.html`, `te-bao/ribosome.b64.txt` | Hành Trình Vào Tế Bào (ghép từ `src/`) và dữ liệu ribosome nén (2,1 MB) |
 | `te-bao/ar.html`, `te-bao/assets/` | Trang AR và mô hình GLB của ribosome |
+| `than-kinh/`, `tools/than-kinh.template.html` | Neuron và xung thần kinh: trang đã dựng và nguồn |
 | `co-the-nguoi/`, `tools/co-the-nguoi/` | Cơ thể người 3D (BodyVista Việt hoá): trang đã dựng và mô hình nén; mã gốc `upstream/`, bản vá và bài học trong `tools/` |
 | `ty-the/index.html` | Vào Ty Thể, dữ liệu ATP synthase nhúng sẵn |
 | `chu-de/sinh-hoc-te-bao/` | Lộ trình Sinh học tế bào lớp 10 |
@@ -160,4 +169,6 @@ base64 -w 0 ribosome.bin > te-bao/ribosome.b64.txt
 - Noji H, Yasuda R, Yoshida M, Kinosita K. Direct observation of the rotation of F1-ATPase. Nature 1997. doi:10.1038/386299a0.
 - Abrahams JP, Leslie AGW, Lutter R, Walker JE. Structure at 2.8 Å resolution of F1-ATPase from bovine heart mitochondria. Nature 1994. doi:10.1038/370621a0.
 - Strauss M, Hofhaus G, Schröder RR, Kühlbrandt W. Dimer ribbons of ATP synthase shape the inner mitochondrial membrane. EMBO J 2008. doi:10.1038/emboj.2008.35.
+- Betts JG và cs. Anatomy and Physiology 2e, OpenStax 2022, mục 12.4 The Action Potential và 12.5 Communication Between Neurons. CC BY 4.0.
+- Azevedo FAC và cs. Equal numbers of neuronal and nonneuronal cells make the human brain an isometrically scaled-up primate brain. J Comp Neurol 2009;513:532–541. doi:10.1002/cne.21974.
 - Chương trình giáo dục phổ thông 2018 (Thông tư 32/2018/TT-BGDĐT): nguồn từng môn ghi trong `thu-vien/gdpt2018.json`.
