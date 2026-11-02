@@ -28,4 +28,6 @@ body{font-family:var(--bg-font);color:var(--bg-ink);font-size:var(--bg-fs-sm);li
 .bg-serif{font-family:var(--bg-serif);font-weight:600;letter-spacing:-.01em}
 h1,h2,h3{text-wrap:balance}
 p,li{text-wrap:pretty}
+/* màn cảm ứng (máy tính bảng, điện thoại): vùng chạm từ 44 px cho nút chữ và dòng mở rộng */
+@media (pointer:coarse){a.btn,button.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}summary{padding-block:12px}h2>a:only-child,h3>a:only-child{display:inline-flex;align-items:center;min-height:44px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important;scroll-behavior:auto!important}}

@@ -129,7 +129,7 @@ h1{margin:2px 0 4px;font-size:30px;letter-spacing:-.02em;line-height:1.1}
 .facts td{padding:5px 0;border-top:1px solid var(--line);vertical-align:top}
 .facts td:first-child{color:var(--muted);padding-right:10px;width:44%}
 .facts td:last-child{font-weight:600;font-variant-numeric:tabular-nums}
-.ref{display:inline-block;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:rgba(178,106,26,.12);color:var(--accent2);font-size:13px;font-weight:700;line-height:16px;text-align:center;text-decoration:none;vertical-align:2px;margin-left:2px}
+.ref{display:inline-block;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:rgba(178,106,26,.12);color:var(--accent2);font-size:13px;font-weight:700;line-height:20px;text-align:center;text-decoration:none;vertical-align:2px;margin-left:2px}
 .ref:hover{background:var(--accent);color:#fff}
 .tag{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;padding:2px 8px;border-radius:999px;margin:0 4px 4px 0}
 .tag.do{background:rgba(44,122,75,.1);color:#226040}
@@ -147,6 +147,7 @@ h1{margin:2px 0 4px;font-size:30px;letter-spacing:-.02em;line-height:1.1}
 .pin.ring span{font-size:13px;font-weight:700;letter-spacing:.01em}
 .pin.on span{background:var(--ink);color:#fff;border-color:transparent}
 .pin.hide{opacity:0;pointer-events:none}
+.pin.flip{flex-direction:row-reverse}.pin.flip i{margin-left:0;margin-right:-6px}
 .pin.dot span{display:none}
 .nolab .pin:not(.on) span{display:none}
 .ov{position:absolute;z-index:4;pointer-events:none}
@@ -237,7 +238,7 @@ body.bgs-nav-on .lesson .nav{display:none!important}
 html[data-chieu] #info,html[data-chieu] .leftcol>*,html[data-chieu] .timeline{background:#fff!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 html[data-chieu] #info{font-size:18px}html[data-chieu] #info h2{font-size:28px}html[data-chieu] .hint,html[data-chieu] .small{color:#1a1a1a}
 /* màn cảm ứng: vùng bấm của ghim từ 44 px, padding bù margin nên chấm và nhãn không dời chỗ */
-@media (pointer:coarse){.pin{padding:16px 19px;margin:-16px -19px}}
+@media (pointer:coarse){.pin{padding:16px 19px;margin:-16px -19px}.chip,.seg button,.tl-item,button.pill,.leftcol button,.ctrl button{min-height:44px}}
 </style>
 </head>
 <body><!--BG-LOAD:start--><div id="bgs-load" role="progressbar" aria-label="Đang tải bài" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8" style="position:fixed;inset:0;z-index:2147483600;background:#E9EAEE url('../../thu-vien/covers/co-loa.webp') center/cover no-repeat;display:flex;align-items:flex-end;justify-content:center;padding:0 16px max(10vh,72px);transition:opacity .6s cubic-bezier(.2,.8,.2,1)"><div style="width:min(360px,100%);padding:14px 18px 16px;border-radius:16px;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 18px 44px -18px rgba(16,24,40,.4);font:600 17px/1.35 'Be Vietnam Pro',system-ui,sans-serif;color:#15171C"><div id="bgs-load-k" style="font-size:13px;font-weight:500;color:#626773">Đang tải bài</div><div>Thành Cổ Loa</div><div style="height:4px;border-radius:2px;background:rgba(16,24,40,.1);margin-top:12px;overflow:hidden"><i style="display:block;height:100%;width:8%;border-radius:2px;background:#1E2A44;transition:width .5s cubic-bezier(.2,.8,.2,1)"></i></div></div><style>#bgs-load.out{opacity:0;pointer-events:none}@media (prefers-reduced-motion:reduce){#bgs-load i{transition:none}}</style><script>(function(){var L=document.getElementById("bgs-load"),b=L.querySelector("i"),k=document.getElementById("bgs-load-k"),p=.08,n=0;function set(v,t){if(v>p){p=v;b.style.width=Math.round(p*100)+"%";L.setAttribute("aria-valuenow",Math.round(p*100))}if(t)k.textContent=t}try{new PerformanceObserver(function(l){l.getEntries().forEach(function(){n++;set(p+(.8-p)*.18,"Đang tải "+n+" tệp")})}).observe({type:"resource",buffered:true})}catch(e){}document.addEventListener("DOMContentLoaded",function(){set(Math.max(p,.5))});var w=setInterval(function(){var c=document.querySelector("canvas");if(!document.body.contains(L))return clearInterval(w);if(c&&c.width>0){set(.92,"Đang dựng cảnh 3D");clearInterval(w)}},150)})()</script></div><!--BG-LOAD:end-->
@@ -1275,9 +1276,12 @@ renderer.setAnimationLoop(() => {
     const on = vis && _v.z < 1 && x > -20 && x < safeR - 10 && y > -10 && y < H + 10;
     p.el.classList.toggle('hide', !on);
     if (!on) continue;
-    p.el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px)`;
     if (!p.w) p.w = p.el.querySelector('span').offsetWidth + 12;
-    const r = [x - 6, y - 11, x + (p.w || 20), y + 11], hitL = placed.some(q => r[0] < q[2] && r[2] > q[0] && r[1] < q[3] && r[3] > q[1]);
+    // nhãn sát mép phải màn hình thì lật sang trái chấm, không để chữ tràn ra ngoài
+    const flip = x + (p.w || 20) > W - 8 && x - (p.w || 20) > 8;
+    p.el.classList.toggle('flip', flip);
+    p.el.style.transform = `translate(${(flip ? x - (p.w || 20) + 6 : x).toFixed(1)}px,${y.toFixed(1)}px)`;
+    const r = flip ? [x - (p.w || 20), y - 11, x + 6, y + 11] : [x - 6, y - 11, x + (p.w || 20), y + 11], hitL = placed.some(q => r[0] < q[2] && r[2] > q[0] && r[1] < q[3] && r[3] > q[1]);
     p.el.classList.toggle('dot', hitL && p.key !== sel);
     if (!hitL || p.key === sel) placed.push(r);
   }

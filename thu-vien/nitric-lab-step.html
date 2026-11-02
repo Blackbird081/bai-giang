@@ -210,6 +210,14 @@ body.bgs-on footer#foot .cur{font:600 14px var(--bg-mono);color:var(--bg-ink2)}
   body.bgs-nav-on #mtabs{bottom:calc(76px + env(safe-area-inset-bottom))!important}
   body.bgs-nav-on .bgs-nav{right:calc(min(46vw,440px) + 16px)}
 }
+/* chữ tiếng Việt dài hơn bản gốc: không để chữ chạm mép hay tràn khỏi khung (tests/ui_audit.py, mục clip và edge) */
+#right .sl{padding:5px 10px!important}
+aside .btn{white-space:normal!important;padding:6px 10px!important;line-height:1.25!important;text-align:center}
+.kpi{padding-block:6px!important}
+.subs .sub,.sub .cal{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere}
+.chartwrap .ch b{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:700px){.at,.lab{max-width:46vw;white-space:normal!important;overflow-wrap:anywhere}.lab .n{white-space:normal!important}}
+#eqb .btags span,#eqb .tg,.btags .tg,.tagrow .tg{white-space:normal!important;overflow-wrap:anywhere;min-width:0;max-width:100%}
 html[data-chieu] aside#left,html[data-chieu] aside#right,html[data-chieu] footer#foot,html[data-chieu] #eqb{background:#fff!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 html[data-chieu]{--fs-b:17px;--fs-t:17px;--ink2:#141414;--ink3:#262626}
 </style>

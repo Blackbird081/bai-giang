@@ -48,3 +48,13 @@ html[data-chieu] #sak-lesson{background:#fff;font-size:18px}html[data-chieu] #sa
 html[lang=vi] #view-gizmo{width:168px!important;height:168px!important}
 html[lang=vi] #view-gizmo button{width:auto!important;min-width:30px;padding-inline:8px!important;border-radius:999px!important;white-space:nowrap}
 #visible-count,.sidebar-copyright{color:var(--bg-ink3)!important}
+/* chữ tiếng Việt dài hơn chữ Hán: chừa khoảng đệm hai bên cho mọi nút chữ, không để chữ chạm mép khung */
+.sidebar-copyright{white-space:normal!important;padding:0 8px!important;text-wrap:balance;line-height:1.45!important}
+.layer-bar{padding:2px 6px!important;min-width:0;white-space:normal!important;line-height:1.15!important;flex:1 1 auto}
+.layer-bars{gap:2px}
+@media (min-width:701px){html[lang=vi] #edit-tools{width:78px!important}html[lang=vi] .navigation-buttons{width:78px!important}}
+html[lang=vi] #edit-tools button,html[lang=vi] .navigation-buttons button{padding-inline:6px!important;text-wrap:balance}
+html[lang=vi] .navigation-buttons button{width:100%!important}
+#layers .layer-bars{display:flex!important;flex-wrap:nowrap!important;gap:2px!important}
+#layers .layer-bars>.layer-bar{flex:1 1 0!important;width:auto!important;max-width:none!important}
+@media (min-width:701px){html[lang=vi] #edit-tools>button,html[lang=vi] .navigation-buttons>button{width:100%!important;min-width:0!important}}

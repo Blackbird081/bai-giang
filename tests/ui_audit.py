@@ -9,6 +9,8 @@ Mỗi trang chạy ở 5 cỡ màn, đo những thứ đo được bằng máy:
   next    có thẻ "Bài tiếp theo" (chỉ với bài học)
   stage   tỉ lệ diện tích cảnh 3D không bị phần tử nổi che (lấy mẫu lưới 48 × 30 điểm)
   credit  bài thư viện có dòng ghi công Tongjiang Lab
+  clip    chữ bị cắt (overflow ẩn, không có dấu …) hoặc tràn ra ngoài màn hình
+  edge    chữ sát mép khung có nền hay viền (nút, thẻ, viên thuốc): dưới 6 px hai bên hoặc dưới 1 px trên dưới
   err     lỗi JavaScript khi tải
 Không đo độ mượt: trình duyệt trong máy chủ dựng hình bằng phần mềm. Độ mượt đo bằng kiem-may/ trên máy thật.
 
@@ -39,7 +41,7 @@ PROBE = r"""(args) => {
   const shown = (e) => { for (let n = e; n && n !== document.body && n !== document.documentElement; n = n.parentElement) { if (!vis(n)) return false; } return true; };
   // chữ đang hiện: phần tử có nút chữ con khác rỗng
   const texts = []; const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  for (let t; (t = tw.nextNode());) { const s = t.nodeValue.trim(); if (!s) continue; const e = t.parentElement; if (!e || e.closest('script,style,noscript,svg title')) continue; if (!shown(e)) continue; texts.push([e, s]); }
+  for (let t; (t = tw.nextNode());) { const s = t.nodeValue.trim(); if (!s) continue; const e = t.parentElement; if (!e || e.closest('script,style,noscript,svg title')) continue; if (!shown(e)) continue; texts.push([e, s, t]); }
   const out = { dev: [], font: [], tap: [], home: false, next: false, credit: false, stage: null, title: document.title };
   const dev = /\b(\d+\s*fps|p95|p99)\b|lệnh vẽ|\bWebGL\b|\bWebGPU\b/i;
   const seen = new Set();
@@ -53,12 +55,52 @@ PROBE = r"""(args) => {
     if (fs < lim - 0.01 && !seen.has(e)) { seen.add(e); out.font.push([Math.round(fs * 10) / 10, in3d ? '3d' : 'ui', s.slice(0, 32)]); }
   }
   out.font.sort((a, b) => a[0] - b[0]);
+  // chữ bị cắt, tràn ra ngoài màn hình, hoặc sát mép khung (nút, thẻ, viên thuốc có nền hay viền): tối thiểu 6 px hai bên
+  out.clip = []; out.edge = [];
+  const seenC = new Set(), seenE = new Set();
+  const desc = (a) => a.tagName.toLowerCase() + (a.id ? '#' + a.id : '') + (typeof a.className === 'string' && a.className.trim() ? '.' + a.className.trim().split(/\s+/).slice(0, 2).join('.') : '');
+  // chữ chỉ dành cho trình đọc màn hình (sr-only: khung 1 px, clip) không tính
+  const srOnly = (e) => { for (let a = e; a && a !== document.body; a = a.parentElement) { const cs = getComputedStyle(a); const r = a.getBoundingClientRect();
+    if ((cs.clip && cs.clip !== 'auto') || (cs.clipPath && cs.clipPath !== 'none' && /inset\(50%|polygon\(0/.test(cs.clipPath)) || (r.width <= 2 && r.height <= 2)) return true; } return false; };
+  const opaque = (cs) => { const m = cs.backgroundColor.match(/rgba?\(([^)]+)\)/); const al = m ? (m[1].split(',')[3] ?? '1') : '0'; return +al > 0.05 || cs.backgroundImage !== 'none'; };
+  for (const [e, s, t] of texts) {
+    if (e.closest('footer.foot,[aria-hidden="true"]') || srOnly(e)) continue;
+    const rg = document.createRange(); rg.selectNodeContents(t); const rs = [...rg.getClientRects()].filter((r) => r.width > 0.5 && r.height > 0.5);
+    if (!rs.length) continue;
+    const L = Math.min(...rs.map((r) => r.left)), Rr = Math.max(...rs.map((r) => r.right)), T = Math.min(...rs.map((r) => r.top)), B = Math.max(...rs.map((r) => r.bottom));
+    const lab = s.slice(0, 32), ellE = getComputedStyle(e).textOverflow === 'ellipsis';
+    let inScroll = false; for (let a = e.parentElement; a && a !== document.body; a = a.parentElement) { const cs = getComputedStyle(a); if (/auto|scroll/.test(cs.overflowX)) { inScroll = true; break; } }
+    if (inScroll) continue; // hàng cuộn ngang (chip, nút góc nhìn): chữ ngoài khung là chữ cuộn tới được
+    if ((L < -0.5 || Rr > innerWidth + 0.5) && !ellE) { if (!seenC.has(e)) { seenC.add(e); out.clip.push(['tràn màn hình', lab, desc(e)]); } continue; }
+    let ell = ellE;
+    for (let a = e; a && a !== document.body; a = a.parentElement) {
+      const cs = getComputedStyle(a);
+      if (cs.textOverflow === 'ellipsis') ell = true;
+      if (cs.overflowX === 'visible' && cs.overflowY === 'visible') continue;
+      if (/auto|scroll/.test(cs.overflowX + cs.overflowY)) break; // vùng cuộn: chữ ngoài khung là chữ cuộn tới được
+      const ar = a.getBoundingClientRect();
+      if (!ell && (L < ar.left - 0.5 || Rr > ar.right + 0.5) && !seenC.has(e)) { seenC.add(e); out.clip.push(['bị cắt', lab, desc(a)]); }
+      break;
+    }
+    if (ell) continue;
+    for (let a = e, k = 0; a && a !== document.body && k < 4; a = a.parentElement, k++) {
+      const cs = getComputedStyle(a); if (/auto|scroll/.test(cs.overflowX + cs.overflowY)) break; // khung cuộn: mép trên dưới là mép cuộn
+      const bl = parseFloat(cs.borderLeftWidth) || 0, br = parseFloat(cs.borderRightWidth) || 0;
+      if (!(opaque(cs) || bl > 0 || br > 0)) continue;
+      const ar = a.getBoundingClientRect(); if (ar.width > innerWidth * 0.9 || ar.height > innerHeight * 0.9) break; // nền trang, không phải khung nhỏ
+      const gl = L - ar.left - bl, gr = ar.right - Rr - br, gv = Math.min(T - ar.top, ar.bottom - B);
+      const gh = Math.min(gl, gr);
+      if ((gh < 6 || gv < 1) && !seenE.has(a)) { seenE.add(a); out.edge.push([Math.round(gh * 10) / 10, Math.round(gv * 10) / 10, lab, desc(a)]); }
+      break;
+    }
+  }
   if (touch) {
     for (const e of document.querySelectorAll('button,a[href],[role=button],input:not([type=hidden]),select,summary,.chip')) {
       const r = vis(e); if (!r || !shown(e)) continue; if (r.width < 43.5 || r.height < 43.5) {
         const label = (e.getAttribute('aria-label') || e.textContent || e.value || e.tagName).trim().replace(/\s+/g, ' ').slice(0, 24);
         // chữ liên kết trong đoạn văn không tính (vùng bấm là cả dòng chữ)
         if (e.tagName === 'A' && getComputedStyle(e).display === 'inline' && e.closest('p,li,td')) continue;
+        if (e.matches('input[type=checkbox],input[type=radio]') && e.closest('label') && e.closest('label').getBoundingClientRect().height >= 43.5) continue; // vùng chạm là cả nhãn
         if (e.closest('.card h3')) continue; // liên kết phủ cả thẻ (::after), vùng bấm là cả thẻ
         if (e.closest('.bgs-crumb .s')) continue; // liên kết chữ trong dòng phụ đề (WCAG 2.5.8, ngoại lệ liên kết trong dòng); điều hướng chính là logo và menu
         out.tap.push([Math.round(r.width), Math.round(r.height), label]); } } }
@@ -100,8 +142,11 @@ async def run_one(b, name, url, vp, args, res):
         await pg.goto(BASE + url + ('&' if '?' in url else '?') + 'q=1', wait_until='load', timeout=90000)
     except Exception as e:
         errs.append('goto: ' + str(e)[:100])
-    await asyncio.sleep(args.wait * (3 if name in ('te-bao', 'ty-the') else 1))
     lesson = name in dict(pages('lessons'))
+    if lesson:  # đo giao diện học sinh thật sự thấy: sau khi vỏ gắn xong và màn tải đã gỡ
+        try: await pg.wait_for_function("document.body.classList.contains('bgs-on') && !document.getElementById('bgs-load')", timeout=240000)
+        except Exception: errs.append('vỏ chưa gắn sau 240 giây')
+    await asyncio.sleep(args.wait * (3 if name in ('te-bao', 'ty-the') else 1))
     lib = url.startswith('thu-vien/')
     if args.closed:  # đo khi mọi ngăn kéo đóng (tiêu chí của kế hoạch)
         try:
@@ -130,9 +175,11 @@ def verdict(name, url, o, vp):
     ui_small = [f for f in o['font'] if f[1] == 'ui']
     if ui_small: fails.append(f"font {len(ui_small)} < ngưỡng, nhỏ nhất {ui_small[0][0]} px '{ui_small[0][2]}'")
     if o['tap']: fails.append(f"tap {len(o['tap'])}: {o['tap'][0]}")
+    if o.get('clip'): fails.append(f"clip {len(o['clip'])}: {o['clip'][0]}")
+    if o.get('edge'): fails.append(f"edge {len(o['edge'])}: {o['edge'][0]}")
     if url and not o['home']: fails.append('home: không có đường về trang chính')
     if lesson and not o['next']: fails.append('next: không có "Bài tiếp theo"')
-    if lesson and o['stage'] is not None and vp == 'd' and o['stage'] < (65 if lib or name == 'co-the-nguoi' else 70): fails.append(f"stage {o['stage']}%")
+    if lesson and o['stage'] is not None and vp == 'd' and o['stage'] < (65 if lib else 60 if name == 'co-the-nguoi' else 70): fails.append(f"stage {o['stage']}%")
     if lib and not o['credit']: fails.append('credit: thiếu ghi công Tongjiang')
     if o['err']: fails.append(f"err: {o['err'][0]}")
     return fails

@@ -82,9 +82,11 @@ Nhúng: `python3 tools/inject_shell.py <tệp>`. Tế Bào chạy trong `build.s
 
 Một lệnh dựng lại cả site: `python3 tools/build_all.py` (`--check` báo lỗi nếu tệp đã dựng lệch nguồn; CI chạy lệnh này). Kiểm nhanh: `python3 tests/smoke.py`.
 
-`python3 tests/ui_audit.py --group all` (cần `python3 -m http.server 8777` ở gốc repo) đo ở 5 cỡ màn: chuỗi số đo kỹ thuật lộ ra, cỡ chữ nhỏ nhất, vùng bấm dưới 44 px, đường về trang chính, bài tiếp theo, tỉ lệ cảnh 3D không bị che, ghi công Tongjiang, lỗi JavaScript. Không đo độ mượt (trình duyệt trong máy chủ vẽ bằng phần mềm); độ mượt đo bằng `kiem-may/` trên máy thật.
+`python3 tests/ui_audit.py --group all` (cần `python3 -m http.server 8777` ở gốc repo) đo ở 5 cỡ màn: chuỗi số đo kỹ thuật lộ ra, cỡ chữ nhỏ nhất, vùng bấm dưới 44 px, chữ bị cắt hoặc tràn ra ngoài màn hình, chữ sát mép khung có nền hay viền (dưới 6 px hai bên, dưới 1 px trên dưới), đường về trang chính, bài tiếp theo, tỉ lệ cảnh 3D không bị che, ghi công Tongjiang, lỗi JavaScript. Không đo độ mượt (trình duyệt trong máy chủ vẽ bằng phần mềm); độ mượt đo bằng `kiem-may/` trên máy thật.
 
 ## Chuẩn chất lượng
+
+- Chữ không chạm mép khung: nút, thẻ, viên thuốc có nền hay viền chừa ít nhất 6 px hai bên. Chữ dài (tiếng Việt thường dài hơn bản gốc tiếng Trung, tiếng Anh) thì xuống dòng hoặc rút gọn có dấu …, không bị cắt.
 
 - Từ 30 khung hình mỗi giây trên máy chuẩn của trường. Đo bằng `kiem-may/`.
 - Số liệu nào cũng có nguồn; chỗ phỏng dựng ghi rõ ngay cạnh.
