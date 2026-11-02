@@ -1,0 +1,50 @@
+/* Lớp giao diện nhà Sáng Ăn Khoai cho BodyVista (tools/co-the-nguoi/build.py chép vào co-the-nguoi/app/house.css).
+   Không sửa CSS gốc; chỉ phủ lên: phông, màu nhấn môn Sinh, chừa chỗ cho thanh đầu bài chung, thẻ bài học từng bước. */
+:root,body,button,input,select,textarea{font-family:var(--bg-font),"Segoe UI",system-ui,sans-serif!important}
+:root{--accent:var(--bg-accent,#C2184A);--accent-soft:color-mix(in srgb,var(--bg-accent,#C2184A) 9%,#fff);--control-hover:color-mix(in srgb,var(--bg-accent,#C2184A) 6%,#fff);--ink:var(--bg-ink);--muted:var(--bg-ink3)}
+body{-webkit-font-smoothing:antialiased}
+
+/* thanh đầu bài chung ở trên cùng; thanh chế độ của BodyVista nằm ngay dưới */
+body.bgs-on{padding-top:var(--bg-bar)}
+body.bgs-on #workspace{height:calc(100dvh - var(--top) - var(--bottom) - var(--bg-bar))!important}
+body.bgs-on .overlay{top:calc(var(--top) + var(--bg-bar))!important}
+body.bgs-on .navigation-pad{top:calc(var(--top) + var(--bg-bar) + 155px)!important}
+body.bgs-on #tool-menu{max-height:calc(100dvh - var(--top) - var(--bottom) - var(--bg-bar) - 20px)!important}
+/* thanh đầu bài đã có logo, toàn màn hình; mã nguồn và ghi công ở mục "Về bài này" */
+body.bgs-on .atlas-brand,body.bgs-on #github-link,body.bgs-on #share-site,body.bgs-on #fullscreen{display:none!important}
+.app-header{background:var(--bg-surface,#fff)!important;border-bottom:1px solid var(--bg-hair,#e6e8ec)!important}
+.workspace-tabs button{font-weight:600!important;letter-spacing:0!important}
+.workspace-tabs button[aria-selected="true"]{color:var(--bg-ink)!important}
+#language{font:600 14px var(--bg-font)!important;min-height:36px}
+.scene-heading p:first-child{font-size:13px!important;letter-spacing:.02em!important;text-transform:none!important}
+
+/* thẻ bài học từng bước (lesson.js) */
+#sak-lesson{position:absolute;left:16px;bottom:60px;z-index:6;width:min(420px,calc(100% - 32px));max-height:calc(100% - 120px);overflow:auto;padding:16px 18px 14px;border-radius:var(--bg-r-md,14px);background:rgba(255,255,255,.96);box-shadow:var(--bg-sh-2,0 16px 40px -16px rgba(16,24,40,.35)),0 0 0 1px var(--bg-hair,rgba(16,24,40,.08));color:var(--bg-ink);font:500 15px/1.55 var(--bg-font)}
+#sak-lesson[hidden]{display:none}
+#sak-lesson .x{position:absolute;right:8px;top:8px;width:36px;height:36px;border:0;border-radius:10px;background:none;font-size:22px;line-height:1;color:var(--bg-ink3);cursor:pointer}
+#sak-lesson .x:hover{background:var(--bg-hair)}
+#sak-lesson .k{font:600 13px var(--bg-font);color:var(--bg-accent,#C2184A);margin-right:40px}
+#sak-lesson h2{margin:4px 40px 6px 0;font:700 19px/1.3 var(--bg-font);letter-spacing:-.01em}
+#sak-lesson p{margin:0 0 10px;color:var(--bg-ink2)}
+#sak-lesson .q{border-top:1px solid var(--bg-hair);padding-top:10px}
+#sak-lesson .q b{display:block;margin-bottom:8px;font-weight:600}
+#sak-lesson .q button{display:block;width:100%;text-align:left;min-height:40px;margin:0 0 6px;padding:8px 12px;border:1px solid var(--bg-hair2,#d5d8de);border-radius:10px;background:#fff;font:500 15px/1.4 var(--bg-font);color:var(--bg-ink);cursor:pointer}
+#sak-lesson .q button:hover:not(:disabled){border-color:var(--bg-ink3)}
+#sak-lesson.rev .q button.ok{border-color:var(--bg-ok,#2C7A4B);background:color-mix(in srgb,var(--bg-ok,#2C7A4B) 10%,#fff);font-weight:600}
+#sak-lesson.rev .q button.pick:not(.ok){border-color:var(--bg-bad,#B3261E);background:color-mix(in srgb,var(--bg-bad,#B3261E) 8%,#fff)}
+#sak-lesson .q .e{display:none;margin-top:4px;color:var(--bg-ink2)}
+#sak-lesson.rev .q .e{display:block}
+#sak-lesson .src{margin-top:10px;font-size:13px;color:var(--bg-ink3)}
+@media (pointer:coarse){#sak-lesson .q button{min-height:44px}#sak-lesson .x{width:44px;height:44px}
+  #mobile-nav-toggle,#toggle-view-navigation{min-width:44px!important;min-height:44px!important}#bug-feedback{min-width:44px!important;min-height:44px!important}
+  #layers button,#region,#toggle-sidebar,.sidebar-head button,.layer-title button{min-height:44px!important}
+  #layers button,.sidebar-head button{min-width:44px!important}
+  /* la bàn hướng nhìn: vùng chạm 44 px bằng padding bù margin, nút nhìn vẫn nhỏ như cũ */
+  #view-gizmo button{padding:9px!important;margin:-9px!important;border-color:transparent!important;background-clip:content-box!important;box-sizing:content-box!important;box-shadow:none!important}}
+@media (max-width:700px){#sak-lesson{left:8px;right:8px;width:auto;bottom:calc(var(--bottom,0px) + 8px);max-height:46%;font-size:15px}}
+html[data-chieu] #sak-lesson{background:#fff;font-size:18px}html[data-chieu] #sak-lesson h2{font-size:24px}
+@media (max-width:700px){html:root{--bg-fs-min:14px}}
+/* la bàn hướng nhìn: nhãn tiếng Việt dài hơn chữ Hán một ký tự, nên nút thành viên thuốc và la bàn rộng hơn để nhãn không chồng nhau */
+html[lang=vi] #view-gizmo{width:168px!important;height:168px!important}
+html[lang=vi] #view-gizmo button{width:auto!important;min-width:30px;padding-inline:8px!important;border-radius:999px!important;white-space:nowrap}
+#visible-count,.sidebar-copyright{color:var(--bg-ink3)!important}

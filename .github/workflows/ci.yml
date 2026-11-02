@@ -20,6 +20,8 @@ jobs:
           python-version: '3.12'
       - name: Cài công cụ dựng robotics (esbuild, three)
         run: cd tools/robotics && npm ci
+      - name: Cài thư viện đóng gói bài Cơ thể người (three, three-mesh-bvh, zustand)
+        run: cd tools/co-the-nguoi && npm ci --ignore-scripts
       - name: Cú pháp
         run: |
           python -m py_compile tools/*.py tools/robotics/*.py tests/*.py

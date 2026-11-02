@@ -7,6 +7,7 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Trang | Địa chỉ |
 |---|---|
 | Trang chính Sáng Ăn Khoai | https://nclamvn.github.io/bai-giang/ |
+| Cơ thể người 3D (Khoa học tự nhiên 8, BodyVista Việt hoá) | https://nclamvn.github.io/bai-giang/co-the-nguoi/ |
 | Hành Trình Vào Tế Bào (ribosome PDB 3J7R) | https://nclamvn.github.io/bai-giang/te-bao/ |
 | Ribosome trên bàn (AR, mở trên điện thoại) | https://nclamvn.github.io/bai-giang/te-bao/ar.html |
 | Vào Ty Thể (ATP synthase PDB 6J5I) | https://nclamvn.github.io/bai-giang/ty-the/ |
@@ -38,6 +39,14 @@ Nút **Lên lớp** mở bài "Hành trình của một phân tử protein tiế
 [`chu-de/sinh-hoc-te-bao/`](chu-de/sinh-hoc-te-bao/) xếp 6 bài theo mạch nội dung của chương trình môn Sinh học (Thông tư 32/2018/TT-BGDĐT): Tế Bào, vận chuyển qua màng, co và phản co nguyên sinh, Vào Ty Thể, enzyme, nguyên phân. Mỗi bài ghi yêu cầu cần đạt dạy trực tiếp; bảng cuối trang liệt kê đủ 68 yêu cầu của mạch Sinh học tế bào lớp 10 (kể cả hai chuyên đề) và chỉ rõ yêu cầu nào chưa có bài.
 
 [`thu-vien/gdpt2018.json`](thu-vien/gdpt2018.json) đối chiếu cả 54 bài thư viện cùng hai trang Tế Bào và Ty Thể với chương trình Vật lí, Hoá học, Sinh học, Địa lí, Khoa học tự nhiên, Lịch sử và Địa lí: 349 yêu cầu cần đạt trích nguyên văn, mỗi trích dẫn đã so khớp bằng máy với văn bản nguồn (nguồn ghi trong tệp). Đã soát các lần sửa đổi chương trình (Thông tư 13/2022, 17/2025). Trang thư viện lọc được theo lớp và hiện yêu cầu cần đạt trên từng thẻ bài. Đối chiếu chưa qua giáo viên bộ môn duyệt.
+
+## Cơ thể người 3D (Khoa học tự nhiên 8)
+Bài [`co-the-nguoi/`](co-the-nguoi/) phát triển từ [BodyVista](https://github.com/FreedomIntelligence/BodyVista) (FreedomIntelligence, mã MIT): 2.900 cấu trúc giải phẫu, 12 hệ cơ quan, 140 chuyển động sinh lí, 6 chủ đề hiển vi (phế nang, nephron, sarcomere, synapse, lông ruột, thành mạch), khu răng miệng và thử thách giải phẫu.
+- Tiếng Việt là ngôn ngữ mặc định (4.332 mục, chưa qua giáo viên bộ môn duyệt); vẫn đổi được sang 中文, English, 日本語.
+- Bài học 14 bước cho giáo viên theo mạch "Sinh học cơ thể người" của Khoa học tự nhiên 8: hệ vận động, tiêu hoá và hấp thụ, tim và hai vòng tuần hoàn, hô hấp và trao đổi khí, bài tiết, phản xạ, giác quan, nội tiết, thử thách cuối bài. Mỗi bước có câu hỏi cho cả lớp và nguồn (OpenStax, Anatomy and Physiology 2e).
+- Mô hình nén EXT_meshopt_compression: 292,7 MB còn 86,6 MB, hình học không giản lược.
+- Dựng: `cd tools/co-the-nguoi && npm ci --ignore-scripts` (một lần), rồi `python3 tools/co-the-nguoi/build.py`. Chi tiết: [`tools/co-the-nguoi/README.md`](tools/co-the-nguoi/README.md).
+- Mô hình Z-Anatomy (CC BY-SA 4.0, có phần chỉ dùng phi thương mại) và BodyParts3D (CC BY-SA 2.1 Nhật Bản). Bài này chỉ dùng phi thương mại. Xem [`co-the-nguoi/GHI-CONG.md`](co-the-nguoi/GHI-CONG.md).
 
 ## Lịch sử 10 và Thành Cổ Loa
 [`lich-su-10/`](lich-su-10/) là lộ trình Lịch sử lớp 10 theo **chương trình** môn Lịch sử (TT 32/2018, ban hành lại bởi TT 13/2022, sửa đổi bởi TT 17/2025), nên dùng chung cho ba bộ sách Kết nối tri thức, Chân trời sáng tạo, Cánh diều. Mỗi mục có yêu cầu cần đạt trích nguyên văn (dữ liệu [`lich-su-10/chuong-trinh.json`](lich-su-10/chuong-trinh.json)), cảnh 3D đã có hoặc dự kiến, và tên bài tương ứng của ba bộ sách để đối chiếu. Nội dung bài được viết mới từ nguồn khảo cổ và sử liệu công khai; không chép sách giáo khoa.
@@ -90,6 +99,7 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `index.html` | Trang chính Sáng Ăn Khoai (dựng bằng `tools/build_pages.py` từ `tools/bai-giang.template.html`) |
 | `te-bao/index.html`, `te-bao/ribosome.b64.txt` | Hành Trình Vào Tế Bào (ghép từ `src/`) và dữ liệu ribosome nén (2,1 MB) |
 | `te-bao/ar.html`, `te-bao/assets/` | Trang AR và mô hình GLB của ribosome |
+| `co-the-nguoi/`, `tools/co-the-nguoi/` | Cơ thể người 3D (BodyVista Việt hoá): trang đã dựng và mô hình nén; mã gốc `upstream/`, bản vá và bài học trong `tools/` |
 | `ty-the/index.html` | Vào Ty Thể, dữ liệu ATP synthase nhúng sẵn |
 | `chu-de/sinh-hoc-te-bao/` | Lộ trình Sinh học tế bào lớp 10 |
 | `lich-su-10/`, `lich-su-10/co-loa/` | Lộ trình Lịch sử 10 (`tools/build_ls10.py`), bài Thành Cổ Loa (`tools/build_co_loa.py`, `tools/co-loa.template.html`, nguồn `tools/co_loa_nguon.json`) |
@@ -137,6 +147,7 @@ base64 -w 0 ribosome.bin > te-bao/ribosome.b64.txt
 
 ## Giấy phép
 - Mã và nội dung của Hành Trình Vào Tế Bào, trang AR, công cụ: MIT (tệp `LICENSE`).
+- `co-the-nguoi/`: mã BodyVista MIT; mô hình CC BY-SA 4.0 và CC BY-SA 2.1 JP, một phần chỉ dùng phi thương mại; xem `co-the-nguoi/GHI-CONG.md`.
 - `thu-vien/`: CC BY-NC 4.0, theo bản gốc Tongjiang Lab; chỉ dùng phi thương mại.
 - Dữ liệu cấu trúc: RCSB PDB 3J7R, 6J5I, 6J5K.
 - `tools/robotics/`: MIT; phần phỏng theo teardown và claude-motion giữ giấy phép MIT gốc (`tools/robotics/LICENSE-teardown`). three.js MIT.

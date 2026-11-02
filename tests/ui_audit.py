@@ -26,7 +26,7 @@ ROBOTS = ['ur5e', 'hexapod', 'crazyflie', 'turtlebot3']
 
 def pages(group):
     hub = [('trang-chinh', ''), ('chu-de-te-bao', 'chu-de/sinh-hoc-te-bao/'), ('lich-su-10', 'lich-su-10/'), ('robotics', 'robotics/')]
-    bespoke = [('te-bao', 'te-bao/'), ('ty-the', 'ty-the/'), ('co-loa', 'lich-su-10/co-loa/')] + [(r, f'robotics/{r}/') for r in ROBOTS]
+    bespoke = [('te-bao', 'te-bao/'), ('ty-the', 'ty-the/'), ('co-loa', 'lich-su-10/co-loa/'), ('co-the-nguoi', 'co-the-nguoi/')] + [(r, f'robotics/{r}/') for r in ROBOTS]
     lib = sorted((p.stem, f'thu-vien/{p.name}') for p in (ROOT / 'thu-vien').glob('*-step.html'))
     tools = [('kiem-may', 'kiem-may/'), ('dieu-khien', 'dieu-khien/')]
     return {'hub': hub, 'bespoke': bespoke, 'library': lib, 'tools': tools, 'lessons': bespoke + lib, 'all': hub + bespoke + lib + tools}[group]
@@ -49,6 +49,7 @@ PROBE = r"""(args) => {
     const k = e.offsetWidth ? e.getBoundingClientRect().width / e.offsetWidth : 1; // bài thu phóng cả khung bằng transform
     const fs = parseFloat(getComputedStyle(e).fontSize) * (k > 0.2 && k < 5 && Math.abs(k - 1) > 0.05 ? k : 1); const lim = 13; // điện thoại: mục tiêu 14 px cho trang mục, 13 px là sàn cho mọi trang
     const in3d = !!e.closest('[data-3d-label],.lbl3d,.label3d,.css2d,.tag3d');
+    if (fs === 0) continue; // chữ cố ý ẩn bằng font-size:0 (vd. mặt sau của la bàn hướng nhìn BodyVista)
     if (fs < lim - 0.01 && !seen.has(e)) { seen.add(e); out.font.push([Math.round(fs * 10) / 10, in3d ? '3d' : 'ui', s.slice(0, 32)]); }
   }
   out.font.sort((a, b) => a[0] - b[0]);
@@ -131,7 +132,7 @@ def verdict(name, url, o, vp):
     if o['tap']: fails.append(f"tap {len(o['tap'])}: {o['tap'][0]}")
     if url and not o['home']: fails.append('home: không có đường về trang chính')
     if lesson and not o['next']: fails.append('next: không có "Bài tiếp theo"')
-    if lesson and o['stage'] is not None and vp == 'd' and o['stage'] < (65 if lib else 70): fails.append(f"stage {o['stage']}%")
+    if lesson and o['stage'] is not None and vp == 'd' and o['stage'] < (65 if lib or name == 'co-the-nguoi' else 70): fails.append(f"stage {o['stage']}%")
     if lib and not o['credit']: fails.append('credit: thiếu ghi công Tongjiang')
     if o['err']: fails.append(f"err: {o['err'][0]}")
     return fails

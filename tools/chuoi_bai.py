@@ -17,6 +17,7 @@ BESPOKE = {
     'te-bao': ('te-bao/index.html', 'Hành Trình Vào Tế Bào', 'covers/te-bao.webp'),
     'ty-the': ('ty-the/index.html', 'Vào Ty Thể: động cơ ATP synthase', 'covers/ty-the.webp'),
     'co-loa': ('lich-su-10/co-loa/index.html', 'Thành Cổ Loa', 'covers/co-loa.webp'),
+    'co-the-nguoi': ('co-the-nguoi/index.html', 'Cơ thể người 3D', 'covers/co-the-nguoi.webp'),
     'ur5e': ('robotics/ur5e/index.html', 'Cánh tay robot 6 trục UR5e', 'covers/robo-ur5e.webp'),
     'hexapod': ('robotics/hexapod/index.html', 'Robot sáu chân', 'covers/robo-hexapod.webp'),
     'crazyflie': ('robotics/crazyflie/index.html', 'Drone bốn cánh Crazyflie', 'covers/robo-crazyflie.webp'),
@@ -58,6 +59,8 @@ def build():
     for k, s in enumerate(CHAIN_CELL):
         n = CHAIN_CELL[k + 1] if k + 1 < len(CHAIN_CELL) else None
         put(s, cell_crumb, nxt_lesson(n, f'Sinh học tế bào 10 · bài {k + 2}/{len(CHAIN_CELL)}') if n else {'title': 'Lộ trình Sinh học tế bào 10', 'href': 'chu-de/sinh-hoc-te-bao/', 'sub': 'Xem lại cả chủ đề'}, 'Sinh học', 'sinh')
+    # Khoa học tự nhiên 8: cơ thể người (BodyVista Việt hoá); bài sau đi tiếp xuống cấp tế bào
+    put('co-the-nguoi', [{'t': 'Khoa học tự nhiên 8', 'href': '#bai-hoc'}], nxt_lesson('te-bao', 'Từ cơ quan xuống tế bào'), 'Sinh học', 'sinh')
     put('co-loa', [{'t': 'Lịch sử 10', 'href': 'lich-su-10/'}], {'title': 'Lộ trình Lịch sử 10', 'href': 'lich-su-10/', 'sub': 'Các bài theo chương trình'}, 'Lịch sử', 'su')
     robo_crumb = [{'t': 'Robotics · Đại học', 'href': 'robotics/'}]
     for k, s in enumerate(CHAIN_ROBO):

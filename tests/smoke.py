@@ -12,7 +12,7 @@ PORT = sys.argv[1] if len(sys.argv) > 1 else '8777'
 # (đường dẫn, có vỏ bài học không)
 PAGES = [('', False), ('chu-de/sinh-hoc-te-bao/', False), ('lich-su-10/', False), ('robotics/', False), ('kiem-may/', False),
          ('dieu-khien/', False), ('thu-vien/enzyme-step.html', True), ('thu-vien/titration-step.html', True),
-         ('robotics/ur5e/', True), ('ty-the/', True), ('te-bao/', True), ('lich-su-10/co-loa/', True)]
+         ('robotics/ur5e/', True), ('ty-the/', True), ('te-bao/', True), ('lich-su-10/co-loa/', True), ('co-the-nguoi/', True)]
 IGNORE = ('WebGPU', 'GPU stall', 'Automatic fallback', 'favicon', 'ERR_NAME_NOT_RESOLVED')
 
 

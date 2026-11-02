@@ -11,3 +11,4 @@ offline/*.html
 
 # logo và favicon
 !design/logo/*.png
+!co-the-nguoi/thumbs/*.png
