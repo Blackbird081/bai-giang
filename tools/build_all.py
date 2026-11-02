@@ -20,6 +20,7 @@ STEPS = [
     ('ty-the', [[PY, 'tools/sri.py', 'ty-the/index.html'], [PY, 'tools/inject_shell.py', 'ty-the/index.html']]),
     ('co-loa', [[PY, 'tools/build_co_loa.py']]),
     ('co-the-nguoi', [[PY, 'tools/co-the-nguoi/build.py']]),
+    ('than-kinh', [[PY, 'tools/build_than_kinh.py']]),
     ('robotics', [['node', 'build.mjs', '__cwd__tools/robotics'], [PY, 'tools/robotics/build_hub.py']]),
     ('thu-vien', [[PY, 'tools/house_thu_vien.py']]),
     ('trang-muc', [[PY, 'tools/build_ls10.py'], [PY, 'tools/build_pages.py']]),
