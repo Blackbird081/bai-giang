@@ -20,7 +20,6 @@ export const pinDist = (th) => {
   return R * Math.cos(a) + Math.sqrt(E.l * E.l - (R * Math.sin(a)) ** 2);
 };
 /** vị trí chốt khuỷu trong mặt phẳng (x ngang, y dọc trục xi lanh), quay thuận chiều kim đồng hồ nhìn từ trước */
-export const crankPin = (th) => { const a = (th * Math.PI) / 180; return [R * Math.sin(a), R * Math.cos(a)]; };
 /** pít-tông cách ĐCT bao nhiêu mét (0 ở ĐCT, S ở ĐCD) */
 export const fromTDC = (th) => R + E.l - pinDist(th);
 /** tỉ số nén → thể tích buồng cháy và chiều cao khe hở (nắp phẳng, gần đúng) */

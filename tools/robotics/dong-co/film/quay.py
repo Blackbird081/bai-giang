@@ -4,7 +4,7 @@ mỗi khung đặt ψ rồi chụp, nên không rơi khung dù máy yếu. Ghi t
 
   python3 tools/robotics/dong-co/film/quay.py OUT.mp4 [--fps 30]     (cần máy chủ tĩnh cổng 8777, ffmpeg)
 """
-import asyncio, json, math, pathlib, subprocess, sys
+import asyncio, json, pathlib, subprocess, sys
 from playwright.async_api import async_playwright
 
 HERE = pathlib.Path(__file__).resolve().parent

@@ -38,7 +38,7 @@ const dots = (col) => {
   const n = 900, m = new THREE.InstancedMesh(new THREE.SphereGeometry(0.0045, 8, 6), new THREE.MeshBasicMaterial({color: col}), n);
   m.count = 0; m.frustumCulled = false; arm.root.add(m); return {m, n, last: null};
 };
-const traceJ = dots('#e3562a'), traceL = dots('#2a2521');
+const traceJ = dots('#e3562a'), traceL = dots(C.ink);
 const M4 = new THREE.Matrix4();
 const pushDot = (tr, p) => {
   if (tr.last && Math.hypot(p[0] - tr.last[0], p[1] - tr.last[1], p[2] - tr.last[2]) < 0.007) return;

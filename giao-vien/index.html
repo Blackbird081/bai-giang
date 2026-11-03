@@ -167,14 +167,37 @@ dl.ans dt{font-weight:700;color:var(--acc)}
 .pk div{padding:14px 18px 18px;display:grid;gap:4px}
 .pk .eye{font-size:13px}.pk b{font-size:18px;line-height:1.35}.pk .d{color:var(--bg-ink2);font-size:15px}
 @media (max-width:900px){.list{grid-template-columns:1fr}}
+.tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
+.tools a{display:grid;gap:4px;padding:18px 20px;border-radius:20px;background:#fff;box-shadow:var(--bg-sh-1);color:var(--bg-ink);text-decoration:none;transition:box-shadow .3s var(--bg-ease)}
+.tools a:hover{box-shadow:var(--bg-sh-2)}.tools b{font-size:17px}.tools span{color:var(--bg-ink2);font-size:15px}
+@media (max-width:900px){.tools{grid-template-columns:1fr}}
+
+.sitebar{position:sticky;top:0;z-index:50;background:rgba(244,244,246,.86);-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);border-bottom:1px solid var(--bg-hair,rgba(16,24,40,.1));font-family:var(--bg-font)}
+.sitebar .in{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;height:var(--bg-bar,56px)}
+.sitebar .brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;color:var(--bg-ink,#15171C);text-decoration:none;min-height:44px;min-width:44px;letter-spacing:-.01em;flex:none}
+.sitebar .brand img{width:32px;height:32px;display:block}
+.sitebar .crumbs{display:flex;align-items:center;gap:8px;min-width:0;color:var(--bg-ink3,#626773);font-size:15px}
+.sitebar .crumbs a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}.sitebar .crumbs a:hover{color:var(--bg-ink)}
+.sitebar .crumbs b{color:var(--bg-ink);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sitebar nav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.sitebar nav a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;text-decoration:none;font-weight:600;color:var(--bg-ink2,#454A55);white-space:nowrap}
+.sitebar nav a:hover{background:var(--bg-hair)}
+@media (max-width:760px){.sitebar .in{padding:0 12px;gap:8px}.sitebar .brand span,.sitebar nav{display:none}.sitebar .crumbs{font-size:15px}}
+
 </style>
 </head>
 <body>
-<div class="bar"><a class="home" href="../"><img src="../design/logo/mark-96.webp" width="30" height="30" alt="" class="lg"><span>Sáng Ăn Khoai</span></a><span class="sep"></span><span class="crumb">Gói dạy thử</span><span class="sp"></span></div>
+<header class="sitebar"><div class="in"><a class="brand" href="../" aria-label="Sáng Ăn Khoai, trang chính"><img src="../design/logo/mark-128.webp" alt="" width="32" height="32"><span>Sáng Ăn Khoai</span></a><div class="crumbs"><span aria-hidden="true">/</span><a href="../#cho-giao-vien">Cho giáo viên</a><span aria-hidden="true">/</span><b>Gói dạy thử</b></div><nav aria-label="Mục chính"><a href="../#bai-hoc">Bài học</a><a href="../#lo-trinh">Lộ trình</a><a href="../#thu-vien">Thư viện</a><a href="../#cho-giao-vien">Cho giáo viên</a></nav></div></header>
 <main class="wrap">
   <div style="padding:44px 0 12px"><div class="eye" style="--acc:var(--bg-ink2)">Cho giáo viên</div><h1>Gói dạy thử 45 phút</h1>
   <p class="lead">Mỗi gói gồm kịch bản theo phút, phiếu học tập một trang A4, đáp án và cách xử lý sự cố. Phút dự kiến và việc của giáo viên hiện cả trên màn hình giáo viên khi lên lớp. Đây là bản thử để dạy thử ở trường, đang chờ giáo viên bộ môn duyệt.</p></div>
   <div class="list"><a class="pk" href="te-bao/"><img src="../thu-vien/covers/te-bao.webp" alt="" loading="lazy"><div><span class="eye">Sinh học 10 · 45 phút · 11 bước</span><b>Hành trình của một phân tử protein tiết</b><span class="d">Bài 3D: Hành Trình Vào Tế Bào</span></div></a><a class="pk" href="than-kinh/"><img src="../thu-vien/covers/than-kinh.webp" alt="" loading="lazy"><div><span class="eye">Sinh học 11 · 45 phút · 4 bước</span><b>Xung thần kinh đi như thế nào?</b><span class="d">Bài 3D: Neuron và xung thần kinh</span></div></a><a class="pk" href="co-loa/"><img src="../thu-vien/covers/co-loa.webp" alt="" loading="lazy"><div><span class="eye">Lịch sử 10 · 45 phút · 10 bước</span><b>Thành Cổ Loa: đọc văn minh Âu Lạc từ dấu tích</b><span class="d">Bài 3D: Thành Cổ Loa</span></div></a></div>
+  <h2 style="margin:44px 0 0">Công cụ khi lên lớp</h2>
+  <div class="tools" style="margin-top:14px">
+    <a href="../kiem-may/"><b>Kiểm máy trước giờ dạy</b><span>Chạy thử mọi bài trên máy của lớp, xem bài nào chạy mượt.</span></a>
+    <a href="../dieu-khien/"><b>Điện thoại làm điều khiển</b><span>Nhập mã trên màn chiếu để chuyển bước, xem ghi chú và đáp án.</span></a>
+    <a href="../#cho-giao-vien"><b>Lên lớp trong mọi bài</b><span>Bấm Lên lớp trên thanh đầu bài, dùng bút trình chiếu hoặc phím mũi tên.</span></a>
+  </div>
   <div class="foot"><span>Bản thử 1 · 03/11/2026</span><span>Góp ý sau khi dạy thử: <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">GitHub</a> · © 2026 Sáng Ăn Khoai</span></div>
 </main>
 </body>

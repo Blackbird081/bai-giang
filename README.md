@@ -108,7 +108,7 @@ Mọi trang có khối thẻ og và twitter ngay sau `<meta charset>` cùng ản
 - Thêm `?q=0`, `?q=1` hoặc `?q=2` vào địa chỉ để ép bậc đồ hoạ (0 đẹp nhất, 2 cho máy yếu); khi ép bậc, trang không tự hạ.
 
 ## Dụng cụ lên lớp
-Mọi bài 3D (Tế Bào, Ty Thể, Cổ Loa, 4 mô phỏng robotics, 54 bài thư viện) dùng chung một vỏ [`shell/bg-shell.js`](shell/bg-shell.js):
+Mọi bài 3D (Tế Bào, Ty Thể, Cổ Loa, Cơ thể người, Neuron, 6 mô phỏng chạy trực tiếp, 54 bài thư viện) dùng chung một vỏ [`shell/bg-shell.js`](shell/bg-shell.js):
 - Shift P hoặc nút Lên lớp; bút trình chiếu, phím mũi tên, PageUp/PageDown chuyển bước; B màn đen; F toàn màn hình; thêm `?lenlop` vào địa chỉ để mở sẵn chế độ lên lớp.
 - Màn hình giáo viên: cửa sổ thứ hai trên cùng máy, có ghi chú, câu hỏi kèm đáp án, yêu cầu cần đạt; bài có gói dạy thử thì hiện thêm phút dự kiến và việc của giáo viên từng bước; không cần mạng.
 - Điện thoại: [`dieu-khien/`](dieu-khien/), quét mã QR hoặc nhập mã 6 ký tự (WebRTC qua PeerJS, cần mạng); từ thiết bị thứ hai, giáo viên phải bấm Cho phép trên màn chiếu.
@@ -146,7 +146,7 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `ty-the/index.html` | Vào Ty Thể, dữ liệu ATP synthase nhúng sẵn |
 | `chu-de/sinh-hoc-te-bao/` | Lộ trình Sinh học tế bào lớp 10 |
 | `lich-su-10/`, `lich-su-10/co-loa/` | Lộ trình Lịch sử 10 (`tools/build_ls10.py`), bài Thành Cổ Loa (`tools/build_co_loa.py`, `tools/co-loa.template.html`, nguồn `tools/co_loa_nguon.json`) |
-| `robotics/`, `robotics/<robot>/` | Mục lục Robotics (`tools/robotics/build_hub.py`) và 4 mô phỏng (dựng từ `tools/robotics/` bằng `node build.mjs`) |
+| `robotics/`, `robotics/<robot>/` | Mục lục Robotics (`tools/robotics/build_hub.py`) và 4 mô phỏng robot; cùng bộ dựng `tools/robotics/` (`node build.mjs`) dựng cả bài Động cơ 4 kì và Robot cá mập |
 | `giao-vien/`, `tools/goi-day/`, `tools/build_goi_day.py` | Gói dạy thử 45 phút: trang in được và nguồn JSON |
 | `shell/`, `dieu-khien/`, `kiem-may/` | Vỏ lên lớp chung và bộ gắn cho bài thư viện; trang điều khiển bằng điện thoại; trang kiểm máy |
 | `thu-vien/` | 54 bài tiếng Việt (CC BY-NC 4.0), ảnh bìa, `catalog.vi.json`, đối chiếu chương trình `gdpt2018.json`, công cụ Việt hoá `_viet-hoa/` |

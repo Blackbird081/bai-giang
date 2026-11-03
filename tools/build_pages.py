@@ -6,7 +6,7 @@ Cấu trúc trang (GitHub Pages):
   index.html                           trang chính Sáng Ăn Khoai: hành trình 3D, lộ trình, thư viện 54 bài
   te-bao/  ty-the/                     hai hành trình 3D (dựng riêng)
   lich-su-10/  lich-su-10/co-loa/      lộ trình Lịch sử 10 (tools/build_ls10.py), bài Thành Cổ Loa (tools/build_co_loa.py)
-  robotics/  robotics/<robot>/          mục lục Robotics (tools/robotics/build_hub.py), 4 mô phỏng (tools/robotics, node build.mjs)
+  robotics/  robotics/<robot>/          mục lục Robotics (tools/robotics/build_hub.py); 6 mô phỏng chạy trực tiếp (tools/robotics, node build.mjs): 4 robot, Động cơ 4 kì, Robot cá mập
   chu-de/sinh-hoc-te-bao/              lộ trình Sinh học tế bào lớp 10
   thu-vien/<bài>.html                  54 bài; thu-vien/index.html chuyển về mục Thư viện của trang chính
   ty-the.html, ar.html, chu-de-sinh-hoc-te-bao.html   trang chuyển hướng từ địa chỉ cũ
@@ -248,7 +248,7 @@ def write(rel, text):
 
 
 if __name__ == '__main__':
-    write('index.html', library({'__L_GV__': 'giao-vien/', '__L_ENGINE__': 'cong-nghe/dong-co-4-ki/', '__L_MAKO__': 'vat-li-10/ca-map-robot/', '__L_BODY__': 'co-the-nguoi/', '__L_NEURON__': 'than-kinh/', '__L_CELL__': 'te-bao/', '__L_MITO__': 'ty-the/', '__L_CHUDE__': 'chu-de/sinh-hoc-te-bao/', '__L_COLOA__': 'lich-su-10/co-loa/', '__L_LS10__': 'lich-su-10/', '__L_ROBO__': 'robotics/', '__L_KIEM__': 'kiem-may/', '__L_REMOTE__': 'dieu-khien/', '__L_R_UR5E__': 'robotics/ur5e/', '__L_R_HEXAPOD__': 'robotics/hexapod/', '__L_R_CRAZYFLIE__': 'robotics/crazyflie/', '__L_R_TURTLEBOT3__': 'robotics/turtlebot3/', '__L_BASE__': 'thu-vien/', '__L_GDPT__': 'thu-vien/gdpt2018.json', '__L_ROOT__': ''}))
+    write('index.html', library({'__L_GV__': 'giao-vien/', '__L_ENGINE__': 'cong-nghe/dong-co-4-ki/', '__L_MAKO__': 'vat-li-10/ca-map-robot/', '__L_BODY__': 'co-the-nguoi/', '__L_NEURON__': 'than-kinh/', '__L_CELL__': 'te-bao/', '__L_MITO__': 'ty-the/', '__L_CHUDE__': 'chu-de/sinh-hoc-te-bao/', '__L_COLOA__': 'lich-su-10/co-loa/', '__L_LS10__': 'lich-su-10/', '__L_ROBO__': 'robotics/', '__L_KIEM__': 'kiem-may/', '__L_REMOTE__': 'dieu-khien/', '__L_R_UR5E__': 'robotics/ur5e/', '__L_BASE__': 'thu-vien/', '__L_GDPT__': 'thu-vien/gdpt2018.json', '__L_ROOT__': ''}))
     write('chu-de/sinh-hoc-te-bao/index.html', chu_de({'__L_CELL__': '../../te-bao/', '__L_MITO__': '../../ty-the/', '__L_LIB__': '../../'}, lambda f: '../../thu-vien/' + f))
     import robotics.build_hub as RH
     write('robotics/index.html', RH.build({'hub': '../', 'sims': {r['key']: r['key'] + '/' for r in RH.ROBOTS}, 'covers': {r['key']: f"../thu-vien/covers/robo-{r['key']}.webp" for r in RH.ROBOTS}}))
@@ -259,7 +259,7 @@ if __name__ == '__main__':
     print('đã dựng trang chính, trang chủ đề và các trang chuyển hướng')
     if len(sys.argv) > 6 and sys.argv[1] == '--artifact':
         out = pathlib.Path(sys.argv[2]); cell, mito, hub, coloa = sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6]
-        art = {'__L_GV__': 'https://nclamvn.github.io/bai-giang/giao-vien/', '__L_ENGINE__': 'https://nclamvn.github.io/bai-giang/cong-nghe/dong-co-4-ki/', '__L_MAKO__': 'https://nclamvn.github.io/bai-giang/vat-li-10/ca-map-robot/', '__L_BODY__': 'https://nclamvn.github.io/bai-giang/co-the-nguoi/', '__L_NEURON__': 'https://nclamvn.github.io/bai-giang/than-kinh/', '__L_CELL__': cell, '__L_MITO__': mito, '__L_CHUDE__': 'chu-de-sinh-hoc-te-bao.html', '__L_COLOA__': coloa, '__L_LS10__': 'lich-su-10.html', '__L_ROBO__': 'robotics.html', '__L_KIEM__': 'https://nclamvn.github.io/bai-giang/kiem-may/', '__L_REMOTE__': 'https://nclamvn.github.io/bai-giang/dieu-khien/', '__L_R_UR5E__': 'robotics-ur5e.html', '__L_R_HEXAPOD__': 'robotics-hexapod.html', '__L_R_CRAZYFLIE__': 'robotics-crazyflie.html', '__L_R_TURTLEBOT3__': 'robotics-turtlebot3.html', '__L_BASE__': '', '__L_GDPT__': 'https://github.com/nclamvn/bai-giang/blob/main/thu-vien/gdpt2018.json', '__L_ROOT__': 'https://nclamvn.github.io/bai-giang/'}
+        art = {'__L_GV__': 'https://nclamvn.github.io/bai-giang/giao-vien/', '__L_ENGINE__': 'https://nclamvn.github.io/bai-giang/cong-nghe/dong-co-4-ki/', '__L_MAKO__': 'https://nclamvn.github.io/bai-giang/vat-li-10/ca-map-robot/', '__L_BODY__': 'https://nclamvn.github.io/bai-giang/co-the-nguoi/', '__L_NEURON__': 'https://nclamvn.github.io/bai-giang/than-kinh/', '__L_CELL__': cell, '__L_MITO__': mito, '__L_CHUDE__': 'chu-de-sinh-hoc-te-bao.html', '__L_COLOA__': coloa, '__L_LS10__': 'lich-su-10.html', '__L_ROBO__': 'robotics.html', '__L_KIEM__': 'https://nclamvn.github.io/bai-giang/kiem-may/', '__L_REMOTE__': 'https://nclamvn.github.io/bai-giang/dieu-khien/', '__L_R_UR5E__': 'robotics-ur5e.html', '__L_BASE__': '', '__L_GDPT__': 'https://github.com/nclamvn/bai-giang/blob/main/thu-vien/gdpt2018.json', '__L_ROOT__': 'https://nclamvn.github.io/bai-giang/'}
         import build_ls10
         open(out / 'lich-su-10.html', 'w', encoding='utf-8').write(build_ls10.build(hub, coloa, 'covers/co-loa.webp'))
         open(out / 'index_art.html', 'w', encoding='utf-8').write(library(art))

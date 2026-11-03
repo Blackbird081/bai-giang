@@ -1,9 +1,8 @@
 // Bảng điều khiển 1600 × 900 dùng chung: tiêu đề, khung số, thanh đo, biểu đồ chạy theo thời gian, nút, thanh trượt,
 // nhãn có đường dẫn vào chi tiết, con trỏ của chuyến tham quan và khung lời giảng. Phong cách theo teardown (MIT).
-export const C = {ink: '#2a2521', mute: '#9b8f80', faint: '#d9cdbb', line: '#eadfcd', panel: 'rgba(252,249,244,.95)', or: '#e3562a', green: '#2fa36b', blue: '#3c79a8', violet: '#7a5ab8', gold: '#c99a2e',
-  chart: '#fbf6ee', track: '#efe6d8', track2: '#e8dcc8', sub: '#6d6357'};
-// giao diện nhà Sáng Ăn Khoai (nền trắng, kính, Be Vietnam Pro) cho bài phổ thông: createUI(app, {theme: 'house'})
-const HOUSE = {dot: '#15171C', ink: '#15171C', mute: '#626773', faint: '#d5d8de', line: '#e7e9ed', panel: '#ffffff', chart: '#f7f8fa', track: '#e9ebef', track2: '#e3e6ea', sub: '#626773'};
+// Giao diện nhà Sáng Ăn Khoai: nền trắng, khung trắng bo 14 px, Be Vietnam Pro, cam chỉ dành cho dữ liệu và bộ phận đang làm việc.
+export const C = {ink: '#15171C', mute: '#626773', faint: '#d5d8de', line: '#e7e9ed', panel: '#ffffff', chart: '#f7f8fa', track: '#e9ebef', track2: '#e3e6ea', sub: '#626773', dot: '#15171C',
+  or: '#e3562a', green: '#2fa36b', blue: '#3c79a8', violet: '#7a5ab8', gold: '#c99a2e'};
 const HOUSE_CSS = `
 #app,#app .ph,#app .sm,#app .bt,#app .call b,#app .cap,#app .cap .k{font-family:'Be Vietnam Pro',system-ui,sans-serif!important}
 #app .cp{background:#fff;border:0;border-radius:14px;box-shadow:0 0 0 .5px rgba(16,24,40,.07),0 8px 24px -14px rgba(16,24,40,.22)}
@@ -31,28 +30,26 @@ const CSS = () => `
 #app{font-family:Inter,system-ui,sans-serif;color:${C.ink};-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
 .ui{position:absolute;inset:0;pointer-events:none}
 .mo{font-family:'JetBrains Mono',ui-monospace,monospace}
-.cp{position:absolute;background:${C.panel};border:1px solid ${C.line};border-radius:6px;box-shadow:0 2px 10px rgba(120,90,50,.08)}
+.cp{position:absolute;background:${C.panel};border:1px solid ${C.line};border-radius:6px;box-shadow:0 2px 10px rgba(16,24,40,.06)}
 .ph{position:absolute;display:flex;align-items:center;gap:9px;font:700 12.5px Inter,system-ui,sans-serif;letter-spacing:0;white-space:nowrap}
 .ph i{display:block;width:3px;height:13px;background:${C.or}}
-.pn{position:absolute;font:500 11px 'JetBrains Mono',monospace;color:#7d7165;letter-spacing:0}
-.sm{font:500 11px Inter,system-ui,sans-serif;letter-spacing:0;color:#6e6257;white-space:nowrap}
+.pn{position:absolute;font:500 11px 'JetBrains Mono',monospace;color:#9aa0aa;letter-spacing:0}
+.sm{font:500 11px Inter,system-ui,sans-serif;letter-spacing:0;color:#626773;white-space:nowrap}
 .v{font:600 12px 'JetBrains Mono',monospace;white-space:nowrap}
-.bt{position:absolute;height:22px;padding:0 9px;display:flex;align-items:center;justify-content:center;border:1px solid ${C.faint};border-radius:4px;background:#fffdf9;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;color:${C.ink};white-space:nowrap;transition:background .15s,color .15s}
+.bt{position:absolute;height:22px;padding:0 9px;display:flex;align-items:center;justify-content:center;border:1px solid ${C.faint};border-radius:4px;background:#fff;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;color:${C.ink};white-space:nowrap;transition:background .15s,color .15s}
 .bt.on{background:${C.ink};color:#fff;border-color:${C.ink}}
 .bt.acc{background:${C.or};color:#fff;border-color:${C.or}}
 .call{position:absolute;white-space:nowrap;transition:opacity .25s}
-.call b{display:flex;align-items:center;gap:6px;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;color:${C.ink};background:rgba(252,249,244,.86);padding:1px 4px;border-radius:2px}
+.call b{display:flex;align-items:center;gap:6px;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;color:${C.ink};background:rgba(255,255,255,.9);padding:1px 4px;border-radius:2px}
 .call b i{display:block;width:6px;height:6px;background:${C.or}}
-.call span{display:block;font:500 10px 'JetBrains Mono',monospace;letter-spacing:0;color:#7d7165;margin-top:1px;padding-left:16px}
+.call span{display:block;font:500 10px 'JetBrains Mono',monospace;letter-spacing:0;color:#626773;margin-top:1px;padding-left:16px}
 .cur{position:absolute;left:0;top:0;z-index:50;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
 .ring{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1.5px solid ${C.or};opacity:0;z-index:49}
 .cap{position:absolute;transition:opacity .35s}
-.cap .k{font:600 11.5px Inter,system-ui,sans-serif;letter-spacing:0;color:#B8401A}
+.cap .k{font:600 11.5px Inter,system-ui,sans-serif;letter-spacing:0;color:#5B6472}
 .cap .t{font-size:15px;font-weight:700;margin:3px 0 5px;letter-spacing:-.1px}
-.cap .b{font-size:12.5px;line-height:1.45;color:#3d352e}
-.cap .e{font:600 11.5px 'JetBrains Mono',monospace;color:${C.ink};background:#f4ebdc;border-radius:3px;padding:4px 7px;margin-top:6px;display:inline-block}
-.back{position:absolute;pointer-events:auto;text-decoration:none;font:700 9px 'JetBrains Mono',monospace;letter-spacing:1.6px;color:#fff;opacity:.9}
-.back:hover{opacity:1;text-decoration:underline}
+.cap .b{font-size:12.5px;line-height:1.45;color:#454A55}
+.cap .e{font:600 11.5px 'JetBrains Mono',monospace;color:${C.ink};background:#f3f4f6;border-radius:3px;padding:4px 7px;margin-top:6px;display:inline-block}
 .alert{position:absolute;font:700 9.5px 'JetBrains Mono',monospace;letter-spacing:1.4px;color:#fff;background:${C.or};padding:3px 8px;border-radius:3px;white-space:nowrap;transition:opacity .2s}
 `;
 // nhãn trong dữ liệu viết hoa: đổi sang chữ thường kiểu câu, giữ từ viết tắt ASCII ngắn (TCP, DH, PID, MOVEJ) và số
@@ -68,17 +65,16 @@ const el = (h) => { const d = document.createElement('div'); d.innerHTML = h.tri
 const fx = (v, n = 2) => (Number.isFinite(v) ? v.toFixed(n) : '—');
 export {fx};
 
-export function createUI(app, {theme = 'house'} = {}) {
-  if (theme === 'house') Object.assign(C, HOUSE);
-  const st = document.createElement('style'); st.textContent = CSS() + (theme === 'house' ? HOUSE_CSS : ''); document.head.appendChild(st);
+export function createUI(app) {
+  const st = document.createElement('style'); st.textContent = CSS() + HOUSE_CSS; document.head.appendChild(st);
   const root = el(`<div class="ui"></div>`); app.appendChild(root);
   const add = (h) => { const n = el(h); root.appendChild(n); return n; };
   const btn = {};
   const ui = {root, add, btn, spots: {}};
 
-  ui.header = (o) => (theme === 'house' ? houseHeader(o) : warmHeader(o));
   // đầu bảng kiểu nhà: dải mỏng 64 px, huy hiệu tròn góc thay khối cam, số liệu chính một dòng bên phải
-  const houseHeader = ({code, kicker, title, sub, right = []}) => {
+  ui.header = ({code, kicker, title, sub, right = [], hub}) => {
+    ui.hub = hub;
     const bw = Math.max(44, Math.round(sc(code).length * 9 + 20)), tx = 28 + bw + 14;
     add(`<div style="position:absolute;left:28px;top:14px;width:${bw}px;height:44px;border-radius:13px;background:#f1f2f5;box-shadow:inset 0 0 0 .5px rgba(16,24,40,.08);display:flex;align-items:center;justify-content:center;font:700 14px 'Be Vietnam Pro',system-ui,sans-serif;color:#15171C;letter-spacing:-.2px">${sc(code)}</div>`);
     add(`<div class="sm" style="position:absolute;left:${tx}px;top:13px;font-size:12px">${sc(kicker)}</div>`);
@@ -93,20 +89,6 @@ export function createUI(app, {theme = 'house'} = {}) {
       x -= 20;
     });
     add(`<div style="position:absolute;left:28px;top:72px;width:1544px;height:1px;background:#e7e9ed"></div>`);
-  };
-  const warmHeader = ({code, kicker, title, sub, right = [], hub, hubLabel = '← BÀI GIẢNG'}) => {
-    add(`<div style="position:absolute;left:0;top:0;width:160px;height:89px;background:${C.or}"></div>`);
-    add(`<div class="mo" style="position:absolute;left:24px;top:30px;color:#fff;font-size:22px;font-weight:700;letter-spacing:1px">${code}</div>`);
-    if (hub) add(`<a class="back" href="${hub}" style="left:24px;top:63px">${hubLabel}</a>`);
-    add(`<div class="sm" style="position:absolute;left:182px;top:20px">${sc(kicker)}</div>`);
-    add(`<div style="position:absolute;left:181px;top:37px;font-size:31px;font-weight:700;letter-spacing:-.6px;line-height:1">${title} <span style="color:${C.or};font-weight:400">/</span></div>`);
-    add(`<div class="sm" style="position:absolute;left:182px;top:76px;font-size:12px;color:${C.sub}">${sc(sub)}</div>`);
-    right.forEach(([v, n], i) => {
-      const x = 1110 + i * 120;
-      if (i) add(`<div style="position:absolute;left:${x - 12}px;top:34px;width:1px;height:42px;background:${C.faint}"></div>`);
-      add(`<div style="position:absolute;left:${x}px;top:32px;font-size:24px;font-weight:700;color:${i === 0 ? C.or : C.ink};letter-spacing:-.5px">${v}</div>`);
-      add(`<div class="sm" style="position:absolute;left:${x}px;top:64px">${sc(n)}</div>`);
-    });
   };
   ui.panel = (x, y, w, h, title, n) => {
     add(`<div class="cp" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"></div>`);
@@ -162,7 +144,7 @@ export function createUI(app, {theme = 'house'} = {}) {
   ui.buttons = (items, x0, y, wmax) => {
     let x = x0;
     for (const [key, label] of items) {
-      const w = Math.round(theme === 'house' ? sc(label).length * 5.9 + 24 : label.length * 6.9 + 20);
+      const w = Math.round(sc(label).length * 5.9 + 24);
       if (x + w > x0 + wmax) { x = x0; y += 29; }
       ui.button(key, x, y, w, label); x += w + 6;
     }
@@ -184,9 +166,10 @@ export function createUI(app, {theme = 'house'} = {}) {
   };
   // lời giảng của từng bước
   ui.caption = (x, y, w, h, title = 'BÀI GIẢNG') => {
-    // house: dòng chủ đề của từng bước thay cho tiêu đề chung "Bài giảng", nên lời giảng có thêm một dòng
-    ui.panel(x, y, w, h, theme === 'house' ? '' : title, '');
-    const box = add(`<div class="cap" style="left:${x + 14}px;top:${y + (theme === 'house' ? 13 : 36)}px;width:${w - 28}px"></div>`);
+    // dòng chủ đề của từng bước thay cho tiêu đề chung, nên lời giảng có thêm một dòng
+    void title;
+    ui.panel(x, y, w, h, '', '');
+    const box = add(`<div class="cap" style="left:${x + 14}px;top:${y + 13}px;width:${w - 28}px"></div>`);
     const prog = add(`<div class="pn" style="right:${1600 - x - w + 14}px;top:${y + 15}px"></div>`);
     let last = '';
     return {set(c, i, n) {

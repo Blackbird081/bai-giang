@@ -19,6 +19,7 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg-page);color:var(--bg-ink);font:500 15px/1.6 var(--bg-font);-webkit-font-smoothing:antialiased}
 :root{--ink:var(--bg-ink);--ink2:var(--bg-ink2);--accent:var(--bg-brand)}
+[hidden]{display:none!important}
 .sum{display:grid;gap:6px;padding:20px 22px;border-radius:20px;margin-top:14px;background:#fff;box-shadow:var(--bg-sh-1)}
 .sum b.big{font-size:26px;letter-spacing:-.015em;line-height:1.25}
 .sum.ok{box-shadow:inset 4px 0 0 var(--bg-ok),var(--bg-sh-1)}.sum.mid{box-shadow:inset 4px 0 0 #B26A1A,var(--bg-sh-1)}.sum.bad{box-shadow:inset 4px 0 0 var(--bg-bad),var(--bg-sh-1)}
@@ -39,6 +40,8 @@ button.pri{background:var(--accent);color:#fff;box-shadow:none}
 button:disabled{opacity:.5;cursor:default}
 label.ck{display:inline-flex;gap:8px;align-items:center;font-size:14px;color:var(--ink2)}
 table{width:100%;border-collapse:collapse;font-size:14px}
+.tw{margin-top:14px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media (max-width:600px){table{font-size:13px}th,td{padding:8px 5px}th{font-size:12.5px}.card{padding:16px 14px}}
 th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--hair);vertical-align:top}
 th{font-size:13px;color:var(--ink2);font-weight:600}
 td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -79,7 +82,7 @@ textarea{width:100%;min-height:120px;font:13px var(--bg-mono);border-radius:12px
   <div class="sum" id="sum" hidden></div>
   <div class="card">
     <div class="row"><button class="pri" id="go">Bắt đầu kiểm</button><label class="ck"><input type="checkbox" id="quick"> Kiểm nhanh (4 bài, khoảng 1 phút)</label><span class="small" id="eta"></span></div>
-    <table style="margin-top:14px"><thead><tr><th>Bài</th><th>Tải xong</th><th>Khung hình/giây</th><th>1% chậm nhất</th><th>Khung giật &gt; 50 ms</th><th>Kết luận</th></tr></thead><tbody id="tb"></tbody></table>
+    <div class="tw"><table><thead><tr><th>Bài</th><th>Tải xong</th><th>Khung hình/giây</th><th>1% chậm nhất</th><th>Khung giật &gt; 50 ms</th><th>Kết luận</th></tr></thead><tbody id="tb"></tbody></table></div>
     <p class="small">Đạt: từ 30 khung hình mỗi giây. Tạm được: 20–30, chuyển động còn hơi giật. Chưa đạt: dưới 20. "1% chậm nhất" cho biết lúc nặng nhất trang còn bao nhiêu khung mỗi giây.</p>
   </div>
 

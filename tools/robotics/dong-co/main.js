@@ -2,7 +2,7 @@
 // (kin.js) với một đầu vào là góc trục khuỷu. Quy trình 9 bước của teardown (Elvar, MIT): tham chiếu thật (thông số Honda Wave
 // Alpha 110), mô hình trước, bảng số chạy theo máy, một nút cho mỗi hệ thống, tự chạy có con trỏ, thử phá.
 import * as THREE from 'three';
-import {createStage, PAL_HOUSE} from '../kit/stage.js';
+import {createStage} from '../kit/stage.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
 import {E, VCT, cm3, vbc, vol, fromTDC, pressure, liftIn, liftEx, strokeIdx, STROKES, cycleWork, otto, pistonSpeed} from './kin.js';
@@ -10,8 +10,8 @@ import {buildEngine, YC, DECK, CROWN_TDC, CROWN_BDC, CAMY, VX} from './engine.js
 
 const app = document.getElementById('app');
 const canvas = document.createElement('canvas'); canvas.id = 'gl'; app.appendChild(canvas);
-const st = createStage({canvas, extent: 0.32, grid: 0.01, fade: 1.6, fov: 26, pal: PAL_HOUSE});
-const ui = createUI(app, {theme: 'house'});
+const st = createStage({canvas, extent: 0.32, grid: 0.01, fade: 1.6, fov: 26});
+const ui = createUI(app);
 const eng = buildEngine(); st.scene.add(eng.root);
 const vn = (v, n = 1) => fx(v, n).replace('.', ',');
 const vnInt = (v) => Math.round(v).toLocaleString('vi-VN');
@@ -92,7 +92,7 @@ const drawWheel = (ps) => {
   });
   const a = (ps / 720) * 2 * Math.PI - Math.PI / 2;
   g += `<line x1="${c}" y1="${c}" x2="${(c + 60 * Math.cos(a)).toFixed(1)}" y2="${(c + 60 * Math.sin(a)).toFixed(1)}" stroke="${C.ink}" stroke-width="2.2" stroke-linecap="round"/><circle cx="${c}" cy="${c}" r="4" fill="${C.ink}"/>`;
-  g += `<text x="${c}" y="${c + 20}" text-anchor="middle" font-size="9.5" fill="#6e6257" font-family="JetBrains Mono,monospace">${Math.round(ps)}°</text>`;
+  g += `<text x="${c}" y="${c + 20}" text-anchor="middle" font-size="9.5" fill="#626773" font-family="JetBrains Mono,monospace">${Math.round(ps)}°</text>`;
   wheel.innerHTML = g;
 };
 
@@ -132,7 +132,7 @@ const sim = {
     // 01
     drawWheel(ps);
     kName.innerHTML = ((a, b) => `<span style="display:block;font-size:12px;font-weight:600;color:${C.mute || '#626773'}">${a}</span><span style="display:block;white-space:nowrap;color:${STROKES[k].c}">${b || ''}</span>`)(...STROKES[k].t.split(' · '));
-    bigAng.innerHTML = `${vnInt(ps)}°<span style="font-size:14px;color:#9b8f80;letter-spacing:0"> / 720°</span>`;
+    bigAng.innerHTML = `${vnInt(ps)}°<span style="font-size:14px;color:#9aa0aa;letter-spacing:0"> / 720°</span>`;
     kRows[0].textContent = `${vnInt(ps / 2)}° / 360°`; kRows[1].textContent = ps < 360 ? '1 / 2' : '2 / 2';
     kRows[2].textContent = `${vn(fromTDC(ps) * 1000, 1)} mm`;
     const li = liftIn(ps, S.real), le = liftEx(ps, S.real), sparkOn = S.spark && ps % 720 >= 350 && ps % 720 < 364;
@@ -158,7 +158,7 @@ const sim = {
     const cx = 8 + v * (PV.w - 16), cy = PV.h - 6 - (Math.min(p, 80) / 80) * (PV.h - 12);
     pv.innerHTML = `<rect x="0" y="0" width="${PV.w}" height="${PV.h}" fill="${C.chart}" stroke="${C.line}"/><path d="${S.pvPath}Z" fill="${C.or}" fill-opacity=".1" stroke="${C.or}" stroke-width="1.5"/>`
       + `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="4" fill="${STROKES[k].c}" stroke="#fff" stroke-width="1.5"/>`
-      + `<text x="${PV.w - 6}" y="${PV.h - 9}" text-anchor="end" font-size="9" fill="#6e6257" font-family="Inter,sans-serif">V → Vtp</text><text x="${PV.w - 6}" y="13" text-anchor="end" font-size="9" fill="#6e6257" font-family="Inter,sans-serif">p (bar) · cao nhất ${vn(Math.max(...S.pvPts.map((q) => q[1])), 0)} bar</text>`;
+      + `<text x="${PV.w - 6}" y="${PV.h - 9}" text-anchor="end" font-size="9" fill="#626773" font-family="Inter,sans-serif">V → Vtp</text><text x="${PV.w - 6}" y="13" text-anchor="end" font-size="9" fill="#626773" font-family="Inter,sans-serif">p (bar) · cao nhất ${vn(Math.max(...S.pvPts.map((q) => q[1])), 0)} bar</text>`;
     const rowsPV = [['W = ∮ p·dV (một chu trình)', `${vn(S.W, 0)} J`], ['p TB chỉ thị = W / Vct', `${vn(S.imep, 1)} bar`], ['Công suất chỉ thị W·n / 120', S.stalled ? '0 kW' : `${vn((S.W * S.rpm) / 120 / 1000, 2)} kW`], ['Hiệu suất lí thuyết (Otto)', `${vn(otto(S.eps) * 100, 1)} %`]];
     rowsPV.forEach(([a, b], i) => { pvRows[i][0].textContent = a; pvRows[i][1].textContent = b; });
     // nút

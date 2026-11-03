@@ -151,7 +151,7 @@ h2.sec{{margin:14px 0 0;font-size:22px;letter-spacing:-.015em}}
 .cdx{{padding:14px 18px}} .cdx summary{{cursor:pointer}} .small{{font-size:13px;color:var(--muted)}}
 footer{{font-size:13px;color:var(--muted);border-top:1px solid var(--lg-hair);padding-top:18px;display:grid;gap:8px}}
 footer ul{{margin:0;padding-left:18px}} footer a{{color:inherit}}
-@media (max-width:760px){{.wrap{{padding:16px 12px 40px;gap:14px}} .feat{{grid-template-columns:1fr}} .feat img{{min-height:0;aspect-ratio:16/10}} .kpi{{grid-template-columns:repeat(2,minmax(0,1fr))}} .bsg{{grid-template-columns:1fr}} .cd{{padding:14px}} .ch h3{{font-size:18px}}}}
+@media (max-width:760px){{.wrap{{padding:16px 12px 40px;gap:14px}} .feat{{grid-template-columns:1fr}} .feat img{{min-height:0;aspect-ratio:16/10}} .kpi{{grid-template-columns:1fr;gap:8px}} .kpi div{{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 14px}} .kpi b{{font-size:18px;text-align:right}} .bsg{{grid-template-columns:1fr}} .cd{{padding:14px}} .ch h3{{font-size:18px}}}}
 </style>
 </head>
 <body>

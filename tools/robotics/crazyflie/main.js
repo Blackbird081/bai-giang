@@ -75,7 +75,7 @@ const axes = new THREE.Group(); drone.add(axes); axes.position.z = H0;
 const pad = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.14, 0.003), MAT.plastic('#e4e6ea')); pad.position.z = -0.0015; pad.receiveShadow = true; world.add(pad);
 const padMark = new THREE.Mesh(new THREE.RingGeometry(0.05, 0.054, 48), new THREE.MeshBasicMaterial({color: '#b9bec6'})); padMark.position.z = 0.0002; world.add(padMark);
 const spMark = new THREE.Group(); world.add(spMark);
-const spMat = new THREE.MeshBasicMaterial({color: '#2a2521', transparent: true, opacity: 0.55});
+const spMat = new THREE.MeshBasicMaterial({color: C.ink, transparent: true, opacity: 0.55});
 spMark.add(new THREE.Mesh(new THREE.TorusGeometry(0.03, 0.0012, 8, 48), spMat));
 for (const r of [0, Math.PI / 2]) { const b = new THREE.Mesh(new THREE.BoxGeometry(0.075, 0.0015, 0.0015), spMat); b.rotation.z = r; spMark.add(b); }
 const trail = new THREE.InstancedMesh(new THREE.SphereGeometry(0.0022, 8, 6), new THREE.MeshBasicMaterial({color: '#e3562a'}), 600); trail.count = 0; trail.frustumCulled = false; world.add(trail);
@@ -166,7 +166,7 @@ const sim = {
     thrTxt.innerHTML = `Lực đẩy <b>${fx((ftot / P.g) * 1000, 1)} g</b> · nặng ${fx(P.m * 1000, 1)} g · T/W ${fx(ftot / W, 2)}`;
     // bảng 02: sơ đồ xếp tầng, vòng đang chạy tô cam
     const on = (m) => (m ? C.or : C.faint), modePos = S.mode === 'pos' || S.mode === 'land';
-    const box = (x, y, w, t1, t2, act) => `<rect x="${x}" y="${y}" width="${w}" height="34" rx="3" fill="${act ? '#fff4ee' : C.chart}" stroke="${on(act)}"/><text x="${x + 6}" y="${y + 14}" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="${C.ink}">${t1}</text><text x="${x + 6}" y="${y + 27}" font-family="JetBrains Mono" font-size="8" fill="${C.mute}">${t2}</text>`;
+    const box = (x, y, w, t1, t2, act) => `<rect x="${x}" y="${y}" width="${w}" height="34" rx="3" fill="${act ? '#fdf1ec' : C.chart}" stroke="${on(act)}"/><text x="${x + 6}" y="${y + 14}" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="${C.ink}">${t1}</text><text x="${x + 6}" y="${y + 27}" font-family="JetBrains Mono" font-size="8" fill="${C.mute}">${t2}</text>`;
     const g = (k, a) => GAINS[a][k].slice(0, 3).map((v) => fx(v * (a === 'att' ? S.kAtt : a === 'rate' ? S.kRate : 1), v < 10 ? 2 : 0)).join(' / ');
     let svg = '';
     svg += box(0, 0, 130, 'VỊ TRÍ · 100 Hz', `kp ${GAINS.pos.x[0]} · z: ${GAINS.pos.z[0]}/${GAINS.pos.z[1]}`, modePos);

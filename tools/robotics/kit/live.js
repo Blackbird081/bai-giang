@@ -17,7 +17,7 @@ html,body{background:#ffffff;overflow:hidden;margin:0}
 .bt{pointer-events:auto;cursor:pointer}
 .bt:hover{filter:brightness(.96)}
 .hit{position:absolute;pointer-events:auto;cursor:ew-resize}
-.tourchip{position:absolute;transform:translateX(-50%);display:flex;align-items:center;gap:7px;height:24px;padding:0 12px;border:1px solid #e7e9ed;border-radius:4px;background:rgba(252,249,244,.95);color:#15171C;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;white-space:nowrap;cursor:pointer;pointer-events:auto}
+.tourchip{position:absolute;transform:translateX(-50%);display:flex;align-items:center;gap:7px;height:24px;padding:0 12px;border:1px solid #e7e9ed;border-radius:4px;background:rgba(255,255,255,.95);color:#15171C;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;white-space:nowrap;cursor:pointer;pointer-events:auto}
 .tourchip i{display:block;width:6px;height:6px;border-radius:50%;background:#e3562a}
 .tourchip.on i{animation:blink 1.2s steps(2) infinite}
 @keyframes blink{50%{opacity:.15}}
@@ -27,7 +27,6 @@ body.cmp .turn{display:none}
 body.cmp #app{width:100vw!important;height:100svh!important;transform:none!important}
 body.cmp #gl{width:100vw!important;height:100svh!important}
 body.cmp #app>.ui{display:none}
-body.bgs-on .ui .back{display:none}
 .mob{display:none;position:fixed;z-index:20;font-family:var(--bg-font,Inter,system-ui,sans-serif);color:#15171C;-webkit-font-smoothing:antialiased}
 body.cmp .mob{display:block}
 .mob.top{left:10px;right:10px;top:calc(10px + env(safe-area-inset-top));display:none;align-items:center;gap:10px;padding:8px 12px 8px 8px;background:rgba(255,255,255,.96);border:1px solid #e7e9ed;border-radius:14px;box-shadow:0 10px 26px -18px rgba(16,24,40,.35);margin-right:150px}
@@ -74,12 +73,9 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
   Object.assign(tourChip.style, {left: `${chip[0]}px`, top: `${chip[1]}px`}); ui.root.appendChild(tourChip);
   const note = document.createElement('div'); note.className = 'turn'; note.textContent = 'Xoay ngang điện thoại để thấy đủ bảng điều khiển'; document.body.appendChild(note);
   const mob = (cls, html) => { const n = document.createElement('div'); n.className = 'mob ' + cls; n.innerHTML = html; document.body.appendChild(n); return n; };
-  const hubLink = app.querySelector('a[href]');
-  const mTop = mob('top', `<a href="${hubLink ? hubLink.getAttribute('href') : '../../'}">←</a><b>${document.title}</b>`);
+  mob('top', `<a href="${ui.hub || '../../'}">←</a><b>${document.title}</b>`);
   const mCap = mob('cap', '<div class="k"><span></span><span></span></div><div class="t"></div><div class="b"></div><div class="e"></div><div class="row" data-r></div>');
   const mBack = mob('back', '<button>← CẢNH 3D</button>');
-  void mTop;
-  const cap = ui.caption ? ui.capBox : null;
 
   // bậc chất lượng
   const TIERS = [{samples: 8, ao: true, shadow: 4096, pr: 2}, {samples: 4, ao: false, shadow: 2048, pr: 1.5}, {samples: 2, ao: false, shadow: 1024, pr: 1}];
@@ -298,7 +294,7 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
   if (window.BGShell) {
     const strip = (h) => String(h || '').replace(/<[^>]+>/g, '');
     window.BGShell.mount({
-      id: location.pathname.split('/').filter(Boolean).pop() || 'robotics', title: document.title, subject: shell.subject || 'Robotics · đại học', variant: shell.variant || 'dai-hoc', objectives: shell.objectives || [],
+      id: location.pathname.split('/').filter(Boolean).pop() || 'robotics', title: document.title, subject: shell.subject || 'Robotics · đại học', variant: shell.variant || 'pho-thong', objectives: shell.objectives || [],
       steps: captions.map((c) => ({t: c.t, note: [c.k, strip(c.b), c.e].filter(Boolean).join('\n\n'), sr: strip(c.b), ask: c.ask || null})),
       go: classGo, end: classEnd,
       panels: [{label: 'Bảng số', icon: 'chart', open: false, apply: (o) => { full = o; fit(); }}],
@@ -306,5 +302,4 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
       credit: shell.credit || 'Mô phỏng chạy trực tiếp trong trình duyệt, dựng trên teardown của elvarofficial và claude-motion của whaleyxbt (MIT). Thông số máy lấy từ tài liệu của hãng; chỗ giả định ghi rõ trong bảng số.',
     });
   }
-  void cap;
 }

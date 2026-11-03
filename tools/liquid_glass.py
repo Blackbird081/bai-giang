@@ -64,8 +64,7 @@ BODY = ('body{background:var(--lg-wash)!important;background-attachment:fixed!im
         '-webkit-font-smoothing:antialiased}\n')
 
 
-# ---------- Nền giấy kẻ ô chìm và giáo cụ nét mảnh ở góc (cho các trang dạng tài liệu: trang chính, trang chủ đề) ----------
-import math as _m
+# ---------- nền trang dạng tài liệu (trang chính, trang chủ đề) ----------
 
 PAPER_CSS = """
 html{background:var(--lg-wash),var(--lg-page);background-attachment:fixed}
@@ -73,34 +72,11 @@ body{background:transparent!important}
 """
 
 
-def _protractor(cx, cy, r):
-    out = [f'<path class="ln" d="M{cx-r} {cy} A{r} {r} 0 0 1 {cx+r} {cy} Z"/>',
-           f'<path class="ln" d="M{cx-r*.62:.1f} {cy} A{r*.62:.1f} {r*.62:.1f} 0 0 1 {cx+r*.62:.1f} {cy}"/>']
-    for d in range(0, 181, 5):
-        a = _m.radians(d); L = .16 if d % 30 == 0 else .1 if d % 10 == 0 else .055
-        x1, y1 = cx - r * _m.cos(a), cy - r * _m.sin(a); x2, y2 = cx - r * (1 - L) * _m.cos(a), cy - r * (1 - L) * _m.sin(a)
-        out.append(f'<line class="tk" x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}"/>')
-    out.append(f'<circle class="dot" cx="{cx}" cy="{cy}" r="2.4"/><line class="tk" x1="{cx}" y1="{cy}" x2="{cx}" y2="{cy-r*.62:.1f}"/>')
-    return ''.join(out)
-
-
-def _ruler(x, y, w, h, n):
-    out = [f'<rect class="ln" x="{x}" y="{y}" width="{w}" height="{h}" rx="3"/>']
-    for i in range(1, n):
-        xx = x + w * i / n; L = h * (.45 if i % 5 == 0 else .25)
-        out.append(f'<line class="tk" x1="{xx:.1f}" y1="{y}" x2="{xx:.1f}" y2="{y+L:.1f}"/>')
-    return ''.join(out)
-
-
-def decor_html():
-    """Bản 14 bỏ giấy kẻ ô và hình trang trí (thước đo góc, bình thí nghiệm, nguyên tử): cảnh 3D tự làm hình ảnh."""
-    return ''
-
-
-# ---------- Thanh trên chung của các trang mục (trang chính, chủ đề, lộ trình, mục lục Robotics) ----------
 def logo(root):
     """Dấu Sáng Ăn Khoai (mặt cậu bé vẽ sáp màu, design/logo/)."""
     return f'<img src="{root}design/logo/mark-128.webp" alt="" width="32" height="32">'
+
+
 SITE_BAR_CSS = """
 .sitebar{position:sticky;top:0;z-index:50;background:rgba(244,244,246,.86);-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);border-bottom:1px solid var(--bg-hair,rgba(16,24,40,.1));font-family:var(--bg-font)}
 .sitebar .in{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;height:var(--bg-bar,56px)}

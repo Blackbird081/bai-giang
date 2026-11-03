@@ -24,14 +24,9 @@ Thang 7 cỡ: 13 · 15 · 17 · 20 · 26 · 34 · 48 px (`--bg-fs-xs` … `--bg-
 - Phông đơn cách chỉ cho con số đo; nhãn dùng phông giao diện.
 - Tiêu đề lớn dùng Noto Serif 600; không dùng chữ tô gradient.
 
-## Hai biến thể, một gia đình
+## Một gia đình giao diện
 
-| Biến thể | Dùng cho | Khác nhau ở |
-|---|---|---|
-| `pho-thong` (mặc định) | Lớp 6–12 | nền kính lỏng trắng, góc bo 20/14/10 px |
-| `dai-hoc` | Robotics | nền giấy studio, góc bo 8/6/4 px |
-
-Hai biến thể dùng chung thanh đầu bài, phông, biểu tượng, cách lên lớp.
+Mọi trang, kể cả các mô phỏng robotics, dùng chung một biến thể `pho-thong`: nền trắng và kính lỏng, góc bo 20/14/10 px, thanh đầu bài, phông, biểu tượng, cách lên lớp. Biến thể `dai-hoc` (nền giấy studio) đã bỏ từ tháng 11/2026.
 
 ## Vỏ bài học v2
 

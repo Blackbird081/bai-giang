@@ -24,7 +24,7 @@ jobs:
         run: cd tools/co-the-nguoi && npm ci --ignore-scripts
       - name: Cú pháp
         run: |
-          python -m py_compile tools/*.py tools/robotics/*.py tests/*.py
+          python -m py_compile tools/*.py tools/robotics/*.py tools/robotics/*/film/*.py tools/co-the-nguoi/*.py tests/*.py
           node --check shell/bg-shell.js
           node --check shell/adapter-thu-vien.js
       - name: Tệp đã dựng khớp với nguồn

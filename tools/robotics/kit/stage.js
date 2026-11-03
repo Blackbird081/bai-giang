@@ -1,4 +1,4 @@
-// Studio dùng chung cho mọi robot: nền trắng của nhà Sáng Ăn Khoai (PAL_HOUSE, mặc định; PAL là nền giấy ấm cũ), sàn kẻ lưới đo (mm/cm/m), bóng mềm, GTAO, môi trường phòng sáng.
+// Studio dùng chung cho mọi mô phỏng: nền trắng của nhà Sáng Ăn Khoai, sàn kẻ lưới đo (mm/cm/m), bóng mềm, GTAO, môi trường phòng sáng.
 // Phỏng theo stage của teardown (MIT, elvarofficial + whaleyxbt). frame(cam) đặt camera và vẽ một khung hình.
 import * as THREE from 'three';
 import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
@@ -8,7 +8,6 @@ import {Pass} from 'three/addons/postprocessing/Pass.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 
 const V3 = THREE.Vector3;
-export const PAL = {bg: '#f2e6d2', ground: '#efe0c6', minor: '#e3d2b6', major: '#d2bc98', shadow: '#7a5a3a'};
 
 const GV = `varying vec3 vW; void main(){ vec4 w = modelMatrix * vec4(position, 1.0); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`;
 const GF = `uniform vec3 uG; uniform vec3 uMi; uniform vec3 uMa; uniform vec3 uBg; uniform vec3 uC; uniform float uStep; uniform float uFade; varying vec3 vW;
@@ -22,10 +21,10 @@ const GF = `uniform vec3 uG; uniform vec3 uMi; uniform vec3 uMa; uniform vec3 uB
     gl_FragColor = vec4(mix(col, uBg, smoothstep(uFade * 0.35, uFade, d)), 1.0);
   }`;
 
-// nền nhà Sáng Ăn Khoai: trắng, lưới xám rất nhạt (createStage({pal: PAL_HOUSE}))
+// nền nhà Sáng Ăn Khoai: trắng, lưới xám rất nhạt
 export const PAL_HOUSE = {exact: true, bg: '#ffffff', ground: '#f6f6f6', minor: '#ebebeb', major: '#dddddd', shadow: '#2f3744', env: '#eef0f3', envGround: '#d9dce1', sky: '#ffffff', hemiGround: '#d6d9de'};
 export function createStage({canvas, extent = 1.6, grid = 0.1, fade = 6, fov = 28, near = 0.02, far = 80, ao = {}, sunDir = [-0.35, 0.82, 0.45], pal = PAL_HOUSE}) {
-  const P = {env: '#e9dcc6', envGround: '#d8c6a8', sky: '#fffaf2', hemiGround: '#d9c6a6', ...pal};
+  const P = pal;
   const renderer = new THREE.WebGLRenderer({canvas, antialias: false, preserveDrawingBuffer: true, powerPreference: 'high-performance'});
   renderer.toneMapping = THREE.NeutralToneMapping;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -36,7 +35,7 @@ export function createStage({canvas, extent = 1.6, grid = 0.1, fade = 6, fov = 2
   // OutputPass ánh xạ tông màu (Khronos PBR Neutral) cả nền lẫn sàn, nên trắng ra xám ~240. Với nền nhà (exact) tính ngược
   // màu tuyến tính cần đưa vào để màn hình ra đúng màu đặt (xám trung tính: lệch 0,04, nén đỉnh từ 0,76).
   const col = (hex) => {
-    const c = new THREE.Color(hex); if (!P.exact) return c;
+    const c = new THREE.Color(hex);
     const inv = (t) => { t = Math.min(t, 0.997); return (t < 0.76 ? t : 0.52 + 0.0576 / (1 - t)) + 0.04; };
     return new THREE.Color(inv(c.r), inv(c.g), inv(c.b));
   };
@@ -74,7 +73,7 @@ export function createStage({canvas, extent = 1.6, grid = 0.1, fade = 6, fov = 2
     scene.environment = pm.fromScene(env, 0.02).texture; scene.environmentIntensity = 0.95; pm.dispose();
   }
   const SUN = new V3(...sunDir).normalize();
-  const sun = new THREE.DirectionalLight('#fff6ea', 2.3);
+  const sun = new THREE.DirectionalLight('#ffffff', 2.3);
   sun.castShadow = true;
   Object.assign(sun.shadow.camera, {left: -extent, right: extent, top: extent, bottom: -extent, near: 0.05 * extent, far: 14 * extent});
   sun.shadow.mapSize.set(4096, 4096); sun.shadow.radius = 10; sun.shadow.blurSamples = 20; sun.shadow.bias = -0.0003; sun.shadow.normalBias = 0.002 * extent;
@@ -152,17 +151,4 @@ export function xray(root, k, keep = () => false) {
     }
     o.castShadow = k < 0.5 && o.userData.cast !== false;
   });
-}
-// Ống hình học nối hai điểm (dùng cho khâu, thanh, cáp)
-export function rod(r, len, seg = 20, mat) {
-  const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, seg), mat);
-  m.castShadow = m.receiveShadow = true;
-  return m;
-}
-const Y = new V3(0, 1, 0);
-export function placeBetween(mesh, a, b) {
-  const d = new V3().subVectors(b, a), L = d.length();
-  mesh.position.copy(a).addScaledVector(d, 0.5);
-  mesh.quaternion.setFromUnitVectors(Y, d.normalize());
-  mesh.scale.set(1, L, 1);
 }

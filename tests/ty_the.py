@@ -1,14 +1,14 @@
 """Kiểm trang Vào Ty Thể bằng Playwright (Chromium, WebGL 2 qua swiftshader).
 
 Chạy:  python3 -m http.server 8801   (ở thư mục gốc repo, đã có node_modules/three@0.180.0 nếu dùng bản local)
-       python3 tests/ty_the.py http://localhost:8801/ty-the.html
+       python3 tests/ty_the.py http://localhost:8777/ty-the/
 Kiểm: dữ liệu nạp đủ, rôto quay theo bước 45°, cứ 8 H⁺ thì 3 ATP, ba β luôn ở ba dạng khác nhau,
 chế độ lên lớp đi hết các bước, câu đố bấm-chọn chấm đúng, không có lỗi trong console.
 """
 import sys, math
 from playwright.sync_api import sync_playwright
 
-URL = (sys.argv[1] if len(sys.argv) > 1 else 'http://localhost:8801/ty-the.html') + '?instant#webgl'
+URL = (sys.argv[1] if len(sys.argv) > 1 else 'http://localhost:8777/ty-the/') + '?instant#webgl'
 with sync_playwright() as p:
     b = p.chromium.launch(args=['--use-angle=swiftshader', '--ignore-gpu-blocklist'])
     pg = b.new_page(viewport={'width': 900, 'height': 560}); pg.set_default_timeout(900000); errs = []

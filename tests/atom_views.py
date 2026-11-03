@@ -8,7 +8,7 @@ with sync_playwright() as p:
     logs = []
     pg.on("console", lambda m: logs.append(f"{m.type}: {m.text[:300]}") if m.type in ("error", "warning") else None)
     pg.on("pageerror", lambda e: logs.append(f"PAGEERROR: {e}"))
-    pg.goto("http://localhost:8765/local.html#webgl")
+    pg.goto("http://localhost:8777/te-bao/#webgl")
     pg.wait_for_function("!!window.__cell", timeout=180000)
     pg.evaluate(f"window.__cell.setTier('{tier}')")
     pg.wait_for_function("window.__cell.mol.ready || window.__cell.mol.err", timeout=120000)

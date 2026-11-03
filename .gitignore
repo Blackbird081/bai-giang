@@ -16,3 +16,8 @@ offline/*.html
 # phim quay từng khung và nhạc nền (dựng lại bằng tools/robotics/dong-co/film/)
 tools/robotics/dong-co/film/*.mp4
 tools/robotics/dong-co/film/*.wav
+
+# bản nháp cục bộ, kết quả Playwright, tệp hệ điều hành
+.art_robo/
+test-results/
+.DS_Store

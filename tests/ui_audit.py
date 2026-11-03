@@ -17,7 +17,7 @@ Không đo độ mượt: trình duyệt trong máy chủ dựng hình bằng ph
 Dùng:  python3 tests/ui_audit.py [--group hub|bespoke|library|tools|all] [--vp d,t,tp,pl,pp] [--shots DIR] [--only tên] [--wait 6]
 Cần máy chủ tĩnh ở thư mục gốc repo:  python3 -m http.server 8777
 """
-import argparse, asyncio, json, pathlib, sys, time
+import argparse, asyncio, json, pathlib, time
 from playwright.async_api import async_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -128,6 +128,8 @@ PROBE = r"""(args) => {
         if (!covers.some((r) => x >= r.left && x <= r.right && y >= r.top && y <= r.bottom)) hit++; }
       out.stage = Math.round(hit / tot * 100); }
   }
+  // trang rộng hơn màn hình (ô nhập, bảng tràn): người dùng phải vuốt ngang
+  out.hscroll = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - innerWidth;
   return out;
 }"""
 
@@ -177,6 +179,7 @@ def verdict(name, url, o, vp):
     if o['tap']: fails.append(f"tap {len(o['tap'])}: {o['tap'][0]}")
     if o.get('clip'): fails.append(f"clip {len(o['clip'])}: {o['clip'][0]}")
     if o.get('edge'): fails.append(f"edge {len(o['edge'])}: {o['edge'][0]}")
+    if o.get('hscroll', 0) > 1: fails.append(f"tràn ngang {o['hscroll']} px")
     if url and not o['home']: fails.append('home: không có đường về trang chính')
     if lesson and not o['next']: fails.append('next: không có "Bài tiếp theo"')
     if lesson and o['stage'] is not None and vp == 'd' and o['stage'] < (65 if lib else 60 if name == 'co-the-nguoi' else 70): fails.append(f"stage {o['stage']}%")

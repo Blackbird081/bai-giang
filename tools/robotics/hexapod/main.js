@@ -74,8 +74,8 @@ const place = (m, p, X, Y) => { const Z = new THREE.Vector3().crossVectors(X, Y)
 const polyMat = new THREE.MeshBasicMaterial({color: '#e3562a', transparent: true, opacity: 0.16, depthWrite: false});
 const poly = new THREE.Mesh(new THREE.BufferGeometry(), polyMat); poly.position.z = 0.0015; world.add(poly);
 const polyLine = new THREE.LineLoop(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({color: '#e3562a'})); polyLine.position.z = 0.002; world.add(polyLine);
-const mLine = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({color: '#2a2521'})); mLine.position.z = 0.0025; world.add(mLine);
-const com = new THREE.Mesh(new THREE.RingGeometry(0.006, 0.011, 24), new THREE.MeshBasicMaterial({color: '#2a2521'})); com.position.z = 0.003; world.add(com);
+const mLine = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({color: C.ink})); mLine.position.z = 0.0025; world.add(mLine);
+const com = new THREE.Mesh(new THREE.RingGeometry(0.006, 0.011, 24), new THREE.MeshBasicMaterial({color: C.ink})); com.position.z = 0.003; world.add(com);
 const prints = new THREE.InstancedMesh(new THREE.CircleGeometry(0.007, 16), new THREE.MeshBasicMaterial({color: '#9aa0aa', transparent: true, opacity: 0.6}), 240);
 prints.count = 0; prints.frustumCulled = false; prints.position.z = 0.001; world.add(prints);
 let printI = 0;
@@ -210,7 +210,7 @@ const sim = {
       // pha chống: p ∈ [0, β) với p = phase + off
       const segs = []; const a0 = (1 - o) % 1, a1 = a0 + g.beta;
       segs.push([a0, Math.min(1, a1)]); if (a1 > 1) segs.push([0, a1 - 1]);
-      for (const [u0, u1] of segs) svg += `<rect x="${28 + u0 * 244}" y="${y + 1}" width="${(u1 - u0) * 244}" height="11" fill="${out[i].f.stance ? C.ink : '#5d554c'}"/>`;
+      for (const [u0, u1] of segs) svg += `<rect x="${28 + u0 * 244}" y="${y + 1}" width="${(u1 - u0) * 244}" height="11" fill="${out[i].f.stance ? C.ink : '#5b6472'}"/>`;
     });
     const ph = S.run ? S.phase : 0;
     svg += `<line x1="${28 + ph * 244}" x2="${28 + ph * 244}" y1="0" y2="104" stroke="${C.or}" stroke-width="2"/>`;

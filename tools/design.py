@@ -75,13 +75,10 @@ def tokens_css(font_root='fonts/'):
     base += f";--bg-sh-1:{T['shadow']['1']};--bg-sh-2:{T['shadow']['2']};--bg-blur:{T['blur']}"
     base += f";--bg-t-fast:{M['fast']}ms;--bg-t-mid:{M['mid']}ms;--bg-t-slow:{M['slow']}ms;--bg-ease:{M['out']};--bg-ease-io:{M['in-out']}"
     base += f";--bg-bar:{T['bar']['h']}px;--bg-tap:{T['tap']}px;--bg-accent:var(--bg-brand)"
-    v = T['variant']['dai-hoc']
-    dh = ';'.join(f'--bg-{k}:{val}' for k, val in v.items() if k != 'radius') + ';' + ';'.join(f'--bg-r-{k}:{px(val)}' for k, val in v['radius'].items())
     pj = T['projector']
     pjs = ';'.join(f'--bg-{k}:{val}' for k, val in pj.items() if k != 'scale') + f";--bg-k:{pj['scale']}"
     css = f':root{{{base}}}\n'
     css += f'@media (max-width:640px),(max-height:520px){{:root{{--bg-bar:{T["bar"]["h-phone"]}px;--bg-fs-xs:calc(14px * var(--bg-k))}}}}\n'
-    css += f'html[data-bg-variant="dai-hoc"]{{{dh}}}\n'
     css += f'html[data-chieu]{{{pjs}}}\n'
     css += '@media (prefers-reduced-motion:reduce){:root{--bg-t-fast:1ms;--bg-t-mid:1ms;--bg-t-slow:1ms}}\n'
     return css

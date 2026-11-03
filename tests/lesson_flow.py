@@ -5,7 +5,7 @@ with sync_playwright() as p:
     b = p.chromium.launch(args=["--use-angle=swiftshader", "--ignore-gpu-blocklist"])
     pg = b.new_page(viewport={"width": 1366, "height": 768}); pg.set_default_timeout(300000); errs = []
     pg.on("pageerror", lambda e: errs.append(str(e)[:200])); pg.on("console", lambda m: errs.append(m.text[:200]) if m.type == "error" else None)
-    pg.goto("http://localhost:8765/local.html#webgl"); pg.wait_for_function("!!window.__cell", timeout=180000); pg.evaluate("window.__cell.setTier('chuan')"); time.sleep(4)
+    pg.goto("http://localhost:8777/te-bao/#webgl"); pg.wait_for_function("!!window.__cell", timeout=180000); pg.evaluate("window.__cell.setTier('chuan')"); time.sleep(4)
     vp = pg.locator("#viewport").bounding_box(); clip = {"x": vp["x"], "y": vp["y"], "width": vp["width"], "height": vp["height"]}
     st = lambda: pg.evaluate("({lesson: window.__cell.lesson.state, sel: window.__cell.sel && window.__cell.sel.key, status: document.getElementById('sState') && document.getElementById('sState').textContent, k: document.getElementById('lsK').textContent, fb: (document.getElementById('qFb')||{}).textContent, b: document.getElementById('lsB').textContent.slice(0,80)})")
     pg.click('#lessonBtn'); time.sleep(3); pg.screenshot(path="ls_0.png", clip=clip); print(0, st())

@@ -83,9 +83,9 @@ function buildBurger(ghost) {
 const bot = buildBurger(false), ghost = buildBurger(true);
 world.add(bot.g, ghost.g);
 // đường đi, điểm nhìn trước, tia LiDAR, vết
-const pathLine = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(PATH.map(([x, y]) => new THREE.Vector3(x, y, 0.009))), new THREE.LineDashedMaterial({color: '#2a2521', dashSize: 0.04, gapSize: 0.03}));
+const pathLine = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(PATH.map(([x, y]) => new THREE.Vector3(x, y, 0.009))), new THREE.LineDashedMaterial({color: C.ink, dashSize: 0.04, gapSize: 0.03}));
 pathLine.computeLineDistances(); world.add(pathLine);
-const wp = new THREE.InstancedMesh(new THREE.CircleGeometry(0.018, 20), new THREE.MeshBasicMaterial({color: '#2a2521'}), PATH.length);
+const wp = new THREE.InstancedMesh(new THREE.CircleGeometry(0.018, 20), new THREE.MeshBasicMaterial({color: C.ink}), PATH.length);
 PATH.forEach(([x, y], i) => wp.setMatrixAt(i, new THREE.Matrix4().makeTranslation(x, y, 0.0095))); world.add(wp);
 const look = new THREE.Mesh(new THREE.SphereGeometry(0.018, 16, 12), new THREE.MeshBasicMaterial({color: '#e3562a'})); world.add(look);
 const lookLine = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()]), new THREE.LineBasicMaterial({color: '#e3562a'})); world.add(lookLine);
@@ -94,7 +94,7 @@ const rays = new THREE.LineSegments(rayGeo, new THREE.LineBasicMaterial({color: 
 const hitGeo = new THREE.BufferGeometry(); hitGeo.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(360 * 3), 3));
 const hits = new THREE.Points(hitGeo, new THREE.PointsMaterial({color: '#e3562a', size: 5, sizeAttenuation: false})); world.add(hits);
 const dots = (col) => { const m = new THREE.InstancedMesh(new THREE.CircleGeometry(0.006, 10), new THREE.MeshBasicMaterial({color: col}), 1500); m.count = 0; m.frustumCulled = false; world.add(m); return {m, i: 0, last: null}; };
-const trTrue = dots('#2a2521'), trOdom = dots('#3c79a8');
+const trTrue = dots(C.ink), trOdom = dots('#3c79a8');
 const M4 = new THREE.Matrix4();
 const pushDot = (t, x, y) => { if (t.last && Math.hypot(x - t.last[0], y - t.last[1]) < 0.02) return; t.m.setMatrixAt(t.i % 1500, M4.makeTranslation(x, y, 0.008)); t.i++; t.m.count = Math.min(1500, t.i); t.m.instanceMatrix.needsUpdate = true; t.last = [x, y]; };
 // bản đồ lưới trên sàn

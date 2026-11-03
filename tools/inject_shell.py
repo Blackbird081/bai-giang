@@ -10,7 +10,7 @@ Chạy lại bao nhiêu lần cũng được: khối cũ được thay. Dùng:
   python3 tools/inject_shell.py --adapter=thu-vien thu-vien/*-step.html
   python3 tools/inject_shell.py --root=https://nclamvn.github.io/bai-giang/ --as=te-bao/index.html out.html   (bản đăng lên Claude)
 """
-import html as H, json, os, pathlib, re, subprocess, sys
+import html as H, json, pathlib, re, subprocess, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'tools'))
 from chuoi_bai import SEQ  # noqa: E402

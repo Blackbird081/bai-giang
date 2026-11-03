@@ -93,12 +93,17 @@ details ol{margin:8px 0 0;padding-left:20px;font-size:13.5px}details li{margin:3
 h3.sec{font:700 13px "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;margin:40px 0 12px;display:flex;align-items:center;gap:10px}
 h3.sec:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink)}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.more{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.more a{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 1px 2px rgba(16,24,40,.04);transition:box-shadow .3s}
+.more a:hover{box-shadow:0 8px 24px -12px rgba(16,24,40,.18)}
+.more img{width:100%;height:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:#f1f2f5}
+.more span{display:grid;gap:4px;padding:14px 16px 14px 0;font-size:14.5px;color:var(--mute)}.more b{font-size:18px;color:var(--ink)}.more small{font-size:13px;font-weight:600;color:var(--mute)}
 .box{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:14.5px}
 .box p{margin:0 0 8px}.box p:last-child{margin:0}
 table.keys{border-collapse:collapse;width:100%;font-size:13.5px}
 table.keys td{padding:4px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 table.keys td:first-child{font:600 13px "JetBrains Mono",monospace;white-space:nowrap;color:#454A55}
-@media (max-width:860px){.intro,.grid,.cols{grid-template-columns:1fr}.top h1{font-size:25px}.top .code{padding:0 16px}.wrap{padding:20px 16px 48px}}
+@media (max-width:860px){.intro,.grid,.cols,.more{grid-template-columns:1fr}.more a{grid-template-columns:120px 1fr}.top h1{font-size:25px}.top .code{padding:0 16px}.wrap{padding:20px 16px 48px}}
 '''
 
 
@@ -160,6 +165,11 @@ h3.sec{{font:700 20px var(--bg-font);letter-spacing:-.01em;text-transform:none}}
   </section>
   <div class="grid">
 {chr(10).join(cards)}
+  </div>
+  <h3 class="sec">Cùng bộ dựng, cho phổ thông</h3>
+  <div class="more">
+    <a href="{links['hub']}cong-nghe/dong-co-4-ki/"><img src="{links['hub']}thu-vien/covers/dong-co.webp" alt="" loading="lazy"><span><small>Công nghệ 11</small><b>Động cơ xăng 4 kì</b>Cắt dọc động cơ Honda Wave Alpha 110, một đầu vào là góc trục khuỷu.</span></a>
+    <a href="{links['hub']}vat-li-10/ca-map-robot/"><img src="{links['hub']}thu-vien/covers/mako.webp" alt="" loading="lazy"><span><small>Vật lí 10</small><b>Robot cá mập mako</b>Bơi theo số đo cá mập thật, một đầu vào là tốc độ bơi.</span></a>
   </div>
   <h3 class="sec">Điều khiển chung</h3>
   <div class="cols">

@@ -9,7 +9,8 @@ từng bước (BG_SEQ.plan), vỏ bài hiện ra cạnh ghi chú và đồng h�
 Trường có HTML tin cậy (do nhóm soạn): nhanh, loi. Mọi trường khác được thoát ký tự.
 Chạy:  python3 tools/build_goi_day.py
 """
-import html, json, pathlib, re, sys
+import html, json, pathlib
+import liquid_glass as LG
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / 'tools/goi-day'
@@ -360,14 +361,25 @@ def index(packs):
 .pk div{{padding:14px 18px 18px;display:grid;gap:4px}}
 .pk .eye{{font-size:13px}}.pk b{{font-size:18px;line-height:1.35}}.pk .d{{color:var(--bg-ink2);font-size:15px}}
 @media (max-width:900px){{.list{{grid-template-columns:1fr}}}}
+.tools{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}}
+.tools a{{display:grid;gap:4px;padding:18px 20px;border-radius:20px;background:#fff;box-shadow:var(--bg-sh-1);color:var(--bg-ink);text-decoration:none;transition:box-shadow .3s var(--bg-ease)}}
+.tools a:hover{{box-shadow:var(--bg-sh-2)}}.tools b{{font-size:17px}}.tools span{{color:var(--bg-ink2);font-size:15px}}
+@media (max-width:900px){{.tools{{grid-template-columns:1fr}}}}
+{LG.SITE_BAR_CSS}
 </style>
 </head>
 <body>
-<div class="bar"><a class="home" href="../">{LOGO.replace('../../', '../')}<span>Sáng Ăn Khoai</span></a><span class="sep"></span><span class="crumb">Gói dạy thử</span><span class="sp"></span></div>
+{LG.site_bar('../', [('Cho giáo viên', '../#cho-giao-vien'), ('Gói dạy thử', None)])}
 <main class="wrap">
   <div style="padding:44px 0 12px"><div class="eye" style="--acc:var(--bg-ink2)">Cho giáo viên</div><h1>Gói dạy thử 45 phút</h1>
   <p class="lead">Mỗi gói gồm kịch bản theo phút, phiếu học tập một trang A4, đáp án và cách xử lý sự cố. Phút dự kiến và việc của giáo viên hiện cả trên màn hình giáo viên khi lên lớp. Đây là bản thử để dạy thử ở trường, đang chờ giáo viên bộ môn duyệt.</p></div>
   <div class="list">{cards}</div>
+  <h2 style="margin:44px 0 0">Công cụ khi lên lớp</h2>
+  <div class="tools" style="margin-top:14px">
+    <a href="../kiem-may/"><b>Kiểm máy trước giờ dạy</b><span>Chạy thử mọi bài trên máy của lớp, xem bài nào chạy mượt.</span></a>
+    <a href="../dieu-khien/"><b>Điện thoại làm điều khiển</b><span>Nhập mã trên màn chiếu để chuyển bước, xem ghi chú và đáp án.</span></a>
+    <a href="../#cho-giao-vien"><b>Lên lớp trong mọi bài</b><span>Bấm Lên lớp trên thanh đầu bài, dùng bút trình chiếu hoặc phím mũi tên.</span></a>
+  </div>
   <div class="foot"><span>{VERSION}</span><span>Góp ý sau khi dạy thử: <a href="{GHUB}" target="_blank" rel="noopener">GitHub</a> · © 2026 Sáng Ăn Khoai</span></div>
 </main>
 </body>
