@@ -21,7 +21,7 @@ const flangeAt = (p, R0) => mul(pose(R0, p), TTi);
 const add = (m) => { m.castShadow = m.receiveShadow = true; arm.root.add(m); return m; };
 const PAL = {A: [0.45, -0.25], B: [0.4, 0.35]};
 for (const k of ['A', 'B']) {
-  const p = add(new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.16, 0.012), new THREE.MeshStandardMaterial({color: '#cdb995', roughness: 0.8})));
+  const p = add(new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.16, 0.012), new THREE.MeshStandardMaterial({color: '#d9dce1', roughness: 0.8})));
   p.position.set(PAL[k][0], PAL[k][1], 0.006);
 }
 const cubeMat = new THREE.MeshStandardMaterial({color: '#e3562a', roughness: 0.5});

@@ -57,7 +57,7 @@ const motorG = MOTORS.map((m) => {
   mk(canGeo, silver, g);
   const prop = new THREE.Group(); prop.position.z = 0.0262; g.add(prop);
   mk(m.s > 0 ? bladeGeo : bladeGeoM, propMat, prop);
-  const disc = new THREE.Mesh(new THREE.CircleGeometry(0.0235, 40), new THREE.MeshBasicMaterial({color: '#f4efe6', transparent: true, opacity: 0, depthWrite: false, side: THREE.DoubleSide})); disc.position.z = 0.0265; g.add(disc);
+  const disc = new THREE.Mesh(new THREE.CircleGeometry(0.0235, 40), new THREE.MeshBasicMaterial({color: '#f3f4f6', transparent: true, opacity: 0, depthWrite: false, side: THREE.DoubleSide})); disc.position.z = 0.0265; g.add(disc);
   const arrow = new THREE.Mesh(new THREE.CylinderGeometry(0.0016, 0.0016, 1, 10), new THREE.MeshBasicMaterial({color: '#e3562a'})); arrow.rotation.x = Math.PI / 2; g.add(arrow);
   const tip = new THREE.Mesh(new THREE.ConeGeometry(0.004, 0.009, 14), new THREE.MeshBasicMaterial({color: '#e3562a'})); tip.rotation.x = Math.PI / 2; g.add(tip);
   return {g, prop, disc, arrow, tip, ang: 0};
@@ -72,8 +72,8 @@ const axes = new THREE.Group(); drone.add(axes); axes.position.z = H0;
   m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), new THREE.Vector3(...d)); m.position.set(d[0] * 0.035, d[1] * 0.035, d[2] * 0.035); axes.add(m);
 });
 // bệ cất cánh, điểm đặt, vết bay
-const pad = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.14, 0.003), MAT.plastic('#e8dcc8')); pad.position.z = -0.0015; pad.receiveShadow = true; world.add(pad);
-const padMark = new THREE.Mesh(new THREE.RingGeometry(0.05, 0.054, 48), new THREE.MeshBasicMaterial({color: '#cbb894'})); padMark.position.z = 0.0002; world.add(padMark);
+const pad = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.14, 0.003), MAT.plastic('#e4e6ea')); pad.position.z = -0.0015; pad.receiveShadow = true; world.add(pad);
+const padMark = new THREE.Mesh(new THREE.RingGeometry(0.05, 0.054, 48), new THREE.MeshBasicMaterial({color: '#b9bec6'})); padMark.position.z = 0.0002; world.add(padMark);
 const spMark = new THREE.Group(); world.add(spMark);
 const spMat = new THREE.MeshBasicMaterial({color: '#2a2521', transparent: true, opacity: 0.55});
 spMark.add(new THREE.Mesh(new THREE.TorusGeometry(0.03, 0.0012, 8, 48), spMat));
@@ -166,7 +166,7 @@ const sim = {
     thrTxt.innerHTML = `Lực đẩy <b>${fx((ftot / P.g) * 1000, 1)} g</b> · nặng ${fx(P.m * 1000, 1)} g · T/W ${fx(ftot / W, 2)}`;
     // bảng 02: sơ đồ xếp tầng, vòng đang chạy tô cam
     const on = (m) => (m ? C.or : C.faint), modePos = S.mode === 'pos' || S.mode === 'land';
-    const box = (x, y, w, t1, t2, act) => `<rect x="${x}" y="${y}" width="${w}" height="34" rx="3" fill="${act ? '#fff4ee' : '#fbf6ee'}" stroke="${on(act)}"/><text x="${x + 6}" y="${y + 14}" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="${C.ink}">${t1}</text><text x="${x + 6}" y="${y + 27}" font-family="JetBrains Mono" font-size="8" fill="${C.mute}">${t2}</text>`;
+    const box = (x, y, w, t1, t2, act) => `<rect x="${x}" y="${y}" width="${w}" height="34" rx="3" fill="${act ? '#fff4ee' : C.chart}" stroke="${on(act)}"/><text x="${x + 6}" y="${y + 14}" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="${C.ink}">${t1}</text><text x="${x + 6}" y="${y + 27}" font-family="JetBrains Mono" font-size="8" fill="${C.mute}">${t2}</text>`;
     const g = (k, a) => GAINS[a][k].slice(0, 3).map((v) => fx(v * (a === 'att' ? S.kAtt : a === 'rate' ? S.kRate : 1), v < 10 ? 2 : 0)).join(' / ');
     let svg = '';
     svg += box(0, 0, 130, 'VỊ TRÍ · 100 Hz', `kp ${GAINS.pos.x[0]} · z: ${GAINS.pos.z[0]}/${GAINS.pos.z[1]}`, modePos);

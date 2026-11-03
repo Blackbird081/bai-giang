@@ -21,7 +21,9 @@ const HOUSE_CSS = `
 #app .cap .t{margin:2px 0 4px}
 #app .cap .k{color:#5B6472;font-weight:600}
 #app .cap .b{color:#454A55}
-#app .cap .e{background:#f3f4f6;border-radius:6px;position:absolute;top:-4px;right:0;margin:0;font-size:11px}
+#app .cap .e{background:#f3f4f6;border-radius:6px;position:absolute;top:-3px;right:62px;margin:0;font-size:11px}
+#app .cap .k{font-size:12.5px}
+#app .cap .k:before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:#15171C;margin:0 8px 1px 0;vertical-align:middle}
 #app .tourchip{border:0;border-radius:999px;background:rgba(255,255,255,.95);box-shadow:0 0 0 .5px rgba(16,24,40,.1),0 6px 16px -8px rgba(16,24,40,.3);color:#15171C;font-family:'Be Vietnam Pro',system-ui,sans-serif}
 #app .alert{border-radius:999px;padding:4px 10px}
 `;
@@ -66,7 +68,7 @@ const el = (h) => { const d = document.createElement('div'); d.innerHTML = h.tri
 const fx = (v, n = 2) => (Number.isFinite(v) ? v.toFixed(n) : '—');
 export {fx};
 
-export function createUI(app, {theme = ''} = {}) {
+export function createUI(app, {theme = 'house'} = {}) {
   if (theme === 'house') Object.assign(C, HOUSE);
   const st = document.createElement('style'); st.textContent = CSS() + (theme === 'house' ? HOUSE_CSS : ''); document.head.appendChild(st);
   const root = el(`<div class="ui"></div>`); app.appendChild(root);
@@ -77,12 +79,13 @@ export function createUI(app, {theme = ''} = {}) {
   ui.header = (o) => (theme === 'house' ? houseHeader(o) : warmHeader(o));
   // đầu bảng kiểu nhà: dải mỏng 64 px, huy hiệu tròn góc thay khối cam, số liệu chính một dòng bên phải
   const houseHeader = ({code, kicker, title, sub, right = []}) => {
-    add(`<div style="position:absolute;left:28px;top:14px;width:44px;height:44px;border-radius:13px;background:#f1f2f5;box-shadow:inset 0 0 0 .5px rgba(16,24,40,.08);display:flex;align-items:center;justify-content:center;font:700 14px 'Be Vietnam Pro',system-ui,sans-serif;color:#15171C;letter-spacing:-.2px">${sc(code)}</div>`);
-    add(`<div class="sm" style="position:absolute;left:86px;top:13px;font-size:12px">${sc(kicker)}</div>`);
-    add(`<div style="position:absolute;left:85px;top:30px;display:flex;align-items:baseline;gap:14px;white-space:nowrap"><span style="font:600 24px/1.15 'Be Vietnam Pro',system-ui,sans-serif;letter-spacing:-.4px;color:#15171C">${title}</span><span class="sm" style="position:static;font-size:13px">${sc(sub)}</span></div>`);
+    const bw = Math.max(44, Math.round(sc(code).length * 9 + 20)), tx = 28 + bw + 14;
+    add(`<div style="position:absolute;left:28px;top:14px;width:${bw}px;height:44px;border-radius:13px;background:#f1f2f5;box-shadow:inset 0 0 0 .5px rgba(16,24,40,.08);display:flex;align-items:center;justify-content:center;font:700 14px 'Be Vietnam Pro',system-ui,sans-serif;color:#15171C;letter-spacing:-.2px">${sc(code)}</div>`);
+    add(`<div class="sm" style="position:absolute;left:${tx}px;top:13px;font-size:12px">${sc(kicker)}</div>`);
+    add(`<div style="position:absolute;left:${tx - 1}px;top:30px;display:flex;align-items:baseline;gap:14px;white-space:nowrap"><span style="font:600 24px/1.15 'Be Vietnam Pro',system-ui,sans-serif;letter-spacing:-.4px;color:#15171C">${title}</span><span class="sm" style="position:static;font-size:13px">${sc(sub)}</span></div>`);
     let x = 1572;
     [...right].reverse().forEach(([v, n], i) => {
-      const w = Math.max(84, v.length * 12 + 18);
+      const w = Math.max(84, v.length * 12 + 18, Math.round(sc(n).length * 6.5 + 8));
       x -= w;
       if (i) add(`<div style="position:absolute;left:${x + w + 9}px;top:20px;width:1px;height:32px;background:#e7e9ed"></div>`);
       add(`<div style="position:absolute;left:${x}px;top:14px;width:${w}px;text-align:right;font:600 20px/1.2 'Be Vietnam Pro',system-ui,sans-serif;color:#15171C;letter-spacing:-.3px;font-variant-numeric:tabular-nums">${v}</div>`);
@@ -181,8 +184,9 @@ export function createUI(app, {theme = ''} = {}) {
   };
   // lời giảng của từng bước
   ui.caption = (x, y, w, h, title = 'BÀI GIẢNG') => {
-    ui.panel(x, y, w, h, title, '');
-    const box = add(`<div class="cap" style="left:${x + 14}px;top:${y + 36}px;width:${w - 28}px"></div>`);
+    // house: dòng chủ đề của từng bước thay cho tiêu đề chung "Bài giảng", nên lời giảng có thêm một dòng
+    ui.panel(x, y, w, h, theme === 'house' ? '' : title, '');
+    const box = add(`<div class="cap" style="left:${x + 14}px;top:${y + (theme === 'house' ? 13 : 36)}px;width:${w - 28}px"></div>`);
     const prog = add(`<div class="pn" style="right:${1600 - x - w + 14}px;top:${y + 15}px"></div>`);
     let last = '';
     return {set(c, i, n) {

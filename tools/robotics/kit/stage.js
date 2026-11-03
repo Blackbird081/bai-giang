@@ -1,4 +1,4 @@
-// Studio dùng chung cho mọi robot: nền giấy ấm, sàn kẻ lưới đo (mm/cm/m), bóng mềm, GTAO, môi trường phòng sáng.
+// Studio dùng chung cho mọi robot: nền trắng của nhà Sáng Ăn Khoai (PAL_HOUSE, mặc định; PAL là nền giấy ấm cũ), sàn kẻ lưới đo (mm/cm/m), bóng mềm, GTAO, môi trường phòng sáng.
 // Phỏng theo stage của teardown (MIT, elvarofficial + whaleyxbt). frame(cam) đặt camera và vẽ một khung hình.
 import * as THREE from 'three';
 import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
@@ -24,7 +24,7 @@ const GF = `uniform vec3 uG; uniform vec3 uMi; uniform vec3 uMa; uniform vec3 uB
 
 // nền nhà Sáng Ăn Khoai: trắng, lưới xám rất nhạt (createStage({pal: PAL_HOUSE}))
 export const PAL_HOUSE = {exact: true, bg: '#ffffff', ground: '#f6f6f6', minor: '#ebebeb', major: '#dddddd', shadow: '#2f3744', env: '#eef0f3', envGround: '#d9dce1', sky: '#ffffff', hemiGround: '#d6d9de'};
-export function createStage({canvas, extent = 1.6, grid = 0.1, fade = 6, fov = 28, near = 0.02, far = 80, ao = {}, sunDir = [-0.35, 0.82, 0.45], pal = PAL}) {
+export function createStage({canvas, extent = 1.6, grid = 0.1, fade = 6, fov = 28, near = 0.02, far = 80, ao = {}, sunDir = [-0.35, 0.82, 0.45], pal = PAL_HOUSE}) {
   const P = {env: '#e9dcc6', envGround: '#d8c6a8', sky: '#fffaf2', hemiGround: '#d9c6a6', ...pal};
   const renderer = new THREE.WebGLRenderer({canvas, antialias: false, preserveDrawingBuffer: true, powerPreference: 'high-performance'});
   renderer.toneMapping = THREE.NeutralToneMapping;

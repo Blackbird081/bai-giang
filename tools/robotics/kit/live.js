@@ -10,56 +10,56 @@ const ease = (x) => { const u = clamp(x, 0, 1); return u * u * (3 - 2 * u); };
 const wrap = (d) => ((((d + 180) % 360) + 360) % 360) - 180;
 
 const CSS = (W, H) => `
-html,body{background:#f2e6d2;overflow:hidden;margin:0}
+html,body{background:#ffffff;overflow:hidden;margin:0}
 #app{position:fixed!important;left:0;top:0;width:${W}px;height:${H}px;transform-origin:0 0}
 #gl{position:absolute;left:0;top:0;width:${W}px!important;height:${H}px!important;touch-action:none;cursor:grab}
 #gl.drag{cursor:grabbing}
 .bt{pointer-events:auto;cursor:pointer}
 .bt:hover{filter:brightness(.96)}
 .hit{position:absolute;pointer-events:auto;cursor:ew-resize}
-.tourchip{position:absolute;transform:translateX(-50%);display:flex;align-items:center;gap:7px;height:24px;padding:0 12px;border:1px solid #eadfcd;border-radius:4px;background:rgba(252,249,244,.95);color:#2a2521;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;white-space:nowrap;cursor:pointer;pointer-events:auto}
+.tourchip{position:absolute;transform:translateX(-50%);display:flex;align-items:center;gap:7px;height:24px;padding:0 12px;border:1px solid #e7e9ed;border-radius:4px;background:rgba(252,249,244,.95);color:#15171C;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;white-space:nowrap;cursor:pointer;pointer-events:auto}
 .tourchip i{display:block;width:6px;height:6px;border-radius:50%;background:#e3562a}
 .tourchip.on i{animation:blink 1.2s steps(2) infinite}
 @keyframes blink{50%{opacity:.15}}
-.turn{position:fixed;left:0;right:0;bottom:14px;text-align:center;font:600 12px/1.4 'JetBrains Mono',monospace;letter-spacing:1px;color:#9b8f80;display:none}
+.turn{position:fixed;left:0;right:0;bottom:14px;text-align:center;font:600 12px/1.4 'JetBrains Mono',monospace;letter-spacing:1px;color:#626773;display:none}
 @media (orientation:portrait) and (max-width:820px){.turn{display:block}}
 body.cmp .turn{display:none}
 body.cmp #app{width:100vw!important;height:100svh!important;transform:none!important}
 body.cmp #gl{width:100vw!important;height:100svh!important}
 body.cmp #app>.ui{display:none}
 body.bgs-on .ui .back{display:none}
-.mob{display:none;position:fixed;z-index:20;font-family:var(--bg-font,Inter,system-ui,sans-serif);color:#2a2521;-webkit-font-smoothing:antialiased}
+.mob{display:none;position:fixed;z-index:20;font-family:var(--bg-font,Inter,system-ui,sans-serif);color:#15171C;-webkit-font-smoothing:antialiased}
 body.cmp .mob{display:block}
-.mob.top{left:10px;right:10px;top:calc(10px + env(safe-area-inset-top));display:none;align-items:center;gap:10px;padding:8px 12px 8px 8px;background:rgba(252,249,244,.94);border:1px solid #eadfcd;border-radius:6px;box-shadow:0 10px 26px -18px rgba(60,40,20,.5);margin-right:150px}
+.mob.top{left:10px;right:10px;top:calc(10px + env(safe-area-inset-top));display:none;align-items:center;gap:10px;padding:8px 12px 8px 8px;background:rgba(255,255,255,.96);border:1px solid #e7e9ed;border-radius:14px;box-shadow:0 10px 26px -18px rgba(16,24,40,.35);margin-right:150px}
 body.cmp .mob.top{display:flex}
-.mob.top a{flex:none;background:#e3562a;color:#fff;text-decoration:none;font:700 11px 'JetBrains Mono',monospace;letter-spacing:1px;padding:8px 9px;border-radius:4px}
+.mob.top a{flex:none;background:#f1f2f5;color:#15171C;text-decoration:none;font:700 12px var(--bg-font,Inter,sans-serif);padding:8px 10px;border-radius:10px}
 .mob.top b{font-size:15px;line-height:1.15;letter-spacing:-.01em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.mob.cap{left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));background:rgba(252,249,244,.96);border:1px solid #eadfcd;border-radius:6px;box-shadow:0 14px 34px -20px rgba(60,40,20,.55);padding:10px 12px 12px;max-height:46svh;overflow:auto}
-.mob.cap .k{font:700 10px 'JetBrains Mono',monospace;letter-spacing:1.4px;color:#e3562a;text-transform:uppercase;display:flex;justify-content:space-between;gap:8px}
+.mob.cap{left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border:1px solid #e7e9ed;border-radius:14px;box-shadow:0 14px 34px -20px rgba(16,24,40,.4);padding:10px 12px 12px;max-height:46svh;overflow:auto}
+.mob.cap .k{font:700 10px 'JetBrains Mono',monospace;letter-spacing:1.4px;color:#5B6472;text-transform:uppercase;display:flex;justify-content:space-between;gap:8px}
 .mob.cap .t{font-weight:700;font-size:16px;margin:3px 0 2px;letter-spacing:-.01em}
-.mob.cap .b{font-size:13.5px;line-height:1.45;color:#4a423b}
-.mob.cap .e{font:600 12px 'JetBrains Mono',monospace;color:#2a2521;margin-top:6px}
+.mob.cap .b{font-size:13.5px;line-height:1.45;color:#454A55}
+.mob.cap .e{font:600 12px 'JetBrains Mono',monospace;color:#15171C;margin-top:6px}
 .mob.cap.min .b,.mob.cap.min .e{display:none}
 .mob .row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-top:9px}
 .mob .row::-webkit-scrollbar{display:none}
-.mob .row button{flex:none;height:36px;padding:0 12px;border:1px solid #e3d6c1;background:#fff;border-radius:4px;font:700 11px 'JetBrains Mono',monospace;letter-spacing:1px;color:#2a2521}
-.mob .row button.on{background:#2a2521;color:#fff;border-color:#2a2521}
+.mob .row button{flex:none;height:36px;padding:0 12px;border:1px solid #e3e6ea;background:#fff;border-radius:4px;font:700 11px 'JetBrains Mono',monospace;letter-spacing:1px;color:#15171C}
+.mob .row button.on{background:#15171C;color:#fff;border-color:#15171C}
 .mob .row button.acc{background:#e3562a;color:#fff;border-color:#e3562a}
 .mob.back{right:10px;top:calc(10px + env(safe-area-inset-top));display:none!important}
 body.full .mob.back{display:block!important}
 @media (orientation:landscape) and (max-height:520px){.mob.cap{left:auto;right:10px;width:min(46vw,440px);top:calc(64px + env(safe-area-inset-top));max-height:none}.mob.top{margin-right:calc(min(46vw,440px) + 10px)}}
-.mob.back button{height:40px;padding:0 14px;border:0;border-radius:4px;background:#2a2521;color:#fff;font:700 11px 'JetBrains Mono',monospace;letter-spacing:1px;box-shadow:0 8px 20px -10px rgba(0,0,0,.5)}
+.mob.back button{height:40px;padding:0 14px;border:0;border-radius:4px;background:#15171C;color:#fff;font:700 11px 'JetBrains Mono',monospace;letter-spacing:1px;box-shadow:0 8px 20px -10px rgba(0,0,0,.5)}
 /* Bản 14: thẻ lời giảng kiểu nhà; cảnh 3D là màn hình ở mọi cỡ màn, bảng số là ngăn kéo của thanh đầu bài */
 body.bgs-on .mob.top,body.bgs-on .mob.back{display:none!important}
 body.bgs-on .turn{display:none!important}
-.mob.cap{left:16px;right:auto;bottom:16px;width:min(440px,calc(100vw - 32px));padding:14px 16px 14px;border-radius:8px;max-height:min(52svh,520px)}
-.mob.cap .k{font:600 13px/1.3 var(--bg-font,Inter,sans-serif);letter-spacing:.01em;text-transform:none;color:#B8401A}
-.mob.cap .k span:last-child{font-family:var(--bg-mono,monospace);color:#6E6257}
+.mob.cap{left:16px;right:auto;bottom:16px;width:min(440px,calc(100vw - 32px));padding:14px 16px 14px;border-radius:14px;max-height:min(52svh,520px)}
+.mob.cap .k{font:600 13px/1.3 var(--bg-font,Inter,sans-serif);letter-spacing:.01em;text-transform:none;color:#5B6472}
+.mob.cap .k span:last-child{font-family:var(--bg-mono,monospace);color:#626773}
 .mob.cap .t{font-size:20px;line-height:1.25;margin:4px 0 6px}
-.mob.cap .b{font-size:15px;line-height:1.6;color:#3d352e}
-.mob.cap .e{font:500 13px/1.5 var(--bg-mono,monospace);background:#f4ebdc;border-radius:4px;padding:5px 8px;display:inline-block}
+.mob.cap .b{font-size:15px;line-height:1.6;color:#454A55}
+.mob.cap .e{font:500 13px/1.5 var(--bg-mono,monospace);background:#f3f4f6;border-radius:4px;padding:5px 8px;display:inline-block}
 .mob .row{margin-top:12px;flex-wrap:wrap;overflow:visible}
-.mob .row button{height:44px;padding:0 14px;font:600 14px var(--bg-font,Inter,sans-serif);letter-spacing:0;border-radius:6px}
+.mob .row button{height:44px;padding:0 14px;font:600 14px var(--bg-font,Inter,sans-serif);letter-spacing:0;border-radius:999px}
 body.bgs-nav-on .mob.cap{left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));width:auto;bottom:calc(76px + env(safe-area-inset-bottom));max-height:40svh}
 body.bgs-nav-on .mob .row{flex-wrap:nowrap;overflow-x:auto}
 @media (orientation:landscape) and (max-height:520px){.mob.cap,body.bgs-nav-on .mob.cap{left:auto;right:max(8px,env(safe-area-inset-right));width:min(46vw,440px);top:calc(var(--bg-bar,48px) + 8px);bottom:auto;max-height:calc(100svh - var(--bg-bar,48px) - 16px)}}

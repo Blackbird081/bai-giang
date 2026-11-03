@@ -76,7 +76,7 @@ const poly = new THREE.Mesh(new THREE.BufferGeometry(), polyMat); poly.position.
 const polyLine = new THREE.LineLoop(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({color: '#e3562a'})); polyLine.position.z = 0.002; world.add(polyLine);
 const mLine = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({color: '#2a2521'})); mLine.position.z = 0.0025; world.add(mLine);
 const com = new THREE.Mesh(new THREE.RingGeometry(0.006, 0.011, 24), new THREE.MeshBasicMaterial({color: '#2a2521'})); com.position.z = 0.003; world.add(com);
-const prints = new THREE.InstancedMesh(new THREE.CircleGeometry(0.007, 16), new THREE.MeshBasicMaterial({color: '#b49a74', transparent: true, opacity: 0.6}), 240);
+const prints = new THREE.InstancedMesh(new THREE.CircleGeometry(0.007, 16), new THREE.MeshBasicMaterial({color: '#9aa0aa', transparent: true, opacity: 0.6}), 240);
 prints.count = 0; prints.frustumCulled = false; prints.position.z = 0.001; world.add(prints);
 let printI = 0;
 
@@ -206,7 +206,7 @@ const sim = {
     LEGS.forEach((L, i) => {
       const y = i * 17 + 2, o = g.off[L.name];
       svg += `<text x="0" y="${y + 10}" font-family="JetBrains Mono" font-size="9" fill="${C.mute}">${L.name}</text>`;
-      svg += `<rect x="28" y="${y}" width="244" height="13" fill="#fbf6ee" stroke="${C.line}"/>`;
+      svg += `<rect x="28" y="${y}" width="244" height="13" fill="${C.chart}" stroke="${C.line}"/>`;
       // pha chống: p ∈ [0, β) với p = phase + off
       const segs = []; const a0 = (1 - o) % 1, a1 = a0 + g.beta;
       segs.push([a0, Math.min(1, a1)]); if (a1 > 1) segs.push([0, a1 - 1]);

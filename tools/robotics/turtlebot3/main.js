@@ -17,7 +17,7 @@ const world = new THREE.Group(); world.rotation.x = -Math.PI / 2; st.scene.add(w
 const mk = (geo, mat, parent) => { const m = new THREE.Mesh(geo, mat); m.castShadow = m.receiveShadow = true; parent.add(m); return m; };
 
 // ---------------- phòng và vật cản
-const wallMat = MAT.plastic('#dccbad'), boxMat = MAT.plastic('#c79f6e'), cylMat = MAT.glossy('#f0ece4');
+const wallMat = MAT.plastic('#d5d8dd'), boxMat = MAT.plastic('#c79f6e'), cylMat = MAT.glossy('#eef0f2');
 {
   const W = ROOM.w / 2, H = ROOM.h / 2, t = 0.03, h = 0.22;
   for (const [x, y, w, d] of [[0, -H - t / 2, ROOM.w + 2 * t, t], [0, H + t / 2, ROOM.w + 2 * t, t], [-W - t / 2, 0, t, ROOM.h], [W + t / 2, 0, t, ROOM.h]]) { const m = mk(new THREE.BoxGeometry(w, d, h), wallMat, world); m.position.set(x, y, h / 2); }
@@ -210,7 +210,7 @@ ui.panel(1272, 112, 300, 268, 'LIDAR LDS-02 · 360 TIA · 5 Hz', '04');
 const radar = ui.svg(1286, 146, 272, 200);
 const lidTxt = ui.text(1286, 352, '', 'sm', 'text-transform:none;letter-spacing:.3px;font-size:9.5px');
 ui.panel(1272, 392, 300, 210, 'BẢN ĐỒ LƯỚI CHIẾM CHỖ', '05');
-const mini = ui.add(`<canvas width="${grid.W}" height="${grid.H}" style="position:absolute;left:1286px;top:426px;width:186px;height:${Math.round((186 * grid.H) / grid.W)}px;image-rendering:pixelated;border:1px solid ${C.line};background:#fbf6ee"></canvas>`);
+const mini = ui.add(`<canvas width="${grid.W}" height="${grid.H}" style="position:absolute;left:1286px;top:426px;width:186px;height:${Math.round((186 * grid.H) / grid.W)}px;image-rendering:pixelated;border:1px solid ${C.line};background:${C.chart}"></canvas>`);
 ui.buttons([['mapodom', 'THEO ODOM'], ['maptrue', 'THEO TƯ THẾ THẬT'], ['mapclear', 'XOÁ']], 1286, 572, 272);
 const mapTxt = ui.text(1482, 428, '', 'sm', 'text-transform:none;letter-spacing:.2px;font-size:8.6px;white-space:normal;width:84px;line-height:1.45');
 ui.panel(1272, 614, 300, 152, 'LỆNH · HIỂN THỊ', '06');
@@ -290,7 +290,7 @@ const sim = {
     ppTxt.innerHTML = S.mode === 'auto' ? `κ ${fx(S.kappa, 2)} 1/m · ω đặt ${fx(S.cmd.w, 2)} rad/s<br>lệch đường (odom) ${fx((S.cte || 0) * 1000, 0)} mm · sai thật ${fx(err * 1000, 0)} mm` : `<span style="color:${C.mute}">Bấm TỰ CHẠY để bám đường.</span><br>&nbsp;`;
     // bảng 04: radar quanh robot, hướng tiến lên trên
     const cx = 136, cy = 100, sc = 100 / 2.5;
-    let g = `<rect x="0" y="0" width="272" height="200" fill="#fbf6ee" stroke="${C.line}"/>`;
+    let g = `<rect x="0" y="0" width="272" height="200" fill="${C.chart}" stroke="${C.line}"/>`;
     for (const r of [0.5, 1, 1.5, 2, 2.5]) g += `<circle cx="${cx}" cy="${cy}" r="${r * sc}" fill="none" stroke="${C.line}"/>`;
     g += `<text x="${cx + 2.5 * sc * 0.72}" y="${cy - 2.5 * sc * 0.72}" font-family="JetBrains Mono" font-size="8" fill="${C.mute}">2,5 m</text>`;
     let pts = '', mn = Infinity, mnk = 0, valid = 0;
