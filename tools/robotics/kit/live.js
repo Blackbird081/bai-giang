@@ -201,6 +201,8 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
       if (AP.slide) { const s = AP.slide, k = clamp((t - s.at) / s.dur, 0, 1); sim.slide(s.key, s.from + (s.to - s.from) * ease(k)); if (k >= 1) AP.slide = null; }
       if (t < goal) sim.step(h, T);
     }
+    // bước cộng dồn 1/60 có thể dừng ngay trước mốc của bước (vd 50,9999 < 51): chạy nốt sự kiện đúng mốc
+    while (AP.ev < E.length && E[AP.ev].at <= goal + 1e-6) fire(E[AP.ev++], goal);
     AP.t0 = T - goal; mShow(captions[i], i);
   };
   const classEnd = () => { CL.on = false; };

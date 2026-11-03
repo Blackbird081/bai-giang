@@ -10,6 +10,7 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Cơ thể người 3D (Khoa học tự nhiên 8, BodyVista Việt hoá) | https://nclamvn.github.io/bai-giang/co-the-nguoi/ |
 | Neuron và xung thần kinh (Sinh học 11, phong cách điện ảnh) | https://nclamvn.github.io/bai-giang/than-kinh/ |
 | Động cơ xăng 4 kì (Công nghệ 11, cơ khí động lực) | https://nclamvn.github.io/bai-giang/cong-nghe/dong-co-4-ki/ |
+| Robot cá mập mako (Vật lí 10, lực cản và lực nâng) | https://nclamvn.github.io/bai-giang/vat-li-10/ca-map-robot/ |
 | Hành Trình Vào Tế Bào (ribosome PDB 3J7R) | https://nclamvn.github.io/bai-giang/te-bao/ |
 | Ribosome trên bàn (AR, mở trên điện thoại) | https://nclamvn.github.io/bai-giang/te-bao/ar.html |
 | Vào Ty Thể (ATP synthase PDB 6J5I) | https://nclamvn.github.io/bai-giang/ty-the/ |
@@ -66,6 +67,14 @@ Bài [`cong-nghe/dong-co-4-ki/`](cong-nghe/dong-co-4-ki/) dựng theo đủ 9 b�
 - Yêu cầu cần đạt trích nguyên văn Chương trình GDPT môn Công nghệ 2018, lớp 11, Công nghệ cơ khí, mục Động cơ đốt trong.
 - Dựng: `cd tools/robotics && node build.mjs dong-co` (meta.json khai báo nơi đặt trang).
 - Phim 18 giây kèm nhạc nền dựng bằng mã (bước 8): `python3 tools/robotics/dong-co/film/quay.py phim.mp4` đặt góc trục khuỷu theo từng khung rồi chụp, nên không rơi khung; `python3 <teardown>/run_sfx.py tools/robotics/dong-co/film/diem.py` dựng nhạc trên cùng `timeline.json`: một tiếng thịch đúng mỗi kì cháy, mastering −14 LUFS.
+
+## Robot cá mập mako (Vật lí 10)
+Bài [`vat-li-10/ca-map-robot/`](vat-li-10/ca-map-robot/) nối tiếp bài động cơ theo cùng quy trình, ý tưởng từ bài chia sẻ của シャック (@SHACK_SAME_SAME) về robot cá mập dựng bằng teardown; mô hình, mã và số liệu là của bài này.
+- Tham chiếu thật: Waller và cộng sự (2023), Journal of Fish Biology 103(5): 864–883, doi:10.1111/jfb.15475. Hai con mako dài khoảng 2 m gắn thẻ ở Azores; con cái 197 cm: tuần tra 0,90 m/s, tần số vẫy đuôi 0,51 ± 0,16 Hz; bứt tốc 5,02 m/s (3,65 Hz theo tóm tắt bài báo), kéo dài 14 s; hồi quy U = 1,24·f + 0,20 (R² = 0,55).
+- Một đầu vào: tốc độ bơi U. Tần số vẫy đuôi từ hồi quy trên; sóng thân y = (A/2)·g(s)·sin(2π·s/λ − φ), 8 khớp servo, số Strouhal St = f·A/U (khoảng 0,2–0,4 theo Taylor, Nudds, Thomas 2003, Nature 425: 707–711), lực cản và công suất so với lúc tuần tra (mô hình F ∝ v², P ∝ v³), vết đuôi trên nước đều đọc từ [`tools/robotics/mako/kin.js`](tools/robotics/mako/kin.js). Kiểu bơi cá ngừ và tiến hoá hội tụ: Donley và cộng sự (2004), Nature 429: 61–65.
+- Giả định ghi rõ trên trang: bước sóng λ = 1 thân, biên độ đuôi 0,2 thân (trong khoảng 0,1–0,3 thân đo ở nhiều loài cá), đường bao biên độ bậc hai kiểu robot cá RoboTuna, hình dạng thân, robot 9 đốt 8 servo là minh hoạ. Kiểm tay: (0,90 − 0,20) / 1,24 = 0,56 Hz; St = 0,56 × 0,39 / 0,90 = 0,25; (5,02 / 0,90)² ≈ 31, (5,02 / 0,90)³ ≈ 174.
+- Thử phá: biên độ đuôi 0,05–0,35 thân (St rời khoảng 0,2–0,4 thì báo), bước sóng 0,5–1,5 thân (U/c ≥ 1 thì sóng thân không còn đẩy nước ra sau), tua chậm tới 10 lần.
+- Dựng: `cd tools/robotics && node build.mjs mako`.
 
 ## Thẻ chia sẻ và trang nhẹ
 Mọi trang có khối thẻ og và twitter ngay sau `<meta charset>` cùng ảnh xem trước 1200×630 trong [`design/the/`](design/the/) (bước 9 của quy trình teardown: trình đọc liên kết chỉ đọc phần đầu trang). `python3 tools/the_chia_se.py` chèn khối thẻ, chạy cuối `build_all`; `--render` vẽ lại ảnh có tiêu đề hoặc ảnh bìa đã đổi. Robotics không còn nhúng phông dạng data (HTML giảm khoảng 320 KB, dưới 1 MB). 20 bài thư viện vẫn nặng 1,0–1,3 MB do mã mô phỏng gốc đóng gói kèm; thẻ chia sẻ nằm ở đầu trang nên vẫn đọc được.
@@ -129,6 +138,7 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `te-bao/index.html`, `te-bao/ribosome.b64.txt` | Hành Trình Vào Tế Bào (ghép từ `src/`) và dữ liệu ribosome nén (2,1 MB) |
 | `te-bao/ar.html`, `te-bao/assets/` | Trang AR và mô hình GLB của ribosome |
 | `cong-nghe/dong-co-4-ki/`, `tools/robotics/dong-co/` | Động cơ xăng 4 kì: trang đã dựng; mô hình, hình khối, bảng số |
+| `vat-li-10/ca-map-robot/`, `tools/robotics/mako/` | Robot cá mập mako: trang đã dựng; mô hình bơi, hình khối, bảng số |
 | `design/the/`, `tools/the_chia_se.py` | Ảnh thẻ chia sẻ 1200×630 và công cụ chèn thẻ og |
 | `tests/beat_sheet.py` | Bảng ảnh từng bước của một bài để soi lỗi bằng mắt |
 | `than-kinh/`, `tools/than-kinh.template.html` | Neuron và xung thần kinh: trang đã dựng và nguồn |

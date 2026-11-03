@@ -1,0 +1,1 @@
+{"title": "Robot Cá Mập Mako", "description": "Mô phỏng 3D robot cá mập mako bơi theo số đo cá mập thật (Waller và cộng sự, 2023): một đầu vào là tốc độ bơi; tần số vẫy đuôi, sóng thân, 8 khớp servo, số Strouhal, lực cản của nước tăng theo bình phương tốc độ; vây đuôi tạo lực đẩy như một cánh. Vật lí 10, lực cản và lực nâng.", "out": "vat-li-10/ca-map-robot/index.html"}
