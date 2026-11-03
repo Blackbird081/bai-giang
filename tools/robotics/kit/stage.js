@@ -22,7 +22,10 @@ const GF = `uniform vec3 uG; uniform vec3 uMi; uniform vec3 uMa; uniform vec3 uB
     gl_FragColor = vec4(mix(col, uBg, smoothstep(uFade * 0.35, uFade, d)), 1.0);
   }`;
 
-export function createStage({canvas, extent = 1.6, grid = 0.1, fade = 6, fov = 28, near = 0.02, far = 80, ao = {}, sunDir = [-0.35, 0.82, 0.45]}) {
+// nền nhà Sáng Ăn Khoai: trắng, lưới xám rất nhạt (createStage({pal: PAL_HOUSE}))
+export const PAL_HOUSE = {exact: true, bg: '#ffffff', ground: '#f6f6f6', minor: '#ebebeb', major: '#dddddd', shadow: '#2f3744', env: '#eef0f3', envGround: '#d9dce1', sky: '#ffffff', hemiGround: '#d6d9de'};
+export function createStage({canvas, extent = 1.6, grid = 0.1, fade = 6, fov = 28, near = 0.02, far = 80, ao = {}, sunDir = [-0.35, 0.82, 0.45], pal = PAL}) {
+  const P = {env: '#e9dcc6', envGround: '#d8c6a8', sky: '#fffaf2', hemiGround: '#d9c6a6', ...pal};
   const renderer = new THREE.WebGLRenderer({canvas, antialias: false, preserveDrawingBuffer: true, powerPreference: 'high-performance'});
   renderer.toneMapping = THREE.NeutralToneMapping;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -30,8 +33,15 @@ export function createStage({canvas, extent = 1.6, grid = 0.1, fade = 6, fov = 2
   renderer.shadowMap.type = THREE.VSMShadowMap;
   renderer.localClippingEnabled = true;
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(PAL.bg);
-  scene.fog = new THREE.Fog(PAL.bg, fade * 1.3, fade * 3.2);
+  // OutputPass ánh xạ tông màu (Khronos PBR Neutral) cả nền lẫn sàn, nên trắng ra xám ~240. Với nền nhà (exact) tính ngược
+  // màu tuyến tính cần đưa vào để màn hình ra đúng màu đặt (xám trung tính: lệch 0,04, nén đỉnh từ 0,76).
+  const col = (hex) => {
+    const c = new THREE.Color(hex); if (!P.exact) return c;
+    const inv = (t) => { t = Math.min(t, 0.997); return (t < 0.76 ? t : 0.52 + 0.0576 / (1 - t)) + 0.04; };
+    return new THREE.Color(inv(c.r), inv(c.g), inv(c.b));
+  };
+  scene.background = col(P.bg);
+  scene.fog = new THREE.Fog(col(P.bg), fade * 1.3, fade * 3.2);
   const camera = new THREE.PerspectiveCamera(fov, 16 / 9, near, far);
   const composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(4, 4, {type: THREE.HalfFloatType, samples: 8}));
   composer.addPass(new RenderPass(scene, camera));
@@ -52,13 +62,13 @@ export function createStage({canvas, extent = 1.6, grid = 0.1, fade = 6, fov = 2
   composer.addPass(new OutputPass());
   {
     const env = new THREE.Scene();
-    env.background = new THREE.Color('#e9dcc6');
+    env.background = new THREE.Color(P.env);
     const box = (w, h, pos, k) => {
       const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({color: new THREE.Color(1, 0.98, 0.95).multiplyScalar(k), side: THREE.DoubleSide}));
       m.position.copy(pos); m.lookAt(0, 0, 0); env.add(m);
     };
     box(12, 12, new V3(0, 14, 2), 2.4); box(3, 14, new V3(-12, 4, 6), 3.0); box(3, 14, new V3(12, 4, -4), 2.0); box(18, 2, new V3(0, 2, 14), 1.5);
-    const g = new THREE.Mesh(new THREE.CircleGeometry(40, 32), new THREE.MeshBasicMaterial({color: '#d8c6a8', side: THREE.DoubleSide}));
+    const g = new THREE.Mesh(new THREE.CircleGeometry(40, 32), new THREE.MeshBasicMaterial({color: P.envGround, side: THREE.DoubleSide}));
     g.rotation.x = -Math.PI / 2; g.position.y = -2; env.add(g);
     const pm = new THREE.PMREMGenerator(renderer);
     scene.environment = pm.fromScene(env, 0.02).texture; scene.environmentIntensity = 0.95; pm.dispose();
@@ -68,11 +78,11 @@ export function createStage({canvas, extent = 1.6, grid = 0.1, fade = 6, fov = 2
   sun.castShadow = true;
   Object.assign(sun.shadow.camera, {left: -extent, right: extent, top: extent, bottom: -extent, near: 0.05 * extent, far: 14 * extent});
   sun.shadow.mapSize.set(4096, 4096); sun.shadow.radius = 10; sun.shadow.blurSamples = 20; sun.shadow.bias = -0.0003; sun.shadow.normalBias = 0.002 * extent;
-  scene.add(sun, sun.target, new THREE.HemisphereLight('#fffaf2', '#d9c6a6', 0.65));
+  scene.add(sun, sun.target, new THREE.HemisphereLight(P.sky, P.hemiGround, 0.65));
   const groundMat = new THREE.ShaderMaterial({vertexShader: GV, fragmentShader: GF, toneMapped: false,
-    uniforms: {uG: {value: new THREE.Color(PAL.ground)}, uMi: {value: new THREE.Color(PAL.minor)}, uMa: {value: new THREE.Color(PAL.major)}, uBg: {value: new THREE.Color(PAL.bg)}, uC: {value: new V3()}, uStep: {value: grid}, uFade: {value: fade}}});
+    uniforms: {uG: {value: col(P.ground)}, uMi: {value: col(P.minor)}, uMa: {value: col(P.major)}, uBg: {value: col(P.bg)}, uC: {value: new V3()}, uStep: {value: grid}, uFade: {value: fade}}});
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), groundMat); ground.rotation.x = -Math.PI / 2; scene.add(ground);
-  const shade = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.ShadowMaterial({color: PAL.shadow, opacity: 0.3, polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -8}));
+  const shade = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.ShadowMaterial({color: P.shadow, opacity: 0.3, polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -8}));
   shade.rotation.x = -Math.PI / 2; shade.receiveShadow = true; scene.add(shade);
 
   const size = {w: 1600, h: 900};

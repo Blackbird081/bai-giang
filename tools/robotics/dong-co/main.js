@@ -2,7 +2,7 @@
 // (kin.js) với một đầu vào là góc trục khuỷu. Quy trình 9 bước của teardown (Elvar, MIT): tham chiếu thật (thông số Honda Wave
 // Alpha 110), mô hình trước, bảng số chạy theo máy, một nút cho mỗi hệ thống, tự chạy có con trỏ, thử phá.
 import * as THREE from 'three';
-import {createStage} from '../kit/stage.js';
+import {createStage, PAL_HOUSE} from '../kit/stage.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
 import {E, VCT, cm3, vbc, vol, fromTDC, pressure, liftIn, liftEx, strokeIdx, STROKES, cycleWork, otto, pistonSpeed} from './kin.js';
@@ -10,8 +10,8 @@ import {buildEngine, YC, DECK, CROWN_TDC, CROWN_BDC, CAMY, VX} from './engine.js
 
 const app = document.getElementById('app');
 const canvas = document.createElement('canvas'); canvas.id = 'gl'; app.appendChild(canvas);
-const st = createStage({canvas, extent: 0.32, grid: 0.01, fade: 1.6, fov: 26});
-const ui = createUI(app);
+const st = createStage({canvas, extent: 0.32, grid: 0.01, fade: 1.6, fov: 26, pal: PAL_HOUSE});
+const ui = createUI(app, {theme: 'house'});
 const eng = buildEngine(); st.scene.add(eng.root);
 const vn = (v, n = 1) => fx(v, n).replace('.', ',');
 const vnInt = (v) => Math.round(v).toLocaleString('vi-VN');
@@ -21,8 +21,8 @@ const S = {hold: null, psi: 0, rpm: 1500, rpmT: 1500, slow: 1 / 100, eps: E.eps,
 const recompute = () => { const c = cycleWork({eps: S.eps, spark: S.spark}); S.W = c.W; S.imep = c.imep; S.knock = S.eps > 11.5 && S.spark; buildPV(); };
 
 // ---------------- bảng điều khiển 1600 × 900
-ui.header({code: '4 KÌ', kicker: 'CÔNG NGHỆ 11 · CƠ KHÍ ĐỘNG LỰC · ĐỘNG CƠ ĐỐT TRONG', title: 'Động cơ xăng 4 kì', sub: 'Một xi lanh · làm mát bằng không khí · thông số Honda Wave Alpha 110', hub: HUB_URL, hubLabel: '← SÁNG ĂN KHOAI',
-  right: [['109,2', 'DUNG TÍCH · cm³'], ['9,0 : 1', 'TỈ SỐ NÉN'], ['6,12', 'CÔNG SUẤT · kW']]});
+ui.header({code: '4 kì', kicker: 'CÔNG NGHỆ 11 · CƠ KHÍ ĐỘNG LỰC · ĐỘNG CƠ ĐỐT TRONG', title: 'Động cơ xăng 4 kì', sub: 'Một xi lanh · làm mát bằng không khí · thông số Honda Wave Alpha 110', hub: HUB_URL, hubLabel: '← SÁNG ĂN KHOAI',
+  right: [['109,2 cm³', 'DUNG TÍCH'], ['9,0 : 1', 'TỈ SỐ NÉN'], ['6,12 kW', 'CÔNG SUẤT']]});
 // 01 chu trình 720°
 ui.panel(28, 112, 300, 292, 'CHU TRÌNH 4 KÌ · 720° TRỤC KHUỶU', '01');
 const wheel = ui.svg(42, 146, 130, 130);
@@ -58,7 +58,7 @@ const sEps = ui.slider('eps', 1286, 734, 272, 'TỈ SỐ NÉN', {lw: 74, vw: 92}
 const sSlow = ui.slider('slow', 1286, 756, 272, 'TUA CHẬM', {lw: 74, vw: 92});
 ui.buttons([['v_hero', 'TOÀN CẢNH'], ['v_front', 'CHÍNH DIỆN'], ['v_head', 'NẮP MÁY'], ['v_crank', 'TRỤC KHUỶU'], ['v_inside', 'TRONG XI LANH']], 360, 120, 600);
 ui.buttons([['cut', 'CẮT DỌC'], ['glass', 'NHÌN XUYÊN'], ['solid', 'NGUYÊN KHỐI'], ['spark', 'BUGI'], ['real', 'PHA THỰC TẾ'], ['labels', 'NHÃN']], 360, 744, 900);
-ui.cap = ui.caption(348, 778, 904, 106);
+ui.cap = ui.caption(348, 772, 904, 126);
 const alert = ui.alert(400, 712);
 ui.callouts([
   {key: 'pis', title: 'PÍT-TÔNG', sub: 'Ø 50,0 mm'}, {key: 'rod', title: 'THANH TRUYỀN', sub: 'l = 100 mm (GIẢ ĐỊNH)'}, {key: 'crk', title: 'TRỤC KHUỶU', sub: 'BÁN KÍNH r = 27,8 mm'},
@@ -131,7 +131,7 @@ const sim = {
     eng.update(S);
     // 01
     drawWheel(ps);
-    kName.innerHTML = `<span style="color:${STROKES[k].c}">${STROKES[k].t}</span>`;
+    kName.innerHTML = ((a, b) => `<span style="display:block;font-size:12px;font-weight:600;color:${C.mute || '#626773'}">${a}</span><span style="display:block;white-space:nowrap;color:${STROKES[k].c}">${b || ''}</span>`)(...STROKES[k].t.split(' · '));
     bigAng.innerHTML = `${vnInt(ps)}°<span style="font-size:14px;color:#9b8f80;letter-spacing:0"> / 720°</span>`;
     kRows[0].textContent = `${vnInt(ps / 2)}° / 360°`; kRows[1].textContent = ps < 360 ? '1 / 2' : '2 / 2';
     kRows[2].textContent = `${vn(fromTDC(ps) * 1000, 1)} mm`;
@@ -175,14 +175,14 @@ const sim = {
     void pinY;
     const crownY = CROWN_TDC - fromTDC(ps);
     ui.drawCallouts([
-      {key: 'pis', p: pr(-0.02, crownY - 0.01, 0.012), dx: -150, dy: -20},
+      {key: 'pis', p: pr(-0.02, crownY - 0.01, 0.012), dx: -150, dy: 26},
       {key: 'rod', p: pr(0.004 * Math.sin(th), (crownY - E.ch + YC + 0.0278 * Math.cos(th)) / 2, 0.006), dx: 120, dy: -10},
       {key: 'crk', p: pr(0.03, YC - 0.03, 0.02), dx: 120, dy: 40},
       {key: 'fw', p: pr(-0.025, YC - 0.02, 0.023), dx: -150, dy: 40},
-      {key: 'vin', p: pr(-VX, DECK + 0.03, 0), dx: -190, dy: 30}, {key: 'vex', p: pr(VX, DECK + 0.03, 0), dx: 120, dy: -50},
-      {key: 'plug', p: pr(0, DECK + 0.03, -0.03), dx: -200, dy: -60}, {key: 'cam', p: pr(0.01, CAMY, 0.005), dx: 110, dy: -40},
+      {key: 'vin', p: pr(-VX, DECK + 0.03, 0), dx: -150, dy: -45}, {key: 'vex', p: pr(VX, DECK + 0.03, 0), dx: 120, dy: -50},
+      {key: 'plug', p: pr(0, DECK + 0.03, -0.03), dx: -200, dy: -100}, {key: 'cam', p: pr(0.01, CAMY, 0.005), dx: 110, dy: -40},
       {key: 'fin', p: pr(0.045, DECK - 0.05, 0.0), dx: 120, dy: 0},
-      {key: 'tdc', p: pr(-0.067, CROWN_TDC, 0.012), dx: -60, dy: -14}, {key: 'bdc', p: pr(-0.067, CROWN_BDC, 0.012), dx: -60, dy: 14},
+      {key: 'tdc', p: pr(-0.067, CROWN_TDC, 0.012), dx: -90, dy: -30}, {key: 'bdc', p: pr(-0.067, CROWN_BDC, 0.012), dx: -60, dy: 14},
     ], S.labels ? 1 : 0);
   },
 };

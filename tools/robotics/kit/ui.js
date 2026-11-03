@@ -1,7 +1,31 @@
 // Bảng điều khiển 1600 × 900 dùng chung: tiêu đề, khung số, thanh đo, biểu đồ chạy theo thời gian, nút, thanh trượt,
 // nhãn có đường dẫn vào chi tiết, con trỏ của chuyến tham quan và khung lời giảng. Phong cách theo teardown (MIT).
-export const C = {ink: '#2a2521', mute: '#9b8f80', faint: '#d9cdbb', line: '#eadfcd', panel: 'rgba(252,249,244,.95)', or: '#e3562a', green: '#2fa36b', blue: '#3c79a8', violet: '#7a5ab8', gold: '#c99a2e'};
-const CSS = `
+export const C = {ink: '#2a2521', mute: '#9b8f80', faint: '#d9cdbb', line: '#eadfcd', panel: 'rgba(252,249,244,.95)', or: '#e3562a', green: '#2fa36b', blue: '#3c79a8', violet: '#7a5ab8', gold: '#c99a2e',
+  chart: '#fbf6ee', track: '#efe6d8', track2: '#e8dcc8', sub: '#6d6357'};
+// giao diện nhà Sáng Ăn Khoai (nền trắng, kính, Be Vietnam Pro) cho bài phổ thông: createUI(app, {theme: 'house'})
+const HOUSE = {dot: '#15171C', ink: '#15171C', mute: '#626773', faint: '#d5d8de', line: '#e7e9ed', panel: '#ffffff', chart: '#f7f8fa', track: '#e9ebef', track2: '#e3e6ea', sub: '#626773'};
+const HOUSE_CSS = `
+#app,#app .ph,#app .sm,#app .bt,#app .call b,#app .cap,#app .cap .k{font-family:'Be Vietnam Pro',system-ui,sans-serif!important}
+#app .cp{background:#fff;border:0;border-radius:14px;box-shadow:0 0 0 .5px rgba(16,24,40,.07),0 8px 24px -14px rgba(16,24,40,.22)}
+#app .ph{font-weight:600;font-size:13px;color:#15171C}
+#app .ph i{width:6px;height:6px;border-radius:50%;background:#15171C}
+#app .pn{color:#9aa0aa}
+#app .sm{color:#626773}
+#app .bt{height:24px;padding:0 11px;border:1px solid #e3e6ea;border-radius:999px;background:#fff;color:#15171C;font-weight:600}
+#app .bt.on{background:#15171C;border-color:#15171C;color:#fff}
+#app .call{background:rgba(255,255,255,.94);border-radius:8px;padding:3px 8px 4px;box-shadow:0 1px 3px rgba(16,24,40,.08),0 0 0 .5px rgba(16,24,40,.08)}
+#app .call b{background:none;padding:0;box-shadow:none}
+#app .call span{color:#626773;padding-left:11px}
+#app .call b i{width:5px;height:5px;border-radius:50%;background:#15171C}
+#app .cap .b{font-size:12px;line-height:1.45}
+#app .cap .t{margin:2px 0 4px}
+#app .cap .k{color:#5B6472;font-weight:600}
+#app .cap .b{color:#454A55}
+#app .cap .e{background:#f3f4f6;border-radius:6px;position:absolute;top:-4px;right:0;margin:0;font-size:11px}
+#app .tourchip{border:0;border-radius:999px;background:rgba(255,255,255,.95);box-shadow:0 0 0 .5px rgba(16,24,40,.1),0 6px 16px -8px rgba(16,24,40,.3);color:#15171C;font-family:'Be Vietnam Pro',system-ui,sans-serif}
+#app .alert{border-radius:999px;padding:4px 10px}
+`;
+const CSS = () => `
 #app{font-family:Inter,system-ui,sans-serif;color:${C.ink};-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
 .ui{position:absolute;inset:0;pointer-events:none}
 .mo{font-family:'JetBrains Mono',ui-monospace,monospace}
@@ -42,20 +66,38 @@ const el = (h) => { const d = document.createElement('div'); d.innerHTML = h.tri
 const fx = (v, n = 2) => (Number.isFinite(v) ? v.toFixed(n) : '—');
 export {fx};
 
-export function createUI(app) {
-  const st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
+export function createUI(app, {theme = ''} = {}) {
+  if (theme === 'house') Object.assign(C, HOUSE);
+  const st = document.createElement('style'); st.textContent = CSS() + (theme === 'house' ? HOUSE_CSS : ''); document.head.appendChild(st);
   const root = el(`<div class="ui"></div>`); app.appendChild(root);
   const add = (h) => { const n = el(h); root.appendChild(n); return n; };
   const btn = {};
   const ui = {root, add, btn, spots: {}};
 
-  ui.header = ({code, kicker, title, sub, right = [], hub, hubLabel = '← BÀI GIẢNG'}) => {
+  ui.header = (o) => (theme === 'house' ? houseHeader(o) : warmHeader(o));
+  // đầu bảng kiểu nhà: dải mỏng 64 px, huy hiệu tròn góc thay khối cam, số liệu chính một dòng bên phải
+  const houseHeader = ({code, kicker, title, sub, right = []}) => {
+    add(`<div style="position:absolute;left:28px;top:14px;width:44px;height:44px;border-radius:13px;background:#f1f2f5;box-shadow:inset 0 0 0 .5px rgba(16,24,40,.08);display:flex;align-items:center;justify-content:center;font:700 14px 'Be Vietnam Pro',system-ui,sans-serif;color:#15171C;letter-spacing:-.2px">${sc(code)}</div>`);
+    add(`<div class="sm" style="position:absolute;left:86px;top:13px;font-size:12px">${sc(kicker)}</div>`);
+    add(`<div style="position:absolute;left:85px;top:30px;display:flex;align-items:baseline;gap:14px;white-space:nowrap"><span style="font:600 24px/1.15 'Be Vietnam Pro',system-ui,sans-serif;letter-spacing:-.4px;color:#15171C">${title}</span><span class="sm" style="position:static;font-size:13px">${sc(sub)}</span></div>`);
+    let x = 1572;
+    [...right].reverse().forEach(([v, n], i) => {
+      const w = Math.max(84, v.length * 12 + 18);
+      x -= w;
+      if (i) add(`<div style="position:absolute;left:${x + w + 9}px;top:20px;width:1px;height:32px;background:#e7e9ed"></div>`);
+      add(`<div style="position:absolute;left:${x}px;top:14px;width:${w}px;text-align:right;font:600 20px/1.2 'Be Vietnam Pro',system-ui,sans-serif;color:#15171C;letter-spacing:-.3px;font-variant-numeric:tabular-nums">${v}</div>`);
+      add(`<div class="sm" style="position:absolute;left:${x}px;top:42px;width:${w}px;text-align:right">${sc(n)}</div>`);
+      x -= 20;
+    });
+    add(`<div style="position:absolute;left:28px;top:72px;width:1544px;height:1px;background:#e7e9ed"></div>`);
+  };
+  const warmHeader = ({code, kicker, title, sub, right = [], hub, hubLabel = '← BÀI GIẢNG'}) => {
     add(`<div style="position:absolute;left:0;top:0;width:160px;height:89px;background:${C.or}"></div>`);
     add(`<div class="mo" style="position:absolute;left:24px;top:30px;color:#fff;font-size:22px;font-weight:700;letter-spacing:1px">${code}</div>`);
     if (hub) add(`<a class="back" href="${hub}" style="left:24px;top:63px">${hubLabel}</a>`);
     add(`<div class="sm" style="position:absolute;left:182px;top:20px">${sc(kicker)}</div>`);
     add(`<div style="position:absolute;left:181px;top:37px;font-size:31px;font-weight:700;letter-spacing:-.6px;line-height:1">${title} <span style="color:${C.or};font-weight:400">/</span></div>`);
-    add(`<div class="sm" style="position:absolute;left:182px;top:76px;font-size:12px;color:#6d6357">${sc(sub)}</div>`);
+    add(`<div class="sm" style="position:absolute;left:182px;top:76px;font-size:12px;color:${C.sub}">${sc(sub)}</div>`);
     right.forEach(([v, n], i) => {
       const x = 1110 + i * 120;
       if (i) add(`<div style="position:absolute;left:${x - 12}px;top:34px;width:1px;height:42px;background:${C.faint}"></div>`);
@@ -74,7 +116,7 @@ export function createUI(app) {
   ui.bar = (x, y, w, label, {lw = 52, vw = 64, center = false, mark = null} = {}) => {
     ui.text(x, y, label);
     const tx = x + lw, tw = w - lw - vw;
-    add(`<div style="position:absolute;left:${tx}px;top:${y + 4}px;width:${tw}px;height:4px;background:#efe6d8;border-radius:2px"></div>`);
+    add(`<div style="position:absolute;left:${tx}px;top:${y + 4}px;width:${tw}px;height:4px;background:${C.track};border-radius:2px"></div>`);
     if (center) add(`<div style="position:absolute;left:${tx + tw / 2}px;top:${y + 1}px;width:1px;height:10px;background:${C.faint}"></div>`);
     if (mark !== null) add(`<div style="position:absolute;left:${tx + tw * mark}px;top:${y + 1}px;width:1.5px;height:10px;background:${C.ink}"></div>`);
     const f = add(`<div style="position:absolute;left:${tx}px;top:${y + 4}px;height:4px;background:${C.or};border-radius:2px"></div>`);
@@ -92,7 +134,7 @@ export function createUI(app) {
     const lim = {min, max};
     const Y = (v) => h - ((v - lim.min) / (lim.max - lim.min)) * h;
     return {lim, set(series, o = {}) {
-      let g = `<rect x="0" y="0" width="${w}" height="${h}" fill="#fbf6ee" stroke="${C.line}"/>`;
+      let g = `<rect x="0" y="0" width="${w}" height="${h}" fill="${C.chart}" stroke="${C.line}"/>`;
       for (let i = 1; i < 4; i++) g += `<line x1="0" x2="${w}" y1="${(h * i) / 4}" y2="${(h * i) / 4}" stroke="${C.line}" stroke-width=".6"/>`;
       if (zero && lim.min < 0 && lim.max > 0) g += `<line x1="0" x2="${w}" y1="${Y(0)}" y2="${Y(0)}" stroke="${C.faint}"/>`;
       if (o.band) g += `<rect x="0" y="${Y(o.band[1])}" width="${w}" height="${Y(o.band[0]) - Y(o.band[1])}" fill="${C.or}" opacity=".08"/>`;
@@ -129,7 +171,7 @@ export function createUI(app) {
   ui.slider = (key, x, y, w, label, {lw = 70, vw = 62} = {}) => {
     ui.text(x, y - 1, label);
     const tx = x + lw, tw = w - lw - vw;
-    add(`<div style="position:absolute;left:${tx}px;top:${y + 4}px;width:${tw}px;height:3px;background:#e8dcc8;border-radius:2px"></div>`);
+    add(`<div style="position:absolute;left:${tx}px;top:${y + 4}px;width:${tw}px;height:3px;background:${C.track2};border-radius:2px"></div>`);
     const f = add(`<div style="position:absolute;left:${tx}px;top:${y + 4}px;height:3px;background:${C.ink};border-radius:2px"></div>`);
     const k = add(`<div style="position:absolute;left:${tx}px;top:${y - 1}px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#fff;border:1.5px solid ${C.ink}"></div>`);
     const v = add(`<div class="v" style="position:absolute;left:${x + w - vw + 4}px;top:${y - 2}px;width:${vw - 4}px;text-align:right"></div>`);
@@ -163,7 +205,7 @@ export function createUI(app) {
       if (!c.p || k < 0.02) { n.style.opacity = 0; continue; }
       const [px, py] = c.p, lx = px + (c.dx ?? 60), ly = py + (c.dy ?? -40);
       n.style.opacity = k; n.style.left = `${lx + (c.dx < 0 ? -n.offsetWidth : 0)}px`; n.style.top = `${ly - 8}px`;
-      g += `<path d="M${px} ${py}L${lx} ${ly}" stroke="${C.ink}" stroke-width=".8" fill="none" opacity="${k}"/><circle cx="${px}" cy="${py}" r="2.4" fill="${C.or}" opacity="${k}"/>`;
+      g += `<path d="M${px} ${py}L${lx} ${ly}" stroke="${C.ink}" stroke-width=".8" fill="none" opacity="${k}"/><circle cx="${px}" cy="${py}" r="2.4" fill="${C.dot || C.or}" opacity="${k}"/>`;
     }
     for (const [key, n] of Object.entries(calls)) if (!seen.has(key)) n.style.opacity = 0;
     leaderSvg.innerHTML = g;
