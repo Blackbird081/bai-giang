@@ -40,22 +40,22 @@ ui.panel(28, 550, 300, 216, 'THÔNG SỐ KĨ THUẬT', '03');
 const spec = [];
 for (let i = 0; i < 9; i++) { spec.push([ui.text(42, 582 + i * 19, '', 'sm', 'font-size:10.5px'), ui.text(170, 582 + i * 19, '', 'v', 'width:144px;text-align:right;font-size:11.5px')]); }
 // 04 áp suất theo góc
-ui.panel(1272, 112, 300, 160, 'ÁP SUẤT TRONG XI LANH (bar)', '04');
+ui.panel(1272, 112, 300, 152, 'ÁP SUẤT TRONG XI LANH (bar)', '04');
 const pChart = ui.chart(1286, 146, 272, 84, {min: 0, max: 80, colors: [C.or], zero: false});
-const pNow = ui.text(1286, 238, '', 'v', 'width:272px;text-align:right');
-ui.text(1286, 238, '0 → 720° · MÔ HÌNH GẦN ĐÚNG', 'sm', 'font-size:8.5px');
+const pNow = ui.text(1286, 236, '', 'v', 'width:272px;text-align:right');
+ui.text(1286, 236, '0 → 720° · MÔ HÌNH GẦN ĐÚNG', 'sm', 'font-size:8.5px');
 // 05 p–V
-ui.panel(1272, 284, 300, 238, 'ĐỒ THỊ p–V · CÔNG CHỈ THỊ', '05');
-const pv = ui.svg(1286, 318, 272, 124);
-const pvRows = [0, 1, 2, 3].map((i) => [ui.text(1286, 452 + i * 17, '', 'sm', 'font-size:10px'), ui.text(1420, 452 + i * 17, '', 'v', 'width:138px;text-align:right;font-size:11px')]);
+ui.panel(1272, 274, 300, 222, 'ĐỒ THỊ p–V · CÔNG CHỈ THỊ', '05');
+const pv = ui.svg(1286, 306, 272, 112);
+const pvRows = [0, 1, 2, 3].map((i) => [ui.text(1286, 426 + i * 17, '', 'sm', 'font-size:10px'), ui.text(1420, 426 + i * 17, '', 'v', 'width:138px;text-align:right;font-size:11px')]);
 // 06 cơ cấu và hệ thống
-ui.panel(1272, 534, 300, 136, 'CƠ CẤU VÀ HỆ THỐNG', '06');
-ui.buttons([['sys_crank', 'TRỤC KHUỶU – THANH TRUYỀN'], ['sys_valve', 'PHÂN PHỐI KHÍ'], ['sys_fuel', 'NHIÊN LIỆU, KHÔNG KHÍ'], ['sys_ign', 'ĐÁNH LỬA'], ['sys_cool', 'LÀM MÁT'], ['sys_lube', 'BÔI TRƠN'], ['sys_start', 'KHỞI ĐỘNG']], 1286, 568, 272);
+ui.panel(1272, 506, 300, 158, 'CƠ CẤU VÀ HỆ THỐNG', '06');
+ui.buttons([['sys_crank', 'TRỤC KHUỶU – THANH TRUYỀN'], ['sys_valve', 'PHÂN PHỐI KHÍ'], ['sys_fuel', 'NHIÊN LIỆU, KHÔNG KHÍ'], ['sys_ign', 'ĐÁNH LỬA'], ['sys_cool', 'LÀM MÁT'], ['sys_lube', 'BÔI TRƠN'], ['sys_start', 'KHỞI ĐỘNG']], 1286, 540, 272);
 // 07 điều khiển, thử phá
-ui.panel(1272, 682, 300, 84, 'ĐIỀU KHIỂN · THỬ PHÁ', '07');
-const sRpm = ui.slider('rpm', 1286, 712, 272, 'TAY GA', {lw: 74, vw: 92});
-const sEps = ui.slider('eps', 1286, 734, 272, 'TỈ SỐ NÉN', {lw: 74, vw: 92});
-const sSlow = ui.slider('slow', 1286, 756, 272, 'TUA CHẬM', {lw: 74, vw: 92});
+ui.panel(1272, 674, 300, 92, 'ĐIỀU KHIỂN · THỬ PHÁ', '07');
+const sRpm = ui.slider('rpm', 1286, 704, 272, 'TAY GA', {lw: 74, vw: 92});
+const sEps = ui.slider('eps', 1286, 726, 272, 'TỈ SỐ NÉN', {lw: 74, vw: 92});
+const sSlow = ui.slider('slow', 1286, 748, 272, 'TUA CHẬM', {lw: 74, vw: 92});
 ui.buttons([['v_hero', 'TOÀN CẢNH'], ['v_front', 'CHÍNH DIỆN'], ['v_head', 'NẮP MÁY'], ['v_crank', 'TRỤC KHUỶU'], ['v_inside', 'TRONG XI LANH']], 360, 120, 600);
 ui.buttons([['cut', 'CẮT DỌC'], ['glass', 'NHÌN XUYÊN'], ['solid', 'NGUYÊN KHỐI'], ['spark', 'BUGI'], ['real', 'PHA THỰC TẾ'], ['labels', 'NHÃN']], 360, 744, 900);
 ui.cap = ui.caption(348, 772, 904, 126);
@@ -72,7 +72,7 @@ mk(CROWN_TDC); mk(CROWN_BDC);
 const dim = new THREE.Mesh(new THREE.BoxGeometry(0.0008, CROWN_TDC - CROWN_BDC, 0.0008), new THREE.MeshBasicMaterial({color: C.ink})); dim.position.set(-0.06, (CROWN_TDC + CROWN_BDC) / 2, 0.012); eng.root.add(dim);
 
 // ---------------- đồ thị
-const PV = {w: 272, h: 124};
+const PV = {w: 272, h: 112};
 function buildPV() {
   const Vmax = S.eps, pts = [];
   for (let a = 0; a <= 720; a += 2) pts.push([vol(a, S.eps) / Vmax, pressure(a, {eps: S.eps, spark: S.spark})]);
@@ -156,7 +156,7 @@ const sim = {
     // 05
     const v = vol(ps, S.eps) / S.eps, p = pressure(ps, {eps: S.eps, spark: S.spark});
     const cx = 8 + v * (PV.w - 16), cy = PV.h - 6 - (Math.min(p, 80) / 80) * (PV.h - 12);
-    pv.innerHTML = `<rect x="0" y="0" width="${PV.w}" height="${PV.h}" fill="#fbf6ee" stroke="${C.line}"/><path d="${S.pvPath}Z" fill="${C.or}" fill-opacity=".1" stroke="${C.or}" stroke-width="1.5"/>`
+    pv.innerHTML = `<rect x="0" y="0" width="${PV.w}" height="${PV.h}" fill="${C.chart}" stroke="${C.line}"/><path d="${S.pvPath}Z" fill="${C.or}" fill-opacity=".1" stroke="${C.or}" stroke-width="1.5"/>`
       + `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="4" fill="${STROKES[k].c}" stroke="#fff" stroke-width="1.5"/>`
       + `<text x="${PV.w - 6}" y="${PV.h - 9}" text-anchor="end" font-size="9" fill="#6e6257" font-family="Inter,sans-serif">V → Vtp</text><text x="${PV.w - 6}" y="13" text-anchor="end" font-size="9" fill="#6e6257" font-family="Inter,sans-serif">p (bar) · cao nhất ${vn(Math.max(...S.pvPts.map((q) => q[1])), 0)} bar</text>`;
     const rowsPV = [['W = ∮ p·dV (một chu trình)', `${vn(S.W, 0)} J`], ['p TB chỉ thị = W / Vct', `${vn(S.imep, 1)} bar`], ['Công suất chỉ thị W·n / 120', S.stalled ? '0 kW' : `${vn((S.W * S.rpm) / 120 / 1000, 2)} kW`], ['Hiệu suất lí thuyết (Otto)', `${vn(otto(S.eps) * 100, 1)} %`]];

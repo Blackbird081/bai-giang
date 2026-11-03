@@ -11,7 +11,7 @@ const HOUSE_CSS = `
 #app .ph i{width:6px;height:6px;border-radius:50%;background:#15171C}
 #app .pn{color:#9aa0aa}
 #app .sm{color:#626773}
-#app .bt{height:24px;padding:0 11px;border:1px solid #e3e6ea;border-radius:999px;background:#fff;color:#15171C;font-weight:600}
+#app .bt{box-sizing:border-box;height:24px;padding:0 10px;border:1px solid #e3e6ea;border-radius:999px;background:#fff;color:#15171C;font-weight:600}
 #app .bt.on{background:#15171C;border-color:#15171C;color:#fff}
 #app .call{background:rgba(255,255,255,.94);border-radius:8px;padding:3px 8px 4px;box-shadow:0 1px 3px rgba(16,24,40,.08),0 0 0 .5px rgba(16,24,40,.08)}
 #app .call b{background:none;padding:0;box-shadow:none}
@@ -159,7 +159,7 @@ export function createUI(app, {theme = ''} = {}) {
   ui.buttons = (items, x0, y, wmax) => {
     let x = x0;
     for (const [key, label] of items) {
-      const w = Math.round(label.length * 6.9 + 20);
+      const w = Math.round(theme === 'house' ? sc(label).length * 5.9 + 24 : label.length * 6.9 + 20);
       if (x + w > x0 + wmax) { x = x0; y += 29; }
       ui.button(key, x, y, w, label); x += w + 6;
     }
