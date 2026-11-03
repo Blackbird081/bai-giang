@@ -87,10 +87,17 @@ Bài [`than-kinh/`](than-kinh/) kể bốn cảnh trong 20 giây, phong cách đ
 ## Dụng cụ lên lớp
 Mọi bài 3D (Tế Bào, Ty Thể, Cổ Loa, 4 mô phỏng robotics, 54 bài thư viện) dùng chung một vỏ [`shell/bg-shell.js`](shell/bg-shell.js):
 - Shift P hoặc nút Lên lớp; bút trình chiếu, phím mũi tên, PageUp/PageDown chuyển bước; B màn đen; F toàn màn hình; thêm `?lenlop` vào địa chỉ để mở sẵn chế độ lên lớp.
-- Màn hình giáo viên: cửa sổ thứ hai trên cùng máy, có ghi chú, câu hỏi kèm đáp án, yêu cầu cần đạt; không cần mạng.
+- Màn hình giáo viên: cửa sổ thứ hai trên cùng máy, có ghi chú, câu hỏi kèm đáp án, yêu cầu cần đạt; bài có gói dạy thử thì hiện thêm phút dự kiến và việc của giáo viên từng bước; không cần mạng.
 - Điện thoại: [`dieu-khien/`](dieu-khien/), quét mã QR hoặc nhập mã 6 ký tự (WebRTC qua PeerJS, cần mạng); từ thiết bị thứ hai, giáo viên phải bấm Cho phép trên màn chiếu.
 - [`kiem-may/`](kiem-may/): đo khung hình mỗi giây, thời gian tải, card đồ hoạ của từng bài trên máy của trường; cảnh báo khi trình duyệt vẽ bằng phần mềm; xuất JSON, CSV.
 - Đặc tả: [`docs/he-thiet-ke.md`](docs/he-thiet-ke.md). Nhúng vỏ: `python3 tools/inject_shell.py` (54 bài thư viện thêm `--adapter=thu-vien`).
+
+## Gói dạy thử 45 phút
+[`giao-vien/`](giao-vien/) có ba gói dạy cho Tế Bào (Sinh học 10), Neuron (Sinh học 11) và Thành Cổ Loa (Lịch sử 10). Mỗi gói gồm: hướng dẫn bắt đầu trong 10 phút, kịch bản theo phút chia bốn hoạt động (mở đầu, hình thành kiến thức, luyện tập, vận dụng), phiếu học tập một trang A4, đáp án và gợi ý chấm, cách xử lý sự cố, yêu cầu cần đạt trích nguyên văn và nguồn.
+- Một nguồn: [`tools/goi-day/<bài>.json`](tools/goi-day/). `python3 tools/build_goi_day.py` dựng trang in được; `tools/chuoi_bai.py` nhúng phút dự kiến và việc của giáo viên từng bước vào bài, nên màn hình giáo viên hiện kịch bản ngay cạnh ghi chú, đồng hồ chuyển cam khi bước đang chậm.
+- Bộ dựng dừng khi phút không liền mạch 0 → 45 hoặc phiếu có câu chưa có đáp án; `tests/smoke.py` báo lỗi khi tên bước trong gói lệch với bài.
+- Phiếu in đen trắng được, mỗi phiếu đúng một trang A4 (nút In phiếu); nút In kịch bản in hướng dẫn, kịch bản và đáp án.
+- Bản thử: nội dung chưa qua giáo viên bộ môn duyệt.
 
 ## AR: ribosome trên bàn học
 [`te-bao/ar.html`](te-bao/ar.html) dùng model-viewer để đặt bề mặt phân tử của ribosome 3J7R lên mặt bàn thật bằng điện thoại (ARCore/ARKit). Tỉ lệ 1 Å = 1 mm, tức phóng to 10 triệu lần, ribosome cao khoảng 30 cm. Có nút làm mờ 40S hoặc 60S để lộ tRNA và mRNA. Trên máy tính, trang hiện mã QR để học sinh quét. Mô hình [`te-bao/assets/ribosome-3j7r.glb`](te-bao/assets/ribosome-3j7r.glb) (4,2 MB, 231 nghìn tam giác) dựng bằng `tools/build_glb.py`: marching cubes trên mật độ nguyên tử theo từng nhóm, rút gọn lưới, màu theo thang tuyến tính của glTF.
@@ -113,6 +120,7 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `chu-de/sinh-hoc-te-bao/` | Lộ trình Sinh học tế bào lớp 10 |
 | `lich-su-10/`, `lich-su-10/co-loa/` | Lộ trình Lịch sử 10 (`tools/build_ls10.py`), bài Thành Cổ Loa (`tools/build_co_loa.py`, `tools/co-loa.template.html`, nguồn `tools/co_loa_nguon.json`) |
 | `robotics/`, `robotics/<robot>/` | Mục lục Robotics (`tools/robotics/build_hub.py`) và 4 mô phỏng (dựng từ `tools/robotics/` bằng `node build.mjs`) |
+| `giao-vien/`, `tools/goi-day/`, `tools/build_goi_day.py` | Gói dạy thử 45 phút: trang in được và nguồn JSON |
 | `shell/`, `dieu-khien/`, `kiem-may/` | Vỏ lên lớp chung và bộ gắn cho bài thư viện; trang điều khiển bằng điện thoại; trang kiểm máy |
 | `thu-vien/` | 54 bài tiếng Việt (CC BY-NC 4.0), ảnh bìa, `catalog.vi.json`, đối chiếu chương trình `gdpt2018.json`, công cụ Việt hoá `_viet-hoa/` |
 | `src/head.part`, `src/body.part`, `src/script.part` | CSS, HTML, JS của trang Tế Bào |

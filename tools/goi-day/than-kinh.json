@@ -1,0 +1,100 @@
+{
+  "id": "than-kinh",
+  "bai": "than-kinh/",
+  "ten_bai": "Neuron và xung thần kinh",
+  "ten_tiet": "Xung thần kinh đi như thế nào?",
+  "mon": "Sinh học",
+  "lop": "11",
+  "s": "sinh",
+  "phut": 45,
+  "muc_chuong_trinh": "Sinh học 11 › Sinh học cơ thể › Cảm ứng ở động vật › Cơ chế cảm ứng ở động vật có hệ thần kinh",
+  "yccd": [
+    "Dựa vào hình vẽ, nêu được cấu tạo và chức năng của tế bào thần kinh.",
+    "Dựa vào sơ đồ, mô tả được cấu tạo synapse và quá trình truyền tin qua synapse.",
+    "Vận dụng hiểu biết về hệ thần kinh để giải thích được cơ chế giảm đau khi uống và tiêm thuốc giảm đau."
+  ],
+  "hs_lam_duoc": [
+    "Chú thích được các bộ phận của neuron và nói được chức năng của từng bộ phận.",
+    "Vẽ được dáng đồ thị điện thế màng khi một xung đi qua: nghỉ, vượt ngưỡng, đỉnh, trở về.",
+    "Giải thích được vì sao xung đi nhanh hơn trên sợi trục có bao myelin.",
+    "Sắp xếp đúng các sự kiện truyền tin qua synapse hoá học, và dùng nó để giải thích tác dụng của thuốc tê."
+  ],
+  "chuan_bi": {
+    "gv": [
+      "Máy tính có Chrome hoặc Edge bản mới, nối máy chiếu. Bài dùng hiệu ứng phát sáng, nên chạy trang Kiểm máy trên chính máy này trước buổi dạy.",
+      "Mở bài một lần trước giờ học. Bài chưa có bản offline: mở lúc còn mạng và giữ nguyên tab.",
+      "Mỗi bước là một cảnh ngắn khoảng 5 giây, tự dừng ở cuối cảnh. Muốn xem lại, bấm lại bước đó trong danh sách bước hoặc nút “Xem lại từ đầu”.",
+      "In phiếu học tập: mỗi học sinh một tờ, hoặc mỗi cặp một tờ."
+    ],
+    "hs": ["Bút. Không cần máy tính hay điện thoại."]
+  },
+  "nhanh": [
+    "Mở bài, bấm <b>Lên lớp</b> trên thanh đầu bài (hoặc phím <kbd>Shift P</kbd>). Mỗi lần chuyển bước, cảnh tương ứng chạy khoảng 5 giây rồi dừng để giáo viên giảng.",
+    "Phím <kbd>Space</kbd> phát hoặc dừng cảnh. Bảng điện thế màng ở góc phải cho số đo theo thời gian thực.",
+    "Menu <b>Thêm</b> → <b>Màn hình giáo viên</b>: cửa sổ này hiện phút dự kiến, việc cần làm, câu hỏi và đáp án của từng bước. Hoặc quét mã để dùng điện thoại làm điều khiển.",
+    "Chuyển bước bằng bút trình chiếu, phím mũi tên, hoặc nút trên điện thoại. Phím <kbd>B</kbd> làm màn đen khi học sinh vẽ, viết vào phiếu.",
+    "Làm theo cột <b>Giáo viên</b> của kịch bản. Đồng hồ trên màn hình giáo viên chuyển màu cam khi bước đang chậm so với dự kiến."
+  ],
+  "hoat_dong": [
+    {"ten": "Mở đầu", "tu": 0, "den": 4, "buoc": [1], "muc": "Từ phản xạ rụt tay quen thuộc, đặt câu hỏi tín hiệu đi trong cơ thể bằng cách nào.", "san_pham": "Dự đoán ở mục 1 của phiếu."},
+    {"ten": "Hình thành kiến thức", "tu": 4, "den": 36, "buoc": [1, 2, 3, 4], "muc": "Theo một xung thần kinh: cấu tạo neuron, điện thế màng, dẫn truyền nhảy cóc, synapse.", "san_pham": "Sơ đồ chú thích ở mục 2 và đồ thị ở mục 3."},
+    {"ten": "Luyện tập", "tu": 36, "den": 40, "buoc": [4], "muc": "Sắp xếp các sự kiện truyền tin qua synapse.", "san_pham": "Thứ tự ở mục 4."},
+    {"ten": "Vận dụng", "tu": 40, "den": 45, "buoc": [4], "muc": "Giải thích vì sao thuốc tê làm mất cảm giác đau.", "san_pham": "Câu trả lời ở mục 5 và tự đánh giá ở mục 6."}
+  ],
+  "buoc": [
+    {"t": "Mỗi neuron là một tế bào truyền tin", "tu": 0, "den": 12,
+     "gv": "Phút 0–4: nêu tình huống chạm tay vào cốc nước nóng, rụt tay lại rất nhanh; hỏi tín hiệu đi bằng cách nào, cho học sinh ghi mục 1. Phút 4–12: cho cảnh chạy, rồi dừng hình chỉ lần lượt sợi nhánh, thân, sợi trục, bao myelin, eo Ranvier, chuỳ synapse. Hỏi câu trên màn chiếu.",
+     "hs": "Ghi dự đoán mục 1; chú thích sơ đồ neuron ở mục 2."},
+    {"t": "Thân neuron tổng hợp tín hiệu", "tu": 12, "den": 21,
+     "gv": "Chỉ bảng điện thế màng ở góc phải: nghỉ khoảng −70 mV, ngưỡng khoảng −55 mV, đỉnh khoảng +30 mV. Cho xem lại cảnh một lần. Bấm B, cho học sinh vẽ đồ thị 3 phút. Hỏi câu trên màn chiếu.",
+     "hs": "Vẽ đồ thị điện thế ở mục 3."},
+    {"t": "Xung nhảy qua các eo Ranvier", "tu": 21, "den": 30,
+     "gv": "Cho cảnh chạy, chỉ xung nhảy từ eo này sang eo khác. Hỏi câu trên màn chiếu. Hỏi thêm: nếu một đoạn sợi trục mất bao myelin, xung đi nhanh hơn hay chậm hơn? Vì sao?",
+     "hs": "Trả lời miệng; kiểm lại chú thích D và E ở mục 2."},
+    {"t": "Chất dẫn truyền vượt khe synapse", "tu": 30, "den": 45,
+     "gv": "Phút 30–36: cho cảnh chạy, chỉ các túi ở chuỳ, khe synapse, thụ thể ở màng sau; nói thêm Ca²⁺ đi vào chuỳ khi xung tới. Hỏi câu trên màn chiếu. Phút 36–40: cặp đôi làm mục 4, gọi một cặp đọc thứ tự. Phút 40–45: học sinh làm mục 5; thu phiếu hoặc giao về nhà.",
+     "hs": "Trả lời câu hỏi; làm mục 4, 5 và 6 của phiếu."}
+  ],
+  "phieu": [
+    {"loai": "hoi", "so": 1, "tieu_de": "Dự đoán", "khi": "đầu giờ, 2 phút",
+     "cau": [{"k": "", "q": "Chạm tay vào cốc nước nóng, em rụt tay lại rất nhanh. Theo em, tín hiệu từ đầu ngón tay được truyền đi bằng cách nào?", "dong": 1}]},
+    {"loai": "ve", "so": 2, "tieu_de": "Chú thích neuron", "khi": "trong giờ", "cao": 26,
+     "hoi": "Ghi tên bộ phận ứng với mỗi chữ cái.",
+     "nhan": ["A", "B", "C", "D", "E", "F"],
+     "svg": "<svg viewBox='0 0 600 120' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='#333' stroke-width='2' stroke-linecap='round' font-family='inherit' font-size='15' font-weight='700'><path d='M70 58 L28 30 M28 30 L12 24 M28 30 L22 14 M68 70 L24 86 M24 86 L8 84 M24 86 L18 104 M84 42 L74 12 M92 94 L96 116'/><circle cx='96' cy='64' r='26' fill='#f2f2f2'/><circle cx='96' cy='64' r='8' fill='#bbb'/><path d='M122 64 H470'/><g fill='#e6e6e6'><rect x='146' y='56' width='50' height='16' rx='8'/><rect x='206' y='56' width='50' height='16' rx='8'/><rect x='266' y='56' width='50' height='16' rx='8'/><rect x='326' y='56' width='50' height='16' rx='8'/><rect x='386' y='56' width='50' height='16' rx='8'/></g><path d='M470 64 L520 34 M470 64 L528 64 M470 64 L520 94'/><g fill='#ccc'><circle cx='524' cy='32' r='7'/><circle cx='534' cy='64' r='7'/><circle cx='524' cy='96' r='7'/></g><g stroke='#888' stroke-width='1' stroke-dasharray='3 3'><path d='M22 22 L40 8'/><path d='M96 60 L150 16'/><path d='M132 64 L132 104'/><path d='M231 56 L231 22'/><path d='M261 70 L261 104'/><path d='M532 60 L568 24'/></g><g fill='#111' stroke='none'><text x='44' y='12'>A</text><text x='154' y='18'>B</text><text x='126' y='118'>C</text><text x='225' y='18'>D</text><text x='255' y='118'>E</text><text x='572' y='24'>F</text></g></svg>"},
+    {"loai": "ve", "so": 3, "tieu_de": "Đồ thị điện thế màng", "khi": "trong giờ", "cao": 28,
+     "hoi": "Vẽ điện thế màng ở một điểm trên sợi trục khi xung đi qua: nghỉ, vượt ngưỡng, đỉnh, trở về.",
+     "svg": "<svg viewBox='0 0 600 120' xmlns='http://www.w3.org/2000/svg' font-family='inherit' font-size='12' fill='#444'><path d='M96 8 V110 H590' stroke='#333' stroke-width='1.5' fill='none'/><g stroke='#999' stroke-dasharray='4 4'><path d='M96 16 H590'/><path d='M96 42 H590'/><path d='M96 103 H590'/></g><path d='M96 90 H590' stroke='#bbb'/><text x='40' y='20'>+30 mV</text><text x='54' y='46'>0 mV</text><text x='8' y='92'>−55 ngưỡng</text><text x='30' y='107'>−70 nghỉ</text><text x='508' y='120' font-size='11'>thời gian</text></svg>"},
+    {"loai": "bang", "so": 4, "tieu_de": "Truyền tin qua synapse", "khi": "luyện tập",
+     "hoi": "Đánh số 1 đến 5 theo đúng thứ tự xảy ra.",
+     "cot": ["Sự kiện", "Thứ tự"], "w": [null, 24],
+     "dong": ["Chất dẫn truyền gắn vào thụ thể ở màng sau synapse", "Xung thần kinh tới chuỳ synapse", "Túi chứa chất dẫn truyền hoà vào màng trước, giải phóng chất dẫn truyền vào khe synapse", "Ca²⁺ đi vào chuỳ synapse", "Tín hiệu xuất hiện ở neuron kế tiếp"]},
+    {"loai": "hoi", "so": 5, "tieu_de": "Vận dụng", "khi": "cuối giờ",
+     "cau": [{"k": "", "q": "Nha sĩ tiêm thuốc tê lidocaine trước khi nhổ răng. Thuốc chặn kênh Na⁺ trên sợi trục neuron cảm giác ở vùng tiêm. Vì sao em không thấy đau?", "dong": 2}]},
+    {"loai": "tu_danh_gia", "so": 6, "tieu_de": "Tự đánh giá", "khi": "cuối giờ",
+     "dong": ["Em chú thích đúng ít nhất 5/6 bộ phận của neuron và giải thích được vì sao bao myelin giúp xung đi nhanh hơn."]}
+  ],
+  "dap_an": [
+    {"k": "1", "a": "Ý đúng: tín hiệu điện (xung thần kinh) chạy dọc các neuron, từ neuron này sang neuron khác. Chấp nhận “dây thần kinh truyền tín hiệu”; chưa cần đúng thuật ngữ."},
+    {"k": "2", "a": "A. sợi nhánh; B. thân neuron (có nhân); C. sợi trục; D. bao myelin; E. eo Ranvier; F. chuỳ synapse."},
+    {"k": "3", "a": "Đoạn nằm ngang ở −70 mV; tăng dần tới ngưỡng khoảng −55 mV; vọt lên đỉnh khoảng +30 mV; hạ nhanh xuống, có thể thấp hơn −70 mV một chút rồi trở về −70 mV. Cả quá trình chỉ vài mili giây."},
+    {"k": "4", "a": "Theo thứ tự các dòng trên phiếu: 4 – 1 – 3 – 2 – 5. Tức là: xung tới chuỳ → Ca²⁺ vào chuỳ → túi giải phóng chất dẫn truyền → chất dẫn truyền gắn thụ thể → tín hiệu ở neuron kế tiếp."},
+    {"k": "5", "a": "Kênh Na⁺ bị chặn nên điện thế hoạt động không phát sinh và không lan truyền dọc sợi trục cảm giác ở vùng tiêm; tín hiệu đau không về tới não nên không thấy đau. Đạt khi nêu được “xung bị chặn, không truyền về não”."},
+    {"k": "Màn chiếu", "a": "Bốn câu trong bài: sợi nhánh nhận tín hiệu; xung xuất hiện khi điện thế màng vượt ngưỡng khoảng −55 mV; xung nhảy cóc qua các eo Ranvier; chất dẫn truyền được giải phóng từ các túi ở chuỳ synapse."}
+  ],
+  "loi": [
+    ["Cảnh giật, chậm", "Bài tự chuyển sang chế độ nhẹ khi máy yếu. Có thể mở sẵn bằng cách thêm <code>?lite=1</code> vào cuối địa chỉ. Đóng các tab khác."],
+    ["Cảnh đã dừng, muốn xem lại", "Bấm lại bước đó trong danh sách bước, hoặc nút <i>Xem lại từ đầu</i> ở giữa màn hình. Phím <kbd>Space</kbd> phát hoặc dừng."],
+    ["Phòng không có mạng", "Bài chưa có bản offline. Mở bài lúc còn mạng và giữ nguyên tab; cảnh đã tải xong vẫn chạy khi mất mạng."],
+    ["Điện thoại không nối được", "Cả máy tính và điện thoại cần Internet. Nếu mạng trường chặn, dùng bút trình chiếu hoặc phím mũi tên; màn hình giáo viên dạng cửa sổ thứ hai không cần mạng."],
+    ["Cửa sổ giáo viên không mở", "Trình duyệt chặn cửa sổ bật lên: bấm biểu tượng ở thanh địa chỉ, cho phép cửa sổ bật lên rồi thử lại."]
+  ],
+  "nguon": [
+    "OpenStax, Anatomy and Physiology 2e, mục 12.4 The Action Potential (CC BY 4.0): điện thế nghỉ khoảng −70 mV, ngưỡng khoảng −55 mV, đỉnh khoảng +30 mV, dẫn truyền nhảy cóc.",
+    "OpenStax, Anatomy and Physiology 2e, mục 12.5 Communication Between Neurons (CC BY 4.0): Ca²⁺ vào chuỳ synapse, túi giải phóng chất dẫn truyền, thụ thể màng sau.",
+    "Azevedo FAC và cs., J Comp Neurol 2009;513:532–541: khoảng 86 tỉ neuron trong não người.",
+    "Sheets PL, Jarecki BW, Cummins TR. Br J Pharmacol 2011;164(2b):719–730: thuốc tê tại chỗ như lidocaine chặn kênh Na⁺ phụ thuộc điện thế, ngăn điện thế hoạt động lan truyền.",
+    "Yêu cầu cần đạt trích nguyên văn Chương trình môn Sinh học 2018 (Thông tư 32/2018/TT-BGDĐT).",
+    "Cảnh 3D là hình minh hoạ dựng bằng mã, không theo tỉ lệ."
+  ]
+}

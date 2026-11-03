@@ -103,6 +103,16 @@ section{padding:40px 0}
 .tile .ic{width:44px;height:44px;border-radius:var(--bg-r-sm);display:grid;place-items:center;background:var(--bg-page)}
 .tile b{font-size:var(--bg-fs-md)}
 .tile span{color:var(--bg-ink2)}
+.packs{display:grid;grid-template-columns:minmax(0,1.1fr) repeat(3,minmax(0,1fr));gap:20px;margin:0 0 20px;padding:20px;border-radius:var(--bg-r-md);background:var(--bg-surface);box-shadow:var(--bg-sh-1)}
+.packs .ph{display:grid;gap:6px;align-content:start}.packs .ph b{font-size:var(--bg-fs-md)}.packs .ph span{color:var(--bg-ink2)}
+.packs .ph a{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-weight:600;color:var(--bg-ink);text-decoration:none}
+.packs .pk{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center;padding:10px;border-radius:var(--bg-r-sm);background:var(--bg-page);text-decoration:none;color:var(--bg-ink);transition:box-shadow var(--bg-t-mid)}
+.packs .pk:hover{box-shadow:var(--bg-sh-1)}
+.packs .pk img{width:72px;aspect-ratio:1;object-fit:cover;border-radius:10px}
+.packs .pk span{display:block;font-size:var(--bg-fs-xs);font-weight:600;color:var(--bg-ink3)}
+.packs .pk b{font-size:var(--bg-fs-sm);line-height:1.35}
+@media (max-width:1240px){.packs{grid-template-columns:repeat(3,minmax(0,1fr))}.packs .ph{grid-column:1/-1}}
+@media (max-width:980px){.packs{grid-template-columns:1fr}}
 .tile kbd{font:600 var(--bg-fs-xs) var(--bg-mono);background:var(--bg-page);border:1px solid var(--bg-hair);border-radius:6px;padding:1px 6px}
 a.tile:hover{box-shadow:var(--bg-sh-2)}
 /* bộ lọc thư viện */
@@ -190,6 +200,12 @@ html[data-chieu]{--bg-ink2:#141414;--bg-ink3:#262626}
 
   <section id="cho-giao-vien" aria-labelledby="h-gv">
     <div class="sh"><div><h2 id="h-gv">Cho giáo viên</h2><p>Mọi bài 3D lên lớp theo cùng một cách. Học một lần, dùng cho mọi bài.</p></div></div>
+    <div class="packs">
+      <div class="ph"><b>Gói dạy thử 45 phút</b><span>Kịch bản theo phút, phiếu học tập in A4, đáp án. Phút và việc của giáo viên hiện cả trên màn hình giáo viên. Bản thử, chờ giáo viên bộ môn duyệt.</span><a href="__L_GV__">Xem các gói <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <a class="pk" href="__L_GV__te-bao/"><img src="__L_BASE__covers/te-bao.webp" alt="" loading="lazy"><div><span>Sinh học 10</span><b>Hành trình của một phân tử protein tiết</b></div></a>
+      <a class="pk" href="__L_GV__than-kinh/"><img src="__L_BASE__covers/than-kinh.webp" alt="" loading="lazy"><div><span>Sinh học 11</span><b>Xung thần kinh đi như thế nào?</b></div></a>
+      <a class="pk" href="__L_GV__co-loa/"><img src="__L_BASE__covers/co-loa.webp" alt="" loading="lazy"><div><span>Lịch sử 10</span><b>Thành Cổ Loa: đọc văn minh Âu Lạc từ dấu tích</b></div></a>
+    </div>
     <div class="teach">
       <div class="tile"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span><b>Lên lớp trong mọi bài</b><span>Bấm <b>Lên lớp</b> trên thanh đầu bài hoặc <kbd>Shift P</kbd>. Bút trình chiếu và phím mũi tên chuyển bước, <kbd>B</kbd> màn đen, <kbd>F</kbd> toàn màn hình.</span></div>
       <a class="tile" href="__L_REMOTE__"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.75" width="10" height="18.5" rx="2.5"/><path d="M11 18h2"/></svg></span><b>Màn hình giáo viên, điện thoại</b><span>Trong bài: menu <b>Thêm</b> → Màn hình giáo viên (ghi chú, đáp án, bước sau) hoặc quét mã bằng điện thoại.</span></a>

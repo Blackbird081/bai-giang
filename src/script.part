@@ -1473,8 +1473,12 @@ const LESSON = {
     { t: 'Kiểm tra', quiz: true, go: () => { clearSel(); flyHome(); } },
   ],
   quiz: [
+    { pick: 'nucleus', q: 'Bấm vào nơi giữ DNA, nơi gen được phiên mã thành mRNA.', ok: 'Đúng: nhân giữ DNA; mRNA rời nhân qua lỗ nhân.' },
     { pick: 'golgi', q: 'Bấm vào bào quan nơi protein tiết được sửa đổi và đóng gói vào túi.', ok: 'Đúng: bộ máy Golgi sửa đổi, phân loại và đóng gói protein.' },
     { pick: 'er', q: 'Bấm vào nơi chuỗi protein tiết đi vào ngay sau khi rời ribosome.', ok: 'Đúng: chuỗi protein chui qua kênh Sec61 vào lòng lưới nội chất hạt.' },
+    { pick: 'mito', q: 'Bấm vào bào quan tạo ra phần lớn ATP, năng lượng cho dịch mã và cho túi di chuyển.', ok: 'Đúng: ty thể tạo phần lớn ATP của tế bào.' },
+    { opts: ['1 nucleotide', '2 nucleotide', '3 nucleotide'], right: 2, q: 'Ribosome đọc mRNA theo từng codon. Một codon gồm mấy nucleotide?', ok: 'Đúng: mỗi codon gồm 3 nucleotide, nên có 4³ = 64 codon.', no: 'Chưa đúng. Nhớ lại bước tRNA: anticodon khớp với mấy nucleotide trên mRNA?' },
+    { opts: ['Trở thành một phần của màng sinh chất', 'Bị phân huỷ ngay trong bào tương', 'Quay về nhân'], right: 0, q: 'Khi túi tiết hoà vào màng sinh chất để đổ protein ra ngoài, màng của túi đi đâu?', ok: 'Đúng: màng túi nhập vào màng sinh chất. Đó là xuất bào.', no: 'Chưa đúng. Xem lại bước Xuất bào: túi hoà vào màng sinh chất.' },
     { opts: ['Nhân → lưới nội chất hạt → Golgi → túi tiết → màng sinh chất', 'Nhân → Golgi → lưới nội chất hạt → túi tiết → màng sinh chất', 'Nhân → ribosome tự do → ty thể → màng sinh chất'], right: 0, q: 'Thứ tự nào đúng với hành trình của một protein tiết?', ok: 'Đúng: làm ở lưới nội chất hạt, sửa ở Golgi, theo túi tiết ra màng.' },
   ],
 };
@@ -1542,7 +1546,7 @@ function renderQuiz() {
     q.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => {
       const k = +b.dataset.k, fb = $('qFb'); fb.hidden = false;
       if (k === c.right) { b.classList.add('ok'); if (lesson.first) lesson.score++; fb.className = 'fb ok'; fb.textContent = c.ok; q.querySelectorAll('.opt').forEach(x => x.disabled = true); nextQuizSoon(); }
-      else { lesson.first = false; b.classList.add('no'); fb.className = 'fb no'; fb.textContent = 'Chưa đúng. Nhớ lại: protein được làm ở đâu trước, rồi mới tới đâu?'; }
+      else { lesson.first = false; b.classList.add('no'); fb.className = 'fb no'; fb.textContent = c.no || 'Chưa đúng. Nhớ lại: protein được làm ở đâu trước, rồi mới tới đâu?'; }
     }));
   }
 }
@@ -1590,7 +1594,7 @@ if (window.BGShell) BGShell.mount({
   credit: 'Hình khối, vị trí, kích thước bào quan và màu là minh hoạ; chỉ số có nhãn đã kiểm là đã đối chiếu nguồn. Cấu trúc nguyên tử của ribosome và ATP synthase lấy từ Protein Data Bank.',
   objectives: ["Phân tích được mối quan hệ phù hợp giữa cấu tạo và chức năng của thành tế bào (ở tế bào thực vật) và màng sinh chất.", "Nêu được cấu tạo và chức năng của tế bào chất.", "Trình bày được cấu trúc của nhân tế bào và chức năng quan trọng của nhân.", "Phân tích được mối quan hệ giữa cấu tạo và chức năng của các bào quan trong tế bào.", "Trình bày được hiện tượng nhập bào và xuất bào thông qua biến dạng của màng sinh chất. Lấy được ví dụ minh hoạ.", "Dựa vào sơ đồ thông tin giữa các tế bào, trình bày được các quá trình: + Tiếp nhận: Một phân tử truyền tin liên kết vào một protein thụ thể làm thụ thể thay đổi hình dạng; + Truyền tin: các chuỗi tương tác phân tử chuyển tiếp tín hiệu từ các thụ thể tới các phân tử đích trong tế bào; + Đáp ứng: Tế bào phát tín hiệu điều khiển phiên mã, dịch mã hoặc điều hoà hoạt động của tế bào."],
   steps: LESSON.steps.map((s) => s.quiz
-    ? { t: s.t, note: 'Ba câu kiểm tra, học sinh trả lời trên màn chiếu:\n' + LESSON.quiz.map((q, k) => `${k + 1}. ${q.q}\n   Đáp án: ${q.ok}`).join('\n') }
+    ? { t: s.t, note: LESSON.quiz.length + ' câu kiểm tra, học sinh trả lời trên màn chiếu:\n' + LESSON.quiz.map((q, k) => `${k + 1}. ${q.q}\n   Đáp án: ${q.ok}`).join('\n') }
     : { t: s.t, note: s.b + (s.n ? '\n\nGhi chú cho giáo viên: ' + s.n : ''), ask: { q: String(s.a).replace(/<[^>]+>/g, ''), o: [], a: -1 } }),
   go: (i) => { if (!lesson) startLesson(); goStep(i); },
   end: () => { if (lesson) endLesson(); },

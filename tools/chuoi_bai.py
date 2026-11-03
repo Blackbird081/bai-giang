@@ -76,6 +76,13 @@ def build():
             n = lst[k + 1] if k + 1 < len(lst) else None
             put(s, crumb, nxt_lesson(n, f'{mon} · bài {k + 2}/{len(lst)}') if n else {'title': f'Thư viện · {mon}', 'href': f'?mon={sub}#thu-vien', 'sub': 'Các bài khác cùng môn'}, mon, key)
     # bài thư viện trong mạch tế bào: giữ đường dẫn chủ đề Sinh học 10
+    # gói dạy thử (tools/goi-day/*.json, tools/build_goi_day.py): link kịch bản, phút và việc của giáo viên từng bước
+    for f in sorted((ROOT / 'tools/goi-day').glob('*.json')):
+        g = json.loads(f.read_text(encoding='utf-8'))
+        key = path_of(g['id'])
+        if key in out:
+            out[key]['pack'] = f"giao-vien/{g['id']}/"
+            out[key]['plan'] = [{'t': x['t'], 'm': [x['tu'], x['den']], 'gv': x['gv'], 'hs': x['hs']} for x in g['buoc']]
     return out
 
 

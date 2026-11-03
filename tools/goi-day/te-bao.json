@@ -1,0 +1,119 @@
+{
+  "id": "te-bao",
+  "bai": "te-bao/",
+  "ten_bai": "Hành Trình Vào Tế Bào",
+  "ten_tiet": "Hành trình của một phân tử protein tiết",
+  "mon": "Sinh học",
+  "lop": "10",
+  "s": "sinh",
+  "phut": 45,
+  "muc_chuong_trinh": "Sinh học 10 › Sinh học tế bào › Cấu trúc tế bào",
+  "yccd": [
+    "Phân tích được mối quan hệ giữa cấu tạo và chức năng của các bào quan trong tế bào.",
+    "Trình bày được cấu trúc của nhân tế bào và chức năng quan trọng của nhân.",
+    "Trình bày được hiện tượng nhập bào và xuất bào thông qua biến dạng của màng sinh chất. Lấy được ví dụ minh hoạ."
+  ],
+  "hs_lam_duoc": [
+    "Kể đúng thứ tự những nơi một protein tiết đi qua: nhân, lưới nội chất hạt, bộ máy Golgi, túi tiết, màng sinh chất.",
+    "Nêu được việc xảy ra ở mỗi chặng và chỉ ra cấu tạo nào của bào quan giúp nó làm việc đó.",
+    "Giải thích được xuất bào: túi tiết hoà vào màng sinh chất và đổ protein ra ngoài.",
+    "Ước lượng được ribosome nhỏ thế nào so với cả tế bào."
+  ],
+  "chuan_bi": {
+    "gv": [
+      "Máy tính có Chrome hoặc Edge bản mới, nối máy chiếu. Chạy trang Kiểm máy trên chính máy này trước buổi dạy.",
+      "Mở bài một lần trước giờ học và bấm thử tới bước 5, để dữ liệu nguyên tử của ribosome được tải sẵn.",
+      "In phiếu học tập: mỗi học sinh một tờ, hoặc mỗi cặp một tờ."
+    ],
+    "hs": ["Bút. Không cần máy tính hay điện thoại."]
+  },
+  "nhanh": [
+    "Mở bài, bấm <b>Lên lớp</b> trên thanh đầu bài (hoặc phím <kbd>Shift P</kbd>).",
+    "Phòng sáng thì bật menu <b>Thêm</b> → <b>Chế độ Máy chiếu</b> cho chữ to và đậm hơn.",
+    "Menu <b>Thêm</b> → <b>Màn hình giáo viên</b>: cửa sổ này hiện phút dự kiến, việc cần làm, câu hỏi và đáp án của từng bước. Kéo cửa sổ bài sang màn chiếu, giữ cửa sổ giáo viên trên laptop. Hoặc quét mã để dùng điện thoại làm điều khiển.",
+    "Chuyển bước bằng bút trình chiếu, phím mũi tên, hoặc nút trên điện thoại. Phím <kbd>B</kbd> làm màn đen khi cần lớp thảo luận.",
+    "Làm theo cột <b>Giáo viên</b> của kịch bản. Đồng hồ trên màn hình giáo viên chuyển màu cam khi bước đang chậm so với dự kiến."
+  ],
+  "hoat_dong": [
+    {"ten": "Mở đầu", "tu": 0, "den": 5, "buoc": [1], "muc": "Gợi tò mò, để học sinh tự đặt giả thuyết về đường đi của protein.", "san_pham": "Dự đoán ghi ở mục 1 của phiếu."},
+    {"ten": "Hình thành kiến thức", "tu": 5, "den": 33, "buoc": [2, 3, 4, 5, 6, 7, 8, 9, 10], "muc": "Theo một phân tử protein tiết qua từng bào quan; ở mỗi chặng nối cấu tạo với chức năng.", "san_pham": "Bảng năm chặng ở mục 2 và ba câu trả lời ngắn ở mục 3."},
+    {"ten": "Luyện tập", "tu": 33, "den": 40, "buoc": [11], "muc": "Kiểm tra ngay trên cảnh 3D: chỉ đúng bào quan, chọn đúng thứ tự.", "san_pham": "Điểm của cả lớp trên màn chiếu (số câu đúng ngay lần đầu)."},
+    {"ten": "Vận dụng", "tu": 40, "den": 45, "buoc": [11], "muc": "Dùng hành trình vừa học để giải thích một tế bào thật: tế bào tuyến tụy tiết insulin.", "san_pham": "Câu trả lời ở mục 4 và tự đánh giá ở mục 5."}
+  ],
+  "buoc": [
+    {"t": "Câu hỏi mở đầu", "tu": 0, "den": 5,
+     "gv": "Chiếu toàn cảnh tế bào. Nêu tình huống: tế bào tuyến tụy làm ra insulin rồi đưa insulin vào máu. Hỏi: phân tử insulin đi qua những đâu để ra khỏi tế bào? Cho 2 phút, gọi hai em đọc dự đoán, chưa nhận xét đúng sai.",
+     "hs": "Ghi dự đoán vào mục 1 của phiếu."},
+    {"t": "Công thức nằm trong nhân", "tu": 5, "den": 8,
+     "gv": "Phóng vào nhân, chỉ chất nhiễm sắc. Nói gọn: gen trên DNA được phiên mã thành bản sao mRNA. Hỏi câu trên màn chiếu, nghe hai, ba ý.",
+     "hs": "Trả lời miệng. Ghi chặng 1 vào mục 2, trả lời câu 3a."},
+    {"t": "mRNA rời khỏi nhân", "tu": 8, "den": 11,
+     "gv": "Để cả lớp nhìn phân tử mRNA chui qua lỗ nhân. Hỏi: nếu bịt kín mọi lỗ nhân thì sao?",
+     "hs": "Quan sát, trả lời miệng."},
+    {"t": "Lưới nội chất hạt", "tu": 11, "den": 14,
+     "gv": "Chỉ các hạt ribosome trên màng. Nhắc: ribosome đang được vẽ to hơn thật nhiều lần để dễ thấy.",
+     "hs": "Ghi chặng 2 vào mục 2."},
+    {"t": "Phóng tới một ribosome thật", "tu": 14, "den": 17,
+     "gv": "Để camera phóng liền một mạch xuống cấp nguyên tử (khoảng 10 giây), rồi dừng lại hỏi câu ước lượng. Cho 2 phút tính, gọi một em lên bảng.",
+     "hs": "Tính ở câu 3b."},
+    {"t": "tRNA đọc mã trên mRNA", "tu": 17, "den": 20,
+     "gv": "Chỉ tRNA nằm sâu trong ribosome: anticodon khớp với codon trên mRNA nên amino acid được nối đúng thứ tự.",
+     "hs": "Trả lời câu 3c."},
+    {"t": "Chuỗi protein chui vào lưới nội chất", "tu": 20, "den": 23,
+     "gv": "Chỉ chuỗi màu cam đi qua đường hầm và kênh Sec61 vào lòng lưới nội chất. Nói rõ đường đi của chuỗi là ước lượng. Hỏi: nếu kênh Sec61 bị chặn thì sao?",
+     "hs": "Trả lời miệng."},
+    {"t": "Bộ máy Golgi sửa và đóng gói", "tu": 23, "den": 26,
+     "gv": "Chỉ mặt cis và mặt trans. Hỏi hướng đi của protein qua Golgi và màu trong cảnh nói gì về hướng đó.",
+     "hs": "Ghi chặng 3 vào mục 2."},
+    {"t": "Xuất bào", "tu": 26, "den": 29,
+     "gv": "Theo một túi tiết tới màng sinh chất. Hỏi: sau khi túi hoà vào màng, màng của túi đi đâu?",
+     "hs": "Ghi chặng 4 và 5 vào mục 2."},
+    {"t": "Năng lượng cho cả hành trình", "tu": 29, "den": 33,
+     "gv": "Chỉ ty thể và các hạt ATP. Mời một em kể lại cả hành trình trong một câu, cả lớp đối chiếu với dự đoán đầu giờ.",
+     "hs": "Đếm số chặng đoán đúng, ghi vào mục 5."},
+    {"t": "Kiểm tra", "tu": 33, "den": 45,
+     "gv": "Bảy câu trên màn chiếu (33–40 phút). Câu chỉ bào quan: mời một em lên bấm vào mô hình. Câu trắc nghiệm: cả lớp giơ một, hai hoặc ba ngón tay cho A, B, C rồi giáo viên bấm. Màn chiếu báo số câu đúng ngay lần đầu. Phút 40–45: học sinh làm mục 4 của phiếu; thu phiếu hoặc giao về nhà.",
+     "hs": "Trả lời trên màn chiếu, rồi làm mục 4 và 5 của phiếu."}
+  ],
+  "phieu": [
+    {"loai": "chuoi", "so": 1, "tieu_de": "Dự đoán", "khi": "đầu giờ, 2 phút",
+     "hoi": "Theo em, một phân tử protein tiết đi qua những nơi nào, theo thứ tự nào, để ra khỏi tế bào?",
+     "o": ["Nhân", "", "", "", "", "Ngoài tế bào"]},
+    {"loai": "bang", "so": 2, "tieu_de": "Ghi lại hành trình", "khi": "trong giờ",
+     "cot": ["Chặng", "Ở đâu", "Việc gì xảy ra ở đó"], "dong": ["1", "2", "3", "4", "5"]},
+    {"loai": "hoi", "so": 3, "tieu_de": "Nghĩ nhanh", "khi": "trong giờ",
+     "cau": [
+       {"k": "a", "q": "Vì sao tế bào gửi bản sao mRNA ra khỏi nhân mà không gửi chính DNA?", "dong": 2},
+       {"k": "b", "q": "Ribosome rộng khoảng 30 nm, tế bào khoảng 20 µm. Nếu tế bào to bằng lớp học dài 10 m, ribosome to cỡ vật gì? Ghi phép tính.", "dong": 2},
+       {"k": "c", "q": "Một codon gồm mấy nucleotide? Có tất cả bao nhiêu codon khác nhau?", "dong": 1}
+     ]},
+    {"loai": "hoi", "so": 4, "tieu_de": "Vận dụng", "khi": "cuối giờ",
+     "cau": [
+       {"k": "", "q": "Tế bào tuyến tụy tiết rất nhiều insulin, một protein tiết. So với tế bào ít tiết protein, em đoán tế bào này có nhiều hơn những bào quan nào? Giải thích.", "dong": 3}
+     ]},
+    {"loai": "tu_danh_gia", "so": 5, "tieu_de": "Tự đánh giá", "khi": "cuối giờ",
+     "dong": ["So với dự đoán đầu giờ, em đoán đúng ____ / 4 chặng ở giữa.", "Em kể lại được cả hành trình trong một câu.", "Em giải thích được vì sao bào quan ở mỗi chặng làm được việc của nó."]}
+  ],
+  "dap_an": [
+    {"k": "1", "a": "Nhân → lưới nội chất hạt → bộ máy Golgi → túi tiết → màng sinh chất → ngoài tế bào. Chấp nhận ghi “ribosome trên lưới nội chất hạt”."},
+    {"k": "2", "a": "Nhân: gen trên DNA được phiên mã thành mRNA, mRNA ra bào tương qua lỗ nhân. Lưới nội chất hạt: ribosome bám màng dịch mã; chuỗi protein chui qua kênh Sec61 vào lòng lưới nội chất và gấp nếp. Golgi: protein được sửa đổi (thường là gắn chuỗi đường ngắn), phân loại, đóng gói vào túi. Túi tiết: đi dọc vi ống tới màng. Màng sinh chất: túi hoà vào màng, protein ra ngoài tế bào (xuất bào)."},
+    {"k": "3a", "a": "DNA là bản gốc, được giữ an toàn trong nhân và dùng lại nhiều lần; mRNA là bản sao tạm, tế bào làm được nhiều bản sao để nhiều ribosome dịch mã cùng lúc."},
+    {"k": "3b", "a": "20 µm ÷ 30 nm ≈ 670 lần; 10 m ÷ 670 ≈ 1,5 cm, cỡ một viên bi. Kích thước tế bào 20 µm là giả định để ước lượng."},
+    {"k": "3c", "a": "3 nucleotide. Có 4 loại nucleotide, mỗi vị trí có 4 khả năng, nên có 4 × 4 × 4 = 64 codon."},
+    {"k": "4", "a": "Nhiều lưới nội chất hạt (nhiều ribosome bám màng để tổng hợp protein tiết) và nhiều bộ máy Golgi (sửa, đóng gói), nhiều túi tiết. Có thể thêm: nhiều ty thể để cung cấp ATP. Chấm đủ ý khi có lưới nội chất hạt và Golgi kèm lí do."},
+    {"k": "Màn chiếu", "a": "Bảy câu kiểm tra trong cảnh 3D: nhân, lưới nội chất hạt, Golgi, ty thể (bấm vào mô hình); codon gồm 3 nucleotide; màng túi tiết trở thành một phần của màng sinh chất; thứ tự nhân → lưới nội chất hạt → Golgi → túi tiết → màng sinh chất."}
+  ],
+  "loi": [
+    ["Cảnh giật, chậm", "Bài tự chuyển sang chế độ nhẹ khi máy yếu. Có thể mở sẵn bằng cách thêm <code>?lite=1</code> vào cuối địa chỉ. Đóng các tab khác."],
+    ["Bước 5 tải lâu", "Lần đầu phải tải dữ liệu nguyên tử của ribosome. Mở thử bước 5 một lần lúc chuẩn bị để trình duyệt lưu sẵn."],
+    ["Phòng không có mạng", "Dùng bản offline: một tệp HTML, chép vào máy và mở bằng trình duyệt."],
+    ["Điện thoại không nối được", "Cả máy tính và điện thoại cần Internet. Nếu mạng trường chặn, dùng bút trình chiếu hoặc phím mũi tên; màn hình giáo viên dạng cửa sổ thứ hai không cần mạng."],
+    ["Cửa sổ giáo viên không mở", "Trình duyệt chặn cửa sổ bật lên: bấm biểu tượng ở thanh địa chỉ, cho phép cửa sổ bật lên rồi thử lại."]
+  ],
+  "nguon": [
+    "OpenStax, Biology 2e, mục 4.4 The Endomembrane System and Proteins (CC BY 4.0): lưới nội chất hạt và Golgi nhiều ở tế bào tiết protein; túi tiết hoà vào màng sinh chất.",
+    "OpenStax, Biology 2e, mục 15.1 The Genetic Code (CC BY 4.0): codon gồm 3 nucleotide, 64 codon.",
+    "Voorhees RM và cs., Cell 2014, doi:10.1016/j.cell.2014.05.024: cấu trúc ribosome và kênh Sec61 (PDB 3J7R) dùng trong cảnh 3D.",
+    "Yêu cầu cần đạt trích nguyên văn Chương trình môn Sinh học 2018 (Thông tư 32/2018/TT-BGDĐT)."
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "id": "co-loa",
+  "bai": "lich-su-10/co-loa/",
+  "ten_bai": "Thành Cổ Loa",
+  "ten_tiet": "Thành Cổ Loa: đọc văn minh Âu Lạc từ dấu tích",
+  "mon": "Lịch sử",
+  "lop": "10",
+  "s": "su",
+  "phut": 45,
+  "muc_chuong_trinh": "Lịch sử 10 › Một số nền văn minh trên đất nước Việt Nam trước 1858 › Văn minh Văn Lang – Âu Lạc",
+  "yccd": [
+    "Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Văn Lang - Âu Lạc.",
+    "Phân tích được cơ sở hình thành văn minh Văn Lang - Âu Lạc.",
+    "Nêu được những thành tựu tiêu biểu của nền văn minh Văn Lang - Âu Lạc về đời sống vật chất, đời sống tinh thần, tổ chức xã hội, Nhà nước."
+  ],
+  "hs_lam_duoc": [
+    "Chỉ ra được các điều kiện tự nhiên và kinh tế giúp Cổ Loa thành kinh đô: đất cao, sông nước, đồng lúa, nghề đúc đồng.",
+    "Phân biệt được tư liệu khảo cổ với tư liệu sử cũ, truyền thuyết, và nói được mỗi loại cho biết điều gì.",
+    "Xếp được các dấu tích vào thành tựu về đời sống vật chất, đời sống tinh thần, tổ chức xã hội và Nhà nước.",
+    "Giải thích được vì sao việc đắp thành Cổ Loa là dấu hiệu của một Nhà nước."
+  ],
+  "chuan_bi": {
+    "gv": [
+      "Máy tính có Chrome hoặc Edge bản mới, nối máy chiếu. Chạy trang Kiểm máy trên chính máy này trước buổi dạy.",
+      "Mở bài một lần trước giờ học, bấm qua đủ 10 bước để cảnh và bản đồ được tải sẵn. Bài này chưa có bản offline.",
+      "In phiếu học tập: mỗi học sinh một tờ, hoặc mỗi nhóm hai em một tờ."
+    ],
+    "hs": ["Bút. Không cần máy tính hay điện thoại."]
+  },
+  "nhanh": [
+    "Mở bài, bấm <b>Lên lớp</b> trên thanh đầu bài (hoặc phím <kbd>Shift P</kbd>). Bảng <b>Thông tin</b> bên phải hiện lời giảng, số đo và nguồn của từng bước.",
+    "Phòng sáng thì bật menu <b>Thêm</b> → <b>Chế độ Máy chiếu</b> cho chữ to và đậm hơn.",
+    "Menu <b>Thêm</b> → <b>Màn hình giáo viên</b>: cửa sổ này hiện phút dự kiến, việc cần làm, câu hỏi và đáp án của từng bước. Kéo cửa sổ bài sang màn chiếu, giữ cửa sổ giáo viên trên laptop. Hoặc quét mã để dùng điện thoại làm điều khiển.",
+    "Chuyển bước bằng bút trình chiếu, phím mũi tên, hoặc nút trên điện thoại. Phím <kbd>B</kbd> làm màn đen khi cần lớp thảo luận nhóm.",
+    "Làm theo cột <b>Giáo viên</b> của kịch bản. Đồng hồ trên màn hình giáo viên chuyển màu cam khi bước đang chậm so với dự kiến."
+  ],
+  "hoat_dong": [
+    {"ten": "Mở đầu", "tu": 0, "den": 6, "buoc": [1], "muc": "Đặt học sinh vào vai người chọn đất đóng đô, từ đó tự tìm ra cơ sở hình thành văn minh.", "san_pham": "Hai điều kiện ghi ở mục 1 của phiếu."},
+    {"ten": "Hình thành kiến thức", "tu": 6, "den": 37, "buoc": [2, 3, 4, 5, 6, 7, 8, 9], "muc": "Đọc từng loại dấu tích trên cảnh 3D: lũy, hào, kho mũi tên, khuôn đúc, trống đồng; tách bằng chứng khảo cổ khỏi truyền thuyết.", "san_pham": "Bảng tư liệu ở mục 2 và hai câu trả lời ở mục 3."},
+    {"ten": "Luyện tập", "tu": 37, "den": 41, "buoc": [10], "muc": "Kiểm tra cách đọc niên đại và cách dùng bằng chứng.", "san_pham": "Câu trả lời của cả lớp cho câu hỏi trên màn chiếu."},
+    {"ten": "Vận dụng", "tu": 41, "den": 45, "buoc": [10], "muc": "Dùng tư liệu đúng cách: viết lời giới thiệu Cổ Loa có bằng chứng và ghi nguồn.", "san_pham": "Đoạn giới thiệu ở mục 4 và tự đánh giá ở mục 5."}
+  ],
+  "buoc": [
+    {"t": "Một kinh đô ở đỉnh châu thổ", "tu": 0, "den": 6,
+     "gv": "Chiếu toàn cảnh, chưa đọc lời giảng. Hỏi: nếu là thủ lĩnh Âu Lạc, em chọn đặt kinh đô ở nơi thế nào? Cho 2 phút ghi hai điều kiện. Gọi vài em, rồi đọc lời giảng: đất cao, sông, ruộng lúa, nghề đồng. Chốt: đó là cơ sở hình thành văn minh.",
+     "hs": "Ghi hai điều kiện vào mục 1, so với lời giảng."},
+    {"t": "Lũy sớm nhất", "tu": 6, "den": 9,
+     "gv": "Chỉ hố khai quật cắt ngang lũy thành Trung. Nhấn mạnh: đáy lũy sớm nhất có niên đại C14 khoảng thế kỷ IV TCN, bên dưới còn dấu vết phòng thủ của cư dân Đông Sơn. Thành không mọc lên trong một ngày.",
+     "hs": "Nghe, quan sát mặt cắt."},
+    {"t": "Thành Trung, lũy chính", "tu": 9, "den": 13,
+     "gv": "Mở thẻ thành Trung để xem mặt cắt đúng tỉ lệ (lũy rộng 21,5 m, cao 4,5 m; hào rộng 12 m). Cho cả lớp trả lời câu hỏi trên màn chiếu bằng cách giơ tay.",
+     "hs": "Trả lời câu hỏi. Ghi dòng 1 của mục 2."},
+    {"t": "Nước cũng là một phần của thành", "tu": 13, "den": 16,
+     "gv": "Chỉ sông Hoàng Giang và hệ hào nối nhau. Hỏi: hào nước vừa giúp phòng thủ, vừa giúp gì nữa?",
+     "hs": "Trả lời miệng: thuyền bè đi lại, giao thương."},
+    {"t": "Thành Nội: câu hỏi còn mở", "tu": 16, "den": 19,
+     "gv": "Chỉ hình chữ nhật đều của thành Nội. Nói rõ: niên đại vòng này còn tranh luận. Dạy học sinh nói “có ý kiến cho rằng” khi bằng chứng chưa ngã ngũ.",
+     "hs": "Nghe; ghi “còn tranh luận” bên cạnh thành Nội nếu cần."},
+    {"t": "Sức người đắp thành", "tu": 19, "den": 24,
+     "gv": "Nêu hai con số: khoảng 2,2 triệu m³ đất đào đắp; riêng lũy giai đoạn sớm cần hơn 5 triệu ngày công. Bấm B (màn đen), cho cặp đôi thảo luận 2 phút: huy động chừng ấy sức người cần những gì?",
+     "hs": "Thảo luận cặp, trả lời câu 3a."},
+    {"t": "Mũi tên và khuôn đúc", "tu": 24, "den": 27,
+     "gv": "Chỉ kho Cầu Vực (khoảng 10.000 mũi tên đồng, 93 kg) và khuôn đúc ở Đền Thượng. Hỏi: khuôn đúc cho biết thêm điều gì mà kho mũi tên không cho biết?",
+     "hs": "Ghi dòng 2 và 3 của mục 2."},
+    {"t": "Trống đồng và lưỡi cày", "tu": 27, "den": 31,
+     "gv": "Chỉ trống Mả Tre chứa hiện vật đồng, nhiều nhất là lưỡi cày. Lưu ý các nguồn ghi số lượng khác nhau: khi dùng tư liệu phải ghi rõ nguồn.",
+     "hs": "Ghi dòng 4 của mục 2."},
+    {"t": "Truyền thuyết và bằng chứng", "tu": 31, "den": 37,
+     "gv": "Đặt cạnh nhau: sử cũ kể 9 vòng xoáy ốc, dấu tích hiện còn là 3 vòng có hào. Cho cả lớp trả lời câu hỏi trên màn chiếu. Hỏi: truyền thuyết có vô ích không? (Không: nó cho biết người xưa nhớ và nghĩ gì.)",
+     "hs": "Trả lời câu hỏi. Ghi dòng 5 của mục 2, trả lời câu 3b."},
+    {"t": "Cổ Loa hôm nay", "tu": 37, "den": 45,
+     "gv": "Câu hỏi cuối trên màn chiếu (37–41 phút): cả lớp giơ một, hai hoặc ba ngón tay cho A, B, C rồi giáo viên bấm. Phút 41–45: học sinh viết mục 4; mời một em đọc. Thu phiếu hoặc giao hoàn thành ở nhà.",
+     "hs": "Trả lời câu hỏi, viết mục 4 và tự đánh giá mục 5."}
+  ],
+  "phieu": [
+    {"loai": "hoi", "so": 1, "tieu_de": "Nếu em là thủ lĩnh", "khi": "đầu giờ, 2 phút",
+     "cau": [{"k": "", "q": "Em chọn đặt kinh đô ở nơi thế nào? Nêu hai điều kiện và lí do.", "dong": 2}]},
+    {"loai": "bang", "so": 2, "tieu_de": "Tư liệu nói gì?", "khi": "trong giờ",
+     "hoi": "Ghi loại tư liệu (khảo cổ hay sử cũ, truyền thuyết) và điều nó cho biết về văn minh Âu Lạc: thuộc thành tựu nào?",
+     "cot": ["Tư liệu", "Loại", "Cho biết điều gì, thuộc thành tựu nào"], "w": [72, 24, null],
+     "dong": ["Niên đại C14 của lũy thành Trung", "Kho khoảng 10.000 mũi tên đồng ở Cầu Vực", "Khuôn đá đúc mũi tên ở Đền Thượng", "Trống đồng Mả Tre chứa nhiều lưỡi cày", "Chuyện thành 9 vòng xoáy ốc và nỏ thần"]},
+    {"loai": "hoi", "so": 3, "tieu_de": "Nghĩ nhanh", "khi": "trong giờ",
+     "cau": [
+       {"k": "a", "q": "Vì sao việc đắp thành Cổ Loa được xem là dấu hiệu của một Nhà nước?", "dong": 2},
+       {"k": "b", "q": "Vì sao không nên nói thành Cổ Loa “được xây xong năm 257 TCN”?", "dong": 2}
+     ]},
+    {"loai": "hoi", "so": 4, "tieu_de": "Vận dụng", "khi": "cuối giờ",
+     "cau": [{"k": "", "q": "Viết 3–4 câu giới thiệu Cổ Loa cho khách tham quan. Có ít nhất một bằng chứng khảo cổ kèm số liệu, và ghi nguồn của bằng chứng đó.", "dong": 3}]},
+    {"loai": "tu_danh_gia", "so": 5, "tieu_de": "Tự đánh giá", "khi": "cuối giờ",
+     "dong": ["Em phân biệt được bằng chứng khảo cổ với truyền thuyết.", "Em nêu được ít nhất ba thành tựu của văn minh Âu Lạc kèm bằng chứng.", "Em ghi nguồn khi dùng một con số."]}
+  ],
+  "dap_an": [
+    {"k": "1", "a": "Ý hợp lí: đất cao ráo tránh lụt; gần sông để đi lại, phòng thủ; đồng ruộng màu mỡ nuôi được nhiều người; gần nơi có nghề đúc đồng làm công cụ, vũ khí."},
+    {"k": "2", "a": "C14 lũy thành Trung: khảo cổ; lũy chính đắp khoảng 300–100 TCN, đáy sớm nhất khoảng thế kỷ IV TCN, thành đắp qua nhiều giai đoạn (tổ chức xã hội, Nhà nước). Kho mũi tên: khảo cổ; kĩ thuật đúc đồng, sức mạnh quân sự (vật chất, Nhà nước). Khuôn đúc: khảo cổ; vũ khí được sản xuất hàng loạt ngay tại kinh đô (vật chất, Nhà nước). Trống Mả Tre và lưỡi cày: khảo cổ; nông nghiệp dùng cày (vật chất), trống gắn lễ hội (tinh thần). Chín vòng xoáy ốc, nỏ thần: sử cũ, truyền thuyết; cho biết người xưa nhớ và nghĩ gì về Cổ Loa, phải đối chiếu với dấu tích (3 vòng)."},
+    {"k": "3a", "a": "Khối lượng đất khoảng 2,2 triệu m³, riêng lũy sớm cần hơn 5 triệu ngày công: phải có bộ máy huy động, nuôi và điều phối rất nhiều người, tức là có quyền lực tập trung."},
+    {"k": "3b", "a": "Niên đại C14 cho một khoảng thời gian, không cho một năm; lũy được đắp qua nhiều giai đoạn; năm 257 TCN là mốc theo sử cũ. Có thể nói: lũy chính phù hợp với khung thời gian Âu Lạc."},
+    {"k": "4", "a": "Đạt khi có: ít nhất một bằng chứng khảo cổ cụ thể (ví dụ khoảng 10.000 mũi tên đồng ở Cầu Vực, hay ba vòng thành có hào), có ghi nguồn, và không trình bày truyền thuyết như sự thật."},
+    {"k": "Màn chiếu", "a": "Ba câu trong bài: niên đại dựa vào C14 của mẫu trong lớp đất đắp; dấu tích hiện còn là 3 vòng khép kín, mỗi vòng có hào; lũy chính thành Trung đắp khoảng 300–100 TCN, không chỉ ra năm cụ thể."}
+  ],
+  "loi": [
+    ["Cảnh giật, chậm", "Bài tự chuyển sang chế độ nhẹ khi máy yếu. Có thể mở sẵn bằng cách thêm <code>?lite=1</code> vào cuối địa chỉ. Đóng các tab khác."],
+    ["Phòng không có mạng", "Bài này chưa có bản offline. Mở bài lúc còn mạng, bấm qua đủ 10 bước và giữ nguyên tab; cảnh đã tải xong vẫn chạy khi mất mạng."],
+    ["Không thấy số đo, nguồn", "Mở bảng <b>Thông tin</b> trên thanh đầu bài (hoặc menu <b>Thêm</b> trên điện thoại)."],
+    ["Điện thoại không nối được", "Cả máy tính và điện thoại cần Internet. Nếu mạng trường chặn, dùng bút trình chiếu hoặc phím mũi tên; màn hình giáo viên dạng cửa sổ thứ hai không cần mạng."],
+    ["Cửa sổ giáo viên không mở", "Trình duyệt chặn cửa sổ bật lên: bấm biểu tượng ở thanh địa chỉ, cho phép cửa sổ bật lên rồi thử lại."]
+  ],
+  "nguon": [
+    "Kim NC, Lai VT, Trinh HH. Co Loa: an investigation of Vietnam's ancient capital. Antiquity 2010;84(326):1011–1027.",
+    "Hilgers L. Vietnam's First City. Archaeology, Jul/Aug 2016 (phỏng vấn Nam C. Kim): niên đại lũy, số ngày công.",
+    "Wikipedia tiếng Việt, Thành Cổ Loa (dẫn Viện Sử học 1991): số đo lũy, hào, khối lượng đất.",
+    "Báo Nhân Dân, Mũi tên đồng Cổ Loa: từ huyền thoại đến lịch sử; VietnamPlus 6/1/2021: khuôn đúc mũi tên là bảo vật quốc gia.",
+    "Trung tâm Bảo tồn Di sản Thăng Long – Hà Nội: trống đồng Mả Tre.",
+    "Đại Việt sử ký toàn thư, Ngoại kỷ, kỷ An Dương Vương: thành chín vòng xoáy ốc.",
+    "Yêu cầu cần đạt trích nguyên văn Chương trình môn Lịch sử 2018 (Thông tư 32/2018, sửa đổi bởi Thông tư 13/2022 và 17/2025)."
+  ]
+}

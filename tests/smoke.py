@@ -12,7 +12,8 @@ PORT = sys.argv[1] if len(sys.argv) > 1 else '8777'
 # (đường dẫn, có vỏ bài học không)
 PAGES = [('', False), ('chu-de/sinh-hoc-te-bao/', False), ('lich-su-10/', False), ('robotics/', False), ('kiem-may/', False),
          ('dieu-khien/', False), ('thu-vien/enzyme-step.html', True), ('thu-vien/titration-step.html', True),
-         ('robotics/ur5e/', True), ('ty-the/', True), ('te-bao/', True), ('lich-su-10/co-loa/', True), ('co-the-nguoi/', True), ('than-kinh/', True)]
+         ('robotics/ur5e/', True), ('ty-the/', True), ('te-bao/', True), ('lich-su-10/co-loa/', True), ('co-the-nguoi/', True), ('than-kinh/', True),
+         ('giao-vien/', False), ('giao-vien/te-bao/', False), ('giao-vien/than-kinh/', False), ('giao-vien/co-loa/', False)]
 IGNORE = ('WebGPU', 'GPU stall', 'Automatic fallback', 'favicon', 'ERR_NAME_NOT_RESOLVED')
 
 
@@ -28,6 +29,10 @@ async def check(b, path, shell):
             await pg.wait_for_function("document.body.classList.contains('bgs-on')", timeout=240000)
         except Exception:
             ok = False; errs.append('vỏ không gắn được trong 240 giây')
+        else:
+            # gói dạy thử (tools/goi-day): tên bước trong kịch bản phải khớp từng bước của bài, nếu không màn hình giáo viên hiện sai phút
+            bad = await pg.evaluate("(() => { const P = window.BG_SEQ && BG_SEQ.plan; if (!P) return null; const S = BGShell.state.lesson.steps; if (P.length !== S.length) return `kịch bản ${P.length} bước, bài ${S.length} bước`; const k = S.findIndex((s, i) => s.t !== P[i].t); return k < 0 ? null : `bước ${k + 1}: bài “${S[k].t}”, kịch bản “${P[k].t}”`; })()")
+            if bad: errs.append('gói dạy lệch với bài: ' + bad)
     else:
         await asyncio.sleep(2)
     private = await pg.evaluate("[...document.querySelectorAll('a[href*=\"claude.ai/\"]')].length")

@@ -13,7 +13,7 @@
 (function () {
   'use strict';
   if (window.BGShell && window.BGShell.version) return;
-  const VERSION = '2.0.0';
+  const VERSION = '2.1.0';
   const SITE = 'https://nclamvn.github.io/bai-giang/';
   const REMOTE_URL = SITE + 'dieu-khien/';
   const PEERJS = 'https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js';
@@ -159,7 +159,7 @@
   }
   function snapshot() {
     const L = S.L;
-    return { t: 'state', v: VERSION, lesson: L ? { id: L.id, title: L.title, subject: L.subject || '', variant: S.variant, accent: L.accent || '', objectives: L.objectives || [], next: L.next || null, steps: (L.steps || []).map((s) => ({ t: s.t, note: s.note || '', ask: s.ask || null })) } : null,
+    return { t: 'state', v: VERSION, lesson: L ? { id: L.id, title: L.title, subject: L.subject || '', variant: S.variant, accent: L.accent || '', objectives: L.objectives || [], next: L.next || null, pack: L.pack || '', steps: (L.steps || []).map((s, k) => ({ t: s.t, note: s.note || '', ask: s.ask || null, plan: L.plan && L.plan[k] && L.plan[k].t === s.t ? L.plan[k] : null })) } : null,
       i: S.i, on: S.on, black: S.black, elapsed: S.on ? Date.now() - S.t0 : 0 };
   }
   function broadcast() { if (S.relayout) S.relayout(); const m = snapshot(); for (const l of S.links) { try { l.send(m); } catch (e) { S.links.delete(l); } } render(); }
@@ -268,6 +268,7 @@
     menu.innerHTML = `
       ${L.next ? `<a class="bgs-mi" role="menuitem" data-next href="${esc(L.next.href)}">${ico('arrow-r')}<span>Bài tiếp theo<br><span class="bgs-small">${esc(L.next.title)}</span></span></a><div class="bgs-hr"></div>` : ''}
       ${pn}${pn ? '<div class="bgs-hr"></div>' : ''}
+      ${L.pack ? `<a class="bgs-mi" role="menuitem" href="${esc(L.pack)}" target="_blank" rel="noopener">${ico('list')}<span>Kịch bản và phiếu in<br><span class="bgs-small">Gói dạy thử 45 phút</span></span></a><div class="bgs-hr"></div>` : ''}
       ${hasSteps && !phone ? `<div class="bgs-mh">Lên lớp</div>
       <button class="bgs-mi" role="menuitem" data-a="window">${ico('screen')}Màn hình giáo viên<span class="i2">không cần mạng</span></button>
       <button class="bgs-mi" role="menuitem" data-a="phone">${ico('phone')}Điều khiển bằng điện thoại</button>` : ''}
@@ -470,6 +471,12 @@
       .k{font:600 var(--bg-fs-xs) var(--bg-mono);color:var(--bg-ink3);font-variant-numeric:tabular-nums}
       .now h2{margin:4px 0 8px;font-size:var(--bg-fs-xl);line-height:1.2;letter-spacing:-.015em}
       .note{color:var(--bg-ink2);white-space:pre-wrap;font-size:var(--bg-fs-md);line-height:1.55}
+      .plan{margin:0 0 14px;padding:12px 14px;border-radius:var(--bg-r-md);background:color-mix(in srgb,var(--bg-accent,#1E2A44) 7%,var(--bg-surface));border:1px solid color-mix(in srgb,var(--bg-accent,#1E2A44) 22%,transparent)}
+      .plan b{display:block;font-size:var(--bg-fs-sm);color:var(--bg-accent,#1E2A44)}
+      .plan p{margin:4px 0 0;font-size:var(--bg-fs-md);line-height:1.5}
+      .plan p.h{color:var(--bg-ink2)}
+      .clock.late{color:var(--bg-warn,#B26A1A)}
+      .pk{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;font-weight:600;color:var(--bg-accent,#1E2A44)}
       .ask{margin-top:14px;border-radius:var(--bg-r-md);padding:14px 16px;background:color-mix(in srgb,var(--bg-warn) 10%,var(--bg-surface));border:1px solid color-mix(in srgb,var(--bg-warn) 30%,transparent)}
       .ask b{display:block;margin-bottom:4px}
       .ask ol{margin:8px 0 0;padding-left:22px}.ask li{margin:2px 0}
@@ -530,7 +537,7 @@
       if (['ArrowLeft', 'PageUp', 'ArrowUp'].includes(e.key)) { e.preventDefault(); send({ t: 'prev' }); }
       if (e.key === 'b' || e.key === 'B' || e.key === '.') send({ t: 'black' });
     });
-    setInterval(() => { if (last && last.on) $('clk').textContent = fmt(Date.now() - t0); }, 1000);
+    setInterval(() => { if (!last || !last.on) return; const ms = Date.now() - t0, p = last.lesson && last.lesson.steps[last.i] && last.lesson.steps[last.i].plan; $('clk').textContent = fmt(ms); $('clk').classList.toggle('late', !!p && ms / 60000 > p.m[1]); }, 1000);
     const conn = (txt, ok) => { const c = $('conn'); c.textContent = txt || ''; c.className = 'conn' + (txt ? ' show' : '') + (ok ? ' ok' : ''); };
     port.onMessage((m) => {
       if (!m || m.t !== 'state') return;
@@ -543,11 +550,13 @@
       $('bB').classList.toggle('on', !!m.black); $('bB').innerHTML = `${I('black')}${m.black ? 'Bật lại màn chiếu' : 'Màn đen'}`;
       const s = L.steps[m.i] || L.steps[0] || {}, nx = L.steps[m.i + 1];
       const ask = s.ask && s.ask.q ? `<div class="ask" id="ask"><b>Câu hỏi cho lớp</b>${esc(s.ask.q)}${s.ask.o && s.ask.o.length ? `<ol type="A">${s.ask.o.map((o, k) => `<li class="${k === s.ask.a ? 'a' : ''}">${esc(o)}${k === s.ask.a ? ' ✓' : ''}</li>`).join('')}</ol><button class="rb" id="rb">Hiện đáp án</button>` : ''}${s.ask.e ? `<div class="e">${esc(s.ask.e)}</div>` : ''}</div>` : '';
-      $('main').innerHTML = `<section class="now"><div class="k">Bước ${m.i + 1}/${L.steps.length}${m.on ? '' : ' · chưa bắt đầu'}</div><h2>${esc(s.t)}</h2><div class="note">${esc(s.note) || '<span style="color:var(--bg-ink3)">Bước này chưa có ghi chú.</span>'}</div>${ask}
+      const P = s.plan, plan = P ? `<div class="plan"><b>Kịch bản · phút ${P.m[0]}–${P.m[1]}</b><p>${esc(P.gv)}</p>${P.hs ? `<p class="h">Học sinh: ${esc(P.hs)}</p>` : ''}</div>` : '';
+      $('main').innerHTML = `<section class="now"><div class="k">Bước ${m.i + 1}/${L.steps.length}${P ? ` · phút ${P.m[0]}–${P.m[1]}` : ''}${m.on ? '' : ' · chưa bắt đầu'}</div><h2>${esc(s.t)}</h2>${plan}<div class="note">${esc(s.note) || '<span style="color:var(--bg-ink3)">Bước này chưa có ghi chú.</span>'}</div>${ask}
         ${nx ? `<div class="nx"><span class="k">Tiếp theo</span><br><b>${esc(nx.t)}</b></div>` : L.next ? `<div class="nx"><span class="k">Hết bài · Bài tiếp theo</span><br><b>${esc(L.next.title)}</b></div>` : ''}</section>
-        ${L.objectives && L.objectives.length ? `<details><summary>Yêu cầu cần đạt</summary><ul class="obj">${L.objectives.map((o) => `<li>${esc(o)}</li>`).join('')}</ul></details>` : ''}`;
+        ${L.objectives && L.objectives.length ? `<details><summary>Yêu cầu cần đạt</summary><ul class="obj">${L.objectives.map((o) => `<li>${esc(o)}</li>`).join('')}</ul></details>` : ''}
+        ${L.pack ? `<a class="pk" href="${esc(L.pack)}" target="_blank" rel="noopener">Kịch bản và phiếu in ›</a>` : ''}`;
       const rb = $('rb'); if (rb) rb.onclick = () => $('ask').classList.add('rev');
-      $('list').innerHTML = `<div class="k" style="padding:8px 12px">${L.steps.length} bước</div><ol class="steps">${L.steps.map((x, k) => `<li class="${k === m.i ? 'cur' : ''}" data-i="${k}"><b>${k + 1}</b><span>${esc(x.t)}</span>${x.ask ? '<span class="q">câu hỏi</span>' : ''}</li>`).join('')}</ol>`;
+      $('list').innerHTML = `<div class="k" style="padding:8px 12px">${L.steps.length} bước</div><ol class="steps">${L.steps.map((x, k) => `<li class="${k === m.i ? 'cur' : ''}" data-i="${k}"><b>${k + 1}</b><span>${esc(x.t)}${x.plan ? ` <span class="q">${x.plan.m[0]}′</span>` : ''}</span>${x.ask ? '<span class="q">câu hỏi</span>' : ''}</li>`).join('')}</ol>`;
       $('list').querySelectorAll('li[data-i]').forEach((li) => { li.onclick = () => send({ t: 'go', i: +li.dataset.i }); });
       const cur = $('list').querySelector('.cur'); if (cur) cur.scrollIntoView({ block: 'nearest' });
       if (!fresh && m.i !== prevI) { $('main').scrollTop = 0; try { if (kind !== 'window' && navigator.vibrate) navigator.vibrate(10); } catch (e) { /* bỏ qua */ } }
@@ -615,6 +624,9 @@
       if (!L.crumb && Q.crumb) L.crumb = Q.crumb.map((c) => ({ t: c.t, href: c.href ? fix(c.href) : '' }));
       if (L.next === undefined && Q.next) L.next = Object.assign({}, Q.next, { href: fix(Q.next.href) });
       if (!L.accent && Q.s && SUBJECT[Q.s]) L.accent = SUBJECT[Q.s];
+      // gói dạy thử (tools/build_goi_day.py): trang kịch bản, phiếu in; phút dự kiến và việc của giáo viên từng bước
+      if (L.pack === undefined && Q.pack) { try { L.pack = new URL(fix(Q.pack), location.href).href; } catch (e) { L.pack = fix(Q.pack); } }
+      if (!L.plan && Q.plan) L.plan = Q.plan;
     }
     const H = document.documentElement;
     H.dataset.bgVariant = S.variant;

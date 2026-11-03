@@ -359,7 +359,7 @@ addEventListener('keydown', (e) => { if (e.code === 'Space' && !e.target.closest
 if (!FILM) (function mount(n) {
   if (!window.BGShell) return n < 100 && setTimeout(() => mount(n + 1), 100);
   BGShell.mount({ id: 'than-kinh', title: 'Neuron và xung thần kinh', subject: 'Sinh học 11', nav: true,
-    objectives: ['Mô tả được cấu tạo neuron: thân, sợi nhánh, sợi trục, bao myelin, chuỳ synapse', 'Giải thích được điện thế nghỉ, điện thế hoạt động và sự lan truyền xung thần kinh', 'Trình bày được quá trình truyền tin qua synapse hoá học'],
+    objectives: ['Dựa vào hình vẽ, nêu được cấu tạo và chức năng của tế bào thần kinh.', 'Dựa vào sơ đồ, mô tả được cấu tạo synapse và quá trình truyền tin qua synapse.', 'Vận dụng hiểu biết về hệ thần kinh để giải thích được cơ chế giảm đau khi uống và tiêm thuốc giảm đau.'],
     keys: [['Space', 'phát, tạm dừng'], ['← →', 'cảnh trước, cảnh sau']],
     steps: SHOTS.map((s) => ({ t: s.h, note: s.p + '\n' + s.s, ask: s.ask })),
     go: (i) => { t = SHOTS[i].a + 0.3; stopAt = SHOTS[i].b; playing = true; $('bPlay').textContent = 'Tạm dừng'; showAsk(i); },

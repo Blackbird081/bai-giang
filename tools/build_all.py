@@ -5,7 +5,7 @@
   python3 tools/build_all.py --check    dựng rồi báo lỗi nếu tệp đã dựng trong git lệch với nguồn (CI dùng)
   python3 tools/build_all.py --skip=robotics,thu-vien
 
-Thứ tự: token và phông → bài Tế Bào (ghép src/) → Ty Thể, Cổ Loa → robotics → 54 bài thư viện → trang mục.
+Thứ tự: token và phông → bài Tế Bào (ghép src/) → Ty Thể, Cổ Loa, Cơ thể người, Neuron → gói dạy thử → robotics → 54 bài thư viện → trang mục.
 Mọi bước chạy lại bao nhiêu lần cũng được. Ty Thể là bài viết tay một tệp: ty-the/index.html vừa là nguồn vừa là đầu ra;
 chỉ các khối nhúng (vỏ, import map) được thay.
 Bản offline không dựng ở đây: xem .github/workflows/offline-release.yml (đẩy thẻ offline-* để phát hành).
@@ -21,6 +21,7 @@ STEPS = [
     ('co-loa', [[PY, 'tools/build_co_loa.py']]),
     ('co-the-nguoi', [[PY, 'tools/co-the-nguoi/build.py']]),
     ('than-kinh', [[PY, 'tools/build_than_kinh.py']]),
+    ('goi-day', [[PY, 'tools/build_goi_day.py']]),
     ('robotics', [['node', 'build.mjs', '__cwd__tools/robotics'], [PY, 'tools/robotics/build_hub.py']]),
     ('thu-vien', [[PY, 'tools/house_thu_vien.py']]),
     ('trang-muc', [[PY, 'tools/build_ls10.py'], [PY, 'tools/build_pages.py']]),

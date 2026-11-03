@@ -30,7 +30,7 @@ def pages(group):
     hub = [('trang-chinh', ''), ('chu-de-te-bao', 'chu-de/sinh-hoc-te-bao/'), ('lich-su-10', 'lich-su-10/'), ('robotics', 'robotics/')]
     bespoke = [('te-bao', 'te-bao/'), ('ty-the', 'ty-the/'), ('co-loa', 'lich-su-10/co-loa/'), ('co-the-nguoi', 'co-the-nguoi/'), ('than-kinh', 'than-kinh/')] + [(r, f'robotics/{r}/') for r in ROBOTS]
     lib = sorted((p.stem, f'thu-vien/{p.name}') for p in (ROOT / 'thu-vien').glob('*-step.html'))
-    tools = [('kiem-may', 'kiem-may/'), ('dieu-khien', 'dieu-khien/')]
+    tools = [('kiem-may', 'kiem-may/'), ('dieu-khien', 'dieu-khien/'), ('giao-vien', 'giao-vien/'), ('gv-te-bao', 'giao-vien/te-bao/'), ('gv-than-kinh', 'giao-vien/than-kinh/'), ('gv-co-loa', 'giao-vien/co-loa/')]
     return {'hub': hub, 'bespoke': bespoke, 'library': lib, 'tools': tools, 'lessons': bespoke + lib, 'all': hub + bespoke + lib + tools}[group]
 
 
