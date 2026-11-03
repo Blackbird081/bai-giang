@@ -17,12 +17,19 @@ const opt = (k) => { const i = args.indexOf(k); if (i < 0) return null; const v 
 const hub = opt('--hub'); const outDir = opt('--out');
 
 // @font-face của fontsource, đổi url() thành data: cho ba bộ chữ latin, latin-ext, vietnamese
+// Trên site: tệp phông nằm cạnh trang (robotics/fonts/), HTML nhẹ hơn ~320 KB và dưới 1 MB để trình đọc liên kết đọc được thẻ chia sẻ
+// (bước 9 của quy trình teardown). Bản đăng một tệp (--out) vẫn nhúng phông dạng data.
+const FONT_DIR = path.join(REPO, 'robotics', 'fonts');
 const inline = (cssFile) => {
   const dir = path.dirname(cssFile);
   return fs.readFileSync(cssFile, 'utf8').split('/* ').slice(1)
     .filter((b) => /-(latin|latin-ext|vietnamese)-/.test(b.split('*/')[0]))
     .map((b) => b.slice(b.indexOf('*/') + 2)
-      .replace(/url\(\.\/files\/([^)]+?\.woff2)\) format\('([^']+)'\)(,\s*url\([^)]+\) format\('woff'\))?/g, (m, f, fmt) => `url(data:font/woff2;base64,${fs.readFileSync(path.join(dir, 'files', f)).toString('base64')}) format('${fmt}')`)
+      .replace(/url\(\.\/files\/([^)]+?\.woff2)\) format\('([^']+)'\)(,\s*url\([^)]+\) format\('woff'\))?/g, (m, f, fmt) => {
+        if (outDir) return `url(data:font/woff2;base64,${fs.readFileSync(path.join(dir, 'files', f)).toString('base64')}) format('${fmt}')`;
+        fs.mkdirSync(FONT_DIR, {recursive: true}); fs.copyFileSync(path.join(dir, 'files', f), path.join(FONT_DIR, f));
+        return `url(__FONTS__/${f}) format('${fmt}')`;
+      })
       .replace("'Inter Variable'", "'Inter'"))
     .join('\n');
 };
@@ -47,7 +54,7 @@ for (const name of names) {
 <title>${meta.title}</title>
 <meta name="description" content="${meta.description}">
 <style>
-${FONTS}
+${outDir ? FONTS : FONTS.replaceAll('__FONTS__', path.relative(path.dirname(path.join(REPO, meta.out || path.join('robotics', name, 'index.html'))), FONT_DIR).split(path.sep).join('/'))}
 </style>
 </head>
 <body>
@@ -59,9 +66,10 @@ ${js}
 </body>
 </html>
 `;
-  const out = outDir ? path.join(outDir, `${name}.html`) : path.join(REPO, 'robotics', name, 'index.html');
+  // bài ngoài mạch robotics (vd. Công nghệ 11) khai báo nơi đặt trong meta.json: {"out": "cong-nghe/dong-co-4-ki/index.html"}
+  const out = outDir ? path.join(outDir, `${name}.html`) : path.join(REPO, meta.out || path.join('robotics', name, 'index.html'));
   fs.mkdirSync(path.dirname(out), {recursive: true});
   fs.writeFileSync(out, html);
-  execFileSync('python3', [path.join(REPO, 'tools/inject_shell.py'), ...(hub ? [`--root=${hub}`] : []), `--as=robotics/${name}/index.html`, out], {stdio: 'inherit'});
+  execFileSync('python3', [path.join(REPO, 'tools/inject_shell.py'), ...(hub ? [`--root=${hub}`] : []), `--as=${meta.out || `robotics/${name}/index.html`}`, out], {stdio: 'inherit'});
   console.log(`${path.relative(process.cwd(), out)}  ${(html.length / 1024).toFixed(0)} KB  ${Date.now() - t0} ms`);
 }

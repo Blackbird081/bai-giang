@@ -12,3 +12,7 @@ offline/*.html
 # logo và favicon
 !design/logo/*.png
 !co-the-nguoi/thumbs/*.png
+
+# phim quay từng khung và nhạc nền (dựng lại bằng tools/robotics/dong-co/film/)
+tools/robotics/dong-co/film/*.mp4
+tools/robotics/dong-co/film/*.wav

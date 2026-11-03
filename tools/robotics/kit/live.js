@@ -66,7 +66,7 @@ body.bgs-nav-on .mob .row{flex-wrap:nowrap;overflow-x:auto}
 html[data-chieu] .mob.cap{background:#fff}html[data-chieu] .mob.cap .b{font-size:18px;color:#000}html[data-chieu] .mob.cap .t{font-size:24px}
 `;
 
-export function runLive({stage: st, ui, sim, views, script, captions, keys = {}, idle = 25, chip = [800, 152], W = 1600, H = 900, firstView = 'hero'}) {
+export function runLive({stage: st, ui, sim, views, script, captions, keys = {}, idle = 25, chip = [800, 152], W = 1600, H = 900, firstView = 'hero', shell = {}}) {
   const style = document.createElement('style'); style.textContent = CSS(W, H); document.head.appendChild(style);
   const app = document.getElementById('app');
   const canvas = st.renderer.domElement;
@@ -296,12 +296,12 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
   if (window.BGShell) {
     const strip = (h) => String(h || '').replace(/<[^>]+>/g, '');
     window.BGShell.mount({
-      id: location.pathname.split('/').filter(Boolean).pop() || 'robotics', title: document.title, subject: 'Robotics · đại học', variant: 'dai-hoc', objectives: [],
-      steps: captions.map((c) => ({t: c.t, note: [c.k, strip(c.b), c.e].filter(Boolean).join('\n\n'), sr: strip(c.b)})),
+      id: location.pathname.split('/').filter(Boolean).pop() || 'robotics', title: document.title, subject: shell.subject || 'Robotics · đại học', variant: shell.variant || 'dai-hoc', objectives: shell.objectives || [],
+      steps: captions.map((c) => ({t: c.t, note: [c.k, strip(c.b), c.e].filter(Boolean).join('\n\n'), sr: strip(c.b), ask: c.ask || null})),
       go: classGo, end: classEnd,
       panels: [{label: 'Bảng số', icon: 'chart', open: false, apply: (o) => { full = o; fit(); }}],
       keys: Object.entries(keys).slice(0, 8).map(([k, a]) => [k.toUpperCase(), (ui.btn[a] ? cap1(ui.btn[a].textContent) : a)]),
-      credit: 'Mô phỏng chạy trực tiếp trong trình duyệt, dựng trên teardown của elvarofficial và claude-motion của whaleyxbt (MIT). Thông số máy lấy từ tài liệu của hãng; chỗ giả định ghi rõ trong bảng số.',
+      credit: shell.credit || 'Mô phỏng chạy trực tiếp trong trình duyệt, dựng trên teardown của elvarofficial và claude-motion của whaleyxbt (MIT). Thông số máy lấy từ tài liệu của hãng; chỗ giả định ghi rõ trong bảng số.',
     });
   }
   void cap;

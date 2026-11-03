@@ -9,6 +9,7 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Trang chính Sáng Ăn Khoai | https://nclamvn.github.io/bai-giang/ |
 | Cơ thể người 3D (Khoa học tự nhiên 8, BodyVista Việt hoá) | https://nclamvn.github.io/bai-giang/co-the-nguoi/ |
 | Neuron và xung thần kinh (Sinh học 11, phong cách điện ảnh) | https://nclamvn.github.io/bai-giang/than-kinh/ |
+| Động cơ xăng 4 kì (Công nghệ 11, cơ khí động lực) | https://nclamvn.github.io/bai-giang/cong-nghe/dong-co-4-ki/ |
 | Hành Trình Vào Tế Bào (ribosome PDB 3J7R) | https://nclamvn.github.io/bai-giang/te-bao/ |
 | Ribosome trên bàn (AR, mở trên điện thoại) | https://nclamvn.github.io/bai-giang/te-bao/ar.html |
 | Vào Ty Thể (ATP synthase PDB 6J5I) | https://nclamvn.github.io/bai-giang/ty-the/ |
@@ -55,6 +56,19 @@ Bài [`than-kinh/`](than-kinh/) kể bốn cảnh trong 20 giây, phong cách đ
 - Dòng thời gian tất định: `?film` ẩn giao diện để quay video, `?clean` ẩn chữ, `window.NEURON.renderAt(t)` dựng đúng một khung hình.
 - Nguồn tại [`tools/than-kinh.template.html`](tools/than-kinh.template.html), dựng bằng `python3 tools/build_than_kinh.py`.
 - Số liệu: OpenStax Anatomy and Physiology 2e mục 12.4, 12.5 (điện thế nghỉ khoảng −70 mV, ngưỡng khoảng −55 mV); Azevedo và cs. 2009 (khoảng 86 tỉ neuron trong não người).
+
+## Động cơ xăng 4 kì (Công nghệ 11)
+Bài [`cong-nghe/dong-co-4-ki/`](cong-nghe/dong-co-4-ki/) dựng theo đủ 9 bước của quy trình teardown (Elvar, MIT): bắt đầu từ tham chiếu thật, mô hình trước hình sau, bảng số chạy theo máy, một nút cho mỗi hệ thống, soi lỗi bằng bảng ảnh, trang tự chạy có con trỏ, thử phá.
+- Tham chiếu: thông số Honda Việt Nam cho Wave Alpha 110 (4 kì, 1 xi lanh, làm mát bằng không khí; 50,0 × 55,6 mm; 109,2 cm³; tỉ số nén 9,0 : 1; 6,12 kW / 7.500 vòng/phút; 8,44 N·m / 5.500). Kiểm tay: π × (5,0 cm)² × 5,56 cm / 4 = 109,17 cm³.
+- Một đầu vào: góc trục khuỷu ψ trong chu trình 0–720°. Pít-tông theo cơ cấu tay quay – con trượt chính xác; xupap, trục cam (½ tốc độ), xích cam, tia lửa, dòng khí, bảng số, đồ thị áp suất và p–V đều đọc từ [`tools/robotics/dong-co/kin.js`](tools/robotics/dong-co/kin.js).
+- Giả định ghi rõ trên trang: thanh truyền 100 mm (l/r ≈ 3,6, trong khoảng 3–4 của động cơ cỡ nhỏ và vừa theo Heywood 1988); độ nâng xupap và góc phối khí thực tế là giá trị minh hoạ; áp suất là mô hình nén, dãn đa biến hiệu chỉnh để áp suất chỉ thị trung bình ≈ 10,5 bar. Xi lanh đặt đứng cho dễ nhìn.
+- Thử phá: tăng tỉ số nén (hiệu suất Otto tăng, quá 11,5 báo nguy cơ kích nổ), tắt bugi (mất kì sinh công, máy chạy theo đà rồi dừng), tay ga, tua chậm 20–400 lần.
+- Yêu cầu cần đạt trích nguyên văn Chương trình GDPT môn Công nghệ 2018, lớp 11, Công nghệ cơ khí, mục Động cơ đốt trong.
+- Dựng: `cd tools/robotics && node build.mjs dong-co` (meta.json khai báo nơi đặt trang).
+- Phim 18 giây kèm nhạc nền dựng bằng mã (bước 8): `python3 tools/robotics/dong-co/film/quay.py phim.mp4` đặt góc trục khuỷu theo từng khung rồi chụp, nên không rơi khung; `python3 <teardown>/run_sfx.py tools/robotics/dong-co/film/diem.py` dựng nhạc trên cùng `timeline.json`: một tiếng thịch đúng mỗi kì cháy, mastering −14 LUFS.
+
+## Thẻ chia sẻ và trang nhẹ
+Mọi trang có khối thẻ og và twitter ngay sau `<meta charset>` cùng ảnh xem trước 1200×630 trong [`design/the/`](design/the/) (bước 9 của quy trình teardown: trình đọc liên kết chỉ đọc phần đầu trang). `python3 tools/the_chia_se.py` chèn khối thẻ, chạy cuối `build_all`; `--render` vẽ lại ảnh có tiêu đề hoặc ảnh bìa đã đổi. Robotics không còn nhúng phông dạng data (HTML giảm khoảng 320 KB, dưới 1 MB). 20 bài thư viện vẫn nặng 1,0–1,3 MB do mã mô phỏng gốc đóng gói kèm; thẻ chia sẻ nằm ở đầu trang nên vẫn đọc được.
 
 ## Lịch sử 10 và Thành Cổ Loa
 [`lich-su-10/`](lich-su-10/) là lộ trình Lịch sử lớp 10 theo **chương trình** môn Lịch sử (TT 32/2018, ban hành lại bởi TT 13/2022, sửa đổi bởi TT 17/2025), nên dùng chung cho ba bộ sách Kết nối tri thức, Chân trời sáng tạo, Cánh diều. Mỗi mục có yêu cầu cần đạt trích nguyên văn (dữ liệu [`lich-su-10/chuong-trinh.json`](lich-su-10/chuong-trinh.json)), cảnh 3D đã có hoặc dự kiến, và tên bài tương ứng của ba bộ sách để đối chiếu. Nội dung bài được viết mới từ nguồn khảo cổ và sử liệu công khai; không chép sách giáo khoa.
@@ -114,6 +128,9 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `index.html` | Trang chính Sáng Ăn Khoai (dựng bằng `tools/build_pages.py` từ `tools/bai-giang.template.html`) |
 | `te-bao/index.html`, `te-bao/ribosome.b64.txt` | Hành Trình Vào Tế Bào (ghép từ `src/`) và dữ liệu ribosome nén (2,1 MB) |
 | `te-bao/ar.html`, `te-bao/assets/` | Trang AR và mô hình GLB của ribosome |
+| `cong-nghe/dong-co-4-ki/`, `tools/robotics/dong-co/` | Động cơ xăng 4 kì: trang đã dựng; mô hình, hình khối, bảng số |
+| `design/the/`, `tools/the_chia_se.py` | Ảnh thẻ chia sẻ 1200×630 và công cụ chèn thẻ og |
+| `tests/beat_sheet.py` | Bảng ảnh từng bước của một bài để soi lỗi bằng mắt |
 | `than-kinh/`, `tools/than-kinh.template.html` | Neuron và xung thần kinh: trang đã dựng và nguồn |
 | `co-the-nguoi/`, `tools/co-the-nguoi/` | Cơ thể người 3D (BodyVista Việt hoá): trang đã dựng và mô hình nén; mã gốc `upstream/`, bản vá và bài học trong `tools/` |
 | `ty-the/index.html` | Vào Ty Thể, dữ liệu ATP synthase nhúng sẵn |
@@ -177,6 +194,9 @@ base64 -w 0 ribosome.bin > te-bao/ribosome.b64.txt
 - Noji H, Yasuda R, Yoshida M, Kinosita K. Direct observation of the rotation of F1-ATPase. Nature 1997. doi:10.1038/386299a0.
 - Abrahams JP, Leslie AGW, Lutter R, Walker JE. Structure at 2.8 Å resolution of F1-ATPase from bovine heart mitochondria. Nature 1994. doi:10.1038/370621a0.
 - Strauss M, Hofhaus G, Schröder RR, Kühlbrandt W. Dimer ribbons of ATP synthase shape the inner mitochondrial membrane. EMBO J 2008. doi:10.1038/emboj.2008.35.
+- Honda Việt Nam, Wave Alpha 110, thông số kĩ thuật (honda.com.vn): động cơ, đường kính × hành trình, dung tích, tỉ số nén, công suất, mô men.
+- Heywood JB. Internal Combustion Engine Fundamentals. McGraw-Hill 1988, chương 2: tỉ số thanh truyền/bán kính khuỷu 3–4 ở động cơ cỡ nhỏ và vừa, tỉ số nén động cơ xăng 8–12, chu trình Otto.
+- Chương trình giáo dục phổ thông môn Công nghệ (Thông tư 32/2018/TT-BGDĐT), lớp 11, Công nghệ cơ khí: yêu cầu cần đạt mục Động cơ đốt trong.
 - Betts JG và cs. Anatomy and Physiology 2e, OpenStax 2022, mục 12.4 The Action Potential và 12.5 Communication Between Neurons. CC BY 4.0.
 - Azevedo FAC và cs. Equal numbers of neuronal and nonneuronal cells make the human brain an isometrically scaled-up primate brain. J Comp Neurol 2009;513:532–541. doi:10.1002/cne.21974.
 - Chương trình giáo dục phổ thông 2018 (Thông tư 32/2018/TT-BGDĐT): nguồn từng môn ghi trong `thu-vien/gdpt2018.json`.

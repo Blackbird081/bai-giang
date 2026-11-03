@@ -19,6 +19,7 @@ BESPOKE = {
     'co-loa': ('lich-su-10/co-loa/index.html', 'Thành Cổ Loa', 'covers/co-loa.webp'),
     'co-the-nguoi': ('co-the-nguoi/index.html', 'Cơ thể người 3D', 'covers/co-the-nguoi.webp'),
     'than-kinh': ('than-kinh/index.html', 'Neuron và xung thần kinh', 'covers/than-kinh.webp'),
+    'dong-co': ('cong-nghe/dong-co-4-ki/index.html', 'Động cơ xăng 4 kì', 'covers/dong-co.webp'),
     'ur5e': ('robotics/ur5e/index.html', 'Cánh tay robot 6 trục UR5e', 'covers/robo-ur5e.webp'),
     'hexapod': ('robotics/hexapod/index.html', 'Robot sáu chân', 'covers/robo-hexapod.webp'),
     'crazyflie': ('robotics/crazyflie/index.html', 'Drone bốn cánh Crazyflie', 'covers/robo-crazyflie.webp'),
@@ -62,6 +63,7 @@ def build():
         put(s, cell_crumb, nxt_lesson(n, f'Sinh học tế bào 10 · bài {k + 2}/{len(CHAIN_CELL)}') if n else {'title': 'Lộ trình Sinh học tế bào 10', 'href': 'chu-de/sinh-hoc-te-bao/', 'sub': 'Xem lại cả chủ đề'}, 'Sinh học', 'sinh')
     # Khoa học tự nhiên 8: cơ thể người (BodyVista Việt hoá); bài sau đi tiếp xuống cấp tế bào
     put('co-the-nguoi', [{'t': 'Khoa học tự nhiên 8', 'href': '#bai-hoc'}], nxt_lesson('te-bao', 'Từ cơ quan xuống tế bào'), 'Sinh học', 'sinh')
+    put('dong-co', [{'t': 'Công nghệ 11', 'href': '#bai-hoc'}], nxt_lesson('ur5e', 'Từ cơ khí động lực sang robot công nghiệp'), 'Công nghệ', 'cong')
     put('than-kinh', [{'t': 'Sinh học 11', 'href': '#bai-hoc'}], nxt_lesson('co-the-nguoi', 'Cả cơ thể: hệ thần kinh và các hệ khác'), 'Sinh học', 'sinh')
     put('co-loa', [{'t': 'Lịch sử 10', 'href': 'lich-su-10/'}], {'title': 'Lộ trình Lịch sử 10', 'href': 'lich-su-10/', 'sub': 'Các bài theo chương trình'}, 'Lịch sử', 'su')
     robo_crumb = [{'t': 'Robotics · Đại học', 'href': 'robotics/'}]
