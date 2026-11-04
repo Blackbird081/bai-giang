@@ -93,7 +93,7 @@ Mọi bài dựng bằng bộ này (5 robot, Động cơ 4 kì, Robot cá mập)
 
 - **Thanh tốc độ** góc trên bên phải cảnh: tạm dừng, 0,5×, 1×, 2×, 5×, 10×, như trò chơi chiến thuật. Bước mô phỏng lớn được chia nhỏ để mô phỏng vật lí vẫn ổn định; chuyến tham quan và lời giảng luôn chạy theo giờ thật (`live.js`, ý tưởng từ bài đăng của konstantinsaifo trên X).
 - **Soi chi tiết**: bấm (không kéo) vào vật trong cảnh; bài trả về thẻ qua `sim.pick(hits)` gồm vai trò, số đo có nguồn, số chạy theo mô phỏng, nút hành động; camera bám theo vị trí của chi tiết mỗi khung hình và đặt vật giữa thẻ lời giảng với thẻ chi tiết. Esc hoặc × để đóng. Đang soi thì chuyến tham quan không tự chạy lại. Cách làm cho bài mới (`soi.js`): `tag('ten', vật…)` gắn nhãn bộ phận, `pick: picker((ten) => thẻ)`; vỏ đang làm mờ (X-quang) thì cú bấm xuyên qua tới bộ phận bên trong. Đã có ở cả 7 bài: UR5e (6 khớp, kẹp), robot sáu chân (thân, 18 khớp), Crazyflie (thân, 4 động cơ), TurtleBot3 (thân, 2 bánh, LiDAR, OpenCR, Raspberry Pi, pin), Động cơ 4 kì (15 cụm), Cá mập (thân, 8 servo).
-- **Lắp ráp** (`lap.js`): bài khai báo các cụm `{needs, blocks, from}` và một thứ tự mẫu; bộ máy kiểm thứ tự và lối vào, nhấp nháy đỏ cụm gây vướng, có Gợi ý, Lắp mẫu, Tháo hết. Đang dùng ở bài Động cơ 4 kì.
+- **Lắp ráp** (`lap.js`): bài khai báo các cụm `{needs, blocks, from}` và một thứ tự mẫu; bộ máy kiểm thứ tự và lối vào, nhấp nháy đỏ cụm gây vướng, có Gợi ý, Lắp mẫu, Tháo hết. Tên cụm trong câu hạ chữ đầu của từ đầu tiên; tên riêng như Raspberry Pi khai báo `proper: true`. Đang dùng ở bài Động cơ 4 kì (15 cụm, `dong-co/cum.js`) và TurtleBot3 (15 cụm theo tầng, `turtlebot3/cum.js`).
 - Nút phụ của bài trên thẻ lời giảng: `runLive({extra: [{key, label}]})`.
 
 ## Kiểm tự động

@@ -7,6 +7,8 @@ const {alongY} = SH;
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
 import {tag, picker, vn} from '../kit/soi.js';
+import {createAssembly} from '../kit/lap.js';
+import {UNITS, ORDER} from './cum.js';
 import {TB, WHEEL_MAX, ROOM, BOXES, CYLS, PATH, ray, collides, rng, createGrid} from './diff.js';
 
 const D = 180 / Math.PI;
@@ -44,27 +46,28 @@ const hubGeo = (() => { const parts = [SH.roundCyl(0.022, -0.0075, 0.0075, 0.001
 const servoGeo = SH.merge([SH.rbox(0.0285, 0.0465, 0.034, 0.0035), (() => { const g = SH.roundCyl(0.0095, 0, 0.0025, 0.0006, 0.001, 24); g.rotateX(-Math.PI / 2); g.translate(0, 0, 0.004); return g; })()]);
 function buildBurger(ghost) {
   const g = new THREE.Group();
+  const U = {}, into = (id, ...objs) => { (U[id] || (U[id] = [])).push(...objs); return objs[0]; }; // cụm lắp ráp (cum.js)
   const plate = ghost ? new THREE.MeshBasicMaterial({color: '#3c79a8', transparent: true, opacity: 0.22, depthWrite: false}) : MAT.pcb('#2b2e32');
   const m2 = (geo, mat) => { if (ghost) { const m = new THREE.Mesh(geo, plate); g.add(m); return m; } return mk(geo, mat || plate, g); };
-  for (const z of [0.0135, 0.0635, 0.1065, 0.1495]) { const p = m2(ghost ? plainPlate : waffleGeo, null); p.position.z = z; }
+  [0.0135, 0.0635, 0.1065, 0.1495].forEach((z, i) => { const p = m2(ghost ? plainPlate : waffleGeo, null); p.position.z = z; into('tang' + (i + 1), p); });
   if (!ghost) {
     const post = SH.lathe([[0, 0], [0.0032, 0], [0.0032, 0.003], [0.0026, 0.004], [0.0026, 0.044], [0.0032, 0.045], [0.0032, 0.048], [0, 0.048]], 6);
-    for (const z0 of [0.015, 0.065, 0.108]) for (const [x, y] of [[0.058, 0.058], [-0.058, 0.058], [0.058, -0.058], [-0.058, -0.058]]) { const s = mk(post, MAT.anod('#c8ccd0'), g); s.position.set(x, y, z0); s.scale.z = z0 > 0.1 ? 0.88 : z0 > 0.06 ? 0.86 : 1.02; }
-    for (const sd of [-1, 1]) { const sv = mk(servoGeo, MAT.satin('#1f2023'), g); sv.position.set(0.0, sd * 0.045, 0.039); sv.rotation.x = sd > 0 ? 0 : Math.PI; sv.rotation.z = 0; }
+    [0.015, 0.065, 0.108].forEach((z0, i) => { for (const [x, y] of [[0.058, 0.058], [-0.058, 0.058], [0.058, -0.058], [-0.058, -0.058]]) { const s = into('cot' + (i + 1), mk(post, MAT.anod('#c8ccd0'), g)); s.position.set(x, y, z0); s.scale.z = z0 > 0.1 ? 0.88 : z0 > 0.06 ? 0.86 : 1.02; } });
+    for (const sd of [-1, 1]) { const sv = into('servo', mk(servoGeo, MAT.satin('#1f2023'), g)); sv.position.set(0.0, sd * 0.045, 0.039); sv.rotation.x = sd > 0 ? 0 : Math.PI; sv.rotation.z = 0; }
     // OpenCR: mạch xanh tím than, chip STM32, cổng; Raspberry Pi 4: mạch xanh lá, SoC, cổng USB/Ethernet
     const opencr = mk(SH.rbox(0.105, 0.075, 0.0016, 0.002), MAT.pcb('#25306b'), g); opencr.position.z = 0.0715;
-    const mcu = mk(SH.rbox(0.014, 0.014, 0.0016, 0.0005), MAT.chip(), g); mcu.position.set(0.01, 0.005, 0.0735); tag('opencr', opencr, mcu);
-    for (const [x, y, w, h, t] of [[-0.045, 0.02, 0.012, 0.014, 0.006], [-0.045, -0.015, 0.01, 0.008, 0.004], [0.03, -0.028, 0.03, 0.005, 0.006]]) mk(SH.rbox(w, h, t, 0.0008), x < 0 ? MAT.steel() : MAT.chip(), g).position.set(x, y, 0.0725 + t / 2);
+    const mcu = mk(SH.rbox(0.014, 0.014, 0.0016, 0.0005), MAT.chip(), g); mcu.position.set(0.01, 0.005, 0.0735); tag('opencr', opencr, mcu); into('opencr', opencr, mcu);
+    for (const [x, y, w, h, t] of [[-0.045, 0.02, 0.012, 0.014, 0.006], [-0.045, -0.015, 0.01, 0.008, 0.004], [0.03, -0.028, 0.03, 0.005, 0.006]]) into('opencr', mk(SH.rbox(w, h, t, 0.0008), x < 0 ? MAT.steel() : MAT.chip(), g)).position.set(x, y, 0.0725 + t / 2);
     const rpi = mk(SH.rbox(0.085, 0.056, 0.0016, 0.003), MAT.pcb('#2d6a46'), g); rpi.position.z = 0.1145;
-    const soc = mk(SH.rbox(0.015, 0.015, 0.0024, 0.0008), MAT.anod('#b8bcc0'), g); soc.position.set(0.005, 0.004, 0.1165); tag('rpi', rpi, soc);
-    for (const [x, y] of [[-0.036, 0.016], [-0.036, -0.004]]) mk(SH.rbox(0.017, 0.013, 0.015, 0.001), MAT.steel(), g).position.set(x, y, 0.123);
-    mk(SH.rbox(0.021, 0.016, 0.013, 0.001), MAT.steel(), g).position.set(-0.036, -0.022, 0.122);
+    const soc = mk(SH.rbox(0.015, 0.015, 0.0024, 0.0008), MAT.anod('#b8bcc0'), g); soc.position.set(0.005, 0.004, 0.1165); tag('rpi', rpi, soc); into('rpi', rpi, soc);
+    for (const [x, y] of [[-0.036, 0.016], [-0.036, -0.004]]) into('rpi', mk(SH.rbox(0.017, 0.013, 0.015, 0.001), MAT.steel(), g)).position.set(x, y, 0.123);
+    into('rpi', mk(SH.rbox(0.021, 0.016, 0.013, 0.001), MAT.steel(), g)).position.set(-0.036, -0.022, 0.122);
     // pin LiPo 11,1 V 1800 mAh, nhãn cam
     const bat = mk(SH.rbox(0.087, 0.032, 0.026, 0.004), MAT.satin('#2b2b2c'), g); bat.position.set(0, 0, 0.03);
-    const batL = mk(SH.rbox(0.05, 0.0324, 0.0264, 0.002), MAT.accent(), g); batL.position.set(0, 0, 0.03); tag('bat', bat, batL);
+    const batL = mk(SH.rbox(0.05, 0.0324, 0.0264, 0.002), MAT.accent(), g); batL.position.set(0, 0, 0.03); tag('bat', bat, batL); into('pin', bat, batL);
     // bi đỡ: chụp nhựa và viên bi thép
-    mk(SH.lathe([[0, 0.006], [0.009, 0.006], [0.0095, 0.0105], [0.007, 0.0135], [0, 0.0135]], 24), MAT.satin('#2a2b2e'), g).position.set(-0.081, 0, 0);
-    const caster = mk(new THREE.SphereGeometry(0.0075, 20, 14), MAT.steel(), g); caster.position.set(-0.081, 0, 0.0075);
+    into('bido', mk(SH.lathe([[0, 0.006], [0.009, 0.006], [0.0095, 0.0105], [0.007, 0.0135], [0, 0.0135]], 24), MAT.satin('#2a2b2e'), g)).position.set(-0.081, 0, 0);
+    const caster = into('bido', mk(new THREE.SphereGeometry(0.0075, 20, 14), MAT.steel(), g)); caster.position.set(-0.081, 0, 0.0075);
   }
   const wheels = [-1, 1].map((sd) => {
     const w = new THREE.Group(); w.position.set(0, sd * TB.L / 2, TB.r); g.add(w);
@@ -79,11 +82,45 @@ function buildBurger(ghost) {
     const win = mk(SH.lathe([[0.0337, 0.021], [0.0342, 0.0215], [0.0342, 0.0285], [0.0337, 0.029]], 48), MAT.glass('#30363b'), lid); void win;
     mk(SH.rbox(0.008, 0.012, 0.007, 0.0015), MAT.accent(), lid).position.set(0.03, 0, 0.025);
   }
-  if (!ghost) { tag('body', g); wheels.forEach((w, k) => tag(k ? 'wL' : 'wR', w)); tag('lidar', lid, lbase); }
-  return {g, wheels, lid};
+  if (!ghost) { tag('body', g); wheels.forEach((w, k) => tag(k ? 'wL' : 'wR', w)); tag('lidar', lid, lbase); into('banhP', wheels[0]); into('banhT', wheels[1]); into('lidar', lid, lbase); }
+  // mỗi cụm một nhóm riêng dưới thân robot, để chế độ lắp ráp dời cả cụm (kit/lap.js)
+  const UNIT = {};
+  if (!ghost) for (const [id, objs] of Object.entries(U)) { const ug = new THREE.Group(); ug.userData.lap = id; g.add(ug); for (const o of objs) ug.add(o); UNIT[id] = ug; ug.traverse((m) => { if (m.isMesh) m.material = m.material.clone(); }); } // vật liệu riêng: cụm gây vướng nhấp nháy đỏ một mình
+  return {g, wheels, lid, UNIT};
 }
 const bot = buildBurger(false), ghost = buildBurger(true);
 world.add(bot.g, ghost.g);
+
+// ---------------- lắp ráp (kit/lap.js, cụm ở cum.js): robot đứng ở chỗ trống giữa phòng, cụm chờ lắp nằm trên sàn bên trái nó
+const ASM = {x: 0.1, y: -0.62, th: 0};
+const PARK = {};
+const parkAll = () => {
+  const ids = ORDER.slice().sort((a, b) => UNITS.find((u) => u.id === a).name.localeCompare(UNITS.find((u) => u.id === b).name, 'vi'));
+  const bx = new THREE.Box3();
+  bot.g.position.set(ASM.x, ASM.y, 0); bot.g.rotation.z = 0;
+  ids.forEach((id, i) => {
+    const ug = bot.UNIT[id]; ug.position.set(0, 0, 0); ug.updateWorldMatrix(true, true); bx.setFromObject(ug);
+    // hộp bao theo toạ độ three (y lên) đổi về khung thân robot: x = x, y = −z, z = y
+    const cx = (bx.min.x + bx.max.x) / 2 - ASM.x, cy = -(bx.min.z + bx.max.z) / 2 - ASM.y, zmin = bx.min.y;
+    const col = i % 4, row = Math.floor(i / 4);
+    PARK[id] = [-0.27 + col * 0.18 - cx, 0.2 + row * 0.17 - cy, 0.001 - zmin];
+  });
+};
+const lerp3 = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+const lap = createAssembly({units: UNITS, order: ORDER, title: 'Lắp ráp TurtleBot3', kicker: 'Thứ tự · lối vào · va vướng', exit: () => sim.act('asm'),
+  io: {
+    pose(id, k, from) {
+      const ug = bot.UNIT[id]; if (!ug) return;
+      if (k >= 0.999 || !PARK[id]) { ug.position.set(0, 0, 0); return; }
+      const o = k < 0.55 ? lerp3(PARK[id], from, k / 0.55) : lerp3(from, [0, 0, 0], (k - 0.55) / 0.45);
+      ug.position.set(o[0], o[1], o[2]);
+    },
+    ghost() {},
+    flash(id, col) {
+      bot.UNIT[id]?.traverse((m) => { if (!m.isMesh || !m.material.emissive) return; const u = m.material.userData; if (!u.e0) u.e0 = m.material.emissive.clone(); m.material.emissive.copy(col ? new THREE.Color(col) : u.e0); m.material.emissiveIntensity = col ? 0.6 : 1; });
+    },
+  }});
+const lapOf = (o) => { for (let x = o; x; x = x.parent) if (x.userData && x.userData.lap) return x.userData.lap; return null; };
 // đường đi, điểm nhìn trước, tia LiDAR, vết
 const pathLine = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(PATH.map(([x, y]) => new THREE.Vector3(x, y, 0.009))), new THREE.LineDashedMaterial({color: C.ink, dashSize: 0.04, gapSize: 0.03}));
 pathLine.computeLineDistances(); world.add(pathLine);
@@ -216,7 +253,7 @@ const mini = ui.add(`<canvas width="${grid.W}" height="${grid.H}" style="positio
 ui.buttons([['mapodom', 'THEO ODOM'], ['maptrue', 'THEO TƯ THẾ THẬT'], ['mapclear', 'XOÁ']], 1286, 572, 272);
 const mapTxt = ui.text(1482, 428, '', 'sm', 'text-transform:none;letter-spacing:.2px;font-size:8.6px;white-space:normal;width:84px;line-height:1.45');
 ui.panel(1272, 614, 300, 152, 'LỆNH · HIỂN THỊ', '06');
-ui.buttons([['auto', 'TỰ CHẠY'], ['tele', 'LÁI TAY'], ['stop', 'DỪNG']], 1286, 644, 272);
+ui.buttons([['auto', 'TỰ CHẠY'], ['tele', 'LÁI TAY'], ['stop', 'DỪNG'], ['asm', 'LẮP RÁP']], 1286, 644, 272);
 ui.buttons([['amcl', 'ĐỊNH VỊ LIÊN TỤC'], ['reloc', 'ĐẶT LẠI ODOM']], 1286, 672, 272);
 ui.buttons([['rays', 'TIA'], ['ghost', 'BÓNG'], ['path', 'ĐƯỜNG'], ['map', 'BẢN ĐỒ'], ['labels', 'NHÃN'], ['xray', 'X-QUANG']], 1286, 704, 272);
 ui.buttons([['v_hero', 'TOÀN CẢNH'], ['v_follow', 'BÁM ROBOT'], ['v_top', 'TRÊN'], ['v_close', 'SÁT']], 360, 120, 600);
@@ -232,8 +269,20 @@ const disp = S.disp;
 let acc = 0;
 const sim = {
   S,
-  reset() { resetState(); scanNow(); },
+  reset() { if (S.asm) { S.asm = false; lap.stop(); } resetState(); scanNow(); },
+  busy: () => S.asm,
+  isOn: (k) => k === 'asm' && S.asm,
   act(k) {
+    if (k === 'asm' || k === 'asm_demo') {
+      if (k === 'asm_demo' && S.asm) { lap.demo(); return; }
+      if (!S.asm) {
+        S.asm = true; S.mode = 'stop'; S.tele = {v: 0, w: 0}; S.cmd = {v: 0, w: 0}; S.wL = S.wR = 0; Object.assign(S.truth, ASM); Object.assign(S.odom, ASM);
+        Object.assign(disp, {rays: false, ghost: false, path: false, labels: false, xray: false}); parkAll(); lap.start(); if (k === 'asm_demo') lap.demo();
+        LIVE.setView('asm');
+      } else { S.asm = false; lap.stop(); sim.reset(); LIVE.setView('hero'); } // thoát: robot về chỗ xuất phát, bản đồ và odometry làm lại từ đầu
+      return;
+    }
+    if (S.asm && k !== 'labels' && !(k in disp)) return; // đang lắp ráp: robot đứng yên, lệnh chạy tạm khoá
     if (k in disp) { disp[k] = !disp[k]; return; }
     if (k === 'amcl') S.amcl = !S.amcl; if (k === 'auto') S.mode = 'auto'; if (k === 'tele') { S.mode = 'tele'; S.tele = {v: 0, w: 0}; } if (k === 'stop') { S.mode = 'stop'; S.tele = {v: 0, w: 0}; }
     if (k === 'reloc') { Object.assign(S.odom, S.truth); S.seg = 0; let b = 1e9; PATH.forEach(([x, y], i) => { const d = Math.hypot(x - S.truth.x, y - S.truth.y); if (d < b) { b = d; S.seg = (i + PATH.length - 1) % PATH.length; } }); }
@@ -249,10 +298,15 @@ const sim = {
     if (k === 's') { S.tele = {v: 0, w: 0}; return true; }
     return false;
   },
-  step(dt) { acc += dt; while (acc >= 0.01) { physics(0.01); S.scanT += 0.01; if (S.scanT >= 1 / TB.lidar.hz) { S.scanT = 0; scanNow(); } pushDot(trTrue, S.truth.x, S.truth.y); pushDot(trOdom, S.odom.x, S.odom.y); acc -= 0.01; } },
+  step(dt) { lap.step(dt); if (S.asm) return; acc += dt; while (acc >= 0.01) { physics(0.01); S.scanT += 0.01; if (S.scanT >= 1 / TB.lidar.hz) { S.scanT = 0; scanNow(); } pushDot(trTrue, S.truth.x, S.truth.y); pushDot(trOdom, S.odom.x, S.odom.y); acc -= 0.01; } },
   shadowAt() { return new THREE.Vector3(S.truth.x * 0.5, 0.1, -S.truth.y * 0.5); },
   // soi chi tiết: bấm bánh, LiDAR, hai mạch, pin hay thân; camera bám theo khi robot chạy
-  pick: picker((part) => {
+  pick: (hits) => {
+    if (S.asm) { for (const h of hits) { const id = lapOf(h.object); if (id) { lap.click(id); return true; } } return null; }
+    return soi(hits);
+  },
+};
+const soi = picker((part) => {
     const src = 'Số liệu: ROBOTIS e-Manual TurtleBot3 Burger, servo XL430-W250, LiDAR LDS-02; mã nguồn turtlebot3 trên GitHub.';
     const MODE = {stop: 'đứng yên', tele: 'lái tay', auto: 'tự bám đường'};
     const front = () => { let m = Infinity; for (let k = -10; k <= 10; k++) { const r = S.scan[(k + 360) % 360]; if (r > 0 && r < m) m = r; } return m; };
@@ -279,11 +333,13 @@ const sim = {
     return {k: 'TurtleBot3 Burger · robot di động hai bánh', t: 'Thân robot', b: 'Bốn tầng tấm nhựa nối bằng trụ: pin ở dưới, servo và OpenCR ở giữa, Raspberry Pi rồi LiDAR ở trên cùng. Bóng xanh là vị trí robot tự tin theo odometry.',
       rows: [['Chế độ', () => MODE[S.mode] || S.mode], ['Vận tốc v', () => `${vn(S.v ?? 0, 3)} / ${vn(TB.vmax, 2)} m/s`], ['Tốc độ quay ω', () => `${vn(S.w ?? 0, 2)} / ${vn(TB.wmax, 2)} rad/s`],
         ['Odometry lệch vị trí thật', () => `${vn((S.err ?? 0) * 1000, 0)} mm`], ['Khoảng cách hai bánh', `${vn(TB.L * 1000, 0)} mm`]], src, d: 0.95};
-  }),
+  });
+Object.assign(sim, {
   draw() {
     const t = S.truth, o = S.odom;
     bot.g.position.set(t.x, t.y, 0); bot.g.rotation.z = t.th; ghost.g.position.set(o.x, o.y, 0); ghost.g.rotation.z = o.th; ghost.g.visible = disp.ghost && Math.hypot(o.x - t.x, o.y - t.y) + 0.05 * Math.abs(o.th - t.th) > 0.015; // trùng nhau thì ẩn bóng để thấy rõ robot
     bot.wheels[0].rotation.y = S.phiR; bot.wheels[1].rotation.y = S.phiL; bot.lid.rotation.z += 0.21;
+    lap.draw();
     // tia LiDAR từ tư thế thật
     const lx = t.x + TB.lidar.x * Math.cos(t.th), ly = t.y + TB.lidar.x * Math.sin(t.th), pa = rayGeo.attributes.position.array, ha = hitGeo.attributes.position.array;
     for (let k = 0; k < 360; k++) {
@@ -332,7 +388,7 @@ const sim = {
     lidTxt.textContent = `${valid}/360 tia · gần nhất ${fx(mn, 2)} m ở ${mnk}°`;
     alert.set(S.bump ? 'VA CHẠM · ODOMETRY VẪN TIN MÌNH ĐANG CHẠY' : S.safety ? 'VẬT CẢN < 22 cm · DỪNG' : '');
     for (const k of Object.keys(disp)) ui.setOn(k, disp[k]);
-    ui.setOn('amcl', S.amcl); ui.setOn('auto', S.mode === 'auto'); ui.setOn('tele', S.mode === 'tele'); ui.setOn('stop', S.mode === 'stop'); ui.setOn('mapodom', S.mapPose === 'odom'); ui.setOn('maptrue', S.mapPose === 'true');
+    ui.setOn('asm', S.asm); ui.setOn('amcl', S.amcl); ui.setOn('auto', S.mode === 'auto'); ui.setOn('tele', S.mode === 'tele'); ui.setOn('stop', S.mode === 'stop'); ui.setOn('mapodom', S.mapPose === 'odom'); ui.setOn('maptrue', S.mapPose === 'true');
     // nhãn
     const W = (x, y, z, b = t) => st.project(b.x + x * Math.cos(b.th) - y * Math.sin(b.th), z, -(b.y + x * Math.sin(b.th) + y * Math.cos(b.th)));
     const kk = disp.labels ? 1 : 0;
@@ -341,7 +397,7 @@ const sim = {
       {key: 'opencr', p: W(0.05, 0.03, 0.075), dx: 100, dy: -20}, {key: 'bat', p: W(0.04, 0.0, 0.03), dx: -110, dy: 40}, {key: 'ghost', p: disp.ghost && err > 0.05 ? W(0, 0, 0.16, o) : null, dx: -90, dy: -50},
     ], kk * (cur.v === 'close' || cur.v === 'follow' ? 1 : 0));
   },
-};
+});
 const xray = (() => { let c = -1; return (k) => { if (Math.abs(k - c) < 1e-3) return; c = k; bot.g.traverse((m) => { if (!m.isMesh) return; m.material.transparent = k > 0; m.material.opacity = 1 - 0.75 * k; m.material.depthWrite = k < 0.5; }); }; })();
 const cur = {v: 'hero'};
 const Tg = () => ({tx: S.truth.x, ty: 0.08, tz: -S.truth.y});
@@ -349,6 +405,7 @@ const views = {
   hero: (tt) => (cur.v = 'hero', {tx: 0.0, ty: 0.0, tz: 0.1, az: 20 + 6 * Math.sin(tt * 0.1), el: 52, d: 8.2, sx: 0, sy: -30}),
   follow: () => (cur.v = 'follow', {...Tg(), az: (S.truth.th * D + 90) - 140, el: 32, d: 1.5, sx: 0, sy: -40}),
   top: () => (cur.v = 'top', {tx: 0, ty: 0, tz: 0.05, az: 0, el: 88, d: 8.4, sx: 0, sy: -30}),
+  asm: (tt) => (cur.v = 'asm', {tx: ASM.x - 0.02, ty: 0.04, tz: -(ASM.y + 0.36), az: 200 + 4 * Math.sin(tt * 0.1), el: 50, d: 2.0, sx: 0, sy: -10}),
   close: () => (cur.v = 'close', {...Tg(), ty: 0.1, az: (S.truth.th * D + 90) + 60, el: 26, d: 0.7, sx: 0, sy: -40}),
 };
 
@@ -362,6 +419,8 @@ const CAP = [
   {k: 'BẢN ĐỒ LƯỚI CHIẾM CHỖ', t: 'Vẽ bản đồ từ lần quét', b: 'Mỗi tia làm các ô nó đi qua thêm "trống", ô nó chạm thêm "chiếm" (log-odds). Dựng theo odometry đang trôi: tường bị nhân đôi, mờ nhoè. Dựng theo tư thế thật: sắc nét. Khoảng cách giữa hai bản đồ là lý do cần SLAM.', e: 'lₜ = lₜ₋₁ + log(p/(1 − p))'},
   {k: 'ĐỊNH VỊ THEO BẢN ĐỒ', t: 'Khi robot biết mình sai', b: 'Bộ định vị (AMCL, SLAM) so lần quét với bản đồ để kéo ước lượng về đúng chỗ. Trang này mô phỏng kết quả của bước đó (σ 1 cm, 0,5°), không chạy bộ lọc hạt. Bóng xanh nhập lại robot, bản đồ dựng lại sắc nét.', e: 'odometry dự báo · LiDAR + bản đồ hiệu chỉnh'},
   {k: 'AN TOÀN', t: 'Dừng trước vật cản', b: 'Lái tay thẳng về phía tường: khi tia LiDAR phía trước (±25°) báo gần hơn 22 cm, lệnh tiến bị chặn, robot vẫn được phép xoay. Nếu robot va vào vật, nó lùi 1 s rồi bám đường lại, giống hành vi phục hồi của Nav2.', e: 'v = 0 khi r_trước < 0,22 m'},
+  {k: 'LẮP RÁP THEO TẦNG', t: 'Lắp từ dưới lên, đúng lối vào', b: 'Bấm “Lắp ráp”: 15 cụm nằm trên sàn cạnh robot, em tự chọn cụm lắp tiếp. Máy kiểm thứ tự (cụm đỡ nó đã có chưa) và lối vào (tầng trên đã úp xuống thì tuốc nơ vít còn với tới mạch bên dưới không). Sai thì cụm gây vướng nhấp nháy đỏ kèm lí do. Thứ tự theo tầng như hướng dẫn lắp của ROBOTIS, rút gọn để học.', e: 'tầng 1 → servo, bánh, bi đỡ, pin → tầng 2 → OpenCR → tầng 3 → Raspberry Pi → tầng 4 → LiDAR',
+    ask: {q: 'Vì sao phải bắt OpenCR trước khi úp tầng 3?', o: ['Vì OpenCR nặng nhất', 'Vì tầng 3 úp xuống thì tuốc nơ vít không còn lối tới vít của OpenCR', 'Vì LiDAR cần OpenCR để quay'], a: 1, e: 'Trong bài, mạch bắt vít từ phía trên; tầng trên che mất lối của dụng cụ. Đó là kiểm “lối vào”.'}},
 ];
 const ev = [], at = (tt, o) => ev.push({at: tt, ...o});
 at(0.2, {cap: 0}); at(2, {click: 'v_close'}); at(8, {click: 'v_hero'});
@@ -372,8 +431,9 @@ at(44, {cap: 4}); at(44.3, {click: 'amcl'}); at(44.8, {click: 'mapclear'}); at(4
 at(57, {cap: 5}); at(57.5, {click: 'v_top'}); at(66, {click: 'maptrue'});
 at(70, {cap: 6}); at(70.5, {click: 'amcl'}); at(71.5, {slide: 'rad', to: 0.15, dur: 1}); at(73, {click: 'mapodom'}); at(75, {click: 'v_hero'});
 at(84, {cap: 7}); at(84.2, {click: 'v_follow'}); at(84.6, {click: 'tele'}); at(85, {do: () => sim.act('straight')}); at(93, {click: 'auto'}); at(95, {click: 'v_hero'});
+at(100, {cap: 8}); at(100.3, {do: () => sim.act('asm_demo')});
 ev.sort((a, b) => a.at - b.at);
 
 sim.reset();
-runLive({stage: st, ui, sim, views, captions: CAP, script: {events: ev, duration: 100}, firstView: 'hero',
+runLive({stage: st, ui, sim, views, captions: CAP, script: {events: ev, duration: 122}, firstView: 'hero', extra: [{key: 'asm', label: 'Lắp ráp'}],
   keys: {1: 'v_hero', 2: 'v_follow', 3: 'v_top', 4: 'v_close', p: 'auto', t: 'tele', ' ': 'stop', r: 'reloc', k: 'amcl', m: 'map', n: 'labels', g: 'ghost', l: 'rays', z: 'xray'}});

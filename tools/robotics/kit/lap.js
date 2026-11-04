@@ -58,6 +58,8 @@ html[data-chieu] .lapw{background:#fff}html[data-chieu] .lapw .ls button{font-si
 export function createAssembly({units, order, io, title = 'Lắp ráp', kicker = 'Tự lắp theo thứ tự', exit = () => {}}) {
   const U = Object.fromEntries(units.map((u) => [u.id, {needs: [], blocks: [], ...u}]));
   const name = (id) => U[id].name;
+  // tên trong câu: hạ chữ đầu của từ đầu tiên, giữ nguyên phần còn lại (OpenCR, XL430-W250); tên riêng (proper: true) giữ cả chữ đầu
+  const lc = (id) => { const n = U[id].name, w = n.split(' ')[0]; return U[id].proper || w.slice(1) !== w.slice(1).toLocaleLowerCase('vi') ? n : n.charAt(0).toLocaleLowerCase('vi') + n.slice(1); };
   const st = {on: false, in: new Set(), k: Object.fromEntries(units.map((u) => [u.id, 0])), anim: new Map(), flash: new Map(), auto: null, errs: 0, last: null, hint: null, T: 0};
 
   // kiểm lắp: thiếu chi tiết đỡ, lối vào bị chắn
@@ -103,14 +105,14 @@ export function createAssembly({units, order, io, title = 'Lắp ráp', kicker =
     const c = checkIn(id);
     if (c.miss.length || c.clash.length) {
       st.errs++; st.last = {id, bad: true};
-      say('bad', `Chưa lắp được ${name(id).toLocaleLowerCase('vi')}`, [
-        ...c.miss.map((n) => `Thứ tự: cần lắp ${name(n).toLocaleLowerCase('vi')} trước.`),
-        ...c.clash.map(([b, why]) => `Lối vào bị ${name(b).toLocaleLowerCase('vi')} chắn: ${why}`)], U[id].tool ? `Dụng cụ: ${U[id].tool}` : '');
+      say('bad', `Chưa lắp được ${lc(id)}`, [
+        ...c.miss.map((n) => `Thứ tự: cần lắp ${lc(n)} trước.`),
+        ...c.clash.map(([b, why]) => `Lối vào bị ${lc(b)} chắn: ${why}`)], U[id].tool ? `Dụng cụ: ${U[id].tool}` : '');
       flashIds(c.clash.map(([b]) => b)); st.flash.set(id, 1.4);
       list(); return false;
     }
     st.in.add(id); move(id, 1); st.last = {id, bad: false}; st.hint = null;
-    if (!quiet) say('ok', `Đã lắp ${name(id).toLocaleLowerCase('vi')}`, [], [U[id].note, U[id].tool ? `Dụng cụ: ${U[id].tool}` : ''].filter(Boolean).join(' · '));
+    if (!quiet) say('ok', `Đã lắp ${lc(id)}`, [], [U[id].note, U[id].tool ? `Dụng cụ: ${U[id].tool}` : ''].filter(Boolean).join(' · '));
     if (st.in.size === units.length) { say('ok', 'Lắp xong cả máy', [], 'Bấm × để thoát lắp ráp và cho máy chạy.'); io.done?.(); }
     list(); return true;
   };
@@ -118,11 +120,11 @@ export function createAssembly({units, order, io, title = 'Lắp ráp', kicker =
     const c = checkOut(id);
     if (c.miss.length || c.clash.length) {
       st.errs++; st.last = {id, bad: true};
-      say('bad', `Chưa tháo được ${name(id).toLocaleLowerCase('vi')}`, [...c.miss.filter((o) => !c.clash.some(([b]) => b === o)).map((o) => `Phải tháo ${name(o).toLocaleLowerCase('vi')} trước: nó tựa vào chi tiết này.`), ...c.clash.map(([o, why]) => `Phải tháo ${name(o).toLocaleLowerCase('vi')} trước, vì lối ra bị nó chắn: ${why}`)]);
+      say('bad', `Chưa tháo được ${lc(id)}`, [...c.miss.filter((o) => !c.clash.some(([b]) => b === o)).map((o) => `Phải tháo ${lc(o)} trước: nó tựa vào chi tiết này.`), ...c.clash.map(([o, why]) => `Phải tháo ${lc(o)} trước, vì lối ra bị nó chắn: ${why}`)]);
       flashIds([...c.miss, ...c.clash.map(([o]) => o)]); list(); return false;
     }
     st.in.delete(id); move(id, -1); st.last = {id, bad: false};
-    say('', `Đã tháo ${name(id).toLocaleLowerCase('vi')}`); list(); return true;
+    say('', `Đã tháo ${lc(id)}`); list(); return true;
   };
   const click = (id) => { if (!st.on || st.auto || !U[id]) return; (st.in.has(id) ? remove : install)(id); };
   const nextOk = () => order.find((id) => !st.in.has(id) && !checkIn(id).miss.length && !checkIn(id).clash.length);
@@ -131,7 +133,7 @@ export function createAssembly({units, order, io, title = 'Lắp ráp', kicker =
     if (e.target.closest('.x')) { exit(); return; }
     const u = e.target.closest('[data-u]'); if (u) { click(u.dataset.u); return; }
     const f = e.target.closest('[data-f]')?.dataset.f;
-    if (f === 'hint') { const n = nextOk(); if (n) { st.hint = n; st.flash.set(n, 1.4); say('', `Gợi ý: thử ${name(n).toLocaleLowerCase('vi')}`, [], U[n].needs.length ? `Nó tựa vào ${U[n].needs.map((x) => name(x).toLocaleLowerCase('vi')).join(', ')}.` : 'Đây là chi tiết nền, các chi tiết khác tựa vào nó.'); list(); } }
+    if (f === 'hint') { const n = nextOk(); if (n) { st.hint = n; st.flash.set(n, 1.4); say('', `Gợi ý: thử ${lc(n)}`, [], U[n].needs.length ? `Nó tựa vào ${U[n].needs.map((x) => lc(x)).join(', ')}.` : 'Đây là chi tiết nền, các chi tiết khác tựa vào nó.'); list(); } }
     if (f === 'auto') { if (st.auto) { st.auto = null; list(); } else demo(); }
     if (f === 'out') teardown();
   });
@@ -146,7 +148,7 @@ export function createAssembly({units, order, io, title = 'Lắp ráp', kicker =
     if (st.auto) {
       st.auto.wait -= dt;
       if (st.auto.wait <= 0) {
-        if (st.auto.dir > 0) { const n = order.find((id) => !st.in.has(id)); if (n) { install(n, true); say('', `Lắp mẫu · ${st.in.size}/${units.length}: ${name(n).toLocaleLowerCase('vi')}`, [], [U[n].note, U[n].tool ? `Dụng cụ: ${U[n].tool}` : ''].filter(Boolean).join(' · ')); st.auto.wait = 1.05; } else { st.auto = null; say('ok', 'Lắp xong cả máy', [], 'Bấm × để thoát lắp ráp và cho máy chạy.'); io.done?.(); list(); } }
+        if (st.auto.dir > 0) { const n = order.find((id) => !st.in.has(id)); if (n) { install(n, true); say('', `Lắp mẫu · ${st.in.size}/${units.length}: ${lc(n)}`, [], [U[n].note, U[n].tool ? `Dụng cụ: ${U[n].tool}` : ''].filter(Boolean).join(' · ')); st.auto.wait = 1.05; } else { st.auto = null; say('ok', 'Lắp xong cả máy', [], 'Bấm × để thoát lắp ráp và cho máy chạy.'); io.done?.(); list(); } }
         else { const n = [...st.in].pop(); if (n) { st.in.delete(n); move(n, -1); st.auto.wait = 0.6; list(); } else { st.auto = null; say('', 'Đã tháo rời', [], 'Chọn chi tiết đầu tiên để tự lắp lại.'); list(); } }
       }
     }
