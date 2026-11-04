@@ -13,7 +13,6 @@ import asyncio, base64, json, math, pathlib, subprocess, sys
 from playwright.async_api import async_playwright
 
 HERE = pathlib.Path(__file__).resolve().parent
-REPO = HERE.parents[3]
 OUT = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith('--') else HERE / 'phim')
 TEST = [float(x) for x in sys.argv[sys.argv.index('--thu') + 1].split(',')] if '--thu' in sys.argv else None
 ONLY = set(sys.argv[sys.argv.index('--canh') + 1].split(',')) if '--canh' in sys.argv else None  # quay lại vài cảnh, giữ tệp các cảnh khác

@@ -11,7 +11,7 @@ with sync_playwright() as p:
     pg.click('#lessonBtn'); time.sleep(3); pg.screenshot(path="ls_0.png", clip=clip); print(0, st())
     pg.keyboard.press('ArrowRight'); time.sleep(4); pg.screenshot(path="ls_1.png", clip=clip); print(1, st())
     pg.evaluate("window.__cell.lesson.go(7)"); time.sleep(5); pg.screenshot(path="ls_7.png", clip=clip); print(7, st())
-    pg.evaluate("window.__cell.lesson.go(10)"); time.sleep(3); print(10, st()); b.close() if False else None
+    pg.evaluate("window.__cell.lesson.go(10)"); time.sleep(3); print(10, st())
     pg.keyboard.press('h'); time.sleep(1); print('compact', pg.evaluate("document.getElementById('lesson').classList.contains('compact')"))
     pg.evaluate("document.getElementById('lsX').click()"); time.sleep(2); print('đóng', pg.evaluate("document.getElementById('lesson').hidden"), st()['status'])
     print('lỗi:', errs[:6]); b.close()

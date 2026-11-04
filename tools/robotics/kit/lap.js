@@ -7,7 +7,7 @@
 //
 // units: [{id, name, needs: [id], blocks: [[id, 'lí do']], from: [x, y, z] (hướng và quãng đưa vào, đơn vị cảnh), tool, note}]
 // order: một thứ tự lắp đúng (dùng cho Lắp mẫu, Gợi ý); kiểm ngay lúc tạo.
-// io: {pose(id, k, from) — đặt chi tiết theo tỉ lệ đã vào k ∈ [0, 1]; ghost(id, on); flash(id, màu | null); done()}
+// io: {pose(id, k, from) — đặt chi tiết theo tỉ lệ đã vào k ∈ [0, 1]; flash(id, màu | null); tuỳ chọn: ghost(id, on) khi cụm nằm ngoài máy, done()}
 
 const ease = (x) => { const u = Math.min(1, Math.max(0, x)); return u * u * (3 - 2 * u); };
 
@@ -162,7 +162,7 @@ export function createAssembly({units, order, io, title = 'Lắp ráp', kicker =
     for (const u of units) {
       const k = st.on ? st.k[u.id] : 1;
       io.pose(u.id, k, u.from);
-      io.ghost(u.id, st.on && k < 0.999 && !st.anim.has(u.id));
+      io.ghost?.(u.id, st.on && k < 0.999 && !st.anim.has(u.id));
       const f = st.on ? st.flash.get(u.id) : 0;
       io.flash(u.id, f && Math.floor(f * 6) % 2 === 0 ? '#c4271c' : null);
     }

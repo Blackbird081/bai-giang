@@ -51,7 +51,7 @@ const wrapPi = (x) => Math.atan2(Math.sin(x), Math.cos(x));
 
 /** Động học nghịch giải tích cho khung bích T06: tối đa 8 nghiệm, mỗi nghiệm kèm cờ cấu hình */
 export function ik(T) {
-  const {d: d1} = DH[0], a2 = DH[1].a, a3 = DH[2].a, d4 = DH[3].d, d5 = DH[4].d, d6 = DH[5].d;
+  const a2 = DH[1].a, a3 = DH[2].a, d4 = DH[3].d, d5 = DH[4].d, d6 = DH[5].d;
   const out = [];
   const p05 = [T[3] - d6 * T[2], T[7] - d6 * T[6]];
   const R = Math.hypot(p05[0], p05[1]);
@@ -80,7 +80,6 @@ export function ik(T) {
       }
     }
   }
-  void d1;
   return out;
 }
 const dist = (a, b) => a.reduce((s, v, i) => s + wrapPi(v - b[i]) ** 2, 0);

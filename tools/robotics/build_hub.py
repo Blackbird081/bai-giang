@@ -12,7 +12,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 E = lambda s: html.escape(str(s), quote=True)
 
 ROBOTS = [
-    dict(key='ur5e', code='UR5E', title='Cánh tay robot 6 trục', robot='Universal Robots UR5e',
+    dict(key='ur5e', code='UR5e', title='Cánh tay robot 6 trục', robot='Universal Robots UR5e',
          lead='Cánh tay cộng tác phổ biến nhất trong phòng thí nghiệm và nhà máy, dựng đúng bảng DH của hãng. Kéo từng khớp, chọn một trong tám nghiệm động học nghịch, so MoveJ với MoveL, lái đầu công cụ qua điểm kỳ dị và nhìn tốc độ khớp vọt lên.',
          learn=['Động học thuận theo bảng Denavit–Hartenberg của UR', 'Động học nghịch giải tích, đủ 8 nghiệm (vai, khuỷu, cổ tay)', 'Jacobian hình học, chỉ số thao tác Yoshikawa w = |det J|', 'Kỳ dị vai: hình trụ bán kính d4 quanh trục đế', 'MoveJ và MoveL, đa thức bậc năm theo thời gian', 'Mô men giữ do trọng lực ở từng khớp, có tải'],
          nums='d1 162,5 · a2 −425 · a3 −392,2 · d4 133,3 · d5 99,7 · d6 99,6 mm · tầm với 850 mm · tải 5 kg · khớp ±180°/s',
@@ -60,7 +60,7 @@ CSS = '''
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;
 }
 a{color:inherit}
-.mono{font-family:"JetBrains Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;font-size:13px}
+.mono{font-family:var(--bg-font);font-weight:600;font-size:13px}
 .top{display:flex;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line)}
 .top .code{background:var(--or);color:#fff;display:grid;place-content:center;padding:0 26px;font:700 20px "JetBrains Mono",monospace;letter-spacing:1px;text-decoration:none}
 .top .code small{display:block;font-size:13px;letter-spacing:2px;margin-top:2px;opacity:.9}
@@ -77,10 +77,10 @@ a{color:inherit}
 .card .img{display:block;position:relative;aspect-ratio:16/9;background:#f1f2f5;overflow:hidden}
 .card .img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
 .card .img:hover img{transform:scale(1.03)}
-.card .img b{position:absolute;left:0;top:0;background:var(--or);color:#fff;font:700 13px "JetBrains Mono",monospace;letter-spacing:1px;padding:8px 12px}
+.card .img b{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.94);color:#15171C;font:600 13px var(--bg-mono,"JetBrains Mono",monospace);letter-spacing:.5px;padding:5px 10px;border-radius:8px;box-shadow:0 1px 3px rgba(16,24,40,.12)}
 .card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
 .card h2{margin:0;font-size:22px;letter-spacing:-.02em;line-height:1.2}
-.card h2 small{display:block;font:500 13px "JetBrains Mono",monospace;letter-spacing:.12em;color:var(--mute);text-transform:uppercase;margin-bottom:4px}
+.card h2 small{display:block;font:600 13px var(--bg-font);color:#626773;margin-bottom:4px}
 .card p{margin:0}
 .card ul{margin:0;padding-left:18px}.card li{margin:2px 0}
 .nums{font:13px/1.6 "JetBrains Mono",monospace;color:#454A55;background:#f3f4f6;border-radius:8px;padding:8px 12px}
@@ -90,7 +90,7 @@ details ol{margin:8px 0 0;padding-left:20px;font-size:13.5px}details li{margin:3
 .note{font-size:13px;color:#626773}
 .go{margin-top:auto;display:inline-flex;align-self:flex-start;align-items:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;font:700 13px "JetBrains Mono",monospace;letter-spacing:1.5px;padding:10px 16px;border-radius:4px}
 .go:hover{background:var(--or)}
-h3.sec{font:700 13px "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;margin:40px 0 12px;display:flex;align-items:center;gap:10px}
+h3.sec{font:700 20px var(--bg-font);letter-spacing:-.01em;margin:40px 0 12px;display:flex;align-items:center;gap:10px}
 h3.sec:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink)}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .more{display:grid;grid-template-columns:1fr 1fr;gap:22px}
@@ -135,14 +135,9 @@ def build(links):
 {LG.font_link(links['hub'])}
 <style>{CSS}{LG.SITE_BAR_CSS}
 html[data-x]{{}}body{{font-family:var(--bg-font)}}
-.mono{{font-family:var(--bg-font);letter-spacing:.01em;text-transform:none;font-weight:600}}
 .top{{display:block;padding:32px 24px 8px;max-width:1180px;margin:0 auto;border:0;background:none}}
 .top .t{{padding:0}}
-h3.sec{{font:700 20px var(--bg-font);letter-spacing:-.01em;text-transform:none}}
-.card h2 small{{font:600 13px var(--bg-font);letter-spacing:.01em;text-transform:none}}
-.card .img b{{font:600 13px var(--bg-mono)}}
 .go{{font:600 15px var(--bg-font);letter-spacing:0;min-height:44px;padding:0 20px;border-radius:999px}}
-.card .img b{{background:rgba(255,255,255,.94);color:#15171C;border-radius:8px;left:12px;top:12px;padding:5px 10px;box-shadow:0 1px 3px rgba(16,24,40,.12)}} .card h2 small{{color:#626773}}
 </style>
 </head>
 <body>

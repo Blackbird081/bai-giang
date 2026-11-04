@@ -57,17 +57,17 @@ html,body{margin:0;background:var(--paper)}
 body{color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:var(--crimson)}
 .mono{font-family:var(--f-mono)}
-.lbl{font-family:var(--f-mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.lbl{font-family:var(--f-mono);font-size:13px;color:var(--muted);font-weight:500}
 .wrap{max-width:none;margin:0 auto;padding:12px 16px 16px;display:grid;gap:10px}
 header.top{display:flex;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:10px 16px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:12px;min-width:0;flex:1 1 320px}
 .logo{width:40px;height:40px;flex:none}
 .tt h1{margin:0;font-size:22px;line-height:1.15;letter-spacing:-.01em}
 .tt h1 em{font-style:normal;color:var(--crimson)}
-.tt p{margin:2px 0 0;font-family:var(--f-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tt p{margin:2px 0 0;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
 .kpis{display:flex;gap:22px;margin:0;flex-wrap:wrap}
 .kpis div{display:grid;gap:2px}
-.kpis dt{font-family:var(--f-mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.kpis dt{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
 .kpis dd{margin:0;font-family:var(--f-mono);font-size:19px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1}
 .kpis dd.c{color:var(--crimson)}
 .stage{position:relative;height:calc(100dvh - 190px);min-height:440px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--stage)}
@@ -91,7 +91,7 @@ header.top{display:flex;align-items:center;gap:16px;background:var(--panel);bord
 .pin.st i{border-color:#8E0E33}
 #info{position:absolute;right:12px;top:12px;width:min(340px,calc(100% - 24px));max-height:calc(100% - 80px);overflow:auto;padding:12px 14px;z-index:3;font-size:14px;display:grid;gap:8px}
 #info h2{margin:0;font-size:18px;line-height:1.25}
-#info .en{font-family:var(--f-mono);font-size:13px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+#info .en{font-family:var(--f-mono);font-size:13px;color:var(--muted);}
 #info p{margin:0}
 #info .facts{display:grid;gap:6px;margin:0;padding:0;list-style:none}
 #info .facts li{border-top:1px solid var(--line);padding-top:6px;font-size:13px;display:grid;gap:1px}
@@ -103,7 +103,7 @@ header.top{display:flex;align-items:center;gap:16px;background:var(--panel);bord
 .lesson h2{margin:0;font-size:21px;line-height:1.25}
 .lesson p{margin:0}
 .lesson .ask{border-left:3px solid var(--gold);background:var(--gold-soft);padding:7px 10px;border-radius:0 8px 8px 0;font-size:14px}
-.lesson .ask b{font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-right:6px}
+.lesson .ask b{font-family:var(--f-mono);font-size:13px;color:var(--gold);margin-right:6px}
 .lesson .nav{display:flex;gap:8px;justify-content:space-between;align-items:center}
 .lesson .dots{display:flex;gap:4px;flex-wrap:wrap}
 .lesson .dots i{width:7px;height:7px;border-radius:50%;background:var(--hair)}
@@ -181,7 +181,7 @@ footer{font-size:13px;color:var(--muted);padding:2px 4px}
 body{background:var(--lg-wash)!important;background-attachment:fixed!important;color:var(--lg-ink);font-family:var(--lg-font);-webkit-font-smoothing:antialiased}
 
 html{background:var(--lg-page)}
-.lbl,.kpis dt,.tt p,#info .en,.lesson .lh .lbl{font-weight:600;letter-spacing:.07em}
+.lbl,.kpis dt,.tt p,#info .en,.lesson .lh .lbl{font-weight:600}
 .kpis dd{font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .tt h1{letter-spacing:-.02em}
 header.top,.ctrl{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke);box-shadow:var(--lg-shadow),var(--lg-inner);border-radius:var(--lg-r)}
@@ -212,7 +212,7 @@ header.top,.ctrl{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur
   .brand{flex:1 1 100%;gap:10px}.logo{width:34px;height:34px}
   .tt h1{font-size:20px}.tt p{display:none}
   .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;width:100%}
-  .kpis dt{font-size:13px;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kpis dt{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .kpis dd{font-size:15px}
   .stage{height:min(60svh,560px);min-height:360px;border-radius:22px}
   #scale{left:8px;bottom:8px;padding:6px 8px}
@@ -237,7 +237,7 @@ body.bgs-on .stage{height:calc(100dvh - var(--bg-bar) - 122px)}
 #turn{left:14px;top:14px;padding:10px 14px;font-size:14px;line-height:1.5;max-width:min(440px,60%);pointer-events:none}
 #turn b{font-variant-numeric:tabular-nums}
 #turn .s{display:block;color:var(--bg-ink3);font-size:13px}
-.lbl,dt,.legend,footer{letter-spacing:.01em!important;text-transform:none!important}
+
 @media (max-width:760px){body.bgs-on .stage{height:calc(100svh - var(--bg-bar) - env(safe-area-inset-top) - 24px)}body.bgs-on.bgs-nav-on .stage{height:calc(100svh - var(--bg-bar) - env(safe-area-inset-top) - 92px - env(safe-area-inset-bottom))}body.bgs-on.bgs-nav-on .wrap{padding-bottom:calc(84px + env(safe-area-inset-bottom))}#turn{left:8px;top:8px;max-width:calc(100% - 16px)}}
 @media (orientation:landscape) and (max-height:520px){body.bgs-on .stage{height:calc(100svh - var(--bg-bar) - 16px)}#turn{display:none}}
 body.bgs-nav-on .lesson .nav{display:none!important}

@@ -68,7 +68,6 @@ def build(hub, coloa, cover):
     BS = bo_sach_map()
     n_y = sum(len(m['ycd']) for cd in CT['chu_de'] for m in cd['muc'])
     n_cd = sum(len(m['ycd']) for cd in CT['chuyen_de'] for m in cd['muc'])
-    n_co = sum(1 for v in CANH.values() if v[0] == 'co'); n_du = sum(1 for v in CANH.values() if v[0] == 'du')
     secs = []
     for i, cd in enumerate(CT['chu_de']):
         rows = []

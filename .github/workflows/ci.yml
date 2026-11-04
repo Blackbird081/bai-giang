@@ -27,6 +27,8 @@ jobs:
           python -m py_compile tools/*.py tools/robotics/*.py tools/robotics/*/film/*.py tools/co-the-nguoi/*.py tests/*.py
           node --check shell/bg-shell.js
           node --check shell/adapter-thu-vien.js
+      - name: Lỗi tĩnh trong mã Python (tên chưa định nghĩa, nhập thừa, biến bỏ không)
+        run: pip install ruff && ruff check --select F,E9 tools tests
       - name: Tệp đã dựng khớp với nguồn
         run: python tools/build_all.py --check
       - name: Mã băm toàn vẹn của tệp CDN

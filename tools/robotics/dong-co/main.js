@@ -144,8 +144,7 @@ const inspect = (id) => {
   return {k: u.k, t: u.name, b: u.b, rows, src: 'Số đo: thông số Honda Việt Nam (Wave Alpha 110); chỗ ghi giả định, minh hoạ là giá trị của bài.',
     actions: [...(sysKey ? [{label: 'Chỉ hiện hệ này', on: () => S.sys === u.sys, fn: () => sim.act(sysKey)}] : []), {label: 'Tập lắp ráp', fn: () => { LIVE.closeInspect(); sim.act('asm'); }}],
     pos: () => { const c = eng.box(id).c; return [c.x, c.y, c.z]; },
-    d: Math.min(0.95, Math.max(0.42, Math.max(...eng.box(id).s.toArray()) * 4.6)),
-    open: () => { S.pick = id; }, close: () => { if (S.pick === id) S.pick = null; }};
+    d: Math.min(0.95, Math.max(0.42, Math.max(...eng.box(id).s.toArray()) * 4.6))};
 };
 
 // ---------------- tương tác
@@ -248,8 +247,7 @@ const sim = {
     alert.set(S.stalled ? 'KHÔNG CÓ TIA LỬA · KHÔNG CÓ KÌ SINH CÔNG · MÁY DỪNG' : S.knock ? `ε = ${vn(S.eps, 1)} · NGUY CƠ KÍCH NỔ: HOÀ KHÍ TỰ BỐC CHÁY` : !S.spark ? 'BUGI TẮT · MÁY CHẠY THEO ĐÀ, CHẬM DẦN' : '');
     // nhãn có đường dẫn
     const pr = (x, y, z) => st.project(x, y, z);
-    const th = (ps % 360) * Math.PI / 180, pinY = fromTDC(ps);
-    void pinY;
+    const th = (ps % 360) * Math.PI / 180;
     const crownY = CROWN_TDC - fromTDC(ps);
     ui.drawCallouts([
       {key: 'pis', p: pr(-0.02, crownY - 0.01, 0.012), dx: -150, dy: 26},

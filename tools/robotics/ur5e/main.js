@@ -16,7 +16,6 @@ const ui = createUI(app);
 const arm = buildArm(); st.scene.add(arm.root);
 // nhãn bộ phận cho thẻ soi chi tiết: khung i mang vỏ khớp i + 1 và khâu nối sau nó; khung 6 mang bích và kẹp
 arm.L.forEach((g, i) => tag(i < 6 ? 'j' + i : 'grip', g));
-const W3 = (p) => new THREE.Vector3(p[0], p[2], -p[1]); // robot (z lên) → three
 const TT = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, TOOL, 0, 0, 0, 1], TTi = inv(TT);
 const flangeAt = (p, R0) => mul(pose(R0, p), TTi);
 

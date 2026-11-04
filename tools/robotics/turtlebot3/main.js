@@ -79,7 +79,7 @@ function buildBurger(ghost) {
   const lbase = m2(SH.rbox(0.096, 0.07, 0.016, 0.004), MAT.satin('#1d1e20')); lbase.position.set(TB.lidar.x, 0, 0.159);
   if (!ghost) {
     mk(SH.lathe([[0, 0.016], [0.033, 0.016], [0.0335, 0.019], [0.0335, 0.03], [0.031, 0.034], [0, 0.034]], 48), MAT.satin('#202224'), lid);
-    const win = mk(SH.lathe([[0.0337, 0.021], [0.0342, 0.0215], [0.0342, 0.0285], [0.0337, 0.029]], 48), MAT.glass('#30363b'), lid); void win;
+    mk(SH.lathe([[0.0337, 0.021], [0.0342, 0.0215], [0.0342, 0.0285], [0.0337, 0.029]], 48), MAT.glass('#30363b'), lid);
     mk(SH.rbox(0.008, 0.012, 0.007, 0.0015), MAT.accent(), lid).position.set(0.03, 0, 0.025);
   }
   if (!ghost) { tag('body', g); wheels.forEach((w, k) => tag(k ? 'wL' : 'wR', w)); tag('lidar', lid, lbase); into('banhP', wheels[0]); into('banhT', wheels[1]); into('lidar', lid, lbase); }
@@ -115,7 +115,6 @@ const lap = createAssembly({units: UNITS, order: ORDER, title: 'Lắp ráp Turtl
       const o = k < 0.55 ? lerp3(PARK[id], from, k / 0.55) : lerp3(from, [0, 0, 0], (k - 0.55) / 0.45);
       ug.position.set(o[0], o[1], o[2]);
     },
-    ghost() {},
     flash(id, col) {
       bot.UNIT[id]?.traverse((m) => { if (!m.isMesh || !m.material.emissive) return; const u = m.material.userData; if (!u.e0) u.e0 = m.material.emissive.clone(); m.material.emissive.copy(col ? new THREE.Color(col) : u.e0); m.material.emissiveIntensity = col ? 0.6 : 1; });
     },

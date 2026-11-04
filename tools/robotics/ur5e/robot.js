@@ -65,13 +65,11 @@ export function buildArm() {
       const c = new THREE.Mesh(new THREE.ConeGeometry(0.009, 0.026, 12), axMat[k]); c.position.set(x * 2, y * 2, z * 2); c.rotation.set(rx, ry, rz); g.add(c);
     });
   }
-  const M4 = new THREE.Matrix4();
   const update = (F, s) => {
     for (let i = 0; i <= 6; i++) { const T = F[i]; L[i].matrix.set(T[0], T[1], T[2], T[3], T[4], T[5], T[6], T[7], T[8], T[9], T[10], T[11], 0, 0, 0, 1); }
     for (const f of fingers) f.position.y = f.userData.s * (0.056 - 0.019 * s.grip);
     for (let j = 0; j < 6; j++) rings[j].color.set(s.hot[j] > 0.04 ? '#e3562a' : '#cfc6b8').lerp(new THREE.Color('#cfc6b8'), Math.max(0, 1 - s.hot[j] * 4));
     for (const a of axes) a.visible = !!s.frames;
   };
-  void M4;
   return {root, L, tcp, update, axes, fingers, rings};
 }

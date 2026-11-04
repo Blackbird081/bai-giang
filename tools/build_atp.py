@@ -83,7 +83,7 @@ def kabsch(P, Q):
 
 
 # ---------- 1. Khung dimer từ tetramer 6J5K ----------
-mK, descK, aeK, rawK = load(f'{D}/6J5K.cif.gz')
+mK, _, _, rawK = load(f'{D}/6J5K.cif.gz')
 mono = {0: {}, 1: {}}
 for ch in mK:
     if not len(ch) or ch[0].het_flag == 'H': continue
@@ -139,7 +139,6 @@ for k in (0, 1):
 place = lambda k, P: toF(np.asarray(P) @ fits[k][0].T + fits[k][1])
 
 chains, atoms, beads = [], [], []  # atoms (monomer chính): xyz, nhóm, chuỗi, nguyên tố, cờ
-names_vi = {'alpha': 'α', 'beta': 'β', 'gamma': 'γ', 'de': 'δ/ε', 'cring': 'c', 'oscp': 'OSCP', 'stalk': 'cuống', 'a': 'a', 'memb': 'màng phụ'}
 for x, res in chI.items():
     if x == 'J': continue  # IF1
     c = CHAIN_CAT[x]; ci = len(chains)
@@ -197,7 +196,7 @@ for x in 'KLMNOPQR':
     r = [r for r in chI[x] if r.name == 'GLU' and r.seqid.num == 58][0]
     glu.append(place(0, np.array([pos(a) for a in r if a.name in ('OE1', 'OE2')])).mean(0))
 r159 = [r for r in chI['a'] if r.seqid.num == 159][0]; arg = place(0, np.array([pos(a) for a in r159])).mean(0)
-mid_h = mids[0]; ext = float(np.abs(np.concatenate([A, B, C])).max()); scale = 32767.0 / (ext * 1.001)
+ext = float(np.abs(np.concatenate([A, B, C])).max()); scale = 32767.0 / (ext * 1.001)
 monoZ = B[[i for i, b in enumerate(beads) if (b[6] >> 1) == 0]][:, 2]
 dimZ = B[:, 2]
 

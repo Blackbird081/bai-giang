@@ -50,11 +50,6 @@ ICONS = {
 }
 
 
-def svg(name, size=None):
-    s = f' width="{size}" height="{size}"' if size else ''
-    return f'<svg viewBox="0 0 24 24"{s} fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICONS[name]}</svg>'
-
-
 def px(v):
     return f'{v}px'
 
@@ -66,7 +61,7 @@ def var_block(c, extra=''):
     return ';'.join(out) + extra
 
 
-def tokens_css(font_root='fonts/'):
+def tokens_css():
     C, S, R, M = T['color'], T['size'], T['radius'], T['motion']
     sub = ';'.join(f'--bg-s-{k}:{v}' for k, v in T['subject'].items())
     base = var_block(C) + ';' + sub + ';' + ';'.join(f'--bg-fs-{k}:calc({v}px * var(--bg-k))' for k, v in S.items())

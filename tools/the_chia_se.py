@@ -82,7 +82,7 @@ def url_of(rel):
 def block(i):
     img = SITE + i['img']
     return ('<!--BG-SHARE:start-->\n'
-            f'<meta property="og:type" content="website"><meta property="og:site_name" content="Sáng Ăn Khoai"><meta property="og:locale" content="vi_VN">\n'
+            '<meta property="og:type" content="website"><meta property="og:site_name" content="Sáng Ăn Khoai"><meta property="og:locale" content="vi_VN">\n'
             + ('' if i['own'] else f'<meta name="description" content="{E(i["desc"])}">\n') +
             f'<meta property="og:title" content="{E(i["title"])}"><meta property="og:description" content="{E(i["desc"])}">\n'
             f'<meta property="og:url" content="{E(url_of(i["rel"]))}"><link rel="canonical" href="{E(url_of(i["rel"]))}">\n'

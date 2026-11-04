@@ -162,14 +162,14 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `tools/build_ribosome.py`, `tools/build_atp.py`, `tools/build_glb.py` | Xử lý trước dữ liệu PDB, có cổng kiểm sai số |
 | `tools/build_offline.py` | Đóng gói bản offline một file |
 | `offline/` | Nơi `tools/build_offline.py` ghi hai bản offline (không đưa vào git; bản phát hành ở Releases) |
-| `tests/` | Kiểm bằng Playwright |
+| `tests/` | Kiểm bằng Playwright; danh sách và cách chạy ở [`tests/README.md`](tests/README.md) |
 | `docs/` | Ghi chép Bước A: nguồn dữ liệu, kỹ thuật vẽ, phần minh hoạ |
 
 ## Chạy
 ```bash
 python3 tools/build_all.py      # dựng lại toàn bộ site theo đúng thứ tự (robotics cần: cd tools/robotics && npm ci)
-python3 -m http.server 8765     # mở http://localhost:8765 (cần phục vụ qua HTTP để tải dữ liệu)
-python3 tests/smoke.py 8765     # mở thử các trang, báo lỗi JS
+python3 -m http.server 8777     # mở http://localhost:8777 (cần phục vụ qua HTTP để tải dữ liệu)
+python3 tests/smoke.py 8777     # mở thử 23 trang, báo lỗi JS
 ```
 Thêm `#webgl` vào cuối địa chỉ để ép chạy WebGL 2. Thêm `?lite=1` để xem chế độ nhẹ (vỏ tự bật khi máy chậm kéo dài: bỏ làm mờ nền sau bảng, giảm điểm ảnh; cảnh và hiệu ứng 3D giữ nguyên), `?lite=0` để tắt hẳn.
 

@@ -137,8 +137,8 @@ export function buildEngine() {
   const rocker = (sign) => {
     const g = new THREE.Group(); g.position.set(sign * 0.0075, CAMY - 0.0045, 0); root.add(g);
     const s = new THREE.Shape(); s.moveTo(-0.0035, -0.0025); s.lineTo(sign * 0.0085 - 0.002, -0.0045); s.lineTo(sign * 0.0085 + 0.002, -0.0058); s.lineTo(sign * 0.0085 + 0.0015, -0.002); s.lineTo(0.0035, 0.0025); s.lineTo(-sign * 0.006, 0.0035); s.closePath();
-    const m = mesh(slab(s, 0.0055, 0.0006, 4), MAT.satin('#5f6469'), 'valve', {parent: g});
-    void m; return g;
+    mesh(slab(s, 0.0055, 0.0006, 4), MAT.satin('#5f6469'), 'valve', {parent: g});
+    return g;
   };
   const rkIn = rocker(-1), rkEx = rocker(1);
   // xích cam: các mắt xích chạy quanh hai đĩa, phía sau xi lanh (z = −50 mm)

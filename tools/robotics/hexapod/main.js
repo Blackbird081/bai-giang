@@ -5,7 +5,7 @@ import * as SH from '../kit/shapes.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
 import {tag, picker, vn} from '../kit/soi.js';
-import {LEG, LEGS, NAMES, VN, GAITS, SERVO, legIK, legPoints, footAt, hull, margin} from './gait.js';
+import {LEG, LEGS, VN, GAITS, SERVO, legIK, legPoints, footAt, hull, margin} from './gait.js';
 
 const D = 180 / Math.PI, G = 9.81;
 const app = document.getElementById('app');
@@ -68,10 +68,10 @@ for (const m of legMeshes) { m.coxa.userData.L0 = L0.coxa; m.femA.userData.L0 = 
 tag('body', body);
 legMeshes.forEach((m, i) => { tag(`${i}:hip`, m.hipServo, m.coxa); tag(`${i}:fem`, m.femServo, m.femA, m.femB); tag(`${i}:knee`, m.kneeServo, m.tibia, m.foot); });
 const v3 = (p) => new THREE.Vector3(p[0], p[1], p[2]), Zup = new THREE.Vector3(0, 0, 1), M4 = new THREE.Matrix4();
-const orient = (m, a, b, side, w, t) => { // hộp nối a→b, bề rộng w theo side, dày t
+const orient = (m, a, b, side) => { // hộp nối a→b, mặt rộng hướng theo side; chiều dài khâu co giãn theo L0
   const A = v3(a), B = v3(b), Y = B.clone().sub(A), L = Y.length(); Y.normalize();
   const X = side.clone().sub(Y.clone().multiplyScalar(side.dot(Y))).normalize(), Z = new THREE.Vector3().crossVectors(X, Y);
-  m.matrixAutoUpdate = true; m.position.copy(A).add(B).multiplyScalar(0.5); m.quaternion.setFromRotationMatrix(M4.makeBasis(X, Y, Z)); m.scale.set(1, L / (m.userData.L0 || L), 1); void w; void t;
+  m.matrixAutoUpdate = true; m.position.copy(A).add(B).multiplyScalar(0.5); m.quaternion.setFromRotationMatrix(M4.makeBasis(X, Y, Z)); m.scale.set(1, L / (m.userData.L0 || L), 1);
 };
 const place = (m, p, X, Y) => { const Z = new THREE.Vector3().crossVectors(X, Y); m.position.copy(v3(p)); m.quaternion.setFromRotationMatrix(M4.makeBasis(X, Y, Z)); };
 // sàn: dấu chân, đa giác chống đỡ, hình chiếu trọng tâm
@@ -192,12 +192,12 @@ const sim = {
     out.forEach((o, i) => {
       const m = legMeshes[i], P = o.P, ex = P.ex, ey = P.ey, side = new THREE.Vector3(-ey, ex, 0), fwd = new THREE.Vector3(ex, ey, 0);
       place(m.hipServo, [P.hip[0], P.hip[1], P.hip[2]], side, fwd);
-      orient(m.coxa, P.hip, P.fem, Zup, 0.012, 0.03);
+      orient(m.coxa, P.hip, P.fem, Zup);
       place(m.femServo, P.fem, fwd, side.clone().negate());
       const off = side.clone().multiplyScalar(0.02), add = (q, o2) => [q[0] + o2.x, q[1] + o2.y, q[2] + o2.z];
-      orient(m.femA, add(P.fem, off), add(P.knee, off), Zup, 0.022, 0.003); orient(m.femB, add(P.fem, off.clone().negate()), add(P.knee, off.clone().negate()), Zup, 0.022, 0.003);
+      orient(m.femA, add(P.fem, off), add(P.knee, off), Zup); orient(m.femB, add(P.fem, off.clone().negate()), add(P.knee, off.clone().negate()), Zup);
       place(m.kneeServo, P.knee, fwd, side.clone().negate());
-      orient(m.tibia, P.knee, [P.foot[0], P.foot[1], P.foot[2] + 0.008], side, 0.004, 0.026);
+      orient(m.tibia, P.knee, [P.foot[0], P.foot[1], P.foot[2] + 0.008], side);
       m.foot.position.set(P.foot[0], P.foot[1], P.foot[2] + 0.008);
       // dấu chân khi vừa chạm đất
       if (o.f.stance && !S.wasStance[i] && disp.trails) { const w = toW(o.f.pos); prints.setMatrixAt(printI % 240, M4.makeTranslation(w[0], w[1], 0)); printI++; prints.count = Math.min(240, printI); prints.instanceMatrix.needsUpdate = true; }
@@ -305,4 +305,3 @@ ev.sort((a, b) => a.at - b.at);
 
 runLive({stage: st, ui, sim, views, captions: CAP, script: {events: ev, duration: 88}, firstView: 'hero',
   keys: {1: 'v_hero', 2: 'v_side', 3: 'v_top', 4: 'v_leg', t: 'tripod', r: 'tetrapod', v: 'wave', ' ': 'stop', p: 'poly', n: 'labels', x: 'xray', f: 'trails'}});
-void NAMES; void VN;

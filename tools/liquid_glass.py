@@ -12,7 +12,6 @@ def font_link(root='../'):
             f'<link rel="icon" type="image/png" sizes="32x32" href="{root}design/logo/favicon-32.png"><link rel="apple-touch-icon" href="{root}design/logo/apple-touch-icon.png">')
 
 
-FONT_LINK = font_link('../')  # giữ tên cũ cho các bản dựng chưa đổi
 
 # Kính lỏng v14: lấy từ token chung (--bg-*), có giá trị dự phòng khi house.css chưa tải. Tiết chế: nền đặc hơn, bỏ quầng màu.
 TOKENS = """

@@ -125,7 +125,7 @@ ui.callouts([
 // ---------------- mô phỏng và lệnh
 const disp = {thrust: true, axes: false, trail: true, labels: true, xray: false};
 const H = {roll: [], rollSp: [], rate: [], rateSp: [], z: [], zSp: []};
-let attTimer = 0, crashed = false, info = '';
+let attTimer = 0, crashed = false;
 const sim = {
   reset() { Q.reset(); S.kAtt = 1; S.kRate = 1; S.wind = [0, 0, 0]; crashed = false; attTimer = 0; Object.assign(disp, {thrust: true, axes: false, trail: true, labels: true, xray: false}); trail.count = 0; trailI = 0; lastT = null; for (const k in H) H[k] = []; },
   act(k) {
@@ -216,7 +216,6 @@ const sim = {
       ...MOTORS.map((m, i) => ({key: 'm' + (i + 1), p: Wp(m.x, m.y, 0.018), dx: m.y < 0 ? 70 : -70, dy: m.x > 0 ? -50 : 40})),
       {key: 'mcu', p: Wp(0.004, 0, H0 + 0.002), dx: -120, dy: -90}, {key: 'bat', p: Wp(-0.01, 0.005, H0 - 0.008), dx: -110, dy: 70}, {key: 'prop', p: Wp(MOTORS[0].x + 0.02, MOTORS[0].y, 0.026), dx: 90, dy: -40},
     ], kk * (views.cur === 'close' || views.cur === 'hero' ? 1 : 0.0));
-    info = '';
   },
 };
 const xrayD = (() => { let cur = -1; return (k) => { if (Math.abs(k - cur) < 1e-3) return; cur = k; drone.traverse((m) => { if (!m.isMesh || m.material.isMeshBasicMaterial) return; m.material.transparent = k > 0; m.material.opacity = 1 - 0.7 * k; m.material.depthWrite = k < 0.5; }); }; })();
@@ -256,4 +255,3 @@ ev.sort((a, b) => a.at - b.at);
 
 runLive({stage: st, ui, sim, views: vfn, captions: CAP, script: {events: ev, duration: 76}, firstView: 'hero',
   keys: {1: 'v_hero', 2: 'v_side', 3: 'v_top', 4: 'v_close', t: 'takeoff', l: 'land', r: 'roll', f: 'fwd', y: 'yaw', g: 'gust', n: 'labels', x: 'xray', a: 'axes'}});
-void info;

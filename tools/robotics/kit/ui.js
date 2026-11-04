@@ -165,9 +165,8 @@ export function createUI(app) {
     return s;
   };
   // lời giảng của từng bước
-  ui.caption = (x, y, w, h, title = 'BÀI GIẢNG') => {
-    // dòng chủ đề của từng bước thay cho tiêu đề chung, nên lời giảng có thêm một dòng
-    void title;
+  // lời giảng không có tiêu đề chung: dòng chủ đề của từng bước thay vào, nên lời giảng có thêm một dòng
+  ui.caption = (x, y, w, h) => {
     ui.panel(x, y, w, h, '', '');
     const box = add(`<div class="cap" style="left:${x + 14}px;top:${y + 13}px;width:${w - 28}px"></div>`);
     const prog = add(`<div class="pn" style="right:${1600 - x - w + 14}px;top:${y + 15}px"></div>`);

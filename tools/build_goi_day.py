@@ -252,7 +252,7 @@ def page(g):
             rows.append(f'<div class="row"><div class="m">{mins(x["tu"], x["den"])}<span>{x["den"] - x["tu"]} phút</span></div>'
                         f'<div class="t"><small>Bước {i}/{nb}</small>{E(x["t"])}</div>'
                         f'<div class="gv"><span class="k">Giáo viên</span>{E(x["gv"])}</div><div class="hs"><span class="k">Học sinh</span>{E(x["hs"])}</div></div>')
-        body = (f'<div class="thead"><span>Phút</span><span>Trên màn chiếu</span><span>Giáo viên</span><span>Học sinh</span></div>' + ''.join(rows)) if rows else '<p class="mini">Tiếp nối bước trên, không cần chuyển màn chiếu.</p>'
+        body = ('<div class="thead"><span>Phút</span><span>Trên màn chiếu</span><span>Giáo viên</span><span>Học sinh</span></div>' + ''.join(rows)) if rows else '<p class="mini">Tiếp nối bước trên, không cần chuyển màn chiếu.</p>'
         acts.append(f'<div class="act card" id="hd-{k}"><header><h3>{k + 1}. {E(h["ten"])}</h3><span class="min">{mins(h["tu"], h["den"])}</span><p>{E(h["muc"])}</p></header>{body}<div class="prod"><b>Sản phẩm:</b> {E(h["san_pham"])}</div></div>')
     ans = ''.join(f'<dt>{E(d["k"])}</dt><dd>{E(d["a"])}</dd>' for d in g['dap_an'])
     loi = ''.join(f'<tr><th>{E(a)}</th><td>{b}</td></tr>' for a, b in g['loi'])
