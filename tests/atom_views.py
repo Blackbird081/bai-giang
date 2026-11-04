@@ -1,3 +1,4 @@
+"""Góc nhìn nguyên tử của Tế Bào ở một cỡ màn và một mức chất lượng.  python3 tests/atom_views.py THU_MUC_ANH RONG CAO [chuan|cao]"""
 import sys, time
 from playwright.sync_api import sync_playwright
 out = sys.argv[1]; W, H = int(sys.argv[2]), int(sys.argv[3]); tier = sys.argv[4] if len(sys.argv) > 4 else 'chuan'

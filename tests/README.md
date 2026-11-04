@@ -24,4 +24,6 @@ Chạy máy chủ tĩnh ở gốc repo trước: `python3 -m http.server 8777`.
 | `ar_page.py` | trang xem trên bàn (AR) của Tế Bào |
 | `offline_check.py` | bản offline một tệp mở được khi không có mạng |
 
+Lần chạy đủ gần nhất: 04/11/2026, tất cả đạt (`lesson_flow.py`, `layout.py` đã viết lại theo vỏ chung: Lên lớp đi qua `BGShell.go`, bảng Thông tin mở bằng `BGShell.panel`).
+
 Các tệp chạy tay ghi ảnh ra thư mục hiện tại; chạy trong một thư mục tạm, không chạy ở gốc repo. `ui_audit.json`, `a11y_audit.json` là kết quả, không đưa vào repo.

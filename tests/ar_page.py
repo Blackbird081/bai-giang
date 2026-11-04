@@ -1,3 +1,4 @@
+"""Trang xem trên bàn (AR) của Tế Bào: mô hình GLB nạp đủ vật liệu, nút làm mờ, mã QR mở trên điện thoại. Chạy tay, ghi ảnh ra thư mục hiện tại."""
 import time
 from playwright.sync_api import sync_playwright
 with sync_playwright() as p:

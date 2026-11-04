@@ -1,3 +1,4 @@
+"""Tế Bào nạp xong dữ liệu phân tử (ribosome, lipid) không lỗi; in số nguyên tử. Chạy tay."""
 from playwright.sync_api import sync_playwright
 with sync_playwright() as p:
     b = p.chromium.launch(args=["--use-angle=swiftshader", "--ignore-gpu-blocklist"]); pg = b.new_page(viewport={"width": 900, "height": 600}); pg.set_default_timeout(300000)

@@ -118,7 +118,8 @@ PROBE = r"""(args) => {
       const covers = [];
       for (const e of document.querySelectorAll('body *')) {
         if (e.tagName === 'CANVAS' || e.querySelector('canvas')) continue; const r = vis(e); if (!r || r.width * r.height < 5000) continue;
-        if (e.closest('.bgs-black,.bgs-modal,.bgs-toast')) continue; if (r.width * r.height > C.width * C.height * 0.8) continue; // khung nền chứa cảnh, không che
+        if (e.closest('.bgs-black,.bgs-modal,.bgs-toast')) continue;
+        if (e.closest('.anno')) continue; // nhãn gắn với vật trong cảnh (bài thư viện) là một phần của cảnh, kể cả nhãn dài; không tính là khung che if (r.width * r.height > C.width * C.height * 0.8) continue; // khung nền chứa cảnh, không che
         const cs = getComputedStyle(e); const bg = cs.backgroundColor.match(/[\d.]+/g); const alpha = !bg ? 0 : bg.length > 3 ? +bg[3] : 1;
         if (alpha > 0.05 || cs.backgroundImage !== 'none' || (cs.backdropFilter && cs.backdropFilter !== 'none')) { if (shown(e)) covers.push(r); }
       }
@@ -141,7 +142,9 @@ async def run_one(b, name, url, vp, args, res):
     pg.on('pageerror', lambda e: errs.append(str(e)[:160]))
     t0 = time.time()
     try:
-        await pg.goto(BASE + url + ('&' if '?' in url else '?') + 'q=1', wait_until='load', timeout=90000)
+        # chờ DOM, không chờ sự kiện load: nhiều trang WebGL chạy song song trên trình vẽ phần mềm có thể làm load trễ quá 90 giây
+        # dù trang vẫn đúng; bài 3D còn chờ vỏ gắn xong ngay bên dưới
+        await pg.goto(BASE + url + ('&' if '?' in url else '?') + 'q=1', wait_until='domcontentloaded', timeout=120000)
     except Exception as e:
         errs.append('goto: ' + str(e)[:100])
     lesson = name in dict(pages('lessons'))

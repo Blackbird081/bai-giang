@@ -4,9 +4,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F5F5F7">
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 /* Layout: bàn soi mẫu vật — đầu trang số liệu, dải nhật ký, khung xem 3D trên nền mẫu sáng, dải trạng thái, ba bảng dữ liệu sống bên dưới; sổ ghi bào quan bên phải. */
 :root{

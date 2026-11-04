@@ -5,10 +5,12 @@ Không sửa mã mô phỏng gốc. Chỉ:
   1. chèn lớp CSS <style id="bg-house"> trước </head>: token, phông, màu nhấn theo môn, bỏ ba hàng thanh trên của bản gốc
      (thanh đầu bài chung của vỏ thay thế), chân trang thành viên thuốc chuyển bước, cỡ chữ tối thiểu 13 px;
   2. nâng mọi cỡ chữ CSS dưới 13 px lên 13 px (tools/minfont.py);
-  3. nhúng vỏ v2 và bộ gắn thư viện (tools/inject_shell.py --adapter=thu-vien).
+  3. nhúng vỏ v2 và bộ gắn thư viện (tools/inject_shell.py --adapter=thu-vien);
+  4. bỏ liên kết Google Fonts (phông của site tự lưu);
+  5. tách ảnh nhúng base64 lớn (từ 20 KB) ra thu-vien/anh/, đặt tên theo mã băm nội dung: ảnh Trái Đất dùng chung cho 4 bài chỉ tải một lần.
 Chạy lại bao nhiêu lần cũng được.  python3 tools/house_thu_vien.py [tệp…]   (mặc định: thu-vien/*-step.html)
 """
-import pathlib, re, sys
+import base64, hashlib, pathlib, re, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'tools'))
 import inject_shell, minfont  # noqa: E402
@@ -74,14 +76,33 @@ aside .btn{white-space:normal!important;padding:6px 10px!important;line-height:1
 .chartwrap .ch b{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media (max-width:700px){.at,.lab{max-width:46vw;white-space:normal!important;overflow-wrap:anywhere}.lab .n{white-space:normal!important}}
 #eqb .btags span,#eqb .tg,.btags .tg,.tagrow .tg{white-space:normal!important;overflow-wrap:anywhere;min-width:0;max-width:100%}
+/* máy tính: hàng thẻ trong hộp phương trình trùng với thẻ ở bảng Bước này; khi bảng đang mở thì ẩn để cảnh 3D rộng hơn */
+@media (min-width:1101px){body.bgs-on:has(aside#left:not(.collapsed)) #eqb .btags{display:none!important}}
 html[data-chieu] aside#left,html[data-chieu] aside#right,html[data-chieu] footer#foot,html[data-chieu] #eqb{background:#fff!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 html[data-chieu]{--fs-b:17px;--fs-t:17px;--ink2:#141414;--ink3:#262626}
 </style>
 """
 
 
+IMG = ROOT / 'thu-vien/anh'
+
+
+def unembed(s):
+    def out(m):
+        ext = {'jpeg': 'jpg'}.get(m.group(1), m.group(1)); data = base64.b64decode(m.group(2))
+        name = f'{hashlib.sha256(data).hexdigest()[:12]}.{ext}'
+        IMG.mkdir(exist_ok=True); f = IMG / name
+        if not f.exists(): f.write_bytes(data)
+        return f'anh/{name}'
+    return re.sub(r'data:image/(jpeg|png|webp);base64,([A-Za-z0-9+/=]{20000,})', out, s)
+
+
+GFONT = re.compile(r'<link rel="preconnect" href="https://fonts\.googleapis\.com">\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>\n?<link rel="stylesheet" href="https://fonts\.googleapis\.com/css2\?[^"]*">\n?')
+
+
 def apply(path):
-    p = pathlib.Path(path); s = p.read_text(encoding='utf-8')
+    # bỏ liên kết Google Fonts của bản gốc: phông của site tự lưu (Be Vietnam Pro), không gửi yêu cầu ra bên thứ ba
+    p = pathlib.Path(path); s = GFONT.sub('', unembed(p.read_text(encoding='utf-8')))
     s = re.sub(r'<style id="bg-house">.*?</style>\n?', '', s, flags=re.S)
     s, n = minfont.fix(s)
     s = s.replace('</head>', HOUSE + '</head>', 1)

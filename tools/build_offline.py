@@ -59,9 +59,14 @@ def _font(m):
     return 'url(data:font/woff2;base64,' + base64.b64encode(f.read_bytes()).decode() + ')'
 html = re.sub(r"url\((?:\.\./)*design/fonts/([a-z0-9-]+\.woff2)\)", _font, html)
 html = re.sub(r'<meta name="bg-root" content="[^"]*">', '<meta name="bg-root" content="https://nclamvn.github.io/bai-giang/">', html)
+# mã vỏ trên site là tệp chung shell/dist/*.min.js; bản offline nhúng lại nguyên mã
+def _shell(m):
+    code = (ROOTDIR / 'shell/dist' / m.group(1)).read_text(encoding='utf-8')
+    return '<script>' + code.replace('</script', '<\\/script') + '</script>'
+html = re.sub(r'<script src="(?:\.\./)*shell/dist/([\w.-]+\.min\.js)\?v=\w+"></script>', _shell, html)
+if 'shell/dist/' in html: sys.exit('Còn tham chiếu shell/dist/ chưa nhúng')
 html = html.replace('<title>', '<meta name="offline-build" content="three ' + version + '">\n<title>', 1)
 if not html.lstrip().lower().startswith('<!doctype'):
     html = '<!doctype html>\n<html lang="vi">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n' + html
-pathlib.Path(out).parent.mkdir(parents=True, exist_ok=True)
 pathlib.Path(out).parent.mkdir(parents=True, exist_ok=True); pathlib.Path(out).write_text(html, encoding="utf-8")
 print(f'{out}: {len(html.encode()) / 1e6:.1f} MB, {len(imports)} module, dữ liệu ribosome {len(b64) / 1e6:.1f} MB')

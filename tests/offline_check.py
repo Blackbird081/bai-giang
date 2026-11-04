@@ -1,3 +1,4 @@
+"""Bản offline một tệp của Tế Bào mở được khi tắt mạng, không gửi yêu cầu ra ngoài. Chạy tay sau tools/build_offline.py."""
 import time
 from playwright.sync_api import sync_playwright
 with sync_playwright() as p:

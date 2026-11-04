@@ -154,8 +154,8 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `lich-su-10/`, `lich-su-10/co-loa/` | Lộ trình Lịch sử 10 (`tools/build_ls10.py`), bài Thành Cổ Loa (`tools/build_co_loa.py`, `tools/co-loa.template.html`, nguồn `tools/co_loa_nguon.json`) |
 | `robotics/`, `robotics/<robot>/` | Mục lục Robotics (`tools/robotics/build_hub.py`) và 4 mô phỏng robot; cùng bộ dựng `tools/robotics/` (`node build.mjs`) dựng cả bài Động cơ 4 kì và Robot cá mập |
 | `giao-vien/`, `tools/goi-day/`, `tools/build_goi_day.py` | Gói dạy thử 45 phút: trang in được và nguồn JSON |
-| `shell/`, `dieu-khien/`, `kiem-may/` | Vỏ lên lớp chung và bộ gắn cho bài thư viện; trang điều khiển bằng điện thoại; trang kiểm máy |
-| `thu-vien/` | 54 bài tiếng Việt (CC BY-NC 4.0), ảnh bìa, `catalog.vi.json`, đối chiếu chương trình `gdpt2018.json`, công cụ Việt hoá `_viet-hoa/` |
+| `shell/`, `dieu-khien/`, `kiem-may/` | Vỏ lên lớp chung và bộ gắn cho bài thư viện; trang điều khiển bằng điện thoại; trang kiểm máy. `shell/dist/` là mã vỏ đã rút gọn do `tools/inject_shell.py` sinh: mọi bài tải chung một tệp (có mã băm nội dung), trình duyệt giữ trong bộ nhớ đệm khi chuyển bài; bản offline nhúng lại nguyên mã |
+| `thu-vien/` | 54 bài tiếng Việt (CC BY-NC 4.0), ảnh bìa, `catalog.vi.json`, đối chiếu chương trình `gdpt2018.json`, công cụ Việt hoá `_viet-hoa/`; `thu-vien/anh/` là ảnh nhúng base64 lớn được `tools/house_thu_vien.py` tách ra (ảnh Trái Đất dùng chung cho 4 bài) |
 | `src/head.part`, `src/body.part`, `src/script.part` | CSS, HTML, JS của trang Tế Bào |
 | `tools/liquid_glass.py` | Chuẩn giao diện chung: nền trắng, kính lỏng |
 | `tools/build_pages.py` | Dựng trang chính, trang chủ đề và các trang chuyển hướng |

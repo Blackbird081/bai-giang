@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Nhúng vỏ Sáng Ăn Khoai (shell/bg-shell.js, đã rút gọn) vào trang bài học, giữa <!--BG-SHELL:start--> và <!--BG-SHELL:end-->.
+"""Gắn vỏ Sáng Ăn Khoai vào trang bài học, giữa <!--BG-SHELL:start--> và <!--BG-SHELL:end-->. Mã vỏ (shell/bg-shell.js, adapter-*.js)
+được rút gọn ra shell/dist/ và trang tải bằng <script src> có mã băm; bản offline một tệp nhúng lại nguyên mã (tools/build_offline.py).
 
 Cùng lúc đặt:
   <meta name="bg-root">  đường dẫn từ bài về gốc site (phông, trang chính, bài tiếp theo)
@@ -10,7 +11,7 @@ Chạy lại bao nhiêu lần cũng được: khối cũ được thay. Dùng:
   python3 tools/inject_shell.py --adapter=thu-vien thu-vien/*-step.html
   python3 tools/inject_shell.py --root=https://nclamvn.github.io/bai-giang/ --as=te-bao/index.html out.html   (bản đăng lên Claude)
 """
-import html as H, json, pathlib, re, subprocess, sys
+import hashlib, html as H, json, pathlib, re, subprocess, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'tools'))
 from chuoi_bai import SEQ  # noqa: E402
@@ -43,10 +44,23 @@ def rel_root(key):
     return '../' * len(d.parts) if d.parts else './'
 
 
-def block(adapter, seq):
-    extra = ('<script>' + adapter_js(adapter) + '</script>\n') if adapter else ''
+DIST = ROOT / 'shell/dist'
+
+
+def dist(name, code):
+    """Ghi mã vỏ đã rút gọn ra shell/dist/ (một tệp cho cả site, trình duyệt giữ trong bộ nhớ đệm giữa các bài),
+    trả về tên tệp kèm mã băm nội dung để bản mới luôn được tải lại."""
+    DIST.mkdir(exist_ok=True)
+    f = DIST / f'{name}.min.js'
+    if not f.exists() or f.read_text(encoding='utf-8') != code: f.write_text(code, encoding='utf-8')
+    return f'{f.name}?v={hashlib.sha256(code.encode()).hexdigest()[:10]}'
+
+
+def block(adapter, seq, root):
+    src = lambda name, code: f'<script src="{root}shell/dist/{dist(name, code)}"></script>\n'
+    extra = src(f'adapter-{adapter}', adapter_js(adapter)) if adapter else ''
     s = f'<script>window.BG_SEQ={json.dumps(seq, ensure_ascii=False)};</script>\n' if seq else ''
-    return '<!--BG-SHELL:start-->\n' + s + '<script>' + shell_js() + '</script>\n' + extra + '<!--BG-SHELL:end-->\n'
+    return '<!--BG-SHELL:start-->\n' + s + src('bg-shell', shell_js()) + extra + '<!--BG-SHELL:end-->\n'
 
 
 def loader(seq, root):
@@ -104,7 +118,7 @@ def inject(html: str, adapter=None, key=None, root=None) -> str:
         html = html[:at] + std + html[at:]
     m = re.search(r'<body[^>]*>', html)
     if m and seq: html = html[:m.end()] + loader(seq, root) + html[m.end():]
-    BLOCK = block(adapter, seq) if m else std + block(adapter, seq)  # trang không có thẻ <body> (Tế Bào): chuẩn đi cùng khối vỏ
+    BLOCK = block(adapter, seq, root) if m else std + block(adapter, seq, root)  # trang không có thẻ <body> (Tế Bào): chuẩn đi cùng khối vỏ
     for anchor in ('<script type="importmap">', '<script type="module">', '</body>'):
         i = html.find(anchor, m.end() if m else 0)
         if i >= 0: return html[:i] + BLOCK + html[i:]
