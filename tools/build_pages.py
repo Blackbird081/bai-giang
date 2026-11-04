@@ -130,10 +130,10 @@ def chu_de(links, lesson_href):
     total = n_ok + n_rel + n_no
     src = GD['nguon']['Sinh học'][0]
     LG_CSS = LG.root('''
-  --paper:#F5F5F7; --panel:#FFFFFF; --ink:#1D1D1F; --ink2:#424245; --muted:#6E6E73; --line:rgba(15,23,42,.08); --f-body:var(--lg-font); --f-mono:var(--lg-font); --r:22px;
+  --paper:var(--bg-page); --panel:#FFFFFF; --ink:var(--bg-ink); --ink2:var(--bg-ink2); --muted:var(--bg-ink3); --line:rgba(15,23,42,.08); --f-body:var(--lg-font); --f-mono:var(--lg-font); --r:22px;
 ''') + LG.BODY + 'html{background:var(--lg-page)} header h1{letter-spacing:-.025em} .lbl{font-weight:600;letter-spacing:.07em} .kpi b{font-variant-numeric:tabular-nums}\n' \
-        + LG.glass('.kpi div,.step', 'var(--lg-r)') + LG.glass('table', 'var(--lg-r)') + LG.pill_buttons('.btn,.chip', '.btn.pri', '#D42150', '#B0123C') \
-        + '.chip[aria-pressed="true"]{background:linear-gradient(180deg,#2C2C2E,#1D1D1F)!important;color:#fff!important}.ask{border-left:0;border-radius:14px;background:rgba(232,176,75,.14)} th{background:rgba(255,255,255,.5)} .step .vis img{border-radius:16px}\n'
+        + LG.glass('.kpi div,.step', 'var(--lg-r)') + LG.glass('table', 'var(--lg-r)') + LG.pill_buttons('.btn,.chip', '.btn.pri') \
+        + '.chip[aria-pressed="true"]{background:var(--bg-ink)!important;color:#fff!important}.ask{border-left:0;border-radius:14px;background:rgba(232,176,75,.14)} th{background:rgba(255,255,255,.5)} .step .vis img{border-radius:16px}\n'
     return f'''<!doctype html>
 <html lang="vi" data-theme="light">
 <head>

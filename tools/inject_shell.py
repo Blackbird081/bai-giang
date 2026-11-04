@@ -90,13 +90,21 @@ def inject(html: str, adapter=None, key=None, root=None) -> str:
     html = re.sub(r'<meta name="bg-root"[^>]*>\n?', '', html)
     html = re.sub(r'<link rel="(?:icon|apple-touch-icon)"[^>]*>\n?', '', html)  # favicon của Sáng Ăn Khoai thay favicon cũ
     html = re.sub(r'<!--BG-TOKENS:start-->.*?<!--BG-TOKENS:end-->\n?', '', html, flags=re.S)
+    html = re.sub(r'<!--BG-STD:start-->.*?<!--BG-STD:end-->\n?', '', html, flags=re.S)
     html = re.sub(r'<head>\n+', '<head>\n', html, count=1)  # không để dòng trống dồn lại sau mỗi lần chạy
     # token và phông có sẵn trong <head> để chữ đúng ngay khung hình đầu, trước khi mã của vỏ chạy
     head = f'<meta name="bg-root" content="{root}">\n<link rel="icon" type="image/png" sizes="32x32" href="{root}design/logo/favicon-32.png"><link rel="apple-touch-icon" href="{root}design/logo/apple-touch-icon.png">\n<!--BG-TOKENS:start--><style id="bg-tokens">' + D.fontface(root=root + 'design/fonts/') + D.tokens_css() + '</style><!--BG-TOKENS:end-->\n'
     html = html.replace('<head>', '<head>\n' + head, 1) if '<head>' in html else re.sub(r'(<head[^>]*>)', lambda m: m.group(1) + head, html, count=1)
+    # chuẩn thành phần đặt cuối <head>, sau CSS riêng của bài, để vai màu của nút giống nhau trên mọi bài
+    std = '<!--BG-STD:start--><style id="bg-std">' + D.std_css('body.bgs-on') + '</style><!--BG-STD:end-->\n'
+    m = re.search(r'<body[^>]*>', html)
+    if m:
+        e = html.rfind('</head>', 0, m.start())
+        at = e if e >= 0 else m.start()
+        html = html[:at] + std + html[at:]
     m = re.search(r'<body[^>]*>', html)
     if m and seq: html = html[:m.end()] + loader(seq, root) + html[m.end():]
-    BLOCK = block(adapter, seq)
+    BLOCK = block(adapter, seq) if m else std + block(adapter, seq)  # trang không có thẻ <body> (Tế Bào): chuẩn đi cùng khối vỏ
     for anchor in ('<script type="importmap">', '<script type="module">', '</body>'):
         i = html.find(anchor, m.end() if m else 0)
         if i >= 0: return html[:i] + BLOCK + html[i:]

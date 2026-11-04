@@ -39,24 +39,24 @@ export function buildEngine() {
   const accent = MAT.accent();
 
   // ---- thân máy: hộp trục khuỷu, xi lanh có cánh tản nhiệt, nắp máy (cắt dọc được)
-  mesh(rbox(0.2, 0.15, 0.13, 0.03), alu, 'frame', {clip: true, shell: true}).position.set(0, YC - 0.005, -0.004);
+  const mCase = mesh(rbox(0.2, 0.15, 0.13, 0.03), alu, 'frame', {clip: true, shell: true}); mCase.position.set(0, YC - 0.005, -0.004);
   const barrelY0 = YC + 0.07;
-  mesh(lat([[BORE + 0.0002, barrelY0], [0.034, barrelY0], [0.034, DECK], [BORE + 0.0002, DECK]], 64), aluDark, 'frame', {clip: true, shell: true});
+  const mBarrel = mesh(lat([[BORE + 0.0002, barrelY0], [0.034, barrelY0], [0.034, DECK], [BORE + 0.0002, DECK]], 64), aluDark, 'frame', {clip: true, shell: true});
   const finShape = (w, d, r) => { const s = rrect(w, d, 0.008); if (r > 0) s.holes.push(hole(0, 0, r)); return s; };
   const fins = [];
   for (let y = barrelY0 + 0.008; y < DECK - 0.004; y += 0.0105) {
     const w = 0.1 - (DECK - y) * 0.12;
     const g = slab(finShape(w, w * 0.92, 0.0335), 0.0028, 0.0008, 24); g.rotateX(Math.PI / 2); g.translate(0, y, 0); fins.push(g);
   }
-  mesh(merge(fins), finMat, 'cool', {clip: true, shell: true});
+  const mFins = mesh(merge(fins), finMat, 'cool', {clip: true, shell: true});
   // nắp máy: khối có buồng xupap, cánh tản nhiệt phía trên
   const head = rbox(0.11, 0.05, 0.1, 0.012); head.translate(0, DECK + 0.025, 0);
-  mesh(head, alu, 'frame', {clip: true, shell: true});
+  const mHead = mesh(head, alu, 'frame', {clip: true, shell: true});
   const hf = [];
   for (let k = 0; k < 3; k++) { const g = slab(finShape(0.13 - k * 0.012, 0.12 - k * 0.012, 0.0), 0.0028, 0.0008, 16); g.rotateX(Math.PI / 2); g.translate(0, DECK + 0.006 + k * 0.013, 0); hf.push(g); }
-  mesh(merge(hf), finMat, 'cool', {clip: true, shell: true});
+  const mHf = mesh(merge(hf), finMat, 'cool', {clip: true, shell: true});
   const cover = rbox(0.085, 0.04, 0.085, 0.014); cover.translate(0, CAMY + 0.008, 0);
-  mesh(cover, alu, 'frame', {clip: true, shell: true});
+  const mCover = mesh(cover, alu, 'frame', {clip: true, shell: true});
 
   // ---- cơ cấu trục khuỷu – thanh truyền
   const crank = new THREE.Group(); crank.position.set(0, YC, 0); root.add(crank);
@@ -128,7 +128,7 @@ export function buildEngine() {
         i ? s.lineTo(px, py) : s.moveTo(px, py);
       }
       const g = slab(s, 0.007, 0.0006, 4); g.translate(0, 0, z);
-      const m = new THREE.Mesh(g, lobeMat); m.castShadow = true; m.userData.sys = 'valve'; m.userData.mid = mid; m.userData.k = k;
+      const m = new THREE.Mesh(g, lobeMat); m.castShadow = true; m.userData.sys = 'valve'; m.userData.part = 'cam'; m.userData.mid = mid; m.userData.k = k;
       lobes.add(m); look();
     }
   };
@@ -163,17 +163,17 @@ export function buildEngine() {
   mesh(lat([[0.004, 0.028], [0.0048, 0.03], [0.004, 0.045], [0.0024, 0.05], [0, 0.05]], 24), ceramic, 'ign', {parent: plug});
   const sparkMat = new THREE.MeshBasicMaterial({color: '#ffe9a8', transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending}); sparkMat.userData.shared = true;
   const spark = new THREE.Mesh(new THREE.SphereGeometry(0.0065, 16, 12), sparkMat); spark.position.set(0, -0.003, 0); plug.add(spark);
-  mesh(rbox(0.028, 0.042, 0.022, 0.004).translate(-0.035, CAMY + 0.02, -0.07), black, 'ign');
-  mesh(tube([[-0.035, CAMY + 0.04, -0.07], [-0.02, CAMY + 0.06, -0.06], [0, DECK + 0.05, -0.04], [0, DECK + 0.045, -0.032]], 0.0022, 48), black, 'ign');
+  const mCoil = mesh(rbox(0.028, 0.042, 0.022, 0.004).translate(-0.035, CAMY + 0.02, -0.07), black, 'ign');
+  const mLead = mesh(tube([[-0.035, CAMY + 0.04, -0.07], [-0.02, CAMY + 0.06, -0.06], [0, DECK + 0.05, -0.04], [0, DECK + 0.045, -0.032]], 0.0022, 48), black, 'ign');
 
   // ---- hệ thống cung cấp nhiên liệu và không khí: đường nạp, bộ chế hoà khí, lọc gió; đường thải, ống xả
   const intakePts = [[-VX, DECK + 0.006, 0], [-0.03, DECK + 0.02, 0], [-0.06, DECK + 0.03, 0], [-0.09, DECK + 0.034, 0]];
-  mesh(tube(intakePts, 0.0095), pipeMat, 'fuel', {clip: true});
-  mesh(rbox(0.04, 0.045, 0.045, 0.008).translate(-0.11, DECK + 0.034, 0), carbMat, 'fuel', {clip: true});
-  mesh(rbox(0.06, 0.07, 0.07, 0.014).translate(-0.165, DECK + 0.04, 0), MAT.satin('#3b3f44'), 'fuel', {clip: true});
+  const mIn = mesh(tube(intakePts, 0.0095), pipeMat, 'fuel', {clip: true});
+  const mCarb = mesh(rbox(0.04, 0.045, 0.045, 0.008).translate(-0.11, DECK + 0.034, 0), carbMat, 'fuel', {clip: true});
+  const mAir = mesh(rbox(0.06, 0.07, 0.07, 0.014).translate(-0.165, DECK + 0.04, 0), MAT.satin('#3b3f44'), 'fuel', {clip: true});
   const exPts = [[VX, DECK + 0.006, 0], [0.04, DECK + 0.014, 0], [0.085, DECK + 0.0, 0], [0.122, DECK - 0.055, 0], [0.132, YC + 0.02, 0], [0.19, YC - 0.035, 0]];
   const exMat = MAT.satin('#4a4f55');
-  mesh(tube(exPts, 0.0105, 96), exMat, 'fuel', {clip: true});
+  const mEx = mesh(tube(exPts, 0.0105, 96), exMat, 'fuel', {clip: true});
   // dòng khí: hạt xanh vào theo đường nạp, hạt xám ra theo đường thải
   const curveIn = new THREE.CatmullRomCurve3([...intakePts].reverse().map((p) => new V3(...p)).concat([new V3(-VX, DECK - 0.004, 0)]));
   const curveEx = new THREE.CatmullRomCurve3([new V3(VX, DECK - 0.004, 0), ...exPts.map((p) => new V3(...p))]);
@@ -181,9 +181,9 @@ export function buildEngine() {
   const dIn = pdot('#3c79a8'), dEx = pdot('#6f675f');
 
   // ---- hệ thống bôi trơn: dầu trong cácte; khởi động: mô tơ điện bên dưới
-  mesh(rbox(0.17, 0.022, 0.1, 0.006).translate(0, YC - 0.064, -0.004), oilMat, 'lube', {cast: false, clip: true});
+  const mOil = mesh(rbox(0.17, 0.022, 0.1, 0.006).translate(0, YC - 0.064, -0.004), oilMat, 'lube', {cast: false, clip: true});
   const starter = new THREE.CylinderGeometry(0.016, 0.016, 0.06, 32); starter.rotateX(Math.PI / 2); starter.translate(0.075, YC - 0.045, -0.035);
-  mesh(starter, MAT.satin('#30353a'), 'start', {clip: true});
+  const mStart = mesh(starter, MAT.satin('#30353a'), 'start', {clip: true});
 
   // ---- cập nhật mọi chi tiết từ trạng thái
   const M = new THREE.Matrix4(), Q = new THREE.Quaternion(), P = new V3(), Sc = new V3(1, 1, 1), up = new V3(0, 1, 0);
@@ -250,15 +250,40 @@ export function buildEngine() {
         let op = b.op, tr = b.tr, dw = b.dw;
         if (u.shell && mode === 'glass') { op = 0.2; tr = true; dw = false; }
         if (!on) { op = Math.min(op, 0.07); tr = true; dw = false; }
+        const out = look.ghost.has(u.part); // cụm đang nằm ngoài máy (chế độ lắp ráp): nguyên khối, không cắt dọc, không làm mờ
+        if (out) { op = b.op; tr = b.tr; dw = b.dw; }
         m.opacity = op; m.transparent = tr; m.depthWrite = dw;
-        m.clippingPlanes = u.clip && mode === 'cut' ? [clipPlane] : [];
+        m.clippingPlanes = u.clip && mode === 'cut' && !out ? [clipPlane] : [];
         m.needsUpdate = true;
       });
-      o.castShadow = on && u.cast !== false;
+      o.castShadow = (on || look.ghost.has(u.part)) && u.cast !== false;
     }
   }
-  look.mode = 'cut'; look.sys = null;
+  look.mode = 'cut'; look.sys = null; look.ghost = new Set();
   buildLobes(false);
   look('cut', null);
-  return {root, update, look, SYS, parts: {vIn, vEx, plug, cam, pist, crank, rod}, accent};
+  // ---- cụm lắp ráp: mỗi cụm một nhóm riêng dưới root, để chế độ lắp ráp dời cả cụm theo hướng đưa vào (kit/lap.js)
+  // và thẻ soi chi tiết biết bấm trúng cụm nào (userData.part)
+  const UNIT = {};
+  const put = (id, ...objs) => {
+    const g = UNIT[id] || (UNIT[id] = new THREE.Group()); g.name = id; root.add(g);
+    for (const o of objs) { g.add(o); o.traverse((x) => { x.userData.part = id; }); }
+  };
+  put('cacte', mCase); put('khuyu', crank); put('truyen', rod); put('pitong', pist); put('xilanh', mBarrel, mFins);
+  put('xupap', vIn, vEx, spIn, spEx); put('nap', mHead, mHf); put('cam', cam, camWheel, links); put('como', rkIn, rkEx); put('napday', mCover);
+  put('bugi', plug, mCoil, mLead); put('nap_nl', mIn, mCarb, mAir, dIn); put('xa', mEx, dEx); put('khoidong', mStart); put('dau', mOil);
+  gas.userData.part = null; spark.userData.part = null;
+  // tâm và cỡ hiện tại của một cụm (chi tiết chuyển động thì tâm đi theo), để camera bám theo và đặt khoảng nhìn
+  const bx = new THREE.Box3();
+  const box = (id) => { const g = UNIT[id]; g.updateMatrixWorld(true); bx.setFromObject(g); return {c: bx.getCenter(new V3()), s: bx.getSize(new V3())}; };
+  // nhấp nháy đỏ chi tiết gây vướng: đặt phát sáng trên vật liệu riêng của cụm (vật liệu dùng chung thì bỏ qua)
+  const lit = new Set();
+  const flash = (id, col) => {
+    const g = UNIT[id]; if (!g) return;
+    if (!col && !lit.has(id)) return;
+    g.traverse((o) => { if (!o.isMesh || !o.material || o.material.userData.shared || !o.material.emissive) return; o.material.emissive.set(col || '#000000'); o.material.emissiveIntensity = col ? 0.55 : 0; });
+    if (col) lit.add(id); else lit.delete(id);
+  };
+  const hideFx = (on) => { gas.visible = !on; spark.visible = !on; dIn.visible = !on; dEx.visible = !on; };
+  return {root, update, look, SYS, UNIT, box, flash, hideFx, parts: {vIn, vEx, plug, cam, pist, crank, rod}, accent};
 }

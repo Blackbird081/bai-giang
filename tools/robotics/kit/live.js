@@ -2,6 +2,7 @@
 // xoay/thu phóng bằng chuột hoặc ngón tay, chuyến tham quan tự chạy có con trỏ bấm từng nút kèm lời giảng;
 // chạm vào bất cứ đâu là người xem cầm lái, 25 giây không thao tác thì tham quan chạy lại.
 // Cách tổ chức theo live.js của teardown (MIT).
+import * as THREE from 'three';
 import {warmComposer} from './warm.js';
 
 const D2R = Math.PI / 180;
@@ -34,7 +35,7 @@ body.cmp .mob.top{display:flex}
 .mob.top a{flex:none;background:#f1f2f5;color:#15171C;text-decoration:none;font:700 12px var(--bg-font,Inter,sans-serif);padding:8px 10px;border-radius:10px}
 .mob.top b{font-size:15px;line-height:1.15;letter-spacing:-.01em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .mob.cap{left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border:1px solid #e7e9ed;border-radius:14px;box-shadow:0 14px 34px -20px rgba(16,24,40,.4);padding:10px 12px 12px;max-height:46svh;overflow:auto}
-.mob.cap .k{font:700 10px 'JetBrains Mono',monospace;letter-spacing:1.4px;color:#5B6472;text-transform:uppercase;display:flex;justify-content:space-between;gap:8px}
+.mob.cap .k{font:600 13px 'Be Vietnam Pro',system-ui,sans-serif;letter-spacing:0;color:#5B6472;display:flex;justify-content:space-between;gap:8px}
 .mob.cap .t{font-weight:700;font-size:16px;margin:3px 0 2px;letter-spacing:-.01em}
 .mob.cap .b{font-size:13.5px;line-height:1.45;color:#454A55}
 .mob.cap .e{font:600 12px 'JetBrains Mono',monospace;color:#15171C;margin-top:6px}
@@ -43,7 +44,7 @@ body.cmp .mob.top{display:flex}
 .mob .row::-webkit-scrollbar{display:none}
 .mob .row button{flex:none;height:36px;padding:0 12px;border:1px solid #e3e6ea;background:#fff;border-radius:4px;font:700 11px 'JetBrains Mono',monospace;letter-spacing:1px;color:#15171C}
 .mob .row button.on{background:#15171C;color:#fff;border-color:#15171C}
-.mob .row button.acc{background:#e3562a;color:#fff;border-color:#e3562a}
+.mob .row button.acc{background:#1E2A44;color:#fff;border-color:#1E2A44}
 .mob.back{right:10px;top:calc(10px + env(safe-area-inset-top));display:none!important}
 body.full .mob.back{display:block!important}
 @media (orientation:landscape) and (max-height:520px){.mob.cap{left:auto;right:10px;width:min(46vw,440px);top:calc(64px + env(safe-area-inset-top));max-height:none}.mob.top{margin-right:calc(min(46vw,440px) + 10px)}}
@@ -63,9 +64,38 @@ body.bgs-nav-on .mob.cap{left:max(8px,env(safe-area-inset-left));right:max(8px,e
 body.bgs-nav-on .mob .row{flex-wrap:nowrap;overflow-x:auto}
 @media (orientation:landscape) and (max-height:520px){.mob.cap,body.bgs-nav-on .mob.cap{left:auto;right:max(8px,env(safe-area-inset-right));width:min(46vw,440px);top:calc(var(--bg-bar,48px) + 8px);bottom:auto;max-height:calc(100svh - var(--bg-bar,48px) - 16px)}}
 html[data-chieu] .mob.cap{background:#fff}html[data-chieu] .mob.cap .b{font-size:18px;color:#000}html[data-chieu] .mob.cap .t{font-size:24px}
+/* thanh tốc độ chuẩn của bộ robotics: tạm dừng, 0,5× đến 10×, như trò chơi chiến thuật */
+.lv-time{position:fixed;z-index:21;right:16px;top:calc(var(--bg-bar,0px) + 12px + env(safe-area-inset-top));display:none;align-items:center;gap:2px;padding:4px;border-radius:999px;background:rgba(255,255,255,.96);box-shadow:0 10px 26px -18px rgba(16,24,40,.45),0 0 0 .5px rgba(16,24,40,.08);font:600 13px var(--bg-font,Inter,sans-serif);color:#15171C}
+body.cmp .lv-time{display:flex}
+.lv-time .lb{padding:0 6px 0 10px;color:#626773;font-weight:500}
+.lv-time button{height:32px;min-width:40px;padding:0 10px;border:0;border-radius:999px;background:transparent;color:#454A55;font:inherit;font-variant-numeric:tabular-nums;cursor:pointer}
+.lv-time button:hover{background:#f1f2f5}
+.lv-time button.on{background:#15171C;color:#fff}
+@media (pointer:coarse){.lv-time button{height:40px;min-width:44px}}
+@media (max-width:520px){.lv-time .lb{display:none}.lv-time button{min-width:38px;padding:0 6px}}
+/* thẻ soi chi tiết: bấm vào một chi tiết trong cảnh, camera bám theo nó */
+.lv-insp{position:fixed;z-index:21;right:16px;top:calc(var(--bg-bar,0px) + 64px + env(safe-area-inset-top));width:min(340px,calc(100vw - 32px));display:none;box-sizing:border-box;padding:14px 16px 12px;border-radius:14px;background:rgba(255,255,255,.97);box-shadow:0 18px 44px -18px rgba(16,24,40,.34),0 0 0 .5px rgba(16,24,40,.08);font-family:var(--bg-font,Inter,sans-serif);color:#15171C;max-height:calc(100svh - var(--bg-bar,0px) - 96px);overflow:auto}
+.lv-insp.on{display:block}
+.lv-insp .k{font:600 13px/1.3 var(--bg-font,Inter,sans-serif);color:#5B6472;margin-right:40px}
+.lv-insp .t{font:700 19px/1.25 var(--bg-font,Inter,sans-serif);letter-spacing:-.01em;margin:3px 40px 6px 0}
+.lv-insp .b{font:500 14.5px/1.55 var(--bg-font,Inter,sans-serif);color:#454A55;margin:0 0 8px}
+.lv-insp table{width:100%;border-collapse:collapse;font-size:13.5px}
+.lv-insp td{padding:5px 0;border-top:1px solid rgba(16,24,40,.08);color:#454A55;vertical-align:top}
+.lv-insp td+td{text-align:right;color:#15171C;font-weight:600;font-variant-numeric:tabular-nums;padding-left:12px}
+.lv-insp .x{position:absolute;right:8px;top:8px;width:36px;height:36px;border:0;border-radius:10px;background:none;font-size:22px;line-height:1;color:#626773;cursor:pointer}
+.lv-insp .x:hover{background:#f1f2f5}
+.lv-insp .act{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.lv-insp .act button{height:36px;padding:0 14px;border:1px solid rgba(16,24,40,.18);border-radius:999px;background:#fff;font:600 13.5px var(--bg-font,Inter,sans-serif);color:#15171C;cursor:pointer}
+.lv-insp .act button.on{background:#15171C;color:#fff;border-color:#15171C}
+.lv-insp .fol{display:flex;align-items:center;gap:7px;margin-top:10px;font:500 13px var(--bg-font,Inter,sans-serif);color:#626773}
+.lv-insp .fol i{width:7px;height:7px;border-radius:50%;background:#1E2A44;animation:blink 1.4s steps(2) infinite}
+.lv-insp .src{margin-top:6px;font-size:13px;line-height:1.45;color:#626773}
+@media (pointer:coarse){.lv-insp .x{width:44px;height:44px}.lv-insp .act button{height:44px}}
+@media (max-width:700px){.lv-insp{left:8px;right:8px;width:auto;top:calc(var(--bg-bar,48px) + 60px + env(safe-area-inset-top));max-height:34svh}}
+html[data-chieu] .lv-insp{background:#fff}html[data-chieu] .lv-insp .b{font-size:18px;color:#000}html[data-chieu] .lv-insp .t{font-size:24px}
 `;
 
-export function runLive({stage: st, ui, sim, views, script, captions, keys = {}, idle = 25, chip = [800, 152], W = 1600, H = 900, firstView = 'hero', shell = {}}) {
+export function runLive({stage: st, ui, sim, views, script, captions, keys = {}, idle = 25, chip = [800, 152], W = 1600, H = 900, firstView = 'hero', shell = {}, extra = []}) {
   const style = document.createElement('style'); style.textContent = CSS(W, H); document.head.appendChild(style);
   const app = document.getElementById('app');
   const canvas = st.renderer.domElement;
@@ -128,9 +158,54 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
   const AP = {on: true, t0: 0, ev: 0, pos: [W / 2, H * 0.62], slide: null, lastAt: 0, loop: 0};
   const startTour = () => {
     Object.assign(AP, {on: true, t0: T, ev: 0, slide: null, lastAt: 0});
+    setRate(1); closeInsp();
     sim.reset(); setView(firstView); Object.assign(off, {az: 0, el: 0, k: 1});
   };
   const takeOver = () => { lastInput = T; if (!AP.on) return; AP.on = false; AP.slide = null; };
+
+  // tốc độ mô phỏng (chuẩn của bộ robotics): tạm dừng, 0,5×, 1×, 2×, 5×, 10×. Bước lớn chia nhỏ để mô phỏng vẫn ổn định;
+  // chuyến tham quan và lời giảng luôn chạy theo giờ thật
+  const RATES = [0, 0.5, 1, 2, 5, 10];
+  let rate = 1;
+  const tBar = document.createElement('div'); tBar.className = 'lv-time'; tBar.setAttribute('role', 'group'); tBar.setAttribute('aria-label', 'Tốc độ mô phỏng');
+  tBar.innerHTML = '<span class="lb">Tốc độ</span>' + RATES.map((r) => `<button type="button" data-r="${r}" aria-label="${r ? `${String(r).replace('.', ',')} lần` : 'Tạm dừng'}">${r ? `${String(r).replace('.', ',')}×` : '❚❚'}</button>`).join('');
+  document.body.appendChild(tBar);
+  const setRate = (r) => { rate = r; tBar.querySelectorAll('button').forEach((b) => { const on = +b.dataset.r === r; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); }); };
+  tBar.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; takeOver(); setRate(+b.dataset.r); });
+  setRate(1);
+  const stepSim = (dt) => { if (!rate) return; const n = Math.max(1, Math.ceil(rate)); for (let i = 0; i < n; i++) sim.step((dt * rate) / n, T); };
+
+  // soi chi tiết: bấm (không kéo) vào vật trong cảnh; sim.pick(hits) trả về thẻ {k, t, b, rows, actions, src, pos(), d},
+  // true nếu bài tự xử lí cú bấm (vd chế độ lắp ráp), null nếu không trúng gì. Có thẻ thì camera bám theo pos() mỗi khung hình.
+  const insp = document.createElement('div'); insp.className = 'lv-insp'; insp.setAttribute('role', 'dialog'); insp.setAttribute('aria-label', 'Chi tiết'); document.body.appendChild(insp);
+  let FOL = null;
+  const val = (v) => (typeof v === 'function' ? v() : v);
+  const renderInsp = () => {
+    const i = FOL.info;
+    insp.innerHTML = `<button class="x" type="button" aria-label="Đóng">×</button><div class="k">${i.k || ''}</div><div class="t">${i.t}</div>${i.b ? `<p class="b">${i.b}</p>` : ''}`
+      + (i.rows?.length ? `<table>${i.rows.map(([a, b]) => `<tr><td>${a}</td><td>${val(b)}</td></tr>`).join('')}</table>` : '')
+      + (i.actions?.length ? `<div class="act">${i.actions.map((a, j) => `<button type="button" data-j="${j}" class="${val(a.on) ? 'on' : ''}">${a.label}</button>`).join('')}</div>` : '')
+      + (i.pos ? '<div class="fol"><i></i>Camera đang bám theo chi tiết này</div>' : '') + (i.src ? `<div class="src">${i.src}</div>` : '');
+  };
+  const closeInsp = () => { if (!FOL) return; const f = FOL; FOL = null; insp.classList.remove('on'); f.info.close?.(); };
+  const openInsp = (info) => { closeInsp(); FOL = {info}; renderInsp(); insp.classList.add('on'); info.open?.(); };
+  insp.addEventListener('pointerdown', (e) => e.stopPropagation());
+  insp.addEventListener('click', (e) => {
+    lastInput = T;
+    if (e.target.closest('.x')) { closeInsp(); return; }
+    const b = e.target.closest('[data-j]'); if (b && FOL) { FOL.info.actions[+b.dataset.j].fn(); if (FOL) renderInsp(); }
+  });
+  const rc = new THREE.Raycaster(), ndc = new THREE.Vector2();
+  const shown = (o) => { for (let x = o; x; x = x.parent) if (!x.visible) return false; return true; };
+  const pickAt = (cx, cy) => {
+    if (!sim.pick) return;
+    const r = canvas.getBoundingClientRect(); ndc.set(((cx - r.left) / r.width) * 2 - 1, -((cy - r.top) / r.height) * 2 + 1);
+    st.camera.updateMatrixWorld(); rc.setFromCamera(ndc, st.camera);
+    const hits = rc.intersectObjects(st.scene.children, true).filter((h) => (h.object.isMesh || h.object.isInstancedMesh) && shown(h.object));
+    const res = sim.pick(hits);
+    if (res === true) return;
+    if (res) openInsp(res); else closeInsp();
+  };
   tourChip.addEventListener('pointerdown', (e) => { e.stopPropagation(); lastInput = T; if (AP.on) takeOver(); else startTour(); });
   addEventListener('pointerdown', (e) => { if (e.target !== tourChip && !(e.target.closest && e.target.closest('.bgs,.mob'))) takeOver(); });
   const knob = (k) => { const s = ui.sliders[k]; return s ? [s.x + s.t * s.w, s.y] : [W / 2, H / 2]; };
@@ -162,13 +237,16 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
     if (e.altKey || e.ctrlKey || e.metaKey) return;
     const k = e.key.toLowerCase();
     if (sim.keyDown && sim.keyDown(k)) { held.add(k); takeOver(); e.preventDefault(); return; }
+    if (k === 'escape' && FOL) { closeInsp(); return; }
     const a = keys[k]; if (!a) return;
     takeOver(); pulse(a); if (a.startsWith('v_')) setView(a.slice(2)); else sim.act(a); e.preventDefault();
   });
   addEventListener('keyup', (e) => { const k = e.key.toLowerCase(); if (held.delete(k)) sim.keyUp?.(k); });
   let drag = null;
   const pts = new Map(); let pinch = 0;
-  canvas.addEventListener('pointerdown', (e) => { pts.set(e.pointerId, [e.clientX, e.clientY]); drag = {x: e.clientX, y: e.clientY}; canvas.setPointerCapture(e.pointerId); canvas.classList.add('drag'); pinch = 0; });
+  let tap = null;
+  canvas.addEventListener('pointerdown', (e) => { pts.set(e.pointerId, [e.clientX, e.clientY]); drag = {x: e.clientX, y: e.clientY}; tap = pts.size === 1 ? {x: e.clientX, y: e.clientY, t: performance.now()} : null; canvas.setPointerCapture(e.pointerId); canvas.classList.add('drag'); pinch = 0; });
+  canvas.addEventListener('pointerup', (e) => { if (tap && Math.hypot(e.clientX - tap.x, e.clientY - tap.y) < 6 && performance.now() - tap.t < 600) pickAt(e.clientX, e.clientY); tap = null; });
   canvas.addEventListener('pointermove', (e) => {
     if (!drag) return;
     if (pts.has(e.pointerId)) pts.set(e.pointerId, [e.clientX, e.clientY]);
@@ -202,13 +280,14 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
     AP.t0 = T - goal; mShow(captions[i], i);
   };
   const classEnd = () => { CL.on = false; };
-  const mViews = Object.keys(views);
+  const mViews = Object.keys(views).filter((k) => ui.btn['v_' + k]); // góc máy riêng (quay phim, lắp ráp) không có nút trên bảng thì không hiện
   const cap1 = (t) => { const x = String(t || '').trim().toLocaleLowerCase('vi'); return x.charAt(0).toLocaleUpperCase('vi') + x.slice(1); };
   const vLabel = (k) => cap1(ui.btn['v_' + k] ? ui.btn['v_' + k].textContent : k);
-  mCap.querySelector('[data-r]').innerHTML = `<button data-m="tour" class="acc">Tự chạy</button>${mViews.map((k) => `<button data-v="${k}">${vLabel(k)}</button>`).join('')}<button data-m="min">Thu gọn</button>${window.BGShell ? '' : '<button data-m="full">Bảng số</button>'}`;
+  mCap.querySelector('[data-r]').innerHTML = `<button data-m="tour" class="acc">Tự chạy</button>${extra.map((x) => `<button data-a="${x.key}">${x.label}</button>`).join('')}${mViews.map((k) => `<button data-v="${k}">${vLabel(k)}</button>`).join('')}<button data-m="min">Thu gọn</button>${window.BGShell ? '' : '<button data-m="full">Bảng số</button>'}`;
   mCap.addEventListener('click', (e) => {
     const b = e.target.closest('button'); if (!b) return;
     if (b.dataset.v) { takeOver(); setView(b.dataset.v); }
+    if (b.dataset.a) { takeOver(); closeInsp(); sim.act(b.dataset.a); }
     if (b.dataset.m === 'tour') { if (AP.on) takeOver(); else startTour(); }
     if (b.dataset.m === 'min') { mCap.classList.toggle('min'); b.textContent = mCap.classList.contains('min') ? 'Mở lời giảng' : 'Thu gọn'; }
     if (b.dataset.m === 'full') { full = true; fit(); }
@@ -216,6 +295,7 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
   mBack.addEventListener('click', () => { full = false; fit(); });
   const mSync = () => {
     mCap.querySelectorAll('[data-v]').forEach((b) => b.classList.toggle('on', b.dataset.v === view));
+    mCap.querySelectorAll('[data-a]').forEach((b) => b.classList.toggle('on', !!sim.isOn?.(b.dataset.a)));
     const t = mCap.querySelector('[data-m="tour"]'); t.textContent = AP.on ? 'Dừng tự chạy' : 'Tự chạy'; t.classList.toggle('acc', !AP.on);
   };
 
@@ -260,14 +340,15 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
       const rk = Math.max(0, 1 - (T - ring.t) / 0.55);
       cursor = {x: pos[0], y: pos[1], press, ring: rk, ringX: ring.x, ringY: ring.y};
     } else {
-      if (T - lastInput > idle && !CL.on) startTour();
+      if (T - lastInput > idle && !CL.on && !FOL && !sim.busy?.()) startTour(); // đang soi chi tiết hay đang lắp ráp thì không tự chạy lại
       const rk = Math.max(0, 1 - (T - ring.t) / 0.55);
       cursor = {x: -99, y: -99, press: false, ring: rk, ringX: ring.x, ringY: ring.y};
     }
-    sim.step(dt, T);
+    stepSim(dt);
     const since = T - viewAt0;
     const tgt = views[view](since, sim);
     tgt.az += off.az; tgt.el = clamp(tgt.el + off.el, -30, 88); tgt.d *= off.k;
+    if (FOL && FOL.info.pos) { const p = FOL.info.pos(); tgt.tx = p[0]; tgt.ty = p[1]; tgt.tz = p[2]; tgt.sx = 0; tgt.sy = 0; if (FOL.info.d) tgt.d = FOL.info.d * off.k; }
     const k = RM.matches ? 1 : 1 - Math.exp(-dt / (AP.on ? 0.22 : 0.35)); // giảm chuyển động: camera cắt thẳng tới góc mới
     cam.az += wrap(tgt.az - cam.az) * k;
     for (const key of ['tx', 'ty', 'tz', 'el', 'd', 'sx', 'sy']) cam[key] += ((tgt[key] ?? 0) - (cam[key] ?? 0)) * k;
@@ -284,12 +365,16 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
       tourChip.classList.toggle('on', AP.on);
       tourChip.innerHTML = AP.on ? '<i></i>Bài giảng đang tự chạy · bấm để tự điều khiển' : '▶ Chạy lại bài giảng';
     }
-    if (compact && (frame.n = (frame.n || 0) + 1) % 15 === 0) mSync();
+    if ((frame.n = (frame.n || 0) + 1) % 15 === 0) {
+      if (compact) mSync();
+      if (FOL && FOL.info.rows?.some(([, b]) => typeof b === 'function')) insp.querySelectorAll('td+td').forEach((td, j) => { td.textContent = val(FOL.info.rows[j][1]); });
+    }
     if (!window.SIM_SHOWN) { window.SIM_SHOWN = true; dispatchEvent(new Event('simframe')); }
     requestAnimationFrame(frame);
   };
   warmComposer(st.renderer, st.composer, st.scene, st.camera).then(() => requestAnimationFrame(frame));
-  window.LIVE = {st, cam, sim, startTour, takeOver, setView, classGo, classEnd, get tier() { return tier; }, get T() { return T; }, get auto() { return AP.on; }, get compact() { return compact; }};
+  window.LIVE = {st, cam, sim, startTour, takeOver, setView, classGo, classEnd, setRate, inspect: openInsp, closeInspect: closeInsp, pickAt,
+    get rate() { return rate; }, get inspecting() { return FOL ? FOL.info : null; }, get tier() { return tier; }, get T() { return T; }, get auto() { return AP.on; }, get compact() { return compact; }};
   // vỏ Sáng Ăn Khoai: lên lớp bằng bút trình chiếu, màn hình giáo viên, điện thoại (shell/bg-shell.js nhúng khi đóng gói)
   if (window.BGShell) {
     const strip = (h) => String(h || '').replace(/<[^>]+>/g, '');

@@ -95,6 +95,27 @@ def fontface(root_expr=None, root='fonts/'):
     return '\n'.join(out)
 
 
+def std_css(scope):
+    """Chuẩn thành phần chung (docs/he-thiet-ke.md, mục Thành phần chuẩn). scope: 'body.bgs-on' cho bài 3D, 'html' cho trang dựng bằng Python.
+    Chỉ đặt vai màu và chữ (nút chính, nút đang bật, ô chọn, vòng focus); kích thước và bố cục vẫn của từng bài."""
+    S = scope
+    PRI = ':is(.btn.primary,.btn.pri,.btn.gold,.btn.cta)'
+    ON = ':is(.btn.on,.btn.dark,.btn[aria-pressed="true"],.chip.on,.chip[aria-pressed="true"],.seg button.on,.sw button.on)'
+    return (
+        '/* chuẩn thành phần Sáng Ăn Khoai: sinh bằng tools/design.py, không sửa tay */\n'
+        f'{S} :is(button,.btn,select){{font-family:var(--bg-font)}}\n'
+        f'{S} .btn{{font-weight:600;letter-spacing:0;text-transform:none}}\n'
+        # nút chính: một màu thương hiệu, phẳng, không chuyển sắc theo môn
+        f'{S} {PRI}{{background:var(--bg-brand)!important;background-image:none!important;border-color:var(--bg-brand)!important;color:var(--bg-brand-ink)!important;'
+        'box-shadow:0 6px 16px -10px rgba(30,42,68,.65)!important;text-shadow:none!important}\n'
+        f'{S} {PRI}:hover:not(:disabled){{filter:brightness(1.18)}}\n'
+        # đang bật, đang chọn: mực đậm
+        f'{S} {ON}{{background:var(--bg-ink)!important;background-image:none!important;border-color:var(--bg-ink)!important;color:#fff!important}}\n'
+        f'{S} :is(input[type=range],input[type=checkbox],input[type=radio]){{accent-color:var(--bg-brand)}}\n'
+        f'{S} :is(a,button,input,select,textarea,summary,[tabindex]):focus-visible{{outline:2px solid var(--bg-focus)!important;outline-offset:2px}}\n'
+    )
+
+
 HOUSE_EXTRA = """
 /* lớp chung cho các trang dựng bằng Python (trang chính, chủ đề, lộ trình) */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
@@ -113,7 +134,7 @@ p,li{text-wrap:pretty}
 
 def main():
     (ROOT / 'design').mkdir(exist_ok=True)
-    house = '/* Sinh từ design/tokens.json bằng tools/design.py. Không sửa tay. */\n' + fontface() + '\n' + tokens_css() + HOUSE_EXTRA
+    house = '/* Sinh từ design/tokens.json bằng tools/design.py. Không sửa tay. */\n' + fontface() + '\n' + tokens_css() + HOUSE_EXTRA + std_css('html')
     (ROOT / 'design/house.css').write_text(house, encoding='utf-8')
     sprite = '<svg xmlns="http://www.w3.org/2000/svg" style="display:none">' + ''.join(
         f'<symbol id="i-{k}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">{v}</symbol>' for k, v in ICONS.items()) + '</svg>\n'

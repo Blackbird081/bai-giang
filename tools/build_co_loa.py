@@ -147,10 +147,10 @@ DATA = {'rings': [{k: v for k, v in r.items() if k not in ('gates',)} for r in R
 def build(home, hub, cell, mito):
     tpl = (ROOT / 'tools/co-loa.template.html').read_text(encoding='utf-8')
     css = LG.root("""
-  --paper:#F5F5F7; --panel:#FFFFFF; --ink:#1D1D1F; --muted:#6E6E73; --line:rgba(15,23,42,.08); --hair:rgba(15,23,42,.14);
+  --paper:var(--bg-page); --panel:#FFFFFF; --ink:var(--bg-ink); --muted:var(--bg-ink3); --line:rgba(15,23,42,.08); --hair:rgba(15,23,42,.14);
   --accent:#9A5B13; --accent2:#7A4510; --crimson:#BE1740; --f-body:var(--lg-font); --r:22px;
 """) + LG.BODY + 'html{background:var(--lg-page)}\n' + LG.glass('header.top,.ctrl,.timeline', 'var(--lg-r)') + LG.glass('.glass', 'var(--lg-r-sm)') \
-        + LG.glass('#info,.lesson', 'var(--lg-r)', strong=True) + LG.pill_buttons('.btn,.ph', '.btn.primary', '#B26A1A', '#8E5110')
+        + LG.glass('#info,.lesson', 'var(--lg-r)', strong=True) + LG.pill_buttons('.btn,.ph', '.btn.primary')
     s = tpl.replace('__LG_CSS__', css).replace('__DATA__', json.dumps(DATA, ensure_ascii=False, separators=(',', ':'))).replace('__HUB__', hub).replace('__HOME__', home)
     s = s.replace('__FONT__', '')
     assert '__' not in s, 'còn chỗ giữ chỗ: ' + s[s.find('__') - 40:s.find('__') + 40]

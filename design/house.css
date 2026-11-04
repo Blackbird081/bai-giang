@@ -30,3 +30,11 @@ p,li{text-wrap:pretty}
 /* màn cảm ứng (máy tính bảng, điện thoại): vùng chạm từ 44 px cho nút chữ và dòng mở rộng */
 @media (pointer:coarse){a.btn,button.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}summary{padding-block:12px}h2>a:only-child,h3>a:only-child{display:inline-flex;align-items:center;min-height:44px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
+/* chuẩn thành phần Sáng Ăn Khoai: sinh bằng tools/design.py, không sửa tay */
+html :is(button,.btn,select){font-family:var(--bg-font)}
+html .btn{font-weight:600;letter-spacing:0;text-transform:none}
+html :is(.btn.primary,.btn.pri,.btn.gold,.btn.cta){background:var(--bg-brand)!important;background-image:none!important;border-color:var(--bg-brand)!important;color:var(--bg-brand-ink)!important;box-shadow:0 6px 16px -10px rgba(30,42,68,.65)!important;text-shadow:none!important}
+html :is(.btn.primary,.btn.pri,.btn.gold,.btn.cta):hover:not(:disabled){filter:brightness(1.18)}
+html :is(.btn.on,.btn.dark,.btn[aria-pressed="true"],.chip.on,.chip[aria-pressed="true"],.seg button.on,.sw button.on){background:var(--bg-ink)!important;background-image:none!important;border-color:var(--bg-ink)!important;color:#fff!important}
+html :is(input[type=range],input[type=checkbox],input[type=radio]){accent-color:var(--bg-brand)}
+html :is(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--bg-focus)!important;outline-offset:2px}

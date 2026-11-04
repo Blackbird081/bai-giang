@@ -6,7 +6,7 @@ import * as THREE from 'three';
 import {createStage} from '../kit/stage.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
-import {L, CRUISE, BURST, REG, ST_BAND, U_MIN, U_MAX, fOf, lat, latDs, latDt, jointAngles, derive} from './kin.js';
+import {L, CRUISE, BURST, REG, ST_BAND, U_MIN, U_MAX, JOINTS, fOf, lat, latDs, latDt, jointAngles, derive} from './kin.js';
 import {buildShark, Y0, prof} from './shark.js';
 
 const app = document.getElementById('app');
@@ -193,6 +193,27 @@ const sim = {
     st.ground.material.uniforms.uOff.value = S.D % 1;
   },
   shadowAt() { return new THREE.Vector3(0, 0.3, 0); },
+  // soi chi tiết (kit/live.js): bấm một servo ở chế độ khung robot, hoặc bấm thân cá; camera bám theo chỗ đó khi thân uốn
+  pick(hits) {
+    for (const h of hits) {
+      const m = Array.isArray(h.object.material) ? h.object.material[0] : h.object.material;
+      if (m && m.transparent && m.opacity < 0.35) continue;
+      let i = -1; for (let x = h.object; x && i < 0; x = x.parent) i = fish.servos.indexOf(x);
+      if (i >= 0) {
+        const at = () => { const v = new THREE.Vector3(); fish.servos[i].getWorldPosition(v); return [v.x, v.y, v.z]; };
+        return {k: 'Robot cá · khung trong', t: `Khớp servo ${i + 1} / 8`, b: 'Servo quay đốt sau so với đốt trước. Góc của nó là hiệu hướng của hai đốt kề nhau khi đặt các khớp lên sóng thân, nên khớp càng gần đuôi góc càng lớn.',
+          rows: [['Vị trí trên thân', `s = ${vn(JOINTS[i], 3)} (từ mũi)`], ['Góc lúc này', () => `${vn(S.ang[i] * D2, 1)}°`], ['Biên độ chu kì trước', () => `± ${vn(S.peak[i], 1)}°`], ['Tần số vẫy', () => `${vn(fOf(S.U), 2)} Hz`]],
+          src: 'Robot 8 khớp là phần giả định minh hoạ của bài; tần số vẫy từ hồi quy đo trên cá mako (Waller và cs. 2023).', pos: at, d: 1.1};
+      }
+      if (h.object.parent && fish.root.getObjectById(h.object.id)) {
+        const d0 = () => derive(S.U, S.AL, S.lam);
+        return {k: 'Cá mập mako vây ngắn · Isurus oxyrinchus', t: 'Thân cá đang bơi', b: 'Mọi đại lượng đọc từ tốc độ bơi U: tần số vẫy đuôi theo hồi quy đo trên cá thật, sóng thân và số Strouhal tính từ đó.',
+          rows: [['Tốc độ U', () => `${vn(S.U, 2)} m/s · ${vn(S.U * 3.6, 1)} km/h`], ['Tần số vẫy f', () => `${vn(d0().f, 2)} Hz`], ['Số Strouhal', () => `${vn(d0().St, 2)}`], ['Lực cản so với tuần tra', () => `× ${vn(d0().drag, 1)}`]],
+          src: 'Số đo: Waller và cs. (2023), J Fish Biol 103: 864–883; vùng Strouhal: Taylor và cs. (2003), Nature 425.', pos: () => { const p = fish.anchor(0.45, 0, 0, S.phi, S.AL * L, S.lam); return [p.x, p.y, p.z]; }, d: 4.4};
+      }
+    }
+    return null;
+  },
   draw({view} = {}) {
     const d = derive(S.U, S.AL, S.lam), A = d.A;
     fish.update(S.phi, A, S.lam);

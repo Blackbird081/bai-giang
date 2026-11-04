@@ -1,7 +1,8 @@
 /* Lớp giao diện nhà Sáng Ăn Khoai cho BodyVista (tools/co-the-nguoi/build.py chép vào co-the-nguoi/app/house.css).
    Không sửa CSS gốc; chỉ phủ lên: phông, màu nhấn môn Sinh, chừa chỗ cho thanh đầu bài chung, thẻ bài học từng bước. */
 :root,body,button,input,select,textarea{font-family:var(--bg-font),"Segoe UI",system-ui,sans-serif!important}
-:root{--accent:var(--bg-accent,#C2184A);--accent-soft:color-mix(in srgb,var(--bg-accent,#C2184A) 9%,#fff);--control-hover:color-mix(in srgb,var(--bg-accent,#C2184A) 6%,#fff);--ink:var(--bg-ink);--muted:var(--bg-ink3)}
+/* chuẩn thành phần chung: màu tương tác (nút chính, đang chọn, đường dẫn) là màu thương hiệu; màu môn Sinh chỉ cho nhãn chủ đề và số liệu */
+:root{--accent:var(--bg-brand,#1E2A44);--accent-soft:color-mix(in srgb,var(--bg-brand,#1E2A44) 8%,#fff);--control-hover:color-mix(in srgb,var(--bg-brand,#1E2A44) 5%,#fff);--ink:var(--bg-ink);--muted:var(--bg-ink3)}
 body{-webkit-font-smoothing:antialiased}
 
 /* thanh đầu bài chung ở trên cùng; thanh chế độ của BodyVista nằm ngay dưới */

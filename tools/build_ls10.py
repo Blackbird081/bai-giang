@@ -97,8 +97,8 @@ def build(hub, coloa, cover):
   {''.join(f"<div class='muc du'><h4>{E(m['ten'])}</h4><ul>{''.join(f'<li>{E(x)}</li>' for x in m['ycd'])}</ul></div>" for m in c['muc'])}</details>''' for c in CT['chuyen_de'])
     src = ''.join(f'<li><a href="{E(n["url"])}" target="_blank" rel="noopener">{E(n["ten"])}</a></li>' for n in CT['nguon'])
     css = LG.root('''
-  --paper:#F5F5F7; --ink:#1D1D1F; --ink2:#424245; --muted:#6E6E73; --line:rgba(15,23,42,.08); --accent:#9A5B13; --accent2:#7A4510;
-''') + LG.BODY + LG.PAPER_CSS + LG.glass('.glass', 'var(--lg-r)') + LG.pill_buttons('.btn', '.btn.primary', '#B26A1A', '#8E5110')
+  --paper:var(--bg-page); --ink:var(--bg-ink); --ink2:var(--bg-ink2); --muted:var(--bg-ink3); --line:rgba(15,23,42,.08); --accent:#9A5B13; --accent2:#7A4510;
+''') + LG.BODY + LG.PAPER_CSS + LG.glass('.glass', 'var(--lg-r)') + LG.pill_buttons('.btn', '.btn.primary')
     return f'''<!doctype html>
 <html lang="vi">
 <head>

@@ -5,8 +5,10 @@ import * as THREE from 'three';
 import {createStage} from '../kit/stage.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
+import {createAssembly} from '../kit/lap.js';
 import {E, VCT, cm3, vbc, vol, fromTDC, pressure, liftIn, liftEx, strokeIdx, STROKES, cycleWork, otto, pistonSpeed} from './kin.js';
 import {buildEngine, YC, DECK, CROWN_TDC, CROWN_BDC, CAMY, VX} from './engine.js';
+import {UNITS, ORDER} from './cum.js';
 
 const app = document.getElementById('app');
 const canvas = document.createElement('canvas'); canvas.id = 'gl'; app.appendChild(canvas);
@@ -17,7 +19,7 @@ const vn = (v, n = 1) => fx(v, n).replace('.', ',');
 const vnInt = (v) => Math.round(v).toLocaleString('vi-VN');
 
 // ---------------- trạng thái: một đầu vào ψ, cộng các nút người xem chỉnh
-const S = {hold: null, psi: 0, rpm: 1500, rpmT: 1500, slow: 1 / 100, eps: E.eps, spark: true, real: false, mode: 'cut', sys: null, labels: true, knock: false, stalled: false, gasK: 1, pvPath: '', W: 0, imep: 0};
+const S = {hold: null, psi: 0, rpm: 1500, rpmT: 1500, slow: 1 / 100, eps: E.eps, spark: true, real: false, mode: 'cut', sys: null, labels: true, asm: false, knock: false, stalled: false, gasK: 1, pvPath: '', W: 0, imep: 0};
 const recompute = () => { const c = cycleWork({eps: S.eps, spark: S.spark}); S.W = c.W; S.imep = c.imep; S.knock = S.eps > 11.5 && S.spark; buildPV(); };
 
 // ---------------- bảng điều khiển 1600 × 900
@@ -57,7 +59,7 @@ const sRpm = ui.slider('rpm', 1286, 704, 272, 'TAY GA', {lw: 74, vw: 92});
 const sEps = ui.slider('eps', 1286, 726, 272, 'TỈ SỐ NÉN', {lw: 74, vw: 92});
 const sSlow = ui.slider('slow', 1286, 748, 272, 'TUA CHẬM', {lw: 74, vw: 92});
 ui.buttons([['v_hero', 'TOÀN CẢNH'], ['v_front', 'CHÍNH DIỆN'], ['v_head', 'NẮP MÁY'], ['v_crank', 'TRỤC KHUỶU'], ['v_inside', 'TRONG XI LANH']], 360, 120, 600);
-ui.buttons([['cut', 'CẮT DỌC'], ['glass', 'NHÌN XUYÊN'], ['solid', 'NGUYÊN KHỐI'], ['spark', 'BUGI'], ['real', 'PHA THỰC TẾ'], ['labels', 'NHÃN']], 360, 744, 900);
+ui.buttons([['cut', 'CẮT DỌC'], ['glass', 'NHÌN XUYÊN'], ['solid', 'NGUYÊN KHỐI'], ['spark', 'BUGI'], ['real', 'PHA THỰC TẾ'], ['labels', 'NHÃN'], ['asm', 'LẮP RÁP']], 360, 744, 900);
 ui.cap = ui.caption(348, 772, 904, 126);
 const alert = ui.alert(400, 712);
 ui.callouts([
@@ -68,8 +70,9 @@ ui.callouts([
 ]);
 // vạch ĐCT, ĐCD bên cạnh xi lanh
 const mk = (y) => { const m = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.0008, 0.0008), new THREE.MeshBasicMaterial({color: C.or})); m.position.set(-0.052, y, 0.012); eng.root.add(m); return m; };
-mk(CROWN_TDC); mk(CROWN_BDC);
-const dim = new THREE.Mesh(new THREE.BoxGeometry(0.0008, CROWN_TDC - CROWN_BDC, 0.0008), new THREE.MeshBasicMaterial({color: C.ink})); dim.position.set(-0.06, (CROWN_TDC + CROWN_BDC) / 2, 0.012); eng.root.add(dim);
+const marks = [mk(CROWN_TDC), mk(CROWN_BDC)];
+const dim = new THREE.Mesh(new THREE.BoxGeometry(0.0008, CROWN_TDC - CROWN_BDC, 0.0008), new THREE.MeshBasicMaterial({color: C.ink})); dim.position.set(-0.06, (CROWN_TDC + CROWN_BDC) / 2, 0.012); eng.root.add(dim); marks.push(dim);
+for (const m of marks) m.userData.noPick = true;
 
 // ---------------- đồ thị
 const PV = {w: 272, h: 112};
@@ -96,14 +99,74 @@ const drawWheel = (ps) => {
   wheel.innerHTML = g;
 };
 
+// ---------------- lắp ráp (kit/lap.js): chi tiết chờ lắp nằm trên khay bên phải máy (3 cột × 5 hàng), đi tới điểm chờ rồi vào theo hướng lắp
+const U = Object.fromEntries(UNITS.map((u) => [u.id, u]));
+const PARK = {};
+const parkAll = () => {
+  const ids = ORDER.slice().sort((a, b) => U[a].name.localeCompare(U[b].name, 'vi')); // xếp theo tên: vị trí trên khay không lộ thứ tự đúng
+  ids.forEach((id, i) => {
+    const {c, s} = eng.box(id), x = 0.3 + (i % 3) * 0.17, z = 0.2 - Math.floor(i / 3) * 0.15;
+    PARK[id] = [x - c.x, s.y / 2 + 0.003 - c.y, z - c.z];
+  });
+};
+const lerp3 = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+const lap = createAssembly({units: UNITS, order: ORDER, title: 'Lắp ráp động cơ', kicker: 'Thứ tự · lối vào · va vướng',
+  exit: () => sim.act('asm'),
+  io: {
+    pose(id, k, from) {
+      const g = eng.UNIT[id]; if (!g) return;
+      if (k >= 0.999 || !PARK[id]) { g.position.set(0, 0, 0); return; }
+      const o = k < 0.55 ? lerp3(PARK[id], from, k / 0.55) : lerp3(from, [0, 0, 0], (k - 0.55) / 0.45);
+      g.position.set(o[0], o[1], o[2]);
+    },
+    ghost(id, on) { if (on !== eng.look.ghost.has(id)) { on ? eng.look.ghost.add(id) : eng.look.ghost.delete(id); eng.look(); } },
+    flash: (id, col) => eng.flash(id, col),
+  }});
+let labels0 = true;
+
+// ---------------- soi chi tiết: bấm vào một cụm trong cảnh → thẻ thông tin, camera bám theo cụm (kể cả khi nó chuyển động)
+const partOf = (o) => { for (let x = o; x; x = x.parent) if (x.userData && x.userData.part !== undefined) return x.userData.part; return null; };
+const LIVE_ROWS = {
+  khuyu: [['Bán kính quay r', '27,8 mm (S / 2)'], ['Góc trục khuỷu', () => `${vnInt(S.psi)}° / 720°`], ['Tốc độ', () => (S.stalled ? 'máy đã dừng' : `${vnInt(S.rpm)} vòng/phút`)]],
+  truyen: [['Chiều dài tâm', '100 mm (giả định)'], ['Góc trục khuỷu', () => `${vnInt(S.psi)}°`]],
+  pitong: [['Đường kính D', '50,0 mm (Honda)'], ['Cách ĐCT', () => `${vn(fromTDC(S.psi) * 1000, 1)} mm`], ['Kì đang chạy', () => STROKES[strokeIdx(S.psi)].t.split(' · ').pop()]],
+  xilanh: [['Hành trình S', '55,6 mm (Honda)'], ['Thể tích công tác', '109,2 cm³']],
+  xupap: [['Xupap nạp', () => (liftIn(S.psi, S.real) > 0.01 ? `mở ${vn(liftIn(S.psi, S.real) * E.lift * 1000, 1)} mm` : 'đóng')], ['Xupap thải', () => (liftEx(S.psi, S.real) > 0.01 ? `mở ${vn(liftEx(S.psi, S.real) * E.lift * 1000, 1)} mm` : 'đóng')], ['Độ nâng lớn nhất', '5,5 mm (minh hoạ)']],
+  nap: [['Tỉ số nén ε', () => `${vn(S.eps, 1)} : 1`]],
+  cam: [['Góc trục cam', () => `${vnInt(S.psi / 2)}° / 360°`], ['Tỉ số truyền xích', '2 : 1']],
+  bugi: [['Trạng thái', () => (!S.spark ? 'đã tắt' : S.psi % 720 >= 350 && S.psi % 720 < 364 ? 'đang phóng tia lửa' : 'chờ cuối kì nén')]],
+  cacte: [['Dung tích xi lanh', '109,2 cm³ (Honda)']],
+};
+const inspect = (id) => {
+  const u = U[id], need = (u.needs || []).map((n) => U[n].name), after = UNITS.filter((x) => (x.needs || []).includes(id)).map((x) => x.name);
+  const rows = [...(LIVE_ROWS[id] || []), ...(need.length ? [['Lắp sau', need.join(', ')]] : [['Lắp sau', 'là chi tiết nền']]), ...(after.length ? [['Đỡ cho', after.join(', ')]] : [])];
+  const sysKey = Object.keys(SYSMAP).find((k) => SYSMAP[k] === u.sys);
+  return {k: u.k, t: u.name, b: u.b, rows, src: 'Số đo: thông số Honda Việt Nam (Wave Alpha 110); chỗ ghi giả định, minh hoạ là giá trị của bài.',
+    actions: [...(sysKey ? [{label: 'Chỉ hiện hệ này', on: () => S.sys === u.sys, fn: () => sim.act(sysKey)}] : []), {label: 'Tập lắp ráp', fn: () => { LIVE.closeInspect(); sim.act('asm'); }}],
+    pos: () => { const c = eng.box(id).c; return [c.x, c.y, c.z]; },
+    d: Math.min(0.95, Math.max(0.42, Math.max(...eng.box(id).s.toArray()) * 4.6)),
+    open: () => { S.pick = id; }, close: () => { if (S.pick === id) S.pick = null; }};
+};
+
 // ---------------- tương tác
 const SYSMAP = {sys_crank: 'crank', sys_valve: 'valve', sys_fuel: 'fuel', sys_ign: 'ign', sys_cool: 'cool', sys_lube: 'lube', sys_start: 'start'};
 const sim = {
   reset() {
+    if (S.asm) sim.act('asm');
     Object.assign(S, {hold: null, psi: 0, rpm: 1500, rpmT: 1500, slow: 1 / 100, eps: E.eps, spark: true, real: false, mode: 'cut', sys: null, labels: true, stalled: false});
     eng.look('cut', null); recompute();
   },
   act(k) {
+    if (k === 'asm' || k === 'asm_demo') {
+      if (k === 'asm_demo' && S.asm) { lap.demo(); return; }
+      S.asm = !S.asm; S.hold = null;
+      for (const m of marks) m.visible = !S.asm;
+      if (S.asm) { labels0 = S.labels; S.labels = false; S.sys = null; S.psi = 0; eng.look(S.mode, null); eng.hideFx(true); parkAll(); lap.start(); if (k === 'asm_demo') lap.demo(); }
+      else { lap.stop(); eng.hideFx(false); S.labels = labels0; eng.look(S.mode, S.sys); }
+      LIVE.setView(S.asm ? 'asm' : 'hero');
+      return;
+    }
+    if (S.asm && (SYSMAP[k] || k === 'spark' || k === 'real')) return; // đang lắp ráp: máy đứng yên, nút hệ thống và bugi tạm khoá
     if (k !== 'labels') S.hold = null;
     if (SYSMAP[k]) { S.sys = S.sys === SYSMAP[k] ? null : SYSMAP[k]; eng.look(S.mode, S.sys); return; }
     if (k === 'cut' || k === 'glass' || k === 'solid') { S.mode = k; eng.look(S.mode, S.sys); return; }
@@ -118,7 +181,8 @@ const sim = {
     if (k === 'slow') S.slow = Math.exp(Math.log(1 / 400) + t * (Math.log(1 / 20) - Math.log(1 / 400)));
   },
   step(dt) {
-    if (S.film) return; // quay phim: ψ đặt từ ngoài theo từng khung
+    lap.step(dt);
+    if (S.film || S.asm) return; // quay phim: ψ đặt từ ngoài theo từng khung; lắp ráp: máy đứng yên ở ĐCT
     if (S.spark && !S.stalled) S.rpm += (S.rpmT - S.rpm) * Math.min(1, dt * 1.6);
     else { S.rpm *= Math.exp(-dt / 1.4); if (S.rpm < 320) { S.rpm = 0; S.stalled = true; } }
     S.psi = (S.psi + 6 * S.rpm * dt * S.slow) % 720;
@@ -126,9 +190,22 @@ const sim = {
     if (S.hold) { const [a, b] = S.hold; if (S.psi < a || S.psi >= b) S.psi = a + ((((S.psi - a) % (b - a)) + (b - a)) % (b - a)); }
   },
   shadowAt() { return new THREE.Vector3(0, 0.15, 0); },
+  busy: () => S.asm,
+  isOn: (k) => k === 'asm' && S.asm,
+  pick(hits) {
+    for (const h of hits) {
+      const id = partOf(h.object); if (!id || !U[id]) continue;
+      if (S.asm) { lap.click(id); return true; }
+      const m = Array.isArray(h.object.material) ? h.object.material[0] : h.object.material;
+      if (m && m.transparent && m.opacity < 0.3) continue; // xuyên qua vỏ đang nhìn xuyên hay cụm đang làm mờ
+      return inspect(id);
+    }
+    return null;
+  },
   draw() {
     const ps = S.psi, k = strokeIdx(ps);
     eng.update(S);
+    lap.draw();
     // 01
     drawWheel(ps);
     kName.innerHTML = ((a, b) => `<span style="display:block;font-size:12px;font-weight:600;color:${C.mute || '#626773'}">${a}</span><span style="display:block;white-space:nowrap;color:${STROKES[k].c}">${b || ''}</span>`)(...STROKES[k].t.split(' · '));
@@ -164,7 +241,7 @@ const sim = {
     // nút
     for (const [b, sys] of Object.entries(SYSMAP)) ui.setOn(b, S.sys === sys);
     for (const m of ['cut', 'glass', 'solid']) ui.setOn(m, S.mode === m);
-    ui.setOn('spark', S.spark); ui.setOn('real', S.real); ui.setOn('labels', S.labels);
+    ui.setOn('spark', S.spark); ui.setOn('real', S.real); ui.setOn('labels', S.labels); ui.setOn('asm', S.asm);
     sRpm.set((S.rpmT - 1500) / 7500, `${vnInt(S.rpmT)} v/ph`);
     sEps.set((S.eps - 6) / 8, `ε = ${vn(S.eps, 1)}`);
     sSlow.set((Math.log(S.slow) - Math.log(1 / 400)) / (Math.log(1 / 20) - Math.log(1 / 400)), `chậm ${vnInt(1 / S.slow)} lần`);
@@ -197,6 +274,7 @@ const views = {
   head: () => ({tx: 0, ty: DECK + 0.03, tz: 0, az: 14, el: 10, d: 0.46, sx: 0, sy: -30}),
   crank: () => ({tx: 0, ty: YC + 0.02, tz: 0, az: 32, el: 6, d: 0.55, sx: 0, sy: -30}),
   inside: () => ({tx: 0, ty: DECK - 0.025, tz: 0, az: 4, el: 2, d: 0.3, sx: 0, sy: -30}),
+  asm: (t) => ({tx: 0.27, ty: 0.06, tz: -0.08, az: 8 + 3 * Math.sin(t * 0.1), el: 40, d: 1.95, sx: 0, sy: -10}),
 };
 window.ENGINE_VIEWS = views; // quay phim: thêm góc máy riêng rồi LIVE.setView(tên)
 
@@ -220,6 +298,8 @@ const CAP = [
   {k: 'ĐỒ THỊ p–V', t: 'Công của khí bằng diện tích vòng', b: 'Bảng 05 vẽ áp suất theo thể tích trong cả chu trình. Diện tích vòng kín là công khí sinh ra trong một chu trình. Nhân với số chu trình mỗi giây ra công suất chỉ thị; trừ ma sát mới còn công suất có ích Honda công bố.', e: 'W = ∮ p·dV · P = W·n / 120 (động cơ 4 kì)'},
   {k: 'THỬ PHÁ', t: 'Tăng tỉ số nén, tắt bugi', b: 'Kéo tỉ số nén lên: hiệu suất lí thuyết tăng, nhưng quá cao thì hoà khí tự bốc cháy trước tia lửa (kích nổ), động cơ xăng thường để ε khoảng 8 đến 12. Tắt bugi: không còn kì sinh công, máy chạy theo đà rồi dừng.', e: 'η = 1 − 1/ε^0,4 (chu trình Otto lí tưởng)',
     ask: {q: 'Tắt bugi khi máy đang chạy thì điều gì xảy ra?', o: ['Máy chạy nhanh hơn', 'Không còn kì sinh công, máy chậm dần rồi dừng', 'Không có gì thay đổi'], a: 1, e: 'Không có tia lửa thì hoà khí không cháy, mất kì sinh công; bánh đà chỉ giữ đà một lúc.'}},
+  {k: 'LẮP RÁP', t: 'Lắp đúng thứ tự, đúng lối vào', b: 'Bấm “Lắp ráp”: 15 cụm chi tiết nằm quanh máy, em tự chọn cụm lắp tiếp theo. Máy kiểm hai điều: cụm đỡ nó đã có chưa (thứ tự), và đường đưa nó hay dụng cụ vào có bị cụm đã lắp chắn không (lối vào). Sai thì cụm gây vướng nhấp nháy đỏ kèm lí do. Đây là quy trình rút gọn để học, không thay sách hướng dẫn sửa chữa.', e: 'Cácte → trục khuỷu → thanh truyền → pít-tông → xi lanh → … → đổ dầu',
+    ask: {q: 'Vì sao phải lắp pít-tông vào thanh truyền trước khi trùm xi lanh?', o: ['Vì pít-tông nặng hơn xi lanh', 'Vì xi lanh trùm xuống rồi thì không còn lối luồn chốt pít-tông và phanh hãm', 'Vì xi lanh phải lắp sau cùng'], a: 1, e: 'Chốt pít-tông và phanh hãm chỉ lắp được khi pít-tông còn lộ ra ngoài; xi lanh trùm xuống sau, nhờ vòng bó xéc măng.'}},
 ];
 const ev = [];
 const at = (t, o) => ev.push({at: t, ...o});
@@ -239,9 +319,10 @@ step(70, 7, 'hero', () => { S.slow = 1 / 100; }); at(70.5, {slide: 'slow', to: 0
 step(80, 8, 'front'); at(84, {slide: 'rpm', to: 0.8, dur: 2.2}); at(88, {slide: 'rpm', to: 0, dur: 1.4});
 step(90, 9, 'hero');
 step(98, 10, 'hero'); at(99, {slide: 'eps', to: 0.86, dur: 2.4}); at(104, {slide: 'eps', to: 0.375, dur: 1.6}); at(106.5, {click: 'spark'}); at(112, {click: 'spark'});
+step(118, 11, 'asm', () => sim.act('asm_demo'));
 ev.sort((a, b) => a.at - b.at);
 
-runLive({stage: st, ui, sim, views, captions: CAP, script: {events: ev, duration: 118}, firstView: 'hero',
+runLive({stage: st, ui, sim, views, captions: CAP, script: {events: ev, duration: 142}, firstView: 'hero', extra: [{key: 'asm', label: 'Lắp ráp'}],
   keys: {1: 'v_hero', 2: 'v_front', 3: 'v_head', 4: 'v_crank', 5: 'v_inside', c: 'cut', g: 'glass', o: 'solid', l: 'spark', r: 'real', n: 'labels'},
   shell: {subject: 'Công nghệ 11', variant: 'pho-thong',
     objectives: ['Trình bày được khái niệm, phân loại động cơ đốt trong.', 'Mô tả được cấu tạo, giải thích được nguyên lí làm việc của động cơ đốt trong.', 'Giải thích được ý nghĩa một số thông số kĩ thuật cơ bản của động cơ đốt trong.'],

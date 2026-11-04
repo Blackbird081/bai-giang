@@ -38,7 +38,7 @@ const CSS = () => `
 .v{font:600 12px 'JetBrains Mono',monospace;white-space:nowrap}
 .bt{position:absolute;height:22px;padding:0 9px;display:flex;align-items:center;justify-content:center;border:1px solid ${C.faint};border-radius:4px;background:#fff;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;color:${C.ink};white-space:nowrap;transition:background .15s,color .15s}
 .bt.on{background:${C.ink};color:#fff;border-color:${C.ink}}
-.bt.acc{background:${C.or};color:#fff;border-color:${C.or}}
+.bt.acc{background:#1E2A44;color:#fff;border-color:#1E2A44}
 .call{position:absolute;white-space:nowrap;transition:opacity .25s}
 .call b{display:flex;align-items:center;gap:6px;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;color:${C.ink};background:rgba(255,255,255,.9);padding:1px 4px;border-radius:2px}
 .call b i{display:block;width:6px;height:6px;background:${C.or}}

@@ -13,7 +13,21 @@ Mọi trang của Sáng Ăn Khoai dùng một bộ token, một bộ phông, m�
 | `tools/chuoi_bai.py` | Thứ tự bài, chủ đề của từng bài, "Bài tiếp theo", ảnh bìa màn tải | sửa tay |
 | `shell/bg-shell.js` | Vỏ bài học v2 | sửa tay; khối giữa `/*TOKENS:start*/` và `/*TOKENS:end*/` do `tools/design.py` ghi |
 
-Không viết cứng mã màu, cỡ chữ, góc bo trong phần vỏ. Màu môn (`--bg-s-sinh`, `--bg-s-su`, `--bg-s-robo`, `--bg-s-ly`, `--bg-s-hoa`, `--bg-s-dia`) chỉ dùng cho nhãn môn, đường nhấn, nút chính trong bài; nút chính và liên kết của khung chung dùng màu mực `--bg-brand`.
+Không viết cứng mã màu, cỡ chữ, góc bo trong phần vỏ. Màu môn (`--bg-s-sinh`, `--bg-s-su`, `--bg-s-robo`, `--bg-s-ly`, `--bg-s-hoa`, `--bg-s-dia`) chỉ dùng cho nhãn môn và số liệu (đường đồ thị, thanh tiến độ, chấm đánh dấu); mọi nút chính dùng `--bg-brand` (xem Thành phần chuẩn).
+
+## Thành phần chuẩn
+
+Từ tháng 11/2026 mọi màn hình, kể cả bài gốc ngoài (BodyVista, thư viện Tongjiang), dùng chung bốn vai màu cho điều khiển. Nguồn: `std_css()` trong `tools/design.py`; `design/house.css` mang bản cho trang dựng bằng Python, `tools/inject_shell.py` chèn khối `<style id="bg-std">` cuối `<head>` của mọi bài 3D (phạm vi `body.bgs-on`, thắng CSS cũ của bài).
+
+| Vai | Trông thế nào | Lớp CSS được chuẩn hoá |
+|---|---|---|
+| Nút chính (một nút mỗi vùng) | nền `--bg-brand` #1E2A44 phẳng, chữ trắng, không chuyển sắc, không màu môn | `.btn.primary`, `.btn.pri`, `.btn.gold`, `.btn.cta` |
+| Đang bật, đang chọn | nền mực `--bg-ink` #15171C, chữ trắng | `.btn.on`, `.btn.dark`, `.btn[aria-pressed=true]`, `.chip.on`, `.seg button.on`, `.sw button.on`; robotics `.bt.on` |
+| Nút thường | kính trắng hoặc nền trắng, viền mảnh, chữ mực, đậm 600 | `.btn` |
+| Ô trượt, ô đánh dấu | `accent-color: var(--bg-brand)` | `input[type=range|checkbox|radio]` |
+| Vòng focus | 2 px `--bg-focus`, cách 2 px | mọi phần tử bấm được |
+
+Cỡ và bố cục vẫn thuộc từng bài: nút điều khiển trong cảnh 3D là viên thuốc cao 32 đến 44 px; nút hành động trên trang tài liệu bo 10 px, cao 48 px. Bảng thông tin bo 14 px, nền kính trắng, bóng `--bg-sh-2`. Nhãn viết thường đầu câu bằng Be Vietnam Pro 600; không viết hoa giãn chữ, không phông đơn cách cho chữ. Cảnh 3D được giữ ánh sáng riêng (ví dụ nền tối của bài Neuron), nhưng mọi bảng, nút, nhãn phủ lên cảnh theo chuẩn này. Bài gốc ngoài mang màu tương tác riêng thì trỏ biến của bài về `--bg-brand` (BodyVista: `--accent` trong `tools/co-the-nguoi/house.css`).
 
 ## Thang chữ và quy tắc chữ tiếng Việt
 
@@ -72,6 +86,15 @@ Nhúng: `python3 tools/inject_shell.py <tệp>`. Tế Bào chạy trong `build.s
 | Cổ Loa | cảnh 3D + dòng thời gian | Điều khiển (trái), Thông tin (phải); học theo bước tự mở Thông tin |
 | Robotics | chế độ xem cảnh: cảnh phủ màn hình, thẻ lời giảng dưới trái | Bảng số: bàn điều khiển 1600 × 900 đầy đủ |
 | 54 bài thư viện | cảnh 3D, bảng Bước này mở trên màn rộng từ 1100 px, viên thuốc chuyển bước ở giữa | Bước này (trái), Điều khiển (phải, mở sẵn từ 1600 px) |
+
+## Bộ mô phỏng robotics (`tools/robotics/kit/`)
+
+Mọi bài dựng bằng bộ này (5 robot, Động cơ 4 kì, Robot cá mập) có chung:
+
+- **Thanh tốc độ** góc trên bên phải cảnh: tạm dừng, 0,5×, 1×, 2×, 5×, 10×, như trò chơi chiến thuật. Bước mô phỏng lớn được chia nhỏ để mô phỏng vật lí vẫn ổn định; chuyến tham quan và lời giảng luôn chạy theo giờ thật (`live.js`, ý tưởng từ bài đăng của konstantinsaifo trên X).
+- **Soi chi tiết**: bấm (không kéo) vào vật trong cảnh; bài trả về thẻ qua `sim.pick(hits)` gồm vai trò, số đo có nguồn, số chạy theo mô phỏng, nút hành động; camera bám theo vị trí của chi tiết mỗi khung hình. Esc hoặc × để đóng. Đang soi thì chuyến tham quan không tự chạy lại.
+- **Lắp ráp** (`lap.js`): bài khai báo các cụm `{needs, blocks, from}` và một thứ tự mẫu; bộ máy kiểm thứ tự và lối vào, nhấp nháy đỏ cụm gây vướng, có Gợi ý, Lắp mẫu, Tháo hết. Đang dùng ở bài Động cơ 4 kì.
+- Nút phụ của bài trên thẻ lời giảng: `runLive({extra: [{key, label}]})`.
 
 ## Kiểm tự động
 
