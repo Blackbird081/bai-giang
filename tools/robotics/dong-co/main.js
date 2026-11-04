@@ -198,6 +198,7 @@ const views = {
   crank: () => ({tx: 0, ty: YC + 0.02, tz: 0, az: 32, el: 6, d: 0.55, sx: 0, sy: -30}),
   inside: () => ({tx: 0, ty: DECK - 0.025, tz: 0, az: 4, el: 2, d: 0.3, sx: 0, sy: -30}),
 };
+window.ENGINE_VIEWS = views; // quay phim: thêm góc máy riêng rồi LIVE.setView(tên)
 
 // ---------------- bài giảng: mỗi lời giảng là một bước khi lên lớp
 const CAP = [

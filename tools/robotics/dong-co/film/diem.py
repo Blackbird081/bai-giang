@@ -4,7 +4,7 @@ nền hợp âm Am9 – Fmaj7 – Cmaj7 – G6 nhịp 92, một tiếng thịch 
 gió nhẹ khi đổi góc máy và khi mở ga. Đo độ to theo ITU-R BS.1770 (lọc K, cổng −70 LUFS và −10 LU) rồi đưa về −14 LUFS,
 đỉnh không quá −1 dBFS. Viết lại theo cách làm của claude-motion (MIT), không dùng mã của kho đó.
 
-  python3 tools/robotics/dong-co/film/diem.py OUT.wav
+  python3 tools/robotics/dong-co/film/diem.py OUT.wav [--tl phim_gioi_thieu.json]
 """
 import json, pathlib, sys, wave
 import numpy as np
@@ -12,7 +12,10 @@ from scipy.signal import lfilter, butter, resample_poly
 
 HERE = pathlib.Path(__file__).resolve().parent
 SR = 48000
-TL = json.loads((HERE / 'timeline.json').read_text())
+ARGS = [a for a in sys.argv[1:]]
+TLN = ARGS[ARGS.index('--tl') + 1] if '--tl' in ARGS else 'timeline.json'  # phim giới thiệu: --tl phim_gioi_thieu.json
+POS = [a for i, a in enumerate(ARGS) if a != '--tl' and (i == 0 or ARGS[i - 1] != '--tl')]
+TL = json.loads((HERE / TLN).read_text())
 DUR = TL['duration']
 rng = np.random.default_rng(11)
 N = int(DUR * SR) + SR
@@ -87,7 +90,7 @@ for _ in range(5):
 tp = max(np.abs(resample_poly(L, 4, 1)).max(), np.abs(resample_poly(Rt, 4, 1)).max())
 if tp > 10 ** (-1 / 20): s = 10 ** (-1 / 20) / tp; L *= s; Rt *= s
 print(f'độ to {lufs([L, Rt]):.1f} LUFS · đỉnh thật {20 * np.log10(max(np.abs(resample_poly(L, 4, 1)).max(), np.abs(resample_poly(Rt, 4, 1)).max())):.1f} dBFS · {len(TL["firings"])} tiếng thịch')
-out = sys.argv[1] if len(sys.argv) > 1 else str(HERE / 'dong-co-score.wav')
+out = POS[0] if POS else str(HERE / 'dong-co-score.wav')
 pcm = (np.stack([L, Rt], 1).clip(-1, 1) * 32767).astype('<i2')
 with wave.open(out, 'wb') as w: w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
 print('đã ghi', out)
