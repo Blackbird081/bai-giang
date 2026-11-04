@@ -6,6 +6,7 @@ import * as SH from '../kit/shapes.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
 import {createQuad, MOTORS, P, GAINS} from './quad.js';
+import {tag, picker, vn} from '../kit/soi.js';
 
 const app = document.getElementById('app');
 const canvas = document.createElement('canvas'); canvas.id = 'gl'; app.appendChild(canvas);
@@ -62,6 +63,8 @@ const motorG = MOTORS.map((m) => {
   const tip = new THREE.Mesh(new THREE.ConeGeometry(0.004, 0.009, 14), new THREE.MeshBasicMaterial({color: '#e3562a'})); tip.rotation.x = Math.PI / 2; g.add(tip);
   return {g, prop, disc, arrow, tip, ang: 0};
 });
+// nhãn bộ phận cho thẻ soi chi tiết: thân (mạch, pin, linh kiện) và bốn cụm động cơ – cánh
+tag('body', drone); motorG.forEach((m, i) => tag('m' + i, m.g));
 // pin LiPo 250 mAh dưới mạch: vỏ bạc có nhãn
 mk(SH.rbox(0.03, 0.02, 0.0072, 0.0018), MAT.anod('#a9aeb4')).position.z = H0 - 0.0045;
 mk(SH.rbox(0.018, 0.0204, 0.0074, 0.0012), MAT.satin('#2e3134')).position.set(-0.002, 0, H0 - 0.0045);
@@ -145,6 +148,22 @@ const sim = {
     if (!crashed && S.mode !== 'off' && (Math.abs(e.roll) > 75 || Math.abs(e.pitch) > 75)) { crashed = true; S.mode = 'off'; }
   },
   shadowAt() { return new THREE.Vector3(S.p[0], 0.05, -S.p[1]); },
+  // soi chi tiết: bấm một động cơ hay thân; camera bám theo khi drone bay
+  pick: picker((part) => {
+    const src = 'Đường cong lực đẩy, tốc độ rô-to, khối lượng, mô men quán tính: nhận dạng của Förster (2015, ETH Zürich). Hệ số điều khiển: crazyflie-firmware.';
+    const MODE = {off: 'tắt động cơ', pos: 'giữ vị trí', att: 'giữ góc', land: 'đang hạ cánh'};
+    if (part === 'body') {
+      return {k: 'Crazyflie 2.1 · máy bay bốn cánh cỡ nano', t: 'Thân: mạch in, pin, cảm biến', b: 'Mạch in vừa là khung. Vi điều khiển STM32F405 chạy bộ điều khiển xếp tầng, cảm biến quán tính BMI088 đo tốc độ góc và gia tốc; pin LiPo 250 mAh nằm dưới mạch.',
+        rows: [['Chế độ', () => MODE[S.mode] || S.mode], ['Độ cao', () => `${vn(S.p[2], 2)} m`], ['Góc lăn, chúc', () => { const e = Q.euler(); return `${vn(e.roll, 1)}°, ${vn(e.pitch, 1)}°`; }],
+          ['Lực đẩy / trọng lượng', () => `${vn(S.f.reduce((a, b) => a + b, 0) / (P.m * P.g), 2)}`], ['Khối lượng mô hình', `${vn(P.m * 1000, 1)} g`]],
+        src, d: 0.42};
+    }
+    const i = +part.slice(1), pos = ['trước phải', 'sau phải', 'sau trái', 'trước trái'][i];
+    return {k: `Cụm động cơ M${i + 1} · ${pos}`, t: 'Động cơ không lõi và cánh 47 mm', b: 'Bộ trộn đổi lệnh lực đẩy và ba mô men thành độ rộng xung (PWM) cho từng động cơ. Hai động cơ chéo nhau quay cùng chiều, hai động cơ kề nhau quay ngược chiều, nên mô men phản lực triệt nhau khi bay đứng.',
+      rows: [['PWM', () => `${Math.round(S.pwm[i]).toLocaleString('vi-VN')} / 65.535`], ['Lực đẩy', () => `${vn((S.f[i] / P.g) * 1000, 1)} g`],
+        ['Tốc độ rô-to', () => (S.pwm[i] > 0 ? `${Math.round((P.omega(S.pwm[i]) * 60) / (2 * Math.PI)).toLocaleString('vi-VN')} vòng/phút` : 'đứng yên')], ['Tay đòn tới tâm', `${vn(P.arm * 1000, 0)} mm`]],
+      src, d: 0.3};
+  }),
   draw() {
     const e = Q.euler(), R = S.R;
     drone.position.set(S.p[0], S.p[1], S.p[2]);

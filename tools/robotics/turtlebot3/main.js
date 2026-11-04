@@ -6,6 +6,7 @@ import * as SH from '../kit/shapes.js';
 const {alongY} = SH;
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
+import {tag, picker, vn} from '../kit/soi.js';
 import {TB, WHEEL_MAX, ROOM, BOXES, CYLS, PATH, ray, collides, rng, createGrid} from './diff.js';
 
 const D = 180 / Math.PI;
@@ -52,15 +53,15 @@ function buildBurger(ghost) {
     for (const sd of [-1, 1]) { const sv = mk(servoGeo, MAT.satin('#1f2023'), g); sv.position.set(0.0, sd * 0.045, 0.039); sv.rotation.x = sd > 0 ? 0 : Math.PI; sv.rotation.z = 0; }
     // OpenCR: mạch xanh tím than, chip STM32, cổng; Raspberry Pi 4: mạch xanh lá, SoC, cổng USB/Ethernet
     const opencr = mk(SH.rbox(0.105, 0.075, 0.0016, 0.002), MAT.pcb('#25306b'), g); opencr.position.z = 0.0715;
-    mk(SH.rbox(0.014, 0.014, 0.0016, 0.0005), MAT.chip(), g).position.set(0.01, 0.005, 0.0735);
+    const mcu = mk(SH.rbox(0.014, 0.014, 0.0016, 0.0005), MAT.chip(), g); mcu.position.set(0.01, 0.005, 0.0735); tag('opencr', opencr, mcu);
     for (const [x, y, w, h, t] of [[-0.045, 0.02, 0.012, 0.014, 0.006], [-0.045, -0.015, 0.01, 0.008, 0.004], [0.03, -0.028, 0.03, 0.005, 0.006]]) mk(SH.rbox(w, h, t, 0.0008), x < 0 ? MAT.steel() : MAT.chip(), g).position.set(x, y, 0.0725 + t / 2);
     const rpi = mk(SH.rbox(0.085, 0.056, 0.0016, 0.003), MAT.pcb('#2d6a46'), g); rpi.position.z = 0.1145;
-    mk(SH.rbox(0.015, 0.015, 0.0024, 0.0008), MAT.anod('#b8bcc0'), g).position.set(0.005, 0.004, 0.1165);
+    const soc = mk(SH.rbox(0.015, 0.015, 0.0024, 0.0008), MAT.anod('#b8bcc0'), g); soc.position.set(0.005, 0.004, 0.1165); tag('rpi', rpi, soc);
     for (const [x, y] of [[-0.036, 0.016], [-0.036, -0.004]]) mk(SH.rbox(0.017, 0.013, 0.015, 0.001), MAT.steel(), g).position.set(x, y, 0.123);
     mk(SH.rbox(0.021, 0.016, 0.013, 0.001), MAT.steel(), g).position.set(-0.036, -0.022, 0.122);
     // pin LiPo 11,1 V 1800 mAh, nhãn cam
-    mk(SH.rbox(0.087, 0.032, 0.026, 0.004), MAT.satin('#2b2b2c'), g).position.set(0, 0, 0.03);
-    mk(SH.rbox(0.05, 0.0324, 0.0264, 0.002), MAT.accent(), g).position.set(0, 0, 0.03);
+    const bat = mk(SH.rbox(0.087, 0.032, 0.026, 0.004), MAT.satin('#2b2b2c'), g); bat.position.set(0, 0, 0.03);
+    const batL = mk(SH.rbox(0.05, 0.0324, 0.0264, 0.002), MAT.accent(), g); batL.position.set(0, 0, 0.03); tag('bat', bat, batL);
     // bi đỡ: chụp nhựa và viên bi thép
     mk(SH.lathe([[0, 0.006], [0.009, 0.006], [0.0095, 0.0105], [0.007, 0.0135], [0, 0.0135]], 24), MAT.satin('#2a2b2e'), g).position.set(-0.081, 0, 0);
     const caster = mk(new THREE.SphereGeometry(0.0075, 20, 14), MAT.steel(), g); caster.position.set(-0.081, 0, 0.0075);
@@ -78,6 +79,7 @@ function buildBurger(ghost) {
     const win = mk(SH.lathe([[0.0337, 0.021], [0.0342, 0.0215], [0.0342, 0.0285], [0.0337, 0.029]], 48), MAT.glass('#30363b'), lid); void win;
     mk(SH.rbox(0.008, 0.012, 0.007, 0.0015), MAT.accent(), lid).position.set(0.03, 0, 0.025);
   }
+  if (!ghost) { tag('body', g); wheels.forEach((w, k) => tag(k ? 'wL' : 'wR', w)); tag('lidar', lid, lbase); }
   return {g, wheels, lid};
 }
 const bot = buildBurger(false), ghost = buildBurger(true);
@@ -249,6 +251,35 @@ const sim = {
   },
   step(dt) { acc += dt; while (acc >= 0.01) { physics(0.01); S.scanT += 0.01; if (S.scanT >= 1 / TB.lidar.hz) { S.scanT = 0; scanNow(); } pushDot(trTrue, S.truth.x, S.truth.y); pushDot(trOdom, S.odom.x, S.odom.y); acc -= 0.01; } },
   shadowAt() { return new THREE.Vector3(S.truth.x * 0.5, 0.1, -S.truth.y * 0.5); },
+  // soi chi tiết: bấm bánh, LiDAR, hai mạch, pin hay thân; camera bám theo khi robot chạy
+  pick: picker((part) => {
+    const src = 'Số liệu: ROBOTIS e-Manual TurtleBot3 Burger, servo XL430-W250, LiDAR LDS-02; mã nguồn turtlebot3 trên GitHub.';
+    const MODE = {stop: 'đứng yên', tele: 'lái tay', auto: 'tự bám đường'};
+    const front = () => { let m = Infinity; for (let k = -10; k <= 10; k++) { const r = S.scan[(k + 360) % 360]; if (r > 0 && r < m) m = r; } return m; };
+    const C2 = {
+      wR: {k: 'Bánh phải · servo XL430-W250', t: 'Bánh xe và servo dẫn động', w: () => S.wR, tk: () => S.tR},
+      wL: {k: 'Bánh trái · servo XL430-W250', t: 'Bánh xe và servo dẫn động', w: () => S.wL, tk: () => S.tL},
+    }[part];
+    if (C2) {
+      return {k: C2.k, t: C2.t, b: 'Hai bánh quay khác tốc độ là robot rẽ (dẫn động vi sai). Encoder đếm xung của từng bánh; cộng dồn quãng đường hai bánh ra vị trí odometry, nên trượt bánh và sai bán kính làm vị trí trôi dần.',
+        rows: [['Tốc độ bánh', () => `${vn((C2.w() * 60) / (2 * Math.PI), 1)} / ${TB.rpm} vòng/phút`], ['Encoder', () => `${C2.tk().toLocaleString('vi-VN')} xung`], ['Bán kính bánh', `${vn(TB.r * 1000, 0)} mm`], ['Độ phân giải', `${TB.ticks.toLocaleString('vi-VN')} xung/vòng`]],
+        src, d: 0.75};
+    }
+    if (part === 'lidar') {
+      return {k: 'Cảm biến khoảng cách bằng laser', t: 'LiDAR LDS-02', b: 'Đầu quét quay tròn, mỗi độ đo một khoảng cách. 360 khoảng cách mỗi vòng là đầu vào cho bản đồ lưới và cho bộ định vị.',
+        rows: [['Tầm đo', `${vn(TB.lidar.rmin, 2)} – ${vn(TB.lidar.rmax, 0)} m`], ['Số tia mỗi vòng', `${TB.lidar.n}`], ['Tần số quét', `${TB.lidar.hz} Hz`], ['Vật gần nhất phía trước (±10°)', () => (Number.isFinite(front()) ? `${vn(front(), 2)} m` : 'ngoài tầm')]],
+        src, d: 0.7};
+    }
+    if (part === 'opencr') return {k: 'Mạch điều khiển tầng thấp', t: 'OpenCR 1.0', b: 'Vi điều khiển STM32F746 điều khiển hai servo, đọc encoder và cảm biến quán tính (IMU), gửi odometry lên máy tính nhúng.',
+      rows: [['Encoder trái, phải', () => `${S.tL.toLocaleString('vi-VN')}, ${S.tR.toLocaleString('vi-VN')} xung`], ['Vận tốc v, ω', () => `${vn(S.v ?? 0, 3)} m/s, ${vn(S.w ?? 0, 2)} rad/s`]], src, d: 0.7};
+    if (part === 'rpi') return {k: 'Máy tính nhúng', t: 'Raspberry Pi 4 · ROS 2', b: 'Chạy ROS 2: nhận quét LiDAR và odometry, gửi lệnh vận tốc xuống OpenCR. Lập bản đồ, định vị, bám đường có thể chạy ở đây hoặc ở máy tính khác qua mạng.',
+      rows: [['Chế độ', () => MODE[S.mode] || S.mode], ['Lệnh vận tốc', () => `${vn(S.cmd.v, 2)} m/s, ${vn(S.cmd.w, 2)} rad/s`]], src, d: 0.7};
+    if (part === 'bat') return {k: 'Nguồn', t: 'Pin LiPo 11,1 V · 1800 mAh', b: 'Pin nằm ở tầng dưới cùng để hạ trọng tâm. ROBOTIS ghi thời gian chạy khoảng 2 giờ 30 phút.',
+      rows: [['Điện áp danh định', '11,1 V'], ['Dung lượng', '1800 mAh']], src, d: 0.7};
+    return {k: 'TurtleBot3 Burger · robot di động hai bánh', t: 'Thân robot', b: 'Bốn tầng tấm nhựa nối bằng trụ: pin ở dưới, servo và OpenCR ở giữa, Raspberry Pi rồi LiDAR ở trên cùng. Bóng xanh là vị trí robot tự tin theo odometry.',
+      rows: [['Chế độ', () => MODE[S.mode] || S.mode], ['Vận tốc v', () => `${vn(S.v ?? 0, 3)} / ${vn(TB.vmax, 2)} m/s`], ['Tốc độ quay ω', () => `${vn(S.w ?? 0, 2)} / ${vn(TB.wmax, 2)} rad/s`],
+        ['Odometry lệch vị trí thật', () => `${vn((S.err ?? 0) * 1000, 0)} mm`], ['Khoảng cách hai bánh', `${vn(TB.L * 1000, 0)} mm`]], src, d: 0.95};
+  }),
   draw() {
     const t = S.truth, o = S.odom;
     bot.g.position.set(t.x, t.y, 0); bot.g.rotation.z = t.th; ghost.g.position.set(o.x, o.y, 0); ghost.g.rotation.z = o.th; ghost.g.visible = disp.ghost && Math.hypot(o.x - t.x, o.y - t.y) + 0.05 * Math.abs(o.th - t.th) > 0.015; // trùng nhau thì ẩn bóng để thấy rõ robot
@@ -282,6 +313,7 @@ const sim = {
     tickTxt.textContent = `ENCODER  TRÁI ${S.tL}  PHẢI ${S.tR} xung`;
     // bảng 02
     const err = Math.hypot(o.x - t.x, o.y - t.y);
+    S.err = err; S.v = v; S.w = w;
     odoTxt.innerHTML = `ODOM&nbsp;&nbsp;x ${fx(o.x, 3)}&nbsp;&nbsp;y ${fx(o.y, 3)}&nbsp;&nbsp;θ ${fx(((o.th * D) % 360 + 540) % 360 - 180, 1)}°<br><span style="color:${C.mute}">THẬT&nbsp;&nbsp;x ${fx(t.x, 3)}&nbsp;&nbsp;y ${fx(t.y, 3)}&nbsp;&nbsp;θ ${fx(((t.th * D) % 360 + 540) % 360 - 180, 1)}°</span>`;
     S.errH.push(err * 1000); if (S.errH.length > 400) S.errH.shift(); errChart.lim.max = Math.max(100, Math.ceil(Math.max(...S.errH) / 100) * 100); errChart.set([S.errH]);
     errLbl.textContent = `SAI SỐ (mm) · TRẦN ${errChart.lim.max}${S.amcl ? ' · ĐỊNH VỊ' : ''}`;
@@ -322,7 +354,7 @@ const views = {
 
 // ---------------- bài giảng
 const CAP = [
-  {k: 'TURTLEBOT3 BURGER · 1 kg', t: 'Robot di động chuẩn của ROS', b: 'Hai bánh chủ động dẫn bởi servo Dynamixel XL430-W250, một bi đỡ phía sau, bộ điều khiển OpenCR (STM32F746), máy tính Raspberry Pi 4 chạy ROS 2, LiDAR LDS-02 quét 360°. Kích thước 138 × 178 × 192 mm. Thông số trên trang lấy từ tài liệu ROBOTIS và mã nguồn turtlebot3.', e: 'r = 33 mm · L = 160 mm · 0,22 m/s · 2,84 rad/s'},
+  {k: 'TurtleBot3 Burger · 1 kg', t: 'Robot di động chuẩn của ROS', b: 'Hai bánh chủ động dẫn bởi servo Dynamixel XL430-W250, một bi đỡ phía sau, bộ điều khiển OpenCR (STM32F746), máy tính Raspberry Pi 4 chạy ROS 2, LiDAR LDS-02 quét 360°. Kích thước 138 × 178 × 192 mm. Thông số trên trang lấy từ tài liệu ROBOTIS và mã nguồn turtlebot3.', e: 'r = 33 mm · L = 160 mm · 0,22 m/s · 2,84 rad/s'},
   {k: 'ĐỘNG HỌC VI SAI', t: 'Hai bánh, ba kiểu chuyển động', b: 'Hai bánh cùng tốc độ: đi thẳng. Ngược chiều: xoay tại chỗ. Lệch nhau: đi theo cung tròn bán kính v/ω. Robot không đi ngang được: đó là ràng buộc không khả tích (nonholonomic). Trần 61 vòng/phút của servo giới hạn cả v lẫn ω cùng lúc.', e: 'ẋ = v·cosθ · ẏ = v·sinθ · θ̇ = ω'},
   {k: 'LIDAR LDS-02', t: '360 khoảng cách mỗi vòng quay', b: 'Đầu quét quay 5 vòng mỗi giây, mỗi độ một khoảng cách, tầm 0,16–8 m, sai số ±10 mm dưới 0,3 m và ±3 % tới 6 m. Bảng 04 vẽ lại lần quét quanh robot: tường, hộp, trụ hiện ra thành chuỗi điểm. Gần hơn 0,16 m là điểm mù.', e: 'pₖ = p_lidar + rₖ·(cos(θ + k°), sin(θ + k°))'},
   {k: 'BÁM ĐƯỜNG PURE PURSUIT', t: 'Đuổi theo một điểm phía trước', b: 'Chọn điểm trên đường cách robot đúng Ld, tính cung tròn đi qua điểm đó và đặt ω = v·κ. Ld nhỏ: bám sát nhưng lắc và vượt góc. Ld lớn: êm nhưng cắt góc, có thể quệt vật cản. Đây là bộ bám đường mặc định của nhiều robot di động.', e: 'κ = 2·y_L / Ld²'},

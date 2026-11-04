@@ -4,6 +4,7 @@
 // Cách tổ chức theo live.js của teardown (MIT).
 import * as THREE from 'three';
 import {warmComposer} from './warm.js';
+import {sc} from './ui.js';
 
 const D2R = Math.PI / 180;
 const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
@@ -136,7 +137,7 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
   const mShow = (c, i) => {
     if (!c) return; mI = i;
     const q = (sel) => mCap.querySelector(sel);
-    q('.k').firstChild.textContent = c.k ? c.k.charAt(0) + c.k.slice(1).toLocaleLowerCase('vi') : ''; q('.k').lastChild.textContent = `${i + 1}/${captions.length}`;
+    q('.k').firstChild.textContent = sc(c.k || ''); // chữ thường kiểu câu, giữ tên riêng có số (UR5e, TurtleBot3) và từ viết tắt q('.k').lastChild.textContent = `${i + 1}/${captions.length}`;
     q('.t').textContent = c.t; q('.b').innerHTML = c.b; q('.e').textContent = c.e || '';
   };
 
@@ -356,7 +357,8 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
     if (compact) { // màn hẹp: lùi camera theo tỉ lệ khung, đẩy vật sang chỗ trống bên cạnh thẻ lời giảng
       const asp = innerWidth / innerHeight, land = asp > 1 && innerHeight < 520;
       const wide = innerWidth >= 900 && !land, cw = Math.min(440, innerWidth - 32) + 16, mini = mCap.classList.contains('min');
-      cf = {...cam, d: cam.d * Math.pow(clamp(1.78 / asp, 1, 2.6), 0.6), sx: land ? -Math.min(innerWidth * 0.46, 440) / 2 : wide && !mini ? cw / 2 : 0, sy: land || wide ? 0 : -innerHeight * 0.16};
+      // đang soi chi tiết trên màn rộng: đặt vật giữa thẻ lời giảng (trái) và thẻ chi tiết (phải)
+      cf = {...cam, d: cam.d * Math.pow(clamp(1.78 / asp, 1, 2.6), 0.6), sx: land ? -Math.min(innerWidth * 0.46, 440) / 2 : wide ? ((mini ? 0 : cw) - (FOL && innerWidth > 700 ? insp.offsetWidth + 16 : 0)) / 2 : 0, sy: land || wide ? 0 : -innerHeight * 0.16};
     }
     st.frame({...cf, az: cf.az * D2R, el: cf.el * D2R}, sim.shadowAt?.());
     sim.draw({T, view, since, auto: AP.on});

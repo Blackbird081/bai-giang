@@ -4,7 +4,8 @@ import * as THREE from 'three';
 import {createStage} from '../kit/stage.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
-import {DH, fk, ik, ikNearest, jacobian, manip, gravity, pose, downR, mul, inv, rotOf, rotvec, slerpR, quintic, JOINT, VMAX, REACH} from './kin.js';
+import {tag, picker, vn} from '../kit/soi.js';
+import {DH, LINK, fk, ik, ikNearest, jacobian, manip, gravity, pose, downR, mul, inv, rotOf, rotvec, slerpR, quintic, JOINT, VMAX, REACH} from './kin.js';
 import {buildArm, TOOL} from './robot.js';
 
 const D = 180 / Math.PI, R = Math.PI / 180;
@@ -13,6 +14,8 @@ const canvas = document.createElement('canvas'); canvas.id = 'gl'; app.appendChi
 const st = createStage({canvas, extent: 1.3, grid: 0.1, fade: 4.2, fov: 26});
 const ui = createUI(app);
 const arm = buildArm(); st.scene.add(arm.root);
+// nhãn bộ phận cho thẻ soi chi tiết: khung i mang vỏ khớp i + 1 và khâu nối sau nó; khung 6 mang bích và kẹp
+arm.L.forEach((g, i) => tag(i < 6 ? 'j' + i : 'grip', g));
 const W3 = (p) => new THREE.Vector3(p[0], p[2], -p[1]); // robot (z lên) → three
 const TT = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, TOOL, 0, 0, 0, 1], TTi = inv(TT);
 const flangeAt = (p, R0) => mul(pose(R0, p), TTi);
@@ -176,9 +179,33 @@ const sim = {
     if (k === 'payload') S.payload = t * 5;
   },
   step(dt) { stepMotion(dt); },
+  // soi chi tiết: bấm một khớp hay kẹp; số chạy theo cánh tay, camera bám theo khớp đó
+  pick: picker((part) => {
+    const src = 'Số đo: Universal Robots, bảng DH và khối lượng khâu của UR5e; mô men tối đa và tốc độ khớp theo datasheet UR5e.';
+    if (part === 'grip') {
+      return {k: 'UR5e · dụng cụ', t: 'Bích dụng cụ và kẹp hai ngón', b: 'Bích theo chuẩn ISO 9409-1-50-4-M6 để thay dụng cụ. Điểm làm việc TCP đặt ở đầu ngón kẹp; mọi lệnh MoveL tính theo điểm này.',
+        rows: [['Kẹp', () => (S.grip > 0.5 ? 'đang đóng' : 'đang mở')], ['Đang mang hàng', () => (S.carry ? 'có' : 'không')], ['Tải đặt', () => `${vn(S.payload, 1)} kg / 5 kg`],
+          ['TCP x, y, z', () => (S.T ? `${vn(S.T[3] * 1000, 0)}, ${vn(S.T[7] * 1000, 0)}, ${vn(S.T[11] * 1000, 0)} mm` : '—')], ['TCP cách bích', `${TOOL * 1000} mm (giả định kẹp)`]],
+        src, d: 1.0};
+    }
+    const i = +part.slice(1), J = JOINT[i];
+    const nm = ['Đế', 'Vai', 'Khuỷu', 'Cổ tay 1', 'Cổ tay 2', 'Cổ tay 3'][i];
+    const role = [
+      'Xoay cả cánh tay quanh trục đứng.',
+      'Nâng hạ cánh tay trên. Khi tay duỗi ngang, khớp này gánh mô men trọng lực lớn nhất.',
+      'Gập, duỗi cẳng tay so với cánh tay trên; cùng khớp vai quyết định cổ tay ở xa hay gần.',
+      'Khớp nhỏ đầu tiên của cổ tay. Ba khớp cổ tay đặt hướng của dụng cụ; trục của chúng không cắt nhau tại một điểm nên UR dùng lời giải riêng (Hawkins 2013).',
+      'Khớp cổ tay giữa. Khi góc khớp này bằng 0, trục khớp 4 và khớp 6 song song: cánh tay rơi vào điểm kỳ dị cổ tay.',
+      'Khớp cuối, xoay bích dụng cụ quanh trục của nó.'][i];
+    return {k: `UR5e · khớp ${i + 1} / 6 · cỡ ${J.size}`, t: `Khớp ${nm.toLocaleLowerCase('vi')}`, b: role,
+      rows: [['Góc lúc này', () => `${vn(S.q[i] * D, 1)}°`], ['Tốc độ', () => `${vn(S.qd[i] * D, 0)} / 180 °/s`], ['Mô men giữ do trọng lực', () => (S.g ? `${vn(S.g[i], 1)} / ${J.tmax} N·m` : '—')],
+        ['Khối lượng khâu sau khớp', `${vn(LINK[i].m, 2)} kg`], ['DH: d, a', `${vn(DH[i].d * 1000, 1)} mm, ${vn(DH[i].a * 1000, 1)} mm`]],
+      src, d: i < 3 ? 1.5 : 1.15};
+  }),
   shadowAt() { return new THREE.Vector3(0, 0.3, 0); },
   draw() {
     const Fr = F(), T = tcpOf(Fr), J = jacobian(Fr), {w} = manip(J), g = gravity(Fr, S.payload, TOOL);
+    S.g = g; S.T = T; S.w = w;
     S.hot = S.qd.map((v) => Math.min(1, Math.abs(v) / VMAX));
     arm.update(Fr, {grip: S.grip, hot: S.hot, frames: disp.frames});
     // khối hàng theo kẹp

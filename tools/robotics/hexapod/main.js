@@ -4,6 +4,7 @@ import {createStage, MAT} from '../kit/stage.js';
 import * as SH from '../kit/shapes.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
+import {tag, picker, vn} from '../kit/soi.js';
 import {LEG, LEGS, NAMES, VN, GAITS, SERVO, legIK, legPoints, footAt, hull, margin} from './gait.js';
 
 const D = 180 / Math.PI, G = 9.81;
@@ -63,6 +64,9 @@ const legMeshes = LEGS.map(() => ({
   kneeServo: mk(servoY, servoMat), tibia: mk(tibGeo, MAT.pcb('#2a2c30')), foot: mk(footGeo, footMat),
 }));
 for (const m of legMeshes) { m.coxa.userData.L0 = L0.coxa; m.femA.userData.L0 = m.femB.userData.L0 = L0.femur; m.tibia.userData.L0 = L0.tibia; }
+// nhãn bộ phận cho thẻ soi chi tiết: thân, và từng khớp của từng chân (servo cùng khâu nó quay)
+tag('body', body);
+legMeshes.forEach((m, i) => { tag(`${i}:hip`, m.hipServo, m.coxa); tag(`${i}:fem`, m.femServo, m.femA, m.femB); tag(`${i}:knee`, m.kneeServo, m.tibia, m.foot); });
 const v3 = (p) => new THREE.Vector3(p[0], p[1], p[2]), Zup = new THREE.Vector3(0, 0, 1), M4 = new THREE.Matrix4();
 const orient = (m, a, b, side, w, t) => { // hộp nối a→b, bề rộng w theo side, dày t
   const A = v3(a), B = v3(b), Y = B.clone().sub(A), L = Y.length(); Y.normalize();
@@ -156,6 +160,29 @@ const sim = {
     S.out = solve();
   },
   shadowAt() { return new THREE.Vector3(S.pose.x, 0.08, -S.pose.y); },
+  // soi chi tiết: bấm thân hay một khớp của một chân; camera bám theo chỗ đó khi robot đi
+  pick: picker((part) => {
+    const src = 'Servo: ROBOTIS AX-12A (1,5 N·m ở 12 V, 59 vòng/phút không tải, quay 300°). Kích thước chân theo cấu hình Phoenix cho PhantomX; đùi, ống chân tác giả ghi là ước đoán.';
+    if (part === 'body') {
+      const g = () => GAITS[S.gait];
+      return {k: 'Robot sáu chân · 18 bậc tự do', t: 'Thân và bộ điều khiển', b: 'Hai tấm khung kẹp bộ điều khiển và pin. Bộ sinh dáng đi tính vị trí sáu bàn chân theo pha, rồi IK từng chân ra 18 góc servo.',
+        rows: [['Dáng đi', () => (S.run ? `${g().vn.toLowerCase()} · β = ${g().beta === 0.5 ? '1/2' : g().beta < 0.7 ? '2/3' : '5/6'}` : 'đang dừng')], ['Vận tốc', () => `${vn(cmdOf().v * 100, 1)} cm/s`],
+          ['Chân đang chống', () => `${S.nStance ?? '—'} / 6`], ['Biên ổn định tĩnh', () => (S.ssm != null ? `${vn(S.ssm * 1000, 1)} mm` : '—')], ['Khối lượng đặt', () => `${vn(S.mass, 1)} kg`]],
+        src, d: 1.5};
+    }
+    const [li, j] = part.split(':'), i = +li, L = LEGS[i], o = () => S.out?.[i];
+    const leg = VN[L.name].toLocaleLowerCase('vi');
+    const J = {
+      hip: {t: 'Khớp háng', ang: 'γ', key: 'gamma', len: LEG.coxa, b: 'Servo háng xoay cả chân trong mặt phẳng ngang. Góc γ ra thẳng từ atan2 của vị trí bàn chân.'},
+      fem: {t: 'Khớp đùi', ang: 'α', key: 'alpha', len: LEG.femur, b: 'Servo đùi nâng hạ đùi. Đây là servo gánh nặng nhất khi chân chống: mô men xấp xỉ phần trọng lượng chân gánh nhân tay đòn ngang tới bàn chân.'},
+      knee: {t: 'Khớp gối', ang: 'β', key: 'beta', len: LEG.tibia, b: 'Servo gối gập ống chân. Góc trong β tính bằng định lí cos trong tam giác đùi, ống chân và đoạn nối háng tới bàn chân.'},
+    }[j];
+    return {k: `Chân ${leg} · ${L.name}`, t: J.t, b: J.b,
+      rows: [[`Góc ${J.ang} lúc này`, () => (o() ? `${vn(o().a[J.key] * D, 1)}°` : '—')], ['Chân đang', () => (o() ? (o().f.stance ? 'chống' : 'bước') : '—')],
+        ...(j === 'fem' ? [['Mô men đùi ước lượng', () => (S.tq ? `${vn(S.tq[i], 2)} / 1,5 N·m` : '—')]] : []),
+        [j === 'hip' ? 'Dài khâu háng' : j === 'fem' ? 'Dài đùi' : 'Dài ống chân', `${vn(J.len * 1000, 0)} mm`], ['Với tới được', () => (o() ? (o().a.ok ? 'có' : 'không, chân duỗi hết') : '—')]],
+      src, d: 0.85};
+  }),
   draw() {
     const out = S.out || solve(), p = S.pose, c = Math.cos(p.yaw), s = Math.sin(p.yaw), g = GAITS[S.gait];
     const toW = (q) => [p.x + q[0] * c - q[1] * s, p.y + q[0] * s + q[1] * c, q[2]];
@@ -193,6 +220,7 @@ const sim = {
       if (t >= 0) fwdD = Math.min(fwdD, t); else backD = Math.min(backD, -t);
     }
     const lsm = H.length >= 3 ? Math.min(fwdD, backD) : -1;
+    S.ssm = M.m; S.lsm = lsm; S.nStance = stance.length;
     if (H.length >= 3) {
       const sh = new THREE.Shape(H.map((q) => new THREE.Vector2(q[0], q[1]))); poly.geometry.dispose(); poly.geometry = new THREE.ShapeGeometry(sh);
       polyLine.geometry.dispose(); polyLine.geometry = new THREE.BufferGeometry().setFromPoints(H.map((q) => new THREE.Vector3(q[0], q[1], 0)));
@@ -227,7 +255,7 @@ const sim = {
     nTxt.innerHTML = `${stance.length} chân chống. Trọng tâm (vòng đen) trong đa giác cam: đứng vững tĩnh. Dáng sóng: S = (n/4)·β − 3/4.`;
     // bảng 05: mô men đùi
     const ns = Math.max(1, stance.length), Fz = (S.mass * G) / ns;
-    out.forEach((o, i) => { const arm = o.f.stance ? Math.hypot(o.P.foot[0] - o.P.fem[0], o.P.foot[1] - o.P.fem[1]) : 0; const t = Fz * arm; tb[i].set(t / 2.0, `${fx(t, 2)} N·m`, t > SERVO.stall ? C.or : C.ink); });
+    out.forEach((o, i) => { const arm = o.f.stance ? Math.hypot(o.P.foot[0] - o.P.fem[0], o.P.foot[1] - o.P.fem[1]) : 0; const t = Fz * arm; (S.tq || (S.tq = []))[i] = t; tb[i].set(t / 2.0, `${fx(t, 2)} N·m`, t > SERVO.stall ? C.or : C.ink); });
     const maxT = Math.max(...out.map((o) => (o.f.stance ? Fz * Math.hypot(o.P.foot[0] - o.P.fem[0], o.P.foot[1] - o.P.fem[1]) : 0)));
     alert.set(!out.every((o) => o.a.ok) ? 'CHÂN KHÔNG VỚI TỚI · GIẢM SẢI HOẶC HẠ THÂN' : maxT > SERVO.stall ? 'SERVO ĐÙI VƯỢT 1,5 N·m' : M.m < 0.01 && stance.length ? 'TRỌNG TÂM SÁT MÉP ĐA GIÁC' : '');
     for (const k of Object.keys(GAITS)) ui.setOn(k, S.gait === k && S.run);
