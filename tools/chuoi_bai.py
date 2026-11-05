@@ -21,6 +21,7 @@ BESPOKE = {
     'than-kinh': ('than-kinh/index.html', 'Neuron và xung thần kinh', 'covers/than-kinh.webp'),
     'dong-co': ('cong-nghe/dong-co-4-ki/index.html', 'Động cơ xăng 4 kì', 'covers/dong-co.webp'),
     'mako': ('vat-li-10/ca-map-robot/index.html', 'Robot cá mập mako', 'covers/mako.webp'),
+    'thap-5-tang': ('vat-li-11/thap-nam-tang/index.html', 'Tháp năm tầng Hōryū-ji', 'covers/thap-5-tang.webp'),
     'ur5e': ('robotics/ur5e/index.html', 'Cánh tay robot 6 trục UR5e', 'covers/robo-ur5e.webp'),
     'hexapod': ('robotics/hexapod/index.html', 'Robot sáu chân', 'covers/robo-hexapod.webp'),
     'quadruped': ('robotics/quadruped/index.html', 'Chó robot bốn chân', 'covers/robo-quadruped.webp'),
@@ -68,6 +69,7 @@ def build():
     put('co-the-nguoi', [{'t': 'Khoa học tự nhiên 8', 'href': '#bai-hoc'}], nxt_lesson('te-bao', 'Từ cơ quan xuống tế bào'), 'Sinh học', 'sinh')
     put('dong-co', [{'t': 'Công nghệ 11', 'href': '#bai-hoc'}], nxt_lesson('ur5e', 'Từ cơ khí động lực sang robot công nghiệp'), 'Công nghệ', 'cong')
     put('mako', [{'t': 'Vật lí 10', 'href': '?mon=phys#thu-vien'}], nxt_lesson('dong-co', 'Từ cá mập robot sang động cơ thật'), 'Vật lí', 'ly')
+    put('thap-5-tang', [{'t': 'Vật lí 11', 'href': '?mon=phys#thu-vien'}], nxt_lesson('mako', 'Từ dao động của tháp gỗ sang lực cản khi bơi'), 'Vật lí', 'ly')
     put('than-kinh', [{'t': 'Sinh học 11', 'href': '#bai-hoc'}], nxt_lesson('co-the-nguoi', 'Cả cơ thể: hệ thần kinh và các hệ khác'), 'Sinh học', 'sinh')
     put('co-loa', [{'t': 'Lịch sử 10', 'href': 'lich-su-10/'}], {'title': 'Lộ trình Lịch sử 10', 'href': 'lich-su-10/', 'sub': 'Các bài theo chương trình'}, 'Lịch sử', 'su')
     robo_crumb = [{'t': 'Robotics · Đại học', 'href': 'robotics/'}]

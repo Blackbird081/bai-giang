@@ -11,6 +11,7 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Neuron và xung thần kinh (Sinh học 11, phong cách điện ảnh) | https://nclamvn.github.io/bai-giang/than-kinh/ |
 | Động cơ xăng 4 kì (Công nghệ 11, cơ khí động lực) | https://nclamvn.github.io/bai-giang/cong-nghe/dong-co-4-ki/ |
 | Robot cá mập mako (Vật lí 10, lực cản và lực nâng) | https://nclamvn.github.io/bai-giang/vat-li-10/ca-map-robot/ |
+| Tháp năm tầng Hōryū-ji (Vật lí 11, dao động riêng và cộng hưởng) | https://nclamvn.github.io/bai-giang/vat-li-11/thap-nam-tang/ |
 | Hành Trình Vào Tế Bào (ribosome PDB 3J7R) | https://nclamvn.github.io/bai-giang/te-bao/ |
 | Ribosome trên bàn (AR, mở trên điện thoại) | https://nclamvn.github.io/bai-giang/te-bao/ar.html |
 | Vào Ty Thể (ATP synthase PDB 6J5I) | https://nclamvn.github.io/bai-giang/ty-the/ |
@@ -26,11 +27,13 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Xe tự hành vi sai (TurtleBot3 Burger) | https://nclamvn.github.io/bai-giang/robotics/turtlebot3/ |
 | 54 bài thí nghiệm | https://nclamvn.github.io/bai-giang/#thu-vien |
 
-Cả 9 mô phỏng dựng bằng bộ robotics (6 robot, Động cơ 4 kì, Robot cá mập) có thanh tốc độ tạm dừng đến 10× và **soi chi tiết**: bấm vào một khớp, động cơ, bánh, cảm biến hay thân để mở thẻ (vai trò, số đo có nguồn, số chạy theo mô phỏng), camera bám theo bộ phận đó. Thẻ khai báo trong `pick` của từng bài, bộ máy chung ở [`tools/robotics/kit/soi.js`](tools/robotics/kit/soi.js).
+Cả 10 mô phỏng dựng bằng bộ robotics (6 robot, Động cơ 4 kì, Robot cá mập, Tháp năm tầng) có thanh tốc độ tạm dừng đến 10× và **soi chi tiết**: bấm vào một khớp, động cơ, bánh, cảm biến hay thân để mở thẻ (vai trò, số đo có nguồn, số chạy theo mô phỏng), camera bám theo bộ phận đó. Thẻ khai báo trong `pick` của từng bài, bộ máy chung ở [`tools/robotics/kit/soi.js`](tools/robotics/kit/soi.js).
 
 Bài TurtleBot3 có thêm bước 9 **Lắp ráp theo tầng**: 15 cụm từ tấm đế tới LiDAR, máy kiểm thứ tự và lối vào của tuốc nơ vít (tầng trên úp xuống thì không còn với tới mạch bên dưới); thứ tự theo hướng dẫn lắp Burger của ROBOTIS, rút gọn để học ([`tools/robotics/turtlebot3/cum.js`](tools/robotics/turtlebot3/cum.js)).
 
 Bài chó robot bốn chân lấy bố cục thông tin từ các video teardown robot của 0xWast3 trên X (dải nhịp bài giảng, sáu hệ thống bấm để cô lập, chữ lớn chế độ vận hành, lực đỡ từng chân, 12 mặt đồng hồ mô men khớp, nhật ký), dựng lại bằng giao diện của bộ robotics; mọi số đo lấy từ mã nguồn Mini Cheetah của MIT và bài báo gốc, không lấy số trong bài đăng. Có tách rời 10 cụm và lắp ráp có kiểm thứ tự, lối vào ([`tools/robotics/quadruped/cum.js`](tools/robotics/quadruped/cum.js)). Bài sứa robot làm như vậy với video sứa robot: số đo lấy từ Cyro (Virginia Tech), mô hình lực phụt Daniel 1983 và sinh học sứa bờm sư tử; tách rời, lắp ráp 8 cụm ([`tools/robotics/jellyfish/cum.js`](tools/robotics/jellyfish/cum.js)).
+
+Bài **Tháp năm tầng Hōryū-ji** (Vật lí 11) lấy bố cục bản vẽ lắp dựng từ video tháp của cùng tác giả: khung tên bản vẽ, trình tự dựng dạng Gantt, cấu kiện đang lắp (số lượng, vật liệu, khối lượng ước), kết cấu từng tầng, nhật ký LẮP/KIỂM, dải tám giai đoạn bấm được. 52 thao tác lắp, mặt cắt qua trục, sơn; rung nền với mô hình năm khối có chu kỳ riêng T₁ = 1,1 s (số đo vi chấn dẫn trong Hanazato và cộng sự, 2004), cộng hưởng, cột tâm chặn. Số có nguồn: cao ≈ 32,5 m, tầng 5 hai gian, mái tầng 5 ≈ ½ mái tầng 1, cột tâm bách Nhật năm 594, xá lợi sâu ≈ 3 m, tượng đất năm 711; các kích thước khác ghi rõ là phỏng dựng ([`tools/robotics/pagoda/kin.js`](tools/robotics/pagoda/kin.js)).
 
 - Bản offline một file cho lớp học, tải ở [Releases](https://github.com/nclamvn/bai-giang/releases/latest): [Hành Trình Vào Tế Bào](https://github.com/nclamvn/bai-giang/releases/latest/download/hanh-trinh-te-bao-offline.html) (9 MB) và [Vào Ty Thể](https://github.com/nclamvn/bai-giang/releases/latest/download/vao-ty-the-offline.html) (8 MB). Mở bằng Chrome hoặc Edge, không cần mạng.
 - Địa chỉ cũ (`ty-the.html`, `ar.html`, `chu-de-sinh-hoc-te-bao.html`, `thu-vien/`) tự chuyển sang địa chỉ mới.
