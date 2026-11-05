@@ -140,6 +140,13 @@ export const MAT = {
   glass: (c = '#1d2226') => new THREE.MeshPhysicalMaterial({color: c, metalness: 0, roughness: 0.08, clearcoat: 1, clearcoatRoughness: 0.05, transparent: true, opacity: 0.55, envMapIntensity: 1}),
   tire: () => new THREE.MeshStandardMaterial({color: '#1e1f21', metalness: 0, roughness: 0.78}),
 };
+// Đổi độ trong suốt của vật liệu. three.js biên dịch shader có định nghĩa OPAQUE (ép alpha = 1) khi transparent = false,
+// nên bật/tắt transparent phải kèm needsUpdate, nếu không vật vẫn đặc dù opacity đã giảm.
+export function setOpacity(m, op, depth = op > 0.6) {
+  const t = op < 0.999;
+  if (m.transparent !== t) { m.transparent = t; m.needsUpdate = true; }
+  m.opacity = op; m.depthWrite = depth;
+}
 // X-quang: làm mờ mọi vật liệu trong nhóm (giữ bản gốc trong userData để trả lại)
 export function xray(root, k, keep = () => false) {
   root.traverse((o) => {
@@ -147,7 +154,7 @@ export function xray(root, k, keep = () => false) {
     for (const m of Array.isArray(o.material) ? o.material : [o.material]) {
       if (m.userData.op === undefined) m.userData.op = m.opacity;
       const op = m.userData.op * (1 - 0.82 * k);
-      m.transparent = op < 0.999; m.opacity = op; m.depthWrite = op > 0.6;
+      setOpacity(m, op);
     }
     o.castShadow = k < 0.5 && o.userData.cast !== false;
   });

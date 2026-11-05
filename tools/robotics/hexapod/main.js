@@ -1,6 +1,6 @@
 // Robot sáu chân: trang chạy trực tiếp. Dáng đi, đa giác chống đỡ, biên ổn định và mô men servo đều đọc từ gait.js.
 import * as THREE from 'three';
-import {createStage, MAT} from '../kit/stage.js';
+import {createStage, MAT, setOpacity} from '../kit/stage.js';
 import * as SH from '../kit/shapes.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
@@ -270,7 +270,7 @@ const sim = {
     ], kk);
   },
 };
-const xray = (() => { let cur = -1; return (k) => { if (Math.abs(k - cur) < 1e-3) return; cur = k; body.traverse((m) => { if (!m.isMesh) return; m.material.transparent = k > 0; m.material.opacity = 1 - 0.7 * k; m.material.depthWrite = k < 0.5; }); }; })();
+const xray = (() => { let cur = -1; return (k) => { if (Math.abs(k - cur) < 1e-3) return; cur = k; body.traverse((m) => { if (!m.isMesh) return; setOpacity(m.material, 1 - 0.7 * k, k < 0.5); }); }; })();
 
 // ---------------- góc nhìn (bám theo thân)
 const T = () => ({tx: S.pose.x, ty: S.h * 0.8, tz: -S.pose.y});

@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <!--BG-SHARE:start-->
 <meta property="og:type" content="website"><meta property="og:site_name" content="Sáng Ăn Khoai"><meta property="og:locale" content="vi_VN">
-<meta property="og:title" content="Robotics"><meta property="og:description" content="Bốn bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, drone Crazyflie, xe tự hành TurtleBot3.">
+<meta property="og:title" content="Robotics"><meta property="og:description" content="Năm bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, chó robot bốn chân, drone Crazyflie, xe tự hành TurtleBot3.">
 <meta property="og:url" content="https://nclamvn.github.io/bai-giang/robotics/"><link rel="canonical" href="https://nclamvn.github.io/bai-giang/robotics/">
 <meta property="og:image" content="https://nclamvn.github.io/bai-giang/design/the/robotics.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Robotics">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://nclamvn.github.io/bai-giang/design/the/robotics.jpg">
 <!--BG-SHARE:end-->
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Robotics</title>
-<meta name="description" content="Bốn bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, drone Crazyflie, xe tự hành TurtleBot3.">
+<meta name="description" content="Năm bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, chó robot bốn chân, drone Crazyflie, xe tự hành TurtleBot3.">
 <link rel="stylesheet" href="../design/house.css"><link rel="icon" type="image/png" sizes="32x32" href="../design/logo/favicon-32.png"><link rel="apple-touch-icon" href="../design/logo/apple-touch-icon.png">
 <style>
 :root{--bg:#f6f7f9;--paper:#ffffff;--ink:#15171C;--mute:#626773;--line:#e7e9ed;--or:#e3562a}
@@ -91,7 +91,7 @@ html[data-x]{}body{font-family:var(--bg-font)}
 <div class="wrap">
   <section class="intro">
     <div>
-      <p>Bốn robot thật, mỗi robot một bài: số liệu lấy từ tài liệu hãng, mã nguồn mở và bài báo gốc, phép tính chạy ngay trong trình duyệt. Không phải video: mọi thanh đo, biểu đồ và con số trên màn hình là trạng thái thật của mô phỏng ở khung hình đó.</p>
+      <p>Năm robot thật, mỗi robot một bài: số liệu lấy từ tài liệu hãng, mã nguồn mở và bài báo gốc, phép tính chạy ngay trong trình duyệt. Không phải video: mọi thanh đo, biểu đồ và con số trên màn hình là trạng thái thật của mô phỏng ở khung hình đó.</p>
       <p>Mỗi trang mở ra là một bài giảng tự chạy: con trỏ bấm từng nút, khung lời giảng giải thích điều đang xảy ra. Chạm vào bất cứ đâu để tự cầm lái; để yên 25 giây, bài giảng chạy lại.</p>
     </div>
     <div class="how"><b>Dùng trên lớp</b><ol>
@@ -121,6 +121,17 @@ html[data-x]{}body{font-family:var(--bg-font)}
     <div class="nums">coxa 52 · femur 66 · tibia 133 mm · gắn chân 120/60/100 mm · AX-12A 1,5 N·m @12 V</div>
     <details><summary>Nguồn số liệu</summary><ol><li><a href="https://github.com/KurtE/Phantom_Phoenix/blob/master/Hex_Cfg.h" target="_blank" rel="noopener">KurtE Phantom_Phoenix, Hex_Cfg.h (kích thước chân, vị trí gắn)</a></li><li><a href="https://emanual.robotis.com/docs/en/dxl/ax/ax-12a/" target="_blank" rel="noopener">ROBOTIS e-Manual: Dynamixel AX-12A</a></li><li><a href="https://doi.org/10.1016/0025-5564(68)90090-4" target="_blank" rel="noopener">McGhee &amp; Frank (1968), On the stability properties of quadruped creeping gaits</a></li><li><a href="https://doi.org/10.1017/s0263574700006937" target="_blank" rel="noopener">Song &amp; Waldron (1989), Machines That Walk / phân tích dáng đi sóng</a></li><li><a href="https://scholarblogs.emory.edu/neuromechanicslab/files/2024/06/Ting-Blickhan-Full-1994.pdf" target="_blank" rel="noopener">Ting, Blickhan &amp; Full (1994), biên ổn định dọc</a></li></ol><p class="note">Chiều dài femur và tibia trong cấu hình Phoenix được tác giả ghi là ước đoán; khối lượng 2,0 kg là giả định để ước lượng mô men.</p></details>
     <a class="go" href="hexapod/">Vào mô phỏng <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</article>
+<article class="card">
+  <a class="img" href="quadruped/"><img src="../thu-vien/covers/robo-quadruped.webp" alt="Chó robot 4 chân: ảnh chụp mô phỏng" loading="lazy"><b>MC</b></a>
+  <div class="body">
+    <h2><small>Theo số đo MIT Mini Cheetah (9 kg, 12 động cơ)</small>Chó robot 4 chân</h2>
+    <p>Robot bốn chân dựng theo mã nguồn điều khiển Mini Cheetah của MIT. Đứng, đi bước, đi kiệu, bật nhảy: nhìn lực đỡ từng bàn chân, mặt chân đế co từ hình chữ nhật xuống tam giác rồi một đoạn thẳng, mười hai mặt đồng hồ mô men và nhiệt cuộn dây. Tách rời mười cụm, cô lập từng hệ, rồi tự lắp lại.</p>
+    <ul><li>Động học chân 3 bậc: khép/mở, gập hông, gập gối (gối gập ra sau)</li><li>Mặt chân đế và cân bằng tĩnh: đứng 4 chân, đi bước 3 chân có dồn trọng tâm</li><li>Đi kiệu trên hai chân chéo: mô men lật dư, cân bằng động</li><li>Lực đỡ từng chân từ cân bằng lực và mô men; mô men khớp τ = Jᵀf</li><li>Hộp số 1 : 6, dòng i = τ/(N·kT), nhiệt cuộn dây i²R</li><li>Bật nhảy: v₀ = √(2gH), lực đẩy F = mg + mv₀²/2s</li></ul>
+    <div class="nums">thân 380 × 98 mm giữa khớp · khép/mở 62 · đùi 209 · ống chân 195 mm · 9 kg · động cơ 3 N·m × 6 (gối × 9,33) · kT 0,05 N·m/A · R 0,173 Ω · 24 V</div>
+    <details><summary>Nguồn số liệu</summary><ol><li><a href="https://github.com/mit-biomimetics/Cheetah-Software/blob/master/common/include/Dynamics/MiniCheetah.h" target="_blank" rel="noopener">mit-biomimetics/Cheetah-Software: MiniCheetah.h (kích thước, khối lượng, tỉ số truyền, động cơ), giấy phép MIT</a></li><li><a href="https://doi.org/10.1109/ICRA.2019.8793865" target="_blank" rel="noopener">B. Katz, J. Di Carlo, S. Kim (2019), Mini Cheetah: A Platform for Pushing the Limits of Dynamic Quadruped Control, ICRA</a></li><li><a href="https://arxiv.org/abs/2110.02799" target="_blank" rel="noopener">Real-time optimal landing control of the MIT Mini Cheetah (2021), arXiv:2110.02799 (khối lượng, mô men, chiều cao thân)</a></li><li><a href="https://doi.org/10.1016/0025-5564(68)90090-4" target="_blank" rel="noopener">McGhee &amp; Frank (1968), On the stability properties of quadruped creeping gaits</a></li></ol><p class="note">Vỏ, đầu cảm biến, chu kỳ bước, quãng đẩy khi nhảy và thứ tự lắp ráp là giả định của bài. Lực đỡ chỉ tính thành phần thẳng đứng; mô men khớp tính tĩnh, bỏ quán tính của chân.</p></details>
+    <a class="go" href="quadruped/">Vào mô phỏng <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </article>
 <article class="card">

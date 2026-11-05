@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Trang mục lục Robotics: bốn bài mô phỏng chạy trực tiếp cho đại học và kỹ sư.
+"""Trang mục lục Robotics: các bài mô phỏng chạy trực tiếp cho đại học và kỹ sư.
 
   python3 tools/robotics/build_hub.py            → robotics/index.html (GitHub Pages, liên kết tương đối)
   build(links) trả về HTML, dùng cho bản đăng trên Claude (liên kết do build_pages.py truyền vào).
@@ -32,6 +32,15 @@ ROBOTS = [
               ('Song & Waldron (1989), Machines That Walk / phân tích dáng đi sóng', 'https://doi.org/10.1017/s0263574700006937'),
               ('Ting, Blickhan & Full (1994), biên ổn định dọc', 'https://scholarblogs.emory.edu/neuromechanicslab/files/2024/06/Ting-Blickhan-Full-1994.pdf')],
          note='Chiều dài femur và tibia trong cấu hình Phoenix được tác giả ghi là ước đoán; khối lượng 2,0 kg là giả định để ước lượng mô men.'),
+    dict(key='quadruped', code='MC', title='Chó robot 4 chân', robot='Theo số đo MIT Mini Cheetah (9 kg, 12 động cơ)',
+         lead='Robot bốn chân dựng theo mã nguồn điều khiển Mini Cheetah của MIT. Đứng, đi bước, đi kiệu, bật nhảy: nhìn lực đỡ từng bàn chân, mặt chân đế co từ hình chữ nhật xuống tam giác rồi một đoạn thẳng, mười hai mặt đồng hồ mô men và nhiệt cuộn dây. Tách rời mười cụm, cô lập từng hệ, rồi tự lắp lại.',
+         learn=['Động học chân 3 bậc: khép/mở, gập hông, gập gối (gối gập ra sau)', 'Mặt chân đế và cân bằng tĩnh: đứng 4 chân, đi bước 3 chân có dồn trọng tâm', 'Đi kiệu trên hai chân chéo: mô men lật dư, cân bằng động', 'Lực đỡ từng chân từ cân bằng lực và mô men; mô men khớp τ = Jᵀf', 'Hộp số 1 : 6, dòng i = τ/(N·kT), nhiệt cuộn dây i²R', 'Bật nhảy: v₀ = √(2gH), lực đẩy F = mg + mv₀²/2s'],
+         nums='thân 380 × 98 mm giữa khớp · khép/mở 62 · đùi 209 · ống chân 195 mm · 9 kg · động cơ 3 N·m × 6 (gối × 9,33) · kT 0,05 N·m/A · R 0,173 Ω · 24 V',
+         src=[('mit-biomimetics/Cheetah-Software: MiniCheetah.h (kích thước, khối lượng, tỉ số truyền, động cơ), giấy phép MIT', 'https://github.com/mit-biomimetics/Cheetah-Software/blob/master/common/include/Dynamics/MiniCheetah.h'),
+              ('B. Katz, J. Di Carlo, S. Kim (2019), Mini Cheetah: A Platform for Pushing the Limits of Dynamic Quadruped Control, ICRA', 'https://doi.org/10.1109/ICRA.2019.8793865'),
+              ('Real-time optimal landing control of the MIT Mini Cheetah (2021), arXiv:2110.02799 (khối lượng, mô men, chiều cao thân)', 'https://arxiv.org/abs/2110.02799'),
+              ('McGhee & Frank (1968), On the stability properties of quadruped creeping gaits', 'https://doi.org/10.1016/0025-5564(68)90090-4')],
+         note='Vỏ, đầu cảm biến, chu kỳ bước, quãng đẩy khi nhảy và thứ tự lắp ráp là giả định của bài. Lực đỡ chỉ tính thành phần thẳng đứng; mô men khớp tính tĩnh, bỏ quán tính của chân.'),
     dict(key='crazyflie', code='CF2', title='Drone 4 cánh', robot='Bitcraze Crazyflie 2.x (27 g)',
          lead='Một chiếc drone 27 g, mô hình vật lý theo số đo của ETH Zürich và bộ điều khiển chép đúng cấu trúc, hệ số của firmware gốc. Cất cánh, lăn, tiến, xoay, đẩy một cú gió và nhìn bốn vòng PID xếp tầng cứu nó, hoặc tăng hệ số cho tới khi nó lật.',
          learn=['Động lực học thân cứng 6 bậc tự do, lực và mô men từng rô-to', 'PID xếp tầng: vị trí 100 Hz → vận tốc → góc 500 Hz → tốc độ góc', 'Bộ trộn bốn động cơ cấu hình X', 'Trễ động cơ, nhiễu con quay, giới hạn bão hoà', 'Vì sao hệ số quá cao làm hệ mất ổn định'],
@@ -131,7 +140,7 @@ def build(links):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Robotics</title>
-<meta name="description" content="Bốn bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, drone Crazyflie, xe tự hành TurtleBot3.">
+<meta name="description" content="Năm bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, chó robot bốn chân, drone Crazyflie, xe tự hành TurtleBot3.">
 {LG.font_link(links['hub'])}
 <style>{CSS}{LG.SITE_BAR_CSS}
 html[data-x]{{}}body{{font-family:var(--bg-font)}}
@@ -149,7 +158,7 @@ html[data-x]{{}}body{{font-family:var(--bg-font)}}
 <div class="wrap">
   <section class="intro">
     <div>
-      <p>Bốn robot thật, mỗi robot một bài: số liệu lấy từ tài liệu hãng, mã nguồn mở và bài báo gốc, phép tính chạy ngay trong trình duyệt. Không phải video: mọi thanh đo, biểu đồ và con số trên màn hình là trạng thái thật của mô phỏng ở khung hình đó.</p>
+      <p>Năm robot thật, mỗi robot một bài: số liệu lấy từ tài liệu hãng, mã nguồn mở và bài báo gốc, phép tính chạy ngay trong trình duyệt. Không phải video: mọi thanh đo, biểu đồ và con số trên màn hình là trạng thái thật của mô phỏng ở khung hình đó.</p>
       <p>Mỗi trang mở ra là một bài giảng tự chạy: con trỏ bấm từng nút, khung lời giảng giải thích điều đang xảy ra. Chạm vào bất cứ đâu để tự cầm lái; để yên 25 giây, bài giảng chạy lại.</p>
     </div>
     <div class="how"><b>Dùng trên lớp</b><ol>

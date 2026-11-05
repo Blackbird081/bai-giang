@@ -2,7 +2,7 @@
 
 # Sáng Ăn Khoai
 
-Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài: hai hành trình 3D phóng tới nguyên tử của phân tử thật, Thành Cổ Loa dựng theo số đo khảo cổ, bốn mô phỏng robotics cho đại học và kỹ sư, lộ trình theo chương trình GDPT 2018 và thư viện 54 bài thí nghiệm. three.js r180, WebGPU với dự phòng WebGL 2, mỗi trang là một tệp HTML tự chứa.
+Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài: hai hành trình 3D phóng tới nguyên tử của phân tử thật, Thành Cổ Loa dựng theo số đo khảo cổ, năm mô phỏng robotics cho đại học và kỹ sư, lộ trình theo chương trình GDPT 2018 và thư viện 54 bài thí nghiệm. three.js r180, WebGPU với dự phòng WebGL 2, mỗi trang là một tệp HTML tự chứa.
 
 | Trang | Địa chỉ |
 |---|---|
@@ -17,16 +17,19 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Lộ trình Sinh học tế bào lớp 10 | https://nclamvn.github.io/bai-giang/chu-de/sinh-hoc-te-bao/ |
 | Thành Cổ Loa (Lịch sử 10) | https://nclamvn.github.io/bai-giang/lich-su-10/co-loa/ |
 | Lộ trình Lịch sử 10 | https://nclamvn.github.io/bai-giang/lich-su-10/ |
-| Robotics: mục lục 4 mô phỏng | https://nclamvn.github.io/bai-giang/robotics/ |
+| Robotics: mục lục 5 mô phỏng | https://nclamvn.github.io/bai-giang/robotics/ |
 | Cánh tay robot 6 trục (UR5e) | https://nclamvn.github.io/bai-giang/robotics/ur5e/ |
 | Robot 6 chân (PhantomX AX) | https://nclamvn.github.io/bai-giang/robotics/hexapod/ |
+| Chó robot 4 chân (số đo MIT Mini Cheetah) | https://nclamvn.github.io/bai-giang/robotics/quadruped/ |
 | Drone 4 cánh (Crazyflie 2.x) | https://nclamvn.github.io/bai-giang/robotics/crazyflie/ |
 | Xe tự hành vi sai (TurtleBot3 Burger) | https://nclamvn.github.io/bai-giang/robotics/turtlebot3/ |
 | 54 bài thí nghiệm | https://nclamvn.github.io/bai-giang/#thu-vien |
 
-Cả 7 mô phỏng dựng bằng bộ robotics (4 robot, Động cơ 4 kì, Robot cá mập) có thanh tốc độ tạm dừng đến 10× và **soi chi tiết**: bấm vào một khớp, động cơ, bánh, cảm biến hay thân để mở thẻ (vai trò, số đo có nguồn, số chạy theo mô phỏng), camera bám theo bộ phận đó. Thẻ khai báo trong `pick` của từng bài, bộ máy chung ở [`tools/robotics/kit/soi.js`](tools/robotics/kit/soi.js).
+Cả 8 mô phỏng dựng bằng bộ robotics (5 robot, Động cơ 4 kì, Robot cá mập) có thanh tốc độ tạm dừng đến 10× và **soi chi tiết**: bấm vào một khớp, động cơ, bánh, cảm biến hay thân để mở thẻ (vai trò, số đo có nguồn, số chạy theo mô phỏng), camera bám theo bộ phận đó. Thẻ khai báo trong `pick` của từng bài, bộ máy chung ở [`tools/robotics/kit/soi.js`](tools/robotics/kit/soi.js).
 
 Bài TurtleBot3 có thêm bước 9 **Lắp ráp theo tầng**: 15 cụm từ tấm đế tới LiDAR, máy kiểm thứ tự và lối vào của tuốc nơ vít (tầng trên úp xuống thì không còn với tới mạch bên dưới); thứ tự theo hướng dẫn lắp Burger của ROBOTIS, rút gọn để học ([`tools/robotics/turtlebot3/cum.js`](tools/robotics/turtlebot3/cum.js)).
+
+Bài chó robot bốn chân lấy bố cục thông tin từ các video teardown robot của 0xWast3 trên X (dải nhịp bài giảng, sáu hệ thống bấm để cô lập, chữ lớn chế độ vận hành, lực đỡ từng chân, 12 mặt đồng hồ mô men khớp, nhật ký), dựng lại bằng giao diện của bộ robotics; mọi số đo lấy từ mã nguồn Mini Cheetah của MIT và bài báo gốc, không lấy số trong bài đăng. Có tách rời 10 cụm và lắp ráp có kiểm thứ tự, lối vào ([`tools/robotics/quadruped/cum.js`](tools/robotics/quadruped/cum.js)).
 
 - Bản offline một file cho lớp học, tải ở [Releases](https://github.com/nclamvn/bai-giang/releases/latest): [Hành Trình Vào Tế Bào](https://github.com/nclamvn/bai-giang/releases/latest/download/hanh-trinh-te-bao-offline.html) (9 MB) và [Vào Ty Thể](https://github.com/nclamvn/bai-giang/releases/latest/download/vao-ty-the-offline.html) (8 MB). Mở bằng Chrome hoặc Edge, không cần mạng.
 - Địa chỉ cũ (`ty-the.html`, `ar.html`, `chu-de-sinh-hoc-te-bao.html`, `thu-vien/`) tự chuyển sang địa chỉ mới.
@@ -96,19 +99,20 @@ Mọi trang có khối thẻ og và twitter ngay sau `<meta charset>` cùng ản
 - Chế độ học theo bước: 10 bước, 3 câu hỏi; bảng "Truyền thuyết và bằng chứng"; 27 nguồn có đánh số.
 - Dựng bằng `python3 tools/build_co_loa.py` (hình học, dữ liệu) từ `tools/co-loa.template.html`; lộ trình bằng `python3 tools/build_ls10.py`.
 
-## Robotics: bốn mô phỏng chạy trực tiếp
+## Robotics: năm mô phỏng chạy trực tiếp
 [`robotics/`](robotics/) dành cho đại học và kỹ sư. Mỗi trang là một bảng điều khiển 1600 × 900 kiểu phòng thí nghiệm: robot 3D ở giữa, các bảng số đo hai bên, khung lời giảng ở dưới. Mở ra là bài giảng tự chạy (con trỏ bấm từng nút, lời giảng theo từng bước); chạm vào là tự cầm lái, 25 giây không thao tác thì bài giảng chạy lại. Mọi thanh đo và biểu đồ là trạng thái thật của mô phỏng.
 
 | Robot | Nội dung | Số liệu |
 |---|---|---|
 | UR5e, cánh tay 6 trục | FK theo DH, IK giải tích 8 nghiệm (Hawkins 2013), Jacobian, chỉ số Yoshikawa, kỳ dị vai, MoveJ/MoveL bậc năm, mô men trọng lực, gắp và đặt | Bảng DH, khối lượng và trọng tâm khâu của Universal Robots; giới hạn khớp từ Universal_Robots_ROS2_Description |
 | PhantomX AX, 6 chân | IK chân 3 bậc, dáng đi tripod/tetrapod/wave theo β, đa giác chống đỡ, biên ổn định tĩnh và dọc, mô men servo | Cấu hình Phoenix (KurtE), AX-12A (ROBOTIS); femur/tibia tác giả ghi "đoán", khối lượng 2 kg là giả định |
+| Chó robot 4 chân (Mini Cheetah) | IK chân 3 bậc gối gập ra sau, đứng / đi bước β 0,85 có dồn trọng tâm / đi kiệu β 0,5 / bật nhảy, lực đỡ từng chân từ cân bằng lực và mô men, mô men lật dư khi đi kiệu, τ = Jᵀf, dòng và nhiệt cuộn dây i²R, tách rời, lắp ráp | Cheetah-Software của MIT (MiniCheetah.h: kích thước, khối lượng, tỉ số truyền, kT, R, 24 V), Katz và cộng sự ICRA 2019 (9 kg, 2,45 m/s); vỏ, đầu cảm biến, chu kỳ bước, quãng đẩy là giả định |
 | Crazyflie 2.x, drone | Thân cứng 6 bậc, lực và mô men từng rô-to, PID xếp tầng vị trí → vận tốc → góc → tốc độ góc, bộ trộn legacy, nhiễu con quay, trễ động cơ | Förster 2015 (ETH Zürich), hệ số và cấu trúc từ crazyflie-firmware |
 | TurtleBot3 Burger, xe vi sai | Động học vi sai, encoder 4096 xung, odometry trôi, LiDAR LDS-02, bản đồ lưới log-odds, pure pursuit, dừng an toàn, phục hồi | ROBOTIS e-Manual, turtlebot3 (burger.yaml, URDF), firmware OpenCR; phòng, vật cản, độ lệch bánh là giả định để dạy; "định vị liên tục" mô phỏng kết quả AMCL |
 
-- Kiểm bằng máy: UR5e FK(IK) sai 1,5·10⁻¹² m trên 2000 tư thế; hexapod IK/FK khớp 3·10⁻¹⁶; drone giữ độ cao quanh 36–37k PWM, cú đẩy 2,5 mN·m hồi phục ở hệ số gốc; TurtleBot3 chạy 100 s kịch bản bài giảng không va chạm.
+- Kiểm bằng máy: UR5e FK(IK) sai 1,5·10⁻¹² m trên 2000 tư thế; hexapod IK/FK khớp 3·10⁻¹⁶; chó robot IK/FK khớp 2·10⁻¹⁶ trên 8000 điểm, biên ổn định tĩnh khi đi bước ≥ 29 mm, mọi tư thế đi kiệu và bật nhảy (H tới 35 cm) trong tầm với và dưới mô men tối đa; drone giữ độ cao quanh 36–37k PWM, cú đẩy 2,5 mN·m hồi phục ở hệ số gốc; TurtleBot3 chạy 100 s kịch bản bài giảng không va chạm.
 - Phương pháp, phong cách bàn điều khiển và cách tổ chức trang theo [teardown](https://github.com/elvarofficial/teardown) (elvarofficial) dựa trên [claude-motion](https://github.com/whaleyxbt/claude-motion) (whaleyxbt), MIT; giấy phép gốc ở [`tools/robotics/LICENSE-teardown`](tools/robotics/LICENSE-teardown).
-- Mã: [`tools/robotics/`](tools/robotics/). `kit/` (sân khấu three.js r186 WebGL với GTAO, bảng điều khiển, vỏ trang tự chạy có 3 bậc chất lượng), mỗi robot một thư mục: phần tính (`kin.js`, `gait.js`, `quad.js`, `diff.js`) không phụ thuộc three.js, `main.js` là phần vẽ và kịch bản bài giảng. Dựng: `cd tools/robotics && npm ci && node build.mjs` (mỗi trang một tệp ~0,95 MB, nhúng sẵn three.js và phông có tiếng Việt); mục lục bằng `python3 tools/build_pages.py`.
+- Mã: [`tools/robotics/`](tools/robotics/). `kit/` (sân khấu three.js r186 WebGL với GTAO, bảng điều khiển, vỏ trang tự chạy có 3 bậc chất lượng), mỗi robot một thư mục: phần tính (`kin.js`, `gait.js`, `quad.js`, `diff.js`; `quadruped/kin.js`) không phụ thuộc three.js, `main.js` là phần vẽ và kịch bản bài giảng. Dựng: `cd tools/robotics && npm ci && node build.mjs` (mỗi trang một tệp ~0,95 MB, nhúng sẵn three.js và phông có tiếng Việt); mục lục bằng `python3 tools/build_pages.py`.
 - Hình khối dựng bằng mã theo cách teardown dựng V8 (`kit/shapes.js`): vỏ khớp tiện có bo mép và nắp vòm, ống loe, servo có đĩa trục và tai bắt vít, tấm waffle có lưới lỗ, bánh có gai, cánh quạt có biên dạng và xoắn; vật liệu nhựa phủ bóng, nhôm anod, mạch in, kính khói, cao su.
 - Lên lớp: Shift P hoặc nút Lên lớp; bút trình chiếu chuyển từng lời giảng; màn hình giáo viên, điện thoại điều khiển (xem [Dụng cụ lên lớp](#dụng-cụ-lên-lớp)). Trên điện thoại và máy tính bảng dựng đứng, cảnh 3D phủ màn hình, lời giảng thành thẻ đọc được, nút Bảng số mở lại bàn điều khiển.
 - Thêm `?q=0`, `?q=1` hoặc `?q=2` vào địa chỉ để ép bậc đồ hoạ (0 đẹp nhất, 2 cho máy yếu); khi ép bậc, trang không tự hạ.
@@ -152,7 +156,7 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `ty-the/index.html` | Vào Ty Thể, dữ liệu ATP synthase nhúng sẵn |
 | `chu-de/sinh-hoc-te-bao/` | Lộ trình Sinh học tế bào lớp 10 |
 | `lich-su-10/`, `lich-su-10/co-loa/` | Lộ trình Lịch sử 10 (`tools/build_ls10.py`), bài Thành Cổ Loa (`tools/build_co_loa.py`, `tools/co-loa.template.html`, nguồn `tools/co_loa_nguon.json`) |
-| `robotics/`, `robotics/<robot>/` | Mục lục Robotics (`tools/robotics/build_hub.py`) và 4 mô phỏng robot; cùng bộ dựng `tools/robotics/` (`node build.mjs`) dựng cả bài Động cơ 4 kì và Robot cá mập |
+| `robotics/`, `robotics/<robot>/` | Mục lục Robotics (`tools/robotics/build_hub.py`) và 5 mô phỏng robot; cùng bộ dựng `tools/robotics/` (`node build.mjs`) dựng cả bài Động cơ 4 kì và Robot cá mập |
 | `giao-vien/`, `tools/goi-day/`, `tools/build_goi_day.py` | Gói dạy thử 45 phút: trang in được và nguồn JSON |
 | `shell/`, `dieu-khien/`, `kiem-may/` | Vỏ lên lớp chung và bộ gắn cho bài thư viện; trang điều khiển bằng điện thoại; trang kiểm máy. `shell/dist/` là mã vỏ đã rút gọn do `tools/inject_shell.py` sinh: mọi bài tải chung một tệp (có mã băm nội dung), trình duyệt giữ trong bộ nhớ đệm khi chuyển bài; bản offline nhúng lại nguyên mã |
 | `thu-vien/` | 54 bài tiếng Việt (CC BY-NC 4.0), ảnh bìa, `catalog.vi.json`, đối chiếu chương trình `gdpt2018.json`, công cụ Việt hoá `_viet-hoa/`; `thu-vien/anh/` là ảnh nhúng base64 lớn được `tools/house_thu_vien.py` tách ra (ảnh Trái Đất dùng chung cho 4 bài) |

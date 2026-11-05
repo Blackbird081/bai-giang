@@ -145,7 +145,7 @@ export function buildShark() {
     const op = mode === 'skin' ? 1 : mode === 'glass' ? 0.3 : 0;
     for (const g of skinParts) g.traverse((m) => {
       if (!m.isMesh) return;
-      for (const mt of [m.material]) { mt.transparent = op < 1; mt.opacity = op; mt.depthWrite = op >= 1; }
+      for (const mt of [m.material]) { if (mt.transparent !== op < 1) mt.needsUpdate = true; mt.transparent = op < 1; mt.opacity = op; mt.depthWrite = op >= 1; }
       m.visible = op > 0; m.castShadow = op >= 1;
     });
     robot.visible = mode !== 'skin';

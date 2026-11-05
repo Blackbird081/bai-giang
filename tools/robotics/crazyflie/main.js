@@ -1,7 +1,7 @@
 // Drone bốn cánh Crazyflie: trang chạy trực tiếp. Mọi chuyển động, lực đẩy, số liệu và biểu đồ đọc từ quad.js
 // (thân cứng 6 bậc tự do theo Förster 2015, PID xếp tầng theo crazyflie-firmware).
 import * as THREE from 'three';
-import {createStage, MAT} from '../kit/stage.js';
+import {createStage, MAT, setOpacity} from '../kit/stage.js';
 import * as SH from '../kit/shapes.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
@@ -218,7 +218,7 @@ const sim = {
     ], kk * (views.cur === 'close' || views.cur === 'hero' ? 1 : 0.0));
   },
 };
-const xrayD = (() => { let cur = -1; return (k) => { if (Math.abs(k - cur) < 1e-3) return; cur = k; drone.traverse((m) => { if (!m.isMesh || m.material.isMeshBasicMaterial) return; m.material.transparent = k > 0; m.material.opacity = 1 - 0.7 * k; m.material.depthWrite = k < 0.5; }); }; })();
+const xrayD = (() => { let cur = -1; return (k) => { if (Math.abs(k - cur) < 1e-3) return; cur = k; drone.traverse((m) => { if (!m.isMesh || m.material.isMeshBasicMaterial) return; setOpacity(m.material, 1 - 0.7 * k, k < 0.5); }); }; })();
 
 // ---------------- góc nhìn (bám theo drone)
 const T = () => ({tx: S.p[0], ty: S.p[2] + 0.02, tz: -S.p[1]});

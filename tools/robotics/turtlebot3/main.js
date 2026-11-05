@@ -1,7 +1,7 @@
 // TurtleBot3 Burger: trang chạy trực tiếp. Robot thật (theo vật lý có trượt bánh) và robot "trong đầu" (odometry từ
 // encoder) chạy song song; LiDAR quét từ tư thế thật, bản đồ dựng theo tư thế robot tin là đúng.
 import * as THREE from 'three';
-import {createStage, MAT} from '../kit/stage.js';
+import {createStage, MAT, setOpacity} from '../kit/stage.js';
 import * as SH from '../kit/shapes.js';
 const {alongY} = SH;
 import {C, createUI, fx} from '../kit/ui.js';
@@ -397,7 +397,7 @@ Object.assign(sim, {
     ], kk * (cur.v === 'close' || cur.v === 'follow' ? 1 : 0));
   },
 });
-const xray = (() => { let c = -1; return (k) => { if (Math.abs(k - c) < 1e-3) return; c = k; bot.g.traverse((m) => { if (!m.isMesh) return; m.material.transparent = k > 0; m.material.opacity = 1 - 0.75 * k; m.material.depthWrite = k < 0.5; }); }; })();
+const xray = (() => { let c = -1; return (k) => { if (Math.abs(k - c) < 1e-3) return; c = k; bot.g.traverse((m) => { if (!m.isMesh) return; setOpacity(m.material, 1 - 0.75 * k, k < 0.5); }); }; })();
 const cur = {v: 'hero'};
 const Tg = () => ({tx: S.truth.x, ty: 0.08, tz: -S.truth.y});
 const views = {

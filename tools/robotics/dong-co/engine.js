@@ -252,7 +252,7 @@ export function buildEngine() {
         if (!on) { op = Math.min(op, 0.07); tr = true; dw = false; }
         const out = look.ghost.has(u.part); // cụm đang nằm ngoài máy (chế độ lắp ráp): nguyên khối, không cắt dọc, không làm mờ
         if (out) { op = b.op; tr = b.tr; dw = b.dw; }
-        m.opacity = op; m.transparent = tr; m.depthWrite = dw;
+        if (m.transparent !== tr) m.needsUpdate = true; m.opacity = op; m.transparent = tr; m.depthWrite = dw;
         m.clippingPlanes = u.clip && mode === 'cut' && !out ? [clipPlane] : [];
         m.needsUpdate = true;
       });

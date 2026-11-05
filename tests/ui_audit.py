@@ -23,7 +23,7 @@ from playwright.async_api import async_playwright
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 BASE = 'http://localhost:8777/'
 VP = {'d': (1440, 900, False), 't': (1180, 820, True), 'tp': (820, 1180, True), 'pl': (844, 390, True), 'pp': (390, 844, True)}
-ROBOTS = ['ur5e', 'hexapod', 'crazyflie', 'turtlebot3']
+ROBOTS = ['ur5e', 'hexapod', 'quadruped', 'crazyflie', 'turtlebot3']
 
 
 def pages(group):

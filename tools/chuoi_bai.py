@@ -23,12 +23,13 @@ BESPOKE = {
     'mako': ('vat-li-10/ca-map-robot/index.html', 'Robot cá mập mako', 'covers/mako.webp'),
     'ur5e': ('robotics/ur5e/index.html', 'Cánh tay robot 6 trục UR5e', 'covers/robo-ur5e.webp'),
     'hexapod': ('robotics/hexapod/index.html', 'Robot sáu chân', 'covers/robo-hexapod.webp'),
+    'quadruped': ('robotics/quadruped/index.html', 'Chó robot bốn chân', 'covers/robo-quadruped.webp'),
     'crazyflie': ('robotics/crazyflie/index.html', 'Drone bốn cánh Crazyflie', 'covers/robo-crazyflie.webp'),
     'turtlebot3': ('robotics/turtlebot3/index.html', 'Robot tự hành TurtleBot3', 'covers/robo-turtlebot3.webp'),
 }
 # mạch Sinh học tế bào 10, theo tools/build_pages.py (ROUTE)
 CHAIN_CELL = ['te-bao', 'transport-step', 'plasmolysis-step', 'ty-the', 'enzyme-step', 'mitosis-step']
-CHAIN_ROBO = ['ur5e', 'hexapod', 'crazyflie', 'turtlebot3']
+CHAIN_ROBO = ['ur5e', 'hexapod', 'quadruped', 'crazyflie', 'turtlebot3']
 
 
 def path_of(slug):
@@ -71,7 +72,7 @@ def build():
     robo_crumb = [{'t': 'Robotics · Đại học', 'href': 'robotics/'}]
     for k, s in enumerate(CHAIN_ROBO):
         n = CHAIN_ROBO[k + 1] if k + 1 < len(CHAIN_ROBO) else None
-        put(s, robo_crumb, nxt_lesson(n, f'Robotics · bài {k + 2}/{len(CHAIN_ROBO)}') if n else {'title': 'Mục lục Robotics', 'href': 'robotics/', 'sub': 'Bốn mô phỏng'}, 'Robotics', 'robo')
+        put(s, robo_crumb, nxt_lesson(n, f'Robotics · bài {k + 2}/{len(CHAIN_ROBO)}') if n else {'title': 'Mục lục Robotics', 'href': 'robotics/', 'sub': 'Năm mô phỏng'}, 'Robotics', 'robo')
     # thư viện: theo thứ tự danh mục trong từng môn; bài cuối của môn dẫn về thư viện
     for sub, (mon, key, anchor) in SUBJ.items():
         lst = [c['slug'] for c in CAT if c['subject'] == sub and c['slug'] not in CHAIN_CELL]

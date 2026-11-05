@@ -1,7 +1,7 @@
 // Cánh tay robot 6 trục UR5e: trang chạy trực tiếp. Mọi khớp, bảng số và biểu đồ đọc từ cùng một mô hình động học
 // (kin.js): bảng DH của Universal Robots, động học nghịch Hawkins 2013, Jacobian, mô men trọng lực theo khối lượng khâu.
 import * as THREE from 'three';
-import {createStage} from '../kit/stage.js';
+import {createStage, setOpacity} from '../kit/stage.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
 import {tag, picker, vn} from '../kit/soi.js';
@@ -251,7 +251,7 @@ const sim = {
     ], k);
   },
 };
-const xrayArm = (() => { let cur = -1; return (k) => { if (Math.abs(k - cur) < 1e-3) return; cur = k; arm.root.traverse((m) => { if (!m.isMesh || m === cube || m === reach || m === hole || m.isInstancedMesh) return; const mats = Array.isArray(m.material) ? m.material : [m.material]; for (const x of mats) { if (x.isShaderMaterial || x.isMeshBasicMaterial) continue; x.transparent = k > 0; x.opacity = 1 - 0.75 * k; x.depthWrite = k < 0.5; } }); }; })();
+const xrayArm = (() => { let cur = -1; return (k) => { if (Math.abs(k - cur) < 1e-3) return; cur = k; arm.root.traverse((m) => { if (!m.isMesh || m === cube || m === reach || m === hole || m.isInstancedMesh) return; const mats = Array.isArray(m.material) ? m.material : [m.material]; for (const x of mats) { if (x.isShaderMaterial || x.isMeshBasicMaterial) continue; setOpacity(x, 1 - 0.75 * k, k < 0.5); } }); }; })();
 
 // ---------------- góc nhìn
 const views = {
