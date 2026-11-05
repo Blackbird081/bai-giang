@@ -41,6 +41,16 @@ ROBOTS = [
               ('Real-time optimal landing control of the MIT Mini Cheetah (2021), arXiv:2110.02799 (khối lượng, mô men, chiều cao thân)', 'https://arxiv.org/abs/2110.02799'),
               ('McGhee & Frank (1968), On the stability properties of quadruped creeping gaits', 'https://doi.org/10.1016/0025-5564(68)90090-4')],
          note='Vỏ, đầu cảm biến, chu kỳ bước, quãng đẩy khi nhảy và thứ tự lắp ráp là giả định của bài. Lực đỡ chỉ tính thành phần thẳng đứng; mô men khớp tính tĩnh, bỏ quán tính của chân.'),
+    dict(key='jellyfish', code='CYRO', title='Sứa robot', robot='Theo Cyro, Virginia Tech (1,7 m, 77 kg)',
+         lead='Robot mềm dưới nước mô phỏng sứa bờm sư tử. Chuông co lại đẩy nước ra, nước đẩy chuông đi: nhìn lực phụt vọt lên khi co, lực ngược khi giãn, vòng xoáy rời mép chuông, robot lên 2,4 m trong 5 nhịp như Cyro trong giếng lặn. Đẩy nghiêng để rhopalia dựng chuông lại, giữ độ sâu bằng điều khiển phản hồi, phóng tế bào gai, tách rời và lắp ráp.',
+         learn=['Chuyển động bằng phản lực: định luật III, bảo toàn động lượng', 'Lực phụt F = (ρ/A)(dV/dt)², vì sao co nhanh mà giãn chậm', 'Lực cản ½ρCAv², khối nước kéo theo', 'Cảm biến thăng bằng (rhopalia) và mô men dựng lại', 'Lơ lửng: nổi dư và điều khiển phản hồi theo độ sâu', 'Tế bào gai: 700 ns, 5,41 triệu g, kiểm v = a·t'],
+         nums='Cyro 1,7 m · 77 kg · giếng 4,3 m · lên 2,4 m trong 5 nhịp · Robojelly 164 mm, 8 bộ chấp hành, 0,7 Hz · tế bào gai 700 ns, 5,41·10⁶ g, 18,5–37,1 m/s',
+         src=[('Live Science (29/3/2013): Man-Size Jellyfish Robot Could Ply the Seas (Cyro, Virginia Tech)', 'https://livescience.com/28286-jellyfish-robot-cyro.html'),
+              ('Dabiri, Colin, Costello (2007), Morphological diversity of medusan lineages constrained by animal–fluid interactions, J. Exp. Biol. 210:1868 (lực phụt theo Daniel 1983)', 'https://doi.org/10.1242/jeb.003772'),
+              ('Colin và cộng sự (2012), Biomimetic and live medusae reveal the mechanistic advantages of a flexible bell margin, PLoS ONE 7:e48909 (Robojelly)', 'https://doi.org/10.1371/journal.pone.0048909'),
+              ('Nüchter, Benoit, Engel, Özbek, Holstein (2006), Nanosecond-scale kinetics of nematocyst discharge, Current Biology 16:R316', 'https://doi.org/10.1016/j.cub.2006.03.089'),
+              ('Lion\'s mane jellyfish (Cyanea capillata): tám thuỳ, 70–150 tua mỗi thuỳ, kích thước ghi nhận', 'https://en.wikipedia.org/wiki/Lion%27s_mane_jellyfish')],
+         note='Đường kính chuông 1,7 m, cao chuông 0,55 m, hệ số cản 0,6, khối nước kéo theo, nổi dư −3 N, dài tua là giả định; biên độ co 31 % chọn để 5 nhịp đi được 2,4 m như Cyro. Số đo tế bào gai là của Hydra.'),
     dict(key='crazyflie', code='CF2', title='Drone 4 cánh', robot='Bitcraze Crazyflie 2.x (27 g)',
          lead='Một chiếc drone 27 g, mô hình vật lý theo số đo của ETH Zürich và bộ điều khiển chép đúng cấu trúc, hệ số của firmware gốc. Cất cánh, lăn, tiến, xoay, đẩy một cú gió và nhìn bốn vòng PID xếp tầng cứu nó, hoặc tăng hệ số cho tới khi nó lật.',
          learn=['Động lực học thân cứng 6 bậc tự do, lực và mô men từng rô-to', 'PID xếp tầng: vị trí 100 Hz → vận tốc → góc 500 Hz → tốc độ góc', 'Bộ trộn bốn động cơ cấu hình X', 'Trễ động cơ, nhiễu con quay, giới hạn bão hoà', 'Vì sao hệ số quá cao làm hệ mất ổn định'],
@@ -140,7 +150,7 @@ def build(links):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Robotics</title>
-<meta name="description" content="Năm bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, chó robot bốn chân, drone Crazyflie, xe tự hành TurtleBot3.">
+<meta name="description" content="Sáu bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, chó robot bốn chân, sứa robot, drone Crazyflie, xe tự hành TurtleBot3.">
 {LG.font_link(links['hub'])}
 <style>{CSS}{LG.SITE_BAR_CSS}
 html[data-x]{{}}body{{font-family:var(--bg-font)}}
@@ -158,7 +168,7 @@ html[data-x]{{}}body{{font-family:var(--bg-font)}}
 <div class="wrap">
   <section class="intro">
     <div>
-      <p>Năm robot thật, mỗi robot một bài: số liệu lấy từ tài liệu hãng, mã nguồn mở và bài báo gốc, phép tính chạy ngay trong trình duyệt. Không phải video: mọi thanh đo, biểu đồ và con số trên màn hình là trạng thái thật của mô phỏng ở khung hình đó.</p>
+      <p>Sáu robot thật, mỗi robot một bài: số liệu lấy từ tài liệu hãng, mã nguồn mở và bài báo gốc, phép tính chạy ngay trong trình duyệt. Không phải video: mọi thanh đo, biểu đồ và con số trên màn hình là trạng thái thật của mô phỏng ở khung hình đó.</p>
       <p>Mỗi trang mở ra là một bài giảng tự chạy: con trỏ bấm từng nút, khung lời giảng giải thích điều đang xảy ra. Chạm vào bất cứ đâu để tự cầm lái; để yên 25 giây, bài giảng chạy lại.</p>
     </div>
     <div class="how"><b>Dùng trên lớp</b><ol>

@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <!--BG-SHARE:start-->
 <meta property="og:type" content="website"><meta property="og:site_name" content="Sáng Ăn Khoai"><meta property="og:locale" content="vi_VN">
-<meta property="og:title" content="Robotics"><meta property="og:description" content="Năm bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, chó robot bốn chân, drone Crazyflie, xe tự hành TurtleBot3.">
+<meta property="og:title" content="Robotics"><meta property="og:description" content="Sáu bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, chó robot bốn chân, sứa robot, drone Crazyflie, xe tự hành TurtleBot3.">
 <meta property="og:url" content="https://nclamvn.github.io/bai-giang/robotics/"><link rel="canonical" href="https://nclamvn.github.io/bai-giang/robotics/">
 <meta property="og:image" content="https://nclamvn.github.io/bai-giang/design/the/robotics.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Robotics">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://nclamvn.github.io/bai-giang/design/the/robotics.jpg">
 <!--BG-SHARE:end-->
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Robotics</title>
-<meta name="description" content="Năm bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, chó robot bốn chân, drone Crazyflie, xe tự hành TurtleBot3.">
+<meta name="description" content="Sáu bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, chó robot bốn chân, sứa robot, drone Crazyflie, xe tự hành TurtleBot3.">
 <link rel="stylesheet" href="../design/house.css"><link rel="icon" type="image/png" sizes="32x32" href="../design/logo/favicon-32.png"><link rel="apple-touch-icon" href="../design/logo/apple-touch-icon.png">
 <style>
 :root{--bg:#f6f7f9;--paper:#ffffff;--ink:#15171C;--mute:#626773;--line:#e7e9ed;--or:#e3562a}
@@ -91,7 +91,7 @@ html[data-x]{}body{font-family:var(--bg-font)}
 <div class="wrap">
   <section class="intro">
     <div>
-      <p>Năm robot thật, mỗi robot một bài: số liệu lấy từ tài liệu hãng, mã nguồn mở và bài báo gốc, phép tính chạy ngay trong trình duyệt. Không phải video: mọi thanh đo, biểu đồ và con số trên màn hình là trạng thái thật của mô phỏng ở khung hình đó.</p>
+      <p>Sáu robot thật, mỗi robot một bài: số liệu lấy từ tài liệu hãng, mã nguồn mở và bài báo gốc, phép tính chạy ngay trong trình duyệt. Không phải video: mọi thanh đo, biểu đồ và con số trên màn hình là trạng thái thật của mô phỏng ở khung hình đó.</p>
       <p>Mỗi trang mở ra là một bài giảng tự chạy: con trỏ bấm từng nút, khung lời giảng giải thích điều đang xảy ra. Chạm vào bất cứ đâu để tự cầm lái; để yên 25 giây, bài giảng chạy lại.</p>
     </div>
     <div class="how"><b>Dùng trên lớp</b><ol>
@@ -132,6 +132,17 @@ html[data-x]{}body{font-family:var(--bg-font)}
     <div class="nums">thân 380 × 98 mm giữa khớp · khép/mở 62 · đùi 209 · ống chân 195 mm · 9 kg · động cơ 3 N·m × 6 (gối × 9,33) · kT 0,05 N·m/A · R 0,173 Ω · 24 V</div>
     <details><summary>Nguồn số liệu</summary><ol><li><a href="https://github.com/mit-biomimetics/Cheetah-Software/blob/master/common/include/Dynamics/MiniCheetah.h" target="_blank" rel="noopener">mit-biomimetics/Cheetah-Software: MiniCheetah.h (kích thước, khối lượng, tỉ số truyền, động cơ), giấy phép MIT</a></li><li><a href="https://doi.org/10.1109/ICRA.2019.8793865" target="_blank" rel="noopener">B. Katz, J. Di Carlo, S. Kim (2019), Mini Cheetah: A Platform for Pushing the Limits of Dynamic Quadruped Control, ICRA</a></li><li><a href="https://arxiv.org/abs/2110.02799" target="_blank" rel="noopener">Real-time optimal landing control of the MIT Mini Cheetah (2021), arXiv:2110.02799 (khối lượng, mô men, chiều cao thân)</a></li><li><a href="https://doi.org/10.1016/0025-5564(68)90090-4" target="_blank" rel="noopener">McGhee &amp; Frank (1968), On the stability properties of quadruped creeping gaits</a></li></ol><p class="note">Vỏ, đầu cảm biến, chu kỳ bước, quãng đẩy khi nhảy và thứ tự lắp ráp là giả định của bài. Lực đỡ chỉ tính thành phần thẳng đứng; mô men khớp tính tĩnh, bỏ quán tính của chân.</p></details>
     <a class="go" href="quadruped/">Vào mô phỏng <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</article>
+<article class="card">
+  <a class="img" href="jellyfish/"><img src="../thu-vien/covers/robo-jellyfish.webp" alt="Sứa robot: ảnh chụp mô phỏng" loading="lazy"><b>CYRO</b></a>
+  <div class="body">
+    <h2><small>Theo Cyro, Virginia Tech (1,7 m, 77 kg)</small>Sứa robot</h2>
+    <p>Robot mềm dưới nước mô phỏng sứa bờm sư tử. Chuông co lại đẩy nước ra, nước đẩy chuông đi: nhìn lực phụt vọt lên khi co, lực ngược khi giãn, vòng xoáy rời mép chuông, robot lên 2,4 m trong 5 nhịp như Cyro trong giếng lặn. Đẩy nghiêng để rhopalia dựng chuông lại, giữ độ sâu bằng điều khiển phản hồi, phóng tế bào gai, tách rời và lắp ráp.</p>
+    <ul><li>Chuyển động bằng phản lực: định luật III, bảo toàn động lượng</li><li>Lực phụt F = (ρ/A)(dV/dt)², vì sao co nhanh mà giãn chậm</li><li>Lực cản ½ρCAv², khối nước kéo theo</li><li>Cảm biến thăng bằng (rhopalia) và mô men dựng lại</li><li>Lơ lửng: nổi dư và điều khiển phản hồi theo độ sâu</li><li>Tế bào gai: 700 ns, 5,41 triệu g, kiểm v = a·t</li></ul>
+    <div class="nums">Cyro 1,7 m · 77 kg · giếng 4,3 m · lên 2,4 m trong 5 nhịp · Robojelly 164 mm, 8 bộ chấp hành, 0,7 Hz · tế bào gai 700 ns, 5,41·10⁶ g, 18,5–37,1 m/s</div>
+    <details><summary>Nguồn số liệu</summary><ol><li><a href="https://livescience.com/28286-jellyfish-robot-cyro.html" target="_blank" rel="noopener">Live Science (29/3/2013): Man-Size Jellyfish Robot Could Ply the Seas (Cyro, Virginia Tech)</a></li><li><a href="https://doi.org/10.1242/jeb.003772" target="_blank" rel="noopener">Dabiri, Colin, Costello (2007), Morphological diversity of medusan lineages constrained by animal–fluid interactions, J. Exp. Biol. 210:1868 (lực phụt theo Daniel 1983)</a></li><li><a href="https://doi.org/10.1371/journal.pone.0048909" target="_blank" rel="noopener">Colin và cộng sự (2012), Biomimetic and live medusae reveal the mechanistic advantages of a flexible bell margin, PLoS ONE 7:e48909 (Robojelly)</a></li><li><a href="https://doi.org/10.1016/j.cub.2006.03.089" target="_blank" rel="noopener">Nüchter, Benoit, Engel, Özbek, Holstein (2006), Nanosecond-scale kinetics of nematocyst discharge, Current Biology 16:R316</a></li><li><a href="https://en.wikipedia.org/wiki/Lion%27s_mane_jellyfish" target="_blank" rel="noopener">Lion&#x27;s mane jellyfish (Cyanea capillata): tám thuỳ, 70–150 tua mỗi thuỳ, kích thước ghi nhận</a></li></ol><p class="note">Đường kính chuông 1,7 m, cao chuông 0,55 m, hệ số cản 0,6, khối nước kéo theo, nổi dư −3 N, dài tua là giả định; biên độ co 31 % chọn để 5 nhịp đi được 2,4 m như Cyro. Số đo tế bào gai là của Hydra.</p></details>
+    <a class="go" href="jellyfish/">Vào mô phỏng <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </article>
 <article class="card">
