@@ -33,7 +33,7 @@ def sources_html():
     return 'Văn bản chương trình: ' + ' · '.join(out) + '.'
 
 
-# tám bài 3D riêng nổi bật (lưới 4 cột chẵn hàng): một mẫu thẻ chung với thư viện (kế hoạch nâng cấp UI 1.8).
+# mười hai bài 3D riêng nổi bật (lưới 4 cột chẵn hàng): một mẫu thẻ chung với thư viện (kế hoạch nâng cấp UI 1.8).
 # Xe tự hành, robot sáu chân và drone Crazyflie vẫn có ở mục Robotics.
 FEATURED = [
     ('__L_CELL__', 'te-bao', 'sinh', 'Sinh học', 'Lớp 10', 'Hành Trình Vào Tế Bào', 'Tế bào nhân thực đang hoạt động; phóng liền mạch xuống 222.336 nguyên tử của ribosome thật.'),
@@ -44,6 +44,10 @@ FEATURED = [
     ('__L_COLOA__', 'co-loa', 'su', 'Lịch sử', 'Lớp 10', 'Thành Cổ Loa', 'Ba vòng thành đất theo số đo khảo cổ, dòng thời gian từ thế kỷ IV TCN đến nay.'),
     ('__L_R_UR5E__', 'robo-ur5e', 'robo', 'Robotics', 'Đại học', 'Cánh tay robot 6 trục', 'UR5e đúng bảng DH của hãng: động học nghịch 8 nghiệm, Jacobian, điểm kỳ dị.'),
     ('__L_MAKO__', 'mako', 'ly', 'Vật lí', 'Lớp 10', 'Robot cá mập mako', 'Bơi theo số đo cá mập thật: một đầu vào là tốc độ; tần số vẫy đuôi, sóng thân, số Strouhal, lực cản tăng theo v².'),
+    ('__L_DOG__', 'robo-quadruped', 'robo', 'Robotics', 'Đại học', 'Chó robot bốn chân', 'Theo số đo MIT Mini Cheetah: đi bước, đi kiệu, bật nhảy; lực đỡ từng chân, 12 mô men khớp, tách rời và lắp ráp.'),
+    ('__L_JELLY__', 'robo-jellyfish', 'robo', 'Robotics', 'Đại học', 'Sứa robot', 'Theo Cyro của Virginia Tech: chuông co đẩy nước, phản lực và động lượng, rhopalia giữ thăng bằng, tế bào gai 700 ns.'),
+    ('__L_PAGODA__', 'thap-5-tang', 'ly', 'Vật lí', 'Lớp 11', 'Tháp năm tầng Hōryū-ji', 'Dựng 52 thao tác theo tám giai đoạn, mặt cắt qua cột tâm; rung nền để thấy dao động riêng 1,1 s và cộng hưởng.'),
+    ('__L_LIGHT__', 'hai-dang', 'ly', 'Vật lí', 'Lớp 10', 'Hải đăng khung sắt', 'Sanibel 1884: lắp dựng khung giằng chéo, chớp đèn Fl(2) W 10s, tầm nhìn theo độ cong Trái Đất, gió và mô men lật.'),
 ]
 
 
@@ -248,7 +252,7 @@ def write(rel, text):
 
 
 if __name__ == '__main__':
-    write('index.html', library({'__L_GV__': 'giao-vien/', '__L_ENGINE__': 'cong-nghe/dong-co-4-ki/', '__L_MAKO__': 'vat-li-10/ca-map-robot/', '__L_BODY__': 'co-the-nguoi/', '__L_NEURON__': 'than-kinh/', '__L_CELL__': 'te-bao/', '__L_MITO__': 'ty-the/', '__L_CHUDE__': 'chu-de/sinh-hoc-te-bao/', '__L_COLOA__': 'lich-su-10/co-loa/', '__L_LS10__': 'lich-su-10/', '__L_ROBO__': 'robotics/', '__L_KIEM__': 'kiem-may/', '__L_REMOTE__': 'dieu-khien/', '__L_R_UR5E__': 'robotics/ur5e/', '__L_BASE__': 'thu-vien/', '__L_GDPT__': 'thu-vien/gdpt2018.json', '__L_ROOT__': ''}))
+    write('index.html', library({'__L_GV__': 'giao-vien/', '__L_ENGINE__': 'cong-nghe/dong-co-4-ki/', '__L_MAKO__': 'vat-li-10/ca-map-robot/', '__L_BODY__': 'co-the-nguoi/', '__L_NEURON__': 'than-kinh/', '__L_CELL__': 'te-bao/', '__L_MITO__': 'ty-the/', '__L_CHUDE__': 'chu-de/sinh-hoc-te-bao/', '__L_COLOA__': 'lich-su-10/co-loa/', '__L_LS10__': 'lich-su-10/', '__L_ROBO__': 'robotics/', '__L_KIEM__': 'kiem-may/', '__L_REMOTE__': 'dieu-khien/', '__L_R_UR5E__': 'robotics/ur5e/', '__L_DOG__': 'robotics/quadruped/', '__L_JELLY__': 'robotics/jellyfish/', '__L_PAGODA__': 'vat-li-11/thap-nam-tang/', '__L_LIGHT__': 'vat-li-10/hai-dang/', '__L_BASE__': 'thu-vien/', '__L_GDPT__': 'thu-vien/gdpt2018.json', '__L_ROOT__': ''}))
     write('chu-de/sinh-hoc-te-bao/index.html', chu_de({'__L_CELL__': '../../te-bao/', '__L_MITO__': '../../ty-the/', '__L_LIB__': '../../'}, lambda f: '../../thu-vien/' + f))
     import robotics.build_hub as RH
     write('robotics/index.html', RH.build({'hub': '../', 'sims': {r['key']: r['key'] + '/' for r in RH.ROBOTS}, 'covers': {r['key']: f"../thu-vien/covers/robo-{r['key']}.webp" for r in RH.ROBOTS}}))
@@ -259,7 +263,7 @@ if __name__ == '__main__':
     print('đã dựng trang chính, trang chủ đề và các trang chuyển hướng')
     if len(sys.argv) > 6 and sys.argv[1] == '--artifact':
         out = pathlib.Path(sys.argv[2]); cell, mito, hub, coloa = sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6]
-        art = {'__L_GV__': 'https://nclamvn.github.io/bai-giang/giao-vien/', '__L_ENGINE__': 'https://nclamvn.github.io/bai-giang/cong-nghe/dong-co-4-ki/', '__L_MAKO__': 'https://nclamvn.github.io/bai-giang/vat-li-10/ca-map-robot/', '__L_BODY__': 'https://nclamvn.github.io/bai-giang/co-the-nguoi/', '__L_NEURON__': 'https://nclamvn.github.io/bai-giang/than-kinh/', '__L_CELL__': cell, '__L_MITO__': mito, '__L_CHUDE__': 'chu-de-sinh-hoc-te-bao.html', '__L_COLOA__': coloa, '__L_LS10__': 'lich-su-10.html', '__L_ROBO__': 'robotics.html', '__L_KIEM__': 'https://nclamvn.github.io/bai-giang/kiem-may/', '__L_REMOTE__': 'https://nclamvn.github.io/bai-giang/dieu-khien/', '__L_R_UR5E__': 'robotics-ur5e.html', '__L_BASE__': '', '__L_GDPT__': 'https://github.com/nclamvn/bai-giang/blob/main/thu-vien/gdpt2018.json', '__L_ROOT__': 'https://nclamvn.github.io/bai-giang/'}
+        art = {'__L_GV__': 'https://nclamvn.github.io/bai-giang/giao-vien/', '__L_ENGINE__': 'https://nclamvn.github.io/bai-giang/cong-nghe/dong-co-4-ki/', '__L_MAKO__': 'https://nclamvn.github.io/bai-giang/vat-li-10/ca-map-robot/', '__L_BODY__': 'https://nclamvn.github.io/bai-giang/co-the-nguoi/', '__L_NEURON__': 'https://nclamvn.github.io/bai-giang/than-kinh/', '__L_CELL__': cell, '__L_MITO__': mito, '__L_CHUDE__': 'chu-de-sinh-hoc-te-bao.html', '__L_COLOA__': coloa, '__L_LS10__': 'lich-su-10.html', '__L_ROBO__': 'robotics.html', '__L_KIEM__': 'https://nclamvn.github.io/bai-giang/kiem-may/', '__L_REMOTE__': 'https://nclamvn.github.io/bai-giang/dieu-khien/', '__L_R_UR5E__': 'robotics-ur5e.html', '__L_DOG__': 'https://nclamvn.github.io/bai-giang/robotics/quadruped/', '__L_JELLY__': 'https://nclamvn.github.io/bai-giang/robotics/jellyfish/', '__L_PAGODA__': 'https://nclamvn.github.io/bai-giang/vat-li-11/thap-nam-tang/', '__L_LIGHT__': 'https://nclamvn.github.io/bai-giang/vat-li-10/hai-dang/', '__L_BASE__': '', '__L_GDPT__': 'https://github.com/nclamvn/bai-giang/blob/main/thu-vien/gdpt2018.json', '__L_ROOT__': 'https://nclamvn.github.io/bai-giang/'}
         import build_ls10
         open(out / 'lich-su-10.html', 'w', encoding='utf-8').write(build_ls10.build(hub, coloa, 'covers/co-loa.webp'))
         open(out / 'index_art.html', 'w', encoding='utf-8').write(library(art))
