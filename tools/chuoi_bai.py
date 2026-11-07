@@ -26,6 +26,7 @@ BESPOKE = {
     'dong-ho': ('vat-li-11/dong-ho-co/index.html', 'Đồng hồ cơ', 'covers/dong-ho.webp'),
     'nhen': ('vat-li-10/nhen-thuy-luc/index.html', 'Nhện chân thuỷ lực', 'covers/nhen.webp'),
     'piranha': ('vat-li-10/ca-piranha/index.html', 'Cá piranha', 'covers/piranha.webp'),
+    'may-anh': ('khtn-9/may-anh/index.html', 'Máy ảnh cắt lớp', 'covers/may-anh.webp'),
     'ur5e': ('robotics/ur5e/index.html', 'Cánh tay robot 6 trục UR5e', 'covers/robo-ur5e.webp'),
     'hexapod': ('robotics/hexapod/index.html', 'Robot sáu chân', 'covers/robo-hexapod.webp'),
     'quadruped': ('robotics/quadruped/index.html', 'Chó robot bốn chân', 'covers/robo-quadruped.webp'),
@@ -78,6 +79,7 @@ def build():
     put('hai-dang', [{'t': 'Vật lí 10', 'href': '?mon=phys#thu-vien'}], nxt_lesson('thap-5-tang', 'Từ tháp sắt đứng gió sang tháp gỗ đứng động đất'), 'Vật lí', 'ly')
     put('thap-5-tang', [{'t': 'Vật lí 11', 'href': '?mon=phys#thu-vien'}], nxt_lesson('dong-ho', 'Từ dao động của tháp gỗ sang dao động giữ nhịp đồng hồ'), 'Vật lí', 'ly')
     put('dong-ho', [{'t': 'Vật lí 11', 'href': '?mon=phys#thu-vien'}], nxt_lesson('dong-co', 'Từ bánh răng đồng hồ sang động cơ thật'), 'Vật lí', 'ly')
+    put('may-anh', [{'t': 'Khoa học tự nhiên 9', 'href': '?mon=phys#thu-vien'}], nxt_lesson('mako', 'Sang Vật lí 10: lực cản và lực nâng'), 'Vật lí', 'ly')
     put('than-kinh', [{'t': 'Sinh học 11', 'href': '#bai-hoc'}], nxt_lesson('co-the-nguoi', 'Cả cơ thể: hệ thần kinh và các hệ khác'), 'Sinh học', 'sinh')
     put('co-loa', [{'t': 'Lịch sử 10', 'href': 'lich-su-10/'}], {'title': 'Lộ trình Lịch sử 10', 'href': 'lich-su-10/', 'sub': 'Các bài theo chương trình'}, 'Lịch sử', 'su')
     robo_crumb = [{'t': 'Robotics · Đại học', 'href': 'robotics/'}]

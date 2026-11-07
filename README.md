@@ -16,6 +16,7 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Đồng hồ cơ ETA 6497-1 (Vật lí 11, dao động điều hoà, tỉ số truyền) | https://nclamvn.github.io/bai-giang/vat-li-11/dong-ho-co/ |
 | Nhện chân thuỷ lực (Vật lí 10, áp suất chất lỏng, định luật Pascal) | https://nclamvn.github.io/bai-giang/vat-li-10/nhen-thuy-luc/ |
 | Cá piranha (Vật lí 10, mô men lực, đòn bẩy) | https://nclamvn.github.io/bai-giang/vat-li-10/ca-piranha/ |
+| Máy ảnh cắt lớp (Khoa học tự nhiên 9, thấu kính hội tụ) | https://nclamvn.github.io/bai-giang/khtn-9/may-anh/ |
 | Hành Trình Vào Tế Bào (ribosome PDB 3J7R) | https://nclamvn.github.io/bai-giang/te-bao/ |
 | Ribosome trên bàn (AR, mở trên điện thoại) | https://nclamvn.github.io/bai-giang/te-bao/ar.html |
 | Vào Ty Thể (ATP synthase PDB 6J5I) | https://nclamvn.github.io/bai-giang/ty-the/ |
@@ -31,7 +32,7 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Xe tự hành vi sai (TurtleBot3 Burger) | https://nclamvn.github.io/bai-giang/robotics/turtlebot3/ |
 | 54 bài thí nghiệm | https://nclamvn.github.io/bai-giang/#thu-vien |
 
-Cả 14 mô phỏng dựng bằng bộ robotics (6 robot, Động cơ 4 kì, Robot cá mập, Tháp năm tầng, Hải đăng khung sắt, Đồng hồ cơ, Nhện chân thuỷ lực, Cá piranha) có thanh tốc độ tạm dừng đến 10× và **soi chi tiết**: bấm vào một khớp, động cơ, bánh, cảm biến hay thân để mở thẻ (vai trò, số đo có nguồn, số chạy theo mô phỏng), camera bám theo bộ phận đó. Thẻ khai báo trong `pick` của từng bài, bộ máy chung ở [`tools/robotics/kit/soi.js`](tools/robotics/kit/soi.js).
+Cả 15 mô phỏng dựng bằng bộ robotics (6 robot, Động cơ 4 kì, Robot cá mập, Tháp năm tầng, Hải đăng khung sắt, Đồng hồ cơ, Nhện chân thuỷ lực, Cá piranha, Máy ảnh cắt lớp) có thanh tốc độ tạm dừng đến 10× và **soi chi tiết**: bấm vào một khớp, động cơ, bánh, cảm biến hay thân để mở thẻ (vai trò, số đo có nguồn, số chạy theo mô phỏng), camera bám theo bộ phận đó. Thẻ khai báo trong `pick` của từng bài, bộ máy chung ở [`tools/robotics/kit/soi.js`](tools/robotics/kit/soi.js).
 
 Bài TurtleBot3 có thêm bước 9 **Lắp ráp theo tầng**: 15 cụm từ tấm đế tới LiDAR, máy kiểm thứ tự và lối vào của tuốc nơ vít (tầng trên úp xuống thì không còn với tới mạch bên dưới); thứ tự theo hướng dẫn lắp Burger của ROBOTIS, rút gọn để học ([`tools/robotics/turtlebot3/cum.js`](tools/robotics/turtlebot3/cum.js)).
 
@@ -46,6 +47,8 @@ Bài **Đồng hồ cơ** (Vật lí 11) là bài đầu tiên dựng theo phư�
 Bài **Nhện chân thuỷ lực** (Vật lí 10): khớp đùi–gối và chày–bàn của nhện không có cơ duỗi, chân duỗi bằng áp suất dịch. Một bơm trong đầu ngực, tám chân, cùng một áp suất (định luật Pascal); túi duỗi đổi áp suất thành mô men τ = P·A·r; áp suất cần khi đứng xấp xỉ áp suất nghỉ đo trên nhện (≈ 5 cmHg), khi chạy vọt lên vài chục kPa, nằm trong dải 0,1–0,64 bar đã đo; rò rỉ một chân thì tụt ở cả tám; xả áp thì chân co quắp như nhện chết. Dáng chạy hai nhóm bốn chân với sải bước 5,97 cm và tần số bước 3,83 → 9,40 Hz theo nhiệt độ (Booster và cộng sự, 2015, nhện Aphonopelma hentzi). Số có nguồn và giả định ghi trong [`tools/robotics/nhen/kin.js`](tools/robotics/nhen/kin.js).
 
 Bài **Cá piranha** (Vật lí 10): piranha đen 368 mm, 1,12 kg cắn 320 N, mạnh nhất từng đo ở cá, hơn 30 lần trọng lượng (Grubich và cộng sự, 2012). Hàm dưới là đòn bẩy quay quanh khớp hàm: F_cắn·d = F_cơ·L_in; lợi thế cơ học 0,48 ở răng đầu mút, 1,0 ở răng thứ tư, 1,5 ở răng trong cùng như số đo; suy ngược lực cơ khép hàm ≈ 670 N, ứng suất ≈ 28 N/cm² trên tiết diện 23,5 cm². Lực cắn theo cỡ cá dùng độ dốc 2,30 của hồi quy, neo qua con đo được 320 N (đường hồi quy gốc cũng vẽ ra để so). Khối lượng theo quan hệ dài–nặng của FishBase ([`tools/robotics/piranha/kin.js`](tools/robotics/piranha/kin.js)).
+
+Bài **Máy ảnh cắt lớp** (Khoa học tự nhiên 9): ống kính Canon EF 50mm f/1.8 STM coi như một thấu kính mỏng 50 mm trên cảm biến 36 × 24 mm, cách mặt ngàm EF 44,0 mm. Ba tia đặc biệt từ đỉnh ngọn nến gặp nhau trên cảm biến thành ảnh thật, ngược, nhỏ hơn; lấy nét là dời thấu kính (1/f = 1/d + 1/d′); khẩu bảy lá với D = f/N, lượng sáng ∝ t/N², vòng nhoè của hậu cảnh; gương lật, màn trập hai lá; ảnh vừa chụp hiện ở bảng. Mô hình kiểm lại bằng chính số của hãng: góc nhìn 39,6° × 27,0° × 46,8° (Canon 40° × 27° × 46°), lấy nét 0,35 m cho phóng đại 0,209× (Canon 0,21×) ([`tools/robotics/may-anh/kin.js`](tools/robotics/may-anh/kin.js)).
 
 - Bản offline một file cho lớp học, tải ở [Releases](https://github.com/nclamvn/bai-giang/releases/latest): [Hành Trình Vào Tế Bào](https://github.com/nclamvn/bai-giang/releases/latest/download/hanh-trinh-te-bao-offline.html) (9 MB) và [Vào Ty Thể](https://github.com/nclamvn/bai-giang/releases/latest/download/vao-ty-the-offline.html) (8 MB). Mở bằng Chrome hoặc Edge, không cần mạng.
 - Địa chỉ cũ (`ty-the.html`, `ar.html`, `chu-de-sinh-hoc-te-bao.html`, `thu-vien/`) tự chuyển sang địa chỉ mới.
