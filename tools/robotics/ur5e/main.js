@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import {createStage, setOpacity} from '../kit/stage.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
+import {createCutaway, mover} from '../kit/tach.js';
 import {tag, picker, vn} from '../kit/soi.js';
 import {DH, LINK, fk, ik, ikNearest, jacobian, manip, gravity, pose, downR, mul, inv, rotOf, rotvec, slerpR, quintic, JOINT, VMAX, REACH} from './kin.js';
 import {buildArm, TOOL} from './robot.js';
@@ -162,12 +163,29 @@ ui.callouts([
 
 // ---------------- tương tác
 const disp = S.disp;
+// ---------------- tháo từng bộ phận (kit/tach.js, theo cutaway của Nyxera0x, MIT): bọc chi tiết vào nhóm dời riêng
+const cwp = (o) => { const v = o.getWorldPosition(new THREE.Vector3()); return [v.x, v.y, v.z]; };
+
+const CK = {de: 0, vai: 0, tay1: 0, tay2: 0, cotay: 0}; let CEX = 0;
+const MV = {de: mover([arm.L[0]], [-0.3, 0, 0]), vai: mover([arm.L[1]], [0, 0, 0.18]), tay1: mover([arm.L[2]], [0, 0.3, 0.05]), tay2: mover([arm.L[3]], [0, -0.3, 0.12]), cotay: mover([arm.L[4], arm.L[5], arm.L[6]], [0.25, 0, 0.25])};
+const cutMove = () => { const e = CEX; MV.de(Math.max(CK.de, e)); MV.vai(Math.max(CK.vai, e)); MV.tay1(Math.max(CK.tay1, e)); MV.tay2(Math.max(CK.tay2, e)); MV.cotay(Math.max(CK.cotay, e)); };
+const cut = createCutaway({st, ui, parts: [
+  {key: 'de', label: 'ĐẾ', open: (k) => { CK.de = k; }, at: () => cwp(arm.L[0]), cam: {az: -60, el: 20, d: 2.0}},
+  {key: 'vai', label: 'KHỚP VAI', open: (k) => { CK.vai = k; }, at: () => cwp(arm.L[1]), cam: {az: 30, el: 30, d: 1.8}},
+  {key: 'tay1', label: 'CÁNH TAY TRÊN', open: (k) => { CK.tay1 = k; }, at: () => cwp(arm.L[2]), cam: {az: 100, el: 10, d: 2.2}},
+  {key: 'tay2', label: 'CÁNH TAY DƯỚI', open: (k) => { CK.tay2 = k; }, at: () => cwp(arm.L[3]), cam: {az: -150, el: 26, d: 2.0}},
+  {key: 'cotay', label: 'CỔ TAY', open: (k) => { CK.cotay = k; }, at: () => cwp(arm.L[5]), cam: {az: 160, el: 54, d: 1.4}},
+], explode: (k) => { CEX = k; }, turn: (d) => { arm.root.rotation.z = d * Math.PI / 180; }});
+cut.pillRow();
+
 const sim = {
-  reset() {
+  cut, busy: () => cut.busy(),
+  reset() { cut.reset();
     stopAll(); S.q = READY.slice(); S.grip = 0; S.carry = false; S.cube = [PAL.A[0], PAL.A[1], CUBE_Z]; S.payload = 0; S.speed = 0.5; S.prog = '';
     Object.assign(disp, {frames: false, reach: false, trace: true, labels: true, xray: false}); clearDots(traceJ); clearDots(traceL); S.alert = ''; S.note = '';
   },
   act(k) {
+    if (cut.act(k)) return;
     if (programs[k]) { S.alert = ''; S.note = ''; programs[k](); return; }
     if (k[0] === 's' && k.length === 2) { goSol(+k[1]); return; }
     if (k in disp) disp[k] = !disp[k];
@@ -177,7 +195,7 @@ const sim = {
     if (k === 'speed') S.speed = 0.1 + t * 0.9;
     if (k === 'payload') S.payload = t * 5;
   },
-  step(dt) { stepMotion(dt); },
+  step(dt) { cut.step(dt); stepMotion(dt); },
   // soi chi tiết: bấm một khớp hay kẹp; số chạy theo cánh tay, camera bám theo khớp đó
   pick: picker((part) => {
     const src = 'Số đo: Universal Robots, bảng DH và khối lượng khâu của UR5e; mô men tối đa và tốc độ khớp theo datasheet UR5e.';
@@ -203,6 +221,7 @@ const sim = {
   }),
   shadowAt() { return new THREE.Vector3(0, 0.3, 0); },
   draw() {
+    cutMove(); cut.draw();
     const Fr = F(), T = tcpOf(Fr), J = jacobian(Fr), {w} = manip(J), g = gravity(Fr, S.payload, TOOL);
     S.g = g; S.T = T; S.w = w;
     S.hot = S.qd.map((v) => Math.min(1, Math.abs(v) / VMAX));
@@ -260,6 +279,7 @@ const views = {
   top: () => ({tx: 0.12, ty: 0.1, tz: -0.05, az: 90, el: 84, d: 3.0, sx: 0, sy: -20}),
   wrist: () => { const Fr = F(), T = Fr[4]; return {tx: T[3], ty: T[11], tz: -T[7], az: 40, el: 22, d: 1.25, sx: 0, sy: -30}; },
 };
+views.cut = (t) => cut.view(views.hero(t)) || views.hero(t);
 
 // ---------------- bài giảng (chuyến tham quan)
 const CAP = [

@@ -6,6 +6,7 @@ import {createStage, MAT, xray} from '../kit/stage.js';
 import * as SH from '../kit/shapes.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
+import {createCutaway, mover} from '../kit/tach.js';
 import {tag, picker, follow, vn} from '../kit/soi.js';
 import {createAssembly} from '../kit/lap.js';
 import {JF, contraction, bell, jet, jetSpeed} from './kin.js';
@@ -250,12 +251,30 @@ function physics(dt) {
 }
 function spawnRing() { const r = rings.reduce((a, b) => (a.t > b.t ? a : b)); r.t = 0; const R = (S.b?.D || JF.D0) * 0.42; r.R = R; r.x = S.x + Math.sin(S.phi) * -0.05; r.z = S.z - 0.08; r.vz = -0.35 * Math.cos(S.phi); r.vx = -0.35 * Math.sin(S.phi); r.phi = S.phi; }
 const defaults = () => { Object.assign(S, {mode: 'swim', p: 0, T: 4, duty: 0.3, a: JF.a0, aCur: JF.a0, B: -3, spread: 0.2, x: 0, z: JF.z0, vx: 0, vz: 0, phi: 0, c: 0, F: 0, u: 0, J: 0, Jlast: 0, zt: 2.6, rhopOn: true, gaiT: 9, ex: 0, exT: 0, iso: null, t: 0, log: [], hist: [], hz: []}); S.armSkew = Array(8).fill(0); S.b = bell(0, S.a); Vp = null; tentInit(); };
+// ---------------- tháo từng bộ phận (kit/tach.js, theo cutaway của Nyxera0x, MIT): bọc chi tiết vào nhóm dời riêng
+const cwp = (o) => { const v = o.getWorldPosition(new THREE.Vector3()); return [v.x, v.y, v.z]; };
+
+const CK = {chuong: 0, loi: 0, vong: 0, tua: 0, mieng: 0};
+const MV = {chuong: mover([UG.chuong, UG.rhop, UG.den], [0, 0, 0.7]), loi: mover([UG.loi], [0, 0, 0.45]), vong: mover([UG.vong, UG.gia], [0, 0, -0.4]), tua: mover([UG.tua], [1.4, 0, -0.3]), mieng: mover([UG.mieng], [-1.3, 0, -0.2])};
+const cutMove = () => { MV.chuong(Math.max(CK.chuong, 0.8 * CK.loi)); MV.loi(CK.loi); MV.vong(CK.vong); MV.tua(CK.tua); MV.mieng(CK.mieng); };
+const firstMesh = (g) => { let r = g; g.traverse((m) => { if (r === g && m.isMesh) r = m; }); return r; };
+const cut = createCutaway({st, ui, parts: [
+  {key: 'chuong', label: 'CHUÔNG', open: (k) => { CK.chuong = k; }, at: () => cwp(firstMesh(UG.chuong)), cam: {az: 30, el: 40, d: 4.2}},
+  {key: 'loi', label: 'LÕI VÀ PIN', open: (k) => { CK.loi = k; }, at: () => cwp(firstMesh(UG.loi)), cam: {az: 110, el: 30, d: 3.0}},
+  {key: 'vong', label: 'VÒNG CO', open: (k) => { CK.vong = k; }, at: () => cwp(firstMesh(UG.vong)), cam: {az: -40, el: -2, d: 3.4}},
+  {key: 'tua', label: 'TUA', open: (k) => { CK.tua = k; }, at: () => cwp(firstMesh(UG.tua)), cam: {az: 70, el: 8, d: 4.4}},
+  {key: 'mieng', label: 'TAY MIỆNG', open: (k) => { CK.mieng = k; }, at: () => cwp(firstMesh(UG.mieng)), cam: {az: -130, el: 20, d: 3.6}},
+], explode: (k) => { S.exT = S.ex = k; }, turn: (d) => { world.rotation.z = d * Math.PI / 180; }});
+cut.pillRow();
+
 const sim = {
+  cut,
   S,
-  reset() { if (S.asm) { S.asm = false; lap.stop(); } defaults(); Object.assign(disp, {flow: true, labels: true, xray: false}); for (const r of rings) r.t = 9; say('thả trong giếng lặn · độ sâu 2,4 m'); },
-  busy: () => S.asm,
+  reset() { cut.reset(); if (S.asm) { S.asm = false; lap.stop(); } defaults(); Object.assign(disp, {flow: true, labels: true, xray: false}); for (const r of rings) r.t = 9; say('thả trong giếng lặn · độ sâu 2,4 m'); },
+  busy: () => S.asm || cut.busy(),
   isOn: (k) => (k === 'asm' && S.asm) || (k === 'explode' && S.exT > 0) || (k === 'gai' && S.gaiT < 1.2),
   act(k) {
+    if (cut.act(k)) return;
     if (k === 'asm' || k === 'asm_demo') {
       if (k === 'asm_demo' && S.asm) { lap.demo(); return; }
       if (!S.asm) {
@@ -280,7 +299,7 @@ const sim = {
     if (R) S[k] = R[0] + t * (R[1] - R[0]);
   },
   keyDown() { return false; },
-  step(dt) {
+  step(dt) { cut.step(dt);
     lap.step(dt); S.t += dt; S.ex += (S.exT - S.ex) * Math.min(1, dt * 3.5);
     for (const r of rings) r.t += dt;
     if (S.asm || S.ex > 0.02 || S.exT > 0) { if (!S.asm) S.z += (Math.max(S.zx ?? (S.zx = S.z), 1.9) - S.z) * Math.min(1, dt * 2); S.c = Math.max(0, S.c - dt); S.b = shape(S.c, S.aCur); S.F = 0; S.u = 0; S.Fd = 0; S.Fnet = 0; S.vx = S.vz = 0; return; }
@@ -297,6 +316,7 @@ const sim = {
     return soi(hits);
   },
   draw() {
+    cutMove(); cut.draw();
     jelly.position.set(S.x, 0, S.z); jelly.rotation.set(0, S.phi, 0);
     if (!S.b) S.b = shape(0, S.a);
     tentDraw();
@@ -399,6 +419,7 @@ const views = {
   close: () => ({...T0(), ty: S.z + 0.3, az: 35, el: 22, d: 4.4, sx: 0, sy: -40}),
   asm: (t) => ({tx: S.x, ty: 1.3, tz: -1.5, az: 12 + 4 * Math.sin(t * 0.1), el: 26, d: 12.5, sx: 0, sy: -10}),
 };
+views.cut = (t) => cut.view(views.hero(t)) || views.hero(t);
 
 // ---------------- bài giảng
 const CAP = [

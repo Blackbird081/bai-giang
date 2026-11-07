@@ -5,6 +5,7 @@ import {createStage, MAT, setOpacity} from '../kit/stage.js';
 import * as SH from '../kit/shapes.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
+import {createCutaway, mover} from '../kit/tach.js';
 import {createQuad, MOTORS, P, GAINS} from './quad.js';
 import {tag, picker, vn} from '../kit/soi.js';
 
@@ -126,9 +127,27 @@ ui.callouts([
 const disp = {thrust: true, axes: false, trail: true, labels: true, xray: false};
 const H = {roll: [], rollSp: [], rate: [], rateSp: [], z: [], zSp: []};
 let attTimer = 0, crashed = false;
+// ---------------- tháo từng bộ phận (kit/tach.js, theo cutaway của Nyxera0x, MIT): bọc chi tiết vào nhóm dời riêng
+const cwp = (o) => { const v = o.getWorldPosition(new THREE.Vector3()); return [v.x, v.y, v.z]; };
+
+const CK = {canh: 0, dongco: 0, pin: 0, mach: 0, deck: 0}; let CEX = 0;
+const PCB = drone.children.find((m) => m.isMesh && Math.abs(m.position.z - H0) < 1e-6), BAT = drone.children.filter((m) => m.isMesh && Math.abs(m.position.z - (H0 - 0.0045)) < 1e-6);
+const MV = {canh: mover(motorG.map((m) => m.prop), [0, 0, 0.03]), dongco: mover([motorG[0].g], [MOTORS[0].x * 1.4, MOTORS[0].y * 1.4, 0.01]), pin: mover(BAT, [0, 0, -0.04]), mach: mover([PCB], [0, 0, 0.03]), deck: mover([deck], [0, 0, 0.05])};
+const cutMove = () => { const e = CEX; MV.canh(Math.max(CK.canh, e)); MV.dongco(Math.max(CK.dongco, e)); MV.pin(Math.max(CK.pin, e)); MV.mach(Math.max(CK.mach, e)); MV.deck(Math.max(CK.deck, e)); };
+const cut = createCutaway({st, ui, parts: [
+  {key: 'canh', label: 'BỐN CÁNH', open: (k) => { CK.canh = k; }, at: () => cwp(motorG[1].prop), cam: {az: 30, el: 50, d: 0.42}},
+  {key: 'dongco', label: 'ĐỘNG CƠ', open: (k) => { CK.dongco = k; }, at: () => cwp(motorG[0].g), cam: {az: 100, el: 14, d: 0.28}},
+  {key: 'pin', label: 'PIN 250 mAh', open: (k) => { CK.pin = k; }, at: () => cwp(BAT[0] || drone), cam: {az: -60, el: -4, d: 0.3}},
+  {key: 'mach', label: 'MẠCH IN', open: (k) => { CK.mach = k; }, at: () => cwp(PCB || drone), cam: {az: -150, el: 40, d: 0.32}},
+  {key: 'deck', label: 'CHÂN CẮM DECK', open: (k) => { CK.deck = k; }, at: () => cwp(deck), cam: {az: 160, el: 70, d: 0.26}},
+], explode: (k) => { CEX = k; }, turn: (d) => { drone.rotation.z = d * Math.PI / 180; }});
+cut.pillRow();
+
 const sim = {
-  reset() { Q.reset(); S.kAtt = 1; S.kRate = 1; S.wind = [0, 0, 0]; crashed = false; attTimer = 0; Object.assign(disp, {thrust: true, axes: false, trail: true, labels: true, xray: false}); trail.count = 0; trailI = 0; lastT = null; for (const k in H) H[k] = []; },
+  cut, busy: () => cut.busy(),
+  reset() { cut.reset(); Q.reset(); S.kAtt = 1; S.kRate = 1; S.wind = [0, 0, 0]; crashed = false; attTimer = 0; Object.assign(disp, {thrust: true, axes: false, trail: true, labels: true, xray: false}); trail.count = 0; trailI = 0; lastT = null; for (const k in H) H[k] = []; },
   act(k) {
+    if (cut.act(k)) return;
     if (k in disp) { disp[k] = !disp[k]; return; }
     if (k === 'reset') { const ka = S.kAtt, kr = S.kRate; Q.reset(); S.kAtt = ka; S.kRate = kr; crashed = false; trail.count = 0; trailI = 0; return; }
     if (crashed) return;
@@ -141,7 +160,7 @@ const sim = {
     if (k === 'gust') { S.kick = [0.0025, -0.0012, 0]; S.kickT = 0.04; }
   },
   slide(k, t) { if (k === 'katt') S.kAtt = 0.25 + t * 7.75; if (k === 'krate') S.kRate = 0.25 + t * 3.75; if (k === 'wind') S.wind = [0, t * 1.5, 0]; },
-  step(dt) {
+  step(dt) { cut.step(dt);
     Q.step(dt);
     if (attTimer > 0) { attTimer -= dt; if (attTimer <= 0.45) S.sp.roll = 0; if (attTimer <= 0) { S.mode = 'pos'; S.sp.x = S.p[0]; S.sp.y = S.p[1]; } }
     const e = Q.euler();
@@ -165,6 +184,7 @@ const sim = {
       src, d: 0.3};
   }),
   draw() {
+    cutMove(); cut.draw();
     const e = Q.euler(), R = S.R;
     drone.position.set(S.p[0], S.p[1], S.p[2]);
     drone.quaternion.setFromRotationMatrix(M4.set(R[0], R[1], R[2], 0, R[3], R[4], R[5], 0, R[6], R[7], R[8], 0, 0, 0, 0, 1));
@@ -229,7 +249,7 @@ const views = {
   top: () => (views.cur = 'top', {...T(), az: 0, el: 85, d: 0.8, sx: 0, sy: -30}),
   close: () => (views.cur = 'close', {...T(), az: 55, el: 30, d: 0.36, sx: 0, sy: -40}),
 };
-const vfn = {hero: views.hero, side: views.side, top: views.top, close: views.close};
+const vfn = {hero: views.hero, side: views.side, top: views.top, close: views.close, cut: (t) => cut.view(views.hero(t)) || views.hero(t)};
 
 // ---------------- bài giảng
 const CAP = [

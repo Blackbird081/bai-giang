@@ -7,7 +7,15 @@
 // parts: [{key, label, open(k, t), at() → [x, y, z] (toạ độ three, theo vị trí hiện tại), cam: {az, el, d, push, orbit},
 //          sub() → chữ phụ trên nhãn, card() → thẻ soi chi tiết cho LIVE.inspect}]
 // explode(k): bài tự đặt độ bung của cả bộ, k ∈ [0, 1]. turn(độ): bài tự quay bệ xoay quanh trục đứng.
+import * as THREE from 'three';
 import {C, sc} from './ui.js';
+
+/** Gắn chế độ tháo rời vào bài có sẵn mà không sửa cách bài đặt vị trí chi tiết: bọc mỗi vật vào một nhóm mới nằm ở gốc
+ * của cha cũ; bài vẫn đặt vị trí vật trong hệ toạ độ cũ, còn nhóm bọc thì dời theo hướng dir × k. Trả về hàm move(k). */
+export function mover(objs, dir, rot = null) {
+  const ws = objs.filter(Boolean).map((o) => { const p = o.parent, w = new THREE.Group(); p.add(w); w.add(o); return w; });
+  return (k) => { for (const w of ws) { w.position.set(dir[0] * k, dir[1] * k, dir[2] * k); if (rot) w.rotation.set(rot[0] * k, rot[1] * k, rot[2] * k); } };
+}
 
 const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
 const sm5 = (x) => { const u = clamp(x, 0, 1); return u * u * u * (u * (u * 6 - 15) + 10); };
@@ -168,6 +176,8 @@ export function createCutaway({st, ui, parts, explode = () => {}, turn = () => {
       svg.innerHTML = `<path d="M${q[0].toFixed(1)} ${q[1].toFixed(1)}L${lx.toFixed(1)} ${ly.toFixed(1)}" stroke="${C.ink}" stroke-width="1" fill="none" opacity="${lab.style.opacity}"/><circle cx="${q[0].toFixed(1)}" cy="${q[1].toFixed(1)}" r="3" fill="${C.or}" opacity="${lab.style.opacity}"/>`;
     },
     /** nút trên bảng 1600 × 900: một nút mỗi bộ phận, thêm tách cả bộ và phim */
+    /** một dòng nút trong vùng cảnh cho bài có sẵn (bảng hai bên đã kín) */
+    pillRow(x = 360, y = 150) { ui.text(x, y + 4, 'THÁO', 'sm', 'font-weight:600'); return ui.buttons([...parts.map((p) => ['cut_' + p.key, p.label]), ['cut_all', 'TÁCH CẢ BỘ'], ['cut_film', '▶ PHIM THÁO RỜI']], x + 44, y, 860); },
     pills(x, y, w) { return ui.buttons([...parts.map((p) => ['cut_' + p.key, p.label]), ['cut_all', 'TÁCH CẢ BỘ'], ['cut_film', '▶ PHIM THÁO RỜI']], x, y, w); },
     /** kiểm góc máy (đo, không nhìn bằng mắt): hai nhịp "đứng yên" nếu cùng phía, cùng độ cao, cùng khoảng cách */
     audit() {

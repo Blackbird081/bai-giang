@@ -6,6 +6,7 @@ import {createStage, MAT, xray} from '../kit/stage.js';
 import * as SH from '../kit/shapes.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
+import {createCutaway, mover} from '../kit/tach.js';
 import {tag, picker, follow, vn} from '../kit/soi.js';
 import {createAssembly} from '../kit/lap.js';
 import {hull, margin} from '../hexapod/gait.js';
@@ -235,12 +236,29 @@ const applyLook = () => { // X-quang chỉ làm mờ vỏ, khung, đầu; cô l�
   xray(body, 1, (m) => !F.has(m)); xray(body, 0, (m) => F.has(m));
 };
 const walk = (o) => { const r = []; o.traverse((m) => r.push(m)); return r; };
+// ---------------- tháo từng bộ phận (kit/tach.js, theo cutaway của Nyxera0x, MIT): bọc chi tiết vào nhóm dời riêng
+const cwp = (o) => { const v = o.getWorldPosition(new THREE.Vector3()); return [v.x, v.y, v.z]; };
+
+const CK = {vo: 0, dau: 0, maytinh: 0, pin: 0, chanFR: 0};
+const MV = {vo: mover([UG.vo], [0, 0, 0.16]), dau: mover([UG.dau], [0.16, 0, 0.04]), maytinh: mover([UG.maytinh], [0, 0, 0.26]), pin: mover([UG.pin], [-0.36, 0, 0]), chanFR: mover([UG.chanFR], [0.06, -0.2, 0.02])};
+const cutMove = () => { MV.vo(Math.max(CK.vo, 0.7 * CK.maytinh)); MV.dau(CK.dau); MV.maytinh(CK.maytinh); MV.pin(CK.pin); MV.chanFR(CK.chanFR); };
+const cut = createCutaway({st, ui, parts: [
+  {key: 'vo', label: 'VỎ TRÊN', open: (k) => { CK.vo = k; }, at: () => cwp(UG.vo.children[0]), cam: {az: 30, el: 50, d: 1.4}, card: () => cardOf('vo')},
+  {key: 'dau', label: 'ĐẦU CẢM BIẾN', open: (k) => { CK.dau = k; }, at: () => cwp(UG.dau.children[0]), cam: {az: 86, el: 12, d: 0.8}, card: () => cardOf('dau')},
+  {key: 'maytinh', label: 'MÁY TÍNH', open: (k) => { CK.maytinh = k; }, at: () => cwp(UG.maytinh.children[0]), cam: {az: 150, el: 58, d: 1.1}, card: () => cardOf('maytinh')},
+  {key: 'pin', label: 'PIN 24 V', open: (k) => { CK.pin = k; }, at: () => cwp(UG.pin.children[0]), cam: {az: -120, el: 16, d: 1.1}, card: () => cardOf('pin')},
+  {key: 'chanFR', label: 'CHÂN PHẢI TRƯỚC', open: (k) => { CK.chanFR = k; }, at: () => cwp(LM[0].knee), cam: {az: 40, el: 4, d: 1.0}, card: () => cardOf('0:knee')},
+], explode: (k) => { S.exT = S.ex = k; }, turn: (d) => { world.rotation.z = d * Math.PI / 180; }});
+cut.pillRow();
+
 const sim = {
+  cut,
   S, root: body,
-  reset() { if (S.asm) { S.asm = false; lap.stop(); } defaults(); Object.assign(disp, {poly: true, force: true, labels: true, xray: false}); say('khởi động · đứng bốn chân'); S.out = standOut(); },
-  busy: () => S.asm,
+  reset() { cut.reset(); if (S.asm) { S.asm = false; lap.stop(); } defaults(); Object.assign(disp, {poly: true, force: true, labels: true, xray: false}); say('khởi động · đứng bốn chân'); S.out = standOut(); },
+  busy: () => S.asm || cut.busy(),
   isOn: (k) => (k === 'asm' && S.asm) || (k === 'explode' && S.exT > 0) || (k === 'leap' && !!S.leap),
   act(k) {
+    if (cut.act(k)) return;
     if (k === 'asm' || k === 'asm_demo') {
       if (k === 'asm_demo' && S.asm) { lap.demo(); return; }
       if (!S.asm) {
@@ -267,10 +285,10 @@ const sim = {
     if (R) S[k] = R[0] + t * (R[1] - R[0]);
   },
   keyDown(k) { if (k === 'w') { S.v = Math.min(0.8, S.v + 0.1); return true; } if (k === 's') { S.v = Math.max(0, S.v - 0.1); return true; } return false; },
-  step(dt) {
+  step(dt) { cut.step(dt);
     lap.step(dt); S.t += dt;
     S.ex += (S.exT - S.ex) * Math.min(1, dt * 3.5);
-    if (S.asm || S.exT > 0 || S.ex > 0.02) { S.out = standOut(); S.out.forEach((o) => { o.f = 0; o.tau = [0, 0, 0]; }); S.W = 0; S.R = {f: [], resid: 0, neg: false}; return; } // lắp ráp, tách rời: thân trên giá, chân không đỡ gì
+    if (S.asm || S.exT > 0 || S.ex > 0.02 || cut.active) { S.out = standOut(); S.out.forEach((o) => { o.f = 0; o.tau = [0, 0, 0]; }); S.W = 0; S.R = {f: [], resid: 0, neg: false}; return; } // lắp ráp, tách rời: thân trên giá, chân không đỡ gì
     if (S.leap) leapStep(dt); else gaitStep(dt);
     S.out = solve();
   },
@@ -280,6 +298,7 @@ const sim = {
     return soi(hits);
   },
   draw() {
+    cutMove(); cut.draw();
     const out = S.out || standOut(), [bx, by, bz] = S.bp;
     body.position.set(bx, by, bz); body.rotation.set(0, -S.pitch / D, 0);
     standG.visible = S.asm || S.ex > 0.02; standG.position.set(bx, by, 0); standG.children[0].scale.set(1, 1, Math.max(0.01, bz - 0.047 - 0.18 * S.ex));
@@ -419,6 +438,7 @@ const views = {
   leg: () => { cur.v = 'leg'; const k = S.out?.[0]?.P.knee || [0.03, -0.11, -0.13]; return {tx: (S.bp?.[0] || 0) + k[0], ty: (S.bp?.[2] || 0.25) + k[2], tz: -((S.bp?.[1] || 0) + k[1]), az: 20, el: 12, d: 1.2, sx: 0, sy: -40}; },
   asm: (t) => (cur.v = 'asm', {tx: (S.bp?.[0] || 0) - 0.02, ty: 0.1, tz: -((S.bp?.[1] || 0) + 0.3), az: 200 + 4 * Math.sin(t * 0.1), el: 46, d: 3.0, sx: 0, sy: -10}),
 };
+views.cut = (t) => cut.view(views.hero(t)) || views.hero(t);
 
 // ---------------- bài giảng
 const CAP = [

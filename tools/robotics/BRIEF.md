@@ -54,4 +54,7 @@ Phương pháp học theo cutaway của Nyxera0x (giấy phép MIT, github.com/N
 - Đồng hồ cơ bản đầu đo được mật độ 0,00: mâm sáng màu, kính đáy phản chiếu trắng. Mặt phẳng nằm ngang hứng sáng trời nên phải thật tối (#0d0e10) mới dưới ngưỡng 80.
 - Nhện: khung bao chủ yếu là nền giữa các chân, so theo khung bao với chó robot là không công bằng; vật thưa thì so trên điểm ảnh của vật (do_mat_do.py tự chọn).
 - Nhện: động học nghịch có hai nhánh nghiệm; luôn thử thêm điểm xuất phát và chọn nhánh gối thấp, nếu không chân dựng đứng như nhện chân dài.
+- Piranha: nhóm milimét (thu 1/1000) nằm trong nhóm mét; vị trí đặt cho chính nhóm milimét là mét. Dao động 3 "mm" thành 3 m, cá ra khỏi khung.
+- Piranha: khi hồi quy của nguồn lệch điểm đo cụ thể mà bài dựng theo, giữ độ dốc, neo qua điểm đo và vẽ cả đường gốc cho học sinh so.
+- Máy ảnh: thân trắng trên nền trắng gần như vô hình; vật thật màu sẫm thì để sẫm, giữ một tấm trắng làm điểm nhấn.
 - Lực tính từ đạo hàm của một biến nhảy bậc (đổi chế độ) phải giới hạn tốc độ thay đổi, nếu không đồ thị vọt đỉnh giả.

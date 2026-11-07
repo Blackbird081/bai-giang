@@ -4,6 +4,7 @@ import {createStage, MAT, setOpacity} from '../kit/stage.js';
 import * as SH from '../kit/shapes.js';
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
+import {createCutaway, mover} from '../kit/tach.js';
 import {tag, picker, vn} from '../kit/soi.js';
 import {LEG, LEGS, VN, GAITS, SERVO, legIK, legPoints, footAt, hull, margin} from './gait.js';
 
@@ -132,9 +133,27 @@ ui.callouts([
 // ---------------- mô phỏng
 const disp = S.disp;
 const defaults = () => Object.assign(S, {gait: 'tripod', phase: 0, stride: 0.05, Tc: 1.1, head: 0, turn: 0, h: 0.09, lift: 0.035, mass: 2.0, run: true});
+// ---------------- tháo từng bộ phận (kit/tach.js, theo cutaway của Nyxera0x, MIT): bọc chi tiết vào nhóm dời riêng
+const cwp = (o) => { const v = o.getWorldPosition(new THREE.Vector3()); return [v.x, v.y, v.z]; };
+
+const CK = {tren: 0, mach: 0, pin: 0, duoi: 0, chan: 0}; let CEX = 0;
+const L0dir = [Math.cos(LEGS[0].psi) * 0.12, Math.sin(LEGS[0].psi) * 0.12, 0.02];
+const MV = {tren: mover([topP, board], [0, 0, 0.08]), mach: mover([board], [0, 0, 0.09]), pin: mover([batt, battLabel], [-0.18, 0, 0]), duoi: mover([botP], [0, 0, -0.035]), chan: mover(Object.values(legMeshes[0]), L0dir)};
+const cutMove = () => { MV.tren(Math.max(CK.tren, CK.mach, CEX)); MV.mach(Math.max(CK.mach, CEX)); MV.pin(Math.max(CK.pin, CEX)); MV.duoi(Math.max(CK.duoi, CEX)); MV.chan(Math.max(CK.chan, CEX)); };
+const cut = createCutaway({st, ui, parts: [
+  {key: 'tren', label: 'TẤM TRÊN', open: (k) => { CK.tren = k; }, at: () => cwp(topP), cam: {az: 30, el: 52, d: 0.9}},
+  {key: 'mach', label: 'BỘ ĐIỀU KHIỂN', open: (k) => { CK.mach = k; }, at: () => cwp(board), cam: {az: 120, el: 40, d: 0.6}},
+  {key: 'pin', label: 'PIN', open: (k) => { CK.pin = k; }, at: () => cwp(batt), cam: {az: -120, el: 18, d: 0.7}},
+  {key: 'duoi', label: 'TẤM DƯỚI', open: (k) => { CK.duoi = k; }, at: () => cwp(botP), cam: {az: -40, el: 6, d: 0.8}},
+  {key: 'chan', label: 'MỘT CHÂN', open: (k) => { CK.chan = k; }, at: () => cwp(legMeshes[0].femServo), cam: {az: 70, el: 20, d: 0.7}},
+], explode: (k) => { CEX = k; }, turn: (d) => { world.rotation.z = d * Math.PI / 180; }});
+cut.pillRow();
+
 const sim = {
-  reset() { defaults(); Object.assign(disp, {poly: true, trails: true, labels: true, xray: false}); S.hist = []; prints.count = 0; printI = 0; },
+  cut, busy: () => cut.busy(),
+  reset() { cut.reset(); defaults(); Object.assign(disp, {poly: true, trails: true, labels: true, xray: false}); S.hist = []; prints.count = 0; printI = 0; },
   act(k) {
+    if (cut.act(k)) return;
     if (GAITS[k]) { S.gait = k; S.run = true; return; }
     if (k === 'stop') { S.run = !S.run; return; }
     if (k in disp) disp[k] = !disp[k];
@@ -150,7 +169,7 @@ const sim = {
     return false;
   },
   keyUp(k) { if (k === 'q' || k === 'e') S.turn = 0; },
-  step(dt) {
+  step(dt) { cut.step(dt);
     const cmd = cmdOf();
     if (S.run) {
       S.phase = (S.phase + dt / S.Tc) % 1;
@@ -184,6 +203,7 @@ const sim = {
       src, d: 0.85};
   }),
   draw() {
+    cutMove(); cut.draw();
     const out = S.out || solve(), p = S.pose, c = Math.cos(p.yaw), s = Math.sin(p.yaw), g = GAITS[S.gait];
     const toW = (q) => [p.x + q[0] * c - q[1] * s, p.y + q[0] * s + q[1] * c, q[2]];
     body.position.set(p.x, p.y, 0); body.rotation.set(0, 0, p.yaw);
@@ -280,6 +300,7 @@ const views = {
   top: () => ({...T(), az: 90 + S.pose.yaw * D, el: 86, d: 2.1, sx: 0, sy: -30}),
   leg: () => { const o = S.out?.[0]?.P; const c = Math.cos(S.pose.yaw), s = Math.sin(S.pose.yaw); const q = o ? o.knee : [0.15, -0.15, 0.1]; return {tx: S.pose.x + q[0] * c - q[1] * s, ty: 0.07, tz: -(S.pose.y + q[0] * s + q[1] * c), az: 150 + S.pose.yaw * D, el: 12, d: 0.95, sx: 0, sy: -40}; },
 };
+views.cut = (t) => cut.view(views.hero(t)) || views.hero(t);
 
 // ---------------- bài giảng
 const CAP = [

@@ -6,6 +6,7 @@ import * as SH from '../kit/shapes.js';
 const {alongY} = SH;
 import {C, createUI, fx} from '../kit/ui.js';
 import {runLive} from '../kit/live.js';
+import {createCutaway, mover} from '../kit/tach.js';
 import {tag, picker, vn} from '../kit/soi.js';
 import {createAssembly} from '../kit/lap.js';
 import {UNITS, ORDER} from './cum.js';
@@ -266,12 +267,30 @@ ui.callouts([
 // ---------------- mô phỏng
 const disp = S.disp;
 let acc = 0;
+// ---------------- tháo từng bộ phận (kit/tach.js, theo cutaway của Nyxera0x, MIT): bọc chi tiết vào nhóm dời riêng
+const cwp = (o) => { const v = o.getWorldPosition(new THREE.Vector3()); return [v.x, v.y, v.z]; };
+
+const CK = {lidar: 0, rpi: 0, opencr: 0, pin: 0, banh: 0}; let CEX = 0;
+const U_ = bot.UNIT, MV = {lidar: mover([U_.lidar], [0, 0, 0.14]), top: mover([U_.tang4, U_.cot3], [0, 0, 0.1]), rpi: mover([U_.rpi], [0, 0, 0.12]), mid: mover([U_.tang3, U_.cot2], [0, 0, 0.08]), opencr: mover([U_.opencr], [0, -0.12, 0.06]), pin: mover([U_.pin], [0, 0.16, 0]), banh: mover([U_.banhP], [0, -0.12, 0])};
+const cutMove = () => { const e = CEX; MV.lidar(Math.max(CK.lidar, e, CK.rpi, CK.opencr)); MV.top(Math.max(CK.rpi, CK.opencr, e)); MV.rpi(Math.max(CK.rpi, e)); MV.mid(Math.max(CK.opencr, e)); MV.opencr(Math.max(CK.opencr, e)); MV.pin(Math.max(CK.pin, e)); MV.banh(Math.max(CK.banh, e)); };
+const firstMesh = (g) => { let r = g; g.traverse((m) => { if (r === g && m.isMesh) r = m; }); return r; };
+const cut = createCutaway({st, ui, parts: [
+  {key: 'lidar', label: 'LIDAR', open: (k) => { CK.lidar = k; }, at: () => cwp(firstMesh(U_.lidar)), cam: {az: 30, el: 40, d: 0.9}},
+  {key: 'rpi', label: 'RASPBERRY PI', open: (k) => { CK.rpi = k; }, at: () => cwp(firstMesh(U_.rpi)), cam: {az: 120, el: 50, d: 0.8}},
+  {key: 'opencr', label: 'MẠCH OpenCR', open: (k) => { CK.opencr = k; }, at: () => cwp(firstMesh(U_.opencr)), cam: {az: -60, el: 24, d: 0.8}},
+  {key: 'pin', label: 'PIN LiPo', open: (k) => { CK.pin = k; }, at: () => cwp(firstMesh(U_.pin)), cam: {az: 170, el: 18, d: 0.8}},
+  {key: 'banh', label: 'BÁNH VÀ SERVO', open: (k) => { CK.banh = k; }, at: () => cwp(firstMesh(U_.banhP)), cam: {az: -10, el: 6, d: 0.7}},
+], explode: (k) => { CEX = k; }, turn: (d) => { world.rotation.z = d * Math.PI / 180; }});
+cut.pillRow();
+
 const sim = {
+  cut,
   S,
-  reset() { if (S.asm) { S.asm = false; lap.stop(); } resetState(); scanNow(); },
-  busy: () => S.asm,
+  reset() { cut.reset(); if (S.asm) { S.asm = false; lap.stop(); } resetState(); scanNow(); },
+  busy: () => S.asm || cut.busy(),
   isOn: (k) => k === 'asm' && S.asm,
   act(k) {
+    if (cut.act(k)) return;
     if (k === 'asm' || k === 'asm_demo') {
       if (k === 'asm_demo' && S.asm) { lap.demo(); return; }
       if (!S.asm) {
@@ -297,7 +316,7 @@ const sim = {
     if (k === 's') { S.tele = {v: 0, w: 0}; return true; }
     return false;
   },
-  step(dt) { lap.step(dt); if (S.asm) return; acc += dt; while (acc >= 0.01) { physics(0.01); S.scanT += 0.01; if (S.scanT >= 1 / TB.lidar.hz) { S.scanT = 0; scanNow(); } pushDot(trTrue, S.truth.x, S.truth.y); pushDot(trOdom, S.odom.x, S.odom.y); acc -= 0.01; } },
+  step(dt) { cut.step(dt); lap.step(dt); if (S.asm) return; acc += dt; while (acc >= 0.01) { physics(0.01); S.scanT += 0.01; if (S.scanT >= 1 / TB.lidar.hz) { S.scanT = 0; scanNow(); } pushDot(trTrue, S.truth.x, S.truth.y); pushDot(trOdom, S.odom.x, S.odom.y); acc -= 0.01; } },
   shadowAt() { return new THREE.Vector3(S.truth.x * 0.5, 0.1, -S.truth.y * 0.5); },
   // soi chi tiết: bấm bánh, LiDAR, hai mạch, pin hay thân; camera bám theo khi robot chạy
   pick: (hits) => {
@@ -335,6 +354,7 @@ const soi = picker((part) => {
   });
 Object.assign(sim, {
   draw() {
+    cutMove(); cut.draw();
     const t = S.truth, o = S.odom;
     bot.g.position.set(t.x, t.y, 0); bot.g.rotation.z = t.th; ghost.g.position.set(o.x, o.y, 0); ghost.g.rotation.z = o.th; ghost.g.visible = disp.ghost && Math.hypot(o.x - t.x, o.y - t.y) + 0.05 * Math.abs(o.th - t.th) > 0.015; // trùng nhau thì ẩn bóng để thấy rõ robot
     bot.wheels[0].rotation.y = S.phiR; bot.wheels[1].rotation.y = S.phiL; bot.lid.rotation.z += 0.21;
@@ -407,6 +427,7 @@ const views = {
   asm: (tt) => (cur.v = 'asm', {tx: ASM.x - 0.02, ty: 0.04, tz: -(ASM.y + 0.36), az: 200 + 4 * Math.sin(tt * 0.1), el: 50, d: 2.0, sx: 0, sy: -10}),
   close: () => (cur.v = 'close', {...Tg(), ty: 0.1, az: (S.truth.th * D + 90) + 60, el: 26, d: 0.7, sx: 0, sy: -40}),
 };
+views.cut = (t) => cut.view(views.hero(t)) || views.hero(t);
 
 // ---------------- bài giảng
 const CAP = [
