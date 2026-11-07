@@ -376,7 +376,7 @@ export function runLive({stage: st, ui, sim, views, script, captions, keys = {},
   };
   warmComposer(st.renderer, st.composer, st.scene, st.camera).then(() => requestAnimationFrame(frame));
   window.LIVE = {st, cam, sim, startTour, takeOver, setView, classGo, classEnd, setRate, inspect: openInsp, closeInspect: closeInsp, pickAt,
-    get rate() { return rate; }, get inspecting() { return FOL ? FOL.info : null; }, get tier() { return tier; }, get T() { return T; }, get auto() { return AP.on; }, get compact() { return compact; }};
+    get rate() { return rate; }, get view() { return view; }, get inspecting() { return FOL ? FOL.info : null; }, get tier() { return tier; }, get T() { return T; }, get auto() { return AP.on; }, get compact() { return compact; }};
   // vỏ Sáng Ăn Khoai: lên lớp bằng bút trình chiếu, màn hình giáo viên, điện thoại (shell/bg-shell.js nhúng khi đóng gói)
   if (window.BGShell) {
     const strip = (h) => String(h || '').replace(/<[^>]+>/g, '');

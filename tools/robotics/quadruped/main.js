@@ -236,7 +236,7 @@ const applyLook = () => { // X-quang chỉ làm mờ vỏ, khung, đầu; cô l�
 };
 const walk = (o) => { const r = []; o.traverse((m) => r.push(m)); return r; };
 const sim = {
-  S,
+  S, root: body,
   reset() { if (S.asm) { S.asm = false; lap.stop(); } defaults(); Object.assign(disp, {poly: true, force: true, labels: true, xray: false}); say('khởi động · đứng bốn chân'); S.out = standOut(); },
   busy: () => S.asm,
   isOn: (k) => (k === 'asm' && S.asm) || (k === 'explode' && S.exT > 0) || (k === 'leap' && !!S.leap),

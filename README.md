@@ -13,6 +13,7 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Robot cá mập mako (Vật lí 10, lực cản và lực nâng) | https://nclamvn.github.io/bai-giang/vat-li-10/ca-map-robot/ |
 | Tháp năm tầng Hōryū-ji (Vật lí 11, dao động riêng và cộng hưởng) | https://nclamvn.github.io/bai-giang/vat-li-11/thap-nam-tang/ |
 | Hải đăng khung sắt Sanibel (Vật lí 10, mô men lật, tầm nhìn đèn) | https://nclamvn.github.io/bai-giang/vat-li-10/hai-dang/ |
+| Đồng hồ cơ ETA 6497-1 (Vật lí 11, dao động điều hoà, tỉ số truyền) | https://nclamvn.github.io/bai-giang/vat-li-11/dong-ho-co/ |
 | Hành Trình Vào Tế Bào (ribosome PDB 3J7R) | https://nclamvn.github.io/bai-giang/te-bao/ |
 | Ribosome trên bàn (AR, mở trên điện thoại) | https://nclamvn.github.io/bai-giang/te-bao/ar.html |
 | Vào Ty Thể (ATP synthase PDB 6J5I) | https://nclamvn.github.io/bai-giang/ty-the/ |
@@ -28,7 +29,7 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Xe tự hành vi sai (TurtleBot3 Burger) | https://nclamvn.github.io/bai-giang/robotics/turtlebot3/ |
 | 54 bài thí nghiệm | https://nclamvn.github.io/bai-giang/#thu-vien |
 
-Cả 11 mô phỏng dựng bằng bộ robotics (6 robot, Động cơ 4 kì, Robot cá mập, Tháp năm tầng, Hải đăng khung sắt) có thanh tốc độ tạm dừng đến 10× và **soi chi tiết**: bấm vào một khớp, động cơ, bánh, cảm biến hay thân để mở thẻ (vai trò, số đo có nguồn, số chạy theo mô phỏng), camera bám theo bộ phận đó. Thẻ khai báo trong `pick` của từng bài, bộ máy chung ở [`tools/robotics/kit/soi.js`](tools/robotics/kit/soi.js).
+Cả 12 mô phỏng dựng bằng bộ robotics (6 robot, Động cơ 4 kì, Robot cá mập, Tháp năm tầng, Hải đăng khung sắt, Đồng hồ cơ) có thanh tốc độ tạm dừng đến 10× và **soi chi tiết**: bấm vào một khớp, động cơ, bánh, cảm biến hay thân để mở thẻ (vai trò, số đo có nguồn, số chạy theo mô phỏng), camera bám theo bộ phận đó. Thẻ khai báo trong `pick` của từng bài, bộ máy chung ở [`tools/robotics/kit/soi.js`](tools/robotics/kit/soi.js).
 
 Bài TurtleBot3 có thêm bước 9 **Lắp ráp theo tầng**: 15 cụm từ tấm đế tới LiDAR, máy kiểm thứ tự và lối vào của tuốc nơ vít (tầng trên úp xuống thì không còn với tới mạch bên dưới); thứ tự theo hướng dẫn lắp Burger của ROBOTIS, rút gọn để học ([`tools/robotics/turtlebot3/cum.js`](tools/robotics/turtlebot3/cum.js)).
 
@@ -37,6 +38,8 @@ Bài chó robot bốn chân lấy bố cục thông tin từ các video teardown
 Bài **Tháp năm tầng Hōryū-ji** (Vật lí 11) lấy bố cục bản vẽ lắp dựng từ video tháp của cùng tác giả: khung tên bản vẽ, trình tự dựng dạng Gantt, cấu kiện đang lắp (số lượng, vật liệu, khối lượng ước), kết cấu từng tầng, nhật ký LẮP/KIỂM, dải tám giai đoạn bấm được. 52 thao tác lắp, mặt cắt qua trục, sơn; rung nền với mô hình năm khối có chu kỳ riêng T₁ = 1,1 s (số đo vi chấn dẫn trong Hanazato và cộng sự, 2004), cộng hưởng, cột tâm chặn. Số có nguồn: cao ≈ 32,5 m, tầng 5 hai gian, mái tầng 5 ≈ ½ mái tầng 1, cột tâm bách Nhật năm 594, xá lợi sâu ≈ 3 m, tượng đất năm 711; các kích thước khác ghi rõ là phỏng dựng ([`tools/robotics/pagoda/kin.js`](tools/robotics/pagoda/kin.js)).
 
 Bài **Hải đăng khung sắt** (Vật lí 10) theo video bản vẽ lắp dựng hải đăng: dựng Sanibel Island Light (Florida, 1884) theo tám giai đoạn (cọc sắt, bốn đoạn chân, giằng ngang, giằng chéo chữ X, ống cầu thang, phòng trực và đèn, sơn, mặt cắt), thẻ cấu kiện có tải móc cẩu và kiểu liên kết. Chớp đèn Fl(2) W 10s từ thấu kính quay, tầm nhìn d ≈ 2,08(√H + √h) hải lí so với tầm sáng 13 hải lí, gió ngang cho lực gió, mô men lật và lực kéo nén trong bốn chân. Số có nguồn: Wikipedia (Sanibel Island Light, Fresnel lens); khung, khối lượng là phỏng dựng ([`tools/robotics/lighthouse/kin.js`](tools/robotics/lighthouse/kin.js)).
+
+Bài **Đồng hồ cơ** (Vật lí 11) là bài đầu tiên dựng theo phương pháp **tự tháo rời** học từ cutaway của Nyxera0x (MIT): bản mô tả công việc [`tools/robotics/BRIEF.md`](tools/robotics/BRIEF.md), checklist có số cho từng vật, mỗi bộ phận một nút tách ra dưới góc máy riêng rồi tách cả bộ trên bàn xoay 330° ([`tools/robotics/kit/tach.js`](tools/robotics/kit/tach.js)), và đo thay vì nhìn bằng mắt: `python3 tools/robotics/do_mat_do.py <bài>` đếm tỉ lệ điểm tối trong khung bao vật so với ảnh đã duyệt (ít nhất 0,8 lần), so tỉ lệ kích thước với số có nguồn, kiểm các nhịp tháo rời không đặt máy cùng chỗ. Máy ETA 6497-1 theo tài liệu kĩ thuật của hãng: Ø 36,60 mm, cao 4,50 mm, 17 chân kính, 18.000 dao động/giờ, góc nâng 44°, trữ cót 46 giờ; bánh lắc tích phân con lắc xoắn có cản và cú đẩy của bộ thoát, nên biên độ giảm khi cót yếu mà chu kì vẫn 0,400 s ([`tools/robotics/dong-ho/kin.js`](tools/robotics/dong-ho/kin.js)).
 
 - Bản offline một file cho lớp học, tải ở [Releases](https://github.com/nclamvn/bai-giang/releases/latest): [Hành Trình Vào Tế Bào](https://github.com/nclamvn/bai-giang/releases/latest/download/hanh-trinh-te-bao-offline.html) (9 MB) và [Vào Ty Thể](https://github.com/nclamvn/bai-giang/releases/latest/download/vao-ty-the-offline.html) (8 MB). Mở bằng Chrome hoặc Edge, không cần mạng.
 - Địa chỉ cũ (`ty-the.html`, `ar.html`, `chu-de-sinh-hoc-te-bao.html`, `thu-vien/`) tự chuyển sang địa chỉ mới.
