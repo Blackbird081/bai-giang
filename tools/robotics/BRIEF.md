@@ -51,4 +51,7 @@ Phương pháp học theo cutaway của Nyxera0x (giấy phép MIT, github.com/N
 - Thấu kính, kính: viết "kính trong, không bao giờ là vỏ trắng đặc"; thiếu chữ "không bao giờ" thì kính thành thêm một khối vỏ.
 - Bật tắt `transparent` phải kèm `needsUpdate` (`setOpacity`), nếu không X-quang không có tác dụng.
 - Cảnh lớn hơn 80 m phải đặt `far` cho camera, nếu không vật biến mất.
+- Đồng hồ cơ bản đầu đo được mật độ 0,00: mâm sáng màu, kính đáy phản chiếu trắng. Mặt phẳng nằm ngang hứng sáng trời nên phải thật tối (#0d0e10) mới dưới ngưỡng 80.
+- Nhện: khung bao chủ yếu là nền giữa các chân, so theo khung bao với chó robot là không công bằng; vật thưa thì so trên điểm ảnh của vật (do_mat_do.py tự chọn).
+- Nhện: động học nghịch có hai nhánh nghiệm; luôn thử thêm điểm xuất phát và chọn nhánh gối thấp, nếu không chân dựng đứng như nhện chân dài.
 - Lực tính từ đạo hàm của một biến nhảy bậc (đổi chế độ) phải giới hạn tốc độ thay đổi, nếu không đồ thị vọt đỉnh giả.

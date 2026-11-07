@@ -24,6 +24,8 @@ BESPOKE = {
     'thap-5-tang': ('vat-li-11/thap-nam-tang/index.html', 'Tháp năm tầng Hōryū-ji', 'covers/thap-5-tang.webp'),
     'hai-dang': ('vat-li-10/hai-dang/index.html', 'Hải đăng khung sắt', 'covers/hai-dang.webp'),
     'dong-ho': ('vat-li-11/dong-ho-co/index.html', 'Đồng hồ cơ', 'covers/dong-ho.webp'),
+    'nhen': ('vat-li-10/nhen-thuy-luc/index.html', 'Nhện chân thuỷ lực', 'covers/nhen.webp'),
+    'piranha': ('vat-li-10/ca-piranha/index.html', 'Cá piranha', 'covers/piranha.webp'),
     'ur5e': ('robotics/ur5e/index.html', 'Cánh tay robot 6 trục UR5e', 'covers/robo-ur5e.webp'),
     'hexapod': ('robotics/hexapod/index.html', 'Robot sáu chân', 'covers/robo-hexapod.webp'),
     'quadruped': ('robotics/quadruped/index.html', 'Chó robot bốn chân', 'covers/robo-quadruped.webp'),
@@ -70,7 +72,9 @@ def build():
     # Khoa học tự nhiên 8: cơ thể người (BodyVista Việt hoá); bài sau đi tiếp xuống cấp tế bào
     put('co-the-nguoi', [{'t': 'Khoa học tự nhiên 8', 'href': '#bai-hoc'}], nxt_lesson('te-bao', 'Từ cơ quan xuống tế bào'), 'Sinh học', 'sinh')
     put('dong-co', [{'t': 'Công nghệ 11', 'href': '#bai-hoc'}], nxt_lesson('ur5e', 'Từ cơ khí động lực sang robot công nghiệp'), 'Công nghệ', 'cong')
-    put('mako', [{'t': 'Vật lí 10', 'href': '?mon=phys#thu-vien'}], nxt_lesson('hai-dang', 'Từ lực cản của nước sang lực gió lên tháp'), 'Vật lí', 'ly')
+    put('mako', [{'t': 'Vật lí 10', 'href': '?mon=phys#thu-vien'}], nxt_lesson('nhen', 'Từ lực của nước bên ngoài sang áp suất chất lỏng bên trong chân nhện'), 'Vật lí', 'ly')
+    put('nhen', [{'t': 'Vật lí 10', 'href': '?mon=phys#thu-vien'}], nxt_lesson('piranha', 'Từ mô men ở khớp chân sang đòn bẩy của hàm cá'), 'Vật lí', 'ly')
+    put('piranha', [{'t': 'Vật lí 10', 'href': '?mon=phys#thu-vien'}], nxt_lesson('hai-dang', 'Từ đòn bẩy của hàm sang mô men lật của tháp'), 'Vật lí', 'ly')
     put('hai-dang', [{'t': 'Vật lí 10', 'href': '?mon=phys#thu-vien'}], nxt_lesson('thap-5-tang', 'Từ tháp sắt đứng gió sang tháp gỗ đứng động đất'), 'Vật lí', 'ly')
     put('thap-5-tang', [{'t': 'Vật lí 11', 'href': '?mon=phys#thu-vien'}], nxt_lesson('dong-ho', 'Từ dao động của tháp gỗ sang dao động giữ nhịp đồng hồ'), 'Vật lí', 'ly')
     put('dong-ho', [{'t': 'Vật lí 11', 'href': '?mon=phys#thu-vien'}], nxt_lesson('dong-co', 'Từ bánh răng đồng hồ sang động cơ thật'), 'Vật lí', 'ly')

@@ -1,0 +1,1 @@
+{"title": "Cá Piranha", "description": "Mô phỏng 3D cá piranha robot theo piranha đen, loài cắn mạnh nhất từng đo ở cá (320 N, Grubich và cộng sự 2012): hàm dưới là đòn bẩy, F_cắn·d = F_cơ·L_in; lợi thế cơ học 0,5 ở răng đầu mút, 1,5 ở răng trong cùng; lực cắn theo kích thước cá; cơ khép hàm; tháo từng bộ phận. Vật lí 10, mô men lực.", "out": "vat-li-10/ca-piranha/index.html"}

@@ -5,6 +5,7 @@
 Cần máy chủ tĩnh đang phục vụ thư mục gốc kho ở cổng đã cho. Với mỗi bài:
   · chụp toàn cảnh (tắt bóng, sàn trắng trơn), chụp lại khi giấu vật; điểm ảnh khác nhau là vật. Trong khung bao vật, đếm tỉ lệ
     điểm có độ sáng dưới 80. Bài mới phải đạt ít nhất 0,8 lần ảnh đã duyệt (chó robot, lưu trong do_mat_do.json).
+    Vật thưa (vật chiếm dưới 0,6 lần tỉ lệ khung của ảnh đã duyệt) thì so tỉ lệ điểm tối trên điểm ảnh của vật.
   · LIVE.sim.measure() (nếu bài có): tỉ lệ đo trên mô hình so với số có nguồn, mỗi dòng có dung sai riêng.
   · LIVE.sim.cut.audit() (nếu bài có chế độ tháo rời): không có cặp nhịp nào đặt máy cùng chỗ.
 --baseline: đo lại ảnh đã duyệt và ghi vào do_mat_do.json.
@@ -81,10 +82,13 @@ async def main(argv):
             r = await measure(await ctx.new_page(), path, port)
             bad = []
             if r.get('dark') is not None:
-                k = r['dark'] / base['dark']
+                # vật thưa (chân nhện, khung giàn) thì khung bao chủ yếu là nền: so trên điểm ảnh của chính vật
+                sparse = r['fill'] < 0.6 * base['fill']
+                k = (r['dark_obj'] / base['dark_obj']) if sparse else (r['dark'] / base['dark'])
                 r['vs_approved'] = round(k, 2)
+                r['metric'] = 'điểm ảnh của vật' if sparse else 'khung bao'
                 if k < 0.8:
-                    bad.append(f"mật độ {k:.2f} lần ảnh đã duyệt (< 0,8)")
+                    bad.append(f"mật độ {k:.2f} lần ảnh đã duyệt (< 0,8, đo theo {r['metric']})")
             for row in r['measure'] or []:
                 off = abs(row['got'] - row['want']) / abs(row['want'])
                 row['off'] = round(off, 3)
