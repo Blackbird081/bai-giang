@@ -44,8 +44,8 @@ for (const name of names) {
   // trang đọc qua đường dẫn tương đối; bản đăng một tệp (--out) nhúng thành data: URL qua ASSET_MAP.
   let assetMap = null;
   if (meta.assets) {
-    const src = path.join(dir, meta.assets), files = fs.readdirSync(src).filter((f) => /\.(glb|webp|png|jpg)$/.test(f));
-    const mime = (f) => (f.endsWith('.glb') ? 'model/gltf-binary' : f.endsWith('.webp') ? 'image/webp' : f.endsWith('.png') ? 'image/png' : 'image/jpeg');
+    const src = path.join(dir, meta.assets), files = fs.readdirSync(src).filter((f) => /\.(glb|webp|png|jpg|json)$/.test(f));
+    const mime = (f) => (f.endsWith('.json') ? 'application/json' : f.endsWith('.glb') ? 'model/gltf-binary' : f.endsWith('.webp') ? 'image/webp' : f.endsWith('.png') ? 'image/png' : 'image/jpeg');
     if (outDir) assetMap = Object.fromEntries(files.map((f) => [f, `data:${mime(f)};base64,${fs.readFileSync(path.join(src, f)).toString('base64')}`]));
     else {
       const dst = path.join(path.dirname(path.join(REPO, meta.out || path.join('robotics', name, 'index.html'))), meta.assets);

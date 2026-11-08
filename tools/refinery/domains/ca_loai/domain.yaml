@@ -1,0 +1,37 @@
+domain: ca_loai
+entity_label: "Loài cá có số đo hô hấp trên FishBase v25.04, cộng các loài của Fish Kit"
+
+schema:
+  type_field: null
+  fields:
+    - ten_khoa_hoc
+    - tac_gia
+    - ten_anh
+    - ten_viet          # mỗi tên tiếng Việt trên FishBase là một claim; nhiều tên thì giữ trọn (disputed)
+    - ho
+    - bo
+    - moi_truong        # DemersPelag của FishBase
+    - vung_nuoc         # ngọt / lợ / mặn
+    - tho_khi_troi      # AirBreathing của FishBase
+    - dai_toi_da
+    - kieu_boi          # AdultMode, bảng swimming
+    - kieu_tho          # bơm / ép dòng: FishBase không có bảng này → để trống thật (honest-null), không suy ra
+
+rollup_field: moi_truong
+
+universe:
+  estimate: 36132
+  basis: "Số dòng của bảng species trong FishBase v25.04 (mọi loài cá FishBase ghi nhận)."
+
+refresh_days:
+  default: 365
+
+alias_map: {}
+
+# Cá cam vằn của Nhật (ヒラマサ) được tách thành Seriola aureovittata (Martinez-Takeshita và cộng sự 2015);
+# FishBase v25.04 vẫn chỉ có S. lalandi. Cấm tự gộp hai tên này.
+ambiguous_clusters:
+  - ["Seriola lalandi", "Seriola aureovittata"]
+
+domain_gates:
+  no_inferred_fields: [ten_viet, dai_toi_da, moi_truong]

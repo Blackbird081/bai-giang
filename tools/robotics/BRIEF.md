@@ -63,3 +63,5 @@ Phương pháp học theo cutaway của Nyxera0x (giấy phép MIT, github.com/N
 - Vật dựng từ ảnh do máy sinh (Fish Kit) chỉ để nhìn: số đo cơ thể lấy từ nguồn, không đo trên mô hình; luật mật độ cơ cấu tối bỏ qua bằng `sim.photo` (ghi lí do).
 - Cá thở bằng mang: đo chiều dài bằng Box3.setFromObject tính cả hạt nước gắn vào cá (Points), ra 47 cm thay vì 40; khung đo chỉ gom Mesh.
 - Cá thở bằng mang: góc xa (bộ sưu tập, máy cách 4–5 m) nằm ngoài khoảng sương 1,6–5,5 m nên cá chìm hẳn vào nền trên điện thoại; sương phải theo khoảng cách máy.
+- Cá thở bằng mang (tra cứu): cờ nước ngọt/lợ/mặn của FishBase là 1/0, không phải −1/0 như mình nhớ; mọi loài ra "vùng nước —" cho tới khi mở bảng thật mà xem. Đọc giá trị của cột trước khi viết điều kiện.
+- Bảng phủ (position:fixed) trên màn hẹp vẫn nằm dưới thanh đầu và thanh bước của khung bài: chừa hai thanh ấy thay vì tăng z-index.

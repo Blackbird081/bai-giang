@@ -9,6 +9,7 @@ import {runLive} from '../kit/live.js';
 import {tag, picker, vn} from '../kit/soi.js';
 import {createCutaway} from '../kit/tach.js';
 import {loadFish, createFish} from '../kit/fish-kit.js';
+import {createLookup} from './tra-cuu.js';
 import {SRC, FISHES, ALL, RAM_SRC, SKIPJACK, toadArea, UTIL, RAM, AIR_O2, o2Sat, smrAt, waterPerMin, NTU, effCounter, effCo, profile} from './kin.js';
 
 const D2R = Math.PI / 180, Y0 = 0.17, LEN = 40; // độ cao trục cá (m), cỡ vẽ (cm)
@@ -129,7 +130,7 @@ ui.panel(1272, 394, 300, 186, 'DIỆN TÍCH MANG · CÁ 1 KG', '05');
 const areaSvg = ui.svg(1286, 426, 272, 112);
 ui.text(1286, 544, '', 'sm', 'text-transform:none;letter-spacing:.2px;font-size:9.5px;white-space:normal;width:272px;line-height:1.4').innerHTML = 'Hàng rào nước–máu: họ cá thu ngừ 0,5–1,2 µm, cá khác 2–11 µm (Wegner 2010). Cá cóc tính từ 560,7·W^0,79 (Hughes và Gray 1972).';
 ui.panel(1272, 592, 300, 174, 'THÁO TỪNG BỘ PHẬN', '06');
-ui.buttons([['v_hero', 'TOÀN CẢNH'], ['v_side', 'BÊN'], ['v_head', 'ĐẦU'], ['v_top', 'TRÊN'], ['v_compare', 'BỐN LOÀI'], ['v_gallery', '20 LOÀI'], ['labels', 'NHÃN']], 360, 116, 700);
+ui.buttons([['v_hero', 'TOÀN CẢNH'], ['v_side', 'BÊN'], ['v_head', 'ĐẦU'], ['v_top', 'TRÊN'], ['v_compare', 'BỐN LOÀI'], ['v_gallery', '20 LOÀI'], ['lookup', 'TRA CỨU LOÀI'], ['labels', 'NHÃN']], 360, 116, 800);
 ui.text(362, 152, 'DÁNG', 'sm', 'color:rgba(255,255,255,.7);font-weight:600');
 ui.buttons([...MOT.map(([k, l]) => ['m_' + k, l]), ['low', 'LƯỚI NHẸ']], 404, 148, 840);
 const nameEl = ui.add(`<div style="position:absolute;left:364px;top:182px;font:600 13px/1.3 'Be Vietnam Pro',system-ui,sans-serif;color:#fff;white-space:nowrap"></div>`);
@@ -162,6 +163,8 @@ ui.text(1286, 728, '', 'sm', 'text-transform:none;letter-spacing:.3px;font-size:
 
 // ---------------- mô phỏng
 const disp = S.disp;
+// tra cứu mọi loài có số đo hô hấp trên FishBase (qua Refinery); loài có mô hình thì mở được trong bể
+const lookup = createLookup({url: url('loai.json'), models: Object.fromEntries(ALL.map((f) => [f.sci, f.id])), onModel: (id) => { window.LIVE?.takeOver(); choose(id); }});
 // chọn loài: loài chưa tải thì tải xong mới đổi (vẫn bơi con cũ trong lúc chờ)
 function choose(id) {
   if (!BY[id]) return;
@@ -173,11 +176,12 @@ const sim = {
   S, root, cut, FISH, photo: 'Cá dựng từ ảnh (Fish Kit, CC0): luật mật độ cơ cấu tối không áp dụng',
   reset() { defaults(); cut.reset(); Object.assign(disp, {labels: true}); say('cá saba bơi 30 cm/s · bơm miệng–nắp mang'); },
   busy: () => cut.busy(),
-  isOn: (k) => (k === 'cc' && !S.counter) || k === 'f_' + S.sel || (k === 'mnext' && kitM()) || (k === 'loadall' && Object.keys(FISH).length === ALL.length),
+  isOn: (k) => (k === 'lookup' && lookup.isOpen()) || (k === 'cc' && !S.counter) || k === 'f_' + S.sel || (k === 'mnext' && kitM()) || (k === 'loadall' && Object.keys(FISH).length === ALL.length),
   act(k) {
     if (cut.act(k)) return;
     if (k in disp) { disp[k] = !disp[k]; return; }
     if (k.startsWith('m_')) { S.motion = k.slice(2); return; }
+    if (k === 'lookup') { lookup.toggle(info().sci); return; }
     if (k === 'mnext') { const i = MOT.findIndex((m) => m[0] === S.motion); S.motion = MOT[(i + 1) % MOT.length][0]; return; }
     if (k === 'loadall') { S.galleryAsked = true; ensure(ALL.map((x) => x.id)); return; }
     if (k === 'low') { S.low = !S.low; for (const id in FISH) FISH[id].a.setDetail(S.low ? 'low' : 'auto'); return; }
@@ -366,7 +370,7 @@ const CAP = [
   {k: 'DIỆN TÍCH VÀ ĐỘ MỎNG', t: 'Bốn loài, bốn bộ mang', b: 'Khí khuếch tán qua mang càng nhanh khi diện tích càng lớn và hàng rào càng mỏng. Cá ngừ vây vàng 1 kg có 1327 mm² mang mỗi gam, cá saba 1110; cá cóc sống đáy chỉ khoảng 130, ít hơn khoảng mười lần. Cá bơi nhanh, tiêu nhiều ô xi thì mang lớn và mỏng.', e: 'tốc độ khuếch tán ∝ diện tích × chênh lệch nồng độ ÷ bề dày'},
   {k: 'NƯỚC ẤM', t: 'Nước ấm: ít ô xi hơn, cá cần nhiều hơn', b: 'Kéo nhiệt độ từ 20 lên 30 °C: ô xi bão hoà giảm từ 7,4 xuống 6,2 mg/L, còn trao đổi chất của cá biến nhiệt tăng khoảng gấp đôi. Cá saba 1 kg phải cho lượng nước qua mang tăng khoảng 2,4 lần; nhịp bơm của cá đứng yên nhanh hẳn lên.', e: 'nước = SMR ÷ (ô xi × 75 %)',
     ask: {q: 'Vì sao mùa hè nóng, cá trong ao hay nổi đầu?', o: ['Vì cá thích nắng', 'Vì nước ấm hoà tan ít ô xi hơn trong khi cá cần nhiều ô xi hơn', 'Vì nước ấm nặng hơn'], a: 1, e: 'Hai hiệu ứng cùng chiều: ô xi hoà tan giảm và trao đổi chất tăng, nên cá thiếu ô xi và lên mặt nước nơi có lớp nước giàu ô xi hơn.'}},
-  {k: 'BỘ SƯU TẬP FISH KIT', t: 'Hai mươi loài, mỗi loài một dáng', b: 'Cá nổi bơi nhanh như cá thu, cá cam thân thon hình thoi; cá sống đáy như cá chai, cá kasago thân dẹt hoặc to đầu; cá hố dài như dải băng. Bấm một con để đưa nó vào bài: thở, dòng nước qua mang, tháo từng bộ phận. Năm loài có số đo tiêu hao ô xi; các loài khác ghi rõ chưa có số đo.', e: 'chọn loài: danh sách, góc “20 loài”, nút “Loài khác”'},
+  {k: 'BỘ SƯU TẬP FISH KIT', t: 'Hai mươi loài, mỗi loài một dáng', b: 'Cá nổi bơi nhanh như cá thu, cá cam thân thon hình thoi; cá sống đáy như cá chai, cá kasago thân dẹt hoặc to đầu; cá hố dài như dải băng. Bấm một con để đưa nó vào bài: thở, dòng nước qua mang, tháo từng bộ phận. Năm loài có số đo tiêu hao ô xi; các loài khác ghi rõ chưa có số đo. Nút “Tra cứu loài” mở dữ liệu hô hấp của hơn 350 loài trên FishBase.', e: 'chọn loài: danh sách, góc “20 loài”, nút “Loài khác”'},
   {k: 'PHIM THÁO RỜI', t: 'Từng bộ phận, rồi cả con', b: 'Miệng, nắp mang, vây lưng, vây ngực, vây đuôi lần lượt mở hết cỡ dưới góc máy riêng, rồi cả con mở cùng lúc trên bàn xoay. Bấm từng nút ở bảng 06 để tự xem.', e: 'miệng → nắp mang → vây lưng → vây ngực → vây đuôi → cả con'},
 ];
 const ev = [], at = (t, o) => ev.push({at: t, ...o});
@@ -384,7 +388,7 @@ ev.sort((a, b) => a.at - b.at);
 
 sim.reset();
 runLive({stage: st, ui, sim, views, captions: CAP, script: {events: ev, duration: 90.5 + cut.duration + 2}, firstView: 'hero',
-  extra: [{key: 'stop', label: 'Dừng'}, {key: 'fast', label: 'Lao nhanh'}, {key: 'next', label: 'Loài khác'}, {key: 'mnext', label: 'Dáng khác'}, {key: 'loadall', label: 'Tải đủ 20 loài'}, {key: 'cc', label: 'Cùng chiều'}],
+  extra: [{key: 'stop', label: 'Dừng'}, {key: 'fast', label: 'Lao nhanh'}, {key: 'next', label: 'Loài khác'}, {key: 'mnext', label: 'Dáng khác'}, {key: 'loadall', label: 'Tải đủ 20 loài'}, {key: 'lookup', label: 'Tra cứu loài'}, {key: 'cc', label: 'Cùng chiều'}],
   shell: {subject: 'Sinh học 11 · hô hấp ở động vật', objectives: ['Trình bày cơ chế bơm miệng–nắp mang và thông khí ép dòng ở cá xương', 'Giải thích vì sao trao đổi ngược dòng giúp mang lấy được phần lớn ô xi trong nước', 'Liên hệ diện tích mang, nhiệt độ nước và nhu cầu ô xi với lối sống của từng loài cá'],
     credit: 'Mô phỏng chạy trực tiếp trong trình duyệt, dựng trên teardown của elvarofficial, claude-motion của whaleyxbt và cutaway của Nyxera0x (MIT). Mô hình cá: Fish Kit của なちゃっと (@nachat_dayo), CC0. Số đo theo Wegner và cộng sự (2010), Hughes và Gray (1972), Roberts (1975), Benson và Krause (1984), AMNH; chỗ giả định ghi rõ trong thẻ soi.'},
-  keys: {1: 'v_hero', 2: 'v_side', 3: 'v_head', 4: 'v_top', 5: 'v_compare', 6: 'v_gallery', l: 'next', s: 'stop', f: 'fast', c: 'cc', n: 'labels', q: 'cut_mieng', w: 'cut_nap', e: 'cut_lung', r: 'cut_nguc', d: 'cut_duoi', g: 'cut_film', t: 'cut_all'}});
+  keys: {k: 'lookup', 1: 'v_hero', 2: 'v_side', 3: 'v_head', 4: 'v_top', 5: 'v_compare', 6: 'v_gallery', l: 'next', s: 'stop', f: 'fast', c: 'cc', n: 'labels', q: 'cut_mieng', w: 'cut_nap', e: 'cut_lung', r: 'cut_nguc', d: 'cut_duoi', g: 'cut_film', t: 'cut_all'}});
