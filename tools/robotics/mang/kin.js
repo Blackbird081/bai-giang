@@ -27,8 +27,8 @@ export const SRC = {
 };
 // loài trong bài; area và smr ở cá 1 kg; ram: 'bat-buoc' (cá ngừ), 'chuyen' (đổi khi bơi nhanh), 'khong' (cá đáy)
 export const FISHES = [
-  {id: 'saba', vi: 'Cá saba', sci: 'Scomber japonicus', area: 1110, smr: 132, lam: '30–36', barrier: '0,5–1,2', ram: 'chuyen', life: 'bầy cá nổi, bơi liên tục'},
-  {id: 'kihada', vi: 'Cá ngừ vây vàng', sci: 'Thunnus albacares', area: 1327, smr: 286, lam: '24–33', barrier: '0,5–1,2', ram: 'bat-buoc', life: 'đại dương, không bao giờ dừng'},
+  {id: 'saba', vi: 'Cá saba', sci: 'Scomber japonicus', area: 1110, smr: 132, smrT: 25, smrShort: 'saba', lam: '30–36', barrier: '0,5–1,2', ram: 'chuyen', life: 'bầy cá nổi, bơi liên tục'},
+  {id: 'kihada', vi: 'Cá ngừ vây vàng', sci: 'Thunnus albacares', area: 1327, smr: 286, smrT: 25, smrShort: 'cá ngừ', lam: '24–33', barrier: '0,5–1,2', ram: 'bat-buoc', life: 'đại dương, không bao giờ dừng'},
   {id: 'seabass', vi: 'Cá vược Nhật', sci: 'Lateolabrax japonicus', area: null, smr: null, lam: null, barrier: '2–11', ram: 'chuyen', life: 'ven bờ, cửa sông'},
   {id: 'magochi', vi: 'Cá chai', sci: 'Platycephalus sp. 2', area: null, smr: null, lam: null, barrier: '2–11', ram: 'khong', life: 'nằm phục dưới đáy cát'},
 ];
@@ -45,9 +45,9 @@ export function o2Sat(t, S = 35) {
   return Math.exp(-139.34411 + 157570.1 / T - 66423080 / T ** 2 + 1.2438e10 / T ** 3 - 862194900000 / T ** 4 - S * (0.017674 - 10.754 / T + 2140.7 / T ** 2));
 }
 /** trao đổi chất chuẩn ở t °C, quy từ 25 °C bằng Q10 */
-export const smrAt = (smr25, t) => smr25 * Q10 ** ((t - T_REF) / 10);
+export const smrAt = (smr, t, T0 = T_REF) => smr * Q10 ** ((t - T0) / 10); // smr đo ở T0 °C
 /** lít nước phải qua mang mỗi phút cho 1 kg cá */
-export const waterPerMin = (smr25, t, S = 35) => smrAt(smr25, t) / (o2Sat(t, S) * UTIL) / 60;
+export const waterPerMin = (smr, t, T0 = T_REF, S = 35) => smrAt(smr, t, T0) / (o2Sat(t, S) * UTIL) / 60;
 
 // trao đổi ngược dòng và cùng chiều: hai dòng cùng sức chứa, NTU = 3
 export const NTU = 3;
@@ -60,6 +60,17 @@ export function profile(x, counter, n = NTU) {
   const k = Math.exp(-2 * n * x); return {w: 0.5 + 0.5 * k, b: 0.5 - 0.5 * k};
 }
 
+// Thêm cho vài loài: tên Việt theo FishBase (viSrc 'fb'), theo nhóm cá (gần đúng, 'nhom'), hoặc chưa có tên Việt nên đọc
+// theo tên Nhật ('nhat'); tiêu hao ô xi lúc nghỉ có nguồn (smr mg O₂/kg/h đo ở smrT °C, khối lượng ghi trong smrNote).
+// Cá tráp đỏ: 16,88·W^0,821 µmol O₂/h ở 20 °C, cá nguyên vẹn 0,005–270 g (Oikawa và Itazawa 2003 dẫn lại); lấy W = 270 g.
+const madai270 = (16.88 * 270 ** 0.821 * 32) / 1000 / 0.27; // ≈ 199 mg O₂/kg/h
+const MORE = {
+  aji: {viSrc: 'fb'}, isaki: {vi: 'Cá sạo xám', viSrc: 'fb'}, isaki_young: {vi: 'Cá sạo xám non', viSrc: 'fb'},
+  mebaru: {vi: 'Cá mebaru', viSrc: 'nhat'}, kasago: {vi: 'Cá kasago', viSrc: 'nhat'}, onagagure: {vi: 'Cá onagagure', viSrc: 'nhat'}, kuchibuto: {vi: 'Cá mejina', viSrc: 'nhat'},
+  madai: {smr: madai270, smrT: 20, smrNote: 'cá 270 g, 20 °C; công thức trên cá nguyên vẹn, Oikawa và Itazawa 2003 dẫn lại', smrShort: 'tráp đỏ'},
+  kurodai: {smr: 164.8, smrT: 25, smrNote: 'cá bố mẹ 538 g, 25 °C; Prakoso và Chang 2017, Jurnal Riset Akuakultur 12: 161–167', smrShort: 'tráp đen'},
+  hiramasa: {smr: 199, smrT: 25, smrNote: 'đo ở loài chị em S. lalandi 2,1 kg, 25 °C (93 ở 20 °C); Clark và Seymour 2006, J. Exp. Biol. 209: 3940', smrShort: 'cam vằn'},
+};
 // 16 loài còn lại của Fish Kit (tên khoa học theo tên Nhật trong kit). Chưa có số đo mang có nguồn cho các loài này;
 // tên Việt của vài loài chỉ gần đúng theo nhóm nên thẻ ghi kèm tên Nhật.
 export const EXTRA = [
@@ -69,7 +80,7 @@ export const EXTRA = [
   ['madai', 'Cá tráp đỏ', 'Pagrus major', 'マダイ', 'chuyen'], ['katakuchi', 'Cá cơm Nhật', 'Engraulis japonicus', 'カタクチイワシ', 'chuyen'], ['isaki', 'Cá sạo isaki', 'Parapristipoma trilineatum', 'イサキ', 'chuyen'],
   ['isaki_young', 'Cá sạo isaki non', 'Parapristipoma trilineatum', 'イサキ（幼魚）', 'chuyen'], ['onagagure', 'Cá gure đuôi dài', 'Girella leonina', 'オナガグレ', 'chuyen'], ['kuchibuto', 'Cá mejina', 'Girella punctata', 'クチブトグレ', 'chuyen'],
   ['shibudai', 'Cá hồng sao', 'Lutjanus stellatus', 'シブダイ', 'chuyen'],
-].map(([id, vi, sci, ja, ram]) => ({id, vi, sci, ja, area: null, smr: null, lam: null, barrier: null, ram, ramSuy: true, life: null}));
+].map(([id, vi, sci, ja, ram]) => ({id, vi, sci, ja, area: null, smr: null, lam: null, barrier: null, ram, ramSuy: true, life: null, ...(MORE[id] || {})}));
 
 // Thông tin loài từ FishBase (trang tóm tắt từng loài, đọc ngày 08/11/2026): dài tối đa, môi trường, độ sâu, nơi sống.
 // Cá chai Nhật chưa có tên khoa học chính thức, dùng "Platycephalus sp. 2" theo Hara và Sunobe 2021 (Ichthyological Research 68).

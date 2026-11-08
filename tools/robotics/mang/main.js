@@ -86,13 +86,19 @@ const MOT = [['auto', 'BÀI', 'Bài điều khiển: tốc độ, nhịp thở, 
   ['bite', 'CẮN', 'Ngậm mồi giả, lắc đầu nhẹ'], ['hooked', 'MẮC CÂU', 'Mắc câu, lắc đầu mạnh, vây xoè hết'], ['tired', 'KIỆT SỨC', 'Đuối sức, nghiêng ngửa, vẫy đuôi chậm'],
   ['air', 'TRÊN KHÔNG', 'Bị nhấc khỏi nước: treo đầu lên, giãy, há miệng và nắp mang'], ['landed', 'GIÃY', 'Nằm trên sàn giãy, lúc đầu mạnh rồi yếu dần']];
 const kitM = () => S.motion !== 'auto';
+const VISRC = {fb: 'theo FishBase', nhom: 'theo nhóm cá, gần đúng', nhat: 'chưa có tên Việt, đọc theo tên Nhật'};
+const isCmp = () => document.body.classList.contains('cmp');
+const galCols = () => (isCmp() && innerWidth < innerHeight ? 2 : 4); // màn dọc: bộ sưu tập 2 cột
+// tên loài cho màn hẹp (bảng bên bị ẩn)
+const mobName = document.createElement('div'); mobName.className = 'mang-mob'; app.appendChild(mobName);
+document.head.insertAdjacentHTML('beforeend', `<style>.mang-mob{display:none;position:absolute;left:12px;top:160px;z-index:5;font:600 13px/1.35 'Be Vietnam Pro',system-ui,sans-serif;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5);pointer-events:none;max-width:70vw}body.cmp .mang-mob{display:block}.mang-mob i{font-style:normal;opacity:.75;font-weight:500}</style>`);
 const shown = (id) => (S.gallery ? true : S.compare ? CORE.has(id) : id === S.sel);
 
 // ---------------- bảng: khung bể ở giữa, ngoài khung là nền trắng của nhà
 ui.add(`<div style="position:absolute;left:344px;top:100px;width:912px;height:668px;border-radius:18px;box-shadow:0 0 0 2400px #fff,inset 0 0 0 .5px rgba(16,24,40,.12);pointer-events:none"></div>`);
 ui.header({code: 'Mang', kicker: 'SINH HỌC 11 · HÔ HẤP VÀ TRAO ĐỔI KHÍ Ở ĐỘNG VẬT · CÁ XƯƠNG', title: 'Cá thở bằng mang', sub: 'BƠM HAI PHA · ÉP DÒNG · NGƯỢC DÒNG', hub: HUB_URL,
   right: [['≈ 1/38', 'Ô XI NƯỚC SO VỚI KHÍ'], ['≈ 75 %', 'Ô XI MANG LẤY ĐƯỢC'], ['35–82 cm/s', 'CHUYỂN SANG ÉP DÒNG'], ['1327 mm²/g', 'MANG CÁ NGỪ']]});
-const BEATS = ['Nước nghèo ô xi', 'Bơm hai pha', 'Ép dòng', 'Cá ngừ', 'Cá chai', 'Ngược dòng', 'Diện tích mang', 'Nước ấm', 'Phim'];
+const BEATS = ['Nước nghèo ô xi', 'Bơm hai pha', 'Ép dòng', 'Cá ngừ', 'Cá chai', 'Ngược dòng', 'Diện tích mang', 'Nước ấm', '20 loài', 'Phim'];
 const beatEl = ui.add(`<div style="position:absolute;left:348px;top:80px;width:904px;display:flex;gap:4px">${BEATS.map((b, i) => `<div data-b="${i}" style="flex:1;padding:3px 0 5px;border-bottom:2px solid ${C.line};font:600 11px/1.2 'Be Vietnam Pro',system-ui,sans-serif;color:${C.mute};white-space:nowrap"><span style="font:500 10px 'JetBrains Mono',monospace;color:${C.faint};margin-right:5px">${String(i + 1).padStart(2, '0')}</span>${b}</div>`).join('')}</div>`);
 const setBeat = (i) => beatEl.querySelectorAll('[data-b]').forEach((n) => { const on = +n.dataset.b === i; n.style.borderBottomColor = on ? C.or : C.line; n.style.color = on ? C.ink : C.mute; });
 
@@ -116,7 +122,7 @@ ui.buttons([['cc', 'CÙNG CHIỀU']], 42, 730, 120);
 const ccTxt = ui.text(150, 733, '', 'sm', 'text-transform:none;letter-spacing:.2px;font-size:10px;white-space:normal;width:164px;line-height:1.35');
 
 ui.panel(1272, 112, 300, 270, 'Ô XI TRONG NƯỚC BIỂN', '04');
-const oRows = ['Ô XI BÃO HOÀ', 'TRONG KHÔNG KHÍ (20 °C)', 'KHÔNG KHÍ NHIỀU GẤP', 'TRAO ĐỔI CHẤT CHUẨN', 'NƯỚC QUA MANG'].map((n, k) => [ui.text(1286, 146 + k * 20, n), ui.text(1430, 144 + k * 20, '', 'v', 'width:128px;text-align:right')]);
+const oRows = ['Ô XI BÃO HOÀ', 'TRONG KHÔNG KHÍ (20 °C)', 'KHÔNG KHÍ NHIỀU GẤP', 'TIÊU HAO Ô XI LÚC NGHỈ', 'NƯỚC QUA MANG'].map((n, k) => [ui.text(1286, 146 + k * 20, n), ui.text(1430, 144 + k * 20, '', 'v', 'width:128px;text-align:right')]);
 const needSvg = ui.svg(1286, 254, 272, 100);
 const needCap = ui.text(1286, 360, '', 'sm', 'text-transform:none;letter-spacing:.2px;font-size:9.5px');
 ui.panel(1272, 394, 300, 186, 'DIỆN TÍCH MANG · CÁ 1 KG', '05');
@@ -167,11 +173,13 @@ const sim = {
   S, root, cut, FISH, photo: 'Cá dựng từ ảnh (Fish Kit, CC0): luật mật độ cơ cấu tối không áp dụng',
   reset() { defaults(); cut.reset(); Object.assign(disp, {labels: true}); say('cá saba bơi 30 cm/s · bơm miệng–nắp mang'); },
   busy: () => cut.busy(),
-  isOn: (k) => (k === 'cc' && !S.counter) || k === 'f_' + S.sel,
+  isOn: (k) => (k === 'cc' && !S.counter) || k === 'f_' + S.sel || (k === 'mnext' && kitM()) || (k === 'loadall' && Object.keys(FISH).length === ALL.length),
   act(k) {
     if (cut.act(k)) return;
     if (k in disp) { disp[k] = !disp[k]; return; }
     if (k.startsWith('m_')) { S.motion = k.slice(2); return; }
+    if (k === 'mnext') { const i = MOT.findIndex((m) => m[0] === S.motion); S.motion = MOT[(i + 1) % MOT.length][0]; return; }
+    if (k === 'loadall') { S.galleryAsked = true; ensure(ALL.map((x) => x.id)); return; }
     if (k === 'low') { S.low = !S.low; for (const id in FISH) FISH[id].a.setDetail(S.low ? 'low' : 'auto'); return; }
     if (k.startsWith('f_')) { choose(k.slice(2)); return; }
     if (k === 'cc') { S.counter = !S.counter; return; }
@@ -229,6 +237,7 @@ const sim = {
       {name: 'ô xi bão hoà nước ngọt 20 °C (mg/L), bảng USGS 9,09', got: o2Sat(20, 0), want: 9.09, tol: 0.003},
       {name: 'SMR/diện tích × diện tích, cá ngừ vây vàng (mg/kg/h), bảng 3: 286', got: 215.5 * 1.327, want: 286, tol: 0.005},
       {name: 'SMR/diện tích × diện tích, cá saba (mg/kg/h), bảng 3: 132', got: 118.9 * 1.110, want: 132, tol: 0.005},
+      {name: 'cá cam vằn: 3,31 mg/phút/kg × 60 (Clark và Seymour 2006) = 199 mg/kg/h', got: 3.31 * 60, want: BY.hiramasa.smr, tol: 0.005},
       {name: 'hiệu suất ngược dòng NTU 3, AMNH ≈ 75 %', got: effCounter(), want: UTIL, tol: 0.01},
       {name: 'mang cá ngừ vây vàng gấp cá cóc 1 kg, Wegner: "một bậc độ lớn"', got: 1327 / toadArea(1000), want: 10, tol: 0.15}];
   },
@@ -237,11 +246,13 @@ const sim = {
     const yOf = (G) => (S.motion === 'landed' ? 0.03 : S.motion === 'air' ? Y0 + 0.12 : G.y + (G.y < Y0 ? 0 : 0.004 * Math.sin(S.t * 0.8)));
     // vị trí: một con giữa nước, hoặc bốn loài xếp chồng để so
     const ORDER = ['saba', 'kihada', 'seabass', 'magochi'];
-    if (S.gallery && !S.galleryAsked) { S.galleryAsked = true; ensure(ALL.map((x) => x.id)); }
+    if (S.gallery && !S.galleryAsked && !isCmp()) { S.galleryAsked = true; ensure(ALL.map((x) => x.id)); } // màn hẹp: chờ bấm "Tải đủ 20 loài"
     for (const id in FISH) { const G = FISH[id]; G.g.visible = shown(id); G.g.scale.setScalar(S.gallery ? 0.75 : 1);
-      if (S.gallery) { const k = ALL.findIndex((x) => x.id === id); G.g.position.set(-0.6 + (k % 4) * 0.4, 0.86 - Math.floor(k / 4) * 0.19, 0); continue; }
+      if (S.gallery) { const k = ALL.findIndex((x) => x.id === id), c = galCols(); G.g.position.set((k % c - (c - 1) / 2) * 0.4, (c === 4 ? 0.86 : 1.58) - Math.floor(k / c) * (c === 4 ? 0.19 : 0.17), 0); continue; }
       if (S.compare) { const k = ORDER.indexOf(id); G.g.position.set(k % 2 ? 0.25 : -0.25, [0.44, 0.44, 0.22, 0.035][k], 0); } else G.g.position.set(0, yOf(G), 0); }
     snow.visible = true;
+    // sương nước theo khoảng cách máy: góc xa (bộ sưu tập, bốn loài) đẩy sương ra xa, nếu không cá chìm vào nền
+    { const far = S.gallery || S.compare; st.scene.fog.near = far ? 4 : 1.6; st.scene.fog.far = far ? 16 : 5.5; }
     cut.draw();
     // bảng 01: phần ép dòng theo tốc độ
     modeTxt.textContent = F.ram > 0.85 ? 'Ép dòng: há miệng mà bơi' : F.ram > 0.15 ? 'Đang chuyển sang ép dòng' : 'Bơm miệng–nắp mang';
@@ -266,12 +277,12 @@ const sim = {
     const eff = S.counter ? effCounter() : effCo();
     ccTxt.innerHTML = `${S.counter ? 'Ngược dòng' : 'Cùng chiều'}: máu ra mang lấy được <b style="color:${C.or}">${vn(eff * 100, 0)} %</b> ô xi của nước vào. Mô hình NTU = ${NTU} (giả định).`;
     // bảng 04: ô xi, trao đổi chất, lượng nước
-    const C0 = o2Sat(S.T), smr = f.smr ? smrAt(f.smr, S.T) : null, need = f.smr ? waterPerMin(f.smr, S.T) : null;
+    const C0 = o2Sat(S.T), smr = f.smr ? smrAt(f.smr, S.T, f.smrT) : null, need = f.smr ? waterPerMin(f.smr, S.T, f.smrT) : null;
     oRows[0][1].textContent = `${vn(C0, 2)} mg/L`; oRows[1][1].textContent = `${vn(AIR_O2, 0)} mg/L`; oRows[2][1].textContent = `${vn(AIR_O2 / C0, 0)} lần`;
     oRows[3][1].textContent = smr ? `${vn(smr, 0)} mg/kg/h` : 'chưa có số đo'; oRows[4][1].textContent = need ? `${vn(need, 2)} L/phút` : `× ${vn(needRatio(S.T), 2)} so 20 °C`;
-    { const X = (t) => 8 + ((t - 10) / 20) * 256; const ref = FISHES.filter((x) => x.smr); const mx = waterPerMin(286, 30) * 1.08, Y = (v) => 90 - (v / mx) * 80;
+    { const X = (t) => 8 + ((t - 10) / 20) * 256; const ref = ALL.filter((x) => x.smr); const mx = waterPerMin(286, 30) * 1.08, Y = (v) => 90 - (v / mx) * 80;
       let g = `<rect x="0" y="0" width="272" height="100" fill="${C.chart}" stroke="${C.line}"/>`;
-      for (const x of ref) { let d = ''; for (let t = 10; t <= 30.01; t += 1) d += `${t === 10 ? 'M' : 'L'}${X(t).toFixed(1)} ${Y(waterPerMin(x.smr, t)).toFixed(1)}`; g += `<path d="${d}" fill="none" stroke="${x.id === f.id ? C.or : C.ink}" stroke-width="${x.id === f.id ? 2 : 1.2}" opacity="${x.id === f.id ? 1 : 0.55}"/><text x="${X(30) - 2}" y="${Y(waterPerMin(x.smr, 30)) - 4}" text-anchor="end" font-family="JetBrains Mono" font-size="8.5" fill="${x.id === f.id ? C.or : C.mute}">${x.id === 'kihada' ? 'cá ngừ' : 'saba'}</text>`; }
+      for (const x of ref) { let d = ''; for (let t = 10; t <= 30.01; t += 1) d += `${t === 10 ? 'M' : 'L'}${X(t).toFixed(1)} ${Y(waterPerMin(x.smr, t, x.smrT)).toFixed(1)}`; g += `<path d="${d}" fill="none" stroke="${x.id === f.id ? C.or : C.ink}" stroke-width="${x.id === f.id ? 2 : 1.2}" opacity="${x.id === f.id ? 1 : 0.55}"/><text x="${X(30) - 2}" y="${Y(waterPerMin(x.smr, 30, x.smrT)) - 4}" text-anchor="end" font-family="JetBrains Mono" font-size="8.5" fill="${x.id === f.id ? C.or : C.mute}">${x.id === f.id || x.id === 'kihada' ? x.smrShort : ''}</text>`; }
       g += `<line x1="${X(S.T)}" y1="8" x2="${X(S.T)}" y2="92" stroke="${C.mute}" stroke-dasharray="2 2"/>`;
       g += `<text x="6" y="12" font-family="JetBrains Mono" font-size="8.5" fill="${C.mute}">L/phút cho 1 kg</text><text x="${X(10)}" y="99" font-family="JetBrains Mono" font-size="8" fill="${C.mute}">10 °C</text><text x="${X(30)}" y="99" text-anchor="end" font-family="JetBrains Mono" font-size="8" fill="${C.mute}">30 °C</text>`;
       needSvg.innerHTML = g; }
@@ -291,6 +302,8 @@ const sim = {
     ui.setOn('v_compare', S.compare); ui.setOn('v_gallery', S.gallery); for (const [k] of MOT) ui.setOn('m_' + k, S.motion === k); ui.setOn('low', S.low);
     if (document.activeElement !== pick && pick.value !== (S.wait || S.sel)) pick.value = S.wait || S.sel;
     const nLoaded = Object.keys(FISH).length;
+    const nL = Object.keys(FISH).length;
+    mobName.innerHTML = S.gallery ? `Bộ sưu tập · ${nL}/${ALL.length} loài${nL < ALL.length ? (LOADING.size > nL - 4 ? ' · đang tải…' : '<br><i>Bấm “Tải đủ 20 loài” (khoảng 9 MB)</i>') : ''}` : `${f.vi}${S.wait ? ' <i>· đang tải ' + BY[S.wait].vi.toLowerCase() + '…</i>' : ''}<br><i>${f.sci}${kitM() ? ' · ' + MOT.find((m) => m[0] === S.motion)[1].toLowerCase() : ''}</i>`;
     nameEl.innerHTML = S.gallery ? `Bộ sưu tập Fish Kit · ${nLoaded}/${ALL.length} loài${nLoaded < ALL.length ? ' · đang tải…' : ''} · cỡ vẽ bằng nhau` : S.compare ? 'Bốn loài có số đo mang' : `${kitM() ? '<span style="opacity:.85;font-weight:500">Dáng của kit: ' + MOT.find((m) => m[0] === S.motion)[2] + '</span><br>' : ''}${f.vi} <span style="opacity:.7;font-weight:500">· ${f.sci} · ${ALL.findIndex((x) => x.id === S.sel) + 1}/${ALL.length}${S.wait ? ' · đang tải ' + BY[S.wait].vi.toLowerCase() + '…' : ''}</span>`;
     alert.set(f.ram === 'bat-buoc' && S.U < RAM.mid && !S.compare && !S.gallery ? 'CÁ NGỪ KHÔNG BƠM ĐƯỢC NƯỚC: GIỮ ≥ 65 CM/S' : '');
     if (callSub.mieng) callSub.mieng.textContent = F.ram > 0.85 ? 'HÉ MỞ, NƯỚC TỰ VÀO' : 'HÁ RỒI KHÉP';
@@ -313,11 +326,11 @@ const sim = {
 function cardOf(part) {
   const base = {src: SRC_TXT}, f = info();
   if (part === 'ca') return {...base, k: `${f.sci}${f.fb.author ? ' · ' + f.fb.author : ''}`, t: f.vi, b: `${f.fb.note ? f.fb.note[0].toUpperCase() + f.fb.note.slice(1) + ' (FishBase). ' : ''}${f.ja ? 'Tên Nhật trong kit: ' + f.ja + '. ' : ''}Kiểu thở: ${KIEU[f.ram]}${f.ramSuy ? ', suy theo lối sống và quy luật chung của Roberts 1975, chưa đo ở loài này' : ' (' + RAM_SRC[f.id] + ')'}. Mô hình từ Fish Kit (CC0), dựng từ ảnh do máy sinh: hình dáng chỉ minh hoạ.`,
-    rows: [['Dài tối đa (FishBase)', f.fb.maxL || '—'], ...(f.fb.comL ? [['Dài thường gặp', f.fb.comL]] : []), ...(f.fb.maxW ? [['Nặng tối đa', f.fb.maxW]] : []), ['Môi trường', f.fb.env || '—'], ...(f.fb.depth ? [['Độ sâu', f.fb.depth]] : []), ['Diện tích mang, cá 1 kg', f.area ? `${vn(f.area, 0)} mm²/g` : 'chưa có số đo'], ['Phiến mang thứ cấp', f.lam ? `${f.lam} mỗi mm` : '—'], ['Hàng rào nước–máu', f.barrier ? `${f.barrier} µm` : 'chưa có số đo'], ['Trao đổi chất chuẩn, 25 °C', f.smr ? `${f.smr} mg O₂/kg/h` : 'chưa có số đo'], ['Phần ép dòng lúc này', () => `${vn(cur().ram * 100, 0)} %`]]};
+    rows: [['Dài tối đa (FishBase)', f.fb.maxL || '—'], ...(f.fb.comL ? [['Dài thường gặp', f.fb.comL]] : []), ...(f.fb.maxW ? [['Nặng tối đa', f.fb.maxW]] : []), ['Môi trường', f.fb.env || '—'], ...(f.fb.depth ? [['Độ sâu', f.fb.depth]] : []), ['Diện tích mang, cá 1 kg', f.area ? `${vn(f.area, 0)} mm²/g` : 'chưa có số đo'], ['Phiến mang thứ cấp', f.lam ? `${f.lam} mỗi mm` : '—'], ['Hàng rào nước–máu', f.barrier ? `${f.barrier} µm` : 'chưa có số đo'], ['Tiêu hao ô xi lúc nghỉ', f.smr ? `${vn(f.smr, 0)} mg O₂/kg/h ở ${f.smrT} °C` : 'chưa có số đo'], ...(f.smrNote ? [['Số đo ấy', f.smrNote]] : []), ...(f.ja ? [['Tên Việt', VISRC[f.viSrc || 'nhom']]] : []), ['Phần ép dòng lúc này', () => `${vn(cur().ram * 100, 0)} %`]]};
   if (part === 'mieng') return {...base, k: 'Pha 1 của bơm', t: 'Miệng và xoang miệng', b: 'Miệng mở, nền xoang miệng hạ xuống: thể tích tăng, áp suất giảm, nước bị hút vào. Miệng khép, xoang miệng nâng lên ép nước ra sau qua mang. Van ở môi giữ nước không trào ngược ra miệng.',
     rows: [['Nhịp vẽ', () => `${vn(0.8 * needRatio(S.T) * (1 - 0.7 * cur().ram), 2)} lần/s (minh hoạ)`], ['Khi ép dòng', 'hé mở, không bơm']]};
   if (part === 'nap') return {...base, k: 'Pha 2 của bơm', t: 'Nắp mang và mang', b: 'Xoang nắp mang nở ra hút nước từ xoang miệng qua các lá mang; khi nó co lại, mép nắp mang mở cho nước ra. Hai xoang lệch pha nên nước qua mang gần như liên tục, một chiều. Dưới nắp là bốn cung mang mỗi bên, mỗi cung mang hai hàng sợi mang phủ đầy phiến mang thứ cấp.',
-    rows: [['Ô xi mang lấy được', '≈ 75 % (AMNH)'], ['Phiến mang thứ cấp, cá saba', '30–36 mỗi mm'], ['Phiến mang thứ cấp, cá cóc', '10–13 mỗi mm'], ['Nước qua mang (1 kg)', () => (info().smr ? `${vn(waterPerMin(info().smr, S.T), 2)} L/phút` : '—')]]};
+    rows: [['Ô xi mang lấy được', '≈ 75 % (AMNH)'], ['Phiến mang thứ cấp, cá saba', '30–36 mỗi mm'], ['Phiến mang thứ cấp, cá cóc', '10–13 mỗi mm'], ['Nước qua mang (1 kg)', () => (info().smr ? `${vn(waterPerMin(info().smr, S.T, info().smrT), 2)} L/phút` : '—')]]};
   if (part === 'lung') return {...base, k: 'Giữ thăng bằng', t: 'Vây lưng và vây hậu môn', b: 'Hai vây lẻ dọc sống lưng và bụng dựng lên giữ cá không lật nghiêng và không lắc ngang; khi lao nhanh cá xếp chúng sát thân cho đỡ cản nước.', rows: [['Khi lao nhanh', 'xếp sát thân']]};
   if (part === 'nguc') return {...base, k: 'Lái và hãm', t: 'Vây ngực', b: 'Đôi vây ngực xoè ra như bánh lái và phanh: rẽ, hãm, chúc lên xuống, và chèo nhẹ để giữ chỗ khi cá dừng lại thở bằng bơm.', rows: [['Khi dừng', 'chèo giữ chỗ']]};
   if (part === 'duoi') return {...base, k: 'Đẩy cá tiến', t: 'Vây đuôi', b: 'Khúc đuôi và vây đuôi quạt sang hai bên đẩy cá tiến lên. Nhịp vẫy tăng theo tốc độ: Bainbridge (1958) đo ở cá hồi, cá vàng, cá dace được U = L/4·(3f − 4).',
@@ -334,7 +347,7 @@ const views = {
   head: () => { const p = wpt('nap'); return {tx: p[0] + 0.03, ty: p[1], tz: 0, az: 30, el: 8, d: 0.42, sx: 0, sy: -20}; },
   top: () => { const p = tgt(); return {tx: p[0], ty: p[1], tz: 0, az: 0, el: 80, d: 1.2, sx: 0, sy: -20}; },
   compare: () => ({tx: 0, ty: 0.25, tz: 0, az: 10, el: 6, d: 2.1, sx: 0, sy: -20}),
-  gallery: () => ({tx: 0, ty: 0.48, tz: 0, az: 6, el: 4, d: 3.8, sx: 0, sy: -20}),
+  gallery: () => (galCols() === 4 ? {tx: 0, ty: 0.48, tz: 0, az: 6, el: 4, d: 3.8, sx: 0, sy: -20} : {tx: 0, ty: 1.3, tz: 0, az: 0, el: 3, d: 4.9, sx: 0, sy: 0}),
 };
 views.cut = (t) => cut.view(views.hero(t)) || views.hero(t);
 // góc "Bốn loài" bật chế độ so sánh, các góc khác tắt (góc đang dùng được gọi mỗi khung)
@@ -353,6 +366,7 @@ const CAP = [
   {k: 'DIỆN TÍCH VÀ ĐỘ MỎNG', t: 'Bốn loài, bốn bộ mang', b: 'Khí khuếch tán qua mang càng nhanh khi diện tích càng lớn và hàng rào càng mỏng. Cá ngừ vây vàng 1 kg có 1327 mm² mang mỗi gam, cá saba 1110; cá cóc sống đáy chỉ khoảng 130, ít hơn khoảng mười lần. Cá bơi nhanh, tiêu nhiều ô xi thì mang lớn và mỏng.', e: 'tốc độ khuếch tán ∝ diện tích × chênh lệch nồng độ ÷ bề dày'},
   {k: 'NƯỚC ẤM', t: 'Nước ấm: ít ô xi hơn, cá cần nhiều hơn', b: 'Kéo nhiệt độ từ 20 lên 30 °C: ô xi bão hoà giảm từ 7,4 xuống 6,2 mg/L, còn trao đổi chất của cá biến nhiệt tăng khoảng gấp đôi. Cá saba 1 kg phải cho lượng nước qua mang tăng khoảng 2,4 lần; nhịp bơm của cá đứng yên nhanh hẳn lên.', e: 'nước = SMR ÷ (ô xi × 75 %)',
     ask: {q: 'Vì sao mùa hè nóng, cá trong ao hay nổi đầu?', o: ['Vì cá thích nắng', 'Vì nước ấm hoà tan ít ô xi hơn trong khi cá cần nhiều ô xi hơn', 'Vì nước ấm nặng hơn'], a: 1, e: 'Hai hiệu ứng cùng chiều: ô xi hoà tan giảm và trao đổi chất tăng, nên cá thiếu ô xi và lên mặt nước nơi có lớp nước giàu ô xi hơn.'}},
+  {k: 'BỘ SƯU TẬP FISH KIT', t: 'Hai mươi loài, mỗi loài một dáng', b: 'Cá nổi bơi nhanh như cá thu, cá cam thân thon hình thoi; cá sống đáy như cá chai, cá kasago thân dẹt hoặc to đầu; cá hố dài như dải băng. Bấm một con để đưa nó vào bài: thở, dòng nước qua mang, tháo từng bộ phận. Năm loài có số đo tiêu hao ô xi; các loài khác ghi rõ chưa có số đo.', e: 'chọn loài: danh sách, góc “20 loài”, nút “Loài khác”'},
   {k: 'PHIM THÁO RỜI', t: 'Từng bộ phận, rồi cả con', b: 'Miệng, nắp mang, vây lưng, vây ngực, vây đuôi lần lượt mở hết cỡ dưới góc máy riêng, rồi cả con mở cùng lúc trên bàn xoay. Bấm từng nút ở bảng 06 để tự xem.', e: 'miệng → nắp mang → vây lưng → vây ngực → vây đuôi → cả con'},
 ];
 const ev = [], at = (t, o) => ev.push({at: t, ...o});
@@ -364,12 +378,13 @@ at(44, {cap: 4}); at(44.5, {click: 'f_magochi'}); at(45, {slide: 'U', to: 0, dur
 at(53, {cap: 5}); at(53.5, {click: 'f_saba'}); at(54, {slide: 'U', to: 0.3, dur: 1}); at(56, {click: 'cc'}); at(60, {click: 'cc'});
 at(62, {cap: 6}); at(62.5, {click: 'v_compare'}); at(69, {click: 'v_hero'});
 at(70, {cap: 7}); at(70.5, {slide: 'U', to: 0, dur: 1}); at(71.5, {click: 'v_head'}); at(72, {slide: 'T', to: 1, dur: 4}); at(77, {slide: 'T', to: 0.5, dur: 1.5});
-at(80, {cap: 8}); at(80.2, {slide: 'U', to: 0.3, dur: 0.6}); at(80.5, {click: 'cut_film'});
+at(80, {cap: 8}); at(80.5, {click: 'v_gallery'}); at(85, {click: 'm_range'}); at(89, {click: 'm_auto'}); at(89.5, {click: 'v_hero'});
+at(90, {cap: 9}); at(90.2, {slide: 'U', to: 0.3, dur: 0.6}); at(90.5, {click: 'cut_film'});
 ev.sort((a, b) => a.at - b.at);
 
 sim.reset();
-runLive({stage: st, ui, sim, views, captions: CAP, script: {events: ev, duration: 80.5 + cut.duration + 2}, firstView: 'hero',
-  extra: [{key: 'stop', label: 'Dừng'}, {key: 'fast', label: 'Lao nhanh'}, {key: 'next', label: 'Loài khác'}, {key: 'cc', label: 'Cùng chiều'}],
+runLive({stage: st, ui, sim, views, captions: CAP, script: {events: ev, duration: 90.5 + cut.duration + 2}, firstView: 'hero',
+  extra: [{key: 'stop', label: 'Dừng'}, {key: 'fast', label: 'Lao nhanh'}, {key: 'next', label: 'Loài khác'}, {key: 'mnext', label: 'Dáng khác'}, {key: 'loadall', label: 'Tải đủ 20 loài'}, {key: 'cc', label: 'Cùng chiều'}],
   shell: {subject: 'Sinh học 11 · hô hấp ở động vật', objectives: ['Trình bày cơ chế bơm miệng–nắp mang và thông khí ép dòng ở cá xương', 'Giải thích vì sao trao đổi ngược dòng giúp mang lấy được phần lớn ô xi trong nước', 'Liên hệ diện tích mang, nhiệt độ nước và nhu cầu ô xi với lối sống của từng loài cá'],
     credit: 'Mô phỏng chạy trực tiếp trong trình duyệt, dựng trên teardown của elvarofficial, claude-motion của whaleyxbt và cutaway của Nyxera0x (MIT). Mô hình cá: Fish Kit của なちゃっと (@nachat_dayo), CC0. Số đo theo Wegner và cộng sự (2010), Hughes và Gray (1972), Roberts (1975), Benson và Krause (1984), AMNH; chỗ giả định ghi rõ trong thẻ soi.'},
   keys: {1: 'v_hero', 2: 'v_side', 3: 'v_head', 4: 'v_top', 5: 'v_compare', 6: 'v_gallery', l: 'next', s: 'stop', f: 'fast', c: 'cc', n: 'labels', q: 'cut_mieng', w: 'cut_nap', e: 'cut_lung', r: 'cut_nguc', d: 'cut_duoi', g: 'cut_film', t: 'cut_all'}});
