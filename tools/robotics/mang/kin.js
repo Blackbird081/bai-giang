@@ -59,3 +59,15 @@ export function profile(x, counter, n = NTU) {
   if (counter) { const e = effCounter(n); return {w: 1 - e * x, b: e * (1 - x)}; }
   const k = Math.exp(-2 * n * x); return {w: 0.5 + 0.5 * k, b: 0.5 - 0.5 * k};
 }
+
+// 16 loài còn lại của Fish Kit: chỉ để xem dáng (bộ sưu tập, nút "Loài khác"). Tên khoa học theo tên tiếng Nhật của kit;
+// tên Việt của vài loài chỉ gần đúng theo nhóm, nên thẻ ghi kèm tên Nhật. Chưa có số đo mang có nguồn cho các loài này.
+export const EXTRA = [
+  ['aji', 'Cá sòng Nhật', 'Trachurus japonicus', 'マアジ'], ['mebaru', 'Cá mebaru', 'Sebastes inermis', 'メバル'], ['kasago', 'Cá mù làn', 'Sebastiscus marmoratus', 'カサゴ'],
+  ['tachiuo', 'Cá hố', 'Trichiurus japonicus', 'タチウオ'], ['sawara', 'Cá thu sawara', 'Scomberomorus niphonius', 'サワラ'], ['kamasu', 'Cá nhồng', 'Sphyraena pinguis', 'アカカマス'],
+  ['buri', 'Cá cam Nhật', 'Seriola quinqueradiata', 'ブリ'], ['hiramasa', 'Cá cam vằn', 'Seriola lalandi', 'ヒラマサ'], ['kurodai', 'Cá tráp đen', 'Acanthopagrus schlegelii', 'クロダイ'],
+  ['madai', 'Cá tráp đỏ', 'Pagrus major', 'マダイ'], ['katakuchi', 'Cá cơm Nhật', 'Engraulis japonicus', 'カタクチイワシ'], ['isaki', 'Cá sạo isaki', 'Parapristipoma trilineatum', 'イサキ'],
+  ['isaki_young', 'Cá sạo isaki non', 'Parapristipoma trilineatum', 'イサキ（幼魚）'], ['onagagure', 'Cá gure đuôi dài', 'Girella leonina', 'オナガグレ'], ['kuchibuto', 'Cá mejina', 'Girella punctata', 'クチブトグレ'],
+  ['shibudai', 'Cá hồng sao', 'Lutjanus stellatus', 'シブダイ'],
+].map(([id, vi, sci, ja]) => ({id, vi, sci, ja, area: null, smr: null, lam: null, barrier: null, ram: null, life: null}));
+export const ALL = [...FISHES, ...EXTRA];
