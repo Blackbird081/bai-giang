@@ -40,9 +40,22 @@ const names = args.length ? args : fs.readdirSync(HERE).filter((d) => fs.existsS
 for (const name of names) {
   const dir = path.join(HERE, name), t0 = Date.now();
   const meta = JSON.parse(fs.readFileSync(path.join(dir, 'meta.json'), 'utf8'));
+  // tệp kèm (vd. mô hình .glb của bài Cá thở bằng mang): meta.assets là thư mục trong thư mục bài. Trên site chép cạnh trang,
+  // trang đọc qua đường dẫn tương đối; bản đăng một tệp (--out) nhúng thành data: URL qua ASSET_MAP.
+  let assetMap = null;
+  if (meta.assets) {
+    const src = path.join(dir, meta.assets), files = fs.readdirSync(src).filter((f) => /\.(glb|webp|png|jpg)$/.test(f));
+    const mime = (f) => (f.endsWith('.glb') ? 'model/gltf-binary' : f.endsWith('.webp') ? 'image/webp' : f.endsWith('.png') ? 'image/png' : 'image/jpeg');
+    if (outDir) assetMap = Object.fromEntries(files.map((f) => [f, `data:${mime(f)};base64,${fs.readFileSync(path.join(src, f)).toString('base64')}`]));
+    else {
+      const dst = path.join(path.dirname(path.join(REPO, meta.out || path.join('robotics', name, 'index.html'))), meta.assets);
+      fs.mkdirSync(dst, {recursive: true});
+      for (const f of fs.readdirSync(src)) fs.copyFileSync(path.join(src, f), path.join(dst, f));
+    }
+  }
   const res = await esbuild.build({
     entryPoints: [path.join(dir, 'main.js')], bundle: true, nodePaths: [NM], format: 'esm', minify: !process.env.DEBUG, write: false,
-    target: 'es2022', legalComments: 'none', logLevel: 'warning', define: {HUB_URL: JSON.stringify(hub || '../../')},
+    target: 'es2022', legalComments: 'none', logLevel: 'warning', define: {HUB_URL: JSON.stringify(hub || '../../'), ASSET_MAP: JSON.stringify(assetMap)},
   });
   const js = res.outputFiles[0].text.replace(/<\/script/g, '<\\/script');
   const html = `<!doctype html>

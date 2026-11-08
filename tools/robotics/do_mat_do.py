@@ -6,6 +6,7 @@ Cần máy chủ tĩnh đang phục vụ thư mục gốc kho ở cổng đã ch
   · chụp toàn cảnh (tắt bóng, sàn trắng trơn), chụp lại khi giấu vật; điểm ảnh khác nhau là vật. Trong khung bao vật, đếm tỉ lệ
     điểm có độ sáng dưới 80. Bài mới phải đạt ít nhất 0,8 lần ảnh đã duyệt (chó robot, lưu trong do_mat_do.json).
     Vật thưa (vật chiếm dưới 0,6 lần tỉ lệ khung của ảnh đã duyệt) thì so tỉ lệ điểm tối trên điểm ảnh của vật.
+    Bài có vật dựng từ ảnh thật (LIVE.sim.photo, vd. cá của Fish Kit) thì bỏ qua mật độ, ghi lí do; các phép đo khác giữ.
   · LIVE.sim.measure() (nếu bài có): tỉ lệ đo trên mô hình so với số có nguồn, mỗi dòng có dung sai riêng.
   · LIVE.sim.cut.audit() (nếu bài có chế độ tháo rời): không có cặp nhịp nào đặt máy cùng chỗ.
 --baseline: đo lại ảnh đã duyệt và ghi vào do_mat_do.json.
@@ -58,6 +59,7 @@ async def measure(pg, path, port):
             out['dark_obj'] = round(sum(1 for v in obj if v < 80) / max(1, len(obj)), 4)
             out['fill'] = round(len(obj) / len(px), 3)
     out['measure'] = await pg.evaluate("() => LIVE.sim.measure ? LIVE.sim.measure() : null")
+    out['photo'] = await pg.evaluate("() => LIVE.sim.photo || null")
     out['audit'] = await pg.evaluate("() => LIVE.sim.cut ? LIVE.sim.cut.audit() : null")
     return out
 
@@ -81,7 +83,10 @@ async def main(argv):
         for path in paths:
             r = await measure(await ctx.new_page(), path, port)
             bad = []
-            if r.get('dark') is not None:
+            photo = r.get('photo')
+            if photo:
+                r['metric'] = f'bỏ qua mật độ: {photo}'
+            if r.get('dark') is not None and not photo:
                 # vật thưa (chân nhện, khung giàn) thì khung bao chủ yếu là nền: so trên điểm ảnh của chính vật
                 sparse = r['fill'] < 0.6 * base['fill']
                 k = (r['dark_obj'] / base['dark_obj']) if sparse else (r['dark'] / base['dark'])

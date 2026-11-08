@@ -8,6 +8,7 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 |---|---|
 | Trang chính Sáng Ăn Khoai | https://nclamvn.github.io/bai-giang/ |
 | Cơ thể người 3D (Khoa học tự nhiên 8, BodyVista Việt hoá) | https://nclamvn.github.io/bai-giang/co-the-nguoi/ |
+| Cá thở bằng mang (Sinh học 11, hô hấp và trao đổi khí ở động vật) | https://nclamvn.github.io/bai-giang/sinh-hoc-11/ca-tho-bang-mang/ |
 | Neuron và xung thần kinh (Sinh học 11, phong cách điện ảnh) | https://nclamvn.github.io/bai-giang/than-kinh/ |
 | Động cơ xăng 4 kì (Công nghệ 11, cơ khí động lực) | https://nclamvn.github.io/bai-giang/cong-nghe/dong-co-4-ki/ |
 | Robot cá mập mako (Vật lí 10, lực cản và lực nâng) | https://nclamvn.github.io/bai-giang/vat-li-10/ca-map-robot/ |
@@ -32,7 +33,7 @@ Bài giảng 3D tương tác bằng tiếng Việt. Trang chính gom mọi bài:
 | Xe tự hành vi sai (TurtleBot3 Burger) | https://nclamvn.github.io/bai-giang/robotics/turtlebot3/ |
 | 54 bài thí nghiệm | https://nclamvn.github.io/bai-giang/#thu-vien |
 
-Cả 15 mô phỏng dựng bằng bộ robotics (6 robot, Động cơ 4 kì, Robot cá mập, Tháp năm tầng, Hải đăng khung sắt, Đồng hồ cơ, Nhện chân thuỷ lực, Cá piranha, Máy ảnh cắt lớp) có thanh tốc độ tạm dừng đến 10× và **soi chi tiết**: bấm vào một khớp, động cơ, bánh, cảm biến hay thân để mở thẻ (vai trò, số đo có nguồn, số chạy theo mô phỏng), camera bám theo bộ phận đó. Thẻ khai báo trong `pick` của từng bài, bộ máy chung ở [`tools/robotics/kit/soi.js`](tools/robotics/kit/soi.js).
+Cả 16 mô phỏng dựng bằng bộ robotics (6 robot, Động cơ 4 kì, Robot cá mập, Tháp năm tầng, Hải đăng khung sắt, Đồng hồ cơ, Nhện chân thuỷ lực, Cá piranha, Máy ảnh cắt lớp, Cá thở bằng mang) có thanh tốc độ tạm dừng đến 10× và **soi chi tiết**: bấm vào một khớp, động cơ, bánh, cảm biến hay thân để mở thẻ (vai trò, số đo có nguồn, số chạy theo mô phỏng), camera bám theo bộ phận đó. Thẻ khai báo trong `pick` của từng bài, bộ máy chung ở [`tools/robotics/kit/soi.js`](tools/robotics/kit/soi.js).
 
 Bài TurtleBot3 có thêm bước 9 **Lắp ráp theo tầng**: 15 cụm từ tấm đế tới LiDAR, máy kiểm thứ tự và lối vào của tuốc nơ vít (tầng trên úp xuống thì không còn với tới mạch bên dưới); thứ tự theo hướng dẫn lắp Burger của ROBOTIS, rút gọn để học ([`tools/robotics/turtlebot3/cum.js`](tools/robotics/turtlebot3/cum.js)).
 
@@ -49,6 +50,8 @@ Bài **Nhện chân thuỷ lực** (Vật lí 10): khớp đùi–gối và chà
 Bài **Cá piranha** (Vật lí 10): piranha đen 368 mm, 1,12 kg cắn 320 N, mạnh nhất từng đo ở cá, hơn 30 lần trọng lượng (Grubich và cộng sự, 2012). Hàm dưới là đòn bẩy quay quanh khớp hàm: F_cắn·d = F_cơ·L_in; lợi thế cơ học 0,48 ở răng đầu mút, 1,0 ở răng thứ tư, 1,5 ở răng trong cùng như số đo; suy ngược lực cơ khép hàm ≈ 670 N, ứng suất ≈ 28 N/cm² trên tiết diện 23,5 cm². Lực cắn theo cỡ cá dùng độ dốc 2,30 của hồi quy, neo qua con đo được 320 N (đường hồi quy gốc cũng vẽ ra để so). Khối lượng theo quan hệ dài–nặng của FishBase ([`tools/robotics/piranha/kin.js`](tools/robotics/piranha/kin.js)).
 
 Bài **Máy ảnh cắt lớp** (Khoa học tự nhiên 9): ống kính Canon EF 50mm f/1.8 STM coi như một thấu kính mỏng 50 mm trên cảm biến 36 × 24 mm, cách mặt ngàm EF 44,0 mm. Ba tia đặc biệt từ đỉnh ngọn nến gặp nhau trên cảm biến thành ảnh thật, ngược, nhỏ hơn; lấy nét là dời thấu kính (1/f = 1/d + 1/d′); khẩu bảy lá với D = f/N, lượng sáng ∝ t/N², vòng nhoè của hậu cảnh; gương lật, màn trập hai lá; ảnh vừa chụp hiện ở bảng. Mô hình kiểm lại bằng chính số của hãng: góc nhìn 39,6° × 27,0° × 46,8° (Canon 40° × 27° × 46°), lấy nét 0,35 m cho phóng đại 0,209× (Canon 0,21×) ([`tools/robotics/may-anh/kin.js`](tools/robotics/may-anh/kin.js)).
+
+Bài **Cá thở bằng mang** (Sinh học 11): cá thật dựng từ ảnh của [Fish Kit](https://cda-social.github.io/fish/gallery.html) (なちゃっと, CC0; ảnh gốc do máy sinh nên mô hình chỉ để nhìn, không đo). Bài điều khiển nhịp thở của kit: khi bơi chậm cá bơm nước bằng miệng và nắp mang lệch pha, hạt cam đi vào miệng, ra khe nắp mang; bơi nhanh thì chuyển dần sang ép dòng trên khoảng 35–82 cm/s (Roberts 1975). Cá ngừ vây vàng bắt buộc ép dòng, cá chai sống đáy luôn bơm. Lượng nước phải qua mang = trao đổi chất chuẩn ÷ (ô xi hoà tan × 75 %), với SMR 286 và 132 mg O₂/kg/h ở 25 °C, diện tích mang 1327 và 1110 mm²/g (Wegner và cộng sự 2010), ô xi hoà tan theo Benson và Krause (1984), Q10 = 2; cá cóc Mỹ chỉ khoảng 130 mm²/g (Hughes và Gray 1972). Mô hình trao đổi ngược dòng NTU = 3 cho 75 % như số của AMNH, cùng chiều chỉ 50 % ([`tools/robotics/mang/kin.js`](tools/robotics/mang/kin.js)). Bộ đóng gói chép tệp kèm (`meta.assets`) cạnh trang, bản một tệp nhúng thành data URL.
 
 - Bản offline một file cho lớp học, tải ở [Releases](https://github.com/nclamvn/bai-giang/releases/latest): [Hành Trình Vào Tế Bào](https://github.com/nclamvn/bai-giang/releases/latest/download/hanh-trinh-te-bao-offline.html) (9 MB) và [Vào Ty Thể](https://github.com/nclamvn/bai-giang/releases/latest/download/vao-ty-the-offline.html) (8 MB). Mở bằng Chrome hoặc Edge, không cần mạng.
 - Địa chỉ cũ (`ty-the.html`, `ar.html`, `chu-de-sinh-hoc-te-bao.html`, `thu-vien/`) tự chuyển sang địa chỉ mới.

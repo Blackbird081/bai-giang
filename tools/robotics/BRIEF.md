@@ -58,3 +58,7 @@ Phương pháp học theo cutaway của Nyxera0x (giấy phép MIT, github.com/N
 - Piranha: khi hồi quy của nguồn lệch điểm đo cụ thể mà bài dựng theo, giữ độ dốc, neo qua điểm đo và vẽ cả đường gốc cho học sinh so.
 - Máy ảnh: thân trắng trên nền trắng gần như vô hình; vật thật màu sẫm thì để sẫm, giữ một tấm trắng làm điểm nhấn.
 - Lực tính từ đạo hàm của một biến nhảy bậc (đổi chế độ) phải giới hạn tốc độ thay đổi, nếu không đồ thị vọt đỉnh giả.
+- Cá thở bằng mang: nền nước tối thì chữ ghi thẳng trên canvas (số lớn, đường dẫn nhãn) phải trắng; ngoài khung bể che nền trắng và giấu nhãn có điểm neo ra ngoài khung.
+- Kiểm ảnh dưới swiftshader chỉ khoảng 1 khung mỗi giây, mỗi khung bị giới hạn bước thời gian: chờ 2,5 s thì cảnh mới chạy vài phần mười giây, nắp mang chưa kịp mở. Gọi `sim.step(1/30)` bằng tay cho đủ thời gian rồi mới chụp.
+- Vật dựng từ ảnh do máy sinh (Fish Kit) chỉ để nhìn: số đo cơ thể lấy từ nguồn, không đo trên mô hình; luật mật độ cơ cấu tối bỏ qua bằng `sim.photo` (ghi lí do).
+- Cá thở bằng mang: đo chiều dài bằng Box3.setFromObject tính cả hạt nước gắn vào cá (Points), ra 47 cm thay vì 40; khung đo chỉ gom Mesh.

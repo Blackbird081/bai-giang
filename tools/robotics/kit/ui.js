@@ -183,7 +183,7 @@ export function createUI(app) {
   const leaderSvg = add(`<svg style="position:absolute;inset:0;overflow:visible" width="1600" height="900"></svg>`);
   const calls = {};
   ui.callouts = (items) => { for (const it of items) calls[it.key] = add(`<div class="call" style="opacity:0"><b><i></i>${sc(it.title)}</b>${it.sub ? `<span>${sc(it.sub)}</span>` : ''}</div>`); };
-  ui.drawCallouts = (list, k = 1) => {
+  ui.drawCallouts = (list, k = 1, line = C.ink) => {
     let g = '';
     const seen = new Set();
     for (const c of list) {
@@ -191,7 +191,7 @@ export function createUI(app) {
       if (!c.p || k < 0.02) { n.style.opacity = 0; continue; }
       const [px, py] = c.p, lx = px + (c.dx ?? 60), ly = py + (c.dy ?? -40);
       n.style.opacity = k; n.style.left = `${lx + (c.dx < 0 ? -n.offsetWidth : 0)}px`; n.style.top = `${ly - 8}px`;
-      g += `<path d="M${px} ${py}L${lx} ${ly}" stroke="${C.ink}" stroke-width=".8" fill="none" opacity="${k}"/><circle cx="${px}" cy="${py}" r="2.4" fill="${C.dot || C.or}" opacity="${k}"/>`;
+      g += `<path d="M${px} ${py}L${lx} ${ly}" stroke="${line}" stroke-width=".8" fill="none" opacity="${k}"/><circle cx="${px}" cy="${py}" r="2.4" fill="${line === C.ink ? (C.dot || C.or) : line}" opacity="${k}"/>`;
     }
     for (const [key, n] of Object.entries(calls)) if (!seen.has(key)) n.style.opacity = 0;
     leaderSvg.innerHTML = g;

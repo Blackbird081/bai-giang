@@ -12,7 +12,7 @@ PORT = sys.argv[1] if len(sys.argv) > 1 else '8777'
 # (đường dẫn, có vỏ bài học không)
 PAGES = [('', False), ('chu-de/sinh-hoc-te-bao/', False), ('lich-su-10/', False), ('robotics/', False), ('kiem-may/', False),
          ('dieu-khien/', False), ('thu-vien/enzyme-step.html', True), ('thu-vien/titration-step.html', True),
-         ('robotics/ur5e/', True), ('robotics/hexapod/', True), ('robotics/quadruped/', True), ('robotics/jellyfish/', True), ('robotics/crazyflie/', True), ('robotics/turtlebot3/', True), ('ty-the/', True), ('te-bao/', True), ('lich-su-10/co-loa/', True), ('co-the-nguoi/', True), ('than-kinh/', True), ('cong-nghe/dong-co-4-ki/', True), ('vat-li-10/ca-map-robot/', True), ('vat-li-11/thap-nam-tang/', True), ('vat-li-11/dong-ho-co/', True), ('vat-li-10/nhen-thuy-luc/', True), ('vat-li-10/ca-piranha/', True), ('khtn-9/may-anh/', True), ('vat-li-10/hai-dang/', True),
+         ('robotics/ur5e/', True), ('robotics/hexapod/', True), ('robotics/quadruped/', True), ('robotics/jellyfish/', True), ('robotics/crazyflie/', True), ('robotics/turtlebot3/', True), ('ty-the/', True), ('te-bao/', True), ('lich-su-10/co-loa/', True), ('co-the-nguoi/', True), ('than-kinh/', True), ('cong-nghe/dong-co-4-ki/', True), ('vat-li-10/ca-map-robot/', True), ('vat-li-11/thap-nam-tang/', True), ('vat-li-11/dong-ho-co/', True), ('vat-li-10/nhen-thuy-luc/', True), ('vat-li-10/ca-piranha/', True), ('khtn-9/may-anh/', True), ('sinh-hoc-11/ca-tho-bang-mang/', True), ('vat-li-10/hai-dang/', True),
          ('giao-vien/', False), ('giao-vien/te-bao/', False), ('giao-vien/than-kinh/', False), ('giao-vien/co-loa/', False)]
 IGNORE = ('WebGPU', 'GPU stall', 'Automatic fallback', 'favicon', 'ERR_NAME_NOT_RESOLVED')
 
