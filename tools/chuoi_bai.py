@@ -8,7 +8,7 @@ Chạy riêng để xem:  python3 tools/chuoi_bai.py
 import json, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CAT = json.load(open(ROOT / 'thu-vien/catalog.vi.json', encoding='utf-8'))
+CAT = json.loads((ROOT / 'thu-vien/catalog.vi.json').read_text(encoding='utf-8'))
 BY = {c['slug']: c for c in CAT}
 
 SUBJ = {'bio': ('Sinh học', 'sinh', 'sinh-hoc'), 'chem': ('Hoá học', 'hoa', 'hoa-hoc'), 'phys': ('Vật lí', 'ly', 'vat-li'), 'geo': ('Địa lí', 'dia', 'dia-li')}
@@ -89,7 +89,7 @@ def build():
         n = CHAIN_ROBO[k + 1] if k + 1 < len(CHAIN_ROBO) else None
         put(s, robo_crumb, nxt_lesson(n, f'Robotics · bài {k + 2}/{len(CHAIN_ROBO)}') if n else {'title': 'Mục lục Robotics', 'href': 'robotics/', 'sub': 'Sáu mô phỏng'}, 'Robotics', 'robo')
     # thư viện: theo thứ tự danh mục trong từng môn; bài cuối của môn dẫn về thư viện
-    for sub, (mon, key, anchor) in SUBJ.items():
+    for sub, (mon, key, _anchor) in SUBJ.items():
         lst = [c['slug'] for c in CAT if c['subject'] == sub and c['slug'] not in CHAIN_CELL]
         crumb = [{'t': 'Thư viện', 'href': '#thu-vien'}, {'t': mon, 'href': f'?mon={sub}#thu-vien'}]
         for k, s in enumerate(lst):

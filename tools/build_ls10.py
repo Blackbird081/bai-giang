@@ -11,7 +11,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import liquid_glass as LG
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CT = json.load(open(ROOT / 'lich-su-10/chuong-trinh.json', encoding='utf-8'))
+CT = json.loads((ROOT / 'lich-su-10/chuong-trinh.json').read_text(encoding='utf-8'))
 E = lambda s: html.escape(str(s), quote=True)
 
 TEN = ['Lịch sử và sử học', 'Vai trò của sử học', 'Một số nền văn minh thế giới thời cổ – trung đại',

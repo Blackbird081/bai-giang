@@ -19,9 +19,9 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import liquid_glass as LG
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CAT = json.load(open(ROOT / 'thu-vien/catalog.vi.json', encoding='utf-8'))
-GD = json.load(open(ROOT / 'thu-vien/gdpt2018.json', encoding='utf-8'))
-TPL = open(ROOT / 'tools/bai-giang.template.html', encoding='utf-8').read()
+CAT = json.loads((ROOT / 'thu-vien/catalog.vi.json').read_text(encoding='utf-8'))
+GD = json.loads((ROOT / 'thu-vien/gdpt2018.json').read_text(encoding='utf-8'))
+TPL = (ROOT / 'tools/bai-giang.template.html').read_text(encoding='utf-8')
 E = lambda s: html.escape(str(s), quote=True)
 
 
@@ -104,7 +104,7 @@ def chu_de(links, lesson_href):
     name = {r[0]: (r[1] or cat[r[0]]['title']) for r in ROUTE}
     href = lambda slug: links['__L_CELL__'] if slug == 'te-bao' else links['__L_MITO__'] if slug == 'ty-the' else lesson_href(cat[slug]['file'])
     cards = []
-    for i, (slug, title, kind, focus, dur, desc, ask) in enumerate(ROUTE, 1):
+    for i, (slug, title, _kind, focus, dur, desc, ask) in enumerate(ROUTE, 1):
         c = cat.get(slug); g = GD['bai'].get(slug, {'khop': [], 'ghi_chu': ''})
         title = title or c['title']; desc = desc or ('Câu hỏi chính của bài: ' + c['question']); ask = ask or (c['question'] if c else '')
         steps = (' · '.join(c['steps'])) if c else ''
@@ -270,9 +270,9 @@ if __name__ == '__main__':
         out = pathlib.Path(sys.argv[2]); cell, mito, hub, coloa = sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6]
         art = {'__L_GV__': 'https://nclamvn.github.io/bai-giang/giao-vien/', '__L_ENGINE__': 'https://nclamvn.github.io/bai-giang/cong-nghe/dong-co-4-ki/', '__L_MAKO__': 'https://nclamvn.github.io/bai-giang/vat-li-10/ca-map-robot/', '__L_BODY__': 'https://nclamvn.github.io/bai-giang/co-the-nguoi/', '__L_NEURON__': 'https://nclamvn.github.io/bai-giang/than-kinh/', '__L_CELL__': cell, '__L_MITO__': mito, '__L_CHUDE__': 'chu-de-sinh-hoc-te-bao.html', '__L_COLOA__': coloa, '__L_LS10__': 'lich-su-10.html', '__L_ROBO__': 'robotics.html', '__L_KIEM__': 'https://nclamvn.github.io/bai-giang/kiem-may/', '__L_REMOTE__': 'https://nclamvn.github.io/bai-giang/dieu-khien/', '__L_R_UR5E__': 'robotics-ur5e.html', '__L_DOG__': 'https://nclamvn.github.io/bai-giang/robotics/quadruped/', '__L_JELLY__': 'https://nclamvn.github.io/bai-giang/robotics/jellyfish/', '__L_PAGODA__': 'https://nclamvn.github.io/bai-giang/vat-li-11/thap-nam-tang/', '__L_LIGHT__': 'https://nclamvn.github.io/bai-giang/vat-li-10/hai-dang/', '__L_WATCH__': 'https://nclamvn.github.io/bai-giang/vat-li-11/dong-ho-co/', '__L_SPIDER__': 'https://nclamvn.github.io/bai-giang/vat-li-10/nhen-thuy-luc/', '__L_PIRANHA__': 'https://nclamvn.github.io/bai-giang/vat-li-10/ca-piranha/', '__L_CAMERA__': 'https://nclamvn.github.io/bai-giang/khtn-9/may-anh/', '__L_GILL__': 'https://nclamvn.github.io/bai-giang/sinh-hoc-11/ca-tho-bang-mang/', '__L_BASE__': '', '__L_GDPT__': 'https://github.com/nclamvn/bai-giang/blob/main/thu-vien/gdpt2018.json', '__L_ROOT__': 'https://nclamvn.github.io/bai-giang/'}
         import build_ls10
-        open(out / 'lich-su-10.html', 'w', encoding='utf-8').write(build_ls10.build(hub, coloa, 'covers/co-loa.webp'))
-        open(out / 'index_art.html', 'w', encoding='utf-8').write(library(art))
+        (out / 'lich-su-10.html').write_text(encoding='utf-8', data=build_ls10.build(hub, coloa, 'covers/co-loa.webp'))
+        (out / 'index_art.html').write_text(encoding='utf-8', data=library(art))
         import robotics.build_hub as RH
-        open(out / 'robotics.html', 'w', encoding='utf-8').write(RH.build({'hub': hub, 'sims': {r['key']: f"robotics-{r['key']}.html" for r in RH.ROBOTS}, 'covers': {r['key']: f"covers/robo-{r['key']}.webp" for r in RH.ROBOTS}}))
-        open(out / 'chu-de-sinh-hoc-te-bao.html', 'w', encoding='utf-8').write(chu_de({'__L_CELL__': cell, '__L_MITO__': mito, '__L_LIB__': hub}, lambda f: f))
+        (out / 'robotics.html').write_text(encoding='utf-8', data=RH.build({'hub': hub, 'sims': {r['key']: f"robotics-{r['key']}.html" for r in RH.ROBOTS}, 'covers': {r['key']: f"covers/robo-{r['key']}.webp" for r in RH.ROBOTS}}))
+        (out / 'chu-de-sinh-hoc-te-bao.html').write_text(encoding='utf-8', data=chu_de({'__L_CELL__': cell, '__L_MITO__': mito, '__L_LIB__': hub}, lambda f: f))
         print('đã dựng bản cho trang đăng vào', out)

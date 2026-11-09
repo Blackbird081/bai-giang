@@ -208,7 +208,7 @@ async def main():
                 await run_one(b, n, u, v, args, res)
         await asyncio.gather(*(job(n, u, v) for n, u in ps for v in vps))
         await b.close()
-    json.dump(res, open(args.json, 'w'), ensure_ascii=False, indent=1)
+    pathlib.Path(args.json).write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding='utf-8')
     bad = 0
     for n, u in ps:
         for v in vps:

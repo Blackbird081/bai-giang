@@ -1,6 +1,6 @@
 # Refinery cho bài Cá thở bằng mang
 
-Dữ liệu tra cứu loài (`tools/robotics/mang/fish/loai.json`) đi qua Refinery (skill `refinery`, engine `refinery.py`):
+Dữ liệu tra cứu loài (`sinh-hoc-11/ca-tho-bang-mang/fish/loai.json`) đi qua Refinery (skill `refinery`, engine `refinery.py`):
 cào → trích có dẫn chứng → phân hạng → hợp nhất → kiểm độc lập. Mỗi giá trị dẫn về một dòng nguyên văn của bản chụp.
 
 | Domain | Thực thể | Nguồn | Mẫu số |

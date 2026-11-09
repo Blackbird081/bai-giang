@@ -4,7 +4,7 @@
   python3 tools/refinery/export_mang.py [đường dẫn skill refinery]
 
 Một chiều: dựng hai registry bằng refinery.run_pipeline (đủ mọi cổng, auditor, idempotent) rồi xuất
-tools/robotics/mang/fish/loai.json. Chỉ lấy ô ở trạng thái sourced/corroborated; ô disputed (vd nhiều
+sinh-hoc-11/ca-tho-bang-mang/fish/loai.json (thư mục tệp kèm duy nhất của bài, cạnh trang). Chỉ lấy ô ở trạng thái sourced/corroborated; ô disputed (vd nhiều
 tên Việt, hay số FishBase lệch bài gốc) xuất trọn danh sách giá trị kèm nguồn. Bản ghi đã đối chiếu bài gốc
 (doi_chieu_goc.py) mang thêm kc (ô ✓✓), tc (ô tranh chấp), goc (bài), gc (ghi chú), sx (ghi chú soát OCR). Các số suy ra (mm²/g, lít nước) KHÔNG nằm trong registry:
 bài tính lúc chạy và ghi rõ là phép tính.
@@ -17,7 +17,7 @@ sys.path.insert(0, str(SKILL))
 import refinery  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
-OUT = HERE.parent / 'robotics' / 'mang' / 'fish' / 'loai.json'
+OUT = HERE.parent.parent / 'sinh-hoc-11' / 'ca-tho-bang-mang' / 'fish' / 'loai.json'
 
 
 def val(cell):

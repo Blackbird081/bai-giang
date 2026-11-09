@@ -6,14 +6,14 @@ Mỗi nhóm (rRNA/protein của 60S và 40S, mRNA, tRNA, Sec61) là một lướ
 Tỉ lệ 1 Å = 1 mm (phóng to 10 triệu lần): ribosome rộng khoảng 0,3 m khi đặt lên bàn bằng AR.
 Cách dùng: python3 tools/build_glb.py ribosome.b64.txt assets/ribosome-3j7r.glb
 """
-import base64, gzip, json, struct, sys
+import base64, gzip, json, pathlib, struct, sys
 import numpy as np
 from scipy.ndimage import gaussian_filter
 from skimage.measure import marching_cubes
 import fast_simplification, trimesh
 
 src, out = sys.argv[1], sys.argv[2]
-raw = gzip.decompress(base64.b64decode(open(src).read().strip()))
+raw = gzip.decompress(base64.b64decode(pathlib.Path(src).read_text(encoding='utf-8').strip()))
 n = struct.unpack('<I', raw[:4])[0]; meta = json.loads(raw[4:4 + n]); off = 4 + n + (-(4 + n) % 4)
 rec = np.frombuffer(raw[off:off + meta['so_nguyen_tu'] * 10], dtype=[('x', '<i2'), ('y', '<i2'), ('z', '<i2'), ('c', 'u1'), ('h', 'u1'), ('e', 'u1'), ('p', 'u1')])
 P = np.stack([rec['x'], rec['y'], rec['z']], 1).astype(np.float64) / meta['scale']; C = rec['c']
@@ -63,4 +63,4 @@ print('tam giác:', stats, 'tổng', sum(s for _, s in stats))
 print(f'kích thước (m): {size.round(3)} | tệp {out}: {round(__import__("os").path.getsize(out) / 1e6, 2)} MB')
 # vị trí nhãn (m) cho trang AR
 lab = {k: [round((v[0]) * 0.001, 4), round((v[1] + 20) * 0.001, 4), round(v[2] * 0.001, 4)] for k, v in ((k, meta['bo_phan'][k]['tam']) for k in ('lsu', 'ssu', 'mrna', 'trnaA', 'trnaP', 'sec61'))}
-lab['lsu'][1] += 0.0; json.dump(lab, open(out.replace('.glb', '.labels.json'), 'w'), indent=1); print('nhãn:', lab)
+lab['lsu'][1] += 0.0; pathlib.Path(out.replace('.glb', '.labels.json')).write_text(json.dumps(lab, indent=1), encoding='utf-8'); print('nhãn:', lab)

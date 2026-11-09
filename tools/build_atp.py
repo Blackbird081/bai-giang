@@ -19,7 +19,7 @@ Bố cục file (trước khi nén): giống ribosome.bin
   hạt thô (gộp theo ô 10 Å), cả hai monomer: k x (... | uint8 nhóm | uint8 0 | uint8 0 | uint8 cờ)
   cờ: bit0 = thuộc phần quay (rôto), bit1 = thuộc monomer thứ hai
 """
-import gemmi, json, struct, gzip, sys, hashlib
+import gemmi, json, pathlib, struct, gzip, sys, hashlib
 import numpy as np
 
 D = sys.argv[1] if len(sys.argv) > 1 else 'data'
@@ -77,7 +77,7 @@ def membrane_mid(chs, c0, n):
 
 def kabsch(P, Q):
     """R, t sao cho R @ P + t ≈ Q (theo hàng)."""
-    pc, qc = P.mean(0), Q.mean(0); H = (P - pc).T @ (Q - qc); U, S, Vt = np.linalg.svd(H)
+    pc, qc = P.mean(0), Q.mean(0); H = (P - pc).T @ (Q - qc); U, _S, Vt = np.linalg.svd(H)
     d = np.sign(np.linalg.det(Vt.T @ U.T)); M = np.diag([1, 1, d]); R = Vt.T @ M @ U.T
     return R, qc - R @ pc
 
@@ -235,7 +235,7 @@ def pack(rows, P):
     return rec
 ra, rb, rc = pack(atoms, A), pack(beads, B), pack(coarse, C)
 buf += ra.tobytes() + rb.tobytes() + rc.tobytes()
-gz = gzip.compress(bytes(buf), 9); open(OUT, 'wb').write(gz)
+gz = gzip.compress(bytes(buf), 9); pathlib.Path(OUT).write_bytes(gz)
 
 # Cổng kiểm
 chk = gzip.decompress(gz); n = struct.unpack('<I', chk[:4])[0]; mm = json.loads(chk[4:4 + n]); off = 4 + n + (-(4 + n) % 4)

@@ -11,7 +11,7 @@ Bố cục file (trước khi nén):
   hạt thô  : m x (int16 x,y,z | uint8 nhóm | uint8 chuỗi | uint8 loại | uint8 0)
 Toạ độ thật = int16 / scale.
 """
-import gemmi, json, struct, gzip, sys, hashlib
+import gemmi, json, pathlib, struct, gzip, sys, hashlib
 import numpy as np
 
 SRC = sys.argv[1] if len(sys.argv) > 1 else 'data/3J7R.cif.gz'
@@ -114,7 +114,7 @@ mrna_ends = [[round(float(v), 2) for v in L[mi[0]]], [round(float(v), 2) for v i
 # Đường kính ngoài lớn nhất của ribosome (đo trên mô hình, không kể Sec61)
 Rb = L[ribo_mask]; span = Rb.max(axis=0) - Rb.min(axis=0)
 
-raw = open(SRC, 'rb').read()
+raw = pathlib.Path(SRC).read_bytes()
 meta = {
     'nguon': {'pdb': '3J7R', 'tieu_de': 'Structure of the translating mammalian ribosome-Sec61 complex',
               'bai_bao': 'Voorhees RM, Fernández IS, Scheres SHW, Hegde RS. Cell 2014', 'doi': '10.1016/j.cell.2014.05.024',
@@ -140,7 +140,7 @@ recg['x'], recg['y'], recg['z'] = qg[:, 0], qg[:, 1], qg[:, 2]
 recg['c'] = [g[3] for g in cg]; recg['h'] = [g[4] for g in cg]; recg['e'] = [g[5] for g in cg]
 buf += rec.tobytes() + recg.tobytes()
 gz = gzip.compress(bytes(buf), 9)
-open(OUT, 'wb').write(gz)
+pathlib.Path(OUT).write_bytes(gz)
 
 # Cổng kiểm: giải nén lại, đọc lại, so sai số lượng tử với toạ độ gốc
 chk = gzip.decompress(gz); n = struct.unpack('<I', chk[:4])[0]; mm = json.loads(chk[4:4 + n]); off = 4 + n + (-(4 + n) % 4)

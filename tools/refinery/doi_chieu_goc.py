@@ -168,7 +168,7 @@ def main():
         sys.exit(f'thực thể không có trong claim FishBase: {sorted(lost)}')
     cf.write_text('\n'.join(old + [json.dumps(c, ensure_ascii=False) for c in claims]) + '\n', encoding='utf-8')
     soat = {}
-    for ent, field, val, span, ex, key, s in EV:
+    for ent, field, *_, s in EV:
         if s:
             soat.setdefault(ent, {})[field] = s
     meta = {'bai': {k: {'cite': v['cite'], 'doi': v['doi'], 'url': v['url']} for k, v in PAPERS.items()},

@@ -6,14 +6,14 @@ Dùng: python3 tests/a11y_audit.py <đường dẫn axe.min.js> [trang…]   (m�
 Ra: số lỗi theo mức (critical, serious, moderate, minor) và tên quy tắc lỗi của từng trang.
 Lưu ý: axe không đọc được nội dung vẽ trong canvas 3D; phần đó dựa vào mô tả bước cho trình đọc màn hình của vỏ.
 """
-import asyncio, json, sys
+import asyncio, json, pathlib, sys
 from playwright.async_api import async_playwright
 
 PAGES = ['', 'chu-de/sinh-hoc-te-bao/', 'lich-su-10/', 'robotics/', 'kiem-may/', 'ty-the/', 'robotics/ur5e/?q=2', 'thu-vien/enzyme-step.html']
 
 
 async def main():
-    axe = open(sys.argv[1], encoding='utf-8').read()
+    axe = pathlib.Path(sys.argv[1]).read_text(encoding='utf-8')
     pages = sys.argv[2:] or PAGES
     out = {}
     async with async_playwright() as p:
@@ -30,7 +30,7 @@ async def main():
             print(f"{u or '/':34s} {cnt}  " + '; '.join(f"{v['id']}({v['impact']},{v['n']})" for v in r))
             await pg.close()
         await b.close()
-    json.dump(out, open('tests/a11y_audit.json', 'w'), ensure_ascii=False, indent=1)
+    pathlib.Path('tests/a11y_audit.json').write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding='utf-8')
 
 
 asyncio.run(main())

@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
-      - uses: actions/setup-python@v5
+          node-version: 24
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - name: Cài công cụ dựng robotics (esbuild, three)
@@ -24,7 +24,7 @@ jobs:
         run: cd tools/co-the-nguoi && npm ci --ignore-scripts
       - name: Cú pháp
         run: |
-          python -m py_compile tools/*.py tools/robotics/*.py tools/robotics/*/film/*.py tools/co-the-nguoi/*.py tests/*.py
+          python -m py_compile tools/*.py tools/robotics/*.py tools/robotics/*/film/*.py tools/co-the-nguoi/*.py tools/refinery/*.py tests/*.py
           node --check shell/bg-shell.js
           node --check shell/adapter-thu-vien.js
       - name: Lỗi tĩnh trong mã Python (tên chưa định nghĩa, nhập thừa, biến bỏ không)

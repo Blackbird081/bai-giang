@@ -40,17 +40,19 @@ const names = args.length ? args : fs.readdirSync(HERE).filter((d) => fs.existsS
 for (const name of names) {
   const dir = path.join(HERE, name), t0 = Date.now();
   const meta = JSON.parse(fs.readFileSync(path.join(dir, 'meta.json'), 'utf8'));
-  // tệp kèm (vd. mô hình .glb của bài Cá thở bằng mang): meta.assets là thư mục trong thư mục bài. Trên site chép cạnh trang,
-  // trang đọc qua đường dẫn tương đối; bản đăng một tệp (--out) nhúng thành data: URL qua ASSET_MAP.
+  // tệp kèm (vd. mô hình .glb của bài Cá thở bằng mang): meta.assets là tên thư mục cạnh trang đăng, trang đọc qua đường dẫn
+  // tương đối. Thư mục cạnh trang là bản duy nhất trong git (Pages phục vụ thẳng từ gốc kho); nếu thư mục bài có thư mục cùng
+  // tên thì đó là nguồn và được chép sang. Bản đăng một tệp (--out) nhúng thành data: URL qua ASSET_MAP.
   let assetMap = null;
   if (meta.assets) {
-    const src = path.join(dir, meta.assets), files = fs.readdirSync(src).filter((f) => /\.(glb|webp|png|jpg|json)$/.test(f));
+    const pub = path.join(path.dirname(path.join(REPO, meta.out || path.join('robotics', name, 'index.html'))), meta.assets);
+    const local = path.join(dir, meta.assets), src = fs.existsSync(local) ? local : pub;
+    const files = fs.readdirSync(src).filter((f) => /\.(glb|webp|png|jpg|json)$/.test(f));
     const mime = (f) => (f.endsWith('.json') ? 'application/json' : f.endsWith('.glb') ? 'model/gltf-binary' : f.endsWith('.webp') ? 'image/webp' : f.endsWith('.png') ? 'image/png' : 'image/jpeg');
     if (outDir) assetMap = Object.fromEntries(files.map((f) => [f, `data:${mime(f)};base64,${fs.readFileSync(path.join(src, f)).toString('base64')}`]));
-    else {
-      const dst = path.join(path.dirname(path.join(REPO, meta.out || path.join('robotics', name, 'index.html'))), meta.assets);
-      fs.mkdirSync(dst, {recursive: true});
-      for (const f of fs.readdirSync(src)) fs.copyFileSync(path.join(src, f), path.join(dst, f));
+    else if (src !== pub) {
+      fs.mkdirSync(pub, {recursive: true});
+      for (const f of fs.readdirSync(src)) fs.copyFileSync(path.join(src, f), path.join(pub, f));
     }
   }
   const res = await esbuild.build({

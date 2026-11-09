@@ -10,7 +10,7 @@ Chạy: python3 tools/design.py
 import base64, json, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-T = json.load(open(ROOT / 'design/tokens.json', encoding='utf-8'))
+T = json.loads((ROOT / 'design/tokens.json').read_text(encoding='utf-8'))
 
 # Biểu tượng: lưới 24, nét 1,75, đầu tròn. Chỉ path, màu theo currentColor.
 ICONS = {

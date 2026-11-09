@@ -6,7 +6,7 @@ Mã băm đã đối chiếu giữa gói npm và bản jsDelivr/cdnjs thật (01
   python3 tools/sri.py --check      (tải lại từ CDN và so)
 Trình duyệt chưa hiểu khoá "integrity" của import map (Chrome < 127, Safari < 18) bỏ qua nó, bài vẫn chạy.
 """
-import base64, hashlib, json, re, sys, urllib.request
+import base64, hashlib, json, pathlib, re, sys, urllib.request
 
 J = 'https://cdn.jsdelivr.net/npm/'
 T = J + 'three@0.180.0/'
@@ -56,5 +56,5 @@ if __name__ == '__main__':
             print(('ok  ' if ok else 'SAI ') + u + ('' if ok else f'\n    đang ghi {h}\n    CDN trả  {got}'))
         sys.exit(1 if bad else 0)
     for f in sys.argv[1:]:
-        s = open(f, encoding='utf-8').read(); s, n = fix(s)
-        open(f, 'w', encoding='utf-8').write(s); print(f, n)
+        s = pathlib.Path(f).read_text(encoding='utf-8'); s, n = fix(s)
+        pathlib.Path(f).write_text(s, encoding='utf-8'); print(f, n)
