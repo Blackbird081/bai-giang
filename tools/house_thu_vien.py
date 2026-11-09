@@ -7,7 +7,8 @@ Không sửa mã mô phỏng gốc. Chỉ:
   2. nâng mọi cỡ chữ CSS dưới 13 px lên 13 px (tools/minfont.py);
   3. nhúng vỏ v2 và bộ gắn thư viện (tools/inject_shell.py --adapter=thu-vien);
   4. bỏ liên kết Google Fonts (phông của site tự lưu);
-  5. tách ảnh nhúng base64 lớn (từ 20 KB) ra thu-vien/anh/, đặt tên theo mã băm nội dung: ảnh Trái Đất dùng chung cho 4 bài chỉ tải một lần.
+  5. tách ảnh nhúng base64 lớn (từ 20 KB) ra thu-vien/anh/, đặt tên theo mã băm nội dung: ảnh Trái Đất dùng chung cho 4 bài chỉ tải một lần;
+  6. bỏ khối @media (prefers-color-scheme: dark) trong <style id="lg-theme"> khi nó lặp y hệt khối sáng (site chỉ có giao diện sáng).
 Chạy lại bao nhiêu lần cũng được.  python3 tools/house_thu_vien.py [tệp…]   (mặc định: thu-vien/*-step.html)
 """
 import base64, hashlib, pathlib, re, sys
@@ -97,12 +98,20 @@ def unembed(s):
     return re.sub(r'data:image/(jpeg|png|webp);base64,([A-Za-z0-9+/=]{20000,})', out, s)
 
 
+def drop_dark_dup(s):
+    """Khối tối của lg-theme (bản Việt hoá cũ) lặp nguyên văn khối sáng: bỏ đi không đổi gì trên màn hình, mỗi bài nhẹ ~3,3 KB."""
+    m = re.search(r'(<style id="lg-theme">\n/\*.*?\*/\n:root,:root\[data-theme\]\{)(.*?)\n\}\n(@media \(prefers-color-scheme: dark\)\{:root:not\(\[data-theme="light"\]\),:root\[data-theme\]\{(.*?)\n\}\}\n)', s, re.S)
+    if m and m.group(2) == m.group(4):
+        s = s[:m.start(3)] + s[m.end(3):]
+    return s
+
+
 GFONT = re.compile(r'<link rel="preconnect" href="https://fonts\.googleapis\.com">\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>\n?<link rel="stylesheet" href="https://fonts\.googleapis\.com/css2\?[^"]*">\n?')
 
 
 def apply(path):
     # bỏ liên kết Google Fonts của bản gốc: phông của site tự lưu (Be Vietnam Pro), không gửi yêu cầu ra bên thứ ba
-    p = pathlib.Path(path); s = GFONT.sub('', unembed(p.read_text(encoding='utf-8')))
+    p = pathlib.Path(path); s = drop_dark_dup(GFONT.sub('', unembed(p.read_text(encoding='utf-8'))))
     s = re.sub(r'<style id="bg-house">.*?</style>\n?', '', s, flags=re.S)
     s, n = minfont.fix(s)
     s = s.replace('</head>', HOUSE + '</head>', 1)

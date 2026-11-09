@@ -56,7 +56,6 @@ FEATURED = [
 ]
 
 
-ARROW = '<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
 CSS = (ROOT / 'tools/trang-chinh.css').read_text(encoding='utf-8')
 LIB_TPL = (ROOT / 'tools/thu-vien.template.html').read_text(encoding='utf-8')
 N_SHOWN = 7  # bài nổi bật + 6 bài chọn; các bài sau mở bằng nút "Xem cả … bài"
