@@ -171,6 +171,7 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 - **Lưu bài để dùng khi mất mạng**: bài có tệp kèm chỉ tải khi cần (Cá thở bằng mang, Tế Bào, Cơ thể người) có mục này trong menu ⋯; sw.js tải đủ cả thư mục bài, báo tiến độ, để giáo viên chuẩn bị trước giờ học.
 - **Mô phỏng robotics dùng chung một gói mã** (`robotics/_chung/chung-<mã băm>.js`, three.js và bộ kit, 180 KB khi nén): 15 trang bài chỉ còn phần riêng 30 đến 200 KB, chuyển bài không tải lại three.js. Bản một tệp (`build.mjs --out`) vẫn tự chứa.
 - Danh sách mã băm chia theo thư mục lớn: danh sách chính 6 KB khi nén, phần của Cơ thể người (2.800 tệp) ở `sw-manifest/co-the-nguoi.json`, chỉ tải khi vào bài đó.
+- **Chuyển cảnh liền mạch** ([`tools/chuyen_canh.py`](tools/chuyen_canh.py)): trên trình duyệt hỗ trợ (Chrome/Edge 126+, Safari 18.2+), trang cũ hoà sang trang mới và ảnh bìa trên thẻ vừa bấm phóng lớn thành màn tải của bài; trình duyệt khác chuyển trang như cũ; tôn trọng "giảm chuyển động".
 - Đo: [`tests/perf.py`](tests/perf.py) (mạng giả lập 8 Mbps, trễ 80 ms), [`tests/sw_check.py`](tests/sw_check.py) (bộ nhớ đệm, mất mạng, tải trước).
 
 ## Cấu trúc
