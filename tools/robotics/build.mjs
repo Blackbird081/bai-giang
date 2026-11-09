@@ -16,25 +16,8 @@ const args = process.argv.slice(2);
 const opt = (k) => { const i = args.indexOf(k); if (i < 0) return null; const v = args[i + 1]; args.splice(i, 2); return v; };
 const hub = opt('--hub'); const outDir = opt('--out');
 
-// @font-face của fontsource, đổi url() thành data: cho ba bộ chữ latin, latin-ext, vietnamese
-// Trên site: tệp phông nằm cạnh trang (robotics/fonts/), HTML nhẹ hơn ~320 KB và dưới 1 MB để trình đọc liên kết đọc được thẻ chia sẻ
-// (bước 9 của quy trình teardown). Bản đăng một tệp (--out) vẫn nhúng phông dạng data.
-const FONT_DIR = path.join(REPO, 'robotics', 'fonts');
-const inline = (cssFile) => {
-  const dir = path.dirname(cssFile);
-  return fs.readFileSync(cssFile, 'utf8').split('/* ').slice(1)
-    .filter((b) => /-(latin|latin-ext|vietnamese)-/.test(b.split('*/')[0]))
-    .map((b) => b.slice(b.indexOf('*/') + 2)
-      .replace(/url\(\.\/files\/([^)]+?\.woff2)\) format\('([^']+)'\)(,\s*url\([^)]+\) format\('woff'\))?/g, (m, f, fmt) => {
-        if (outDir) return `url(data:font/woff2;base64,${fs.readFileSync(path.join(dir, 'files', f)).toString('base64')}) format('${fmt}')`;
-        fs.mkdirSync(FONT_DIR, {recursive: true}); fs.copyFileSync(path.join(dir, 'files', f), path.join(FONT_DIR, f));
-        return `url(__FONTS__/${f}) format('${fmt}')`;
-      })
-      .replace("'Inter Variable'", "'Inter'"))
-    .join('\n');
-};
-const FONTS = [400, 600, 700].map((w) => inline(path.join(NM, `@fontsource/jetbrains-mono/${w}.css`))).join('\n') + '\n' + inline(path.join(NM, '@fontsource-variable/inter/wght.css'));
-
+// Phông: dùng phông nhà (Be Vietnam Pro, JetBrains Mono 500/600) do vỏ chung nạp từ design/fonts/ (tools/inject_shell.py),
+// như mọi trang khác của site; không đóng gói phông riêng.
 // vỏ Sáng Ăn Khoai v2 nhúng sau khi đóng gói bằng tools/inject_shell.py (token, phông, màn tải, thứ tự bài)
 const names = args.length ? args : fs.readdirSync(HERE).filter((d) => fs.existsSync(path.join(HERE, d, 'main.js')));
 for (const name of names) {
@@ -68,9 +51,6 @@ for (const name of names) {
 <meta name="theme-color" content="#ffffff">
 <title>${meta.title}</title>
 <meta name="description" content="${meta.description}">
-<style>
-${outDir ? FONTS : FONTS.replaceAll('__FONTS__', path.relative(path.dirname(path.join(REPO, meta.out || path.join('robotics', name, 'index.html'))), FONT_DIR).split(path.sep).join('/'))}
-</style>
 </head>
 <body>
 <div id="app"></div>

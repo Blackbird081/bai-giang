@@ -11,7 +11,7 @@
   --crimson:#BE1740; --crimson-soft:#FBE7EB; --gold:#A87A22; --gold-soft:#F6EBD3; --ok:#2C7A4B; --bad:#B3261E;
   --stage:#FBF8F5; --stage-ink:#1B1416; --stage-muted:#6F6265; --glass:rgba(255,255,255,.8);
   --f-body:"Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --f-mono:var(--bg-mono,"JetBrains Mono", ui-monospace, Menlo, monospace);
   --r:12px;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){

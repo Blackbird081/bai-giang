@@ -205,7 +205,7 @@ const sim = {
     thrTxt.innerHTML = `Lực đẩy <b>${fx((ftot / P.g) * 1000, 1)} g</b> · nặng ${fx(P.m * 1000, 1)} g · T/W ${fx(ftot / W, 2)}`;
     // bảng 02: sơ đồ xếp tầng, vòng đang chạy tô cam
     const on = (m) => (m ? C.or : C.faint), modePos = S.mode === 'pos' || S.mode === 'land';
-    const box = (x, y, w, t1, t2, act) => `<rect x="${x}" y="${y}" width="${w}" height="34" rx="3" fill="${act ? '#fdf1ec' : C.chart}" stroke="${on(act)}"/><text x="${x + 6}" y="${y + 14}" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="${C.ink}">${t1}</text><text x="${x + 6}" y="${y + 27}" font-family="JetBrains Mono" font-size="8" fill="${C.mute}">${t2}</text>`;
+    const box = (x, y, w, t1, t2, act) => `<rect x="${x}" y="${y}" width="${w}" height="34" rx="3" fill="${act ? '#fdf1ec' : C.chart}" stroke="${on(act)}"/><text x="${x + 6}" y="${y + 14}" font-family="JetBrains Mono" font-size="9" font-weight="600" fill="${C.ink}">${t1}</text><text x="${x + 6}" y="${y + 27}" font-family="JetBrains Mono" font-size="8" fill="${C.mute}">${t2}</text>`;
     const g = (k, a) => GAINS[a][k].slice(0, 3).map((v) => fx(v * (a === 'att' ? S.kAtt : a === 'rate' ? S.kRate : 1), v < 10 ? 2 : 0)).join(' / ');
     let svg = '';
     svg += box(0, 0, 130, 'VỊ TRÍ · 100 Hz', `kp ${GAINS.pos.x[0]} · z: ${GAINS.pos.z[0]}/${GAINS.pos.z[1]}`, modePos);

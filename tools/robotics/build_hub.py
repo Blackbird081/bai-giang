@@ -76,7 +76,7 @@ ROBOTS = [
 CSS = '''
 :root{--bg:#f6f7f9;--paper:#ffffff;--ink:#15171C;--mute:#626773;--line:#e7e9ed;--or:#e3562a}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--bg-font,system-ui,sans-serif);-webkit-font-smoothing:antialiased;
 }
 a{color:inherit}
 .mono{font-family:var(--bg-font);font-weight:600;font-size:13px}
@@ -195,7 +195,7 @@ h3.sec{{font:700 var(--bg-fs-xl)/1.2 var(--bg-font);letter-spacing:-.015em;margi
       <tr><td>?q=0 / 1 / 2</td><td>thêm vào địa chỉ để ép bậc chất lượng đồ hoạ (2 cho máy yếu)</td></tr>
     </table></div>
     <div class="box">
-      <p><b>Ghi công.</b> Phương pháp dựng, phong cách bàn điều khiển và cách tổ chức trang theo <a href="https://github.com/elvarofficial/teardown" target="_blank" rel="noopener">teardown</a> của elvarofficial, dựa trên <a href="https://github.com/whaleyxbt/claude-motion" target="_blank" rel="noopener">claude-motion</a> của whaleyxbt, giấy phép MIT. Đồ hoạ dùng three.js (MIT), phông Inter và JetBrains Mono (OFL).</p>
+      <p><b>Ghi công.</b> Phương pháp dựng, phong cách bàn điều khiển và cách tổ chức trang theo <a href="https://github.com/elvarofficial/teardown" target="_blank" rel="noopener">teardown</a> của elvarofficial, dựa trên <a href="https://github.com/whaleyxbt/claude-motion" target="_blank" rel="noopener">claude-motion</a> của whaleyxbt, giấy phép MIT. Đồ hoạ dùng three.js (MIT), phông Be Vietnam Pro và JetBrains Mono (OFL).</p>
       <p><b>Mã nguồn.</b> <a href="https://github.com/nclamvn/bai-giang/tree/main/tools/robotics" target="_blank" rel="noopener">tools/robotics</a>: mỗi robot một thư mục, phần tính toán tách khỏi phần vẽ để kiểm bằng máy. Góp ý tại <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">GitHub Issues</a>.</p>
       <p><b>Giới hạn.</b> Đây là mô phỏng để dạy, không thay cho mô phỏng kỹ thuật (Gazebo, MuJoCo) hay phần cứng thật. Chỗ nào là giả định, trang ghi rõ ngay cạnh con số.</p>
     </div>

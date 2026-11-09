@@ -27,30 +27,30 @@ const HOUSE_CSS = `
 #app .alert{border-radius:999px;padding:4px 10px}
 `;
 const CSS = () => `
-#app{font-family:Inter,system-ui,sans-serif;color:${C.ink};-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+#app{font-family:var(--bg-font,system-ui,sans-serif);color:${C.ink};-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
 .ui{position:absolute;inset:0;pointer-events:none}
 .mo{font-family:'JetBrains Mono',ui-monospace,monospace}
 .cp{position:absolute;background:${C.panel};border:1px solid ${C.line};border-radius:6px;box-shadow:0 2px 10px rgba(16,24,40,.06)}
-.ph{position:absolute;display:flex;align-items:center;gap:9px;font:700 12.5px Inter,system-ui,sans-serif;letter-spacing:0;white-space:nowrap}
+.ph{position:absolute;display:flex;align-items:center;gap:9px;font:700 12.5px var(--bg-font,system-ui,sans-serif);letter-spacing:0;white-space:nowrap}
 .ph i{display:block;width:3px;height:13px;background:${C.or}}
 .pn{position:absolute;font:500 11px 'JetBrains Mono',monospace;color:#9aa0aa;letter-spacing:0}
-.sm{font:500 11px Inter,system-ui,sans-serif;letter-spacing:0;color:#626773;white-space:nowrap}
+.sm{font:500 11px var(--bg-font,system-ui,sans-serif);letter-spacing:0;color:#626773;white-space:nowrap}
 .v{font:600 12px 'JetBrains Mono',monospace;white-space:nowrap}
-.bt{position:absolute;height:22px;padding:0 9px;display:flex;align-items:center;justify-content:center;border:1px solid ${C.faint};border-radius:4px;background:#fff;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;color:${C.ink};white-space:nowrap;transition:background .15s,color .15s}
+.bt{position:absolute;height:22px;padding:0 9px;display:flex;align-items:center;justify-content:center;border:1px solid ${C.faint};border-radius:4px;background:#fff;font:600 11px var(--bg-font,system-ui,sans-serif);letter-spacing:0;color:${C.ink};white-space:nowrap;transition:background .15s,color .15s}
 .bt.on{background:${C.ink};color:#fff;border-color:${C.ink}}
 .bt.acc{background:#1E2A44;color:#fff;border-color:#1E2A44}
 .call{position:absolute;white-space:nowrap;transition:opacity .25s}
-.call b{display:flex;align-items:center;gap:6px;font:600 11px Inter,system-ui,sans-serif;letter-spacing:0;color:${C.ink};background:rgba(255,255,255,.9);padding:1px 4px;border-radius:2px}
+.call b{display:flex;align-items:center;gap:6px;font:600 11px var(--bg-font,system-ui,sans-serif);letter-spacing:0;color:${C.ink};background:rgba(255,255,255,.9);padding:1px 4px;border-radius:2px}
 .call b i{display:block;width:6px;height:6px;background:${C.or}}
 .call span{display:block;font:500 10px 'JetBrains Mono',monospace;letter-spacing:0;color:#626773;margin-top:1px;padding-left:16px}
 .cur{position:absolute;left:0;top:0;z-index:50;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))}
 .ring{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1.5px solid ${C.or};opacity:0;z-index:49}
 .cap{position:absolute;transition:opacity .35s}
-.cap .k{font:600 11.5px Inter,system-ui,sans-serif;letter-spacing:0;color:#5B6472}
+.cap .k{font:600 11.5px var(--bg-font,system-ui,sans-serif);letter-spacing:0;color:#5B6472}
 .cap .t{font-size:15px;font-weight:700;margin:3px 0 5px;letter-spacing:-.1px}
 .cap .b{font-size:12.5px;line-height:1.45;color:#454A55}
 .cap .e{font:600 11.5px 'JetBrains Mono',monospace;color:${C.ink};background:#f3f4f6;border-radius:3px;padding:4px 7px;margin-top:6px;display:inline-block}
-.alert{position:absolute;font:700 9.5px 'JetBrains Mono',monospace;letter-spacing:1.4px;color:#fff;background:${C.or};padding:3px 8px;border-radius:3px;white-space:nowrap;transition:opacity .2s}
+.alert{position:absolute;font:600 9.5px 'JetBrains Mono',monospace;letter-spacing:1.4px;color:#fff;background:${C.or};padding:3px 8px;border-radius:3px;white-space:nowrap;transition:opacity .2s}
 `;
 // nhãn trong dữ liệu viết hoa: đổi sang chữ thường kiểu câu, giữ từ viết tắt ASCII ngắn (TCP, DH, PID, MOVEJ) và số
 const ACR = new Set('ĐCT ĐCD TCP DH IK FK PID PD PI ISO ROS LDS IMU ESC PWM AMCL SLAM LIDAR MOVEJ MOVEL DOF RX RY RZ CPU GPU API EKF UR CW CCW BLDC AX OK DC USB SE TB GPS RPM MIT ABAD FR FL RR RL AA'.split(' '));

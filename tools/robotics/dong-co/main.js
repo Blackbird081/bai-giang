@@ -28,7 +28,7 @@ ui.header({code: '4 kì', kicker: 'CÔNG NGHỆ 11 · CƠ KHÍ ĐỘNG LỰC · 
 // 01 chu trình 720°
 ui.panel(28, 112, 300, 292, 'CHU TRÌNH 4 KÌ · 720° TRỤC KHUỶU', '01');
 const wheel = ui.svg(42, 146, 130, 130);
-const kName = ui.text(184, 150, '', 'v', 'font-size:15px;font-weight:700;white-space:normal;width:132px;line-height:1.25;font-family:Inter,system-ui,sans-serif');
+const kName = ui.text(184, 150, '', 'v', 'font-size:15px;font-weight:700;white-space:normal;width:132px;line-height:1.25;font-family:var(--bg-font,system-ui,sans-serif)');
 const bigAng = ui.text(184, 200, '', 'mo', 'position:absolute;font-size:30px;font-weight:700;letter-spacing:-1px');
 ui.text(184, 240, 'Góc trục khuỷu trong chu trình', 'sm', 'font-size:9.5px;white-space:normal;width:130px');
 const kRows = [['Góc trục cam', 'cam'], ['Vòng quay thứ', 'rev'], ['Pít-tông cách ĐCT', 'pos'], ['Xupap nạp', 'in'], ['Xupap thải', 'ex'], ['Bugi', 'sp']].map(([t], i) => { ui.text(42, 290 + i * 18, t, 'sm', 'font-size:10.5px'); return ui.text(150, 290 + i * 18, '', 'v', 'width:164px;text-align:right'); });
@@ -91,7 +91,7 @@ const drawWheel = (ps) => {
     const p = (a, R0) => `${(c + R0 * Math.cos(a)).toFixed(1)} ${(c + R0 * Math.sin(a)).toFixed(1)}`;
     g += `<path d="M${p(a0, rr)} L${p(a0, r)} A${r} ${r} 0 0 1 ${p(a1, r)} L${p(a1, rr)} A${rr} ${rr} 0 0 0 ${p(a0, rr)}Z" fill="${k.c}" opacity="${on ? 0.95 : 0.22}" stroke="#fff" stroke-width="2"/>`;
     const am = (a0 + a1) / 2;
-    g += `<text x="${(c + 48 * Math.cos(am)).toFixed(1)}" y="${(c + 48 * Math.sin(am) + 4).toFixed(1)}" text-anchor="middle" font-size="11" font-weight="700" fill="${on ? '#fff' : C.ink}" font-family="Inter,sans-serif">${i + 1}</text>`;
+    g += `<text x="${(c + 48 * Math.cos(am)).toFixed(1)}" y="${(c + 48 * Math.sin(am) + 4).toFixed(1)}" text-anchor="middle" font-size="11" font-weight="700" fill="${on ? '#fff' : C.ink}" font-family="Be Vietnam Pro,sans-serif">${i + 1}</text>`;
   });
   const a = (ps / 720) * 2 * Math.PI - Math.PI / 2;
   g += `<line x1="${c}" y1="${c}" x2="${(c + 60 * Math.cos(a)).toFixed(1)}" y2="${(c + 60 * Math.sin(a)).toFixed(1)}" stroke="${C.ink}" stroke-width="2.2" stroke-linecap="round"/><circle cx="${c}" cy="${c}" r="4" fill="${C.ink}"/>`;
@@ -234,7 +234,7 @@ const sim = {
     const cx = 8 + v * (PV.w - 16), cy = PV.h - 6 - (Math.min(p, 80) / 80) * (PV.h - 12);
     pv.innerHTML = `<rect x="0" y="0" width="${PV.w}" height="${PV.h}" fill="${C.chart}" stroke="${C.line}"/><path d="${S.pvPath}Z" fill="${C.or}" fill-opacity=".1" stroke="${C.or}" stroke-width="1.5"/>`
       + `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="4" fill="${STROKES[k].c}" stroke="#fff" stroke-width="1.5"/>`
-      + `<text x="${PV.w - 6}" y="${PV.h - 9}" text-anchor="end" font-size="9" fill="#626773" font-family="Inter,sans-serif">V → Vtp</text><text x="${PV.w - 6}" y="13" text-anchor="end" font-size="9" fill="#626773" font-family="Inter,sans-serif">p (bar) · cao nhất ${vn(Math.max(...S.pvPts.map((q) => q[1])), 0)} bar</text>`;
+      + `<text x="${PV.w - 6}" y="${PV.h - 9}" text-anchor="end" font-size="9" fill="#626773" font-family="Be Vietnam Pro,sans-serif">V → Vtp</text><text x="${PV.w - 6}" y="13" text-anchor="end" font-size="9" fill="#626773" font-family="Be Vietnam Pro,sans-serif">p (bar) · cao nhất ${vn(Math.max(...S.pvPts.map((q) => q[1])), 0)} bar</text>`;
     const rowsPV = [['W = ∮ p·dV (một chu trình)', `${vn(S.W, 0)} J`], ['p TB chỉ thị = W / Vct', `${vn(S.imep, 1)} bar`], ['Công suất chỉ thị W·n / 120', S.stalled ? '0 kW' : `${vn((S.W * S.rpm) / 120 / 1000, 2)} kW`], ['Hiệu suất lí thuyết (Otto)', `${vn(otto(S.eps) * 100, 1)} %`]];
     rowsPV.forEach(([a, b], i) => { pvRows[i][0].textContent = a; pvRows[i][1].textContent = b; });
     // nút
