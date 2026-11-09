@@ -37,14 +37,15 @@ export function createLookup({url, models, onModel}) {
 .tc .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px 18px;margin:12px 0}
 .tc .facts div{font-size:12px;color:#6b7280}.tc .facts div b{display:block;color:#15171C;font-size:13px;font-weight:600}
 .tc .charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:8px 0}
-.tc .card{border:1px solid #eceef1;border-radius:12px;padding:10px 12px}.tc .card h4{margin:0 0 4px;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:#4b5563}
+.tc .card{border:1px solid #eceef1;border-radius:12px;padding:10px 12px;overflow-x:auto}.tc .card h4{margin:0 0 4px;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:#4b5563}
 .tc table{border-collapse:collapse;width:100%;font-size:12px}.tc td,.tc th{padding:4px 6px;border-bottom:1px solid #f1f2f4;text-align:left;vertical-align:top}.tc th{color:#6b7280;font-weight:600}
 .tc .num{font-variant-numeric:tabular-nums;text-align:right}.tc .odd{color:#b45309}
 .tc .note{color:#6b7280;font-size:11.5px;margin-top:10px}
-@media (max-width:760px){.tc{inset:50px 0 82px;border-radius:0} /* chừa thanh đầu và thanh bước của khung bài */.tc.on{grid-template-columns:1fr;grid-template-rows:auto 38vh 1fr}.tc header{grid-column:1;flex-wrap:wrap;gap:4px 12px;padding:10px 14px}.tc header small{order:3;flex:1 1 100%;font-size:11px}.tc .ls{border-right:0;border-bottom:1px solid #e8eaee}}
+.tc .cc{color:#15803d;font-weight:700;font-size:10px;margin-left:3px}.tc .tcv{color:#b45309;white-space:nowrap}.tc .tcv small{color:#6b7280;font-weight:400}.tc tr.goc td:first-child{box-shadow:inset 3px 0 #15803d}.tc .gnote{font-size:12px;margin:6px 0 0;padding-left:16px}.tc .gnote li{margin:3px 0}.tc .gx{color:#6b7280;font-size:11px}
+@media (max-width:760px){.tc{inset:50px 0 82px;border-radius:0} /* chừa thanh đầu và thanh bước của khung bài */.tc.on{grid-template-columns:1fr;grid-template-rows:auto 38vh 1fr}.tc header{grid-column:1;flex-wrap:wrap;gap:4px 12px;padding:10px 14px}.tc header small{order:3;flex:1 1 100%;font-size:11px}.tc .ls{border-right:0;border-bottom:1px solid #e8eaee}.tc .tcv{white-space:normal}.tc .dt{padding:12px 12px}}
 </style>
 <header><b>Tra cứu loài</b><small data-k="count">đang tải dữ liệu FishBase…</small><button data-k="close" aria-label="Đóng">Đóng</button></header>
-<div class="ls"><input data-k="q" placeholder="Tên khoa học, tên Việt, tên Anh, họ…" aria-label="Tìm loài"><div class="chips"><button data-f="">Tất cả</button><button data-f="g">Có đo mang</button><button data-f="o">Có đo ô xi</button><button data-f="m">Có mô hình 3D</button><button data-f="a">Thở khí trời</button></div><div class="list" data-k="list"></div></div>
+<div class="ls"><input data-k="q" placeholder="Tên khoa học, tên Việt, tên Anh, họ…" aria-label="Tìm loài"><div class="chips"><button data-f="">Tất cả</button><button data-f="g">Có đo mang</button><button data-f="o">Có đo ô xi</button><button data-f="m">Có mô hình 3D</button><button data-f="a">Thở khí trời</button><button data-f="c">Đã đối chiếu bài gốc</button></div><div class="list" data-k="list"></div></div>
 <div class="dt" data-k="dt"></div>`;
   document.body.appendChild(el);
   const $ = (k) => el.querySelector(`[data-k="${k}"]`);
@@ -58,14 +59,18 @@ export function createLookup({url, models, onModel}) {
   $('dt').onclick = (e) => { const b = e.target.closest('[data-model]'); if (b) { api.close(); onModel(b.dataset.model); } };
 
   const viName = (s) => s.vi.find((n) => /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(n)) || s.vi[0] || '';
-  const hit = (s) => (!only || (only === 'g' ? s.g.length : only === 'o' ? s.o.length : only === 'a' ? s.air && s.air !== 'WaterAssumed' : models[s.sci])) && (!q || s._k.includes(q));
+  const checked = (s) => s.g.some((r) => r.goc) || s.o.some((r) => r.goc);
+  const hit = (s) => (!only || (only === 'g' ? s.g.length : only === 'o' ? s.o.length : only === 'a' ? s.air && s.air !== 'WaterAssumed' : only === 'c' ? checked(s) : models[s.sci])) && (!q || s._k.includes(q));
+  // một ô số: ✓✓ khi FishBase khớp bài gốc; hai giá trị khi lệch (giữ cả hai, không tự chọn)
+  const cell = (r, k, d) => (r.tc && r.tc[k] ? `<span class="tcv" title="FishBase và bài gốc lệch nhau">${r.tc[k].map(([v, src]) => `${fmt(v, d)} <small>${src === 'goc' ? 'bài gốc' : 'FishBase'}</small>`).join(' · ')}</span>` : fmt(r[k], d) + (r.kc && r.kc.includes(k) ? '<span class="cc" title="Khớp bài báo gốc">✓✓</span>' : ''));
+  const byGoc = (a) => [...a].sort((x, y) => (y.goc ? 1 : 0) - (x.goc ? 1 : 0));
 
   function renderList() {
     el.querySelectorAll('[data-f]').forEach((b) => b.classList.toggle('on', b.dataset.f === only));
     if (!data) return;
     const list = data.loai.filter(hit);
-    $('list').innerHTML = list.map((s) => `<div class="it${s.sci === sel ? ' on' : ''}" data-s="${esc(s.sci)}"><i>${esc(s.sci)}</i>${models[s.sci] ? ' · 3D' : ''}<span>${esc([viName(s), s.en, s.fam].filter(Boolean).join(' · '))}${s.g.length ? ` · ${s.g.length} đo mang` : ''}${s.o.length ? ` · ${s.o.length} đo ô xi` : ''}</span></div>`).join('') || '<div class="it">Không có loài khớp.</div>';
-    $('count').textContent = `${list.length}/${data.loai.length} loài · ${data.mau_so.ban_ghi_lay.toLocaleString('vi-VN')} bản ghi đo, lấy từ ${data.mau_so.ban_ghi_goc.toLocaleString('vi-VN')} bản ghi gốc · FishBase có ${data.mau_so.loai_fishbase.toLocaleString('vi-VN')} loài`;
+    $('list').innerHTML = list.map((s) => `<div class="it${s.sci === sel ? ' on' : ''}" data-s="${esc(s.sci)}"><i>${esc(s.sci)}</i>${models[s.sci] ? ' · 3D' : ''}${[...s.g, ...s.o].some((r) => r.kc) ? ' · <span class="cc" style="display:inline;font-size:11px" title="Có số khớp bài báo gốc">✓✓</span>' : ''}<span>${esc([viName(s), s.en, s.fam].filter(Boolean).join(' · '))}${s.g.length ? ` · ${s.g.length} đo mang` : ''}${s.o.length ? ` · ${s.o.length} đo ô xi` : ''}</span></div>`).join('') || '<div class="it">Không có loài khớp.</div>';
+    $('count').textContent = `${list.length}/${data.loai.length} loài · ${data.mau_so.ban_ghi_lay.toLocaleString('vi-VN')} bản ghi đo, lấy từ ${data.mau_so.ban_ghi_goc.toLocaleString('vi-VN')} bản ghi gốc · FishBase có ${data.mau_so.loai_fishbase.toLocaleString('vi-VN')} loài · ${data.loai.filter(checked).length} loài có bản ghi đã đối chiếu bài gốc`;
   }
 
   // biểu đồ phân tán, trục log; điểm của mọi loài màu xám, loài đang chọn màu cam
@@ -94,10 +99,24 @@ export function createLookup({url, models, onModel}) {
 <div class="charts"><div class="card"><h4>Diện tích mang mỗi gam theo khối lượng</h4>${scatter(allG, myG, {xlog: true, x0: 0.1, x1: 100000, y0: 1, y1: 5000, xl: 'khối lượng cá (g)', yl: 'mm² mang / g'})}</div>
 <div class="card"><h4>Tiêu hao ô xi lúc nghỉ theo nhiệt độ</h4>${scatter(allO, myO, {xlog: false, x0: -2, x1: 40, y0: 1, y1: 30000, xl: 'nhiệt độ nước (°C)', yl: 'mg O₂/kg/h'})}</div></div>
 ${water != null ? `<p><b>Nước qua mang (tính):</b> trung vị ${fmt(water, 2)} L/phút cho 1 kg cá, từ ${s.o.length} bản ghi; mỗi bản ghi lấy ô xi bão hoà ở đúng nhiệt độ và độ mặn của nó, mang lấy 75 % (giả định).</p>` : ''}
-${s.g.length ? `<div class="card"><h4>Đo diện tích mang (${s.g.length})</h4><table><tr><th>#</th><th class="num">Khối lượng (g)</th><th class="num">Diện tích (cm²)</th><th class="num">mm²/g (tính)</th><th class="num">Hàng rào (µm)</th><th>Tài liệu gốc</th></tr>${s.g.map((r) => { const pg = (r.a * 100) / r.w; return `<tr><td>${r.id}</td><td class="num">${fmt(r.w, 2)}</td><td class="num">${fmt(r.a, 2)}</td><td class="num${pg > ODD.g ? ' odd' : ''}">${fmt(pg)}${pg > ODD.g ? ' ⚑' : ''}</td><td class="num">${fmt(r.bw, 2)}</td><td>${esc(r.ref || '—')}</td></tr>`; }).join('')}</table></div>` : ''}
-${s.o.length ? `<div class="card" style="margin-top:12px"><h4>Đo tiêu hao ô xi lúc nghỉ (${s.o.length})</h4><table><tr><th>#</th><th class="num">Khối lượng (g)</th><th class="num">°C</th><th class="num">‰</th><th>Mức</th><th class="num">mg O₂/kg/h</th><th class="num">L/phút/kg (tính)</th><th>Tài liệu gốc</th></tr>${s.o.slice(0, 60).map((r) => `<tr><td>${r.id}</td><td class="num">${fmt(r.w, 2)}</td><td class="num">${fmt(r.t, 1)}</td><td class="num">${fmt(r.s, 1)}</td><td>${LV[r.lv] || esc(r.lv)}</td><td class="num${r.m > ODD.o ? ' odd' : ''}">${fmt(r.m, 1)}${r.m > ODD.o ? ' ⚑' : ''}</td><td class="num">${fmt(waterOf(r), 2)}</td><td>${esc(r.ref || '—')}</td></tr>`).join('')}</table>${s.o.length > 60 ? `<p class="note">Hiện 60/${s.o.length} bản ghi đầu.</p>` : ''}</div>` : ''}
-<p class="note">Số liệu như FishBase v25.04 ghi (CC BY-NC 3.0), mỗi giá trị dẫn về một dòng của bản chụp trong tools/refinery. ⚑: lạ so với phần lớn số đo (trên 2000), nên đọc tài liệu gốc trước khi dùng. "Tính" là phép tính của bài, không phải số FishBase. Tên Việt giữ nguyên chính tả như FishBase.</p>`;
+${s.g.length ? `<div class="card"><h4>Đo diện tích mang (${s.g.length})</h4><table><tr><th>#</th><th class="num">Khối lượng (g)</th><th class="num">Diện tích (cm²)</th><th class="num">mm²/g (tính)</th><th class="num">Hàng rào (µm)</th><th>Tài liệu gốc</th></tr>${byGoc(s.g).map((r) => { const pg = (r.a * 100) / r.w; return `<tr${r.goc ? ' class="goc"' : ''}><td>${r.id}</td><td class="num">${cell(r, 'w', 2)}</td><td class="num">${cell(r, 'a', 2)}</td><td class="num${pg > ODD.g ? ' odd' : ''}">${fmt(pg)}${pg > ODD.g ? ' ⚑' : ''}${r.ga != null ? `<br><span class="gx">bài gốc ghi ${fmt(r.ga)}</span>` : ''}</td><td class="num">${cell(r, 'bw', 2)}</td><td>${esc(r.ref || '—')}</td></tr>`; }).join('')}</table></div>` : ''}
+${s.o.length ? `<div class="card" style="margin-top:12px"><h4>Đo tiêu hao ô xi lúc nghỉ (${s.o.length})</h4><table><tr><th>#</th><th class="num">Khối lượng (g)</th><th class="num">°C</th><th class="num">‰</th><th>Mức</th><th class="num">mg O₂/kg/h</th><th class="num">L/phút/kg (tính)</th><th>Tài liệu gốc</th></tr>${byGoc(s.o).slice(0, 60).map((r) => `<tr${r.goc ? ' class="goc"' : ''}><td>${r.id}</td><td class="num">${cell(r, 'w', 2)}</td><td class="num">${cell(r, 't', 1)}</td><td class="num">${cell(r, 's', 1)}</td><td>${LV[r.lv] || esc(r.lv)}</td><td class="num${r.m > ODD.o ? ' odd' : ''}">${cell(r, 'm', 1)}${r.m > ODD.o ? ' ⚑' : ''}</td><td class="num">${fmt(waterOf(r), 2)}</td><td>${esc(r.ref || '—')}</td></tr>`).join('')}</table>${s.o.length > 60 ? `<p class="note">Hiện 60/${s.o.length} bản ghi đầu.</p>` : ''}</div>` : ''}
+${goc(s)}
+<p class="note">Số liệu như FishBase v25.04 ghi (CC BY-NC 3.0), mỗi giá trị dẫn về một dòng của bản chụp trong tools/refinery. ✓✓: số FishBase khớp dòng tương ứng trong bài báo gốc; đó là kiểm chép (hai bên cùng một thí nghiệm), không phải phép đo thứ hai. Ô có hai giá trị: FishBase và bài gốc lệch nhau, bài giữ cả hai. ⚑: lạ so với phần lớn số đo (trên 2000), nên đọc tài liệu gốc trước khi dùng. "Tính" là phép tính của bài, không phải số FishBase. Tên Việt giữ nguyên chính tả như FishBase.</p>`;
     $('dt').scrollTop = 0;
+  }
+
+  // khung đối chiếu: bài gốc, ghi chú lệch, ghi chú soát OCR
+  function goc(s) {
+    const rs = [...s.g, ...s.o].filter((r) => r.goc);
+    if (!rs.length) return '';
+    const NAME = {w: 'khối lượng', t: 'nhiệt độ', m: 'ô xi', bw: 'hàng rào', s: 'độ mặn'};
+    const papers = [...new Set(rs.map((r) => r.goc))];
+    return `<div class="card" style="margin-top:12px"><h4>Đối chiếu với bài báo gốc</h4>${papers.map((k) => { const b = data.bai_goc[k], mine = rs.filter((r) => r.goc === k);
+      const lines = mine.flatMap((r) => [...(r.gc || []).map((t) => `#${r.id}: ${esc(t)}`), ...Object.entries(r.sx || {}).map(([f, t]) => `#${r.id} · soát ${NAME[f] || f}: ${esc(t)}`)]);
+      const uniq = [...new Set(lines.map((l) => l.replace(/^#\d+/, '')))].map((t) => { const ids = lines.filter((l) => l.replace(/^#\d+/, '') === t).map((l) => l.match(/^#(\d+)/)[1]); return `#${ids.join(', #')}${t}`; });
+      return `<p style="margin:8px 0 0"><b>${esc(b.cite)}</b> · <a href="https://doi.org/${esc(b.doi)}" target="_blank" rel="noopener">doi:${esc(b.doi)}</a><br><span class="gx">${mine.length} bản ghi · ${((n) => (n ? `${n} ô khớp ✓✓` : 'chưa ô nào đối chiếu được'))(mine.reduce((n, r) => n + (r.kc || []).length, 0))}${mine.some((r) => r.tc) ? ` · ${mine.filter((r) => r.tc).length} ô lệch` : ''}</span></p>${uniq.length ? `<ul class="gnote">${uniq.map((t) => `<li>${t}</li>`).join('')}</ul>` : ''}`; }).join('')}
+<p class="note">Bài lấy từ J-STAGE (truy cập mở). Bài chỉ có ảnh quét được đọc bằng OCR rồi soát từng số với ảnh trang. Số chỉ có trên đồ thị không đối chiếu được.</p></div>`;
   }
 
   const api = {

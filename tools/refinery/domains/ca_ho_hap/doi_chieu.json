@@ -1,0 +1,219 @@
+{
+ "bai": {
+  "kobayashi1988": {
+   "cite": "Kobayashi, H., O. Murata và T. Harada (1988). Some aspects of gill measurement in relation to the growth of the yellowtail Seriola quinqueradiata. Nippon Suisan Gakkaishi 54(1):49-54",
+   "doi": "10.2331/suisan.54.49",
+   "url": "https://www.jstage.jst.go.jp/article/suisan1932/54/1/54_1_49/_pdf"
+  },
+  "yamamoto1981": {
+   "cite": "Yamamoto, K., Y. Itazawa và H. Kobayashi (1981). Gas exchange in the gills of yellowtail, Seriola quinqueradiata under resting and normoxic condition. Bull. Jap. Soc. Sci. Fish. 47:447-451",
+   "doi": "10.2331/suisan.47.447",
+   "url": "https://www.jstage.jst.go.jp/article/suisan1932/47/4/47_4_447/_pdf"
+  },
+  "itazawa1982": {
+   "cite": "Itazawa, Y. và T. Takeda (1982). Respiration of carp under anesthesia induced by mixed bubbling of carbon dioxide and oxygen. Bull. Jap. Soc. Sci. Fish. 48:489-493",
+   "doi": "10.2331/suisan.48.489",
+   "url": "https://www.jstage.jst.go.jp/article/suisan1932/48/4/48_4_489/_pdf"
+  },
+  "takeda1979": {
+   "cite": "Takeda, T. và Y. Itazawa (1979). An estimation of the minimum level of dissolved oxygen in water required for normal life of fish. III. Bull. Jap. Soc. Sci. Fish. 45:329-333",
+   "doi": "10.2331/suisan.45.329",
+   "url": "https://www.jstage.jst.go.jp/article/suisan1932/45/3/45_3_329/_pdf"
+  },
+  "oya1938": {
+   "cite": "Oya, T. và M. Kimata (1938). Oxygen consumption of freshwater fishes. Bull. Japan. Soc. Sci. Fish. 6:287-290",
+   "doi": "10.2331/suisan.6.287",
+   "url": "https://www.jstage.jst.go.jp/article/suisan1932/6/6/6_6_287/_pdf"
+  },
+  "itazawa1979": {
+   "cite": "Itazawa, Y. và T. Takeda (1979). An estimation of the minimum level of dissolved oxygen in water required for normal life of fish. II. Bull. Jap. Soc. Sci. Fish. 45:323-327",
+   "doi": "10.2331/suisan.45.323",
+   "url": "https://www.jstage.jst.go.jp/article/suisan1932/45/3/45_3_323/_pdf"
+  }
+ },
+ "ban_ghi": {
+  "Mang #100 · Seriola quinqueradiata": {
+   "bai": "kobayashi1988",
+   "ghi_chu": [
+    "Bài gốc để trống (\"—\") khoảng cách nước–máu ở giai đoạn III; FishBase ghi 1,74, đúng bằng trung bình 5 giá trị bài có đo (1,9; 1,8; 1,7; 1,6; 1,7)."
+   ],
+   "soat": {}
+  },
+  "Mang #101 · Seriola quinqueradiata": {
+   "bai": "kobayashi1988",
+   "ghi_chu": [],
+   "soat": {}
+  },
+  "Mang #102 · Seriola quinqueradiata": {
+   "bai": "kobayashi1988",
+   "ghi_chu": [],
+   "soat": {}
+  },
+  "Mang #103 · Seriola quinqueradiata": {
+   "bai": "kobayashi1988",
+   "ghi_chu": [],
+   "soat": {}
+  },
+  "Mang #104 · Seriola quinqueradiata": {
+   "bai": "kobayashi1988",
+   "ghi_chu": [
+    "Bài gốc để trống (\"—\") khoảng cách nước–máu ở giai đoạn VII; FishBase ghi 1,74, đúng bằng trung bình 5 giá trị bài có đo."
+   ],
+   "soat": {}
+  },
+  "Mang #98 · Seriola quinqueradiata": {
+   "bai": "kobayashi1988",
+   "ghi_chu": [],
+   "soat": {}
+  },
+  "Mang #99 · Seriola quinqueradiata": {
+   "bai": "kobayashi1988",
+   "ghi_chu": [],
+   "soat": {}
+  },
+  "Ô xi #1828 · Plecoglossus altivelis": {
+   "bai": "oya1938",
+   "ghi_chu": [
+    "Bài gốc trình bày bằng đồ thị. Bốn con cá ayu trong Hình 3 nặng 12,8; 11,2; 8,0; 8,6 g; không con nào 10,7 g như FishBase ghi."
+   ],
+   "soat": {}
+  },
+  "Ô xi #2811 · Seriola quinqueradiata": {
+   "bai": "yamamoto1981",
+   "ghi_chu": [
+    "FishBase ghi độ mặn 35‰; bài chỉ nêu độ clo giả định 18,75‰ (tương đương khoảng 33,9‰), nên ô độ mặn không đối chiếu được.",
+    "FishBase ghi 47 con: đó là số cá của cả nghiên cứu; số đo ô xi có 21 con."
+   ],
+   "soat": {
+    "nhiet_do_c": "Ảnh trang: \"19.2 ± 1.0 (47)\"; OCR mất dấu chấm.",
+    "khoi_luong_g": "Ảnh trang: \"Wt (kg) 0.989 ± 0.115 (47)\"; đổi kg → g.",
+    "oxy_mg_kg_h": "Ảnh trang: \"V̇O₂ (ml/min/kg) 1.73 ± 0.33 (21)\"; 1,73 × 60 × 1,429 = 148,3 mg/kg/h, làm tròn 3 chữ số có nghĩa."
+   }
+  },
+  "Ô xi #3577 · Cyprinus carpio": {
+   "bai": "oya1938",
+   "ghi_chu": [
+    "Lượng ô xi trong bài là đường cong 24 giờ trên đồ thị; chỉ đối chiếu được khối lượng và nhiệt độ."
+   ],
+   "soat": {
+    "nhiet_do_c": "Ảnh trang: \"Cyprinus carpio during 24 hours at 19°C.\""
+   }
+  },
+  "Ô xi #3598 · Cyprinus carpio": {
+   "bai": "oya1938",
+   "ghi_chu": [
+    "Lượng ô xi trong bài là đường cong 24 giờ trên đồ thị; chỉ đối chiếu được khối lượng và nhiệt độ."
+   ],
+   "soat": {
+    "nhiet_do_c": "Ảnh trang: \"Cyprinus carpio during 24 hours at 19°C.\""
+   }
+  },
+  "Ô xi #3601 · Cyprinus carpio": {
+   "bai": "oya1938",
+   "ghi_chu": [
+    "Lượng ô xi trong bài là đường cong 24 giờ trên đồ thị; chỉ đối chiếu được khối lượng và nhiệt độ."
+   ],
+   "soat": {
+    "nhiet_do_c": "Ảnh trang: \"Cyprinus carpio during 24 hours at 19°C.\""
+   }
+  },
+  "Ô xi #3682 · Cyprinus carpio": {
+   "bai": "itazawa1979",
+   "ghi_chu": [
+    "Bài gốc (Itazawa và Takeda 1979) trình bày lượng ô xi bằng đồ thị; số FishBase là số đọc từ hình, không có dòng nguyên văn để so."
+   ],
+   "soat": {}
+  },
+  "Ô xi #3686 · Cyprinus carpio": {
+   "bai": "takeda1979",
+   "ghi_chu": [
+    "Lượng ô xi trong bài là đồ thị theo thời gian; số FishBase là số đọc từ hình, nên chỉ đối chiếu được cỡ cá và nhiệt độ."
+   ],
+   "soat": {
+    "khoi_luong_g": "Ảnh trang: \"(561±38 g)\"; OCR đọc ± thành 4.",
+    "nhiet_do_c": "Ảnh trang: \"(24.5±0.5°C)\"."
+   }
+  },
+  "Ô xi #3688 · Cyprinus carpio": {
+   "bai": "takeda1979",
+   "ghi_chu": [
+    "Lượng ô xi trong bài là đồ thị theo thời gian; số FishBase là số đọc từ hình, nên chỉ đối chiếu được cỡ cá và nhiệt độ."
+   ],
+   "soat": {
+    "khoi_luong_g": "Ảnh trang: \"(561±38 g)\"; OCR đọc ± thành 4.",
+    "nhiet_do_c": "Ảnh trang: \"(24.5±0.5°C)\"."
+   }
+  },
+  "Ô xi #3691 · Cyprinus carpio": {
+   "bai": "takeda1979",
+   "ghi_chu": [
+    "Lượng ô xi trong bài là đồ thị theo thời gian; số FishBase là số đọc từ hình, nên chỉ đối chiếu được cỡ cá và nhiệt độ."
+   ],
+   "soat": {
+    "khoi_luong_g": "Ảnh trang: \"(561±38 g)\"; OCR đọc ± thành 4.",
+    "nhiet_do_c": "Ảnh trang: \"(24.5±0.5°C)\"."
+   }
+  },
+  "Ô xi #3692 · Cyprinus carpio": {
+   "bai": "takeda1979",
+   "ghi_chu": [
+    "Lượng ô xi trong bài là đồ thị theo thời gian; số FishBase là số đọc từ hình, nên chỉ đối chiếu được cỡ cá và nhiệt độ."
+   ],
+   "soat": {
+    "khoi_luong_g": "Ảnh trang: \"(561±38 g)\"; OCR đọc ± thành 4.",
+    "nhiet_do_c": "Ảnh trang: \"(24.5±0.5°C)\"."
+   }
+  },
+  "Ô xi #3693 · Cyprinus carpio": {
+   "bai": "takeda1979",
+   "ghi_chu": [
+    "Lượng ô xi trong bài là đồ thị theo thời gian; số FishBase là số đọc từ hình, nên chỉ đối chiếu được cỡ cá và nhiệt độ."
+   ],
+   "soat": {
+    "khoi_luong_g": "Ảnh trang: \"(561±38 g)\"; OCR đọc ± thành 4.",
+    "nhiet_do_c": "Ảnh trang: \"(24.5±0.5°C)\"."
+   }
+  },
+  "Ô xi #3695 · Cyprinus carpio": {
+   "bai": "takeda1979",
+   "ghi_chu": [
+    "Lượng ô xi trong bài là đồ thị theo thời gian; số FishBase là số đọc từ hình, nên chỉ đối chiếu được cỡ cá và nhiệt độ."
+   ],
+   "soat": {
+    "khoi_luong_g": "Ảnh trang: \"(561±38 g)\"; OCR đọc ± thành 4.",
+    "nhiet_do_c": "Ảnh trang: \"(24.5±0.5°C)\"."
+   }
+  },
+  "Ô xi #3700 · Cyprinus carpio": {
+   "bai": "takeda1979",
+   "ghi_chu": [
+    "Lượng ô xi trong bài là đồ thị theo thời gian; số FishBase là số đọc từ hình, nên chỉ đối chiếu được cỡ cá và nhiệt độ."
+   ],
+   "soat": {
+    "khoi_luong_g": "Ảnh trang: \"(561±38 g)\"; OCR đọc ± thành 4.",
+    "nhiet_do_c": "Ảnh trang: \"(24.5±0.5°C)\"."
+   }
+  },
+  "Ô xi #3701 · Cyprinus carpio": {
+   "bai": "takeda1979",
+   "ghi_chu": [
+    "Lượng ô xi trong bài là đồ thị theo thời gian; số FishBase là số đọc từ hình, nên chỉ đối chiếu được cỡ cá và nhiệt độ."
+   ],
+   "soat": {
+    "khoi_luong_g": "Ảnh trang: \"(561±38 g)\"; OCR đọc ± thành 4.",
+    "nhiet_do_c": "Ảnh trang: \"(24.5±0.5°C)\"."
+   }
+  },
+  "Ô xi #3712 · Cyprinus carpio": {
+   "bai": "itazawa1982",
+   "ghi_chu": [
+    "Bài ghi nhiệt độ \"giữ trong khoảng 25–26 °C\"; FishBase ghi 25,5 (trung điểm), nên ô nhiệt độ không đối chiếu được.",
+    "FishBase ghi 76,3 mg/kg/h = 58,4 × 1,306, tức tính 1 ml ô xi theo thể tích khí ở khoảng 25 °C; theo quy ước điều kiện chuẩn (1,429 mg/ml) thì là 83,5. Bài không nói rõ thể tích đo ở điều kiện nào."
+   ],
+   "soat": {
+    "khoi_luong_g": "Ảnh trang: \"500–653 (598±45) g\"; OCR đọc ± thành dấu chấm.",
+    "oxy_mg_kg_h": "Ảnh trang: \"V̇O₂ (ml/h/kg) 9 58.4 ± 5.6\" (trước gây mê); 58,4 × 1,429 = 83,5 mg/kg/h."
+   }
+  }
+ }
+}

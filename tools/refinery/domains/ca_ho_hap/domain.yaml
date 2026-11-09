@@ -1,5 +1,5 @@
 domain: ca_ho_hap
-entity_label: "Bản ghi đo sinh lí hô hấp của cá (FishBase v25.04): diện tích mang và tiêu hao ô xi lúc nghỉ"
+entity_label: "Bản ghi đo sinh lí hô hấp của cá (FishBase v25.04): diện tích mang và tiêu hao ô xi lúc nghỉ; một số bản ghi đối chiếu với bài báo gốc trên J-STAGE (tier A)"
 
 schema:
   type_field: loai_ban_ghi
@@ -8,6 +8,7 @@ schema:
     - loai                # tên khoa học của loài (nối SpecCode với bảng species)
     - khoi_luong_g        # khối lượng cá được đo (g)
     - dien_tich_mang_cm2  # tổng diện tích mang (cm²), bảng gillarea
+    - mang_mm2_g          # diện tích mang trên mỗi gam thân (mm²/g), chỉ khi bài gốc ghi trực tiếp
     - hang_rao_um         # bề dày hàng rào nước–máu (µm), khi có
     - nhiet_do_c          # nhiệt độ nước lúc đo (°C)
     - do_man              # độ mặn (‰)
@@ -29,4 +30,4 @@ alias_map: {}
 ambiguous_clusters: []
 
 domain_gates:
-  no_inferred_fields: [khoi_luong_g, dien_tich_mang_cm2, hang_rao_um, nhiet_do_c, do_man, oxy_mg_kg_h]
+  no_inferred_fields: [khoi_luong_g, dien_tich_mang_cm2, mang_mm2_g, hang_rao_um, nhiet_do_c, do_man, oxy_mg_kg_h]
