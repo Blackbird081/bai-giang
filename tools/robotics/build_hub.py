@@ -134,14 +134,12 @@ def build(links):
         learn = ''.join(f'<li>{E(x)}</li>' for x in r['learn'])
         src = ''.join(f'<li><a href="{E(u)}" target="_blank" rel="noopener">{E(t)}</a></li>' for t, u in r['src'])
         cards.append(f'''<article class="card">
-  <a class="img" href="{E(links['sims'][k])}"><img src="{E(links['covers'][k])}" alt="{E(r['title'])}: ảnh chụp mô phỏng" loading="lazy"><b>{r['code']}</b></a>
+  <a class="img" href="{E(links['sims'][k])}" tabindex="-1" aria-hidden="true"><img src="{E(links['covers'][k])}" alt="" loading="lazy"></a>
   <div class="body">
-    <h2><small>{E(r['robot'])}</small>{E(r['title'])}</h2>
+    <h2 class="bg-h3"><small>{E(r['robot'])}</small>{E(r['title'])}</h2>
     <p>{E(r['lead'])}</p>
-    <ul>{learn}</ul>
-    <div class="nums">{E(r['nums'])}</div>
-    <details><summary>Nguồn số liệu</summary><ol>{src}</ol><p class="note">{E(r['note'])}</p></details>
-    <a class="go" href="{E(links['sims'][k])}">Vào mô phỏng <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <details><summary>Nội dung, thông số và nguồn</summary><ul>{learn}</ul><div class="nums">{E(r['nums'])}</div><ol>{src}</ol><p class="note">{E(r['note'])}</p></details>
+    <a class="bg-btn sm" href="{E(links['sims'][k])}">Vào mô phỏng</a>
   </div>
 </article>''')
     return f'''<!doctype html>
@@ -154,16 +152,18 @@ def build(links):
 {LG.font_link(links['hub'])}
 <style>{CSS}{LG.SITE_BAR_CSS}
 html[data-x]{{}}body{{font-family:var(--bg-font)}}
-.top{{display:block;padding:32px 24px 8px;max-width:1180px;margin:0 auto;border:0;background:none}}
-.top .t{{padding:0}}
-.go{{font:600 15px var(--bg-font);letter-spacing:0;min-height:44px;padding:0 20px;border-radius:999px}}
+.top{{display:block;padding-top:48px;padding-bottom:8px;border:0;background:none}}
+.top h1{{margin:8px 0 12px}} .top .bg-lead{{margin:0}}
+.card .body{{gap:12px;padding:18px 20px 22px}} .card details ul{{margin:8px 0 10px}} .card details .nums{{margin-bottom:8px}}
+.card .body>.bg-btn{{margin-top:auto;align-self:flex-start}}
+h3.sec{{font:700 var(--bg-fs-xl)/1.2 var(--bg-font);letter-spacing:-.015em;margin:56px 0 20px}} h3.sec:before{{display:none}}
 </style>
 </head>
-<body>
+<body class="bg-hub">
 {LG.site_bar(links['hub'], [('Lộ trình', links['hub'] + '#lo-trinh'), ('Robotics', None)])}
-<header class="top">
-  <div class="t"><div class="mono" style="color:var(--mute)">Đại học · kỹ sư · mô phỏng chạy trực tiếp</div><h1>Robotics</h1>
-  <div class="mono" style="margin-top:6px;color:var(--mute)">Động học · động lực học · điều khiển · cảm biến · định vị</div></div>
+<header class="top bg-frame">
+  <span class="bg-eyebrow">Đại học · kỹ sư · mô phỏng chạy trực tiếp</span><h1>Robotics</h1>
+  <p class="bg-lead">Động học, động lực học, điều khiển, cảm biến và định vị trên sáu robot thật.</p>
 </header>
 <div class="wrap">
   <section class="intro">

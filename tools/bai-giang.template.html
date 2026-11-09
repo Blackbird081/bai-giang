@@ -10,297 +10,108 @@
 <link rel="preload" href="__L_ROOT__design/fonts/be-vietnam-pro-vietnamese-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="__L_ROOT__design/house.css">
 <style>
-/* Trang chính Sáng Ăn Khoai · bản 14. Token ở design/house.css (tools/design.py). */
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--bg-bar) + 16px)}
-html,body{margin:0;background:var(--bg-page,#F4F4F6)}
-body{font-family:var(--bg-font);color:var(--bg-ink);font-size:var(--bg-fs-sm);line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-img{display:block;max-width:100%}
-.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
-.i{width:20px;height:20px;flex:none;display:block}
-/* thanh trên */
-.top{position:sticky;top:0;z-index:50;background:rgba(244,244,246,.86);-webkit-backdrop-filter:var(--bg-blur);backdrop-filter:var(--bg-blur);border-bottom:1px solid var(--bg-hair)}
-.top .wrap{display:flex;align-items:center;gap:16px;height:var(--bg-bar)}
-.brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;text-decoration:none;letter-spacing:-.01em;flex:none;min-height:44px;min-width:44px}
-.brand img{width:32px;height:32px;display:block}
-.nav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
-.nav::-webkit-scrollbar{display:none}
-.nav .sm{display:none}
-.nav a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:var(--bg-r-sm);text-decoration:none;font-weight:600;color:var(--bg-ink2);white-space:nowrap}
-.nav a:hover{background:var(--bg-hair);color:var(--bg-ink)}
-.nav a.t{color:var(--bg-ink);background:var(--bg-surface);box-shadow:var(--bg-sh-1)}
-/* màn đầu */
-.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:48px;align-items:center;padding:56px 0 40px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:var(--bg-fs-xs);font-weight:600;color:var(--bg-ink3)}
-.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--bg-ok)}
-.hero h1{margin:14px 0 16px;font:600 clamp(36px,4.4vw,56px)/1.1 var(--bg-serif);letter-spacing:-.02em;max-width:16ch}
-.hero p.lead{margin:0;font-size:var(--bg-fs-md);color:var(--bg-ink2);max-width:46ch;line-height:1.6}
-.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;border-radius:var(--bg-r-sm);font-weight:600;text-decoration:none;border:1px solid var(--bg-hair2);background:var(--bg-surface);color:var(--bg-ink);transition:transform var(--bg-t-fast) var(--bg-ease),box-shadow var(--bg-t-fast)}
-.btn:hover{box-shadow:var(--bg-sh-1)}
-.btn:active{transform:scale(.98)}
-.btn.pri{background:var(--bg-brand);color:var(--bg-brand-ink);border-color:transparent}
-.facts{display:flex;flex-wrap:wrap;gap:8px 20px;margin:28px 0 0;padding:0;list-style:none;color:var(--bg-ink2);font-size:var(--bg-fs-xs)}
-.facts li{display:flex;align-items:center;gap:8px}
-.facts b{font:600 var(--bg-fs-sm) var(--bg-mono);color:var(--bg-ink)}
-.show{position:relative;aspect-ratio:16/10;border-radius:var(--bg-r-lg);overflow:hidden;background:#dfe2e8;box-shadow:var(--bg-sh-2)}
-.show figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.2s var(--bg-ease-io)}
-.show figure.on{opacity:1}
-.show img{width:100%;height:100%;object-fit:cover}
-.show figcaption{position:absolute;left:16px;bottom:16px;right:16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.show figcaption a{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px;border-radius:999px;background:rgba(255,255,255,.92);-webkit-backdrop-filter:var(--bg-blur);backdrop-filter:var(--bg-blur);text-decoration:none;font-weight:600;box-shadow:var(--bg-sh-1)}
-.show figcaption a span{color:var(--bg-ink3);font-weight:500}
-.dots{display:flex;gap:6px}
-.dots button{width:28px;height:28px;border:0;border-radius:50%;background:none;cursor:pointer;display:grid;place-items:center;padding:0}
-.dots button i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(0,0,0,.15)}
-.dots button[aria-current="true"] i{background:#fff;width:20px;border-radius:4px}
-@media (pointer:coarse){.dots{gap:0}.dots button{width:44px;height:44px}}
-/* mục */
-section{padding:40px 0}
-.sh{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:0 0 20px}
-.sh h2{margin:0;font-size:var(--bg-fs-xl);line-height:1.2;letter-spacing:-.015em}
-.sh p{margin:6px 0 0;color:var(--bg-ink2);max-width:62ch}
-.sh a.more{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;text-decoration:none;color:var(--bg-ink2);white-space:nowrap}
-.sh a.more:hover{color:var(--bg-ink)}
-/* một mẫu thẻ bài cho mọi bài */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:20px}
-.card{position:relative;display:flex;flex-direction:column;background:var(--bg-surface);border-radius:var(--bg-r-md);overflow:hidden;box-shadow:var(--bg-sh-1);transition:transform var(--bg-t-mid) var(--bg-ease),box-shadow var(--bg-t-mid) var(--bg-ease)}
-.card:hover,.card:focus-within{transform:translateY(-3px);box-shadow:var(--bg-sh-2)}
-.card .cv{aspect-ratio:16/10;background:#e3e5ea;overflow:hidden}
-.card .cv img{width:100%;height:100%;object-fit:cover;transition:transform var(--bg-t-slow) var(--bg-ease)}
-.card:hover .cv img{transform:scale(1.03)}
-.card .bd{display:grid;gap:6px;padding:14px 16px 16px;flex:1;align-content:start}
-.card .mt{display:flex;align-items:center;gap:8px;font-size:var(--bg-fs-xs);color:var(--bg-ink3);font-weight:500}
-.card .mt i{width:8px;height:8px;border-radius:50%;flex:none}
-.card .mt b{font-weight:600;color:var(--bg-ink2)}
-.card h3{margin:0;font-size:var(--bg-fs-md);line-height:1.3;letter-spacing:-.01em}
-.card h3 a{text-decoration:none}
-.card h3 a::after{content:"";position:absolute;inset:0;z-index:0}
-.card p{margin:0;color:var(--bg-ink2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card .lv{position:absolute;top:12px;left:12px;z-index:1;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.92);font-size:var(--bg-fs-xs);font-weight:600}
-.card .gd{position:relative;z-index:1;margin-top:6px;padding-top:10px;border-top:1px solid var(--bg-hair);font-size:var(--bg-fs-xs);color:var(--bg-ink2)}
-.card .gd .tag{display:inline-block;margin:0 6px 6px 0;padding:3px 10px;border-radius:999px;background:color-mix(in srgb,var(--bg-ok) 10%,transparent);color:var(--bg-ok);font-weight:600}
-.card .gd .tag.out{background:color-mix(in srgb,var(--bg-warn) 12%,transparent);color:var(--bg-warn)}
-.card details summary{cursor:pointer;list-style:none;display:flex;align-items:center;min-height:36px;font-weight:600;color:var(--bg-ink2)}
-.card details summary::-webkit-details-marker{display:none}
-.card details summary::after{content:"";width:8px;height:8px;margin-left:8px;border-right:1.75px solid currentColor;border-bottom:1.75px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform var(--bg-t-fast)}
-.card details[open] summary::after{transform:rotate(225deg) translate(-2px,0)}
-.card details ul{margin:6px 0 0;padding-left:18px;display:grid;gap:6px}
-.card details .mu{color:var(--bg-ink3);margin-top:8px}
-/* lộ trình */
-.routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
-.route{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center;padding:16px;border-radius:var(--bg-r-md);background:var(--bg-surface);box-shadow:var(--bg-sh-1);text-decoration:none;transition:box-shadow var(--bg-t-mid)}
-.route:hover{box-shadow:var(--bg-sh-2)}
-.route img{width:120px;aspect-ratio:1;object-fit:cover;border-radius:var(--bg-r-sm)}
-.route .k{font-size:var(--bg-fs-xs);font-weight:600;color:var(--bg-ink3)}
-.route b{display:block;font-size:var(--bg-fs-lg);letter-spacing:-.01em;margin:2px 0 4px}
-.route span.d{color:var(--bg-ink2)}
-.route .go{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-weight:600}
-/* giáo viên */
-.teach{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-@media (max-width:1240px){.teach{grid-template-columns:repeat(2,1fr)}}
-.tile{display:grid;gap:8px;align-content:start;padding:20px;border-radius:var(--bg-r-md);background:var(--bg-surface);box-shadow:var(--bg-sh-1);text-decoration:none}
-.tile .ic{width:44px;height:44px;border-radius:var(--bg-r-sm);display:grid;place-items:center;background:var(--bg-page)}
-.tile b{font-size:var(--bg-fs-md)}
-.tile span{color:var(--bg-ink2)}
-.packs{display:grid;grid-template-columns:minmax(0,1.1fr) repeat(3,minmax(0,1fr));gap:20px;margin:0 0 20px;padding:20px;border-radius:var(--bg-r-md);background:var(--bg-surface);box-shadow:var(--bg-sh-1)}
-.packs .ph{display:grid;gap:6px;align-content:start}.packs .ph b{font-size:var(--bg-fs-md)}.packs .ph span{color:var(--bg-ink2)}
-.packs .ph a{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-weight:600;color:var(--bg-ink);text-decoration:none}
-.packs .pk{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center;padding:10px;border-radius:var(--bg-r-sm);background:var(--bg-page);text-decoration:none;color:var(--bg-ink);transition:box-shadow var(--bg-t-mid)}
-.packs .pk:hover{box-shadow:var(--bg-sh-1)}
-.packs .pk img{width:72px;aspect-ratio:1;object-fit:cover;border-radius:10px}
-.packs .pk span{display:block;font-size:var(--bg-fs-xs);font-weight:600;color:var(--bg-ink3)}
-.packs .pk b{font-size:var(--bg-fs-sm);line-height:1.35}
-@media (max-width:1240px){.packs{grid-template-columns:repeat(3,minmax(0,1fr))}.packs .ph{grid-column:1/-1}}
-@media (max-width:980px){.packs{grid-template-columns:1fr}}
-.tile kbd{font:600 var(--bg-fs-xs) var(--bg-mono);background:var(--bg-page);border:1px solid var(--bg-hair);border-radius:6px;padding:1px 6px}
-a.tile:hover{box-shadow:var(--bg-sh-2)}
-/* bộ lọc thư viện */
-.filters{display:grid;gap:12px;margin:0 0 20px}
-.search{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 16px;border-radius:var(--bg-r-sm);background:var(--bg-surface);box-shadow:var(--bg-sh-1)}
-.search input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:var(--bg-fs-sm);color:var(--bg-ink);outline:none;min-height:44px}
-.search:focus-within{box-shadow:0 0 0 2px var(--bg-focus)}
-.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.row .lb{font-size:var(--bg-fs-xs);font-weight:600;color:var(--bg-ink3);min-width:44px}
-.chip{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--bg-hair2);background:var(--bg-surface);font:600 var(--bg-fs-xs) var(--bg-font);color:var(--bg-ink2);cursor:pointer}
-.chip i{width:8px;height:8px;border-radius:50%}
-.chip[aria-pressed="true"]{background:var(--bg-ink);color:var(--bg-page);border-color:transparent}
-.count{margin-left:auto;font-size:var(--bg-fs-xs);color:var(--bg-ink3)}
-.empty{grid-column:1/-1;padding:48px;text-align:center;color:var(--bg-ink3)}
-/* chân trang */
-.foot{margin-top:32px;padding:20px 0 36px;border-top:1px solid var(--bg-hair);color:var(--bg-ink3);font-size:12px;line-height:1.6;letter-spacing:.01em}
-.foot .fl{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;margin-bottom:4px}
-.foot a{color:inherit;text-decoration:none;border-bottom:1px solid var(--bg-hair2);white-space:nowrap}
-.foot a:hover{color:var(--bg-ink2);border-color:currentColor}
-.foot details summary{cursor:pointer;list-style:none;display:inline}
-.foot details summary::-webkit-details-marker{display:none}
-.foot details summary::after{content:"";display:inline-block;width:5px;height:5px;margin:0 0 2px 7px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg)}
-.foot details[open] summary::after{transform:rotate(225deg);margin-bottom:-1px}
-.foot ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:2px;max-width:100ch}
-@media (max-width:980px){.hero{grid-template-columns:1fr;gap:28px;padding:32px 0 24px}.teach{grid-template-columns:1fr}}
-@media (max-width:640px){
-  .wrap{padding:0 16px}
-  .top .wrap{gap:4px}.brand span,.nav .lt,.nav .xl{display:none}.nav .sm{display:inline}.nav a{padding:0 10px}
-  .hero{padding:24px 0 8px}.hero h1{font-size:34px;margin:10px 0 12px}.hero p.lead{font-size:var(--bg-fs-sm)}.cta{margin-top:18px}.btn{flex:1;justify-content:center}
-  .show,.facts{display:none}
-  section{padding:24px 0}.sh{flex-direction:column;align-items:start;gap:4px}.sh h2{font-size:var(--bg-fs-lg)}
-  .grid{grid-template-columns:1fr;gap:16px}
-  .route{grid-template-columns:88px 1fr;gap:14px}.route img{width:88px}
-  .row{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:2px 16px}.row::-webkit-scrollbar{display:none}.chip{flex:none}.count{display:none}
-}
-@media (prefers-reduced-motion:reduce){.show figure{transition:none}}
-html[data-chieu]{--bg-ink2:#141414;--bg-ink3:#262626}
+__STYLE__
 </style>
 </head>
-<body>
+<body class="bg-hub bg-home">
 <header class="top">
   <div class="wrap">
     <a class="brand" href="./" aria-label="Sáng Ăn Khoai, trang chính"><img src="__L_ROOT__design/logo/mark-128.webp" alt="" width="32" height="32"><span>Sáng Ăn Khoai</span></a>
-    <nav class="nav" aria-label="Mục chính"><a href="#bai-hoc">Bài học</a><a class="lt" href="#lo-trinh">Lộ trình</a><a href="#thu-vien">Thư viện</a><a class="t" href="#cho-giao-vien"><span class="xl">Cho giáo viên</span><span class="sm">Giáo viên</span></a></nav>
+    <nav class="nav" aria-label="Mục chính"><a href="#bai-hoc">Bài học</a><a class="lt" href="#lo-trinh">Lộ trình</a><a href="__L_LIBPAGE__">Thư viện</a><a href="#cho-giao-vien"><span class="xl">Cho giáo viên</span><span class="sm">Giáo viên</span></a></nav>
   </div>
 </header>
 <main class="wrap">
   <section class="hero" aria-labelledby="h1">
     <div>
-      <span class="eyebrow"><i aria-hidden="true"></i>Miễn phí cho trường học · chạy được offline</span>
-      <h1 id="h1">Học bằng thế giới 3D sống động</h1>
-      <p class="lead">Bài học 3D tiếng Việt cho lớp học: khám phá 2.900 cấu trúc của cơ thể người, đi vào tế bào tới từng nguyên tử, dựng lại Thành Cổ Loa theo số đo khảo cổ, cho robot chạy bằng số liệu thật.</p>
+      <span class="bg-eyebrow">Miễn phí cho trường học · chạy được offline</span>
+      <h1 id="h1" class="bg-display">Học bằng thế giới 3D sống động</h1>
+      <p class="bg-lead">Đi vào tế bào tới từng nguyên tử, mở 2.900 cấu trúc của cơ thể người, dựng lại Thành Cổ Loa theo số đo khảo cổ, cho robot chạy bằng số liệu thật. Bằng tiếng Việt, cho lớp học.</p>
       <div class="cta">
-        <a class="btn pri" href="#bai-hoc"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2.5 9 9.5-4.5L21.5 9 12 13.5z"/><path d="M6.5 11v4.5c1.5 1.5 3.4 2.25 5.5 2.25s4-.75 5.5-2.25V11"/></svg>Tự học</a>
-        <a class="btn" href="#cho-giao-vien"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8.5 20h7M12 16.5V20"/></svg>Lên lớp</a>
+        <a class="bg-btn" href="#bai-hoc">Bắt đầu học</a>
+        <a class="bg-btn ghost" href="#cho-giao-vien">Dạy trên lớp</a>
       </div>
-      <ul class="facts"><li><b>65</b> bài 3D</li><li><b>6</b> môn và Robotics</li><li>Bút trình chiếu, điện thoại làm điều khiển</li></ul>
     </div>
-    <div class="show" id="show" aria-roledescription="trình chiếu" aria-label="Bài học nổi bật">
-      <figure class="on"><img src="__L_BASE__covers/te-bao.webp" alt="Tế bào nhân thực cắt hở, nhìn thấy nhân và các bào quan" fetchpriority="high"><figcaption><a href="__L_CELL__">Hành Trình Vào Tế Bào <span>Sinh học 10</span></a></figcaption></figure>
-      <figure><img src="__L_BASE__covers/co-the-nguoi.webp" alt="Lồng ngực với phổi, tim và mạch máu dựng từ mô hình giải phẫu" loading="lazy"><figcaption><a href="__L_BODY__">Cơ thể người 3D <span>Khoa học tự nhiên 8</span></a></figcaption></figure>
-      <figure><img src="__L_BASE__covers/than-kinh.webp" alt="Neuron phát sáng với bao myelin chia đốt và chuỳ synapse trên nền tối" loading="lazy"><figcaption><a href="__L_NEURON__">Neuron và xung thần kinh <span>Sinh học 11</span></a></figcaption></figure>
-      <figure><img src="__L_BASE__covers/dong-co.webp" alt="Động cơ xăng 4 kì cắt dọc: pít-tông, thanh truyền, trục khuỷu, xupap" loading="lazy"><figcaption><a href="__L_ENGINE__">Động cơ xăng 4 kì <span>Công nghệ 11</span></a></figcaption></figure>
-      <figure><img src="__L_BASE__covers/mako.webp" alt="Robot cá mập mako đang bơi, vây đuôi lưỡi liềm" loading="lazy"><figcaption><a href="__L_MAKO__">Robot cá mập mako <span>Vật lí 10</span></a></figcaption></figure>
-      <figure><img src="__L_BASE__covers/co-loa.webp" alt="Ba vòng thành Cổ Loa trên đồng bằng" loading="lazy"><figcaption><a href="__L_COLOA__">Thành Cổ Loa <span>Lịch sử 10</span></a></figcaption></figure>
-      <figure><img src="__L_BASE__covers/ty-the.webp" alt="ATP synthase dựng từ toạ độ nguyên tử" loading="lazy"><figcaption><a href="__L_MITO__">Vào Ty Thể <span>Sinh học 10</span></a></figcaption></figure>
-      <figure><img src="__L_BASE__covers/robo-ur5e.webp" alt="Cánh tay robot UR5e trên bàn thí nghiệm" loading="lazy"><figcaption><a href="__L_R_UR5E__">Cánh tay robot 6 trục <span>Đại học</span></a></figcaption></figure>
-      <div class="dots" id="dots" style="position:absolute;right:12px;top:12px" role="tablist" aria-label="Chọn ảnh"></div>
+    <div>
+      <div class="show" id="show" aria-roledescription="trình chiếu" aria-label="Bài học nổi bật">
+        <figure class="on" data-href="__L_CELL__" data-t="Hành Trình Vào Tế Bào" data-s="Sinh học 10"><img src="__L_BASE__covers/te-bao.webp" alt="Tế bào nhân thực cắt hở, nhìn thấy nhân và các bào quan" fetchpriority="high"></figure>
+        <figure data-href="__L_BODY__" data-t="Cơ thể người 3D" data-s="Khoa học tự nhiên 8"><img src="__L_BASE__covers/co-the-nguoi.webp" alt="Lồng ngực với phổi, tim và mạch máu dựng từ mô hình giải phẫu" loading="lazy"></figure>
+        <figure data-href="__L_GILL__" data-t="Cá thở bằng mang" data-s="Sinh học 11"><img src="__L_BASE__covers/mang.webp" alt="Cá saba bơi, nắp mang mở thấy lá mang đỏ" loading="lazy"></figure>
+        <figure data-href="__L_NEURON__" data-t="Neuron và xung thần kinh" data-s="Sinh học 11"><img src="__L_BASE__covers/than-kinh.webp" alt="Neuron phát sáng với bao myelin chia đốt và chuỳ synapse trên nền tối" loading="lazy"></figure>
+        <figure data-href="__L_ENGINE__" data-t="Động cơ xăng 4 kì" data-s="Công nghệ 11"><img src="__L_BASE__covers/dong-co.webp" alt="Động cơ xăng 4 kì cắt dọc: pít-tông, thanh truyền, trục khuỷu, xupap" loading="lazy"></figure>
+        <figure data-href="__L_COLOA__" data-t="Thành Cổ Loa" data-s="Lịch sử 10"><img src="__L_BASE__covers/co-loa.webp" alt="Ba vòng thành Cổ Loa trên đồng bằng" loading="lazy"></figure>
+      </div>
+      <div class="showcap"><a id="showlink" href="__L_CELL__">Hành Trình Vào Tế Bào<span>Sinh học 10</span></a><div class="dots" id="dots" role="tablist" aria-label="Chọn ảnh"></div></div>
     </div>
   </section>
 
   <section id="bai-hoc" aria-labelledby="h-bai">
-    <div class="sh"><div><h2 id="h-bai">Bài học 3D</h2><p>Mỗi bài có chế độ học theo bước và chế độ lên lớp. Bấm vật trong cảnh để xem số đo và nguồn.</p></div></div>
-    <div class="grid">
+    <div class="sh"><div><h2 id="h-bai" class="bg-h2">Bài học 3D</h2><p>Mỗi bài có chế độ học theo bước và chế độ lên lớp. Bấm vật trong cảnh để xem số đo và nguồn.</p></div></div>
+    <div class="grid rail collapsed" id="lessons">
       __FEATURED__
     </div>
+    <div class="showall"><button class="bg-btn ghost" id="showall" aria-controls="lessons" aria-expanded="false">Xem cả __N3D__ bài</button></div>
   </section>
 
   <section id="lo-trinh" aria-labelledby="h-lt">
-    <div class="sh"><div><h2 id="h-lt">Lộ trình theo chương trình GDPT 2018</h2><p>Các bài xếp theo thứ tự của chương trình, kèm yêu cầu cần đạt trích nguyên văn.</p></div></div>
+    <div class="sh"><div><h2 id="h-lt" class="bg-h2">Lộ trình theo chương trình</h2><p>Các bài xếp theo thứ tự của chương trình GDPT 2018, kèm yêu cầu cần đạt trích nguyên văn.</p></div></div>
     <div class="routes">
-      <a class="route" href="__L_CHUDE__"><img src="__L_BASE__covers/te-bao.webp" alt="" loading="lazy"><div><span class="k">Sinh học · lớp 10 · 6 bài</span><b>Sinh học tế bào</b><span class="d">Tế bào, vận chuyển qua màng, ty thể, enzyme, nguyên phân.</span><span class="go">Xem lộ trình <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="route" href="__L_LS10__"><img src="__L_BASE__covers/co-loa.webp" alt="" loading="lazy"><div><span class="k">Lịch sử · lớp 10 · ba bộ sách</span><b>Lịch sử 10</b><span class="d">Văn minh Văn Lang – Âu Lạc qua Thành Cổ Loa; thêm cảnh theo từng chủ đề.</span><span class="go">Xem lộ trình <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="route" href="__L_ROBO__"><img src="__L_BASE__covers/robo-hexapod.webp" alt="" loading="lazy"><div><span class="k">Đại học · kỹ sư · 4 mô phỏng</span><b>Robotics</b><span class="d">Cánh tay, robot sáu chân, drone, xe tự hành; số liệu từ tài liệu của hãng.</span><span class="go">Xem mục lục <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="route" href="__L_CHUDE__"><img src="__L_BASE__covers/te-bao.webp" alt="" loading="lazy"><div><span class="k">Sinh học · lớp 10 · 6 bài</span><b>Sinh học tế bào</b><span class="d">Tế bào, vận chuyển qua màng, ty thể, enzyme, nguyên phân.</span></div></a>
+      <a class="route" href="__L_LS10__"><img src="__L_BASE__covers/co-loa.webp" alt="" loading="lazy"><div><span class="k">Lịch sử · lớp 10 · ba bộ sách</span><b>Lịch sử 10</b><span class="d">Văn minh Văn Lang – Âu Lạc qua Thành Cổ Loa.</span></div></a>
+      <a class="route" href="__L_ROBO__"><img src="__L_BASE__covers/robo-hexapod.webp" alt="" loading="lazy"><div><span class="k">Đại học · kỹ sư · 6 mô phỏng</span><b>Robotics</b><span class="d">Cánh tay, robot chân, drone, xe tự hành, theo tài liệu của hãng.</span></div></a>
     </div>
   </section>
 
   <section id="cho-giao-vien" aria-labelledby="h-gv">
-    <div class="sh"><div><h2 id="h-gv">Cho giáo viên</h2><p>Mọi bài 3D lên lớp theo cùng một cách. Học một lần, dùng cho mọi bài.</p></div></div>
-    <div class="packs">
-      <div class="ph"><b>Gói dạy thử 45 phút</b><span>Kịch bản theo phút, phiếu học tập in A4, đáp án. Phút và việc của giáo viên hiện cả trên màn hình giáo viên. Bản thử, chờ giáo viên bộ môn duyệt.</span><a href="__L_GV__">Xem các gói <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      <a class="pk" href="__L_GV__te-bao/"><img src="__L_BASE__covers/te-bao.webp" alt="" loading="lazy"><div><span>Sinh học 10</span><b>Hành trình của một phân tử protein tiết</b></div></a>
-      <a class="pk" href="__L_GV__than-kinh/"><img src="__L_BASE__covers/than-kinh.webp" alt="" loading="lazy"><div><span>Sinh học 11</span><b>Xung thần kinh đi như thế nào?</b></div></a>
-      <a class="pk" href="__L_GV__co-loa/"><img src="__L_BASE__covers/co-loa.webp" alt="" loading="lazy"><div><span>Lịch sử 10</span><b>Thành Cổ Loa: đọc văn minh Âu Lạc từ dấu tích</b></div></a>
+    <div class="sh"><div><h2 id="h-gv" class="bg-h2">Cho giáo viên</h2><p>Gói dạy thử 45 phút: kịch bản theo phút, phiếu học tập in A4, đáp án. Bản thử, chờ giáo viên bộ môn duyệt.</p></div><a class="more" href="__L_GV__">Xem các gói <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="packs rail">
+      <a class="pk" href="__L_GV__te-bao/"><img src="__L_BASE__covers/te-bao.webp" alt="" loading="lazy"><div><span>Sinh học 10 · 45 phút</span><b>Hành trình của một phân tử protein tiết</b></div></a>
+      <a class="pk" href="__L_GV__than-kinh/"><img src="__L_BASE__covers/than-kinh.webp" alt="" loading="lazy"><div><span>Sinh học 11 · 45 phút</span><b>Xung thần kinh đi như thế nào?</b></div></a>
+      <a class="pk" href="__L_GV__co-loa/"><img src="__L_BASE__covers/co-loa.webp" alt="" loading="lazy"><div><span>Lịch sử 10 · 45 phút</span><b>Thành Cổ Loa: đọc văn minh Âu Lạc từ dấu tích</b></div></a>
     </div>
-    <div class="teach">
-      <div class="tile"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span><b>Lên lớp trong mọi bài</b><span>Bấm <b>Lên lớp</b> trên thanh đầu bài hoặc <kbd>Shift P</kbd>. Bút trình chiếu và phím mũi tên chuyển bước, <kbd>B</kbd> màn đen, <kbd>F</kbd> toàn màn hình.</span></div>
-      <a class="tile" href="__L_REMOTE__"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.75" width="10" height="18.5" rx="2.5"/><path d="M11 18h2"/></svg></span><b>Màn hình giáo viên, điện thoại</b><span>Trong bài: menu <b>Thêm</b> → Màn hình giáo viên (ghi chú, đáp án, bước sau) hoặc quét mã bằng điện thoại.</span></a>
-      <a class="tile" href="__L_KIEM__"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><b>Kiểm máy trước giờ dạy</b><span>Chạy thử mọi bài trên máy của lớp, xem bài nào chạy mượt và bài nào nên dùng mức nhẹ.</span></a>
-      <a class="tile" href="https://github.com/nclamvn/bai-giang/releases/latest" target="_blank" rel="noopener"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M5 19h14"/></svg></span><b>Bản offline cho phòng không mạng</b><span>Tế Bào và Ty Thể, mỗi bài một tệp HTML (8–10 MB). Tải về, mở bằng Chrome hoặc Edge, không cần Internet.</span></a>
+    <div class="tools">
+      <div class="tool"><b>Lên lớp trong mọi bài</b><span>Bấm Lên lớp trên thanh đầu bài hoặc <kbd>Shift P</kbd>. Bút trình chiếu và phím mũi tên chuyển bước.</span></div>
+      <a class="tool" href="__L_REMOTE__"><b>Điện thoại làm điều khiển</b><span>Nhập mã trên màn chiếu để chuyển bước, xem ghi chú và đáp án.</span></a>
+      <a class="tool" href="__L_KIEM__"><b>Kiểm máy trước giờ dạy</b><span>Chạy thử mọi bài trên máy của lớp, biết bài nào nên dùng mức nhẹ.</span></a>
+      <a class="tool" href="https://github.com/nclamvn/bai-giang/releases/latest" target="_blank" rel="noopener"><b>Bản offline</b><span>Tế Bào và Ty Thể, mỗi bài một tệp HTML, mở bằng Chrome hoặc Edge, không cần Internet.</span></a>
     </div>
   </section>
 
   <section id="thu-vien" aria-labelledby="h-tv">
-    <div class="sh"><div><h2 id="h-tv">Thư viện 54 bài thí nghiệm</h2><p>Vật lí, Hoá học, Sinh học, Địa lí. Mỗi bài đối chiếu với yêu cầu cần đạt của chương trình GDPT 2018.</p></div></div>
-    <div class="filters">
-      <label class="search"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><input id="q" type="search" placeholder="Tìm bài: ammonia, nguyên phân, gió mùa…" aria-label="Tìm bài học"></label>
-      <div class="row" role="group" aria-label="Lọc theo môn"><span class="lb">Môn</span>
-        <button class="chip" data-s="" aria-pressed="true">Tất cả</button>
-        <button class="chip" data-s="phys" aria-pressed="false"><i style="background:var(--bg-s-ly)"></i>Vật lí</button>
-        <button class="chip" data-s="chem" aria-pressed="false"><i style="background:var(--bg-s-hoa)"></i>Hoá học</button>
-        <button class="chip" data-s="bio" aria-pressed="false"><i style="background:var(--bg-s-sinh)"></i>Sinh học</button>
-        <button class="chip" data-s="geo" aria-pressed="false"><i style="background:var(--bg-s-dia)"></i>Địa lí</button>
-        <span class="count" id="count" aria-live="polite"></span>
-      </div>
-      <div class="row" role="group" aria-label="Lọc theo lớp"><span class="lb">Lớp</span>
-        <button class="chip g" data-g="" aria-pressed="true">Mọi lớp</button>
-        <button class="chip g" data-g="thcs" aria-pressed="false">THCS 6–9</button>
-        <button class="chip g" data-g="10" aria-pressed="false">Lớp 10</button>
-        <button class="chip g" data-g="11" aria-pressed="false">Lớp 11</button>
-        <button class="chip g" data-g="12" aria-pressed="false">Lớp 12</button>
-        <button class="chip g" data-g="out" aria-pressed="false">Mở rộng</button>
-      </div>
+    <div class="sh"><div><h2 id="h-tv" class="bg-h2">Thư viện __NLIB__ bài thí nghiệm</h2><p>Vật lí, Hoá học, Sinh học, Địa lí. Mỗi bài đối chiếu với yêu cầu cần đạt của chương trình.</p></div><a class="more" href="__L_LIBPAGE__">Mở thư viện <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="subjs rail">
+      __SUBJECTS__
     </div>
-    <div class="grid" id="grid"></div>
   </section>
 
   <footer class="foot">
     <div class="fl"><span>© 2026 Sáng Ăn Khoai</span><span><a href="https://github.com/nclamvn/bai-giang" target="_blank" rel="noopener">Mã nguồn</a> · <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">Góp ý</a></span></div>
     <details>
-      <summary>Thư viện thí nghiệm phát triển từ Tongjiang Lab, CC BY-NC 4.0. Phi thương mại.</summary>
+      <summary>Ghi công và giấy phép</summary>
       <ul>
-        <li>Bản gốc: <a href="https://lab.tongjiang.app" target="_blank" rel="noopener">Tongjiang Lab</a> (<a href="https://github.com/smithjohn78390/tongjiang-lab" target="_blank" rel="noopener">mã nguồn</a>), giấy phép <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.vi" target="_blank" rel="noopener">CC BY-NC 4.0</a>. Robotics tham khảo teardown, claude-motion; three.js (MIT); phông SIL OFL.</li>
+        <li>Thư viện thí nghiệm phát triển từ <a href="https://lab.tongjiang.app" target="_blank" rel="noopener">Tongjiang Lab</a> (<a href="https://github.com/smithjohn78390/tongjiang-lab" target="_blank" rel="noopener">mã nguồn</a>), giấy phép <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.vi" target="_blank" rel="noopener">CC BY-NC 4.0</a>, phi thương mại. Robotics tham khảo teardown, claude-motion; three.js (MIT); phông SIL OFL.</li>
         <li>Cơ thể người 3D phát triển từ <a href="https://github.com/FreedomIntelligence/BodyVista" target="_blank" rel="noopener">BodyVista</a> (FreedomIntelligence, MIT); mô hình <a href="https://www.z-anatomy.com" target="_blank" rel="noopener">Z-Anatomy</a> (CC BY-SA 4.0, có phần chỉ dùng phi thương mại) và BodyParts3D (DBCLS, CC BY-SA 2.1 JP). <a href="https://github.com/nclamvn/bai-giang/blob/main/co-the-nguoi/GHI-CONG.md" target="_blank" rel="noopener">Ghi công</a>.</li>
-        <li>Neuron và xung thần kinh dựng hoàn toàn bằng mã (three.js, MIT), hình minh hoạ không theo tỉ lệ; nội dung đối chiếu <a href="https://openstax.org/books/anatomy-and-physiology-2e/pages/12-4-the-action-potential" target="_blank" rel="noopener">OpenStax Anatomy and Physiology 2e</a> (CC BY 4.0).</li>
+        <li>Cá thở bằng mang dùng mô hình Fish Kit (なちゃっと, CC0) và số liệu FishBase (CC BY-NC 3.0). Neuron và xung thần kinh dựng hoàn toàn bằng mã, nội dung đối chiếu <a href="https://openstax.org/books/anatomy-and-physiology-2e/pages/12-4-the-action-potential" target="_blank" rel="noopener">OpenStax Anatomy and Physiology 2e</a> (CC BY 4.0).</li>
         <li>Đối chiếu GDPT 2018 (<a href="__L_GDPT__">dữ liệu</a>), cập nhật 30/10/2026; chưa qua giáo viên bộ môn duyệt. __SOURCES__</li>
       </ul>
     </details>
   </footer>
 </main>
 <script>
-const LESSONS = __CATALOG__;
-const COL = { phys: 'var(--bg-s-ly)', chem: 'var(--bg-s-hoa)', bio: 'var(--bg-s-sinh)', geo: 'var(--bg-s-dia)' };
-const norm = (s) => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
-let subj = '', grade = ''; try { const u = new URLSearchParams(location.search); subj = u.get('mon') || ''; grade = u.get('lop') || ''; } catch (e) {}
-const GD = __GDPT__;
-const BASE = '__L_BASE__';
-const gOf = (l) => (GD[l.slug] || { khop: [] });
-const chinh = (l) => gOf(l).khop.filter((m) => m.muc_do === 'chinh');
-const short = (m) => (m.muc || m.chu_de).split(' › ').pop().replace(/\s*\(.*\)\s*$/, '');
-const monShort = { 'Sinh học': 'Sinh', 'Vật lí': 'Lí', 'Hoá học': 'Hoá', 'Địa lí': 'Địa', 'Khoa học tự nhiên': 'KHTN', 'Lịch sử và Địa lí': 'LS&ĐL' };
-const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-function gradeOk(l) { if (!grade) return true; const c = chinh(l); if (grade === 'out') return !c.length; if (grade === 'thcs') return c.some((m) => m.lop <= 9); return c.some((m) => String(m.lop) === grade); }
-function gdHtml(l) {
-  const g = gOf(l), c = chinh(l), r = g.khop.filter((m) => m.muc_do !== 'chinh');
-  const seen = new Set(), tags = c.filter((m) => { const k = m.mon + m.lop + short(m); if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 2).map((m) => `<span class="tag">${esc(monShort[m.mon] || m.mon)} ${m.lop} · ${esc(short(m))}</span>`).join('');
-  const head = tags || '<span class="tag out">Mở rộng, ngoài chương trình</span>';
-  const li = (arr) => arr.map((m) => m.ycd.map((y) => `<li>${esc(y)}</li>`).join('')).join('');
-  return `<div class="gd">${head}<details><summary>Yêu cầu cần đạt</summary>${c.length ? `<div class="mu">Bài dạy trực tiếp</div><ul>${li(c)}</ul>` : ''}${r.length ? `<div class="mu">Liên quan</div><ul>${li(r)}</ul>` : ''}${g.ghi_chu ? `<div class="mu">${esc(g.ghi_chu)}</div>` : ''}</details></div>`;
-}
-function render() {
-  const q = norm(document.getElementById('q').value.trim());
-  const list = LESSONS.filter((l) => (!subj || l.subject === subj) && gradeOk(l) && (!q || norm([l.title, l.question, l.steps.join(' '), gOf(l).khop.map((m) => m.muc + ' ' + m.ycd.join(' ')).join(' ')].join(' ')).includes(q)));
-  document.getElementById('count').textContent = `${list.length} bài`;
-  document.querySelectorAll('.chip:not(.g)').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.s === subj)));
-  document.querySelectorAll('.chip.g').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.g === grade)));
-  document.getElementById('grid').innerHTML = list.length ? list.map((l) => `
-    <article class="card">
-      <div class="cv"><img src="${esc(BASE + l.cover)}" alt="" loading="lazy"></div>
-      <div class="bd">
-        <div class="mt"><i style="background:${COL[l.subject]}"></i><b>${esc(l.mon)}</b><span>${l.steps.length} bước</span></div>
-        <h3><a href="${esc(BASE + l.file)}">${esc(l.title)}</a></h3>
-        <p>${esc(l.question)}</p>
-        ${gdHtml(l)}
-      </div>
-    </article>`).join('') : '<div class="empty">Không có bài nào khớp. Thử từ khoá khác hoặc bỏ bớt bộ lọc.</div>';
-}
-document.getElementById('q').addEventListener('input', render);
-document.querySelectorAll('.chip:not(.g)').forEach((c) => c.addEventListener('click', () => { subj = c.dataset.s; render(); }));
-document.querySelectorAll('.chip.g').forEach((c) => c.addEventListener('click', () => { grade = c.dataset.g; render(); }));
-render();
-// ảnh màn đầu: đổi chậm, dừng khi rê chuột hoặc khi máy đặt giảm chuyển động
-{ const figs = [...document.querySelectorAll('#show figure')], dots = document.getElementById('dots'); let k = 0, hold = false;
-  const set = (i) => { k = (i + figs.length) % figs.length; figs.forEach((f, j) => { f.classList.toggle('on', j === k); f.toggleAttribute('inert', j !== k); }); dots.querySelectorAll('button').forEach((b, j) => b.setAttribute('aria-current', String(j === k))); };
-  dots.innerHTML = figs.map((f, j) => `<button role="tab" aria-label="Ảnh ${j + 1}: ${esc(f.querySelector('a').firstChild.textContent.trim())}"><i></i></button>`).join('');
+// địa chỉ cũ: thư viện từng nằm ở /#thu-vien (kèm ?mon=…), nay là trang riêng
+if (location.hash === '#thu-vien') location.replace('__L_LIBPAGE__' + location.search);
+// bài học: 7 bài đầu hiện sẵn, các bài còn lại mở bằng nút (điện thoại: cả hàng là băng cuộn ngang)
+{ const g = document.getElementById('lessons'), b = document.getElementById('showall');
+  b.addEventListener('click', () => { const open = g.classList.toggle('collapsed') === false; b.setAttribute('aria-expanded', String(open)); b.textContent = open ? 'Thu gọn' : b.dataset.t; });
+  b.dataset.t = b.textContent; }
+// ảnh màn đầu: đổi chậm, dừng khi rê chuột hoặc khi máy đặt giảm chuyển động; chú thích dưới ảnh theo ảnh đang hiện
+{ const figs = [...document.querySelectorAll('#show figure')], dots = document.getElementById('dots'), cap = document.getElementById('showlink'); let k = 0, hold = false;
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const set = (i) => { k = (i + figs.length) % figs.length; figs.forEach((f, j) => f.classList.toggle('on', j === k)); dots.querySelectorAll('button').forEach((b, j) => b.setAttribute('aria-current', String(j === k)));
+    const f = figs[k]; cap.href = f.dataset.href; cap.innerHTML = `${esc(f.dataset.t)}<span>${esc(f.dataset.s)}</span>`; };
+  dots.innerHTML = figs.map((f, j) => `<button role="tab" aria-label="Ảnh ${j + 1}: ${esc(f.dataset.t)}"><i></i></button>`).join('');
   dots.querySelectorAll('button').forEach((b, j) => b.addEventListener('click', () => { set(j); hold = true; }));
   const sh = document.getElementById('show'); sh.addEventListener('pointerenter', () => { hold = true; }); sh.addEventListener('pointerleave', () => { hold = false; });
+  sh.addEventListener('click', () => { location.href = figs[k].dataset.href; }); sh.style.cursor = 'pointer';
   set(0); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => { if (!hold && !document.hidden) set(k + 1); }, 6000); }
 </script>
 </body>

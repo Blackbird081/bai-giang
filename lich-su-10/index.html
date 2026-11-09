@@ -92,10 +92,10 @@ header p{margin:0;max-width:74ch;color:var(--ink2)}
 .kpi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .kpi div{padding:12px 14px}
 .kpi b{display:block;font-size:26px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-h2.sec{margin:14px 0 0;font-size:22px;letter-spacing:-.015em}
+h2.sec{margin:28px 0 0} .feat .bg-btn,.muc .bg-btn{justify-self:start;margin-top:6px}
 .cd{padding:18px 20px;display:grid;gap:10px}
 .ch{display:flex;gap:14px;align-items:center}
-.ch .no{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;color:#fff;background:linear-gradient(180deg,#B26A1A,#8E5110)}
+.ch .no{width:32px;height:32px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;color:#fff;background:var(--bg-ink)}
 .ch h3{margin:0;font-size:20px;letter-spacing:-.015em}
 .muc{border-top:1px solid var(--line);padding:10px 0 4px;display:grid;gap:5px}
 .muc .mh{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
@@ -104,10 +104,10 @@ h2.sec{margin:14px 0 0;font-size:22px;letter-spacing:-.015em}
 .muc details summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--accent2)}
 .muc ul{margin:4px 0 2px;padding-left:20px;font-size:14px}
 .muc .btn{justify-self:start;text-decoration:none;margin:4px 0 6px;padding:7px 14px;font-size:13.5px}
-.muc.co{background:linear-gradient(90deg,rgba(178,106,26,.07),transparent 70%);border-radius:14px;padding:10px 12px;border-top-color:transparent}
-.st{font-size:13px;font-weight:700;padding:2px 9px;border-radius:999px;white-space:nowrap}
-.st.co{background:rgba(44,122,75,.12);color:#226040} .st.du,.st.tl{background:rgba(118,118,128,.12);color:var(--muted)}
-.new{font-size:13px;font-weight:700;color:#7A4510;background:rgba(178,106,26,.12);border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:2px}
+.muc.co{background:var(--bg-page);border-radius:14px;padding:12px 14px;border-top-color:transparent}
+.st{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;white-space:nowrap}.st::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.st.co{color:var(--bg-ok)} .st.tl{color:var(--bg-ink3)}
+.new{font-size:13px;font-weight:500;color:var(--bg-ink3);margin-left:4px}
 .bs{border-top:1px solid var(--line);padding-top:10px}
 .bsg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:6px}
 .bsg b{font-size:13px} .bsg ul{margin:4px 0 0;padding-left:16px;font-size:13px;color:var(--ink2)}
@@ -117,40 +117,36 @@ footer ul{margin:0;padding-left:18px} footer a{color:inherit}
 @media (max-width:760px){.wrap{padding:16px 12px 40px;gap:14px} .feat{grid-template-columns:1fr} .feat img{min-height:0;aspect-ratio:16/10} .kpi{grid-template-columns:1fr;gap:8px} .kpi div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 14px} .kpi b{font-size:18px;text-align:right} .bsg{grid-template-columns:1fr} .cd{padding:14px} .ch h3{font-size:18px}}
 </style>
 </head>
-<body>
-<header class="sitebar"><div class="in"><a class="brand" href="../" aria-label="Sáng Ăn Khoai, trang chính"><img src="../design/logo/mark-128.webp" alt="" width="32" height="32"><span>Sáng Ăn Khoai</span></a><div class="crumbs"><span aria-hidden="true">/</span><a href="../#lo-trinh">Lộ trình</a><span aria-hidden="true">/</span><b>Lịch sử 10</b></div><nav aria-label="Mục chính"><a href="../#bai-hoc">Bài học</a><a href="../#lo-trinh">Lộ trình</a><a href="../#thu-vien">Thư viện</a><a href="../#cho-giao-vien">Cho giáo viên</a></nav></div></header>
+<body class="bg-hub">
+<header class="sitebar"><div class="in"><a class="brand" href="../" aria-label="Sáng Ăn Khoai, trang chính"><img src="../design/logo/mark-128.webp" alt="" width="32" height="32"><span>Sáng Ăn Khoai</span></a><div class="crumbs"><span aria-hidden="true">/</span><a href="../#lo-trinh">Lộ trình</a><span aria-hidden="true">/</span><b>Lịch sử 10</b></div><nav aria-label="Mục chính"><a href="../#bai-hoc">Bài học</a><a href="../#lo-trinh">Lộ trình</a><a href="../thu-vien/">Thư viện</a><a href="../#cho-giao-vien">Cho giáo viên</a></nav></div></header>
 <div class="wrap">
 <header>
-  <div class="lbl" style="margin-top:12px">Lịch sử · lớp 10 · chương trình GDPT 2018, sửa đổi 2025</div>
-  <h1>Lịch sử 10 bằng <em>mô hình 3D</em></h1>
+  <span class="bg-eyebrow">Lịch sử · lớp 10 · chương trình GDPT 2018, sửa đổi 2025</span>
+  <h1>Lịch sử 10 bằng mô hình 3D</h1>
   <p>Lộ trình bám theo chương trình môn Lịch sử, nên dùng chung được cho cả ba bộ sách Kết nối tri thức, Chân trời sáng tạo và Cánh diều. Mỗi mục ghi nguyên văn yêu cầu cần đạt và cảnh 3D sẽ dựng. Nội dung bài được viết mới từ nguồn khảo cổ, sử liệu công khai, có dẫn nguồn từng con số; phần phỏng dựng luôn được ghi rõ. Trang không chép nội dung sách giáo khoa.</p>
 </header>
 <a class="feat glass" href="co-loa/">
   <img src="../thu-vien/covers/co-loa.webp" alt="Mô hình 3D ba vòng thành Cổ Loa trên đồng bằng">
   <div class="bd"><div class="lbl">Bài mẫu · Văn minh Văn Lang – Âu Lạc</div><h2>Thành Cổ Loa</h2>
   <p>Ba vòng thành đất dựng theo số đo khảo cổ trên đồng bằng ven sông Hoàng Giang. Kéo dòng thời gian từ thế kỷ IV TCN đến ngày nay, mở mặt cắt lũy đúng tỉ lệ, xem kho mũi tên, trống đồng, và đặt truyền thuyết cạnh bằng chứng.</p>
-  <span class="btn primary">Vào bài →</span></div>
+  <span class="bg-btn sm">Vào bài</span></div>
 </a>
-<section class="kpi" aria-label="Tổng quan">
-  <div class="glass"><span class="lbl">Bài 3D</span><b>Thành Cổ Loa</b></div>
-  <div class="glass"><span class="lbl">Chủ đề theo chương trình</span><b>7 + thực hành</b></div>
-  <div class="glass"><span class="lbl">Yêu cầu cần đạt, trích nguyên văn</span><b>66</b></div>
-</section>
-<h2 class="sec">Lộ trình theo chương trình</h2>
+<h2 class="sec bg-h2">Lộ trình theo chương trình</h2>
+<p class="small" style="margin:-8px 0 0">7 chủ đề và hoạt động thực hành · 66 yêu cầu cần đạt trích nguyên văn · bài 3D đầu tiên: Thành Cổ Loa; các mục khác đang dựng.</p>
 <section class="cd glass" id="cd1">
   <div class="ch"><span class="no">1</span><div><div class="lbl">Chủ đề 1 · thời lượng 10% (chung chủ đề 1–2)</div><h3>Lịch sử và sử học</h3></div></div>
   <div class="muc du">
-  <div class="mh"><h4>Lịch sử</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Lịch sử</h4></div>
   <div class="canh"><b>Hố địa tầng</b> · Một hố khảo cổ cắt lớp: các lớp đất và hiện vật là hiện thực còn lại; bản vẽ, nhật ký khai quật là lịch sử được nhận thức. Học sinh tự đào từng lớp và ghi chép.</div>
   <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Trình bày được khái niệm lịch sử.</li><li>Phân biệt được hiện thực lịch sử và lịch sử được con người nhận thức.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Sử học</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Sử học</h4></div>
   <div class="canh"><b>Bàn của nhà sử học</b> · Tư liệu gốc, tư liệu phái sinh, truyền miệng đặt cạnh nhau; kéo từng tư liệu vào khung đối chiếu để thấy chỗ khớp, chỗ vênh.</div>
   <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Giải thích được khái niệm sử học.</li><li>Trình bày được đối tượng nghiên cứu của sử học.</li><li>Nêu được chức năng, nhiệm vụ của sử học.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Tri thức lịch sử và cuộc sống: Học tập và khám phá lịch sử suốt đời</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Tri thức lịch sử và cuộc sống: Học tập và khám phá lịch sử suốt đời</h4></div>
   <div class="canh"><b>Phòng trưng bày ảo</b> · Một phòng bảo tàng nhỏ xoay quanh vài hiện vật, mỗi hiện vật mở ra câu hỏi để học sinh tự tìm hiểu tiếp.</div>
   <details><summary>Yêu cầu cần đạt (4)</summary><ul><li>Giải thích được sự cần thiết phải học tập và khám phá lịch sử suốt đời.</li><li>Biết cách sưu tầm, thu thập, xử lí thông tin, sử liệu để học tập, khám phá lịch sử.</li><li>Vận dụng kiến thức, bài học lịch sử để giải thích những vấn đề thời sự trong nước và thế giới, những vấn đề trong thực tiễn cuộc sống (ở mức độ đơn giản).</li><li>Quan tâm, yêu thích và tham gia các hoạt động tìm hiểu lịch sử, văn hoá của dân tộc Việt Nam và thế giới.</li></ul></details>
   
@@ -159,12 +155,12 @@ footer ul{margin:0;padding-left:18px} footer a{color:inherit}
 </section><section class="cd glass" id="cd2">
   <div class="ch"><span class="no">2</span><div><div class="lbl">Chủ đề 2 · thời lượng 10% (chung chủ đề 1–2)</div><h3>Vai trò của sử học</h3></div></div>
   <div class="muc du">
-  <div class="mh"><h4>Sử học với công tác bảo tồn và phát huy giá trị di sản văn hoá, di sản thiên nhiên</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Sử học với công tác bảo tồn và phát huy giá trị di sản văn hoá, di sản thiên nhiên</h4></div>
   <div class="canh"><b>Các tầng di tích chồng lớp</b> · Một khu di tích có nhiều thời kỳ chồng lên nhau, bóc từng tầng để thấy vì sao bảo tồn cần sử học.</div>
   <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Nêu được mối quan hệ giữa sử học với công tác bảo tồn và phát huy giá trị di sản văn hoá và di sản thiên nhiên.</li><li>Có ý thức vận động các bạn và mọi người ở xung quanh cùng tham gia bảo vệ các di sản văn hoá và di sản thiên nhiên ở địa phương.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Sử học với sự phát triển du lịch</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Sử học với sự phát triển du lịch</h4></div>
   <div class="canh"><b>Tuyến tham quan một đô thị cổ</b> · Dựng tuyến tham quan 3D một đô thị cổ, gắn thông tin lịch sử vào từng điểm dừng.</div>
   <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Giải thích được vai trò của lịch sử và văn hoá đối với sự phát triển du lịch.</li><li>Nêu được tác động của du lịch với công tác bảo tồn di tích lịch sử, văn hoá.</li></ul></details>
   
@@ -173,32 +169,32 @@ footer ul{margin:0;padding-left:18px} footer a{color:inherit}
 </section><section class="cd glass" id="cd3">
   <div class="ch"><span class="no">3</span><div><div class="lbl">Chủ đề 3 · thời lượng 8%</div><h3>Một số nền văn minh thế giới thời cổ – trung đại</h3></div></div>
   <div class="muc du">
-  <div class="mh"><h4>Khái niệm văn minh</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Khái niệm văn minh</h4></div>
   <div class="canh"><b>Quả địa cầu văn minh</b> · Các trung tâm văn minh cổ hiện trên quả địa cầu theo dòng thời gian, phân biệt văn hoá và văn minh.</div>
   <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Giải thích được khái niệm văn minh.</li><li>Phân biệt được khái niệm văn minh, văn hoá.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Văn minh Ai Cập</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Văn minh Ai Cập</h4></div>
   <div class="canh"><b>Kim tự tháp Khufu</b> · Mặt cắt kim tự tháp theo số đo khảo cổ, các hành lang và buồng bên trong, công trường xây dựng.</div>
   <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về các nền văn minh cổ đại phương Đông.</li><li>Nêu được thành tựu tiêu biểu và ý nghĩa của văn minh Ai Cập về chữ viết, khoa học tự nhiên, kiến trúc, điêu khắc.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Văn minh Trung Hoa</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Văn minh Trung Hoa</h4></div>
   <div class="canh"><b>Giấy, la bàn, thuốc súng, kỹ thuật in</b> · Bốn phát minh dưới dạng mô hình chuyển động, kèm niên đại và nguồn.</div>
   <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được thành tựu tiêu biểu và ý nghĩa của văn minh Trung Hoa về chữ viết, văn học nghệ thuật, sử học, khoa học tự nhiên, y học, thiên văn học, lịch pháp, tư tưởng, tôn giáo.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Văn minh Ấn Độ</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Văn minh Ấn Độ</h4></div>
   <div class="canh"><b>Bảo tháp Sanchi</b> · Bảo tháp và cổng đá chạm khắc, liên hệ với Phật giáo lan sang Đông Nam Á.</div>
   <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được những thành tựu tiêu biểu và ý nghĩa của văn minh Ấn Độ về chữ viết, văn học nghệ thuật, khoa học tự nhiên, tư tưởng, tôn giáo.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Văn minh Hy Lạp - La Mã</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Văn minh Hy Lạp - La Mã</h4></div>
   <div class="canh"><b>Đền Parthenon và đấu trường Colosseum</b> · Hai công trình đúng tỉ lệ, xem cột, vòm và kỹ thuật xây dựng.</div>
   <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về các nền văn minh phương Tây thời cổ - trung đại.</li><li>Nêu được những thành tựu tiêu biểu và ý nghĩa của văn minh Hy Lạp - La Mã về chữ viết, thiên văn học, lịch pháp, văn học, nghệ thuật, khoa học tự nhiên, tư tưởng, tôn giáo, thể thao.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Văn minh thời Phục hưng</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Văn minh thời Phục hưng</h4></div>
   <div class="canh"><b>Mái vòm nhà thờ Florence</b> · Cách Brunelleschi xây mái vòm hai lớp, từng vòng gạch xương cá.</div>
   <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được những thành tựu tiêu biểu và ý nghĩa của văn minh thời Phục hưng về tư tưởng, văn học, nghệ thuật, khoa học kĩ thuật, thiên văn học.</li></ul></details>
   
@@ -207,32 +203,32 @@ footer ul{margin:0;padding-left:18px} footer a{color:inherit}
 </section><section class="cd glass" id="cd4">
   <div class="ch"><span class="no">4</span><div><div class="lbl">Chủ đề 4 · thời lượng 11%</div><h3>Các cuộc cách mạng công nghiệp trong lịch sử thế giới</h3></div></div>
   <div class="muc du">
-  <div class="mh"><h4>Cách mạng công nghiệp lần thứ nhất</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Cách mạng công nghiệp lần thứ nhất</h4></div>
   <div class="canh"><b>Máy hơi nước</b> · Piston, van, bánh đà chuyển động; vì sao máy hơi nước thay đổi nhà máy và giao thông.</div>
   <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Biết cách sưu tầm và sử dụng một số tư liệu để tìm hiểu về các cuộc cách mạng công nghiệp.</li><li>Nếu được thành tựu cơ bản của Cách mạng công nghiệp lần thứ nhất.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Cách mạng công nghiệp lần thứ hai</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Cách mạng công nghiệp lần thứ hai</h4></div>
   <div class="canh"><b>Động cơ đốt trong, máy phát điện, dây chuyền</b> · Ba cỗ máy tiêu biểu chạy cạnh nhau.</div>
   <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được những thành tựu cơ bản của Cách mạng công nghiệp lần thứ hai.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Ý nghĩa của Cách mạng công nghiệp lần thứ nhất và lần thứ hai</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Ý nghĩa của Cách mạng công nghiệp lần thứ nhất và lần thứ hai</h4></div>
   <div class="canh"><b>Bản đồ đường sắt và nhà máy</b> · Mạng đường sắt, nhà máy lan rộng qua các thập niên.</div>
   <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được ý nghĩa của Cách mạng công nghiệp lần thứ nhất và lần thứ hai về kinh tế, xã hội, văn hoá.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Cách mạng công nghiệp lần thứ ba</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Cách mạng công nghiệp lần thứ ba</h4></div>
   <div class="canh"><b>Từ bóng bán dẫn đến vi mạch</b> · Phóng từ một chiếc máy tính xuống vi mạch và bóng bán dẫn.</div>
   <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được những thành tựu cơ bản của cuộc Cách mạng công nghiệp lần thứ ba.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Cách mạng công nghiệp lần thứ tư (Cách mạng 4.0)</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Cách mạng công nghiệp lần thứ tư (Cách mạng 4.0)</h4></div>
   <div class="canh"><b>Nhà máy thông minh</b> · Robot, cảm biến, dữ liệu kết nối trong một xưởng sản xuất.</div>
   <details><summary>Yêu cầu cần đạt (1)</summary><ul><li>Nêu được những thành tựu cơ bản của cuộc Cách mạng công nghiệp lần thứ tư.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Ý nghĩa của Cách mạng công nghiệp lần thứ ba và lần thứ tư</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Ý nghĩa của Cách mạng công nghiệp lần thứ ba và lần thứ tư</h4></div>
   <div class="canh"><b>Bốn cuộc cách mạng trên một trục</b> · So sánh nguồn năng lượng, công cụ và tác động của bốn cuộc cách mạng.</div>
   <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Nêu được ý nghĩa của Cách mạng công nghiệp lần thứ ba và lần thứ tư về kinh tế, xã hội, văn hoá.</li><li>Có thái độ trân trọng những thành quả của cuộc cách mạng công nghiệp đối với sự phát triển của lịch sử.</li><li>Vận dụng được những hiểu biết về tác động hai mặt của Cách mạng công nghiệp lần thứ ba và lần thứ tư để tuân thủ những quy định của pháp luật trong cách thức giao tiếp trên Internet, mạng xã hội.</li></ul></details>
   
@@ -241,7 +237,7 @@ footer ul{margin:0;padding-left:18px} footer a{color:inherit}
 </section><section class="cd glass" id="cd5">
   <div class="ch"><span class="no">5</span><div><div class="lbl">Chủ đề 5 · thời lượng 6%</div><h3>Văn minh Đông Nam Á thời cổ – trung đại</h3></div></div>
   <div class="muc du">
-  <div class="mh"><h4>Hành trình phát triển và thành tựu của văn mình Đông Nam Á thời cổ - trung đại</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Hành trình phát triển và thành tựu của văn mình Đông Nam Á thời cổ - trung đại</h4></div>
   <div class="canh"><b>Angkor Wat và Borobudur</b> · Mặt bằng mandala, các tầng đền tháp, liên hệ với văn minh Ấn Độ.</div>
   <details><summary>Yêu cầu cần đạt (4)</summary><ul><li>Biết cách sưu tầm và sử dụng một số tư liệu để tìm hiểu về lịch sử văn minh Đông Nam Á.</li><li>Trình bày được các thời kì phát triển của văn minh Đông Nam Á.</li><li>Nêu được một số thành tựu tiêu biểu của văn minh Đông Nam Á về tôn giáo và tín ngưỡng, văn tự và văn học, kiến trúc và điêu khắc.</li><li>Biết trân trọng giá trị trường tồn của các di sản văn minh Đông Nam Á, tham gia bảo tồn các di sản văn minh Đông Nam Á nói chung và ở Việt Nam nói riêng.</li></ul></details>
   
@@ -250,32 +246,32 @@ footer ul{margin:0;padding-left:18px} footer a{color:inherit}
 </section><section class="cd glass" id="cd6">
   <div class="ch"><span class="no">6</span><div><div class="lbl">Chủ đề 6 · thời lượng 24%</div><h3>Một số nền văn minh trên đất nước Việt Nam (trước năm 1858)</h3></div></div>
   <div class="muc co">
-  <div class="mh"><h4>Văn minh Văn Lang - Âu Lạc <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span></h4><span class="st co">Có bài 3D</span></div>
+  <div class="mh"><h4>Văn minh Văn Lang - Âu Lạc <span class="new" title="Sửa đổi theo Thông tư 17/2025">· sửa đổi 2025</span></h4><span class="st co">Có bài 3D</span></div>
   <div class="canh"><b>Thành Cổ Loa</b> · Ba vòng thành phỏng dựng theo số đo khảo cổ, dòng thời gian từ thế kỷ IV TCN đến nay, hiện vật, truyền thuyết đối chiếu bằng chứng, chế độ học theo bước có câu hỏi.</div>
   <details open><summary>Yêu cầu cần đạt (3)</summary><ul><li>Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Văn Lang - Âu Lạc.</li><li>Phân tích được cơ sở hình thành văn minh Văn Lang - Âu Lạc.</li><li>Nêu được những thành tựu tiêu biểu của nền văn minh Văn Lang - Âu Lạc về đời sống vật chất, đời sống tinh thần, tổ chức xã hội, Nhà nước.</li></ul></details>
-  <a class="btn primary" href="co-loa/">Mở bài 3D</a>
+  <a class="bg-btn sm" href="co-loa/">Mở bài 3D</a>
 </div><div class="muc du">
-  <div class="mh"><h4>Văn minh Champa <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span></h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Văn minh Champa <span class="new" title="Sửa đổi theo Thông tư 17/2025">· sửa đổi 2025</span></h4></div>
   <div class="canh"><b>Thánh địa Mỹ Sơn</b> · Các nhóm tháp gạch, kỹ thuật xây gạch không vữa nhìn thấy, liên hệ tôn giáo.</div>
   <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Biết sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Champa.</li><li>Phân tích được cơ sở hình thành văn minh Champa.</li><li>Trình bày được những thành tựu tiêu biểu của văn minh Champa về đời sống vật chất, đời sống tinh thần, tổ chức xã hội, Nhà nước.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Văn minh Phù Nam <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span></h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Văn minh Phù Nam <span class="new" title="Sửa đổi theo Thông tư 17/2025">· sửa đổi 2025</span></h4></div>
   <div class="canh"><b>Cảng thị Óc Eo</b> · Kênh đào, nhà sàn, cảng biển trong mạng giao thương.</div>
   <details><summary>Yêu cầu cần đạt (4)</summary><ul><li>Biết sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về văn minh Phù Nam.</li><li>Phân tích được cơ sở hình thành văn minh Phù Nam.</li><li>Trình bày được những thành tựu tiêu biểu của văn minh Phù Nam về đời sống vật chất, đời sống tinh thần, tổ chức xã hội, Nhà nước.</li><li>Biết vận dụng hiểu biết về các nền văn minh cổ để giới thiệu về đất nước, con người Việt Nam. Nhận thức được giá trị trường tồn của các nền văn minh cổ trên đất nước Việt Nam. Có ý thức trân trọng truyền thống lao động cần cù, sáng tạo của dân tộc Việt Nam trong lịch sử. Có trách nhiệm trong việc góp phần bảo tồn các di sản văn hoá của dân tộc.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Cơ sở hình thành và quá trình phát triển của văn minh Đại Việt <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span></h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Cơ sở hình thành và quá trình phát triển của văn minh Đại Việt <span class="new" title="Sửa đổi theo Thông tư 17/2025">· sửa đổi 2025</span></h4></div>
   <div class="canh"><b>Kinh thành Thăng Long</b> · Các tầng kiến trúc Hoàng thành Thăng Long qua các triều đại.</div>
   <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Giải thích được khái niệm văn minh Đại Việt.</li><li>Phân tích được cơ sở hình thành văn minh Đại Việt về kế thừa văn minh Văn Lang - Âu Lạc, đấu tranh gìn giữ văn hoá, bản sắc dân tộc trong thời kì Bắc thuộc, nền độc lập tự chủ của đất nước, tiếp thu ảnh hưởng của văn hoá Trung Quốc, Ấn Độ.</li><li>Nêu được quá trình phát triển của văn minh Đại Việt.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Một số thành tựu của văn minh Đại Việt</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Một số thành tựu của văn minh Đại Việt</h4></div>
   <div class="canh"><b>Văn Miếu, thành nhà Hồ</b> · Hai công trình tiêu biểu cho giáo dục và kỹ thuật xây dựng.</div>
   <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Biết cách sưu tầm và sử dụng tư liệu lịch sử để tìm hiểu về những thành tựu của văn minh Đại Việt.</li><li>Nêu được một số thành tựu cơ bản của nền văn minh Đại Việt về kinh tế, chính trị, tư tưởng, tôn giáo, văn hoá, giáo dục, văn học, nghệ thuật.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Ý nghĩa của văn minh Đại Việt trong lịch sử dân tộc Việt Nam <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span></h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Ý nghĩa của văn minh Đại Việt trong lịch sử dân tộc Việt Nam <span class="new" title="Sửa đổi theo Thông tư 17/2025">· sửa đổi 2025</span></h4></div>
   <div class="canh"><b>Dòng thời gian văn minh Đại Việt</b> · Các thành tựu đặt trên một trục thời gian để so sánh, tổng hợp.</div>
   <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Phân tích được ý nghĩa của nền văn minh Đại Việt trong lịch sử dân tộc Việt Nam.</li><li>Trân trọng giá trị của nền văn minh Đại Việt, vận dụng hiểu biết về văn minh Đại Việt để giới thiệu, quảng bá về đất nước, con người, di sản văn hoá Việt Nam.</li><li>Đề xuất được các giải pháp nhằm gìn giữ và phát huy những giá trị của các nền văn minh trên đất nước Việt Nam (trước năm 1858) trong cuộc sống hiện nay.</li></ul></details>
   
@@ -284,17 +280,17 @@ footer ul{margin:0;padding-left:18px} footer a{color:inherit}
 </section><section class="cd glass" id="cd7">
   <div class="ch"><span class="no">7</span><div><div class="lbl">Chủ đề 7 · thời lượng 11%</div><h3>Cộng đồng các dân tộc Việt Nam</h3></div></div>
   <div class="muc du">
-  <div class="mh"><h4>Các dân tộc trên đất nước Việt Nam</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Các dân tộc trên đất nước Việt Nam</h4></div>
   <div class="canh"><b>Bản đồ ngữ hệ</b> · Bản đồ phân bố các ngữ hệ, nhóm ngôn ngữ, chạm vào để xem từng dân tộc.</div>
   <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Nêu được thành phần dân tộc theo dân số.</li><li>Trình bày được việc phân chia tộc người theo ngữ hệ.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Khái quát về đời sống vật chất và tinh thần của cộng đồng các dân tộc Việt Nam</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Khái quát về đời sống vật chất và tinh thần của cộng đồng các dân tộc Việt Nam</h4></div>
   <div class="canh"><b>Ba kiểu nhà truyền thống</b> · Nhà rông, nhà sàn, nhà trình tường dựng đúng cấu trúc, xem vật liệu và cách dùng không gian.</div>
   <details><summary>Yêu cầu cần đạt (2)</summary><ul><li>Trình bày được nét chính về đời sống vật chất của cộng đồng các dân tộc Việt Nam.</li><li>Nêu được nét chính về đời sống tinh thần của cộng đồng các dân tộc Việt Nam.</li></ul></details>
   
 </div><div class="muc du">
-  <div class="mh"><h4>Khối đại đoàn kết dân tộc trong lịch sử Việt Nam <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span></h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Khối đại đoàn kết dân tộc trong lịch sử Việt Nam <span class="new" title="Sửa đổi theo Thông tư 17/2025">· sửa đổi 2025</span></h4></div>
   <div class="canh"><b>Dòng thời gian</b> · Các mốc tiêu biểu của khối đại đoàn kết dân tộc.</div>
   <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Nêu được nét chính về sự hình thành khối đại đoàn kết dân tộc trong lịch sử Việt Nam.</li><li>Nêu được vai trò, tầm quan trọng của khối đại đoàn kết dân tộc trong lịch sử dựng nước và giữ nước.</li><li>Phân tích được vai trò, tầm quan trọng của khối đại đoàn kết dân tộc trong sự nghiệp xây dựng và bảo vệ Tổ quốc hiện nay.</li></ul></details>
   
@@ -308,14 +304,14 @@ footer ul{margin:0;padding-left:18px} footer a{color:inherit}
 </section><section class="cd glass" id="cd8">
   <div class="ch"><span class="no">★</span><div><div class="lbl">Hoạt động · thời lượng 20%</div><h3>Thực hành lịch sử</h3></div></div>
   <div class="muc du">
-  <div class="mh"><h4>Hoạt động thực hành</h4><span class="st du">Sắp có</span></div>
+  <div class="mh"><h4>Hoạt động thực hành</h4></div>
   <div class="canh"><b>Thực địa ảo Cổ Loa</b> · Đi thực địa trên mô hình Cổ Loa: đo mặt cắt, ghi chép, đối chiếu nguồn. Dùng lại bài Thành Cổ Loa.</div>
   <details><summary>Yêu cầu cần đạt (3)</summary><ul><li>Củng cố, khắc sâu kiến thức lịch sử.</li><li>Rèn luyện các kĩ năng thực hành bộ môn, phát triển năng lực lịch sử.</li><li>Tạo hứng thú trong học tập.</li></ul></details>
   
 </div>
   
 </section>
-<h2 class="sec">Chuyên đề học tập lựa chọn</h2>
+<h2 class="sec bg-h2">Chuyên đề học tập lựa chọn</h2>
 <p class="small" style="margin:-8px 0 0">52 yêu cầu cần đạt, 35 tiết. Chưa lên kế hoạch cảnh 3D; chuyên đề 10.2 về di sản có thể dùng lại mô hình Cổ Loa.</p>
 <details class="cdx glass"><summary><b>Chuyên đề 10.1</b> Các lĩnh vực của sử học <span class="small">· 15 yêu cầu</span></summary>
   <div class='muc du'><h4>Khái quát về một số cách trình bày lịch sử truyền thống</h4><ul><li>Tóm tắt được một số cách trình bày lịch sử truyền thống thông qua ví dụ cụ thể.</li></ul></div><div class='muc du'><h4>Thông sử</h4><ul><li>Giải thích được khái niệm thông sử.</li><li>Nêu được nội dung chính của thông sử.</li></ul></div><div class='muc du'><h4>Lịch sử theo lĩnh vực</h4><ul><li>Nêu được nét khái quát về các lĩnh vực của lịch sử</li><li>Giải thích được ý nghĩa của việc phân chia lịch sử theo lĩnh vực.</li><li>Nêu được khái niệm và nội dung chính của lịch sử dân tộc</li><li>Nêu được khái niệm và nội dung chính của lịch sử thế giới.</li></ul></div><div class='muc du'><h4>Một số lĩnh vực của lịch sử Việt Nam</h4><ul><li>Nêu được đối tượng và phạm vi của lịch sử văn hoá Việt Nam.</li><li>Tóm tắt được nét chính của lịch sử văn hoá Việt Nam trên đường thời gian.</li><li>Nêu được đối tượng và phạm vi của lịch sử tư tưởng Việt Nam.</li><li>Tóm tắt được nét chính của lịch sử tư tưởng Việt Nam trên đường thời gian.</li></ul></div><div class='muc du'><h4>Lịch sử xã hội Việt Nam</h4><ul><li>Giải thích được đối tượng của lịch sử xã hội.</li><li>Tóm tắt được nét chính của lịch sử xã hội Việt Nam trên đường thời gian.</li></ul></div><div class='muc du'><h4>Lịch sử kinh tế Việt Nam</h4><ul><li>Giải thích được đối tượng của lịch sử kinh tế.</li><li>Tóm tắt được nét chính của lịch sử kinh tế Việt Nam trên đường thời gian.</li></ul></div></details><details class="cdx glass"><summary><b>Chuyên đề 10.2</b> Bảo tồn và phát huy giá trị di sản văn hoá ở việt nam <span class="small">· 19 yêu cầu</span></summary>

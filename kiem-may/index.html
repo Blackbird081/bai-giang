@@ -30,12 +30,12 @@ a{color:var(--accent)}
 .top a{text-decoration:none;font-weight:600}
 h1{margin:6px 0 4px;font-size:32px;letter-spacing:-.02em}
 .lead{color:var(--ink2);max-width:70ch;margin:0 0 18px}
-.card{background:#fff;border-radius:20px;padding:18px 20px;box-shadow:0 0 0 .5px rgba(15,23,42,.06),0 12px 32px -18px rgba(15,23,42,.3);margin-top:14px}
+.card{background:#fff;border-radius:var(--bg-r-md);padding:20px 24px;box-shadow:0 0 0 .5px rgba(15,23,42,.06),0 12px 32px -18px rgba(15,23,42,.3);margin-top:14px}
 .dev{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 18px}
 .dev div span{display:block;font-size:13px;color:var(--ink2);font-weight:600}
 .dev div b{font-size:14.5px;word-break:break-word}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-button{font:600 15px inherit;font-family:inherit;border:0;border-radius:999px;height:44px;padding:0 20px;cursor:pointer;background:#fff;color:var(--ink);box-shadow:0 0 0 1px var(--hair)}
+button:not(.bg-btn){font:600 15px inherit;font-family:inherit;border:0;border-radius:999px;height:44px;padding:0 20px;cursor:pointer;background:#fff;color:var(--ink);box-shadow:0 0 0 1px var(--hair)}
 button.pri{background:var(--accent);color:#fff;box-shadow:none}
 button:disabled{opacity:.5;cursor:default}
 label.ck{display:inline-flex;gap:8px;align-items:center;font-size:14px;color:var(--ink2)}
@@ -45,8 +45,8 @@ table{width:100%;border-collapse:collapse;font-size:14px}
 th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--hair);vertical-align:top}
 th{font-size:13px;color:var(--ink2);font-weight:600}
 td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
-.v{display:inline-block;padding:2px 10px;border-radius:999px;font-weight:700;font-size:13px}
-.v.ok{background:rgba(44,122,75,.12);color:var(--ok)}.v.mid{background:rgba(178,106,26,.14);color:var(--mid)}.v.bad{background:rgba(179,38,30,.1);color:var(--bad)}.v.wait{background:rgba(15,23,42,.06);color:var(--ink2)}
+.v{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:13px;white-space:nowrap}.v::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.v.ok{color:var(--ok)}.v.mid{color:var(--mid)}.v.bad{color:var(--bad)}.v.wait{color:var(--ink2)}
 #run{position:fixed;inset:0;display:none;background:#000;z-index:10}
 #run.show{display:block}
 #run iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
@@ -71,7 +71,7 @@ textarea{width:100%;min-height:120px;font:13px var(--bg-mono);border-radius:12px
 @media (max-width:760px){.sitebar .in{padding:0 12px;gap:8px}.sitebar .brand span,.sitebar nav{display:none}.sitebar .crumbs{font-size:15px}}
 </style>
 </head>
-<body>
+<body class="bg-hub">
 <header class="sitebar"><div class="in"><a class="brand" href="../" aria-label="Sáng Ăn Khoai, trang chính"><img src="../design/logo/mark-128.webp" alt="" width="32" height="32"><span>Sáng Ăn Khoai</span></a><div class="crumbs"><span aria-hidden="true">/</span><a href="../#cho-giao-vien">Cho giáo viên</a><span aria-hidden="true">/</span><b>Kiểm máy</b></div></div></header>
 <div class="wrap">
   <h1>Kiểm máy</h1>
@@ -81,7 +81,7 @@ textarea{width:100%;min-height:120px;font:13px var(--bg-mono);border-radius:12px
 
   <div class="sum" id="sum" hidden></div>
   <div class="card">
-    <div class="row"><button class="pri" id="go">Bắt đầu kiểm</button><label class="ck"><input type="checkbox" id="quick"> Kiểm nhanh (4 bài, khoảng 1 phút)</label><span class="small" id="eta"></span></div>
+    <div class="row"><button class="bg-btn" id="go">Bắt đầu kiểm</button><label class="ck"><input type="checkbox" id="quick"> Kiểm nhanh (4 bài, khoảng 1 phút)</label><span class="small" id="eta"></span></div>
     <div class="tw"><table><thead><tr><th>Bài</th><th>Tải xong</th><th>Khung hình/giây</th><th>1% chậm nhất</th><th>Khung giật &gt; 50 ms</th><th>Kết luận</th></tr></thead><tbody id="tb"></tbody></table></div>
     <p class="small">Đạt: từ 30 khung hình mỗi giây. Tạm được: 20–30, chuyển động còn hơi giật. Chưa đạt: dưới 20. "1% chậm nhất" cho biết lúc nặng nhất trang còn bao nhiêu khung mỗi giây.</p>
   </div>
@@ -128,8 +128,10 @@ const DEV = {
   screen: `${screen.width}×${screen.height}`, viewport: `${innerWidth}×${innerHeight}`, dpr: devicePixelRatio, webgpu: 'gpu' in navigator, gpu: gpuInfo(),
 };
 const browser = (() => { const u = navigator.userAgent; const m = u.match(/(Edg|OPR|Chrome|Firefox|Version)\/([\d.]+)/); const name = /Edg\//.test(u) ? 'Edge' : /OPR\//.test(u) ? 'Opera' : /Chrome\//.test(u) ? 'Chrome' : /Firefox\//.test(u) ? 'Firefox' : /Safari\//.test(u) ? 'Safari' : 'Khác'; return m ? `${name} ${m[2].split('.')[0]}` : name; })();
-$('dev').innerHTML = [['Card đồ hoạ', DEV.gpu.renderer], ['Trình duyệt', browser + (DEV.webgpu ? ' · có WebGPU' : '')], ['Hệ điều hành', DEV.platform || '?'], ['Nhân CPU', DEV.cores || '?'], ['Bộ nhớ (ước)', DEV.memoryGB ? DEV.memoryGB + ' GB' : '?'], ['Màn hình', `${DEV.screen} · tỉ lệ điểm ảnh ${DEV.dpr}`]]
-  .map(([k, v]) => `<div><span>${k}</span><b>${esc(v)}</b></div>`).join('');
+// tên card đồ hoạ cho người đọc: bỏ vỏ ANGLE (hãng, tên card, API), mã thiết bị và phiên bản shader; chuỗi đầy đủ ở chú thích
+const gpuShort = (r) => { let m = String(r).match(/^ANGLE \((.*)\)$/); let x = m ? m[1].split(/,\s*(?![^()]*\))/)[1] || m[1] : String(r); x = x.replace(/\s*\(0x[0-9A-Fa-f]+\)/g, '').replace(/\s+(Direct3D\S*|vs_\S+|ps_\S+|OpenGL.*|Vulkan.*)$/g, '').replace(/\s+(Direct3D\S*|vs_\S+|ps_\S+)/g, ''); x = x.replace(/^ANGLE \w+ Renderer:\s*/, ''); if (/swiftshader/i.test(r)) x = 'SwiftShader (vẽ bằng phần mềm)'; return x.trim() || String(r); };
+$('dev').innerHTML = [['Card đồ hoạ', gpuShort(DEV.gpu.renderer)], ['Trình duyệt', browser + (DEV.webgpu ? ' · có WebGPU' : '')], ['Hệ điều hành', DEV.platform || '?'], ['Nhân CPU', DEV.cores || '?'], ['Bộ nhớ (ước)', DEV.memoryGB ? DEV.memoryGB + ' GB' : '?'], ['Màn hình', `${DEV.screen} · tỉ lệ điểm ảnh ${DEV.dpr}`]]
+  .map(([k, v]) => `<div><span>${k}</span><b${k === 'Card đồ hoạ' ? ` title="${esc(DEV.gpu.renderer)}"` : ''}>${esc(v)}</b></div>`).join('');
 if (/swiftshader|llvmpipe|software|basic render/i.test(DEV.gpu.renderer)) $('dev').insertAdjacentHTML('afterend', '<p style="margin:12px 0 0;padding:10px 12px;border-radius:12px;background:rgba(179,38,30,.08);color:#B3261E;font-weight:600">Máy đang vẽ bằng phần mềm, không dùng card đồ hoạ, nên bài 3D sẽ rất chậm. Vào cài đặt trình duyệt, bật "Dùng tăng tốc đồ hoạ khi có thể" (Chrome, Edge: Cài đặt › Hệ thống), khởi động lại trình duyệt rồi kiểm lại.</p>');
 
 // ---------- đo một bài ----------

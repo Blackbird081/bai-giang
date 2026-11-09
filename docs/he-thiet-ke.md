@@ -29,6 +29,22 @@ Từ tháng 11/2026 mọi màn hình, kể cả bài gốc ngoài (BodyVista, th
 
 Cỡ và bố cục vẫn thuộc từng bài: nút điều khiển trong cảnh 3D là viên thuốc cao 32 đến 44 px; nút hành động trên trang tài liệu bo 10 px, cao 48 px. Bảng thông tin bo 14 px, nền kính trắng, bóng `--bg-sh-2`. Nhãn viết thường đầu câu bằng Be Vietnam Pro 600; không viết hoa giãn chữ, không phông đơn cách cho chữ. Cảnh 3D được giữ ánh sáng riêng (ví dụ nền tối của bài Neuron), nhưng mọi bảng, nút, nhãn phủ lên cảnh theo chuẩn này. Bài gốc ngoài mang màu tương tác riêng thì trỏ biến của bài về `--bg-brand` (BodyVista: `--accent` trong `tools/co-the-nguoi/house.css`).
 
+## Khung trang mục (`body.bg-hub`)
+
+Trang chính, Thư viện, các trang lộ trình, Robotics, Giáo viên, Kiểm máy gắn lớp `bg-hub` vào `<body>` và dùng khung chung trong `design/house.css` (sinh từ `HOUSE_EXTRA` của `tools/design.py`). Mỗi vai một lớp, trang không tự định nghĩa lại:
+
+| Vai | Quy chuẩn | Lớp |
+|---|---|---|
+| Độ rộng, mép | nội dung tối đa 1240 px, lề 24 px (16 px trên điện thoại): mép trái trùng logo thanh trên, 124 px ở màn 1440 | `.wrap`, `.sitebar .in`, `.bg-frame` |
+| Tiêu đề trang | Noto Serif 600, 34–48 px; riêng màn đầu trang chính 38–56 px. Không tô màu chữ trong tiêu đề | `h1`, `h1.bg-display` |
+| Dòng trên tiêu đề, đoạn mở | 13 px đậm 600 màu `--bg-ink3`; đoạn mở 17 px, tối đa 62 ký tự | `.bg-eyebrow`, `.bg-lead` |
+| Tiêu đề mục, tiêu đề thẻ | Be Vietnam Pro 700, 26 px và 20 px | `.bg-h2`, `.bg-h3` |
+| Nút | viên thuốc nền `--bg-brand`, cao 44 px (`.sm` 36 px); `.ghost` nền trắng viền mảnh; tắt thì nền nhạt chữ xám | `.bg-btn`, `.bg-btn.sm`, `.bg-btn.ghost` |
+| Mục thu gọn | không dùng tam giác mặc định: chữ 14 px đậm 600 và mũi tên vẽ bằng viền, xoay khi mở | `details > summary` |
+| Trạng thái | chấm màu kèm chữ (Có bài, Liên quan, Đạt…), không dùng viên thuốc; ô số liệu kiểu bảng điều khiển không dùng trên trang mục | |
+
+Ảnh bìa bài 3D nền sáng đi qua `tools/khung_bia.py`: cùng khung 3:2, vật ở giữa, chiếm khoảng 78 % chiều cao hoặc 80 % chiều rộng.
+
 ## Thang chữ và quy tắc chữ tiếng Việt
 
 Thang 7 cỡ: 13 · 15 · 17 · 20 · 26 · 34 · 48 px (`--bg-fs-xs` … `--bg-fs-3xl`). Không chữ nào dưới 13 px trên màn chiếu 1440 × 900, dưới 14 px trên điện thoại. `tools/minfont.py` nâng mọi cỡ chữ CSS dưới ngưỡng lên ngưỡng.

@@ -74,13 +74,13 @@ def build():
     # Khoa học tự nhiên 8: cơ thể người (BodyVista Việt hoá); bài sau đi tiếp xuống cấp tế bào
     put('co-the-nguoi', [{'t': 'Khoa học tự nhiên 8', 'href': '#bai-hoc'}], nxt_lesson('te-bao', 'Từ cơ quan xuống tế bào'), 'Sinh học', 'sinh')
     put('dong-co', [{'t': 'Công nghệ 11', 'href': '#bai-hoc'}], nxt_lesson('ur5e', 'Từ cơ khí động lực sang robot công nghiệp'), 'Công nghệ', 'cong')
-    put('mako', [{'t': 'Vật lí 10', 'href': '?mon=phys#thu-vien'}], nxt_lesson('nhen', 'Từ lực của nước bên ngoài sang áp suất chất lỏng bên trong chân nhện'), 'Vật lí', 'ly')
-    put('nhen', [{'t': 'Vật lí 10', 'href': '?mon=phys#thu-vien'}], nxt_lesson('piranha', 'Từ mô men ở khớp chân sang đòn bẩy của hàm cá'), 'Vật lí', 'ly')
-    put('piranha', [{'t': 'Vật lí 10', 'href': '?mon=phys#thu-vien'}], nxt_lesson('hai-dang', 'Từ đòn bẩy của hàm sang mô men lật của tháp'), 'Vật lí', 'ly')
-    put('hai-dang', [{'t': 'Vật lí 10', 'href': '?mon=phys#thu-vien'}], nxt_lesson('thap-5-tang', 'Từ tháp sắt đứng gió sang tháp gỗ đứng động đất'), 'Vật lí', 'ly')
-    put('thap-5-tang', [{'t': 'Vật lí 11', 'href': '?mon=phys#thu-vien'}], nxt_lesson('dong-ho', 'Từ dao động của tháp gỗ sang dao động giữ nhịp đồng hồ'), 'Vật lí', 'ly')
-    put('dong-ho', [{'t': 'Vật lí 11', 'href': '?mon=phys#thu-vien'}], nxt_lesson('dong-co', 'Từ bánh răng đồng hồ sang động cơ thật'), 'Vật lí', 'ly')
-    put('may-anh', [{'t': 'Khoa học tự nhiên 9', 'href': '?mon=phys#thu-vien'}], nxt_lesson('mako', 'Sang Vật lí 10: lực cản và lực nâng'), 'Vật lí', 'ly')
+    put('mako', [{'t': 'Vật lí 10', 'href': 'thu-vien/?mon=phys'}], nxt_lesson('nhen', 'Từ lực của nước bên ngoài sang áp suất chất lỏng bên trong chân nhện'), 'Vật lí', 'ly')
+    put('nhen', [{'t': 'Vật lí 10', 'href': 'thu-vien/?mon=phys'}], nxt_lesson('piranha', 'Từ mô men ở khớp chân sang đòn bẩy của hàm cá'), 'Vật lí', 'ly')
+    put('piranha', [{'t': 'Vật lí 10', 'href': 'thu-vien/?mon=phys'}], nxt_lesson('hai-dang', 'Từ đòn bẩy của hàm sang mô men lật của tháp'), 'Vật lí', 'ly')
+    put('hai-dang', [{'t': 'Vật lí 10', 'href': 'thu-vien/?mon=phys'}], nxt_lesson('thap-5-tang', 'Từ tháp sắt đứng gió sang tháp gỗ đứng động đất'), 'Vật lí', 'ly')
+    put('thap-5-tang', [{'t': 'Vật lí 11', 'href': 'thu-vien/?mon=phys'}], nxt_lesson('dong-ho', 'Từ dao động của tháp gỗ sang dao động giữ nhịp đồng hồ'), 'Vật lí', 'ly')
+    put('dong-ho', [{'t': 'Vật lí 11', 'href': 'thu-vien/?mon=phys'}], nxt_lesson('dong-co', 'Từ bánh răng đồng hồ sang động cơ thật'), 'Vật lí', 'ly')
+    put('may-anh', [{'t': 'Khoa học tự nhiên 9', 'href': 'thu-vien/?mon=phys'}], nxt_lesson('mako', 'Sang Vật lí 10: lực cản và lực nâng'), 'Vật lí', 'ly')
     put('mang', [{'t': 'Sinh học 11', 'href': '#bai-hoc'}], nxt_lesson('than-kinh', 'Từ trao đổi khí ở mang sang xung thần kinh'), 'Sinh học', 'sinh')
     put('than-kinh', [{'t': 'Sinh học 11', 'href': '#bai-hoc'}], nxt_lesson('co-the-nguoi', 'Cả cơ thể: hệ thần kinh và các hệ khác'), 'Sinh học', 'sinh')
     put('co-loa', [{'t': 'Lịch sử 10', 'href': 'lich-su-10/'}], {'title': 'Lộ trình Lịch sử 10', 'href': 'lich-su-10/', 'sub': 'Các bài theo chương trình'}, 'Lịch sử', 'su')
@@ -91,10 +91,10 @@ def build():
     # thư viện: theo thứ tự danh mục trong từng môn; bài cuối của môn dẫn về thư viện
     for sub, (mon, key, _anchor) in SUBJ.items():
         lst = [c['slug'] for c in CAT if c['subject'] == sub and c['slug'] not in CHAIN_CELL]
-        crumb = [{'t': 'Thư viện', 'href': '#thu-vien'}, {'t': mon, 'href': f'?mon={sub}#thu-vien'}]
+        crumb = [{'t': 'Thư viện', 'href': 'thu-vien/'}, {'t': mon, 'href': f'thu-vien/?mon={sub}'}]
         for k, s in enumerate(lst):
             n = lst[k + 1] if k + 1 < len(lst) else None
-            put(s, crumb, nxt_lesson(n, f'{mon} · bài {k + 2}/{len(lst)}') if n else {'title': f'Thư viện · {mon}', 'href': f'?mon={sub}#thu-vien', 'sub': 'Các bài khác cùng môn'}, mon, key)
+            put(s, crumb, nxt_lesson(n, f'{mon} · bài {k + 2}/{len(lst)}') if n else {'title': f'Thư viện · {mon}', 'href': f'thu-vien/?mon={sub}', 'sub': 'Các bài khác cùng môn'}, mon, key)
     # bài thư viện trong mạch tế bào: giữ đường dẫn chủ đề Sinh học 10
     # gói dạy thử (tools/goi-day/*.json, tools/build_goi_day.py): link kịch bản, phút và việc của giáo viên từng bước
     for f in sorted((ROOT / 'tools/goi-day').glob('*.json')):

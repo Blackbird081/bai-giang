@@ -74,11 +74,11 @@ def build(hub, coloa, cover):
         for m in cd['muc']:
             st, canh, mo = CANH.get(m['ten'], ('du', 'Chưa lên kế hoạch', ''))
             ten = m['ten'] or 'Hoạt động thực hành'
-            link = f'<a class="btn primary" href="{E(coloa)}">Mở bài 3D</a>' if st == 'co' else ''
+            link = f'<a class="bg-btn sm" href="{E(coloa)}">Mở bài 3D</a>' if st == 'co' else ''
             y = ''.join(f'<li>{E(x)}</li>' for x in m['ycd'])
-            sua = ' <span class="new" title="Sửa đổi theo Thông tư 17/2025">sửa đổi 2025</span>' if m.get('sua_doi_2025') else ''
+            sua = ' <span class="new" title="Sửa đổi theo Thông tư 17/2025">· sửa đổi 2025</span>' if m.get('sua_doi_2025') else ''
             rows.append(f'''<div class="muc {st}">
-  <div class="mh"><h4>{E(ten)}{sua}</h4><span class="st {st}">{ {'co': 'Có bài 3D', 'du': 'Sắp có', 'tl': 'Tư liệu'}[st] }</span></div>
+  <div class="mh"><h4>{E(ten)}{sua}</h4>{ {'co': '<span class="st co">Có bài 3D</span>', 'du': '', 'tl': '<span class="st tl">Tư liệu</span>'}[st] }</div>
   <div class="canh"><b>{E(canh)}</b>{(' · ' + E(mo)) if mo else ''}</div>
   <details{' open' if st == 'co' else ''}><summary>Yêu cầu cần đạt ({len(m['ycd'])})</summary><ul>{y}</ul></details>
   {link}
@@ -128,10 +128,10 @@ header p{{margin:0;max-width:74ch;color:var(--ink2)}}
 .kpi{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}}
 .kpi div{{padding:12px 14px}}
 .kpi b{{display:block;font-size:26px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}}
-h2.sec{{margin:14px 0 0;font-size:22px;letter-spacing:-.015em}}
+h2.sec{{margin:28px 0 0}} .feat .bg-btn,.muc .bg-btn{{justify-self:start;margin-top:6px}}
 .cd{{padding:18px 20px;display:grid;gap:10px}}
 .ch{{display:flex;gap:14px;align-items:center}}
-.ch .no{{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;color:#fff;background:linear-gradient(180deg,#B26A1A,#8E5110)}}
+.ch .no{{width:32px;height:32px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;color:#fff;background:var(--bg-ink)}}
 .ch h3{{margin:0;font-size:20px;letter-spacing:-.015em}}
 .muc{{border-top:1px solid var(--line);padding:10px 0 4px;display:grid;gap:5px}}
 .muc .mh{{display:flex;justify-content:space-between;gap:10px;align-items:baseline}}
@@ -140,10 +140,10 @@ h2.sec{{margin:14px 0 0;font-size:22px;letter-spacing:-.015em}}
 .muc details summary{{cursor:pointer;font-size:13px;font-weight:600;color:var(--accent2)}}
 .muc ul{{margin:4px 0 2px;padding-left:20px;font-size:14px}}
 .muc .btn{{justify-self:start;text-decoration:none;margin:4px 0 6px;padding:7px 14px;font-size:13.5px}}
-.muc.co{{background:linear-gradient(90deg,rgba(178,106,26,.07),transparent 70%);border-radius:14px;padding:10px 12px;border-top-color:transparent}}
-.st{{font-size:13px;font-weight:700;padding:2px 9px;border-radius:999px;white-space:nowrap}}
-.st.co{{background:rgba(44,122,75,.12);color:#226040}} .st.du,.st.tl{{background:rgba(118,118,128,.12);color:var(--muted)}}
-.new{{font-size:13px;font-weight:700;color:#7A4510;background:rgba(178,106,26,.12);border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:2px}}
+.muc.co{{background:var(--bg-page);border-radius:14px;padding:12px 14px;border-top-color:transparent}}
+.st{{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;white-space:nowrap}}.st::before{{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}}
+.st.co{{color:var(--bg-ok)}} .st.tl{{color:var(--bg-ink3)}}
+.new{{font-size:13px;font-weight:500;color:var(--bg-ink3);margin-left:4px}}
 .bs{{border-top:1px solid var(--line);padding-top:10px}}
 .bsg{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:6px}}
 .bsg b{{font-size:13px}} .bsg ul{{margin:4px 0 0;padding-left:16px;font-size:13px;color:var(--ink2)}}
@@ -153,28 +153,24 @@ footer ul{{margin:0;padding-left:18px}} footer a{{color:inherit}}
 @media (max-width:760px){{.wrap{{padding:16px 12px 40px;gap:14px}} .feat{{grid-template-columns:1fr}} .feat img{{min-height:0;aspect-ratio:16/10}} .kpi{{grid-template-columns:1fr;gap:8px}} .kpi div{{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 14px}} .kpi b{{font-size:18px;text-align:right}} .bsg{{grid-template-columns:1fr}} .cd{{padding:14px}} .ch h3{{font-size:18px}}}}
 </style>
 </head>
-<body>
+<body class="bg-hub">
 {LG.site_bar(hub, [('Lộ trình', hub + '#lo-trinh'), ('Lịch sử 10', None)])}
 <div class="wrap">
 <header>
-  <div class="lbl" style="margin-top:12px">Lịch sử · lớp 10 · chương trình GDPT 2018, sửa đổi 2025</div>
-  <h1>Lịch sử 10 bằng <em>mô hình 3D</em></h1>
+  <span class="bg-eyebrow">Lịch sử · lớp 10 · chương trình GDPT 2018, sửa đổi 2025</span>
+  <h1>Lịch sử 10 bằng mô hình 3D</h1>
   <p>Lộ trình bám theo chương trình môn Lịch sử, nên dùng chung được cho cả ba bộ sách Kết nối tri thức, Chân trời sáng tạo và Cánh diều. Mỗi mục ghi nguyên văn yêu cầu cần đạt và cảnh 3D sẽ dựng. Nội dung bài được viết mới từ nguồn khảo cổ, sử liệu công khai, có dẫn nguồn từng con số; phần phỏng dựng luôn được ghi rõ. Trang không chép nội dung sách giáo khoa.</p>
 </header>
 <a class="feat glass" href="{E(coloa)}">
   <img src="{E(cover)}" alt="Mô hình 3D ba vòng thành Cổ Loa trên đồng bằng">
   <div class="bd"><div class="lbl">Bài mẫu · Văn minh Văn Lang – Âu Lạc</div><h2>Thành Cổ Loa</h2>
   <p>Ba vòng thành đất dựng theo số đo khảo cổ trên đồng bằng ven sông Hoàng Giang. Kéo dòng thời gian từ thế kỷ IV TCN đến ngày nay, mở mặt cắt lũy đúng tỉ lệ, xem kho mũi tên, trống đồng, và đặt truyền thuyết cạnh bằng chứng.</p>
-  <span class="btn primary">Vào bài →</span></div>
+  <span class="bg-btn sm">Vào bài</span></div>
 </a>
-<section class="kpi" aria-label="Tổng quan">
-  <div class="glass"><span class="lbl">Bài 3D</span><b>Thành Cổ Loa</b></div>
-  <div class="glass"><span class="lbl">Chủ đề theo chương trình</span><b>7 + thực hành</b></div>
-  <div class="glass"><span class="lbl">Yêu cầu cần đạt, trích nguyên văn</span><b>{n_y}</b></div>
-</section>
-<h2 class="sec">Lộ trình theo chương trình</h2>
+<h2 class="sec bg-h2">Lộ trình theo chương trình</h2>
+<p class="small" style="margin:-8px 0 0">7 chủ đề và hoạt động thực hành · {n_y} yêu cầu cần đạt trích nguyên văn · bài 3D đầu tiên: Thành Cổ Loa; các mục khác đang dựng.</p>
 {''.join(secs)}
-<h2 class="sec">Chuyên đề học tập lựa chọn</h2>
+<h2 class="sec bg-h2">Chuyên đề học tập lựa chọn</h2>
 <p class="small" style="margin:-8px 0 0">{n_cd} yêu cầu cần đạt, 35 tiết. Chưa lên kế hoạch cảnh 3D; chuyên đề 10.2 về di sản có thể dùng lại mô hình Cổ Loa.</p>
 {cds}
 <footer>

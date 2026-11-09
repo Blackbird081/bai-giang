@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4F4F6">
+<title>Thư viện __NLIB__ bài thí nghiệm · Sáng Ăn Khoai</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../design/logo/favicon-32.png"><link rel="apple-touch-icon" href="../design/logo/apple-touch-icon.png">
+<meta name="description" content="__NLIB__ bài thí nghiệm 3D tương tác bằng tiếng Việt: Vật lí, Hoá học, Sinh học, Địa lí, đối chiếu yêu cầu cần đạt của chương trình GDPT 2018.">
+<link rel="preload" href="../design/fonts/be-vietnam-pro-vietnamese-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../design/house.css">
+<style>
+__STYLE__
+</style>
+</head>
+<body class="bg-hub">
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Sáng Ăn Khoai, trang chính"><img src="../design/logo/mark-128.webp" alt="" width="32" height="32"><span>Sáng Ăn Khoai</span></a>
+    <div class="crumbs"><span aria-hidden="true">/</span><b>Thư viện</b></div>
+    <nav class="nav" aria-label="Mục chính"><a href="../#bai-hoc">Bài học</a><a class="lt" href="../#lo-trinh">Lộ trình</a><a href="./" aria-current="page">Thư viện</a><a href="../#cho-giao-vien"><span class="xl">Cho giáo viên</span><span class="sm">Giáo viên</span></a></nav>
+  </div>
+</header>
+<main class="wrap">
+  <header class="libhead">
+    <span class="bg-eyebrow">Vật lí · Hoá học · Sinh học · Địa lí</span>
+    <h1>Thư viện __NLIB__ bài thí nghiệm</h1>
+    <p class="bg-lead">Mỗi bài là một thí nghiệm 3D theo từng bước, đối chiếu với yêu cầu cần đạt của chương trình GDPT 2018.</p>
+  </header>
+  <div class="filters">
+    <label class="search"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><input id="q" type="search" placeholder="Tìm bài: ammonia, nguyên phân, gió mùa…" aria-label="Tìm bài học"></label>
+    <div class="row" role="group" aria-label="Lọc theo môn"><span class="lb">Môn</span>
+      <button class="chip" data-s="" aria-pressed="true">Tất cả</button>
+      <button class="chip" data-s="phys" aria-pressed="false"><i style="background:var(--bg-s-ly)"></i>Vật lí</button>
+      <button class="chip" data-s="chem" aria-pressed="false"><i style="background:var(--bg-s-hoa)"></i>Hoá học</button>
+      <button class="chip" data-s="bio" aria-pressed="false"><i style="background:var(--bg-s-sinh)"></i>Sinh học</button>
+      <button class="chip" data-s="geo" aria-pressed="false"><i style="background:var(--bg-s-dia)"></i>Địa lí</button>
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+    <div class="row" role="group" aria-label="Lọc theo lớp"><span class="lb">Lớp</span>
+      <button class="chip g" data-g="" aria-pressed="true">Mọi lớp</button>
+      <button class="chip g" data-g="thcs" aria-pressed="false">THCS 6–9</button>
+      <button class="chip g" data-g="10" aria-pressed="false">Lớp 10</button>
+      <button class="chip g" data-g="11" aria-pressed="false">Lớp 11</button>
+      <button class="chip g" data-g="12" aria-pressed="false">Lớp 12</button>
+      <button class="chip g" data-g="out" aria-pressed="false">Mở rộng</button>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+
+  <footer class="foot">
+    <div class="fl"><span>© 2026 Sáng Ăn Khoai</span><span><a href="https://github.com/nclamvn/bai-giang" target="_blank" rel="noopener">Mã nguồn</a> · <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">Góp ý</a></span></div>
+    <details>
+      <summary>Thư viện phát triển từ Tongjiang Lab, CC BY-NC 4.0, phi thương mại</summary>
+      <ul>
+        <li>Bản gốc: <a href="https://lab.tongjiang.app" target="_blank" rel="noopener">Tongjiang Lab</a> (<a href="https://github.com/smithjohn78390/tongjiang-lab" target="_blank" rel="noopener">mã nguồn</a>), giấy phép <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.vi" target="_blank" rel="noopener">CC BY-NC 4.0</a>. Việt hoá, đối chiếu chương trình và giao diện: Sáng Ăn Khoai (<a href="GHI-CONG.md">ghi công</a>).</li>
+        <li>Đối chiếu GDPT 2018 (<a href="gdpt2018.json">dữ liệu</a>), cập nhật 30/10/2026; chưa qua giáo viên bộ môn duyệt. __SOURCES__</li>
+      </ul>
+    </details>
+  </footer>
+</main>
+<script>
+const LESSONS = __CATALOG__;
+const COL = { phys: 'var(--bg-s-ly)', chem: 'var(--bg-s-hoa)', bio: 'var(--bg-s-sinh)', geo: 'var(--bg-s-dia)' };
+const norm = (s) => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
+let subj = '', grade = ''; try { const u = new URLSearchParams(location.search); subj = u.get('mon') || ''; grade = u.get('lop') || ''; } catch (e) {}
+const GD = __GDPT__;
+const gOf = (l) => (GD[l.slug] || { khop: [] });
+const chinh = (l) => gOf(l).khop.filter((m) => m.muc_do === 'chinh');
+const short = (m) => (m.muc || m.chu_de).split(' › ').pop().replace(/\s*\(.*\)\s*$/, '');
+const monShort = { 'Sinh học': 'Sinh', 'Vật lí': 'Lí', 'Hoá học': 'Hoá', 'Địa lí': 'Địa', 'Khoa học tự nhiên': 'KHTN', 'Lịch sử và Địa lí': 'LS&ĐL' };
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+function gradeOk(l) { if (!grade) return true; const c = chinh(l); if (grade === 'out') return !c.length; if (grade === 'thcs') return c.some((m) => m.lop <= 9); return c.some((m) => String(m.lop) === grade); }
+// yêu cầu cần đạt: một dòng chữ (môn lớp · mục), chi tiết trong mục thu gọn
+function gdHtml(l) {
+  const g = gOf(l), c = chinh(l), r = g.khop.filter((m) => m.muc_do !== 'chinh');
+  const seen = new Set(), tags = c.filter((m) => { const k = m.mon + m.lop + short(m); if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 2).map((m) => `${esc(monShort[m.mon] || m.mon)} ${m.lop} · ${esc(short(m))}`).join('<br>');
+  const head = tags ? `<span class="tags">${tags}</span>` : '<span class="tags out">Mở rộng, ngoài chương trình</span>';
+  const li = (arr) => arr.map((m) => m.ycd.map((y) => `<li>${esc(y)}</li>`).join('')).join('');
+  return `<div class="gd">${head}<details><summary>Yêu cầu cần đạt</summary>${c.length ? `<div class="mu">Bài dạy trực tiếp</div><ul>${li(c)}</ul>` : ''}${r.length ? `<div class="mu">Liên quan</div><ul>${li(r)}</ul>` : ''}${g.ghi_chu ? `<div class="mu">${esc(g.ghi_chu)}</div>` : ''}</details></div>`;
+}
+function render() {
+  const q = norm(document.getElementById('q').value.trim());
+  const list = LESSONS.filter((l) => (!subj || l.subject === subj) && gradeOk(l) && (!q || norm([l.title, l.question, l.steps.join(' '), gOf(l).khop.map((m) => m.muc + ' ' + m.ycd.join(' ')).join(' ')].join(' ')).includes(q)));
+  document.getElementById('count').textContent = `${list.length} bài`;
+  document.querySelectorAll('.chip:not(.g)').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.s === subj)));
+  document.querySelectorAll('.chip.g').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.g === grade)));
+  document.getElementById('grid').innerHTML = list.length ? list.map((l) => `
+    <article class="card">
+      <div class="cv"><img src="${esc(l.cover)}" alt="" loading="lazy"></div>
+      <div class="bd">
+        <div class="mt"><i style="background:${COL[l.subject]}"></i><span>${esc(l.mon)} · ${l.steps.length} bước</span></div>
+        <h3><a href="${esc(l.file)}">${esc(l.title)}</a></h3>
+        <p>${esc(l.question)}</p>
+        ${gdHtml(l)}
+      </div>
+    </article>`).join('') : '<div class="empty">Không có bài nào khớp. Thử từ khoá khác hoặc bỏ bớt bộ lọc.</div>';
+}
+document.getElementById('q').addEventListener('input', render);
+document.querySelectorAll('.chip:not(.g)').forEach((c) => c.addEventListener('click', () => { subj = c.dataset.s; render(); }));
+document.querySelectorAll('.chip.g').forEach((c) => c.addEventListener('click', () => { grade = c.dataset.g; render(); }));
+// địa chỉ cũ trang chính /#thu-vien?mon=… vẫn về đúng bộ lọc
+render();
+</script>
+</body>
+</html>

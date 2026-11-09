@@ -14,7 +14,7 @@ Nếu truyền --artifact <thư mục> <url tế bào> <url ty thể> <url trang
 nơi trang chính, 54 bài và trang chủ đề nằm cùng một thư mục.
 Chạy từ thư mục gốc repo:  python3 tools/build_pages.py [--artifact out_dir cell_url mito_url hub_url]
 """
-import json, sys, html, pathlib
+import json, re, sys, html, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import liquid_glass as LG
 
@@ -56,25 +56,62 @@ FEATURED = [
 ]
 
 
+ARROW = '<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+CSS = (ROOT / 'tools/trang-chinh.css').read_text(encoding='utf-8')
+LIB_TPL = (ROOT / 'tools/thu-vien.template.html').read_text(encoding='utf-8')
+N_SHOWN = 7  # bài nổi bật + 6 bài chọn; các bài sau mở bằng nút "Xem cả … bài"
+
+
 def featured():
+    """Một mẫu thẻ: ảnh, môn · lớp, tên, một ý. Bài đầu là bài nổi bật cỡ lớn; từ bài thứ 8 ẩn tới khi bấm nút."""
     out = []
-    for href, cov, sk, mon, lv, title, desc in FEATURED:
-        out.append(f'''<article class="card"><div class="cv"><img src="__L_BASE__covers/{cov}.webp" alt="" loading="lazy"></div><span class="lv">{E(lv)}</span>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-{sk})"></i><b>{E(mon)}</b><span>Học theo bước · lên lớp</span></div>
-        <h3><a href="{href}">{E(title)}</a></h3><p>{E(desc)}</p></div></article>''')
+    for k, (href, cov, sk, mon, lv, title, desc) in enumerate(FEATURED):
+        cls = 'card big' if k == 0 else ('card x' if k >= N_SHOWN else 'card')
+        go = f'<a class="bg-btn sm go" href="{href}" tabindex="-1" aria-hidden="true">Vào bài</a>' if k == 0 else ''
+        out.append(f'''<article class="{cls}"><div class="cv"><img src="__L_BASE__covers/{cov}.webp" alt="" loading="{'eager' if k == 0 else 'lazy'}"></div>
+        <div class="bd"><div class="mt"><i style="background:var(--bg-s-{sk})"></i><span>{E(mon)} · {E(lv)}</span></div>
+        <h3><a href="{href}">{E(title)}</a></h3><p>{E(desc)}</p>{go}</div></article>''')
     return '\n      '.join(out)
 
 
-def library(links):
+SUBJ_TILES = [('phys', 'ly', 'Vật lí', 'centripetal-step'), ('chem', 'hoa', 'Hoá học', 'blast-furnace-step'), ('bio', 'sinh', 'Sinh học', 'transport-step'), ('geo', 'dia', 'Địa lí', 'karst-step')]
+
+
+def subjects(libpage):
+    """Bốn môn của thư viện trên trang chính: ảnh một bài tiêu biểu, số bài, dẫn vào thư viện đã lọc theo môn."""
+    out = []
+    for sub, sk, name, slug in SUBJ_TILES:
+        lst = [c for c in CAT if c['subject'] == sub]
+        cov = next((c['cover'] for c in lst if c['slug'] == slug), lst[0]['cover'])
+        out.append(f'<a class="subj" href="{libpage}?mon={sub}"><img src="__L_BASE__{cov}" alt="" loading="lazy"><div><b><i style="background:var(--bg-s-{sk})"></i>{name}</b><span>{len(lst)} bài</span></div></a>')
+    return '\n      '.join(out)
+
+
+def catalog_json():
     keep = ('slug', 'subject', 'mon', 'file', 'cover', 'title', 'question', 'type', 'steps', 'textbook')
     lessons = [{k: c[k] for k in keep} for c in CAT]
     gd = {s: v for s, v in GD['bai'].items() if any(c['slug'] == s for c in CAT)}
-    s = TPL.replace('__CATALOG__', json.dumps(lessons, ensure_ascii=False)).replace('__GDPT__', json.dumps(gd, ensure_ascii=False))
-    s = s.replace('__SOURCES__', sources_html())
-    s = s.replace('__FEATURED__', featured())
-    for k, v in links.items(): s = s.replace(k, v)
-    assert '__' not in s.replace('__proto__', ''), 'còn chỗ giữ chỗ chưa thay'
+    return json.dumps(lessons, ensure_ascii=False), json.dumps(gd, ensure_ascii=False)
+
+
+def fill(s):
+    assert '__' not in s.replace('__proto__', ''), 'còn chỗ giữ chỗ chưa thay: ' + ', '.join(sorted(set(re.findall(r'__[A-Z0-9_]+__', s))))
     return s
+
+
+def library(links):
+    """Trang chính (tên hàm giữ từ khi thư viện còn nằm trong trang chính)."""
+    s = TPL.replace('__STYLE__', CSS).replace('__SOURCES__', sources_html()).replace('__FEATURED__', featured())
+    s = s.replace('__N3D__', str(len(FEATURED))).replace('__NLIB__', str(len(CAT))).replace('__SUBJECTS__', subjects(links['__L_LIBPAGE__']))
+    for k, v in links.items(): s = s.replace(k, v)
+    return fill(s)
+
+
+def lib_page():
+    """Trang Thư viện riêng (thu-vien/index.html): tìm, lọc theo môn và lớp, mọi bài thí nghiệm."""
+    cat, gd = catalog_json()
+    s = LIB_TPL.replace('__STYLE__', CSS).replace('__CATALOG__', cat).replace('__GDPT__', gd).replace('__SOURCES__', sources_html()).replace('__NLIB__', str(len(CAT)))
+    return fill(s)
 
 
 # ---------- Trang chủ đề Sinh học tế bào lớp 10 ----------
@@ -125,7 +162,7 @@ def chu_de(links, lesson_href):
     <div class="ycd"><div class="lbl">Yêu cầu cần đạt bài này dạy trực tiếp</div><ul>{yl or '<li>Không có yêu cầu nào được dạy trực tiếp.</li>'}</ul>
     {f'<details><summary>Liên quan và mở rộng ({sum(len(m["ycd"]) for m in other)})</summary><ul>{ol}</ul></details>' if other else ''}
     {f'<p class="gc"><b>Lưu ý:</b> {E(g["ghi_chu"])}</p>' if g.get('ghi_chu') else ''}</div>
-    <a class="btn pri" href="{E(href(slug))}">Mở bài</a>
+    <a class="bg-btn sm" href="{E(href(slug))}">Mở bài</a>
   </div>
 </article>''')
     rows = []; n_ok = n_rel = n_no = 0
@@ -142,7 +179,7 @@ def chu_de(links, lesson_href):
   --paper:var(--bg-page); --panel:#FFFFFF; --ink:var(--bg-ink); --ink2:var(--bg-ink2); --muted:var(--bg-ink3); --line:rgba(15,23,42,.08); --f-body:var(--lg-font); --f-mono:var(--lg-font); --r:22px;
 ''') + LG.BODY + 'html{background:var(--lg-page)} header h1{letter-spacing:-.025em} .lbl{font-weight:600;letter-spacing:.07em} .kpi b{font-variant-numeric:tabular-nums}\n' \
         + LG.glass('.kpi div,.step', 'var(--lg-r)') + LG.glass('table', 'var(--lg-r)') + LG.pill_buttons('.btn,.chip', '.btn.pri') \
-        + '.chip[aria-pressed="true"]{background:var(--bg-ink)!important;color:#fff!important}.ask{border-left:0;border-radius:14px;background:rgba(232,176,75,.14)} th{background:rgba(255,255,255,.5)} .step .vis img{border-radius:16px}\n'
+        + '.chip[aria-pressed="true"]{background:var(--bg-ink)!important;color:#fff!important}.ask{border-left:0;border-radius:12px;background:var(--bg-page)} th{background:rgba(255,255,255,.5)} .step .vis img{border-radius:16px}\n'
     return f'''<!doctype html>
 <html lang="vi" data-theme="light">
 <head>
@@ -157,7 +194,7 @@ def chu_de(links, lesson_href):
 @media (prefers-color-scheme: dark){{:root:not([data-theme="light"]){{--paper:#141011;--panel:#1E1819;--ink:#F2EAE8;--ink2:#D3C6C8;--muted:#A8999C;--line:#33292B;--crimson:#F0587A;--gold:#E2B259;--gold-soft:#3A2F1A;--ok:#5FC28A}}}}
 :root[data-theme="dark"]{{--paper:#141011;--panel:#1E1819;--ink:#F2EAE8;--ink2:#D3C6C8;--muted:#A8999C;--line:#33292B;--crimson:#F0587A;--gold:#E2B259;--gold-soft:#3A2F1A;--ok:#5FC28A}}
 *{{box-sizing:border-box}} html,body{{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);line-height:1.55}}
-a{{color:var(--crimson)}}
+a{{color:var(--bg-ink)}}
 .wrap{{max-width:1180px;margin:0 auto;padding:24px 16px 56px;display:grid;gap:22px}}
 .lbl{{font-size:13px;font-weight:600;color:var(--muted)}}
 header h1{{margin:4px 0 6px;font-size:clamp(26px,3.4vw,38px);line-height:1.15;letter-spacing:-.01em}}
@@ -173,17 +210,19 @@ header p{{margin:0;max-width:78ch;color:var(--ink2)}}
 h2{{margin:8px 0 0;font-size:22px}}
 .route{{display:grid;gap:14px;counter-reset:s}}
 .step{{display:grid;grid-template-columns:44px 220px minmax(0,1fr);gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px}}
-.step .no{{width:36px;height:36px;border-radius:50%;background:var(--crimson);color:#fff;display:grid;place-items:center;font-family:var(--f-mono);font-weight:600}}
+.cov{{margin:12px 0 0!important;font-size:var(--bg-fs-xs);font-weight:600;color:var(--bg-ink3)!important}}
+.nav{{gap:12px!important;margin-top:24px!important}}
+.step .no{{width:32px;height:32px;border-radius:50%;background:var(--bg-ink);color:#fff;display:grid;place-items:center;font-family:var(--f-mono);font-weight:600}}
 .step .vis img,.step .vis .ph{{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;display:block;background:#EADFD9}}
 .step .vis .ph.cell{{background:radial-gradient(circle at 50% 55%,#F7B6C6 0 22%,#E64A72 23% 26%,#F9D9E1 27% 58%,#E8A0B2 59% 63%,#FBF1F3 64%)}}
 .step .vis .ph.mito{{background:radial-gradient(ellipse 46% 30% at 50% 50%,#FFE3A6 0 30%,#B0531D 31% 80%,#E7A33A 81% 92%,#FBF3E8 93%)}}
 .step .bd{{display:grid;gap:8px;align-content:start}}
 .step .meta{{display:flex;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted)}}
 .step .meta .dur{{font-family:var(--f-mono)}}
-.step h3{{margin:0;font-size:19px;line-height:1.3}} .step h3 a{{color:inherit;text-decoration:none}} .step h3 a:hover{{color:var(--crimson)}}
+.step h3{{margin:0;font-size:19px;line-height:1.3}} .step h3 a{{color:inherit;text-decoration:none}} .step h3 a:hover{{text-decoration:underline;text-underline-offset:3px}}
 .step p{{margin:0}} .step .steps{{font-size:13.5px;color:var(--ink2)}}
-.ask{{border-left:3px solid var(--gold);background:var(--gold-soft);padding:7px 10px;border-radius:0 8px 8px 0;font-size:14.5px}}
-.ask b{{font-size:13px;font-weight:600;color:var(--gold);margin-right:8px}}
+.ask{{background:var(--bg-page);padding:10px 14px;border-radius:12px;font-size:14.5px}}
+.ask b{{font-size:13px;font-weight:600;color:var(--bg-ink3);margin-right:8px}}
 .ycd ul{{margin:4px 0 0;padding-left:18px;display:grid;gap:4px;font-size:14px}}
 .ycd .mu,td .mu{{display:block;font-size:13px;color:var(--muted)}}
 .ycd details summary{{cursor:pointer;font-size:13.5px;color:var(--crimson);font-weight:600;margin-top:6px}}
@@ -193,8 +232,8 @@ table{{width:100%;border-collapse:collapse;background:var(--panel);border:1px so
 th,td{{text-align:left;vertical-align:top;padding:9px 12px;border-top:1px solid var(--line)}}
 th{{font-size:13px;font-weight:600;color:var(--muted);background:var(--paper)}}
 td:first-child{{width:24%;color:var(--ink2);font-size:13px}} td:last-child{{width:20%}}
-.st{{display:inline-block;font-weight:700;font-size:13px;padding:2px 9px;border-radius:999px}}
-.st.ok{{background:var(--okbg);color:var(--ok)}} .st.rel{{background:var(--relbg);color:var(--gold)}} .st.no{{background:var(--nobg);color:var(--muted)}}
+.st{{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:13px}}.st::before{{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}}
+.st.ok{{color:var(--bg-ok)}} .st.rel{{color:var(--bg-warn)}} .st.no{{color:var(--bg-ink3)}}
 .filters{{display:flex;gap:8px;flex-wrap:wrap}}
 .chip{{padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:600 13px var(--f-body);cursor:pointer}}
 .chip[aria-pressed="true"]{{background:var(--ink);color:var(--panel);border-color:var(--ink)}}
@@ -208,25 +247,21 @@ footer{{font-size:13px;line-height:1.55;color:var(--lg-muted);border-top:1px sol
 @media (max-width:820px){{.step{{grid-template-columns:1fr}} .step .no{{display:none}} td:first-child{{display:none}} td:last-child{{width:32%}}}}
 </style>
 </head>
-<body>
+<body class="bg-hub">
 {LG.site_bar(links['__L_LIB__'], [('Lộ trình', links['__L_LIB__'] + '#lo-trinh'), ('Sinh học tế bào 10', None)])}
 <div class="wrap">
 <header>
-  <div class="lbl">Chủ đề · lớp 10 · chương trình GDPT 2018</div>
-  <h1>Sinh học <em>tế bào</em> bằng mô hình 3D</h1>
+  <span class="bg-eyebrow">Chủ đề · lớp 10 · chương trình GDPT 2018</span>
+  <h1>Sinh học tế bào bằng mô hình 3D</h1>
   <p>Lộ trình 6 bài cho mạch Sinh học tế bào lớp 10, sắp theo thứ tự nội dung của chương trình môn Sinh học (Thông tư 32/2018/TT-BGDĐT). Mỗi bài ghi yêu cầu cần đạt mà bài dạy trực tiếp, trích nguyên văn chương trình. Bảng cuối trang liệt kê toàn bộ yêu cầu của mạch này và chỉ rõ yêu cầu nào chưa có bài. Thời lượng là gợi ý; giáo viên tự điều chỉnh.</p>
-  <div class="nav"><a class="btn pri" href="{E(links['__L_CELL__'])}">Hành Trình Vào Tế Bào</a><a class="btn" href="{E(links['__L_MITO__'])}">Vào Ty Thể</a></div>
+  <p class="cov">{len(ROUTE)} bài · {n_ok} yêu cầu cần đạt có bài dạy trực tiếp · {n_rel} yêu cầu có bài liên quan · {n_no} chưa có bài</p>
+  <div class="nav"><a class="bg-btn" href="{E(links['__L_CELL__'])}">Hành Trình Vào Tế Bào</a><a class="bg-btn ghost" href="{E(links['__L_MITO__'])}">Vào Ty Thể</a></div>
 </header>
-<section class="kpi" aria-label="Mức phủ yêu cầu cần đạt">
-  <div><span class="lbl">Bài 3D trong lộ trình</span><b>{len(ROUTE)}</b></div>
-  <div class="ok"><span class="lbl">Yêu cầu cần đạt có bài dạy trực tiếp</span><b>{n_ok}</b></div>
-  <div class="rel"><span class="lbl">Yêu cầu có bài liên quan</span><b>{n_rel}</b></div>
-</section>
-<h2>Lộ trình</h2>
+<h2 class="bg-h2">Lộ trình</h2>
 <section class="route">
 {''.join(cards)}
 </section>
-<h2>Toàn bộ yêu cầu cần đạt của mạch Sinh học tế bào lớp 10</h2>
+<h2 class="bg-h2">Toàn bộ yêu cầu cần đạt của mạch Sinh học tế bào lớp 10</h2>
 <div class="filters"><button class="chip" data-f="" aria-pressed="true">Tất cả ({total})</button><button class="chip" data-f="ok" aria-pressed="false">Có bài ({n_ok})</button><button class="chip" data-f="rel" aria-pressed="false">Liên quan ({n_rel})</button><button class="chip" data-f="no" aria-pressed="false">Chưa có ({n_no})</button></div>
 <table><thead><tr><th>Mục</th><th>Yêu cầu cần đạt (nguyên văn)</th><th>Trạng thái</th></tr></thead><tbody id="tb">
 {''.join(rows)}
@@ -257,18 +292,18 @@ def write(rel, text):
 
 
 if __name__ == '__main__':
-    write('index.html', library({'__L_GV__': 'giao-vien/', '__L_ENGINE__': 'cong-nghe/dong-co-4-ki/', '__L_MAKO__': 'vat-li-10/ca-map-robot/', '__L_BODY__': 'co-the-nguoi/', '__L_NEURON__': 'than-kinh/', '__L_CELL__': 'te-bao/', '__L_MITO__': 'ty-the/', '__L_CHUDE__': 'chu-de/sinh-hoc-te-bao/', '__L_COLOA__': 'lich-su-10/co-loa/', '__L_LS10__': 'lich-su-10/', '__L_ROBO__': 'robotics/', '__L_KIEM__': 'kiem-may/', '__L_REMOTE__': 'dieu-khien/', '__L_R_UR5E__': 'robotics/ur5e/', '__L_DOG__': 'robotics/quadruped/', '__L_JELLY__': 'robotics/jellyfish/', '__L_PAGODA__': 'vat-li-11/thap-nam-tang/', '__L_LIGHT__': 'vat-li-10/hai-dang/', '__L_WATCH__': 'vat-li-11/dong-ho-co/', '__L_SPIDER__': 'vat-li-10/nhen-thuy-luc/', '__L_PIRANHA__': 'vat-li-10/ca-piranha/', '__L_CAMERA__': 'khtn-9/may-anh/', '__L_GILL__': 'sinh-hoc-11/ca-tho-bang-mang/', '__L_BASE__': 'thu-vien/', '__L_GDPT__': 'thu-vien/gdpt2018.json', '__L_ROOT__': ''}))
+    write('index.html', library({'__L_GV__': 'giao-vien/', '__L_ENGINE__': 'cong-nghe/dong-co-4-ki/', '__L_MAKO__': 'vat-li-10/ca-map-robot/', '__L_BODY__': 'co-the-nguoi/', '__L_NEURON__': 'than-kinh/', '__L_CELL__': 'te-bao/', '__L_MITO__': 'ty-the/', '__L_CHUDE__': 'chu-de/sinh-hoc-te-bao/', '__L_COLOA__': 'lich-su-10/co-loa/', '__L_LS10__': 'lich-su-10/', '__L_ROBO__': 'robotics/', '__L_KIEM__': 'kiem-may/', '__L_REMOTE__': 'dieu-khien/', '__L_R_UR5E__': 'robotics/ur5e/', '__L_DOG__': 'robotics/quadruped/', '__L_JELLY__': 'robotics/jellyfish/', '__L_PAGODA__': 'vat-li-11/thap-nam-tang/', '__L_LIGHT__': 'vat-li-10/hai-dang/', '__L_WATCH__': 'vat-li-11/dong-ho-co/', '__L_SPIDER__': 'vat-li-10/nhen-thuy-luc/', '__L_PIRANHA__': 'vat-li-10/ca-piranha/', '__L_CAMERA__': 'khtn-9/may-anh/', '__L_GILL__': 'sinh-hoc-11/ca-tho-bang-mang/', '__L_BASE__': 'thu-vien/', '__L_LIBPAGE__': 'thu-vien/', '__L_GDPT__': 'thu-vien/gdpt2018.json', '__L_ROOT__': ''}))
     write('chu-de/sinh-hoc-te-bao/index.html', chu_de({'__L_CELL__': '../../te-bao/', '__L_MITO__': '../../ty-the/', '__L_LIB__': '../../'}, lambda f: '../../thu-vien/' + f))
     import robotics.build_hub as RH
     write('robotics/index.html', RH.build({'hub': '../', 'sims': {r['key']: r['key'] + '/' for r in RH.ROBOTS}, 'covers': {r['key']: f"../thu-vien/covers/robo-{r['key']}.webp" for r in RH.ROBOTS}}))
-    write('thu-vien/index.html', redirect('../#thu-vien', 'Thư viện'))
+    write('thu-vien/index.html', lib_page())
     write('chu-de-sinh-hoc-te-bao.html', redirect('chu-de/sinh-hoc-te-bao/', 'Sinh Học Tế Bào 10'))
     write('ty-the.html', redirect('ty-the/', 'Vào Ty Thể'))
     write('ar.html', redirect('te-bao/ar.html', 'Ribosome trên bàn'))
     print('đã dựng trang chính, trang chủ đề và các trang chuyển hướng')
     if len(sys.argv) > 6 and sys.argv[1] == '--artifact':
         out = pathlib.Path(sys.argv[2]); cell, mito, hub, coloa = sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6]
-        art = {'__L_GV__': 'https://nclamvn.github.io/bai-giang/giao-vien/', '__L_ENGINE__': 'https://nclamvn.github.io/bai-giang/cong-nghe/dong-co-4-ki/', '__L_MAKO__': 'https://nclamvn.github.io/bai-giang/vat-li-10/ca-map-robot/', '__L_BODY__': 'https://nclamvn.github.io/bai-giang/co-the-nguoi/', '__L_NEURON__': 'https://nclamvn.github.io/bai-giang/than-kinh/', '__L_CELL__': cell, '__L_MITO__': mito, '__L_CHUDE__': 'chu-de-sinh-hoc-te-bao.html', '__L_COLOA__': coloa, '__L_LS10__': 'lich-su-10.html', '__L_ROBO__': 'robotics.html', '__L_KIEM__': 'https://nclamvn.github.io/bai-giang/kiem-may/', '__L_REMOTE__': 'https://nclamvn.github.io/bai-giang/dieu-khien/', '__L_R_UR5E__': 'robotics-ur5e.html', '__L_DOG__': 'https://nclamvn.github.io/bai-giang/robotics/quadruped/', '__L_JELLY__': 'https://nclamvn.github.io/bai-giang/robotics/jellyfish/', '__L_PAGODA__': 'https://nclamvn.github.io/bai-giang/vat-li-11/thap-nam-tang/', '__L_LIGHT__': 'https://nclamvn.github.io/bai-giang/vat-li-10/hai-dang/', '__L_WATCH__': 'https://nclamvn.github.io/bai-giang/vat-li-11/dong-ho-co/', '__L_SPIDER__': 'https://nclamvn.github.io/bai-giang/vat-li-10/nhen-thuy-luc/', '__L_PIRANHA__': 'https://nclamvn.github.io/bai-giang/vat-li-10/ca-piranha/', '__L_CAMERA__': 'https://nclamvn.github.io/bai-giang/khtn-9/may-anh/', '__L_GILL__': 'https://nclamvn.github.io/bai-giang/sinh-hoc-11/ca-tho-bang-mang/', '__L_BASE__': '', '__L_GDPT__': 'https://github.com/nclamvn/bai-giang/blob/main/thu-vien/gdpt2018.json', '__L_ROOT__': 'https://nclamvn.github.io/bai-giang/'}
+        art = {'__L_GV__': 'https://nclamvn.github.io/bai-giang/giao-vien/', '__L_ENGINE__': 'https://nclamvn.github.io/bai-giang/cong-nghe/dong-co-4-ki/', '__L_MAKO__': 'https://nclamvn.github.io/bai-giang/vat-li-10/ca-map-robot/', '__L_BODY__': 'https://nclamvn.github.io/bai-giang/co-the-nguoi/', '__L_NEURON__': 'https://nclamvn.github.io/bai-giang/than-kinh/', '__L_CELL__': cell, '__L_MITO__': mito, '__L_CHUDE__': 'chu-de-sinh-hoc-te-bao.html', '__L_COLOA__': coloa, '__L_LS10__': 'lich-su-10.html', '__L_ROBO__': 'robotics.html', '__L_KIEM__': 'https://nclamvn.github.io/bai-giang/kiem-may/', '__L_REMOTE__': 'https://nclamvn.github.io/bai-giang/dieu-khien/', '__L_R_UR5E__': 'robotics-ur5e.html', '__L_DOG__': 'https://nclamvn.github.io/bai-giang/robotics/quadruped/', '__L_JELLY__': 'https://nclamvn.github.io/bai-giang/robotics/jellyfish/', '__L_PAGODA__': 'https://nclamvn.github.io/bai-giang/vat-li-11/thap-nam-tang/', '__L_LIGHT__': 'https://nclamvn.github.io/bai-giang/vat-li-10/hai-dang/', '__L_WATCH__': 'https://nclamvn.github.io/bai-giang/vat-li-11/dong-ho-co/', '__L_SPIDER__': 'https://nclamvn.github.io/bai-giang/vat-li-10/nhen-thuy-luc/', '__L_PIRANHA__': 'https://nclamvn.github.io/bai-giang/vat-li-10/ca-piranha/', '__L_CAMERA__': 'https://nclamvn.github.io/bai-giang/khtn-9/may-anh/', '__L_GILL__': 'https://nclamvn.github.io/bai-giang/sinh-hoc-11/ca-tho-bang-mang/', '__L_BASE__': '', '__L_LIBPAGE__': 'https://nclamvn.github.io/bai-giang/thu-vien/', '__L_GDPT__': 'https://github.com/nclamvn/bai-giang/blob/main/thu-vien/gdpt2018.json', '__L_ROOT__': 'https://nclamvn.github.io/bai-giang/'}
         import build_ls10
         (out / 'lich-su-10.html').write_text(encoding='utf-8', data=build_ls10.build(hub, coloa, 'covers/co-loa.webp'))
         (out / 'index_art.html').write_text(encoding='utf-8', data=library(art))

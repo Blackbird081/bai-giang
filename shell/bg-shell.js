@@ -571,7 +571,10 @@
   function dropLoader() {
     const ld = document.getElementById('bgs-load'); if (!ld) return void setTimeout(perfWatch, 3000);
     const done = () => { const bi = ld.querySelector('i'); if (bi) bi.style.width = '100%'; ld.classList.add('out'); setTimeout(() => ld.remove(), 700); setTimeout(perfWatch, 1500); };
-    let n = 0; const wait = () => { const c = document.querySelector('canvas'); if ((c && c.width > 0) || ++n > 40) requestAnimationFrame(() => requestAnimationFrame(done)); else setTimeout(wait, 100); };
+    // bài có lớp #loading riêng (Tế Bào, Cổ Loa, Cơ thể người): giữ màn tải có bìa tới khi lớp đó ẩn, để người xem không rơi vào
+    // một khung trắng chỉ có dòng chữ; nếu dòng đó đổi thành báo lỗi (không bắt đầu bằng "Đang") thì gỡ ngay cho đọc được.
+    const busy = () => { const l = document.getElementById('loading'); return !!l && !l.hidden && l.offsetParent !== null && /^Đang/.test(l.textContent.trim()); };
+    let n = 0; const wait = () => { const c = document.querySelector('canvas'); if (((c && c.width > 0) && !busy()) || ++n > 240) requestAnimationFrame(() => requestAnimationFrame(done)); else setTimeout(wait, 100); };
     wait();
   }
   setTimeout(() => { const ld = document.getElementById('bgs-load'); if (ld) { ld.classList.add('out'); setTimeout(() => ld.remove(), 700); } perfWatch(); }, 25000);
@@ -676,17 +679,19 @@
     const st = document.createElement('style');
     st.textContent = FONTFACE(R) + TOKENS_CSS + `*,*::before,*::after{box-sizing:border-box}body{margin:0;font:500 var(--bg-fs-sm)/1.5 var(--bg-font);color:var(--bg-ink);background:var(--bg-page);-webkit-font-smoothing:antialiased}
       .w{max-width:420px;margin:0 auto;padding:calc(28px + env(safe-area-inset-top)) 20px 32px}
-      .h{display:flex;align-items:center;gap:12px;margin-bottom:28px;min-height:44px}.h svg{width:36px;height:36px}.h b{font-size:var(--bg-fs-md)}
-      h2{margin:0 0 6px;font-size:var(--bg-fs-xl);letter-spacing:-.015em;line-height:1.2}p{margin:0 0 20px;color:var(--bg-ink2)}
+      @media (min-width:640px){body{min-height:100vh;display:grid;place-items:center}.w{width:440px;margin:48px auto;padding:36px 36px 28px;background:var(--bg-surface);border-radius:var(--bg-r-lg);box-shadow:var(--bg-sh-2)}}
+      .h{display:flex;align-items:center;gap:12px;margin-bottom:28px;min-height:44px}.h svg,.h img{width:32px;height:32px}.h b{font-size:var(--bg-fs-sm)}
+      h2{margin:0 0 8px;font:600 32px/1.15 var(--bg-serif);letter-spacing:-.02em}p{margin:0 0 24px;color:var(--bg-ink2)}
+      ol{margin:0 0 24px;padding-left:20px;color:var(--bg-ink2);display:grid;gap:6px}ol b{color:var(--bg-ink)}
       form{display:grid;gap:12px}
       input{width:100%;height:64px;padding:0 16px;border-radius:var(--bg-r-md);border:1.5px solid var(--bg-hair2);background:var(--bg-surface);font:600 30px var(--bg-mono);letter-spacing:10px;text-align:center;text-transform:uppercase;color:var(--bg-ink)}
       input:focus{outline:none;border-color:var(--bg-brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--bg-brand) 20%,transparent)}
-      button{width:100%;height:56px;border:0;border-radius:var(--bg-r-md);background:var(--bg-brand);color:var(--bg-brand-ink);font:700 var(--bg-fs-md) var(--bg-font);cursor:pointer}
-      button:disabled{opacity:.45}.f{margin-top:24px;font-size:var(--bg-fs-xs);color:var(--bg-ink3)}`;
+      button{width:100%;height:48px;border:0;border-radius:var(--bg-r-pill);background:var(--bg-brand);color:var(--bg-brand-ink);font:600 var(--bg-fs-sm) var(--bg-font);cursor:pointer}
+      button:disabled{background:var(--bg-hair);color:var(--bg-ink3);cursor:default}.f{margin-top:20px;font-size:var(--bg-fs-xs);color:var(--bg-ink3)}`;
     document.head.appendChild(st);
     const code0 = decodeURIComponent(location.hash.slice(1)).trim().toUpperCase();
     const askCode = () => new Promise((ok) => {
-      document.body.innerHTML = `<div class="w"><a class="h" href="${R}" style="text-decoration:none;color:inherit">${LOGO}<b>Sáng Ăn Khoai</b></a><h2>Điều khiển bài giảng</h2><p>Nhập mã 6 ký tự hiện trên màn chiếu.</p>
+      document.body.innerHTML = `<div class="w"><a class="h" href="${R}" style="text-decoration:none;color:inherit">${LOGO}<b>Sáng Ăn Khoai</b></a><h2>Điều khiển bài giảng</h2><ol><li>Trên máy chiếu, mở bài, bấm nút <b>⋯</b> rồi chọn <b>Điều khiển bằng điện thoại</b>.</li><li>Nhập mã 6 ký tự hiện trên màn chiếu.</li></ol>
         <form id="f"><input id="c" maxlength="6" inputmode="text" autocapitalize="characters" autocomplete="off" aria-label="Mã kết nối" placeholder="······"><button id="g" disabled>Kết nối</button></form>
         <div class="f">Hai máy nối trực tiếp, không lưu gì trên máy chủ. Cần mạng Internet.</div></div>`;
       const c = document.getElementById('c'), g = document.getElementById('g');

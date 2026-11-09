@@ -9,7 +9,7 @@ Lưu ý: axe không đọc được nội dung vẽ trong canvas 3D; phần đó
 import asyncio, json, pathlib, sys
 from playwright.async_api import async_playwright
 
-PAGES = ['', 'chu-de/sinh-hoc-te-bao/', 'lich-su-10/', 'robotics/', 'kiem-may/', 'ty-the/', 'robotics/ur5e/?q=2', 'thu-vien/enzyme-step.html']
+PAGES = ['', 'thu-vien/', 'chu-de/sinh-hoc-te-bao/', 'lich-su-10/', 'robotics/', 'kiem-may/', 'ty-the/', 'robotics/ur5e/?q=2', 'thu-vien/enzyme-step.html']
 
 
 async def main():

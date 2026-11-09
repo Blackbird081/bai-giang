@@ -94,6 +94,6 @@ SITE_BAR_CSS = """
 def site_bar(root, crumbs=()):
     """Thanh trên của trang mục: logo về trang chính, đường dẫn hiện tại, các mục chính. crumbs: [(chữ, href hoặc None)]."""
     cr = ''.join((f'<span aria-hidden="true">/</span><a href="{h}">{t}</a>' if h else f'<span aria-hidden="true">/</span><b>{t}</b>') for t, h in crumbs)
-    nav = ''.join(f'<a href="{root}{h}">{t}</a>' for t, h in (('Bài học', '#bai-hoc'), ('Lộ trình', '#lo-trinh'), ('Thư viện', '#thu-vien'), ('Cho giáo viên', '#cho-giao-vien')))
+    nav = ''.join(f'<a href="{root}{h}">{t}</a>' for t, h in (('Bài học', '#bai-hoc'), ('Lộ trình', '#lo-trinh'), ('Thư viện', 'thu-vien/'), ('Cho giáo viên', '#cho-giao-vien')))
     return (f'<header class="sitebar"><div class="in"><a class="brand" href="{root}" aria-label="Sáng Ăn Khoai, trang chính">{logo(root)}<span>Sáng Ăn Khoai</span></a>'
             f'<div class="crumbs">{cr}</div><nav aria-label="Mục chính">{nav}</nav></div></header>')
