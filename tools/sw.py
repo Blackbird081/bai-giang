@@ -45,9 +45,12 @@ def snippet(root):
 
 
 def put_snippet(path):
-    p = ROOT / path; s = p.read_text(encoding='utf-8')
-    if '</head>' not in s: return False
-    t = MARK.sub('', s).replace('</head>', snippet(rel_root(path)) + '</head>', 1)
+    p = ROOT / path; s = p.read_text(encoding='utf-8'); t = MARK.sub('', s); sn = snippet(rel_root(path))
+    if '</head>' in t: t = t.replace('</head>', sn + '</head>', 1)
+    else:  # trang viết gọn không có thẻ head (Tế Bào): đặt ngay sau <meta charset>
+        m = re.search(r'<meta charset="?utf-8"?>\n?', t, re.I)
+        if not m: return False
+        t = t[:m.end()] + sn + t[m.end():]
     if t != s: p.write_text(t, encoding='utf-8')
     return True
 
