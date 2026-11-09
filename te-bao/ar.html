@@ -101,6 +101,7 @@ model-viewer{background:radial-gradient(circle at 50% 52%,#FFFFFF 0%,#EEF0F4 75%
 .hs{background:rgba(255,255,255,.8);-webkit-backdrop-filter:blur(14px) saturate(180%);backdrop-filter:blur(14px) saturate(180%);border:1px solid rgba(255,255,255,.92);box-shadow:var(--lg-shadow-lo)}
 .qr svg{border-radius:14px}
 </style>
+<script id="bg-sw">(function(){try{if(!("serviceWorker"in navigator)||!/(^|\.)github\.io$|^localhost$|^127\.0\.0\.1$/.test(location.hostname))return;var r=new URL("../",location.href).href;if(/[?&]sw=0/.test(location.search)){navigator.serviceWorker.getRegistrations().then(function(a){a.forEach(function(x){x.unregister()})});return}addEventListener("load",function(){setTimeout(function(){navigator.serviceWorker.register(r+"sw.js",{scope:r}).catch(function(){})},3000)})}catch(e){}})();</script>
 </head>
 <body>
 <model-viewer id="mv" src="assets/ribosome-3j7r.glb" alt="Mô hình bề mặt phân tử của ribosome động vật có vú gắn trên kênh Sec61, đặt trên một mảnh màng lưới nội chất"

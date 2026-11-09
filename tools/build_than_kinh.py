@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT / 'tools'))
 import sri, inject_shell  # noqa: E402
 
 s = (ROOT / 'tools/than-kinh.template.html').read_text(encoding='utf-8')
-s = s.replace('__IMPORTMAP__', sri.importmap())
+s = s.replace('__IMPORTMAP__', sri.importmap('../'))
 s = inject_shell.inject(s, None, 'than-kinh/index.html')
 out = ROOT / 'than-kinh/index.html'; out.parent.mkdir(exist_ok=True); out.write_text(s, encoding='utf-8')
 print('đã dựng', out.relative_to(ROOT), f'({out.stat().st_size // 1024} KB)')

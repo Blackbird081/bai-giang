@@ -256,6 +256,7 @@ body.bgs-on :is(.btn.on,.btn.dark,.btn[aria-pressed="true"],.chip.on,.chip[aria-
 body.bgs-on :is(input[type=range],input[type=checkbox],input[type=radio]){accent-color:var(--bg-brand)}
 body.bgs-on :is(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--bg-focus)!important;outline-offset:2px}
 </style><!--BG-STD:end-->
+<script id="bg-sw">(function(){try{if(!("serviceWorker"in navigator)||!/(^|\.)github\.io$|^localhost$|^127\.0\.0\.1$/.test(location.hostname))return;var r=new URL("../../",location.href).href;if(/[?&]sw=0/.test(location.search)){navigator.serviceWorker.getRegistrations().then(function(a){a.forEach(function(x){x.unregister()})});return}addEventListener("load",function(){setTimeout(function(){navigator.serviceWorker.register(r+"sw.js",{scope:r}).catch(function(){})},3000)})}catch(e){}})();</script>
 </head>
 <body><!--BG-LOAD:start--><div id="bgs-load" role="progressbar" aria-label="Đang tải bài" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8" style="position:fixed;inset:0;z-index:2147483600;background:#E9EAEE url('../../thu-vien/covers/co-loa.webp') center/cover no-repeat;display:flex;align-items:flex-end;justify-content:center;padding:0 16px max(10vh,72px);transition:opacity .6s cubic-bezier(.2,.8,.2,1)"><div style="width:min(360px,100%);padding:14px 18px 16px;border-radius:16px;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 18px 44px -18px rgba(16,24,40,.4);font:600 17px/1.35 'Be Vietnam Pro',system-ui,sans-serif;color:#15171C"><div id="bgs-load-k" style="font-size:13px;font-weight:500;color:#626773">Đang tải bài</div><div>Thành Cổ Loa</div><div style="height:4px;border-radius:2px;background:rgba(16,24,40,.1);margin-top:12px;overflow:hidden"><i style="display:block;height:100%;width:8%;border-radius:2px;background:#1E2A44;transition:width .5s cubic-bezier(.2,.8,.2,1)"></i></div></div><style>#bgs-load.out{opacity:0;pointer-events:none}@media (prefers-reduced-motion:reduce){#bgs-load i{transition:none}}</style><script>(function(){var L=document.getElementById("bgs-load"),b=L.querySelector("i"),k=document.getElementById("bgs-load-k"),p=.08,n=0;function set(v,t){if(v>p){p=v;b.style.width=Math.round(p*100)+"%";L.setAttribute("aria-valuenow",Math.round(p*100))}if(t)k.textContent=t}try{new PerformanceObserver(function(l){l.getEntries().forEach(function(){n++;set(p+(.8-p)*.18,"Đang tải "+n+" tệp")})}).observe({type:"resource",buffered:true})}catch(e){}document.addEventListener("DOMContentLoaded",function(){set(Math.max(p,.5))});var w=setInterval(function(){var c=document.querySelector("canvas");if(!document.body.contains(L))return clearInterval(w);if(c&&c.width>0){set(.92,"Đang dựng cảnh 3D");clearInterval(w)}},150)})()</script></div><!--BG-LOAD:end-->
 <div class="app">
@@ -314,28 +315,28 @@ body.bgs-on :is(a,button,input,select,textarea,summary,[tabindex]):focus-visible
 
 <!--BG-SHELL:start-->
 <script>window.BG_SEQ={"slug": "co-loa", "title": "Thành Cổ Loa", "crumb": [{"t": "Lịch sử 10", "href": "lich-su-10/"}], "next": {"title": "Lộ trình Lịch sử 10", "href": "lich-su-10/", "sub": "Các bài theo chương trình"}, "cover": "thu-vien/covers/co-loa.webp", "subject": "Lịch sử", "s": "su", "pack": "giao-vien/co-loa/", "plan": [{"t": "Một kinh đô ở đỉnh châu thổ", "m": [0, 6], "gv": "Chiếu toàn cảnh, chưa đọc lời giảng. Hỏi: nếu là thủ lĩnh Âu Lạc, em chọn đặt kinh đô ở nơi thế nào? Cho 2 phút ghi hai điều kiện. Gọi vài em, rồi đọc lời giảng: đất cao, sông, ruộng lúa, nghề đồng. Chốt: đó là cơ sở hình thành văn minh.", "hs": "Ghi hai điều kiện vào mục 1, so với lời giảng."}, {"t": "Lũy sớm nhất", "m": [6, 9], "gv": "Chỉ hố khai quật cắt ngang lũy thành Trung. Nhấn mạnh: đáy lũy sớm nhất có niên đại C14 khoảng thế kỷ IV TCN, bên dưới còn dấu vết phòng thủ của cư dân Đông Sơn. Thành không mọc lên trong một ngày.", "hs": "Nghe, quan sát mặt cắt."}, {"t": "Thành Trung, lũy chính", "m": [9, 13], "gv": "Mở thẻ thành Trung để xem mặt cắt đúng tỉ lệ (lũy rộng 21,5 m, cao 4,5 m; hào rộng 12 m). Cho cả lớp trả lời câu hỏi trên màn chiếu bằng cách giơ tay.", "hs": "Trả lời câu hỏi. Ghi dòng 1 của mục 2."}, {"t": "Nước cũng là một phần của thành", "m": [13, 16], "gv": "Chỉ sông Hoàng Giang và hệ hào nối nhau. Hỏi: hào nước vừa giúp phòng thủ, vừa giúp gì nữa?", "hs": "Trả lời miệng: thuyền bè đi lại, giao thương."}, {"t": "Thành Nội: câu hỏi còn mở", "m": [16, 19], "gv": "Chỉ hình chữ nhật đều của thành Nội. Nói rõ: niên đại vòng này còn tranh luận. Dạy học sinh nói “có ý kiến cho rằng” khi bằng chứng chưa ngã ngũ.", "hs": "Nghe; ghi “còn tranh luận” bên cạnh thành Nội nếu cần."}, {"t": "Sức người đắp thành", "m": [19, 24], "gv": "Nêu hai con số: khoảng 2,2 triệu m³ đất đào đắp; riêng lũy giai đoạn sớm cần hơn 5 triệu ngày công. Bấm B (màn đen), cho cặp đôi thảo luận 2 phút: huy động chừng ấy sức người cần những gì?", "hs": "Thảo luận cặp, trả lời câu 3a."}, {"t": "Mũi tên và khuôn đúc", "m": [24, 27], "gv": "Chỉ kho Cầu Vực (khoảng 10.000 mũi tên đồng, 93 kg) và khuôn đúc ở Đền Thượng. Hỏi: khuôn đúc cho biết thêm điều gì mà kho mũi tên không cho biết?", "hs": "Ghi dòng 2 và 3 của mục 2."}, {"t": "Trống đồng và lưỡi cày", "m": [27, 31], "gv": "Chỉ trống Mả Tre chứa hiện vật đồng, nhiều nhất là lưỡi cày. Lưu ý các nguồn ghi số lượng khác nhau: khi dùng tư liệu phải ghi rõ nguồn.", "hs": "Ghi dòng 4 của mục 2."}, {"t": "Truyền thuyết và bằng chứng", "m": [31, 37], "gv": "Đặt cạnh nhau: sử cũ kể 9 vòng xoáy ốc, dấu tích hiện còn là 3 vòng có hào. Cho cả lớp trả lời câu hỏi trên màn chiếu. Hỏi: truyền thuyết có vô ích không? (Không: nó cho biết người xưa nhớ và nghĩ gì.)", "hs": "Trả lời câu hỏi. Ghi dòng 5 của mục 2, trả lời câu 3b."}, {"t": "Cổ Loa hôm nay", "m": [37, 45], "gv": "Câu hỏi cuối trên màn chiếu (37–41 phút): cả lớp giơ một, hai hoặc ba ngón tay cho A, B, C rồi giáo viên bấm. Phút 41–45: học sinh viết mục 4; mời một em đọc. Thu phiếu hoặc giao hoàn thành ở nhà.", "hs": "Trả lời câu hỏi, viết mục 4 và tự đánh giá mục 5."}]};</script>
-<script src="../../shell/dist/bg-shell.min.js?v=f7379bfc6c"></script>
+<script src="../../shell/dist/bg-shell.min.js?v=d1a126e181"></script>
 <!--BG-SHELL:end-->
 <script type="importmap">
 {
  "imports": {
-  "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js",
-  "three/webgpu": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js",
-  "three/tsl": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.tsl.js",
-  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+  "three": "../../vendor/three@0.180.0/build/three.webgpu.min.js",
+  "three/webgpu": "../../vendor/three@0.180.0/build/three.webgpu.min.js",
+  "three/tsl": "../../vendor/three@0.180.0/build/three.tsl.min.js",
+  "three/addons/": "../../vendor/three@0.180.0/examples/jsm/"
  },
  "integrity": {
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js": "sha384-SkTLw/lN3jv1UIxteuivToEdXgaEiflmc3P+f8n+GoIqsbu3KE8adYoNlmTYWg0u",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.tsl.js": "sha384-mTV2JED+dL4P7GN+ME+E4dwyCszzmZWF7VS6S/Y42R6oMgcD9K9bIQAZlxiyC5J7",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.core.js": "sha384-r1q8Si7xFBrvMv3Q4yjQkKhkYZ2lp+wn/bPPzNZTsc8DY4uPJmm2vheuz1Yn+8m8",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/controls/OrbitControls.js": "sha384-tLl9+KfQJPCciIc85xSuJobNxPRrzSLDNrDFvDDTKE7fA9XvUq4UImkENfnQRUvW",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/environments/RoomEnvironment.js": "sha384-WonUB49tSHm5CcExDQcL5s5lZy4/MNADu2G8l7KoDzrZ7T3zKnU3JSic+kMfHWQU",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/objects/SkyMesh.js": "sha384-Ndo9sn3syj5Rbcb6XAwo+uLfL89l2Mtc6XtkT9FYR2ZXJz7vll8F2USUdTrd2jjd",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/tsl/display/BloomNode.js": "sha384-+yqj9lMYDxcuo7sz+GC8xoTVyFE+PkbhEf6To8Z1ToSpFpCQsILYqGXR6J98Kic7",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/tsl/display/DepthOfFieldNode.js": "sha384-vEUM7LTfQoSfRhLjiU5nzU2n/uC3pJA6QkBbaNs1qxC0QVCMMWDU4NWpvFCaJqXK",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/tsl/display/GaussianBlurNode.js": "sha384-sdwLh/+GDgeWs5eLoVAu2pHcooktwXrTgWmjPEU6jguATGgM2FU3l2s6EijkczPb",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/tsl/display/GTAONode.js": "sha384-w5pzloSXfpmnhPUjWhpashl6Xi6AUk6Gz+HceNkZCvU33r4Z4eK3+0fHeXB5IBGM",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/utils/BufferGeometryUtils.js": "sha384-Qy9m6qi71cTFsL476nB1aK+wPxxPgU6H6pn/++8gOgy4/vTtkDuFBfPo22hBhx36"
+  "../../vendor/three@0.180.0/build/three.webgpu.min.js": "sha384-NCNdkY3IypDZC52aoiNzj/OAv8Wk8xpiOppv2J2Ab3S0PGMD8KCb1C3BOofS+AJX",
+  "../../vendor/three@0.180.0/build/three.core.min.js": "sha384-Aa12tAyxIBJJAFu3qP8FVQCMM0U5JQGdmu9Plhyw4kRdmajEzNw8jChNzDqgEu9x",
+  "../../vendor/three@0.180.0/build/three.tsl.min.js": "sha384-bePwW2N2vMPxBVlXHpvO0I+c0dtLMTUEDSaACqzVDDcUH8phkM8q0ube0obSB9or",
+  "../../vendor/three@0.180.0/examples/jsm/controls/OrbitControls.js": "sha384-tLl9+KfQJPCciIc85xSuJobNxPRrzSLDNrDFvDDTKE7fA9XvUq4UImkENfnQRUvW",
+  "../../vendor/three@0.180.0/examples/jsm/environments/RoomEnvironment.js": "sha384-WonUB49tSHm5CcExDQcL5s5lZy4/MNADu2G8l7KoDzrZ7T3zKnU3JSic+kMfHWQU",
+  "../../vendor/three@0.180.0/examples/jsm/objects/SkyMesh.js": "sha384-Ndo9sn3syj5Rbcb6XAwo+uLfL89l2Mtc6XtkT9FYR2ZXJz7vll8F2USUdTrd2jjd",
+  "../../vendor/three@0.180.0/examples/jsm/tsl/display/BloomNode.js": "sha384-+yqj9lMYDxcuo7sz+GC8xoTVyFE+PkbhEf6To8Z1ToSpFpCQsILYqGXR6J98Kic7",
+  "../../vendor/three@0.180.0/examples/jsm/tsl/display/DepthOfFieldNode.js": "sha384-vEUM7LTfQoSfRhLjiU5nzU2n/uC3pJA6QkBbaNs1qxC0QVCMMWDU4NWpvFCaJqXK",
+  "../../vendor/three@0.180.0/examples/jsm/tsl/display/GaussianBlurNode.js": "sha384-sdwLh/+GDgeWs5eLoVAu2pHcooktwXrTgWmjPEU6jguATGgM2FU3l2s6EijkczPb",
+  "../../vendor/three@0.180.0/examples/jsm/tsl/display/GTAONode.js": "sha384-w5pzloSXfpmnhPUjWhpashl6Xi6AUk6Gz+HceNkZCvU33r4Z4eK3+0fHeXB5IBGM",
+  "../../vendor/three@0.180.0/examples/jsm/utils/BufferGeometryUtils.js": "sha384-Qy9m6qi71cTFsL476nB1aK+wPxxPgU6H6pn/++8gOgy4/vTtkDuFBfPo22hBhx36"
  }
 }
 </script>

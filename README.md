@@ -164,6 +164,12 @@ Mọi bài 3D (Tế Bào, Ty Thể, Cổ Loa, Cơ thể người, Neuron, 6 mô 
 ## Giao diện
 Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liquid_glass.py): nền trắng, vật liệu kính lỏng phỏng theo iOS 27 và macOS 27 (nền mờ, bão hoà màu, viền sáng bên trong, bóng mềm, góc bo lớn, nút dạng viên thuốc), một bộ phông tự lưu cho cả site ở `design/fonts/` (Be Vietnam Pro cho chữ, Noto Serif cho tiêu đề trang mục, JetBrains Mono cho số đo; khai ở `design/tokens.json`, kể cả các mô phỏng robotics). Giao diện luôn sáng, kể cả khi máy đặt chế độ tối. 54 bài thư viện nhận cùng chuẩn qua khối CSS `lg-theme` mà `vi_tool.py apply` chèn vào.
 
+## Tốc độ và dùng khi mạng yếu
+- **Bộ nhớ đệm theo mã băm** (`sw.js`, sinh bằng [`tools/sw.py`](tools/sw.py) ở bước cuối của `build_all.py`): `sw-manifest.json` ghi SHA-256 của mọi tệp site phục vụ. Tệp đã lưu đúng mã băm thì mở ngay từ máy, không hỏi mạng; chỉ tệp đổi nội dung mới tải lại sau mỗi lần đăng (GitHub Pages tự đổi ETag của mọi tệp mỗi lần đăng và chỉ cho lưu 10 phút). Tệp tải về được tính lại SHA-256, khớp mới lưu, nên bản trên máy luôn trùng từng byte với bản trên site. Bài đã mở vẫn mở được khi mất mạng. Khi máy rảnh và mạng tốt, bài đang học nhờ tải trước "Bài sau". Gỡ ở một máy: thêm `?sw=0`; gỡ toàn site: thêm `"tat": true` vào `sw-manifest.json`.
+- **three.js tự lưu** ở `vendor/three@0.180.0/` (bản `.min` chính thức của gói npm, `tools/sri.py --check` đối chiếu từng byte với jsDelivr): Tế Bào, Ty Thể, Cổ Loa, Neuron không còn tải mã từ CDN bên thứ ba, nhẹ hơn khoảng một nửa khi nén.
+- Bài Cá thở bằng mang chỉ chờ con cá hiện đầu tiên; ba loài còn lại tải ngầm.
+- Đo: [`tests/perf.py`](tests/perf.py) (mạng giả lập 8 Mbps, trễ 80 ms), [`tests/sw_check.py`](tests/sw_check.py) (bộ nhớ đệm, mất mạng, tải trước).
+
 ## Cấu trúc
 | Đường dẫn | Nội dung |
 |---|---|
@@ -188,6 +194,8 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `tools/build_pages.py` | Dựng trang chính (`bai-giang.template.html`), trang Thư viện (`thu-vien.template.html`), trang chủ đề và các trang chuyển hướng; CSS chung của hai trang ở `trang-chinh.css`; khung trang mục ở `design/house.css` |
 | `tools/khung_bia.py` | Đóng khung lại bìa bài 3D nền sáng: cùng tỉ lệ 3:2, cùng cỡ vật, chạy lại không đổi (mã băm ở `thu-vien/covers/khung.json`) |
 | `tools/build_ribosome.py`, `tools/build_atp.py`, `tools/build_glb.py` | Xử lý trước dữ liệu PDB, có cổng kiểm sai số |
+| `tools/sw.py` | Bộ nhớ đệm theo mã băm: `sw-manifest.json`, `sw.js`, khối đăng ký ở mọi trang |
+| `vendor/three@0.180.0/` | three.js tự lưu (bản min của gói npm), import map sinh bằng `tools/sri.py` |
 | `tools/build_offline.py` | Đóng gói bản offline một file |
 | `offline/` | Nơi `tools/build_offline.py` ghi hai bản offline (không đưa vào git; bản phát hành ở Releases) |
 | `tests/` | Kiểm bằng Playwright; danh sách và cách chạy ở [`tests/README.md`](tests/README.md) |
@@ -201,7 +209,7 @@ python3 tests/smoke.py 8777     # mở thử 23 trang, báo lỗi JS
 ```
 Thêm `#webgl` vào cuối địa chỉ để ép chạy WebGL 2. Thêm `?lite=1` để xem chế độ nhẹ (vỏ tự bật khi máy chậm kéo dài: bỏ làm mờ nền sau bảng, giảm điểm ảnh; cảnh và hiệu ứng 3D giữ nguyên), `?lite=0` để tắt hẳn.
 
-Mỗi lần đẩy lên `main`, GitHub Actions (`.github/workflows/ci.yml`) kiểm cú pháp, kiểm tệp đã dựng khớp với nguồn (`build_all.py --check`), kiểm mã băm toàn vẹn của tệp CDN (`tools/sri.py --check`) và mở thử các trang.
+Mỗi lần đẩy lên `main`, GitHub Actions (`.github/workflows/ci.yml`) kiểm cú pháp, kiểm tệp đã dựng khớp với nguồn (`build_all.py --check`), kiểm three.js tự lưu trùng bản gốc và mã băm toàn vẹn của tệp CDN (`tools/sri.py --check`) và mở thử các trang.
 
 Bản offline: đẩy một thẻ `offline-*` (ví dụ `git tag offline-2026.11.01 && git push origin offline-2026.11.01`), Actions (`.github/workflows/offline-release.yml`) đóng gói hai bản và đăng lên Releases. Đóng gói tay:
 ```bash

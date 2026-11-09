@@ -114,6 +114,7 @@ body.bgs-on :is(.btn.on,.btn.dark,.btn[aria-pressed="true"],.chip.on,.chip[aria-
 body.bgs-on :is(input[type=range],input[type=checkbox],input[type=radio]){accent-color:var(--bg-brand)}
 body.bgs-on :is(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--bg-focus)!important;outline-offset:2px}
 </style><!--BG-STD:end-->
+<script id="bg-sw">(function(){try{if(!("serviceWorker"in navigator)||!/(^|\.)github\.io$|^localhost$|^127\.0\.0\.1$/.test(location.hostname))return;var r=new URL("../",location.href).href;if(/[?&]sw=0/.test(location.search)){navigator.serviceWorker.getRegistrations().then(function(a){a.forEach(function(x){x.unregister()})});return}addEventListener("load",function(){setTimeout(function(){navigator.serviceWorker.register(r+"sw.js",{scope:r}).catch(function(){})},3000)})}catch(e){}})();</script>
 </head>
 <body><!--BG-LOAD:start--><div id="bgs-load" role="progressbar" aria-label="Đang tải bài" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8" style="position:fixed;inset:0;z-index:2147483600;background:#E9EAEE url('../thu-vien/covers/than-kinh.webp') center/cover no-repeat;display:flex;align-items:flex-end;justify-content:center;padding:0 16px max(10vh,72px);transition:opacity .6s cubic-bezier(.2,.8,.2,1)"><div style="width:min(360px,100%);padding:14px 18px 16px;border-radius:16px;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 18px 44px -18px rgba(16,24,40,.4);font:600 17px/1.35 'Be Vietnam Pro',system-ui,sans-serif;color:#15171C"><div id="bgs-load-k" style="font-size:13px;font-weight:500;color:#626773">Đang tải bài</div><div>Neuron và xung thần kinh</div><div style="height:4px;border-radius:2px;background:rgba(16,24,40,.1);margin-top:12px;overflow:hidden"><i style="display:block;height:100%;width:8%;border-radius:2px;background:#1E2A44;transition:width .5s cubic-bezier(.2,.8,.2,1)"></i></div></div><style>#bgs-load.out{opacity:0;pointer-events:none}@media (prefers-reduced-motion:reduce){#bgs-load i{transition:none}}</style><script>(function(){var L=document.getElementById("bgs-load"),b=L.querySelector("i"),k=document.getElementById("bgs-load-k"),p=.08,n=0;function set(v,t){if(v>p){p=v;b.style.width=Math.round(p*100)+"%";L.setAttribute("aria-valuenow",Math.round(p*100))}if(t)k.textContent=t}try{new PerformanceObserver(function(l){l.getEntries().forEach(function(){n++;set(p+(.8-p)*.18,"Đang tải "+n+" tệp")})}).observe({type:"resource",buffered:true})}catch(e){}document.addEventListener("DOMContentLoaded",function(){set(Math.max(p,.5))});var w=setInterval(function(){var c=document.querySelector("canvas");if(!document.body.contains(L))return clearInterval(w);if(c&&c.width>0){set(.92,"Đang dựng cảnh 3D");clearInterval(w)}},150)})()</script></div><!--BG-LOAD:end-->
 <div id="stage" role="img" aria-label="Neuron 3D: thân neuron, sợi nhánh, sợi trục có bao myelin và synapse. Xung thần kinh nhảy qua các eo Ranvier."></div>
@@ -142,28 +143,28 @@ body.bgs-on :is(a,button,input,select,textarea,summary,[tabindex]):focus-visible
 
 <!--BG-SHELL:start-->
 <script>window.BG_SEQ={"slug": "than-kinh", "title": "Neuron và xung thần kinh", "crumb": [{"t": "Sinh học 11", "href": "#bai-hoc"}], "next": {"title": "Cơ thể người 3D", "href": "co-the-nguoi/", "sub": "Cả cơ thể: hệ thần kinh và các hệ khác"}, "cover": "thu-vien/covers/than-kinh.webp", "subject": "Sinh học", "s": "sinh", "pack": "giao-vien/than-kinh/", "plan": [{"t": "Mỗi neuron là một tế bào truyền tin", "m": [0, 12], "gv": "Phút 0–4: nêu tình huống chạm tay vào cốc nước nóng, rụt tay lại rất nhanh; hỏi tín hiệu đi bằng cách nào, cho học sinh ghi mục 1. Phút 4–12: cho cảnh chạy, rồi dừng hình chỉ lần lượt sợi nhánh, thân, sợi trục, bao myelin, eo Ranvier, chuỳ synapse. Hỏi câu trên màn chiếu.", "hs": "Ghi dự đoán mục 1; chú thích sơ đồ neuron ở mục 2."}, {"t": "Thân neuron tổng hợp tín hiệu", "m": [12, 21], "gv": "Chỉ bảng điện thế màng ở góc phải: nghỉ khoảng −70 mV, ngưỡng khoảng −55 mV, đỉnh khoảng +30 mV. Cho xem lại cảnh một lần. Bấm B, cho học sinh vẽ đồ thị 3 phút. Hỏi câu trên màn chiếu.", "hs": "Vẽ đồ thị điện thế ở mục 3."}, {"t": "Xung nhảy qua các eo Ranvier", "m": [21, 30], "gv": "Cho cảnh chạy, chỉ xung nhảy từ eo này sang eo khác. Hỏi câu trên màn chiếu. Hỏi thêm: nếu một đoạn sợi trục mất bao myelin, xung đi nhanh hơn hay chậm hơn? Vì sao?", "hs": "Trả lời miệng; kiểm lại chú thích D và E ở mục 2."}, {"t": "Chất dẫn truyền vượt khe synapse", "m": [30, 45], "gv": "Phút 30–36: cho cảnh chạy, chỉ các túi ở chuỳ, khe synapse, thụ thể ở màng sau; nói thêm Ca²⁺ đi vào chuỳ khi xung tới. Hỏi câu trên màn chiếu. Phút 36–40: cặp đôi làm mục 4, gọi một cặp đọc thứ tự. Phút 40–45: học sinh làm mục 5, rồi bấm Thử phá → Tiêm thuốc tê để cả lớp thấy xung dừng giữa sợi trục, không tới synapse; thu phiếu hoặc giao về nhà.", "hs": "Trả lời câu hỏi; làm mục 4, 5 và 6 của phiếu."}]};</script>
-<script src="../shell/dist/bg-shell.min.js?v=f7379bfc6c"></script>
+<script src="../shell/dist/bg-shell.min.js?v=d1a126e181"></script>
 <!--BG-SHELL:end-->
 <script type="importmap">
 {
  "imports": {
-  "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js",
-  "three/webgpu": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js",
-  "three/tsl": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.tsl.js",
-  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+  "three": "../vendor/three@0.180.0/build/three.webgpu.min.js",
+  "three/webgpu": "../vendor/three@0.180.0/build/three.webgpu.min.js",
+  "three/tsl": "../vendor/three@0.180.0/build/three.tsl.min.js",
+  "three/addons/": "../vendor/three@0.180.0/examples/jsm/"
  },
  "integrity": {
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.js": "sha384-SkTLw/lN3jv1UIxteuivToEdXgaEiflmc3P+f8n+GoIqsbu3KE8adYoNlmTYWg0u",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.tsl.js": "sha384-mTV2JED+dL4P7GN+ME+E4dwyCszzmZWF7VS6S/Y42R6oMgcD9K9bIQAZlxiyC5J7",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.core.js": "sha384-r1q8Si7xFBrvMv3Q4yjQkKhkYZ2lp+wn/bPPzNZTsc8DY4uPJmm2vheuz1Yn+8m8",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/controls/OrbitControls.js": "sha384-tLl9+KfQJPCciIc85xSuJobNxPRrzSLDNrDFvDDTKE7fA9XvUq4UImkENfnQRUvW",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/environments/RoomEnvironment.js": "sha384-WonUB49tSHm5CcExDQcL5s5lZy4/MNADu2G8l7KoDzrZ7T3zKnU3JSic+kMfHWQU",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/objects/SkyMesh.js": "sha384-Ndo9sn3syj5Rbcb6XAwo+uLfL89l2Mtc6XtkT9FYR2ZXJz7vll8F2USUdTrd2jjd",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/tsl/display/BloomNode.js": "sha384-+yqj9lMYDxcuo7sz+GC8xoTVyFE+PkbhEf6To8Z1ToSpFpCQsILYqGXR6J98Kic7",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/tsl/display/DepthOfFieldNode.js": "sha384-vEUM7LTfQoSfRhLjiU5nzU2n/uC3pJA6QkBbaNs1qxC0QVCMMWDU4NWpvFCaJqXK",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/tsl/display/GaussianBlurNode.js": "sha384-sdwLh/+GDgeWs5eLoVAu2pHcooktwXrTgWmjPEU6jguATGgM2FU3l2s6EijkczPb",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/tsl/display/GTAONode.js": "sha384-w5pzloSXfpmnhPUjWhpashl6Xi6AUk6Gz+HceNkZCvU33r4Z4eK3+0fHeXB5IBGM",
-  "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/utils/BufferGeometryUtils.js": "sha384-Qy9m6qi71cTFsL476nB1aK+wPxxPgU6H6pn/++8gOgy4/vTtkDuFBfPo22hBhx36"
+  "../vendor/three@0.180.0/build/three.webgpu.min.js": "sha384-NCNdkY3IypDZC52aoiNzj/OAv8Wk8xpiOppv2J2Ab3S0PGMD8KCb1C3BOofS+AJX",
+  "../vendor/three@0.180.0/build/three.core.min.js": "sha384-Aa12tAyxIBJJAFu3qP8FVQCMM0U5JQGdmu9Plhyw4kRdmajEzNw8jChNzDqgEu9x",
+  "../vendor/three@0.180.0/build/three.tsl.min.js": "sha384-bePwW2N2vMPxBVlXHpvO0I+c0dtLMTUEDSaACqzVDDcUH8phkM8q0ube0obSB9or",
+  "../vendor/three@0.180.0/examples/jsm/controls/OrbitControls.js": "sha384-tLl9+KfQJPCciIc85xSuJobNxPRrzSLDNrDFvDDTKE7fA9XvUq4UImkENfnQRUvW",
+  "../vendor/three@0.180.0/examples/jsm/environments/RoomEnvironment.js": "sha384-WonUB49tSHm5CcExDQcL5s5lZy4/MNADu2G8l7KoDzrZ7T3zKnU3JSic+kMfHWQU",
+  "../vendor/three@0.180.0/examples/jsm/objects/SkyMesh.js": "sha384-Ndo9sn3syj5Rbcb6XAwo+uLfL89l2Mtc6XtkT9FYR2ZXJz7vll8F2USUdTrd2jjd",
+  "../vendor/three@0.180.0/examples/jsm/tsl/display/BloomNode.js": "sha384-+yqj9lMYDxcuo7sz+GC8xoTVyFE+PkbhEf6To8Z1ToSpFpCQsILYqGXR6J98Kic7",
+  "../vendor/three@0.180.0/examples/jsm/tsl/display/DepthOfFieldNode.js": "sha384-vEUM7LTfQoSfRhLjiU5nzU2n/uC3pJA6QkBbaNs1qxC0QVCMMWDU4NWpvFCaJqXK",
+  "../vendor/three@0.180.0/examples/jsm/tsl/display/GaussianBlurNode.js": "sha384-sdwLh/+GDgeWs5eLoVAu2pHcooktwXrTgWmjPEU6jguATGgM2FU3l2s6EijkczPb",
+  "../vendor/three@0.180.0/examples/jsm/tsl/display/GTAONode.js": "sha384-w5pzloSXfpmnhPUjWhpashl6Xi6AUk6Gz+HceNkZCvU33r4Z4eK3+0fHeXB5IBGM",
+  "../vendor/three@0.180.0/examples/jsm/utils/BufferGeometryUtils.js": "sha384-Qy9m6qi71cTFsL476nB1aK+wPxxPgU6H6pn/++8gOgy4/vTtkDuFBfPo22hBhx36"
  }
 }
 </script>

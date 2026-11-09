@@ -153,6 +153,9 @@ def build(home, hub, cell, mito):
         + LG.glass('#info,.lesson', 'var(--lg-r)', strong=True) + LG.pill_buttons('.btn,.ph', '.btn.primary')
     s = tpl.replace('__LG_CSS__', css).replace('__DATA__', json.dumps(DATA, ensure_ascii=False, separators=(',', ':'))).replace('__HUB__', hub).replace('__HOME__', home)
     s = s.replace('__FONT__', '')
+    # three.js tự lưu ở vendor/ (tools/sri.py): đường dẫn tính từ gốc site (hub là gốc site, tương đối hoặc tuyệt đối)
+    import sri
+    s, n = sri.fix(s, hub); assert n == 1, 'không thấy import map three.js trong mẫu'
     assert '__' not in s, 'còn chỗ giữ chỗ: ' + s[s.find('__') - 40:s.find('__') + 40]
     # vỏ Sáng Ăn Khoai v2 (thanh đầu bài, ngăn kéo, lên lớp, màn tải) nhúng thẳng để bài chạy offline
     import inject_shell

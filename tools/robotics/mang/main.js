@@ -24,7 +24,8 @@ const ui = createUI(app);
 
 // ---------------- cá
 const url = (n) => (ASSET_MAP ? ASSET_MAP[n] : `./fish/${n}`);
-await loadFish(url, FISHES.map((f) => f.id));
+// chỉ chờ con cá hiện đầu tiên (saba); ba loài còn lại của nhóm có số đo mang tải ngầm ngay sau, không chặn màn đầu
+await loadFish(url, ['saba']);
 const root = new THREE.Group(); st.scene.add(root);
 const turn = new THREE.Group(); root.add(turn);
 const FISH = {}, BY = Object.fromEntries(ALL.map((f) => [f.id, f])), CORE = new Set(FISHES.map((f) => f.id));
@@ -37,7 +38,7 @@ function makeActor(f) {
   FISH[f.id] = {f, a, g, phase: Math.random() * 6, ram: 0, y: ['magochi', 'kasago'].includes(f.id) ? 0.035 : Y0};
   tag('ca', ...meshesOf(a.object));
 }
-for (const f of FISHES) makeActor(f);
+makeActor(BY.saba);
 // 16 loài còn lại của kit chỉ tải khi cần (danh sách loài, bộ sưu tập, nút "Loài khác"); mỗi loài có cả bản gần và bản xa như kit
 const LOADING = new Map();
 const ensure = (ids) => Promise.all(ids.map((id) => {
@@ -45,6 +46,7 @@ const ensure = (ids) => Promise.all(ids.map((id) => {
   if (!LOADING.has(id)) LOADING.set(id, loadFish(url, [id]).then(() => { makeActor(BY[id]); }).catch(() => { LOADING.delete(id); }));
   return LOADING.get(id);
 }));
+ensure(FISHES.map((f) => f.id));
 
 // hạt lơ lửng trong nước: trôi ngược chiều bơi với đúng tốc độ bơi
 const SNOW = 420, snowPos = new Float32Array(SNOW * 3);
@@ -320,7 +322,7 @@ const sim = {
     const parts5 = ['mieng', 'nap', 'nguc', 'lung', 'duoi'], none = (keys) => keys.map((key) => ({key, p: null}));
     const gKeys = ALL.map((x) => 'g_' + x.id), cKeys = FISHES.map((x) => 'c_' + x.id);
     if (S.gallery) ui.drawCallouts([...none(parts5), ...none(cKeys), ...ALL.map((x) => ({key: 'g_' + x.id, p: FISH[x.id] ? P(wpt('mieng', x.id)) : null, dx: -30, dy: 34}))], lab, '#ffffff');
-    else if (S.compare) ui.drawCallouts(fit([...none(parts5), ...none(gKeys), ...FISHES.map((x) => ({key: 'c_' + x.id, p: P(wpt('lung', x.id)), dx: 24, dy: -44}))]), lab, '#ffffff');
+    else if (S.compare) ui.drawCallouts(fit([...none(parts5), ...none(gKeys), ...FISHES.map((x) => ({key: 'c_' + x.id, p: FISH[x.id] ? P(wpt('lung', x.id)) : null, dx: 24, dy: -44}))]), lab, '#ffffff');
     else ui.drawCallouts(fit([{key: 'mieng', p: P(wpt('mieng')), dx: 80, dy: -70}, {key: 'nap', p: P(wpt('nap')), dx: -40, dy: -110}, {key: 'nguc', p: P(wpt('nguc')), dx: 60, dy: 80}, {key: 'lung', p: P(wpt('lung')), dx: -110, dy: -60}, {key: 'duoi', p: P(wpt('duoi')), dx: -80, dy: 70},
       ...none(cKeys), ...none(gKeys)]), lab, '#ffffff');
   },

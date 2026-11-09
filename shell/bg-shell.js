@@ -570,7 +570,7 @@
   /* ---------- màn tải, gợi ý lần đầu ---------- */
   function dropLoader() {
     const ld = document.getElementById('bgs-load'); if (!ld) return void setTimeout(perfWatch, 3000);
-    const done = () => { const bi = ld.querySelector('i'); if (bi) bi.style.width = '100%'; ld.classList.add('out'); setTimeout(() => ld.remove(), 700); setTimeout(perfWatch, 1500); };
+    const done = () => { const bi = ld.querySelector('i'); if (bi) bi.style.width = '100%'; ld.classList.add('out'); setTimeout(() => ld.remove(), 700); setTimeout(perfWatch, 1500); setTimeout(prefetchNext, 8000); };
     // bài có lớp #loading riêng (Tế Bào, Cổ Loa, Cơ thể người): giữ màn tải có bìa tới khi lớp đó ẩn, để người xem không rơi vào
     // một khung trắng chỉ có dòng chữ; nếu dòng đó đổi thành báo lỗi (không bắt đầu bằng "Đang") thì gỡ ngay cho đọc được.
     const busy = () => { const l = document.getElementById('loading'); return !!l && !l.hidden && l.offsetParent !== null && /^Đang/.test(l.textContent.trim()); };
@@ -578,6 +578,15 @@
     wait();
   }
   setTimeout(() => { const ld = document.getElementById('bgs-load'); if (ld) { ld.classList.add('out'); setTimeout(() => ld.remove(), 700); } perfWatch(); }, 25000);
+  /* tải trước "Bài sau" vào bộ nhớ đệm của site (sw.js, tools/sw.py) khi máy rảnh: bấm sang là mở ngay. Không làm khi người dùng
+     bật tiết kiệm dữ liệu, mạng 2G/3G, hoặc trang chưa do sw.js phục vụ (lần đầu vào site). */
+  function prefetchNext() {
+    const L = S.L, sw = navigator.serviceWorker;
+    if (!L || !L.next || !L.next.href || !sw || !sw.controller) return;
+    const c = navigator.connection; if (c && (c.saveData || /2g|3g/.test(c.effectiveType || ''))) return;
+    const go = () => { try { sw.controller.postMessage({ t: 'prefetch', urls: [new URL(L.next.href, location.href).href] }); } catch (e) { /* bỏ qua */ } };
+    if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 15000 }); else setTimeout(go, 1000);
+  }
   /* đo nhịp khung hình: 3 lượt liền (mỗi lượt 90 khung hoặc 2,5 giây) có p90 trên 25 ms thì bật chế độ nhẹ một lần, phát sự kiện 'bg:lite'
      để bài tự hạ độ phân giải. Máy đủ mạnh giữ nguyên kính mờ. ?lite=1 ép bật, ?lite=0 tắt hẳn. Tab ẩn: trình duyệt tự dừng. */
   function lite(why) {

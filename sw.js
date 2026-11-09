@@ -1,0 +1,96 @@
+/* Sáng Ăn Khoai · bộ nhớ đệm theo mã băm nội dung. Sinh bởi tools/sw.py; không sửa tay. */
+const CACHE = 'bg-noi-dung';
+const SCOPE = new URL('./', self.location).href;
+const MAN = SCOPE + 'sw-manifest.json';
+let man = null, manAt = 0;
+
+const keyOf = (u) => { let k = decodeURIComponent(u.pathname.slice(new URL(SCOPE).pathname.length)); if (k === '' || k.endsWith('/')) k += 'index.html'; return k; };
+const slot = (k, h) => SCOPE + k + '?__h=' + h;
+const hex = (b) => [...new Uint8Array(b)].map((x) => x.toString(16).padStart(2, '0')).join('');
+
+async function manifest() {
+  if (man && Date.now() - manAt < 30000) return man;
+  try {
+    // qua bộ nhớ đệm HTTP của trình duyệt (max-age 600): không thêm lượt hỏi mạng trong 10 phút; chờ tối đa 2,5 giây
+    const r = await Promise.race([fetch(MAN), new Promise((_, no) => setTimeout(() => no(new Error('chậm')), 2500))]);
+    if (r.ok) {
+      const j = await r.clone().json();
+      const c = await caches.open(CACHE); const old = man;
+      man = j; manAt = Date.now(); await c.put(MAN, r);
+      if (!old || old.v !== j.v) prune(c, j);
+    }
+  } catch (e) { /* mất mạng hoặc chậm: dùng danh sách đã lưu */ }
+  if (!man) { const r = await (await caches.open(CACHE)).match(MAN); if (r) { man = await r.json(); manAt = Date.now(); } }
+  if (man && man.tat) { await caches.delete(CACHE); await self.registration.unregister(); man = null; }
+  return man;
+}
+
+async function prune(c, m) {
+  // bỏ bản đã lưu không còn đúng mã băm trong danh sách mới (bản cũ sau một lần đăng)
+  for (const req of await c.keys()) {
+    const u = new URL(req.url), h = u.searchParams.get('__h'); if (!h) continue;
+    if (m.f[keyOf(u)] !== h) await c.delete(req);
+  }
+}
+
+async function getVerified(req, k, h, again) {
+  const r = await (again ? fetch(req.url, { cache: 'no-cache', credentials: 'same-origin' }) : fetch(req));
+  if (!r.ok || r.type === 'opaqueredirect' || r.redirected) return { r };
+  const buf = await r.arrayBuffer();
+  const ok = hex(await crypto.subtle.digest('SHA-256', buf)).slice(0, h.length) === h;
+  const head = { 'content-type': r.headers.get('content-type') || 'application/octet-stream' };
+  return { ok, buf, head, status: r.status };
+}
+
+async function handle(e, req, k, nav) {
+  const m = await manifest();
+  const h = m && m.f[k];
+  if (!h) return fetch(req);
+  const c = await caches.open(CACHE);
+  const hit = await c.match(slot(k, h));
+  if (hit) return hit;
+  try {
+    let g = await getVerified(req, k, h, false);
+    if (g.r) return g.r;
+    if (!g.ok) g = await getVerified(req, k, h, true);   // bộ nhớ đệm HTTP hay máy chủ còn bản cũ: hỏi lại một lần
+    if (g.r) return g.r;
+    const res = new Response(g.buf, { status: g.status, headers: g.head });
+    if (g.ok) e.waitUntil(c.put(slot(k, h), res.clone()));
+    return res;
+  } catch (err) {
+    const any = await c.match(SCOPE + k, { ignoreSearch: true });   // mất mạng: bản đã lưu gần nhất
+    if (any) return any;
+    if (nav) return new Response('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chưa có mạng</title>'
+      + '<body style="font:16px/1.6 system-ui,sans-serif;max-width:560px;margin:15vh auto;padding:0 20px;color:#15171C"><h1 style="font-size:22px">Chưa có mạng</h1>'
+      + '<p>Trang này chưa được lưu trên máy. Các bài đã mở trước đây vẫn mở được khi không có mạng.</p><p><a href="' + SCOPE + '">Về trang chính</a></p>',
+      { status: 503, headers: { 'content-type': 'text/html; charset=utf-8' } });
+    throw err;
+  }
+}
+
+self.addEventListener('install', () => self.skipWaiting());
+self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim()));
+self.addEventListener('fetch', (e) => {
+  const req = e.request;
+  if (req.method !== 'GET' || req.headers.has('range') || !req.url.startsWith(SCOPE)) return;
+  const k = keyOf(new URL(req.url));
+  if (k === 'sw.js' || k === 'sw-manifest.json') return;
+  e.respondWith(handle(e, req, k, req.mode === 'navigate'));
+});
+// trang nhờ tải trước (bài sau): chỉ tệp có trong danh sách và chưa lưu đúng mã băm
+self.addEventListener('message', (e) => {
+  const d = e.data || {};
+  if (d.t !== 'prefetch' || !Array.isArray(d.urls)) return;
+  e.waitUntil((async () => {
+    const m = await manifest(); if (!m) return;
+    const c = await caches.open(CACHE);
+    for (const u of d.urls.slice(0, 4)) {
+      try {
+        const url = new URL(u, SCOPE); if (!url.href.startsWith(SCOPE)) continue;
+        const k = keyOf(url), h = m.f[k]; if (!h || await c.match(slot(k, h))) continue;
+        const g = await getVerified(new Request(url.href), k, h, false);
+        if (g.ok) await c.put(slot(k, h), new Response(g.buf, { status: g.status, headers: g.head }));
+      } catch (err) { /* bỏ qua */ }
+    }
+  })());
+});
