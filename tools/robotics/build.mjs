@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-// Đóng gói mỗi robot (thư mục có main.js) thành một tệp HTML chạy offline: three.js, phông Inter và JetBrains Mono
-// (gồm bộ chữ tiếng Việt) nhúng sẵn. Theo build.mjs của teardown (MIT).
+// Đóng gói mỗi robot (thư mục có main.js) thành một trang HTML. Theo build.mjs của teardown (MIT).
 //   node build.mjs                      → ../../robotics/<tên>/index.html, liên kết về trang chính là ../../
 //   node build.mjs ur5e --hub URL --out DIR   → DIR/<tên>.html với liên kết tuyệt đối (bản đăng)
 import fs from 'node:fs';
@@ -19,7 +18,32 @@ const hub = opt('--hub'); const outDir = opt('--out');
 // Phông: dùng phông nhà (Be Vietnam Pro, JetBrains Mono 500/600) do vỏ chung nạp từ design/fonts/ (tools/inject_shell.py),
 // như mọi trang khác của site; không đóng gói phông riêng.
 // vỏ Sáng Ăn Khoai v2 nhúng sau khi đóng gói bằng tools/inject_shell.py (token, phông, màn tải, thứ tự bài)
-const names = args.length ? args : fs.readdirSync(HERE).filter((d) => fs.existsSync(path.join(HERE, d, 'main.js')));
+const ALL = fs.readdirSync(HERE).filter((d) => fs.existsSync(path.join(HERE, d, 'main.js'))).sort();
+// Bản trên site: đóng gói mọi bài một lượt với esbuild splitting, phần mã dùng chung (three.js, bộ kit) ra tệp riêng ở
+// robotics/_chung/chung-<mã băm>.js. Chuyển từ bài này sang bài khác chỉ tải phần riêng của bài; phần chung nằm sẵn trong bộ
+// nhớ đệm. Phần chung phụ thuộc tập bài, nên bản site luôn dựng đủ mọi bài dù gọi tên một bài. Mọi trang bài nằm sâu hai cấp
+// (robotics/<tên>/, cong-nghe/<tên>/…) nên đường dẫn tới phần chung là ../../robotics/_chung/. Bản một tệp (--out) giữ nguyên.
+const CHUNG = 'robotics/_chung';
+let shared = null;
+if (!outDir) {
+  const res = await esbuild.build({
+    entryPoints: Object.fromEntries(ALL.map((n) => [n, path.join(HERE, n, 'main.js')])), bundle: true, splitting: true, outdir: path.join(HERE, '.out'),
+    chunkNames: 'chung-[hash]', nodePaths: [NM], format: 'esm', minify: !process.env.DEBUG, write: false, target: 'es2022', legalComments: 'none',
+    logLevel: 'warning', define: {HUB_URL: JSON.stringify(hub || '../../'), ASSET_MAP: 'null'},
+  });
+  shared = {};
+  const dir = path.join(REPO, CHUNG); fs.mkdirSync(dir, {recursive: true});
+  const keep = new Set();
+  const fix = (t) => t.replace(/(from\s*|import\s*\(?\s*)(["'])\.\/(chung-[A-Z0-9]+\.js)\2/g, (m, a, q, f) => `${a}${q}../../${CHUNG}/${f}${q}`);
+  for (const f of res.outputFiles) {
+    const base = path.basename(f.path);
+    if (base.startsWith('chung-')) { keep.add(base); fs.writeFileSync(path.join(dir, base), f.text); }   // tệp chung gọi nhau bằng ./ (cùng thư mục)
+    else shared[base.replace(/\.js$/, '')] = fix(f.text);
+  }
+  for (const f of fs.readdirSync(dir)) if (!keep.has(f)) fs.rmSync(path.join(dir, f));
+  console.log(`phần chung: ${[...keep].map((f) => `${f} ${(fs.statSync(path.join(dir, f)).size / 1024).toFixed(0)} KB`).join(', ')}`);
+}
+const names = outDir ? (args.length ? args : ALL) : ALL;
 for (const name of names) {
   const dir = path.join(HERE, name), t0 = Date.now();
   const meta = JSON.parse(fs.readFileSync(path.join(dir, 'meta.json'), 'utf8'));
@@ -38,11 +62,13 @@ for (const name of names) {
       for (const f of fs.readdirSync(src)) fs.copyFileSync(path.join(src, f), path.join(pub, f));
     }
   }
-  const res = await esbuild.build({
+  const one = shared ? null : await esbuild.build({
     entryPoints: [path.join(dir, 'main.js')], bundle: true, nodePaths: [NM], format: 'esm', minify: !process.env.DEBUG, write: false,
     target: 'es2022', legalComments: 'none', logLevel: 'warning', define: {HUB_URL: JSON.stringify(hub || '../../'), ASSET_MAP: JSON.stringify(assetMap)},
   });
-  const js = res.outputFiles[0].text.replace(/<\/script/g, '<\\/script');
+  const js = (shared ? shared[name] : one.outputFiles[0].text).replace(/<\/script/g, '<\\/script');
+  // tải song song phần chung mà bài này gọi thẳng
+  const pre = shared ? [...new Set([...js.matchAll(/\.\.\/\.\.\/robotics\/_chung\/chung-[A-Z0-9]+\.js/g)].map((m) => m[0]))].map((u) => `<link rel="modulepreload" href="${u}">\n`).join('') : '';
   const html = `<!doctype html>
 <html lang="vi">
 <head>
@@ -51,7 +77,7 @@ for (const name of names) {
 <meta name="theme-color" content="#ffffff">
 <title>${meta.title}</title>
 <meta name="description" content="${meta.description}">
-</head>
+${pre}</head>
 <body>
 <div id="app"></div>
 <!-- Dựng trên teardown của elvarofficial và claude-motion của whaleyxbt (MIT). Mã nguồn: github.com/nclamvn/bai-giang/tree/main/tools/robotics -->

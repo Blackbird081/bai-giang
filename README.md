@@ -168,6 +168,9 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 - **Bộ nhớ đệm theo mã băm** (`sw.js`, sinh bằng [`tools/sw.py`](tools/sw.py) ở bước cuối của `build_all.py`): `sw-manifest.json` ghi SHA-256 của mọi tệp site phục vụ. Tệp đã lưu đúng mã băm thì mở ngay từ máy, không hỏi mạng; chỉ tệp đổi nội dung mới tải lại sau mỗi lần đăng (GitHub Pages tự đổi ETag của mọi tệp mỗi lần đăng và chỉ cho lưu 10 phút). Tệp tải về được tính lại SHA-256, khớp mới lưu, nên bản trên máy luôn trùng từng byte với bản trên site. Bài đã mở vẫn mở được khi mất mạng. Khi máy rảnh và mạng tốt, bài đang học nhờ tải trước "Bài sau". Gỡ ở một máy: thêm `?sw=0`; gỡ toàn site: thêm `"tat": true` vào `sw-manifest.json`.
 - **three.js tự lưu** ở `vendor/three@0.180.0/` (bản `.min` chính thức của gói npm, `tools/sri.py --check` đối chiếu từng byte với jsDelivr): Tế Bào, Ty Thể, Cổ Loa, Neuron không còn tải mã từ CDN bên thứ ba, nhẹ hơn khoảng một nửa khi nén.
 - Bài Cá thở bằng mang chỉ chờ con cá hiện đầu tiên; ba loài còn lại tải ngầm.
+- **Lưu bài để dùng khi mất mạng**: bài có tệp kèm chỉ tải khi cần (Cá thở bằng mang, Tế Bào, Cơ thể người) có mục này trong menu ⋯; sw.js tải đủ cả thư mục bài, báo tiến độ, để giáo viên chuẩn bị trước giờ học.
+- **Mô phỏng robotics dùng chung một gói mã** (`robotics/_chung/chung-<mã băm>.js`, three.js và bộ kit, 180 KB khi nén): 15 trang bài chỉ còn phần riêng 30 đến 200 KB, chuyển bài không tải lại three.js. Bản một tệp (`build.mjs --out`) vẫn tự chứa.
+- Danh sách mã băm chia theo thư mục lớn: danh sách chính 6 KB khi nén, phần của Cơ thể người (2.800 tệp) ở `sw-manifest/co-the-nguoi.json`, chỉ tải khi vào bài đó.
 - Đo: [`tests/perf.py`](tests/perf.py) (mạng giả lập 8 Mbps, trễ 80 ms), [`tests/sw_check.py`](tests/sw_check.py) (bộ nhớ đệm, mất mạng, tải trước).
 
 ## Cấu trúc

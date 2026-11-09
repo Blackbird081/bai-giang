@@ -8,7 +8,8 @@ tệp không đổi. Người học quay lại sau 10 phút phải hỏi lại m
 4,6 MB, bài thư viện 0,5 MB) dù nội dung y nguyên. Ở trường mạng chậm hoặc chập chờn, đó là chỗ chờ lớn nhất.
 
 Cách làm, không đánh đổi chất lượng (tệp nhận được trùng từng byte với bản trên site):
-  · sw-manifest.json: mã băm SHA-256 (12 kí tự đầu) của mọi tệp site phục vụ. Tệp chỉ tải lại khi mã băm đổi.
+  · sw-manifest.json: mã băm SHA-256 (12 kí tự đầu) của mọi tệp site phục vụ. Tệp chỉ tải lại khi mã băm đổi. Thư mục lớn
+    (Cơ thể người) có danh sách con ở sw-manifest/, chỉ tải khi vào thư mục đó.
   · sw.js: tệp có trong danh sách và đã lưu đúng mã băm thì trả ngay từ máy, không hỏi mạng; chưa có thì tải, tính lại
     SHA-256 và chỉ lưu khi khớp danh sách (máy chủ hay bộ nhớ đệm HTTP còn bản cũ thì hỏi lại một lần, vẫn lệch thì dùng
     nhưng không lưu). Mất mạng: trả bản đã lưu gần nhất của trang hoặc tệp. Danh sách đọc qua bộ nhớ đệm HTTP (10 phút),
@@ -20,8 +21,9 @@ import hashlib, json, pathlib, re, subprocess, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 # không phục vụ cho người học (mã nguồn, công cụ, kiểm thử, tài liệu kho)
-SKIP = re.compile(r'^(tools/|tests/|src/|docs/|\.github/|offline/|LICENSE$|README|build\.sh$|\.nojekyll$|\.gitignore$|sw\.js$|sw-manifest\.json$)'
+SKIP = re.compile(r'^(tools/|tests/|src/|docs/|\.github/|offline/|LICENSE$|README|build\.sh$|\.nojekyll$|\.gitignore$|sw\.js$|sw-manifest\.json$|sw-manifest/)'
                   r'|__pycache__|\.py$|\.md$|\.tsv$|\.mjs$|/_viet-hoa/')
+SPLIT = 300
 MARK = re.compile(r'<script id="bg-sw">.*?</script>\n?', re.S)
 
 
@@ -60,6 +62,7 @@ const CACHE = 'bg-noi-dung';
 const SCOPE = new URL('./', self.location).href;
 const MAN = SCOPE + 'sw-manifest.json';
 let man = null, manAt = 0;
+const subs = new Map();   // danh sách con theo thư mục lớn (vd. co-the-nguoi/): mã băm của danh sách con → {tệp: mã băm}
 
 const keyOf = (u) => { let k = decodeURIComponent(u.pathname.slice(new URL(SCOPE).pathname.length)); if (k === '' || k.endsWith('/')) k += 'index.html'; return k; };
 const slot = (k, h) => SCOPE + k + '?__h=' + h;
@@ -86,8 +89,31 @@ async function prune(c, m) {
   // bỏ bản đã lưu không còn đúng mã băm trong danh sách mới (bản cũ sau một lần đăng)
   for (const req of await c.keys()) {
     const u = new URL(req.url), h = u.searchParams.get('__h'); if (!h) continue;
-    if (m.f[keyOf(u)] !== h) await c.delete(req);
+    const k = keyOf(u), d = dirOf(m, k);
+    if (k.startsWith('sw-manifest/')) { if (!Object.entries(m.d || {}).some(([x, y]) => subKey(x) === k && y === h)) await c.delete(req); continue; }
+    if (d) { const s = subs.get(m.d[d]); if (s && s[k] !== h) await c.delete(req); continue; }   // chưa nạp danh sách con thì để nguyên
+    if (m.f[k] !== h) await c.delete(req);
   }
+}
+
+const dirOf = (m, k) => Object.keys(m.d || {}).find((d) => k.startsWith(d));
+const subKey = (d) => 'sw-manifest/' + d.replace(/\/$/, '') + '.json';
+// mã băm của tệp k: trong danh sách chính, hoặc trong danh sách con của thư mục lớn (tải khi lần đầu cần, lưu theo mã băm)
+async function hashOf(m, k) {
+  const d = dirOf(m, k); if (!d) return m.f[k];
+  const sh = m.d[d];
+  if (!subs.has(sh)) {
+    const c = await caches.open(CACHE), sk = subKey(d);
+    let r = await c.match(slot(sk, sh));
+    if (!r) {
+      let g = await getVerified(new Request(SCOPE + sk), sk, sh, false);
+      if (!g.r && !g.ok) g = await getVerified(new Request(SCOPE + sk), sk, sh, true);
+      if (g.r || !g.ok) return undefined;   // không lấy được danh sách con đúng mã băm: để tệp đi thẳng ra mạng
+      r = new Response(g.buf, { status: 200, headers: g.head }); await c.put(slot(sk, sh), r.clone());
+    }
+    subs.set(sh, await r.json());
+  }
+  return subs.get(sh)[k];
 }
 
 async function getVerified(req, k, h, again) {
@@ -101,7 +127,7 @@ async function getVerified(req, k, h, again) {
 
 async function handle(e, req, k, nav) {
   const m = await manifest();
-  const h = m && m.f[k];
+  let h; try { h = m && await hashOf(m, k); } catch (err) { h = undefined; }
   if (!h) return fetch(req);
   const c = await caches.open(CACHE);
   const hit = await c.match(slot(k, h));
@@ -131,12 +157,45 @@ self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET' || req.headers.has('range') || !req.url.startsWith(SCOPE)) return;
   const k = keyOf(new URL(req.url));
-  if (k === 'sw.js' || k === 'sw-manifest.json') return;
+  if (k === 'sw.js' || k === 'sw-manifest.json' || k.startsWith('sw-manifest/')) return;
   e.respondWith(handle(e, req, k, req.mode === 'navigate'));
 });
+// gói bài: mọi tệp trong thư mục bài (không tính thư mục bài lồng bên trong), kèm mã băm
+async function pack(m, dir) {
+  if (!m || !m.g || !m.g[dir]) return null;
+  const inner = Object.keys(m.g).filter((o) => o !== dir && o.startsWith(dir));
+  let all = m.f; const d = dirOf(m, dir);
+  if (d) { await hashOf(m, dir + 'index.html'); all = subs.get(m.d[d]) || {}; }
+  return Object.keys(all).filter((k) => k.startsWith(dir) && !inner.some((o) => k.startsWith(o))).map((k) => [k, all[k]]);
+}
 // trang nhờ tải trước (bài sau): chỉ tệp có trong danh sách và chưa lưu đúng mã băm
 self.addEventListener('message', (e) => {
-  const d = e.data || {};
+  const d = e.data || {}, port = e.ports && e.ports[0];
+  if ((d.t === 'goi' || d.t === 'luu') && port && typeof d.dir === 'string') {
+    // goi: bài này có bao nhiêu tệp, bao nhiêu byte, còn thiếu mấy tệp trên máy. luu: tải nốt các tệp còn thiếu, báo tiến độ.
+    e.waitUntil((async () => {
+      try {
+        const m = await manifest(), list = await pack(m, d.dir);
+        if (!list) { port.postMessage({ n: 0 }); return; }
+        const c = await caches.open(CACHE); const miss = [];
+        for (const [k, h] of list) if (!(await c.match(slot(k, h)))) miss.push([k, h]);
+        if (d.t === 'goi') { port.postMessage({ n: list.length, bytes: m.g[d.dir][1], con: miss.length }); return; }
+        let done = list.length - miss.length, loi = 0;
+        for (let i = 0; i < miss.length; i += 4) {
+          await Promise.all(miss.slice(i, i + 4).map(async ([k, h]) => {
+            try {
+              let g = await getVerified(new Request(SCOPE + k), k, h, false);
+              if (!g.r && !g.ok) g = await getVerified(new Request(SCOPE + k), k, h, true);
+              if (g.ok) { await c.put(slot(k, h), new Response(g.buf, { status: g.status, headers: g.head })); done++; } else loi++;
+            } catch (err) { loi++; }
+          }));
+          port.postMessage({ n: list.length, done, loi });
+        }
+        port.postMessage({ n: list.length, done, loi, xong: true });
+      } catch (err) { port.postMessage({ n: 0, loi: 1, xong: true }); }
+    })());
+    return;
+  }
   if (d.t !== 'prefetch' || !Array.isArray(d.urls)) return;
   e.waitUntil((async () => {
     const m = await manifest(); if (!m) return;
@@ -144,7 +203,7 @@ self.addEventListener('message', (e) => {
     for (const u of d.urls.slice(0, 4)) {
       try {
         const url = new URL(u, SCOPE); if (!url.href.startsWith(SCOPE)) continue;
-        const k = keyOf(url), h = m.f[k]; if (!h || await c.match(slot(k, h))) continue;
+        const k = keyOf(url), h = await hashOf(m, k); if (!h || await c.match(slot(k, h))) continue;
         const g = await getVerified(new Request(url.href), k, h, false);
         if (g.ok) await c.put(slot(k, h), new Response(g.buf, { status: g.status, headers: g.head }));
       } catch (err) { /* bỏ qua */ }
@@ -160,10 +219,29 @@ def main():
     n = sum(put_snippet(f) for f in pages)
     files = served()  # trang vừa đổi: tính mã băm sau khi chèn khối đăng ký
     f = {x: hashlib.sha256((ROOT / x).read_bytes()).hexdigest()[:12] for x in files}
-    v = hashlib.sha256(json.dumps(f, sort_keys=True).encode()).hexdigest()[:12]
-    (ROOT / 'sw-manifest.json').write_text(json.dumps({'v': v, 'f': f}, separators=(',', ':'), sort_keys=True) + '\n', encoding='utf-8')
+    # "gói bài": thư mục có index.html và tệp kèm (mô hình, ảnh). g[thư mục] = [số tệp, số byte], không tính thư mục bài lồng
+    # bên trong (vd. co-the-nguoi/dental/ là gói riêng). Menu của bài dùng để "Lưu bài để dùng khi mất mạng".
+    lesson_dirs = sorted({x.rsplit('/', 1)[0] + '/' for x in f if x.endswith('/index.html')}, key=len, reverse=True)
+    g = {}
+    for dd in lesson_dirs:
+        own = [x for x in f if x.startswith(dd) and not any(o != dd and o.startswith(dd) and x.startswith(o) for o in lesson_dirs)]
+        if len(own) > 1: g[dd] = [len(own), sum((ROOT / x).stat().st_size for x in own)]
+    # thư mục lớn (từ SPLIT tệp, vd. co-the-nguoi/ 2.800 tệp) có danh sách con riêng ở sw-manifest/<thư mục>.json: trang khác
+    # không phải tải phần đó; danh sách chính chỉ giữ mã băm của danh sách con
+    tops = {}
+    for x in f: tops.setdefault(x.split('/')[0] + '/', []).append(x)
+    sub_dir = ROOT / 'sw-manifest'; sub_dir.mkdir(exist_ok=True); d = {}; keep = set()
+    for top, xs in sorted(tops.items()):
+        if '/' not in xs[0] or len(xs) < SPLIT: continue
+        body = json.dumps({x: f.pop(x) for x in xs}, separators=(',', ':'), sort_keys=True) + '\n'
+        name = top.rstrip('/') + '.json'; (sub_dir / name).write_text(body, encoding='utf-8'); keep.add(name)
+        d[top] = hashlib.sha256(body.encode()).hexdigest()[:12]
+    for old in sub_dir.iterdir():
+        if old.name not in keep: old.unlink()
+    v = hashlib.sha256(json.dumps([f, d, g], sort_keys=True).encode()).hexdigest()[:12]
+    (ROOT / 'sw-manifest.json').write_text(json.dumps({'v': v, 'f': f, 'd': d, 'g': g}, separators=(',', ':'), sort_keys=True) + '\n', encoding='utf-8')
     (ROOT / 'sw.js').write_text(SW, encoding='utf-8')
-    print(f'bộ nhớ đệm: {len(f)} tệp trong danh sách, {n} trang có khối đăng ký, phiên bản {v}')
+    print(f'bộ nhớ đệm: {len(f)} tệp trong danh sách chính, {len(d)} danh sách con ({", ".join(d)}), {n} trang có khối đăng ký, phiên bản {v}')
 
 
 if __name__ == '__main__':

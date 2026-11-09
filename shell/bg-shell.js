@@ -119,6 +119,7 @@
   .bgs-small{font-size:var(--bg-fs-xs);color:var(--bg-ink3)}
   .bgs-keys{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:14px 0 0;align-items:center}
   .bgs-keys kbd{font:600 var(--bg-fs-xs) var(--bg-mono);background:var(--bg-hair);border-radius:6px;padding:3px 8px;justify-self:start;white-space:nowrap}
+  .bgs-mi[disabled]{opacity:.72;cursor:default}
   .bgs-toast{left:50%;top:calc(var(--bg-bar) + 12px);transform:translateX(-50%);padding:10px 16px;border-radius:999px;font-weight:600;opacity:0;transition:opacity var(--bg-t-mid);pointer-events:none;max-width:calc(100vw - 32px);text-align:center}
   .bgs-toast.show{opacity:1}
   .bgs-hint{left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;gap:18px;padding:12px 18px;border-radius:999px;pointer-events:none;opacity:0;transition:opacity var(--bg-t-slow) var(--bg-ease)}
@@ -250,6 +251,7 @@
       if (a === 'chieu') say(projector() ? 'Đã bật chế độ Máy chiếu' : 'Đã tắt chế độ Máy chiếu');
       if (a === 'keys') keysModal();
       if (a === 'about') aboutModal();
+      if (a === 'luu') saveLesson();
       if (a === 'pnl') togglePanel(+b.dataset.n);
     });
     addEventListener('click', (e) => { if (!e.target.closest('.bgs-pop,[data-k="menu"],[data-k="steps"]')) closePops(); }, true);
@@ -275,6 +277,7 @@
       <button class="bgs-mi" role="menuitem" data-a="phone">${ico('phone')}Điều khiển bằng điện thoại</button>` : ''}
       <button class="bgs-mi" role="menuitemcheckbox" aria-checked="${chieu}" data-a="chieu">${ico('projector')}Chế độ Máy chiếu<span class="i2">${chieu ? 'đang bật' : 'tắt'}</span></button>
       <button class="bgs-mi" role="menuitem" data-a="full">${ico('full')}Toàn màn hình<span class="i2">F</span></button>
+      ${S.goi && S.goi.n ? `<button class="bgs-mi" role="menuitem" data-a="luu"${S.goi.con ? '' : ' disabled'}>${ico(S.goi.con ? 'download' : 'check')}<span>${S.goi.con ? 'Lưu bài để dùng khi mất mạng' : 'Bài đã lưu trên máy này'}<br><span class="bgs-small">${S.goi.con ? `${S.goi.n} tệp, ${mb(S.goi.bytes)}` : 'mở được khi mất mạng'}</span></span></button>` : ''}
       <div class="bgs-hr"></div>
       ${hasSteps && !phone ? `<button class="bgs-mi" role="menuitem" data-a="keys">${ico('keys')}Phím tắt<span class="i2">?</span></button>` : ''}
       <button class="bgs-mi" role="menuitem" data-a="about">${ico('info')}Về bài này</button>`;
@@ -570,7 +573,7 @@
   /* ---------- màn tải, gợi ý lần đầu ---------- */
   function dropLoader() {
     const ld = document.getElementById('bgs-load'); if (!ld) return void setTimeout(perfWatch, 3000);
-    const done = () => { const bi = ld.querySelector('i'); if (bi) bi.style.width = '100%'; ld.classList.add('out'); setTimeout(() => ld.remove(), 700); setTimeout(perfWatch, 1500); setTimeout(prefetchNext, 8000); };
+    const done = () => { const bi = ld.querySelector('i'); if (bi) bi.style.width = '100%'; ld.classList.add('out'); setTimeout(() => ld.remove(), 700); setTimeout(perfWatch, 1500); setTimeout(prefetchNext, 8000); setTimeout(checkPack, 2500); };
     // bài có lớp #loading riêng (Tế Bào, Cổ Loa, Cơ thể người): giữ màn tải có bìa tới khi lớp đó ẩn, để người xem không rơi vào
     // một khung trắng chỉ có dòng chữ; nếu dòng đó đổi thành báo lỗi (không bắt đầu bằng "Đang") thì gỡ ngay cho đọc được.
     const busy = () => { const l = document.getElementById('loading'); return !!l && !l.hidden && l.offsetParent !== null && /^Đang/.test(l.textContent.trim()); };
@@ -578,6 +581,27 @@
     wait();
   }
   setTimeout(() => { const ld = document.getElementById('bgs-load'); if (ld) { ld.classList.add('out'); setTimeout(() => ld.remove(), 700); } perfWatch(); }, 25000);
+  /* "Lưu bài để dùng khi mất mạng": bài có tệp kèm chỉ tải khi cần (mô hình, ảnh) thì nhờ sw.js tải đủ cả thư mục bài, để giáo viên
+     chuẩn bị trước giờ học. Chỉ hiện khi trang là index.html của thư mục bài, do sw.js phục vụ, và bài có tệp kèm. */
+  const mb = (b) => (b >= 1048576 ? (b / 1048576).toFixed(b >= 10485760 ? 0 : 1).replace('.', ',') + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB');
+  function lessonDir() {
+    try { const sw = navigator.serviceWorker; if (!sw || !sw.controller) return null;
+      const scope = new URL('./', sw.controller.scriptURL).pathname, p = location.pathname.replace(/index\.html$/, '');
+      return p.endsWith('/') && p.startsWith(scope) && p.length > scope.length ? decodeURIComponent(p.slice(scope.length)) : null;
+    } catch (e) { return null; }
+  }
+  function askSw(msg, on) { const ch = new MessageChannel(); ch.port1.onmessage = (e) => on(e.data || {}); navigator.serviceWorker.controller.postMessage(msg, [ch.port2]); }
+  function checkPack() { const dir = lessonDir(); if (!dir) return; askSw({ t: 'goi', dir }, (r) => { S.goi = r; if (menu) renderMenu(); }); }
+  function saveLesson() {
+    const dir = lessonDir(), g = S.goi; if (!dir || !g || !g.con) return;
+    if (g.bytes > 30 * 1048576 && !window.confirm(`Bài này nặng ${mb(g.bytes)} (${g.n} tệp). Lưu về máy để dùng khi mất mạng?`)) return;
+    say('Đang lưu bài về máy…');
+    askSw({ t: 'luu', dir }, (r) => {
+      if (!r.xong) { toast.textContent = `Đang lưu bài: ${r.done}/${r.n} tệp`; toast.classList.add('show'); clearTimeout(say.t); return; }
+      say(r.loi ? `Còn ${r.loi} tệp chưa lưu được, thử lại khi mạng ổn` : 'Đã lưu bài: mở được khi mất mạng');
+      checkPack();
+    });
+  }
   /* tải trước "Bài sau" vào bộ nhớ đệm của site (sw.js, tools/sw.py) khi máy rảnh: bấm sang là mở ngay. Không làm khi người dùng
      bật tiết kiệm dữ liệu, mạng 2G/3G, hoặc trang chưa do sw.js phục vụ (lần đầu vào site). */
   function prefetchNext() {
