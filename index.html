@@ -10,11 +10,13 @@
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://nclamvn.github.io/bai-giang/design/the/index.jpg">
 <!--BG-SHARE:end-->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F4F4F6">
+<meta name="theme-color" content="#F3EFE6">
 <title>Sáng Ăn Khoai · bài học 3D tiếng Việt</title>
 <link rel="icon" type="image/png" sizes="32x32" href="design/logo/favicon-32.png"><link rel="apple-touch-icon" href="design/logo/apple-touch-icon.png">
 <meta name="description" content="Bài học 3D tương tác bằng tiếng Việt cho lớp học: tế bào tới từng nguyên tử, Thành Cổ Loa theo số đo khảo cổ, robot chạy bằng số liệu thật, 54 bài thí nghiệm lí, hoá, sinh, địa. Miễn phí cho trường học, chạy được offline.">
 <link rel="preload" href="design/fonts/be-vietnam-pro-vietnamese-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="design/fonts/noto-serif-vietnamese-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="design/fonts/noto-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="design/house.css">
 <style>
 /* Trang chính và Thư viện Sáng Ăn Khoai · bản 15. Token và khung trang mục ở design/house.css (tools/design.py).
@@ -40,23 +42,6 @@ img{display:block;max-width:100%}
 .nav a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:var(--bg-r-sm);text-decoration:none;font-weight:600;color:var(--bg-ink2);white-space:nowrap}
 .nav a:hover{background:var(--bg-hair);color:var(--bg-ink)}
 .nav a[aria-current="page"]{color:var(--bg-ink);background:var(--bg-hair)}
-/* màn đầu: chữ 5 phần, ảnh 7 phần; ảnh là bài thật, đổi chậm */
-.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center;padding:64px 0 24px}
-.hero h1{margin:16px 0 20px;max-width:15ch}
-.hero .bg-lead{margin:0;max-width:44ch}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.show{position:relative;aspect-ratio:3/2;border-radius:var(--bg-r-lg);overflow:hidden;background:#e4e6eb}
-.show figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.2s var(--bg-ease-io)}
-.show figure.on{opacity:1}
-.show img{width:100%;height:100%;object-fit:cover}
-.showcap{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:14px;min-height:28px}
-.showcap a{text-decoration:none;font-weight:600;color:var(--bg-ink)}
-.showcap a span{color:var(--bg-ink3);font-weight:500;margin-left:8px}
-.dots{display:flex;gap:2px}
-.dots button{width:22px;height:28px;border:0;background:none;cursor:pointer;display:grid;place-items:center;padding:0}
-.dots button i{width:6px;height:6px;border-radius:3px;background:var(--bg-hair2);transition:width var(--bg-t-mid) var(--bg-ease),background-color var(--bg-t-mid)}
-.dots button[aria-current="true"] i{background:var(--bg-ink);width:18px}
-@media (pointer:coarse){.dots button{width:36px;height:44px}}
 /* mục */
 section{padding:56px 0 16px}
 .sh{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:0 0 24px}
@@ -77,15 +62,6 @@ section{padding:56px 0 16px}
 .card h3 a{text-decoration:none}
 .card h3 a::after{content:"";position:absolute;inset:0;z-index:0}
 .card p{margin:0;color:var(--bg-ink2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-/* bài nổi bật: chiếm hai cột, ảnh lớn bên trái */
-.card.big{grid-column:span 2;flex-direction:row}
-.card.big .cv{flex:1.35;aspect-ratio:auto;min-height:100%}
-.card.big .bd{flex:1;align-content:center;padding:32px;gap:10px}
-.card.big h3{font:600 var(--bg-fs-2xl)/1.15 var(--bg-serif);letter-spacing:-.015em}
-.card.big p{-webkit-line-clamp:4;font-size:var(--bg-fs-md)}
-.card.big .go{position:relative;z-index:1;margin-top:12px;justify-self:start}
-.grid.collapsed>.x{display:none}
-.showall{display:flex;justify-content:center;margin-top:32px}
 /* yêu cầu cần đạt trong thẻ thư viện: một dòng chữ, không viên thuốc */
 .card .gd{position:relative;z-index:1;margin-top:10px;padding-top:12px;border-top:1px solid var(--bg-hair);font-size:var(--bg-fs-xs);color:var(--bg-ink3)}
 .card .gd .tags{display:block;font-weight:600;color:var(--bg-ink2);line-height:1.45}
@@ -94,37 +70,6 @@ section{padding:56px 0 16px}
 .card .gd summary{font-size:var(--bg-fs-xs)}
 .card details ul{margin:6px 0 0;padding-left:18px;display:grid;gap:6px;color:var(--bg-ink2)}
 .card details .mu{color:var(--bg-ink3);margin-top:8px;font-weight:600}
-/* lộ trình */
-.routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
-.route{display:grid;grid-template-columns:112px 1fr;gap:20px;align-items:center;padding:16px;border-radius:var(--bg-r-md);background:var(--bg-surface);box-shadow:var(--bg-sh-1);text-decoration:none;transition:box-shadow var(--bg-t-mid)}
-.route:hover{box-shadow:var(--bg-sh-2)}
-.route img{width:112px;aspect-ratio:1;object-fit:cover;border-radius:var(--bg-r-sm)}
-.route .k{font-size:var(--bg-fs-xs);font-weight:500;color:var(--bg-ink3)}
-.route b{display:block;font-size:var(--bg-fs-lg);letter-spacing:-.01em;margin:2px 0 4px}
-.route span.d{color:var(--bg-ink2)}
-/* giáo viên */
-.packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.pk{display:flex;flex-direction:column;border-radius:var(--bg-r-md);background:var(--bg-surface);box-shadow:var(--bg-sh-1);overflow:hidden;text-decoration:none;transition:box-shadow var(--bg-t-mid)}
-.pk:hover{box-shadow:var(--bg-sh-2)}
-.pk img{width:100%;aspect-ratio:2/1;object-fit:cover}
-.pk div{padding:14px 18px 18px;display:grid;gap:4px}
-.pk span{font-size:var(--bg-fs-xs);font-weight:500;color:var(--bg-ink3)}
-.pk b{font-size:var(--bg-fs-md);line-height:1.35}
-.tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:24px;border-top:1px solid var(--bg-hair)}
-.tool{display:grid;gap:6px;align-content:start;padding:20px 24px 4px 0;text-decoration:none}
-.tool b{font-size:var(--bg-fs-sm);display:flex;align-items:center;gap:8px}
-.tool span{color:var(--bg-ink2);font-size:var(--bg-fs-xs);line-height:1.55}
-a.tool:hover b{text-decoration:underline;text-underline-offset:3px}
-.tool kbd{font:600 12px var(--bg-mono);background:var(--bg-surface);border:1px solid var(--bg-hair);border-radius:6px;padding:0 5px}
-/* thư viện trên trang chính: bốn môn */
-.subjs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
-.subj{position:relative;display:block;border-radius:var(--bg-r-md);overflow:hidden;background:var(--bg-surface);box-shadow:var(--bg-sh-1);text-decoration:none;transition:box-shadow var(--bg-t-mid)}
-.subj:hover{box-shadow:var(--bg-sh-2)}
-.subj img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.subj div{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:14px 18px 16px}
-.subj b{font-size:var(--bg-fs-md);display:flex;align-items:center;gap:8px}
-.subj b i{width:7px;height:7px;border-radius:50%}
-.subj span{font-size:var(--bg-fs-xs);color:var(--bg-ink3)}
 /* bộ lọc thư viện */
 .libhead{padding:48px 0 8px}
 .libhead h1{margin:8px 0 12px}
@@ -146,29 +91,100 @@ a.tool:hover b{text-decoration:underline;text-underline-offset:3px}
 .foot a:hover{color:var(--bg-ink2);border-color:currentColor}
 body.bg-hub .foot details>summary{display:inline-flex;min-height:28px;font:inherit;color:inherit}
 .foot ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:2px;max-width:100ch}
-@media (max-width:1100px){.packs,.subjs{grid-template-columns:repeat(2,minmax(0,1fr))}.tools{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:980px){.hero{grid-template-columns:1fr;gap:28px;padding:32px 0 8px}.card.big{grid-column:1/-1;flex-direction:column}.card.big .cv{aspect-ratio:3/2;flex:none;min-height:0}.card.big .bd{padding:20px 18px 22px}}
 @media (max-width:640px){
   .top .wrap{gap:4px}.brand span,.nav .lt,.nav .xl,.crumbs{display:none}.nav .sm{display:inline}.nav a{padding:0 10px}
-  .hero{padding:24px 0 0}.hero h1{margin:10px 0 12px}.cta{margin-top:20px}.cta .bg-btn{flex:1}
-  .showcap .dots{display:none}
   section{padding:36px 0 8px}.sh{flex-direction:column;align-items:start;gap:4px;margin-bottom:16px}
-  .card.big h3{font-size:var(--bg-fs-xl)}
-  /* điện thoại: bài học và môn là băng cuộn ngang, không phải cột dài */
-  .rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--bg-gutter);margin:0 calc(-1 * var(--bg-gutter));padding:4px var(--bg-gutter) 16px;scrollbar-width:none}
-  .rail::-webkit-scrollbar{display:none}
-  .rail>*{flex:0 0 78%;scroll-snap-align:start}
-  .rail>.card.big{flex-basis:88%}
-  .rail{align-items:flex-start}
-  .grid.collapsed>.x{display:flex}.showall{display:none}
-  .packs,.subjs,.tools{grid-template-columns:1fr}
-  .subjs.rail>*{flex-basis:62%}
-  .route{grid-template-columns:80px 1fr;gap:14px}.route img{width:80px}
   .row{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:2px 16px}.row::-webkit-scrollbar{display:none}.chip{flex:none}.count{display:none}
-  .grid:not(.rail){grid-template-columns:1fr;gap:16px}
+  .grid{grid-template-columns:1fr;gap:16px}
 }
-@media (prefers-reduced-motion:reduce){.show figure{transition:none}}
 html[data-chieu]{--bg-ink2:#141414;--bg-ink3:#262626}
+@font-face{font-family:'Noto Serif';font-style:normal;font-weight:400;font-display:swap;src:url(design/fonts/noto-serif-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Noto Serif';font-style:normal;font-weight:400;font-display:swap;src:url(design/fonts/noto-serif-vietnamese-400-normal.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+/* Trang chủ Sáng Ăn Khoai · bản "Trang giấy". Nối sau tools/trang-chinh.css, chỉ áp cho body.bg-home.
+   Nguyên tắc: nền giấy ấm, mực đen ấm, một màu nhấn dùng một lần (chữ 3D); chữ serif mảnh cho tiêu đề; kẻ mảnh thay cho thẻ;
+   chỉ một hình lớn ở màn đầu. Nhịp dọc: mục cách nhau 96–152 px. */
+html:has(body.bg-home){background:#F3EFE6}
+body.bg-home{--bg-page:#F3EFE6;--bg-ink:#1D1B16;--bg-ink2:#4B473D;--bg-ink3:#5A5548;--bg-hair:rgba(29,27,22,.16);--bg-hair2:rgba(29,27,22,.30);--bg-brand:#1D1B16;--bg-brand-ink:#F3EFE6;--tc-nhan:#A8481C;--tc-serif:400 1em/1.1 var(--bg-serif);background:var(--bg-page)}
+body.bg-home .wrap{max-width:1240px}
+body.bg-home .top{background:rgba(243,239,230,.88);border-bottom-color:transparent}
+body.bg-home .brand{font:600 19px/1 var(--bg-serif);letter-spacing:-.01em}
+body.bg-home .nav a{font-weight:500}
+body.bg-home .bg-btn{border-radius:var(--bg-r-sm);height:48px;padding:0 22px;font-weight:500}
+body.bg-home section{padding:clamp(72px,10vw,152px) 0 0}
+body.bg-home .h2{margin:0;font:var(--tc-serif);font-size:clamp(28px,3.4vw,44px);letter-spacing:-.02em;text-wrap:balance}
+body.bg-home .lede{margin:0;font-size:var(--bg-fs-md);line-height:1.65;color:var(--bg-ink2);max-width:52ch}
+body.bg-home .sh2{display:flex;flex-wrap:wrap;align-items:baseline;gap:16px 64px;padding-bottom:40px}
+body.bg-home .sh2>*{flex:1 1 360px;min-width:0}
+body.bg-home .tl{display:inline-flex;align-items:center;min-height:44px;font-weight:500;color:var(--bg-ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+body.bg-home .tl:hover{text-decoration-thickness:2px}
+/* màn đầu: một dòng tiêu đề, một câu, hai liên kết */
+body.bg-home .hero{display:block;padding:clamp(64px,10vw,136px) 0 clamp(48px,7vw,96px)}
+body.bg-home .hero h1{margin:0;max-width:none;font:var(--tc-serif);font-size:clamp(44px,7vw,96px);line-height:1.04;letter-spacing:-.03em}
+body.bg-home .hero h1 em{font-style:normal;color:var(--tc-nhan)}
+body.bg-home .hero .hl{display:flex;flex-wrap:wrap;align-items:flex-end;gap:20px 72px;margin-top:32px}
+body.bg-home .hero .lede{flex:1 1 360px;font-size:var(--bg-fs-lg)}
+body.bg-home .hero .links{display:flex;flex-wrap:wrap;gap:0 32px;margin:0;font-size:var(--bg-fs-md)}
+/* hình lớn duy nhất: một bài, ảnh tràn khung bo góc, chú thích bên dưới */
+.feat{display:block;text-decoration:none}
+.feat .im{border-radius:28px;overflow:hidden;background:#0A0E22;aspect-ratio:2/1}
+.feat img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--bg-ease)}
+.feat:hover img{transform:scale(1.015)}
+.feat .fc{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 40px;padding:24px 4px 0}
+.feat .fc b{flex:0 1 auto;font:var(--tc-serif);font-size:clamp(24px,2.6vw,34px);letter-spacing:-.015em}
+.feat .fc .d{flex:1 1 320px;min-width:0;color:var(--bg-ink2);font-size:var(--bg-fs-md);line-height:1.6}
+.feat .fc .k{flex:none;color:var(--bg-ink3);font-size:var(--bg-fs-xs)}
+/* bài giảng: mục lục, mỗi bài một dòng */
+.list{border-bottom:1px solid var(--bg-hair)}
+.bai{display:grid;grid-template-columns:88px minmax(0,2fr) minmax(0,3fr) 168px;gap:8px 32px;align-items:center;padding:20px 0;border-top:1px solid var(--bg-hair);text-decoration:none;transition:background-color var(--bg-t-mid)}
+.bai:hover{background:rgba(29,27,22,.04)}
+.bai img{width:88px;height:66px;object-fit:cover;border-radius:var(--bg-r-sm);background:#E4DCCB}
+.bai b{font:var(--tc-serif);font-size:clamp(20px,2vw,26px);line-height:1.2;letter-spacing:-.01em}
+.bai .d{color:var(--bg-ink2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.bai .k{color:var(--bg-ink3);font-size:var(--bg-fs-xs)}
+.list.collapsed>.x{display:none}
+.showall{display:flex;justify-content:flex-start;margin-top:28px}
+/* lộ trình, công cụ, môn: cột chữ có kẻ mảnh phía trên */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 40px}
+.col{display:grid;gap:6px;align-content:start;padding:20px 0 28px;border-top:1px solid var(--bg-hair);text-decoration:none}
+.col .k{color:var(--bg-ink3);font-size:var(--bg-fs-xs)}
+.col b{font:var(--tc-serif);font-size:24px;letter-spacing:-.01em}
+.col.s b{font:600 var(--bg-fs-md)/1.35 var(--bg-font);letter-spacing:0}
+.col .d{color:var(--bg-ink2);line-height:1.6}
+a.col:hover b{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.col kbd{font:600 12px var(--bg-mono);background:rgba(255,255,255,.6);border:1px solid var(--bg-hair);border-radius:6px;padding:0 5px}
+/* ba điều giữ khi làm một bài */
+.tin{display:flex;flex-wrap:wrap;gap:40px 64px}
+.tin>.h2{flex:1 1 360px;min-width:0}
+.tin>div{flex:1.4 1 480px;min-width:0}
+.tin .it{padding:28px 0;border-bottom:1px solid var(--bg-hair)}
+.tin .it:first-child{padding-top:0}.tin .it:last-child{border-bottom:0;padding-bottom:0}
+.tin h3{margin:0 0 8px;font:600 var(--bg-fs-lg)/1.3 var(--bg-font)}
+.tin p{margin:0;max-width:56ch;font-size:var(--bg-fs-md);line-height:1.65;color:var(--bg-ink2)}
+/* cho giáo viên: khối mực */
+.gv{background:#1D1B16;color:#F3EFE6;border-radius:28px;padding:clamp(28px,5.5vw,72px)}
+.gv .gh{display:flex;flex-wrap:wrap;align-items:flex-end;gap:32px 64px}
+.gv .gh>div{flex:1 1 360px;min-width:0}
+.gv .k{color:#B9B2A2;font-size:var(--bg-fs-xs)}
+.gv .h2{margin-top:16px;color:#F3EFE6}
+.gv p{margin:0 0 24px;font-size:var(--bg-fs-md);line-height:1.65;color:#D9D3C5}
+body.bg-home .gv .bg-btn{background:#F3EFE6;border-color:#F3EFE6;color:#1D1B16}
+.gv .pks{margin-top:clamp(32px,5vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 40px}
+.gv .pk{display:grid;gap:6px;align-content:start;padding:20px 0 16px;border-top:1px solid rgba(243,239,230,.24);text-decoration:none;color:#F3EFE6}
+.gv .pk b{font:var(--tc-serif);font-size:21px;line-height:1.3}
+.gv .pk:hover b{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.gv+.cols{margin-top:48px}
+body.bg-home .foot{margin-top:clamp(72px,10vw,136px)}
+@media (max-width:820px){
+  .bai{grid-template-columns:72px minmax(0,1fr);gap:2px 16px;padding:14px 0}
+  .bai img{width:72px;height:54px;grid-row:span 2}
+  .bai .d{display:none}
+  .feat .im{aspect-ratio:3/2;border-radius:20px}.gv{border-radius:20px}
+}
+@media (max-width:640px){
+  body.bg-home .sh2{padding-bottom:24px}
+  body.bg-home .hero .links{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){.feat img{transition:none}}
 
 </style>
 <style id="bg-vt">@view-transition{navigation:auto}#bgs-load{view-transition-name:bg-bia}::view-transition-group(bg-bia){animation-duration:.42s;animation-timing-function:cubic-bezier(.2,.7,.2,1)}::view-transition-old(root),::view-transition-new(root){animation-duration:.24s}@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}</style>
@@ -184,117 +200,87 @@ html[data-chieu]{--bg-ink2:#141414;--bg-ink3:#262626}
 </header>
 <main class="wrap">
   <section class="hero" aria-labelledby="h1">
-    <div>
-      <span class="bg-eyebrow">Miễn phí cho trường học · chạy được offline</span>
-      <h1 id="h1" class="bg-display">Học bằng thế giới 3D sống động</h1>
-      <p class="bg-lead">Đi vào tế bào tới từng nguyên tử, mở 2.900 cấu trúc của cơ thể người, dựng lại Thành Cổ Loa theo số đo khảo cổ, cho robot chạy bằng số liệu thật. Bằng tiếng Việt, cho lớp học.</p>
-      <div class="cta">
-        <a class="bg-btn" href="#bai-hoc">Bắt đầu học</a>
-        <a class="bg-btn ghost" href="#cho-giao-vien">Dạy trên lớp</a>
-      </div>
-    </div>
-    <div>
-      <div class="show" id="show" aria-roledescription="trình chiếu" aria-label="Bài học nổi bật">
-        <figure class="on" data-href="te-bao/" data-t="Hành Trình Vào Tế Bào" data-s="Sinh học 10"><img src="thu-vien/covers/te-bao.webp" alt="Tế bào nhân thực cắt hở, nhìn thấy nhân và các bào quan" fetchpriority="high"></figure>
-        <figure data-href="co-the-nguoi/" data-t="Cơ thể người 3D" data-s="Khoa học tự nhiên 8"><img src="thu-vien/covers/co-the-nguoi.webp" alt="Lồng ngực với phổi, tim và mạch máu dựng từ mô hình giải phẫu" loading="lazy"></figure>
-        <figure data-href="sinh-hoc-11/ca-tho-bang-mang/" data-t="Cá thở bằng mang" data-s="Sinh học 11"><img src="thu-vien/covers/mang.webp" alt="Cá saba bơi, nắp mang mở thấy lá mang đỏ" loading="lazy"></figure>
-        <figure data-href="than-kinh/" data-t="Neuron và xung thần kinh" data-s="Sinh học 11"><img src="thu-vien/covers/than-kinh.webp" alt="Neuron phát sáng với bao myelin chia đốt và chuỳ synapse trên nền tối" loading="lazy"></figure>
-        <figure data-href="cong-nghe/dong-co-4-ki/" data-t="Động cơ xăng 4 kì" data-s="Công nghệ 11"><img src="thu-vien/covers/dong-co.webp" alt="Động cơ xăng 4 kì cắt dọc: pít-tông, thanh truyền, trục khuỷu, xupap" loading="lazy"></figure>
-        <figure data-href="lich-su-10/co-loa/" data-t="Thành Cổ Loa" data-s="Lịch sử 10"><img src="thu-vien/covers/co-loa.webp" alt="Ba vòng thành Cổ Loa trên đồng bằng" loading="lazy"></figure>
-      </div>
-      <div class="showcap"><a id="showlink" href="te-bao/">Hành Trình Vào Tế Bào<span>Sinh học 10</span></a><div class="dots" id="dots" role="tablist" aria-label="Chọn ảnh"></div></div>
+    <h1 id="h1">Bài giảng <em>3D</em></h1>
+    <div class="hl">
+      <p class="lede">Dành cho trường phổ thông. Mở bằng trình duyệt, không cần tài khoản, miễn phí.</p>
+      <p class="links"><a class="tl" href="#bai-hoc">Xem các bài giảng</a><a class="tl" href="#cho-giao-vien">Tôi là giáo viên</a></p>
     </div>
   </section>
 
+  <a class="feat" href="than-kinh/" aria-label="Neuron và xung thần kinh, vào bài"><div class="im"><img src="thu-vien/covers/than-kinh.webp" alt="Neuron phát sáng với bao myelin chia đốt và chuỳ synapse trên nền tối" fetchpriority="high"></div>
+    <div class="fc"><b>Neuron và xung thần kinh</b><span class="d">Xung nhảy cóc qua eo Ranvier, điện thế màng theo từng pha, synapse giải phóng chất dẫn truyền; phong cách điện ảnh.</span><span class="k">Sinh học · Lớp 11</span></div></a>
+
   <section id="bai-hoc" aria-labelledby="h-bai">
-    <div class="sh"><div><h2 id="h-bai" class="bg-h2">Bài học 3D</h2><p>Mỗi bài có chế độ học theo bước và chế độ lên lớp. Bấm vật trong cảnh để xem số đo và nguồn.</p></div></div>
-    <div class="grid rail collapsed" id="lessons">
-      <article class="card big"><div class="cv"><img src="thu-vien/covers/te-bao.webp" alt="" loading="eager"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-sinh)"></i><span>Sinh học · Lớp 10</span></div>
-        <h3><a href="te-bao/">Hành Trình Vào Tế Bào</a></h3><p>Tế bào nhân thực đang hoạt động; phóng liền mạch xuống 222.336 nguyên tử của ribosome thật.</p><a class="bg-btn sm go" href="te-bao/" tabindex="-1" aria-hidden="true">Vào bài</a></div></article>
-      <article class="card"><div class="cv"><img src="thu-vien/covers/co-the-nguoi.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-sinh)"></i><span>Khoa học tự nhiên · Lớp 8</span></div>
-        <h3><a href="co-the-nguoi/">Cơ thể người 3D</a></h3><p>2.900 cấu trúc giải phẫu thật, 140 chuyển động sinh lí, 6 chủ đề hiển vi: tim đập, phổi thở, thận lọc máu.</p></div></article>
-      <article class="card"><div class="cv"><img src="thu-vien/covers/mang.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-sinh)"></i><span>Sinh học · Lớp 11</span></div>
-        <h3><a href="sinh-hoc-11/ca-tho-bang-mang/">Cá thở bằng mang</a></h3><p>Bơm miệng–nắp mang khi bơi chậm, ép dòng khi bơi nhanh; cá ngừ không được dừng; máu chảy ngược chiều nước lấy ≈ 75 % ô xi.</p></div></article>
-      <article class="card"><div class="cv"><img src="thu-vien/covers/than-kinh.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-sinh)"></i><span>Sinh học · Lớp 11</span></div>
-        <h3><a href="than-kinh/">Neuron và xung thần kinh</a></h3><p>Xung nhảy cóc qua eo Ranvier, điện thế màng theo từng pha, synapse giải phóng chất dẫn truyền; phong cách điện ảnh.</p></div></article>
-      <article class="card"><div class="cv"><img src="thu-vien/covers/dong-co.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-cong)"></i><span>Công nghệ · Lớp 11</span></div>
-        <h3><a href="cong-nghe/dong-co-4-ki/">Động cơ xăng 4 kì</a></h3><p>Cắt dọc động cơ theo thông số Honda Wave Alpha 110: bốn kì, xupap, trục cam, đồ thị p–V; thử tăng tỉ số nén, tắt bugi.</p></div></article>
-      <article class="card"><div class="cv"><img src="thu-vien/covers/ty-the.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-sinh)"></i><span>Sinh học · Lớp 10</span></div>
-        <h3><a href="ty-the/">Vào Ty Thể</a></h3><p>Dòng H⁺ làm vòng c quay, ba vị trí β lần lượt tạo ATP, dựng từ 37.733 nguyên tử thật.</p></div></article>
-      <article class="card"><div class="cv"><img src="thu-vien/covers/co-loa.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-su)"></i><span>Lịch sử · Lớp 10</span></div>
-        <h3><a href="lich-su-10/co-loa/">Thành Cổ Loa</a></h3><p>Ba vòng thành đất theo số đo khảo cổ, dòng thời gian từ thế kỷ IV TCN đến nay.</p></div></article>
-      <article class="card x"><div class="cv"><img src="thu-vien/covers/robo-ur5e.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-robo)"></i><span>Robotics · Đại học</span></div>
-        <h3><a href="robotics/ur5e/">Cánh tay robot 6 trục</a></h3><p>UR5e đúng bảng DH của hãng: động học nghịch 8 nghiệm, Jacobian, điểm kỳ dị.</p></div></article>
-      <article class="card x"><div class="cv"><img src="thu-vien/covers/mako.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-ly)"></i><span>Vật lí · Lớp 10</span></div>
-        <h3><a href="vat-li-10/ca-map-robot/">Robot cá mập mako</a></h3><p>Bơi theo số đo cá mập thật: một đầu vào là tốc độ; tần số vẫy đuôi, sóng thân, số Strouhal, lực cản tăng theo v².</p></div></article>
-      <article class="card x"><div class="cv"><img src="thu-vien/covers/robo-quadruped.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-robo)"></i><span>Robotics · Đại học</span></div>
-        <h3><a href="robotics/quadruped/">Chó robot bốn chân</a></h3><p>Theo số đo MIT Mini Cheetah: đi bước, đi kiệu, bật nhảy; lực đỡ từng chân, 12 mô men khớp, tách rời và lắp ráp.</p></div></article>
-      <article class="card x"><div class="cv"><img src="thu-vien/covers/robo-jellyfish.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-robo)"></i><span>Robotics · Đại học</span></div>
-        <h3><a href="robotics/jellyfish/">Sứa robot</a></h3><p>Theo Cyro của Virginia Tech: chuông co đẩy nước, phản lực và động lượng, rhopalia giữ thăng bằng, tế bào gai 700 ns.</p></div></article>
-      <article class="card x"><div class="cv"><img src="thu-vien/covers/thap-5-tang.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-ly)"></i><span>Vật lí · Lớp 11</span></div>
-        <h3><a href="vat-li-11/thap-nam-tang/">Tháp năm tầng Hōryū-ji</a></h3><p>Dựng 52 thao tác theo tám giai đoạn, mặt cắt qua cột tâm; rung nền để thấy dao động riêng 1,1 s và cộng hưởng.</p></div></article>
-      <article class="card x"><div class="cv"><img src="thu-vien/covers/may-anh.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-ly)"></i><span>Khoa học tự nhiên · Lớp 9</span></div>
-        <h3><a href="khtn-9/may-anh/">Máy ảnh cắt lớp</a></h3><p>Ống kính Canon 50 mm: ba tia tạo ảnh thật, ngược trên cảm biến; lấy nét là dời thấu kính; khẩu bảy lá; kiểm lại góc nhìn 40° của hãng.</p></div></article>
-      <article class="card x"><div class="cv"><img src="thu-vien/covers/piranha.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-ly)"></i><span>Vật lí · Lớp 10</span></div>
-        <h3><a href="vat-li-10/ca-piranha/">Cá piranha</a></h3><p>Cú cắn 320 N mạnh nhất từng đo ở cá: hàm dưới là đòn bẩy, F_cắn·d = F_cơ·L_in; răng trong cắn mạnh gấp ba răng ngoài.</p></div></article>
-      <article class="card x"><div class="cv"><img src="thu-vien/covers/nhen.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-ly)"></i><span>Vật lí · Lớp 10</span></div>
-        <h3><a href="vat-li-10/nhen-thuy-luc/">Nhện chân thuỷ lực</a></h3><p>Chân duỗi bằng áp suất như tarantula thật: một bơm, tám chân, cùng một áp suất (Pascal); τ = P·A·r, dáng chạy theo nhiệt độ.</p></div></article>
-      <article class="card x"><div class="cv"><img src="thu-vien/covers/dong-ho.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-ly)"></i><span>Vật lí · Lớp 11</span></div>
-        <h3><a href="vat-li-11/dong-ho-co/">Đồng hồ cơ</a></h3><p>ETA 6497-1 theo tài liệu hãng: bánh lắc dao động điều hoà 2,5 Hz, bộ thoát 15 răng, tỉ số truyền bắt buộc; tháo từng bộ phận.</p></div></article>
-      <article class="card x"><div class="cv"><img src="thu-vien/covers/hai-dang.webp" alt="" loading="lazy"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-ly)"></i><span>Vật lí · Lớp 10</span></div>
-        <h3><a href="vat-li-10/hai-dang/">Hải đăng khung sắt</a></h3><p>Sanibel 1884: lắp dựng khung giằng chéo, chớp đèn Fl(2) W 10s, tầm nhìn theo độ cong Trái Đất, gió và mô men lật.</p></div></article>
+    <div class="sh2"><h2 id="h-bai" class="h2">Bài giảng</h2><p class="lede">Mỗi bài là một vật thể dựng công phu, có chế độ học theo bước và chế độ lên lớp. Bấm vật trong cảnh để xem số đo và nguồn.</p></div>
+    <div class="list collapsed" id="lessons">
+      <a class="bai" href="te-bao/"><img src="thu-vien/covers/te-bao.webp" alt="" loading="lazy" width="88" height="66"><b>Hành Trình Vào Tế Bào</b><span class="d">Tế bào nhân thực đang hoạt động; phóng liền mạch xuống 222.336 nguyên tử của ribosome thật.</span><span class="k">Sinh học · Lớp 10</span></a>
+      <a class="bai" href="co-the-nguoi/"><img src="thu-vien/covers/co-the-nguoi.webp" alt="" loading="lazy" width="88" height="66"><b>Cơ thể người 3D</b><span class="d">2.900 cấu trúc giải phẫu thật, 140 chuyển động sinh lí, 6 chủ đề hiển vi: tim đập, phổi thở, thận lọc máu.</span><span class="k">Khoa học tự nhiên · Lớp 8</span></a>
+      <a class="bai" href="sinh-hoc-11/ca-tho-bang-mang/"><img src="thu-vien/covers/mang.webp" alt="" loading="lazy" width="88" height="66"><b>Cá thở bằng mang</b><span class="d">Bơm miệng–nắp mang khi bơi chậm, ép dòng khi bơi nhanh; cá ngừ không được dừng; máu chảy ngược chiều nước lấy ≈ 75 % ô xi.</span><span class="k">Sinh học · Lớp 11</span></a>
+      <a class="bai" href="than-kinh/"><img src="thu-vien/covers/than-kinh.webp" alt="" loading="lazy" width="88" height="66"><b>Neuron và xung thần kinh</b><span class="d">Xung nhảy cóc qua eo Ranvier, điện thế màng theo từng pha, synapse giải phóng chất dẫn truyền; phong cách điện ảnh.</span><span class="k">Sinh học · Lớp 11</span></a>
+      <a class="bai" href="cong-nghe/dong-co-4-ki/"><img src="thu-vien/covers/dong-co.webp" alt="" loading="lazy" width="88" height="66"><b>Động cơ xăng 4 kì</b><span class="d">Cắt dọc động cơ theo thông số Honda Wave Alpha 110: bốn kì, xupap, trục cam, đồ thị p–V; thử tăng tỉ số nén, tắt bugi.</span><span class="k">Công nghệ · Lớp 11</span></a>
+      <a class="bai" href="ty-the/"><img src="thu-vien/covers/ty-the.webp" alt="" loading="lazy" width="88" height="66"><b>Vào Ty Thể</b><span class="d">Dòng H⁺ làm vòng c quay, ba vị trí β lần lượt tạo ATP, dựng từ 37.733 nguyên tử thật.</span><span class="k">Sinh học · Lớp 10</span></a>
+      <a class="bai" href="lich-su-10/co-loa/"><img src="thu-vien/covers/co-loa.webp" alt="" loading="lazy" width="88" height="66"><b>Thành Cổ Loa</b><span class="d">Ba vòng thành đất theo số đo khảo cổ, dòng thời gian từ thế kỷ IV TCN đến nay.</span><span class="k">Lịch sử · Lớp 10</span></a>
+      <a class="bai" href="robotics/ur5e/"><img src="thu-vien/covers/robo-ur5e.webp" alt="" loading="lazy" width="88" height="66"><b>Cánh tay robot 6 trục</b><span class="d">UR5e đúng bảng DH của hãng: động học nghịch 8 nghiệm, Jacobian, điểm kỳ dị.</span><span class="k">Robotics · Đại học</span></a>
+      <a class="bai x" href="vat-li-10/ca-map-robot/"><img src="thu-vien/covers/mako.webp" alt="" loading="lazy" width="88" height="66"><b>Robot cá mập mako</b><span class="d">Bơi theo số đo cá mập thật: một đầu vào là tốc độ; tần số vẫy đuôi, sóng thân, số Strouhal, lực cản tăng theo v².</span><span class="k">Vật lí · Lớp 10</span></a>
+      <a class="bai x" href="robotics/quadruped/"><img src="thu-vien/covers/robo-quadruped.webp" alt="" loading="lazy" width="88" height="66"><b>Chó robot bốn chân</b><span class="d">Theo số đo MIT Mini Cheetah: đi bước, đi kiệu, bật nhảy; lực đỡ từng chân, 12 mô men khớp, tách rời và lắp ráp.</span><span class="k">Robotics · Đại học</span></a>
+      <a class="bai x" href="robotics/jellyfish/"><img src="thu-vien/covers/robo-jellyfish.webp" alt="" loading="lazy" width="88" height="66"><b>Sứa robot</b><span class="d">Theo Cyro của Virginia Tech: chuông co đẩy nước, phản lực và động lượng, rhopalia giữ thăng bằng, tế bào gai 700 ns.</span><span class="k">Robotics · Đại học</span></a>
+      <a class="bai x" href="vat-li-11/thap-nam-tang/"><img src="thu-vien/covers/thap-5-tang.webp" alt="" loading="lazy" width="88" height="66"><b>Tháp năm tầng Hōryū-ji</b><span class="d">Dựng 52 thao tác theo tám giai đoạn, mặt cắt qua cột tâm; rung nền để thấy dao động riêng 1,1 s và cộng hưởng.</span><span class="k">Vật lí · Lớp 11</span></a>
+      <a class="bai x" href="khtn-9/may-anh/"><img src="thu-vien/covers/may-anh.webp" alt="" loading="lazy" width="88" height="66"><b>Máy ảnh cắt lớp</b><span class="d">Ống kính Canon 50 mm: ba tia tạo ảnh thật, ngược trên cảm biến; lấy nét là dời thấu kính; khẩu bảy lá; kiểm lại góc nhìn 40° của hãng.</span><span class="k">Khoa học tự nhiên · Lớp 9</span></a>
+      <a class="bai x" href="vat-li-10/ca-piranha/"><img src="thu-vien/covers/piranha.webp" alt="" loading="lazy" width="88" height="66"><b>Cá piranha</b><span class="d">Cú cắn 320 N mạnh nhất từng đo ở cá: hàm dưới là đòn bẩy, F_cắn·d = F_cơ·L_in; răng trong cắn mạnh gấp ba răng ngoài.</span><span class="k">Vật lí · Lớp 10</span></a>
+      <a class="bai x" href="vat-li-10/nhen-thuy-luc/"><img src="thu-vien/covers/nhen.webp" alt="" loading="lazy" width="88" height="66"><b>Nhện chân thuỷ lực</b><span class="d">Chân duỗi bằng áp suất như tarantula thật: một bơm, tám chân, cùng một áp suất (Pascal); τ = P·A·r, dáng chạy theo nhiệt độ.</span><span class="k">Vật lí · Lớp 10</span></a>
+      <a class="bai x" href="vat-li-11/dong-ho-co/"><img src="thu-vien/covers/dong-ho.webp" alt="" loading="lazy" width="88" height="66"><b>Đồng hồ cơ</b><span class="d">ETA 6497-1 theo tài liệu hãng: bánh lắc dao động điều hoà 2,5 Hz, bộ thoát 15 răng, tỉ số truyền bắt buộc; tháo từng bộ phận.</span><span class="k">Vật lí · Lớp 11</span></a>
+      <a class="bai x" href="vat-li-10/hai-dang/"><img src="thu-vien/covers/hai-dang.webp" alt="" loading="lazy" width="88" height="66"><b>Hải đăng khung sắt</b><span class="d">Sanibel 1884: lắp dựng khung giằng chéo, chớp đèn Fl(2) W 10s, tầm nhìn theo độ cong Trái Đất, gió và mô men lật.</span><span class="k">Vật lí · Lớp 10</span></a>
     </div>
     <div class="showall"><button class="bg-btn ghost" id="showall" aria-controls="lessons" aria-expanded="false">Xem cả 17 bài</button></div>
   </section>
 
   <section id="lo-trinh" aria-labelledby="h-lt">
-    <div class="sh"><div><h2 id="h-lt" class="bg-h2">Lộ trình theo chương trình</h2><p>Các bài xếp theo thứ tự của chương trình GDPT 2018, kèm yêu cầu cần đạt trích nguyên văn.</p></div></div>
-    <div class="routes">
-      <a class="route" href="chu-de/sinh-hoc-te-bao/"><img src="thu-vien/covers/te-bao.webp" alt="" loading="lazy"><div><span class="k">Sinh học · lớp 10 · 6 bài</span><b>Sinh học tế bào</b><span class="d">Tế bào, vận chuyển qua màng, ty thể, enzyme, nguyên phân.</span></div></a>
-      <a class="route" href="lich-su-10/"><img src="thu-vien/covers/co-loa.webp" alt="" loading="lazy"><div><span class="k">Lịch sử · lớp 10 · ba bộ sách</span><b>Lịch sử 10</b><span class="d">Văn minh Văn Lang – Âu Lạc qua Thành Cổ Loa.</span></div></a>
-      <a class="route" href="robotics/"><img src="thu-vien/covers/robo-hexapod.webp" alt="" loading="lazy"><div><span class="k">Đại học · kỹ sư · 6 mô phỏng</span><b>Robotics</b><span class="d">Cánh tay, robot chân, drone, xe tự hành, theo tài liệu của hãng.</span></div></a>
+    <div class="sh2"><h2 id="h-lt" class="h2">Lộ trình theo chương trình</h2><p class="lede">Các bài xếp theo thứ tự của chương trình GDPT 2018, kèm yêu cầu cần đạt trích nguyên văn.</p></div>
+    <div class="cols">
+      <a class="col" href="chu-de/sinh-hoc-te-bao/"><span class="k">Sinh học · lớp 10 · 6 bài</span><b>Sinh học tế bào</b><span class="d">Tế bào, vận chuyển qua màng, ty thể, enzyme, nguyên phân.</span></a>
+      <a class="col" href="lich-su-10/"><span class="k">Lịch sử · lớp 10 · ba bộ sách</span><b>Lịch sử 10</b><span class="d">Văn minh Văn Lang – Âu Lạc qua Thành Cổ Loa.</span></a>
+      <a class="col" href="robotics/"><span class="k">Đại học · kỹ sư · 6 mô phỏng</span><b>Robotics</b><span class="d">Cánh tay, robot chân, drone, xe tự hành, theo tài liệu của hãng.</span></a>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-tin">
+    <div class="tin">
+      <h2 id="h-tin" class="h2">Ba điều chúng tôi giữ khi làm một bài.</h2>
+      <div>
+        <div class="it"><h3>Đúng trước, đẹp sau.</h3><p>Mỗi con số có nguồn. Chỗ nào là giả định thì ghi là giả định, ngay trên màn hình.</p></div>
+        <div class="it"><h3>Học sinh là người cầm.</h3><p>Không có video để ngồi xem. Vật thể nằm trong tay: xoay, tháo, phóng to tới đâu cũng được.</p></div>
+        <div class="it"><h3>Trường nào cũng mở được.</h3><p>Chạy trên trình duyệt của máy tính và điện thoại, có mức nhẹ cho máy yếu, lưu được về máy để dạy khi mất mạng. Không quảng cáo, không theo dõi.</p></div>
+      </div>
     </div>
   </section>
 
   <section id="cho-giao-vien" aria-labelledby="h-gv">
-    <div class="sh"><div><h2 id="h-gv" class="bg-h2">Cho giáo viên</h2><p>Gói dạy thử 45 phút: kịch bản theo phút, phiếu học tập in A4, đáp án. Bản thử, chờ giáo viên bộ môn duyệt.</p></div><a class="more" href="giao-vien/">Xem các gói <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    <div class="packs rail">
-      <a class="pk" href="giao-vien/te-bao/"><img src="thu-vien/covers/te-bao.webp" alt="" loading="lazy"><div><span>Sinh học 10 · 45 phút</span><b>Hành trình của một phân tử protein tiết</b></div></a>
-      <a class="pk" href="giao-vien/than-kinh/"><img src="thu-vien/covers/than-kinh.webp" alt="" loading="lazy"><div><span>Sinh học 11 · 45 phút</span><b>Xung thần kinh đi như thế nào?</b></div></a>
-      <a class="pk" href="giao-vien/co-loa/"><img src="thu-vien/covers/co-loa.webp" alt="" loading="lazy"><div><span>Lịch sử 10 · 45 phút</span><b>Thành Cổ Loa: đọc văn minh Âu Lạc từ dấu tích</b></div></a>
+    <div class="gv">
+      <div class="gh">
+        <div><span class="k">Cho giáo viên</span><h2 id="h-gv" class="h2">Mở bài lên, dạy trọn một tiết.</h2></div>
+        <div><p>Gói dạy thử 45 phút: kịch bản theo phút, phiếu học tập in A4, đáp án. Bản thử, chờ giáo viên bộ môn duyệt.</p><a class="bg-btn" href="giao-vien/">Xem các gói</a></div>
+      </div>
+      <div class="pks">
+        <a class="pk" href="giao-vien/te-bao/"><span class="k">Sinh học 10 · 45 phút</span><b>Hành trình của một phân tử protein tiết</b></a>
+        <a class="pk" href="giao-vien/than-kinh/"><span class="k">Sinh học 11 · 45 phút</span><b>Xung thần kinh đi như thế nào?</b></a>
+        <a class="pk" href="giao-vien/co-loa/"><span class="k">Lịch sử 10 · 45 phút</span><b>Thành Cổ Loa: đọc văn minh Âu Lạc từ dấu tích</b></a>
+      </div>
     </div>
-    <div class="tools">
-      <div class="tool"><b>Lên lớp trong mọi bài</b><span>Bấm Lên lớp trên thanh đầu bài hoặc <kbd>Shift P</kbd>. Bút trình chiếu và phím mũi tên chuyển bước.</span></div>
-      <a class="tool" href="dieu-khien/"><b>Điện thoại làm điều khiển</b><span>Nhập mã trên màn chiếu để chuyển bước, xem ghi chú và đáp án.</span></a>
-      <a class="tool" href="kiem-may/"><b>Kiểm máy trước giờ dạy</b><span>Chạy thử mọi bài trên máy của lớp, biết bài nào nên dùng mức nhẹ.</span></a>
-      <a class="tool" href="https://github.com/nclamvn/bai-giang/releases/latest" target="_blank" rel="noopener"><b>Bản offline</b><span>Tế Bào và Ty Thể, mỗi bài một tệp HTML, mở bằng Chrome hoặc Edge, không cần Internet.</span></a>
+    <div class="cols">
+      <div class="col s"><b>Lên lớp trong mọi bài</b><span class="d">Bấm Lên lớp trên thanh đầu bài hoặc <kbd>Shift P</kbd>. Bút trình chiếu và phím mũi tên chuyển bước.</span></div>
+      <a class="col s" href="dieu-khien/"><b>Điện thoại làm điều khiển</b><span class="d">Nhập mã trên màn chiếu để chuyển bước, xem ghi chú và đáp án.</span></a>
+      <a class="col s" href="kiem-may/"><b>Kiểm máy trước giờ dạy</b><span class="d">Chạy thử mọi bài trên máy của lớp, biết bài nào nên dùng mức nhẹ.</span></a>
+      <a class="col s" href="https://github.com/nclamvn/bai-giang/releases/latest" target="_blank" rel="noopener"><b>Bản offline</b><span class="d">Tế Bào và Ty Thể, mỗi bài một tệp HTML, mở bằng Chrome hoặc Edge, không cần Internet.</span></a>
     </div>
   </section>
 
   <section id="thu-vien" aria-labelledby="h-tv">
-    <div class="sh"><div><h2 id="h-tv" class="bg-h2">Thư viện 54 bài thí nghiệm</h2><p>Vật lí, Hoá học, Sinh học, Địa lí. Mỗi bài đối chiếu với yêu cầu cần đạt của chương trình.</p></div><a class="more" href="thu-vien/">Mở thư viện <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    <div class="subjs rail">
-      <a class="subj" href="thu-vien/?mon=phys"><img src="thu-vien/covers/centripetal-step.webp" alt="" loading="lazy"><div><b><i style="background:var(--bg-s-ly)"></i>Vật lí</b><span>10 bài</span></div></a>
-      <a class="subj" href="thu-vien/?mon=chem"><img src="thu-vien/covers/blast-furnace-step.webp" alt="" loading="lazy"><div><b><i style="background:var(--bg-s-hoa)"></i>Hoá học</b><span>25 bài</span></div></a>
-      <a class="subj" href="thu-vien/?mon=bio"><img src="thu-vien/covers/transport-step.webp" alt="" loading="lazy"><div><b><i style="background:var(--bg-s-sinh)"></i>Sinh học</b><span>5 bài</span></div></a>
-      <a class="subj" href="thu-vien/?mon=geo"><img src="thu-vien/covers/karst-step.webp" alt="" loading="lazy"><div><b><i style="background:var(--bg-s-dia)"></i>Địa lí</b><span>14 bài</span></div></a>
+    <div class="sh2"><h2 id="h-tv" class="h2">Thư viện 54 bài thí nghiệm</h2><p class="lede">Vật lí, Hoá học, Sinh học, Địa lí. Mỗi bài đối chiếu với yêu cầu cần đạt của chương trình. <a class="tl" href="thu-vien/">Mở thư viện</a></p></div>
+    <div class="cols">
+      <a class="col" href="thu-vien/?mon=phys"><span class="k">10 bài</span><b>Vật lí</b></a>
+      <a class="col" href="thu-vien/?mon=chem"><span class="k">25 bài</span><b>Hoá học</b></a>
+      <a class="col" href="thu-vien/?mon=bio"><span class="k">5 bài</span><b>Sinh học</b></a>
+      <a class="col" href="thu-vien/?mon=geo"><span class="k">14 bài</span><b>Địa lí</b></a>
     </div>
   </section>
 
@@ -314,20 +300,10 @@ html[data-chieu]{--bg-ink2:#141414;--bg-ink3:#262626}
 <script>
 // địa chỉ cũ: thư viện từng nằm ở /#thu-vien (kèm ?mon=…), nay là trang riêng
 if (location.hash === '#thu-vien') location.replace('thu-vien/' + location.search);
-// bài học: 7 bài đầu hiện sẵn, các bài còn lại mở bằng nút (điện thoại: cả hàng là băng cuộn ngang)
+// bài giảng: các bài đầu hiện sẵn, các bài còn lại mở bằng nút
 { const g = document.getElementById('lessons'), b = document.getElementById('showall');
   b.addEventListener('click', () => { const open = g.classList.toggle('collapsed') === false; b.setAttribute('aria-expanded', String(open)); b.textContent = open ? 'Thu gọn' : b.dataset.t; });
   b.dataset.t = b.textContent; }
-// ảnh màn đầu: đổi chậm, dừng khi rê chuột hoặc khi máy đặt giảm chuyển động; chú thích dưới ảnh theo ảnh đang hiện
-{ const figs = [...document.querySelectorAll('#show figure')], dots = document.getElementById('dots'), cap = document.getElementById('showlink'); let k = 0, hold = false;
-  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  const set = (i) => { k = (i + figs.length) % figs.length; figs.forEach((f, j) => f.classList.toggle('on', j === k)); dots.querySelectorAll('button').forEach((b, j) => b.setAttribute('aria-current', String(j === k)));
-    const f = figs[k]; cap.href = f.dataset.href; cap.innerHTML = `${esc(f.dataset.t)}<span>${esc(f.dataset.s)}</span>`; };
-  dots.innerHTML = figs.map((f, j) => `<button role="tab" aria-label="Ảnh ${j + 1}: ${esc(f.dataset.t)}"><i></i></button>`).join('');
-  dots.querySelectorAll('button').forEach((b, j) => b.addEventListener('click', () => { set(j); hold = true; }));
-  const sh = document.getElementById('show'); sh.addEventListener('pointerenter', () => { hold = true; }); sh.addEventListener('pointerleave', () => { hold = false; });
-  sh.addEventListener('click', () => { location.href = figs[k].dataset.href; }); sh.style.cursor = 'pointer';
-  set(0); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => { if (!hold && !document.hidden) set(k + 1); }, 6000); }
 </script>
 </body>
 </html>

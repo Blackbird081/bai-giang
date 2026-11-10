@@ -3,11 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F4F4F6">
+<meta name="theme-color" content="#F3EFE6">
 <title>Sáng Ăn Khoai · bài học 3D tiếng Việt</title>
 <link rel="icon" type="image/png" sizes="32x32" href="__L_ROOT__design/logo/favicon-32.png"><link rel="apple-touch-icon" href="__L_ROOT__design/logo/apple-touch-icon.png">
 <meta name="description" content="Bài học 3D tương tác bằng tiếng Việt cho lớp học: tế bào tới từng nguyên tử, Thành Cổ Loa theo số đo khảo cổ, robot chạy bằng số liệu thật, 54 bài thí nghiệm lí, hoá, sinh, địa. Miễn phí cho trường học, chạy được offline.">
 <link rel="preload" href="__L_ROOT__design/fonts/be-vietnam-pro-vietnamese-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="__L_ROOT__design/fonts/noto-serif-vietnamese-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="__L_ROOT__design/fonts/noto-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="__L_ROOT__design/house.css">
 <style>
 __STYLE__
@@ -22,63 +24,66 @@ __STYLE__
 </header>
 <main class="wrap">
   <section class="hero" aria-labelledby="h1">
-    <div>
-      <span class="bg-eyebrow">Miễn phí cho trường học · chạy được offline</span>
-      <h1 id="h1" class="bg-display">Học bằng thế giới 3D sống động</h1>
-      <p class="bg-lead">Đi vào tế bào tới từng nguyên tử, mở 2.900 cấu trúc của cơ thể người, dựng lại Thành Cổ Loa theo số đo khảo cổ, cho robot chạy bằng số liệu thật. Bằng tiếng Việt, cho lớp học.</p>
-      <div class="cta">
-        <a class="bg-btn" href="#bai-hoc">Bắt đầu học</a>
-        <a class="bg-btn ghost" href="#cho-giao-vien">Dạy trên lớp</a>
-      </div>
-    </div>
-    <div>
-      <div class="show" id="show" aria-roledescription="trình chiếu" aria-label="Bài học nổi bật">
-        <figure class="on" data-href="__L_CELL__" data-t="Hành Trình Vào Tế Bào" data-s="Sinh học 10"><img src="__L_BASE__covers/te-bao.webp" alt="Tế bào nhân thực cắt hở, nhìn thấy nhân và các bào quan" fetchpriority="high"></figure>
-        <figure data-href="__L_BODY__" data-t="Cơ thể người 3D" data-s="Khoa học tự nhiên 8"><img src="__L_BASE__covers/co-the-nguoi.webp" alt="Lồng ngực với phổi, tim và mạch máu dựng từ mô hình giải phẫu" loading="lazy"></figure>
-        <figure data-href="__L_GILL__" data-t="Cá thở bằng mang" data-s="Sinh học 11"><img src="__L_BASE__covers/mang.webp" alt="Cá saba bơi, nắp mang mở thấy lá mang đỏ" loading="lazy"></figure>
-        <figure data-href="__L_NEURON__" data-t="Neuron và xung thần kinh" data-s="Sinh học 11"><img src="__L_BASE__covers/than-kinh.webp" alt="Neuron phát sáng với bao myelin chia đốt và chuỳ synapse trên nền tối" loading="lazy"></figure>
-        <figure data-href="__L_ENGINE__" data-t="Động cơ xăng 4 kì" data-s="Công nghệ 11"><img src="__L_BASE__covers/dong-co.webp" alt="Động cơ xăng 4 kì cắt dọc: pít-tông, thanh truyền, trục khuỷu, xupap" loading="lazy"></figure>
-        <figure data-href="__L_COLOA__" data-t="Thành Cổ Loa" data-s="Lịch sử 10"><img src="__L_BASE__covers/co-loa.webp" alt="Ba vòng thành Cổ Loa trên đồng bằng" loading="lazy"></figure>
-      </div>
-      <div class="showcap"><a id="showlink" href="__L_CELL__">Hành Trình Vào Tế Bào<span>Sinh học 10</span></a><div class="dots" id="dots" role="tablist" aria-label="Chọn ảnh"></div></div>
+    <h1 id="h1">Bài giảng <em>3D</em></h1>
+    <div class="hl">
+      <p class="lede">Dành cho trường phổ thông. Mở bằng trình duyệt, không cần tài khoản, miễn phí.</p>
+      <p class="links"><a class="tl" href="#bai-hoc">Xem các bài giảng</a><a class="tl" href="#cho-giao-vien">Tôi là giáo viên</a></p>
     </div>
   </section>
 
+  __HERO__
+
   <section id="bai-hoc" aria-labelledby="h-bai">
-    <div class="sh"><div><h2 id="h-bai" class="bg-h2">Bài học 3D</h2><p>Mỗi bài có chế độ học theo bước và chế độ lên lớp. Bấm vật trong cảnh để xem số đo và nguồn.</p></div></div>
-    <div class="grid rail collapsed" id="lessons">
+    <div class="sh2"><h2 id="h-bai" class="h2">Bài giảng</h2><p class="lede">Mỗi bài là một vật thể dựng công phu, có chế độ học theo bước và chế độ lên lớp. Bấm vật trong cảnh để xem số đo và nguồn.</p></div>
+    <div class="list collapsed" id="lessons">
       __FEATURED__
     </div>
     <div class="showall"><button class="bg-btn ghost" id="showall" aria-controls="lessons" aria-expanded="false">Xem cả __N3D__ bài</button></div>
   </section>
 
   <section id="lo-trinh" aria-labelledby="h-lt">
-    <div class="sh"><div><h2 id="h-lt" class="bg-h2">Lộ trình theo chương trình</h2><p>Các bài xếp theo thứ tự của chương trình GDPT 2018, kèm yêu cầu cần đạt trích nguyên văn.</p></div></div>
-    <div class="routes">
-      <a class="route" href="__L_CHUDE__"><img src="__L_BASE__covers/te-bao.webp" alt="" loading="lazy"><div><span class="k">Sinh học · lớp 10 · 6 bài</span><b>Sinh học tế bào</b><span class="d">Tế bào, vận chuyển qua màng, ty thể, enzyme, nguyên phân.</span></div></a>
-      <a class="route" href="__L_LS10__"><img src="__L_BASE__covers/co-loa.webp" alt="" loading="lazy"><div><span class="k">Lịch sử · lớp 10 · ba bộ sách</span><b>Lịch sử 10</b><span class="d">Văn minh Văn Lang – Âu Lạc qua Thành Cổ Loa.</span></div></a>
-      <a class="route" href="__L_ROBO__"><img src="__L_BASE__covers/robo-hexapod.webp" alt="" loading="lazy"><div><span class="k">Đại học · kỹ sư · 6 mô phỏng</span><b>Robotics</b><span class="d">Cánh tay, robot chân, drone, xe tự hành, theo tài liệu của hãng.</span></div></a>
+    <div class="sh2"><h2 id="h-lt" class="h2">Lộ trình theo chương trình</h2><p class="lede">Các bài xếp theo thứ tự của chương trình GDPT 2018, kèm yêu cầu cần đạt trích nguyên văn.</p></div>
+    <div class="cols">
+      <a class="col" href="__L_CHUDE__"><span class="k">Sinh học · lớp 10 · 6 bài</span><b>Sinh học tế bào</b><span class="d">Tế bào, vận chuyển qua màng, ty thể, enzyme, nguyên phân.</span></a>
+      <a class="col" href="__L_LS10__"><span class="k">Lịch sử · lớp 10 · ba bộ sách</span><b>Lịch sử 10</b><span class="d">Văn minh Văn Lang – Âu Lạc qua Thành Cổ Loa.</span></a>
+      <a class="col" href="__L_ROBO__"><span class="k">Đại học · kỹ sư · 6 mô phỏng</span><b>Robotics</b><span class="d">Cánh tay, robot chân, drone, xe tự hành, theo tài liệu của hãng.</span></a>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-tin">
+    <div class="tin">
+      <h2 id="h-tin" class="h2">Ba điều chúng tôi giữ khi làm một bài.</h2>
+      <div>
+        <div class="it"><h3>Đúng trước, đẹp sau.</h3><p>Mỗi con số có nguồn. Chỗ nào là giả định thì ghi là giả định, ngay trên màn hình.</p></div>
+        <div class="it"><h3>Học sinh là người cầm.</h3><p>Không có video để ngồi xem. Vật thể nằm trong tay: xoay, tháo, phóng to tới đâu cũng được.</p></div>
+        <div class="it"><h3>Trường nào cũng mở được.</h3><p>Chạy trên trình duyệt của máy tính và điện thoại, có mức nhẹ cho máy yếu, lưu được về máy để dạy khi mất mạng. Không quảng cáo, không theo dõi.</p></div>
+      </div>
     </div>
   </section>
 
   <section id="cho-giao-vien" aria-labelledby="h-gv">
-    <div class="sh"><div><h2 id="h-gv" class="bg-h2">Cho giáo viên</h2><p>Gói dạy thử 45 phút: kịch bản theo phút, phiếu học tập in A4, đáp án. Bản thử, chờ giáo viên bộ môn duyệt.</p></div><a class="more" href="__L_GV__">Xem các gói <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    <div class="packs rail">
-      <a class="pk" href="__L_GV__te-bao/"><img src="__L_BASE__covers/te-bao.webp" alt="" loading="lazy"><div><span>Sinh học 10 · 45 phút</span><b>Hành trình của một phân tử protein tiết</b></div></a>
-      <a class="pk" href="__L_GV__than-kinh/"><img src="__L_BASE__covers/than-kinh.webp" alt="" loading="lazy"><div><span>Sinh học 11 · 45 phút</span><b>Xung thần kinh đi như thế nào?</b></div></a>
-      <a class="pk" href="__L_GV__co-loa/"><img src="__L_BASE__covers/co-loa.webp" alt="" loading="lazy"><div><span>Lịch sử 10 · 45 phút</span><b>Thành Cổ Loa: đọc văn minh Âu Lạc từ dấu tích</b></div></a>
+    <div class="gv">
+      <div class="gh">
+        <div><span class="k">Cho giáo viên</span><h2 id="h-gv" class="h2">Mở bài lên, dạy trọn một tiết.</h2></div>
+        <div><p>Gói dạy thử 45 phút: kịch bản theo phút, phiếu học tập in A4, đáp án. Bản thử, chờ giáo viên bộ môn duyệt.</p><a class="bg-btn" href="__L_GV__">Xem các gói</a></div>
+      </div>
+      <div class="pks">
+        <a class="pk" href="__L_GV__te-bao/"><span class="k">Sinh học 10 · 45 phút</span><b>Hành trình của một phân tử protein tiết</b></a>
+        <a class="pk" href="__L_GV__than-kinh/"><span class="k">Sinh học 11 · 45 phút</span><b>Xung thần kinh đi như thế nào?</b></a>
+        <a class="pk" href="__L_GV__co-loa/"><span class="k">Lịch sử 10 · 45 phút</span><b>Thành Cổ Loa: đọc văn minh Âu Lạc từ dấu tích</b></a>
+      </div>
     </div>
-    <div class="tools">
-      <div class="tool"><b>Lên lớp trong mọi bài</b><span>Bấm Lên lớp trên thanh đầu bài hoặc <kbd>Shift P</kbd>. Bút trình chiếu và phím mũi tên chuyển bước.</span></div>
-      <a class="tool" href="__L_REMOTE__"><b>Điện thoại làm điều khiển</b><span>Nhập mã trên màn chiếu để chuyển bước, xem ghi chú và đáp án.</span></a>
-      <a class="tool" href="__L_KIEM__"><b>Kiểm máy trước giờ dạy</b><span>Chạy thử mọi bài trên máy của lớp, biết bài nào nên dùng mức nhẹ.</span></a>
-      <a class="tool" href="https://github.com/nclamvn/bai-giang/releases/latest" target="_blank" rel="noopener"><b>Bản offline</b><span>Tế Bào và Ty Thể, mỗi bài một tệp HTML, mở bằng Chrome hoặc Edge, không cần Internet.</span></a>
+    <div class="cols">
+      <div class="col s"><b>Lên lớp trong mọi bài</b><span class="d">Bấm Lên lớp trên thanh đầu bài hoặc <kbd>Shift P</kbd>. Bút trình chiếu và phím mũi tên chuyển bước.</span></div>
+      <a class="col s" href="__L_REMOTE__"><b>Điện thoại làm điều khiển</b><span class="d">Nhập mã trên màn chiếu để chuyển bước, xem ghi chú và đáp án.</span></a>
+      <a class="col s" href="__L_KIEM__"><b>Kiểm máy trước giờ dạy</b><span class="d">Chạy thử mọi bài trên máy của lớp, biết bài nào nên dùng mức nhẹ.</span></a>
+      <a class="col s" href="https://github.com/nclamvn/bai-giang/releases/latest" target="_blank" rel="noopener"><b>Bản offline</b><span class="d">Tế Bào và Ty Thể, mỗi bài một tệp HTML, mở bằng Chrome hoặc Edge, không cần Internet.</span></a>
     </div>
   </section>
 
   <section id="thu-vien" aria-labelledby="h-tv">
-    <div class="sh"><div><h2 id="h-tv" class="bg-h2">Thư viện __NLIB__ bài thí nghiệm</h2><p>Vật lí, Hoá học, Sinh học, Địa lí. Mỗi bài đối chiếu với yêu cầu cần đạt của chương trình.</p></div><a class="more" href="__L_LIBPAGE__">Mở thư viện <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    <div class="subjs rail">
+    <div class="sh2"><h2 id="h-tv" class="h2">Thư viện __NLIB__ bài thí nghiệm</h2><p class="lede">Vật lí, Hoá học, Sinh học, Địa lí. Mỗi bài đối chiếu với yêu cầu cần đạt của chương trình. <a class="tl" href="__L_LIBPAGE__">Mở thư viện</a></p></div>
+    <div class="cols">
       __SUBJECTS__
     </div>
   </section>
@@ -99,20 +104,10 @@ __STYLE__
 <script>
 // địa chỉ cũ: thư viện từng nằm ở /#thu-vien (kèm ?mon=…), nay là trang riêng
 if (location.hash === '#thu-vien') location.replace('__L_LIBPAGE__' + location.search);
-// bài học: 7 bài đầu hiện sẵn, các bài còn lại mở bằng nút (điện thoại: cả hàng là băng cuộn ngang)
+// bài giảng: các bài đầu hiện sẵn, các bài còn lại mở bằng nút
 { const g = document.getElementById('lessons'), b = document.getElementById('showall');
   b.addEventListener('click', () => { const open = g.classList.toggle('collapsed') === false; b.setAttribute('aria-expanded', String(open)); b.textContent = open ? 'Thu gọn' : b.dataset.t; });
   b.dataset.t = b.textContent; }
-// ảnh màn đầu: đổi chậm, dừng khi rê chuột hoặc khi máy đặt giảm chuyển động; chú thích dưới ảnh theo ảnh đang hiện
-{ const figs = [...document.querySelectorAll('#show figure')], dots = document.getElementById('dots'), cap = document.getElementById('showlink'); let k = 0, hold = false;
-  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  const set = (i) => { k = (i + figs.length) % figs.length; figs.forEach((f, j) => f.classList.toggle('on', j === k)); dots.querySelectorAll('button').forEach((b, j) => b.setAttribute('aria-current', String(j === k)));
-    const f = figs[k]; cap.href = f.dataset.href; cap.innerHTML = `${esc(f.dataset.t)}<span>${esc(f.dataset.s)}</span>`; };
-  dots.innerHTML = figs.map((f, j) => `<button role="tab" aria-label="Ảnh ${j + 1}: ${esc(f.dataset.t)}"><i></i></button>`).join('');
-  dots.querySelectorAll('button').forEach((b, j) => b.addEventListener('click', () => { set(j); hold = true; }));
-  const sh = document.getElementById('show'); sh.addEventListener('pointerenter', () => { hold = true; }); sh.addEventListener('pointerleave', () => { hold = false; });
-  sh.addEventListener('click', () => { location.href = figs[k].dataset.href; }); sh.style.cursor = 'pointer';
-  set(0); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => { if (!hold && !document.hidden) set(k + 1); }, 6000); }
 </script>
 </body>
 </html>

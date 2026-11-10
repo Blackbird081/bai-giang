@@ -40,23 +40,6 @@ img{display:block;max-width:100%}
 .nav a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:var(--bg-r-sm);text-decoration:none;font-weight:600;color:var(--bg-ink2);white-space:nowrap}
 .nav a:hover{background:var(--bg-hair);color:var(--bg-ink)}
 .nav a[aria-current="page"]{color:var(--bg-ink);background:var(--bg-hair)}
-/* màn đầu: chữ 5 phần, ảnh 7 phần; ảnh là bài thật, đổi chậm */
-.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center;padding:64px 0 24px}
-.hero h1{margin:16px 0 20px;max-width:15ch}
-.hero .bg-lead{margin:0;max-width:44ch}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.show{position:relative;aspect-ratio:3/2;border-radius:var(--bg-r-lg);overflow:hidden;background:#e4e6eb}
-.show figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.2s var(--bg-ease-io)}
-.show figure.on{opacity:1}
-.show img{width:100%;height:100%;object-fit:cover}
-.showcap{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:14px;min-height:28px}
-.showcap a{text-decoration:none;font-weight:600;color:var(--bg-ink)}
-.showcap a span{color:var(--bg-ink3);font-weight:500;margin-left:8px}
-.dots{display:flex;gap:2px}
-.dots button{width:22px;height:28px;border:0;background:none;cursor:pointer;display:grid;place-items:center;padding:0}
-.dots button i{width:6px;height:6px;border-radius:3px;background:var(--bg-hair2);transition:width var(--bg-t-mid) var(--bg-ease),background-color var(--bg-t-mid)}
-.dots button[aria-current="true"] i{background:var(--bg-ink);width:18px}
-@media (pointer:coarse){.dots button{width:36px;height:44px}}
 /* mục */
 section{padding:56px 0 16px}
 .sh{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:0 0 24px}
@@ -77,15 +60,6 @@ section{padding:56px 0 16px}
 .card h3 a{text-decoration:none}
 .card h3 a::after{content:"";position:absolute;inset:0;z-index:0}
 .card p{margin:0;color:var(--bg-ink2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-/* bài nổi bật: chiếm hai cột, ảnh lớn bên trái */
-.card.big{grid-column:span 2;flex-direction:row}
-.card.big .cv{flex:1.35;aspect-ratio:auto;min-height:100%}
-.card.big .bd{flex:1;align-content:center;padding:32px;gap:10px}
-.card.big h3{font:600 var(--bg-fs-2xl)/1.15 var(--bg-serif);letter-spacing:-.015em}
-.card.big p{-webkit-line-clamp:4;font-size:var(--bg-fs-md)}
-.card.big .go{position:relative;z-index:1;margin-top:12px;justify-self:start}
-.grid.collapsed>.x{display:none}
-.showall{display:flex;justify-content:center;margin-top:32px}
 /* yêu cầu cần đạt trong thẻ thư viện: một dòng chữ, không viên thuốc */
 .card .gd{position:relative;z-index:1;margin-top:10px;padding-top:12px;border-top:1px solid var(--bg-hair);font-size:var(--bg-fs-xs);color:var(--bg-ink3)}
 .card .gd .tags{display:block;font-weight:600;color:var(--bg-ink2);line-height:1.45}
@@ -94,37 +68,6 @@ section{padding:56px 0 16px}
 .card .gd summary{font-size:var(--bg-fs-xs)}
 .card details ul{margin:6px 0 0;padding-left:18px;display:grid;gap:6px;color:var(--bg-ink2)}
 .card details .mu{color:var(--bg-ink3);margin-top:8px;font-weight:600}
-/* lộ trình */
-.routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
-.route{display:grid;grid-template-columns:112px 1fr;gap:20px;align-items:center;padding:16px;border-radius:var(--bg-r-md);background:var(--bg-surface);box-shadow:var(--bg-sh-1);text-decoration:none;transition:box-shadow var(--bg-t-mid)}
-.route:hover{box-shadow:var(--bg-sh-2)}
-.route img{width:112px;aspect-ratio:1;object-fit:cover;border-radius:var(--bg-r-sm)}
-.route .k{font-size:var(--bg-fs-xs);font-weight:500;color:var(--bg-ink3)}
-.route b{display:block;font-size:var(--bg-fs-lg);letter-spacing:-.01em;margin:2px 0 4px}
-.route span.d{color:var(--bg-ink2)}
-/* giáo viên */
-.packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.pk{display:flex;flex-direction:column;border-radius:var(--bg-r-md);background:var(--bg-surface);box-shadow:var(--bg-sh-1);overflow:hidden;text-decoration:none;transition:box-shadow var(--bg-t-mid)}
-.pk:hover{box-shadow:var(--bg-sh-2)}
-.pk img{width:100%;aspect-ratio:2/1;object-fit:cover}
-.pk div{padding:14px 18px 18px;display:grid;gap:4px}
-.pk span{font-size:var(--bg-fs-xs);font-weight:500;color:var(--bg-ink3)}
-.pk b{font-size:var(--bg-fs-md);line-height:1.35}
-.tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:24px;border-top:1px solid var(--bg-hair)}
-.tool{display:grid;gap:6px;align-content:start;padding:20px 24px 4px 0;text-decoration:none}
-.tool b{font-size:var(--bg-fs-sm);display:flex;align-items:center;gap:8px}
-.tool span{color:var(--bg-ink2);font-size:var(--bg-fs-xs);line-height:1.55}
-a.tool:hover b{text-decoration:underline;text-underline-offset:3px}
-.tool kbd{font:600 12px var(--bg-mono);background:var(--bg-surface);border:1px solid var(--bg-hair);border-radius:6px;padding:0 5px}
-/* thư viện trên trang chính: bốn môn */
-.subjs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
-.subj{position:relative;display:block;border-radius:var(--bg-r-md);overflow:hidden;background:var(--bg-surface);box-shadow:var(--bg-sh-1);text-decoration:none;transition:box-shadow var(--bg-t-mid)}
-.subj:hover{box-shadow:var(--bg-sh-2)}
-.subj img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.subj div{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:14px 18px 16px}
-.subj b{font-size:var(--bg-fs-md);display:flex;align-items:center;gap:8px}
-.subj b i{width:7px;height:7px;border-radius:50%}
-.subj span{font-size:var(--bg-fs-xs);color:var(--bg-ink3)}
 /* bộ lọc thư viện */
 .libhead{padding:48px 0 8px}
 .libhead h1{margin:8px 0 12px}
@@ -146,28 +89,12 @@ a.tool:hover b{text-decoration:underline;text-underline-offset:3px}
 .foot a:hover{color:var(--bg-ink2);border-color:currentColor}
 body.bg-hub .foot details>summary{display:inline-flex;min-height:28px;font:inherit;color:inherit}
 .foot ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:2px;max-width:100ch}
-@media (max-width:1100px){.packs,.subjs{grid-template-columns:repeat(2,minmax(0,1fr))}.tools{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:980px){.hero{grid-template-columns:1fr;gap:28px;padding:32px 0 8px}.card.big{grid-column:1/-1;flex-direction:column}.card.big .cv{aspect-ratio:3/2;flex:none;min-height:0}.card.big .bd{padding:20px 18px 22px}}
 @media (max-width:640px){
   .top .wrap{gap:4px}.brand span,.nav .lt,.nav .xl,.crumbs{display:none}.nav .sm{display:inline}.nav a{padding:0 10px}
-  .hero{padding:24px 0 0}.hero h1{margin:10px 0 12px}.cta{margin-top:20px}.cta .bg-btn{flex:1}
-  .showcap .dots{display:none}
   section{padding:36px 0 8px}.sh{flex-direction:column;align-items:start;gap:4px;margin-bottom:16px}
-  .card.big h3{font-size:var(--bg-fs-xl)}
-  /* điện thoại: bài học và môn là băng cuộn ngang, không phải cột dài */
-  .rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--bg-gutter);margin:0 calc(-1 * var(--bg-gutter));padding:4px var(--bg-gutter) 16px;scrollbar-width:none}
-  .rail::-webkit-scrollbar{display:none}
-  .rail>*{flex:0 0 78%;scroll-snap-align:start}
-  .rail>.card.big{flex-basis:88%}
-  .rail{align-items:flex-start}
-  .grid.collapsed>.x{display:flex}.showall{display:none}
-  .packs,.subjs,.tools{grid-template-columns:1fr}
-  .subjs.rail>*{flex-basis:62%}
-  .route{grid-template-columns:80px 1fr;gap:14px}.route img{width:80px}
   .row{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:2px 16px}.row::-webkit-scrollbar{display:none}.chip{flex:none}.count{display:none}
-  .grid:not(.rail){grid-template-columns:1fr;gap:16px}
+  .grid{grid-template-columns:1fr;gap:16px}
 }
-@media (prefers-reduced-motion:reduce){.show figure{transition:none}}
 html[data-chieu]{--bg-ink2:#141414;--bg-ink3:#262626}
 
 </style>

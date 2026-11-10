@@ -58,32 +58,35 @@ FEATURED = [
 
 CSS = (ROOT / 'tools/trang-chinh.css').read_text(encoding='utf-8')
 LIB_TPL = (ROOT / 'tools/thu-vien.template.html').read_text(encoding='utf-8')
-N_SHOWN = 7  # bài nổi bật + 6 bài chọn; các bài sau mở bằng nút "Xem cả … bài"
+N_SHOWN = 8  # số bài hiện sẵn trong mục lục; các bài sau mở bằng nút "Xem cả … bài"
+HERO = 'than-kinh'  # bìa của bài đứng làm hình lớn duy nhất ở màn đầu
+HERO_ALT = 'Neuron phát sáng với bao myelin chia đốt và chuỳ synapse trên nền tối'
+# trang chủ dùng Noto Serif 400 cho tiêu đề; các trang khác chỉ cần 600 (design/house.css) nên khai báo riêng ở đây
+U = json.loads((ROOT / 'design/tokens.json').read_text(encoding='utf-8'))['unicode']
+HOME_CSS = '\n'.join(f"@font-face{{font-family:'Noto Serif';font-style:normal;font-weight:400;font-display:swap;src:url(__L_ROOT__design/fonts/noto-serif-{u}-400-normal.woff2) format('woff2');unicode-range:{U[u]}}}" for u in ('latin', 'vietnamese')) + '\n' + (ROOT / 'tools/trang-chu.css').read_text(encoding='utf-8')
+
+
+def hero():
+    """Hình lớn duy nhất của trang chủ: một bài, ảnh tràn khung, chú thích một dòng bên dưới."""
+    href, cov, _, mon, lv, title, desc = next(f for f in FEATURED if f[1] == HERO)
+    return f'''<a class="feat" href="{href}" aria-label="{E(title)}, vào bài"><div class="im"><img src="__L_BASE__covers/{cov}.webp" alt="{E(HERO_ALT)}" fetchpriority="high"></div>
+    <div class="fc"><b>{E(title)}</b><span class="d">{E(desc)}</span><span class="k">{E(mon)} · {E(lv)}</span></div></a>'''
 
 
 def featured():
-    """Một mẫu thẻ: ảnh, môn · lớp, tên, một ý. Bài đầu là bài nổi bật cỡ lớn; từ bài thứ 8 ẩn tới khi bấm nút."""
+    """Mục lục bài giảng: mỗi bài một dòng (ảnh nhỏ, tên, một ý, môn · lớp); từ bài thứ N_SHOWN + 1 ẩn tới khi bấm nút."""
     out = []
     for k, (href, cov, sk, mon, lv, title, desc) in enumerate(FEATURED):
-        cls = 'card big' if k == 0 else ('card x' if k >= N_SHOWN else 'card')
-        go = f'<a class="bg-btn sm go" href="{href}" tabindex="-1" aria-hidden="true">Vào bài</a>' if k == 0 else ''
-        out.append(f'''<article class="{cls}"><div class="cv"><img src="__L_BASE__covers/{cov}.webp" alt="" loading="{'eager' if k == 0 else 'lazy'}"></div>
-        <div class="bd"><div class="mt"><i style="background:var(--bg-s-{sk})"></i><span>{E(mon)} · {E(lv)}</span></div>
-        <h3><a href="{href}">{E(title)}</a></h3><p>{E(desc)}</p>{go}</div></article>''')
+        out.append(f'''<a class="bai{' x' if k >= N_SHOWN else ''}" href="{href}"><img src="__L_BASE__covers/{cov}.webp" alt="" loading="lazy" width="88" height="66"><b>{E(title)}</b><span class="d">{E(desc)}</span><span class="k">{E(mon)} · {E(lv)}</span></a>''')
     return '\n      '.join(out)
 
 
-SUBJ_TILES = [('phys', 'ly', 'Vật lí', 'centripetal-step'), ('chem', 'hoa', 'Hoá học', 'blast-furnace-step'), ('bio', 'sinh', 'Sinh học', 'transport-step'), ('geo', 'dia', 'Địa lí', 'karst-step')]
+SUBJ_TILES = [('phys', 'Vật lí'), ('chem', 'Hoá học'), ('bio', 'Sinh học'), ('geo', 'Địa lí')]
 
 
 def subjects(libpage):
-    """Bốn môn của thư viện trên trang chính: ảnh một bài tiêu biểu, số bài, dẫn vào thư viện đã lọc theo môn."""
-    out = []
-    for sub, sk, name, slug in SUBJ_TILES:
-        lst = [c for c in CAT if c['subject'] == sub]
-        cov = next((c['cover'] for c in lst if c['slug'] == slug), lst[0]['cover'])
-        out.append(f'<a class="subj" href="{libpage}?mon={sub}"><img src="__L_BASE__{cov}" alt="" loading="lazy"><div><b><i style="background:var(--bg-s-{sk})"></i>{name}</b><span>{len(lst)} bài</span></div></a>')
-    return '\n      '.join(out)
+    """Bốn môn của thư viện trên trang chính: tên môn, số bài, dẫn vào thư viện đã lọc theo môn."""
+    return '\n      '.join(f'<a class="col" href="{libpage}?mon={sub}"><span class="k">{sum(c["subject"] == sub for c in CAT)} bài</span><b>{name}</b></a>' for sub, name in SUBJ_TILES)
 
 
 def catalog_json():
@@ -100,7 +103,7 @@ def fill(s):
 
 def library(links):
     """Trang chính (tên hàm giữ từ khi thư viện còn nằm trong trang chính)."""
-    s = TPL.replace('__STYLE__', CSS).replace('__SOURCES__', sources_html()).replace('__FEATURED__', featured())
+    s = TPL.replace('__STYLE__', CSS + HOME_CSS).replace('__SOURCES__', sources_html()).replace('__FEATURED__', featured()).replace('__HERO__', hero())
     s = s.replace('__N3D__', str(len(FEATURED))).replace('__NLIB__', str(len(CAT))).replace('__SUBJECTS__', subjects(links['__L_LIBPAGE__']))
     for k, v in links.items(): s = s.replace(k, v)
     return fill(s)
