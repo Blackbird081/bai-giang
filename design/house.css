@@ -30,7 +30,7 @@ body{font-family:var(--bg-font);color:var(--bg-ink);font-size:var(--bg-fs-sm);li
 h1,h2,h3{text-wrap:balance}
 p,li{text-wrap:pretty}
 /* màn cảm ứng (máy tính bảng, điện thoại): vùng chạm từ 44 px cho nút chữ và dòng mở rộng */
-@media (pointer:coarse){a.btn,button.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}summary,body.bg-hub details>summary{padding-block:12px;min-height:44px;box-sizing:border-box}h2>a:only-child,h3>a:only-child{display:inline-flex;align-items:center;min-height:44px}}
+@media (pointer:coarse){a.btn,button.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}summary,html body.bg-hub details>summary{padding-block:12px;min-height:44px;box-sizing:border-box}h2>a:only-child,h3>a:only-child{display:inline-flex;align-items:center;min-height:44px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
 
 /* khung trang mục (body.bg-hub): một độ rộng, một mép trái, một thang tiêu đề, một nút chính, một kiểu mục thu gọn.
