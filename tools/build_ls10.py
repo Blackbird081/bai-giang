@@ -103,14 +103,13 @@ def build(hub, coloa, cover):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F5F5F7">
+<meta name="theme-color" content="#F3EFE6">
 <title>Lịch Sử 10</title>
 <meta name="description" content="Lộ trình bài giảng 3D Lịch sử lớp 10 theo chương trình GDPT 2018 (sửa đổi 2025), dùng chung cho ba bộ sách; yêu cầu cần đạt trích nguyên văn; bài mẫu Thành Cổ Loa.">
 {LG.font_link(hub)}
 <style>
 {css}
 *{{box-sizing:border-box}} body{{margin:0;line-height:1.6;font-size:15px;font-family:var(--bg-font)}}
-{LG.SITE_BAR_CSS}
 .muc.du .canh{{color:var(--bg-ink3)}} .muc.du h4{{font-weight:600}}
 a{{color:var(--accent2)}}
 .wrap{{max-width:1080px;margin:0 auto;padding:28px 18px 60px;display:grid;gap:20px}}
@@ -132,7 +131,7 @@ h2.sec{{margin:28px 0 0}} .feat .bg-btn,.muc .bg-btn{{justify-self:start;margin-
 .cd{{padding:18px 20px;display:grid;gap:10px}}
 .ch{{display:flex;gap:14px;align-items:center}}
 .ch .no{{width:32px;height:32px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;color:#fff;background:var(--bg-ink)}}
-.ch h3{{margin:0;font-size:20px;letter-spacing:-.015em}}
+.ch h3{{margin:0;font:400 24px/1.2 var(--bg-serif);letter-spacing:-.012em}}
 .muc{{border-top:1px solid var(--line);padding:10px 0 4px;display:grid;gap:5px}}
 .muc .mh{{display:flex;justify-content:space-between;gap:10px;align-items:baseline}}
 .muc h4{{margin:0;font-size:15.5px}}

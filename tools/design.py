@@ -122,7 +122,7 @@ body{font-family:var(--bg-font);color:var(--bg-ink);font-size:var(--bg-fs-sm);li
 h1,h2,h3{text-wrap:balance}
 p,li{text-wrap:pretty}
 /* màn cảm ứng (máy tính bảng, điện thoại): vùng chạm từ 44 px cho nút chữ và dòng mở rộng */
-@media (pointer:coarse){a.btn,button.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}summary{padding-block:12px}h2>a:only-child,h3>a:only-child{display:inline-flex;align-items:center;min-height:44px}}
+@media (pointer:coarse){a.btn,button.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}summary{padding-block:12px;min-height:44px;box-sizing:border-box}h2>a:only-child,h3>a:only-child{display:inline-flex;align-items:center;min-height:44px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
 
 /* khung trang mục (body.bg-hub): một độ rộng, một mép trái, một thang tiêu đề, một nút chính, một kiểu mục thu gọn.
@@ -148,6 +148,19 @@ body.bg-hub .bg-h3{font:400 var(--bg-fs-xl)/1.2 var(--bg-serif);letter-spacing:-
 .bg-btn.sm{height:36px;padding:0 16px;font-size:14px}
 .bg-btn:disabled{background:var(--bg-hair);border-color:transparent;color:var(--bg-ink3);cursor:not-allowed}
 .bg-btn .bg-ico{width:18px;height:18px}
+/* thanh trên của trang mục (tools/liquid_glass.py: site_bar) */
+.sitebar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg-page) 88%,transparent);-webkit-backdrop-filter:var(--bg-blur);backdrop-filter:var(--bg-blur);font-family:var(--bg-font)}
+.sitebar .in{display:flex;align-items:center;gap:16px;height:var(--bg-bar)}
+.sitebar .brand{display:flex;align-items:center;justify-content:center;gap:10px;font:400 20px/1 var(--bg-serif);color:var(--bg-ink);text-decoration:none;min-height:44px;min-width:44px;letter-spacing:-.01em;flex:none}
+.sitebar .brand img{width:32px;height:32px;display:block}
+.sitebar .crumbs{display:flex;align-items:center;gap:8px;min-width:0;color:var(--bg-ink3);font-size:15px}
+.sitebar .crumbs a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;min-height:44px;white-space:nowrap}.sitebar .crumbs a:hover{color:var(--bg-ink)}
+.sitebar .crumbs b{color:var(--bg-ink);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sitebar nav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.sitebar nav a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:var(--bg-r-sm);text-decoration:none;font-weight:500;color:var(--bg-ink2);white-space:nowrap}
+.sitebar nav a:hover{background:var(--bg-hair);color:var(--bg-ink)}
+@media (max-width:900px){.sitebar nav{display:none}}
+@media (max-width:760px){.sitebar .in{gap:8px}.sitebar .brand span{display:none}}
 body.bg-hub details>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:36px;font:600 14px/1.3 var(--bg-font);color:var(--bg-ink2)}
 body.bg-hub details>summary::-webkit-details-marker{display:none}
 body.bg-hub details>summary::marker{content:""}

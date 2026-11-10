@@ -74,7 +74,7 @@ for (const name of names) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#F3EFE6">
 <title>${meta.title}</title>
 <meta name="description" content="${meta.description}">
 ${pre}</head>

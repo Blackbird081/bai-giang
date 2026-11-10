@@ -78,7 +78,7 @@ footer{font-size:13px;line-height:1.55;color:var(--lg-muted);border-top:1px soli
   --lg-font:var(--bg-font,"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif);
   --lg-ink:var(--bg-ink,#1D1B16); --lg-ink2:var(--bg-ink2,#454A55); --lg-muted:var(--bg-ink3,#626773);
 
-  --paper:var(--bg-page); --panel:#FFFFFF; --ink:var(--bg-ink); --ink2:var(--bg-ink2); --muted:var(--bg-ink3); --line:rgba(15,23,42,.08); --f-body:var(--lg-font); --f-mono:var(--lg-font); --r:22px;
+  --paper:var(--bg-page); --panel:var(--bg-surface); --ink:var(--bg-ink); --ink2:var(--bg-ink2); --muted:var(--bg-ink3); --line:rgba(15,23,42,.08); --f-body:var(--lg-font); --f-mono:var(--lg-font); --r:22px;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]),:root[data-theme]{
@@ -96,7 +96,7 @@ footer{font-size:13px;line-height:1.55;color:var(--lg-muted);border-top:1px soli
   --lg-font:var(--bg-font,"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif);
   --lg-ink:var(--bg-ink,#1D1B16); --lg-ink2:var(--bg-ink2,#454A55); --lg-muted:var(--bg-ink3,#626773);
 
-  --paper:var(--bg-page); --panel:#FFFFFF; --ink:var(--bg-ink); --ink2:var(--bg-ink2); --muted:var(--bg-ink3); --line:rgba(15,23,42,.08); --f-body:var(--lg-font); --f-mono:var(--lg-font); --r:22px;
+  --paper:var(--bg-page); --panel:var(--bg-surface); --ink:var(--bg-ink); --ink2:var(--bg-ink2); --muted:var(--bg-ink3); --line:rgba(15,23,42,.08); --f-body:var(--lg-font); --f-mono:var(--lg-font); --r:22px;
   color-scheme:light;
 }}
 body{background:var(--lg-wash)!important;background-attachment:fixed!important;color:var(--lg-ink);font-family:var(--lg-font);-webkit-font-smoothing:antialiased}
@@ -112,19 +112,6 @@ table{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-
 
 html{background:var(--lg-wash),var(--lg-page);background-attachment:fixed}
 body{background:transparent!important}
-
-
-.sitebar{position:sticky;top:0;z-index:50;background:rgba(243,239,230,.86);-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);border-bottom:1px solid var(--bg-hair,rgba(16,24,40,.1));font-family:var(--bg-font)}
-.sitebar .in{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;height:var(--bg-bar,56px)}
-.sitebar .brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;color:var(--bg-ink,#1D1B16);text-decoration:none;min-height:44px;min-width:44px;letter-spacing:-.01em;flex:none}
-.sitebar .brand img{width:32px;height:32px;display:block}
-.sitebar .crumbs{display:flex;align-items:center;gap:8px;min-width:0;color:var(--bg-ink3,#626773);font-size:15px}
-.sitebar .crumbs a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}.sitebar .crumbs a:hover{color:var(--bg-ink)}
-.sitebar .crumbs b{color:var(--bg-ink);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sitebar nav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
-.sitebar nav a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;text-decoration:none;font-weight:600;color:var(--bg-ink2,#454A55);white-space:nowrap}
-.sitebar nav a:hover{background:var(--bg-hair)}
-@media (max-width:760px){.sitebar .in{padding:0 12px;gap:8px}.sitebar .brand span,.sitebar nav{display:none}.sitebar .crumbs{font-size:15px}}
 
 :root{--muted:var(--bg-ink3);--ink2:var(--bg-ink2);--f-body:var(--bg-font);--f-mono:var(--bg-mono)}
 .wrap{padding-top:32px}

@@ -4,7 +4,7 @@
 <meta name="description" content="Bài 3D Sinh học 10: đi vào một tế bào nhân thực đang hoạt động, theo một phân tử protein tiết từ gen trong nhân tới lúc rời tế bào, phóng liền mạch xuống 222.336 nguyên tử của ribosome thật.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F5F5F7">
+<meta name="theme-color" content="#F3EFE6">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
 /* Layout: bàn soi mẫu vật — đầu trang số liệu, dải nhật ký, khung xem 3D trên nền mẫu sáng, dải trạng thái, ba bảng dữ liệu sống bên dưới; sổ ghi bào quan bên phải. */

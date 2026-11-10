@@ -76,21 +76,6 @@ def logo(root):
     return f'<img src="{root}design/logo/mark-128.webp" alt="" width="32" height="32">'
 
 
-SITE_BAR_CSS = """
-.sitebar{position:sticky;top:0;z-index:50;background:rgba(243,239,230,.86);-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);border-bottom:1px solid var(--bg-hair,rgba(16,24,40,.1));font-family:var(--bg-font)}
-.sitebar .in{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;height:var(--bg-bar,56px)}
-.sitebar .brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;color:var(--bg-ink,#1D1B16);text-decoration:none;min-height:44px;min-width:44px;letter-spacing:-.01em;flex:none}
-.sitebar .brand img{width:32px;height:32px;display:block}
-.sitebar .crumbs{display:flex;align-items:center;gap:8px;min-width:0;color:var(--bg-ink3,#626773);font-size:15px}
-.sitebar .crumbs a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}.sitebar .crumbs a:hover{color:var(--bg-ink)}
-.sitebar .crumbs b{color:var(--bg-ink);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sitebar nav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
-.sitebar nav a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;text-decoration:none;font-weight:600;color:var(--bg-ink2,#454A55);white-space:nowrap}
-.sitebar nav a:hover{background:var(--bg-hair)}
-@media (max-width:760px){.sitebar .in{padding:0 12px;gap:8px}.sitebar .brand span,.sitebar nav{display:none}.sitebar .crumbs{font-size:15px}}
-"""
-
-
 def site_bar(root, crumbs=()):
     """Thanh trên của trang mục: logo về trang chính, đường dẫn hiện tại, các mục chính. crumbs: [(chữ, href hoặc None)]."""
     cr = ''.join((f'<span aria-hidden="true">/</span><a href="{h}">{t}</a>' if h else f'<span aria-hidden="true">/</span><b>{t}</b>') for t, h in crumbs)

@@ -3,7 +3,6 @@
 body.bg-home{--tc-serif:400 1em/1.1 var(--bg-serif)}
 body.bg-home section{padding:clamp(72px,10vw,152px) 0 0}
 body.bg-home .h2{margin:0;font:var(--tc-serif);font-size:clamp(28px,3.4vw,44px);letter-spacing:-.02em;text-wrap:balance}
-body.bg-home .lede{margin:0;font-size:var(--bg-fs-md);line-height:1.65;color:var(--bg-ink2);max-width:52ch}
 body.bg-home .sh2{display:flex;flex-wrap:wrap;align-items:baseline;gap:16px 64px;padding-bottom:40px}
 body.bg-home .sh2>.h2{flex:1 1 360px;min-width:0}
 body.bg-home .sh2 .chips{display:flex;flex-wrap:wrap;gap:8px}

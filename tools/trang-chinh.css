@@ -10,7 +10,7 @@ img{display:block;max-width:100%}
 /* thanh trên */
 .top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg-page) 88%,transparent);-webkit-backdrop-filter:var(--bg-blur);backdrop-filter:var(--bg-blur)}
 .top .wrap{display:flex;align-items:center;gap:16px;height:var(--bg-bar)}
-.brand{display:flex;align-items:center;justify-content:center;gap:10px;font:600 19px/1 var(--bg-serif);text-decoration:none;letter-spacing:-.01em;flex:none;min-height:44px;min-width:44px}
+.brand{display:flex;align-items:center;justify-content:center;gap:10px;font:400 20px/1 var(--bg-serif);text-decoration:none;letter-spacing:-.01em;flex:none;min-height:44px;min-width:44px}
 .brand img{width:32px;height:32px;display:block}
 .crumbs{display:flex;align-items:center;gap:8px;min-width:0;color:var(--bg-ink3);font-size:15px}
 .crumbs a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}.crumbs a:hover{color:var(--bg-ink)}

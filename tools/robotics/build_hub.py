@@ -74,7 +74,7 @@ ROBOTS = [
 ]
 
 CSS = '''
-:root{--bg:#f6f7f9;--paper:#ffffff;--ink:#15171C;--mute:#626773;--line:#e7e9ed;--or:#e3562a}
+:root{--bg:var(--bg-page);--paper:transparent;--ink:var(--bg-ink);--mute:var(--bg-ink3);--line:var(--bg-hair);--or:#e3562a}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--bg-font,system-ui,sans-serif);-webkit-font-smoothing:antialiased;
 }
@@ -89,24 +89,24 @@ a{color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:28px 24px 64px}
 .intro{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start;margin-bottom:30px}
 .intro p{margin:0 0 10px;font-size:16px}
-.how{background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 2px rgba(16,24,40,.04);padding:16px 18px}
+.how{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
 .how ol{margin:8px 0 0;padding-left:20px}.how li{margin:4px 0}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px -12px rgba(16,24,40,.12);overflow:hidden;display:flex;flex-direction:column}
-.card .img{display:block;position:relative;aspect-ratio:16/9;background:#f1f2f5;overflow:hidden}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 28px}
+.card{display:flex;flex-direction:column}
+.card .img{display:block;position:relative;aspect-ratio:16/9;background:#E4DCCB;overflow:hidden;border-radius:14px}
 .card .img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
 .card .img:hover img{transform:scale(1.03)}
 .card .img b{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.94);color:#15171C;font:600 13px var(--bg-mono,"JetBrains Mono",monospace);letter-spacing:.5px;padding:5px 10px;border-radius:8px;box-shadow:0 1px 3px rgba(16,24,40,.12)}
-.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
-.card h2{margin:0;font-size:22px;letter-spacing:-.02em;line-height:1.2}
-.card h2 small{display:block;font:600 13px var(--bg-font);color:#626773;margin-bottom:4px}
+.card .body{padding:16px 2px 0;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h2{margin:0;font:400 26px/1.2 var(--bg-serif);letter-spacing:-.012em}
+.card h2 small{display:block;font:600 13px var(--bg-font);color:var(--bg-ink3);margin-bottom:4px}
 .card p{margin:0}
 .card ul{margin:0;padding-left:18px}.card li{margin:2px 0}
-.nums{font:13px/1.6 "JetBrains Mono",monospace;color:#454A55;background:#f3f4f6;border-radius:8px;padding:8px 12px}
+.nums{font:13px/1.6 "JetBrains Mono",monospace;color:var(--bg-ink2);background:#f3f4f6;border-radius:8px;padding:8px 12px}
 details{border-top:1px solid var(--line);padding-top:8px}
 summary{cursor:pointer;font-weight:600;font-size:14px}
 details ol{margin:8px 0 0;padding-left:20px;font-size:13.5px}details li{margin:3px 0}
-.note{font-size:13px;color:#626773}
+.note{font-size:13px;color:var(--bg-ink3)}
 .go{margin-top:auto;display:inline-flex;align-self:flex-start;align-items:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;font:700 13px "JetBrains Mono",monospace;letter-spacing:1.5px;padding:10px 16px;border-radius:4px}
 .go:hover{background:var(--or)}
 h3.sec{font:700 20px var(--bg-font);letter-spacing:-.01em;margin:40px 0 12px;display:flex;align-items:center;gap:10px}
@@ -121,7 +121,7 @@ h3.sec:before{content:"";width:6px;height:6px;border-radius:50%;background:var(-
 .box p{margin:0 0 8px}.box p:last-child{margin:0}
 table.keys{border-collapse:collapse;width:100%;font-size:13.5px}
 table.keys td{padding:4px 6px;border-bottom:1px solid var(--line);vertical-align:top}
-table.keys td:first-child{font:600 13px "JetBrains Mono",monospace;white-space:nowrap;color:#454A55}
+table.keys td:first-child{font:600 13px "JetBrains Mono",monospace;white-space:nowrap;color:var(--bg-ink2)}
 @media (max-width:860px){.intro,.grid,.cols,.more{grid-template-columns:1fr}.more a{grid-template-columns:120px 1fr}.top h1{font-size:25px}.top .code{padding:0 16px}.wrap{padding:20px 16px 48px}}
 '''
 
@@ -150,13 +150,12 @@ def build(links):
 <title>Robotics</title>
 <meta name="description" content="Sáu bài giảng robotics mô phỏng 3D chạy trực tiếp cho đại học và kỹ sư: cánh tay UR5e, robot sáu chân, chó robot bốn chân, sứa robot, drone Crazyflie, xe tự hành TurtleBot3.">
 {LG.font_link(links['hub'])}
-<style>{CSS}{LG.SITE_BAR_CSS}
-html[data-x]{{}}body{{font-family:var(--bg-font)}}
+<style>{CSS}html[data-x]{{}}body{{font-family:var(--bg-font)}}
 .top{{display:block;padding-top:48px;padding-bottom:8px;border:0;background:none}}
 .top h1{{margin:8px 0 12px}} .top .bg-lead{{margin:0}}
-.card .body{{gap:12px;padding:18px 20px 22px}} .card details ul{{margin:8px 0 10px}} .card details .nums{{margin-bottom:8px}}
+.card .body{{gap:12px}} .card details ul{{margin:8px 0 10px}} .card details .nums{{margin-bottom:8px}}
 .card .body>.bg-btn{{margin-top:auto;align-self:flex-start}}
-h3.sec{{font:700 var(--bg-fs-xl)/1.2 var(--bg-font);letter-spacing:-.015em;margin:56px 0 20px}} h3.sec:before{{display:none}}
+h3.sec{{font:400 clamp(26px,3.2vw,40px)/1.12 var(--bg-serif);letter-spacing:-.02em;margin:96px 0 28px}} h3.sec:before{{display:none}}
 </style>
 </head>
 <body class="bg-hub">

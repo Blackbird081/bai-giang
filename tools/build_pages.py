@@ -68,7 +68,7 @@ N_LABS = 16  # số thí nghiệm hiện sẵn trên trang chính khi chưa ch�
 def hero():
     """Hình lớn duy nhất của trang chủ: một bài, ảnh tràn khung, chú thích một dòng bên dưới."""
     href, cov, _, mon, lv, title, desc = next(f for f in FEATURED if f[1] == HERO)
-    return f'''<a class="feat" href="{href}" aria-label="{E(title)}, vào bài"><div class="im"><img src="__L_BASE__covers/{cov}.webp" alt="{E(HERO_ALT)}" fetchpriority="high"></div>
+    return f'''<a class="feat" href="{href}" aria-label="{E(title)}, vào bài"><div class="im"><img src="__L_BASE__covers/{cov}.webp" alt="{E(HERO_ALT)}" fetchpriority="high" width="960" height="600"></div>
     <div class="fc"><b>{E(title)}</b><span class="d">{E(desc)}</span><span class="k">{E(mon)} · {E(lv)}</span></div></a>'''
 
 
@@ -76,7 +76,7 @@ def featured():
     """Mục lục bài giảng: mỗi bài một dòng (ảnh nhỏ, tên, một ý, môn · lớp); từ bài thứ N_SHOWN + 1 ẩn tới khi bấm nút."""
     out = []
     for k, (href, cov, sk, mon, lv, title, desc) in enumerate(FEATURED):
-        out.append(f'''<a class="bai{' x' if k >= N_SHOWN else ''}" href="{href}"><img src="__L_BASE__covers/{cov}.webp" alt="" loading="lazy" width="88" height="66"><b>{E(title)}</b><span class="d">{E(desc)}</span><span class="k">{E(mon)} · {E(lv)}</span></a>''')
+        out.append(f'''<a class="bai{' x' if k >= N_SHOWN else ''}" href="{href}"><img src="__L_BASE__covers/nho/{cov}.webp" alt="" loading="lazy" width="88" height="66"><b>{E(title)}</b><span class="d">{E(desc)}</span><span class="k">{E(mon)} · {E(lv)}</span></a>''')
     return '\n      '.join(out)
 
 
@@ -185,7 +185,7 @@ def chu_de(links, lesson_href):
     total = n_ok + n_rel + n_no
     src = GD['nguon']['Sinh học'][0]
     LG_CSS = LG.root('''
-  --paper:var(--bg-page); --panel:#FFFFFF; --ink:var(--bg-ink); --ink2:var(--bg-ink2); --muted:var(--bg-ink3); --line:rgba(15,23,42,.08); --f-body:var(--lg-font); --f-mono:var(--lg-font); --r:22px;
+  --paper:var(--bg-page); --panel:var(--bg-surface); --ink:var(--bg-ink); --ink2:var(--bg-ink2); --muted:var(--bg-ink3); --line:rgba(15,23,42,.08); --f-body:var(--lg-font); --f-mono:var(--lg-font); --r:22px;
 ''') + LG.BODY + 'html{background:var(--lg-page)} header h1{letter-spacing:-.025em} .lbl{font-weight:600;letter-spacing:.07em} .kpi b{font-variant-numeric:tabular-nums}\n' \
         + LG.glass('.kpi div,.step', 'var(--lg-r)') + LG.glass('table', 'var(--lg-r)') + LG.pill_buttons('.btn,.chip', '.btn.pri') \
         + '.chip[aria-pressed="true"]{background:var(--bg-ink)!important;color:#fff!important}.ask{border-left:0;border-radius:12px;background:var(--bg-page)} th{background:rgba(255,255,255,.5)} .step .vis img{border-radius:16px}\n'
@@ -249,7 +249,6 @@ td:first-child{{width:24%;color:var(--ink2);font-size:13px}} td:last-child{{widt
 footer{{font-size:13px;line-height:1.55;color:var(--lg-muted);border-top:1px solid var(--lg-hair);margin-top:24px;padding:20px 4px 8px;display:grid;gap:6px}} footer a{{color:inherit;text-decoration:underline;text-decoration-color:rgba(110,110,115,.35);text-underline-offset:2px}} footer b{{font-weight:600;color:var(--lg-ink2)}}
 {LG_CSS}
 {LG.PAPER_CSS}
-{LG.SITE_BAR_CSS}
 :root{{--muted:var(--bg-ink3);--ink2:var(--bg-ink2);--f-body:var(--bg-font);--f-mono:var(--bg-mono)}}
 .wrap{{padding-top:32px}}
 @media (max-width:640px){{.wrap{{padding:max(12px,env(safe-area-inset-top)) 14px calc(36px + env(safe-area-inset-bottom));gap:16px}} header h1{{font-size:28px}} header p{{font-size:15px}} .nav .btn{{font-size:14px;padding:0 14px;min-height:44px}} .kpi{{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}} .kpi div{{padding:10px 12px}} .kpi b{{font-size:22px}} .step{{padding:12px;gap:10px;border-radius:20px}} .step h3{{font-size:17.5px}} .ycd ul{{font-size:13.5px}} table{{font-size:13px}} th,td{{padding:8px 10px}}}}
