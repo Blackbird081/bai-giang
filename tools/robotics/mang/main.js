@@ -94,7 +94,7 @@ const isCmp = () => document.body.classList.contains('cmp');
 const galCols = () => (isCmp() && innerWidth < innerHeight ? 2 : 4); // màn dọc: bộ sưu tập 2 cột
 // tên loài cho màn hẹp (bảng bên bị ẩn)
 const mobName = document.createElement('div'); mobName.className = 'mang-mob'; app.appendChild(mobName);
-document.head.insertAdjacentHTML('beforeend', `<style>.mang-mob{display:none;position:absolute;left:12px;top:160px;z-index:5;font:600 13px/1.35 'Be Vietnam Pro',system-ui,sans-serif;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5);pointer-events:none;max-width:70vw}body.cmp .mang-mob{display:block}.mang-mob i{font-style:normal;opacity:.75;font-weight:500}</style>`);
+document.head.insertAdjacentHTML('beforeend', `<style>.mang-mob{display:none;position:absolute;left:12px;top:180px;z-index:5;font:600 13px/1.35 'Be Vietnam Pro',system-ui,sans-serif;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5);pointer-events:none;max-width:70vw}body.cmp .mang-mob{display:block}.mang-mob i{font-style:normal;opacity:.75;font-weight:500}</style>`);
 const shown = (id) => (S.gallery ? true : S.compare ? CORE.has(id) : id === S.sel);
 
 // ---------------- bảng: khung bể ở giữa, ngoài khung là nền trắng của nhà
