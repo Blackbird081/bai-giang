@@ -64,6 +64,9 @@ body.bgs-on .turn{display:none!important}
 body.bgs-nav-on .mob.cap{left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));width:auto;bottom:calc(76px + env(safe-area-inset-bottom));max-height:40svh}
 body.bgs-nav-on .mob .row{flex-wrap:nowrap;overflow-x:auto}
 @media (orientation:landscape) and (max-height:520px){.mob.cap,body.bgs-nav-on .mob.cap{left:auto;right:max(8px,env(safe-area-inset-right));width:min(46vw,440px);top:calc(var(--bg-bar,48px) + 8px);bottom:auto;max-height:calc(100svh - var(--bg-bar,48px) - 16px)}}
+/* điện thoại ngang: thẻ lời giảng dừng trên thanh bước; hàng nút của thẻ luôn nằm trong tầm mắt */
+@media (orientation:landscape) and (max-height:520px){body.bgs-nav-on .mob.cap{max-height:calc(100svh - var(--bg-bar,48px) - 88px - env(safe-area-inset-bottom))}}
+.mob.cap .row{position:sticky;bottom:-14px;margin-bottom:-14px;padding:8px 0 14px;background:#fff}
 html[data-chieu] .mob.cap{background:#fff}html[data-chieu] .mob.cap .b{font-size:18px;color:#000}html[data-chieu] .mob.cap .t{font-size:24px}
 /* thanh tốc độ chuẩn của bộ robotics: tạm dừng, 0,5× đến 10×, như trò chơi chiến thuật */
 .lv-time{position:fixed;z-index:21;right:16px;top:calc(var(--bg-bar,0px) + 12px + env(safe-area-inset-top));display:none;align-items:center;gap:2px;padding:4px;border-radius:999px;background:rgba(255,255,255,.96);box-shadow:0 10px 26px -18px rgba(16,24,40,.45),0 0 0 .5px rgba(16,24,40,.08);font:600 13px var(--bg-font,system-ui,sans-serif);color:#1D1B16}
@@ -74,6 +77,8 @@ body.cmp .lv-time{display:flex}
 .lv-time button.on{background:#1D1B16;color:#fff}
 @media (pointer:coarse){.lv-time button{height:44px;min-width:44px}}
 @media (max-width:520px){.lv-time .lb{display:none}.lv-time button{min-width:44px;padding:0 6px}}
+/* điện thoại ngang: nửa phải là thẻ lời giảng, nên thanh tốc độ sang trái, phía trên hàng Tháo */
+@media (orientation:landscape) and (max-height:520px){.lv-time{right:auto;left:max(8px,env(safe-area-inset-left))}.lv-time .lb{display:none}}
 /* thẻ soi chi tiết: bấm vào một chi tiết trong cảnh, camera bám theo nó */
 .lv-insp{position:fixed;z-index:21;right:16px;top:calc(var(--bg-bar,0px) + 64px + env(safe-area-inset-top));width:min(340px,calc(100vw - 32px));display:none;box-sizing:border-box;padding:14px 16px 12px;border-radius:14px;background:rgba(255,255,255,.97);box-shadow:0 18px 44px -18px rgba(16,24,40,.34),0 0 0 .5px rgba(16,24,40,.08);font-family:var(--bg-font,system-ui,sans-serif);color:#1D1B16;max-height:calc(100svh - var(--bg-bar,0px) - 96px);overflow:auto}
 .lv-insp.on{display:block}

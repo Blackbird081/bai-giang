@@ -4807,6 +4807,9 @@ body.bgs-on .turn{display:none!important}
 body.bgs-nav-on .mob.cap{left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));width:auto;bottom:calc(76px + env(safe-area-inset-bottom));max-height:40svh}
 body.bgs-nav-on .mob .row{flex-wrap:nowrap;overflow-x:auto}
 @media (orientation:landscape) and (max-height:520px){.mob.cap,body.bgs-nav-on .mob.cap{left:auto;right:max(8px,env(safe-area-inset-right));width:min(46vw,440px);top:calc(var(--bg-bar,48px) + 8px);bottom:auto;max-height:calc(100svh - var(--bg-bar,48px) - 16px)}}
+/* \u0111i\u1EC7n tho\u1EA1i ngang: th\u1EBB l\u1EDDi gi\u1EA3ng d\u1EEBng tr\xEAn thanh b\u01B0\u1EDBc; h\xE0ng n\xFAt c\u1EE7a th\u1EBB lu\xF4n n\u1EB1m trong t\u1EA7m m\u1EAFt */
+@media (orientation:landscape) and (max-height:520px){body.bgs-nav-on .mob.cap{max-height:calc(100svh - var(--bg-bar,48px) - 88px - env(safe-area-inset-bottom))}}
+.mob.cap .row{position:sticky;bottom:-14px;margin-bottom:-14px;padding:8px 0 14px;background:#fff}
 html[data-chieu] .mob.cap{background:#fff}html[data-chieu] .mob.cap .b{font-size:18px;color:#000}html[data-chieu] .mob.cap .t{font-size:24px}
 /* thanh t\u1ED1c \u0111\u1ED9 chu\u1EA9n c\u1EE7a b\u1ED9 robotics: t\u1EA1m d\u1EEBng, 0,5\xD7 \u0111\u1EBFn 10\xD7, nh\u01B0 tr\xF2 ch\u01A1i chi\u1EBFn thu\u1EADt */
 .lv-time{position:fixed;z-index:21;right:16px;top:calc(var(--bg-bar,0px) + 12px + env(safe-area-inset-top));display:none;align-items:center;gap:2px;padding:4px;border-radius:999px;background:rgba(255,255,255,.96);box-shadow:0 10px 26px -18px rgba(16,24,40,.45),0 0 0 .5px rgba(16,24,40,.08);font:600 13px var(--bg-font,system-ui,sans-serif);color:#1D1B16}
@@ -4817,6 +4820,8 @@ body.cmp .lv-time{display:flex}
 .lv-time button.on{background:#1D1B16;color:#fff}
 @media (pointer:coarse){.lv-time button{height:44px;min-width:44px}}
 @media (max-width:520px){.lv-time .lb{display:none}.lv-time button{min-width:44px;padding:0 6px}}
+/* \u0111i\u1EC7n tho\u1EA1i ngang: n\u1EEDa ph\u1EA3i l\xE0 th\u1EBB l\u1EDDi gi\u1EA3ng, n\xEAn thanh t\u1ED1c \u0111\u1ED9 sang tr\xE1i, ph\xEDa tr\xEAn h\xE0ng Th\xE1o */
+@media (orientation:landscape) and (max-height:520px){.lv-time{right:auto;left:max(8px,env(safe-area-inset-left))}.lv-time .lb{display:none}}
 /* th\u1EBB soi chi ti\u1EBFt: b\u1EA5m v\xE0o m\u1ED9t chi ti\u1EBFt trong c\u1EA3nh, camera b\xE1m theo n\xF3 */
 .lv-insp{position:fixed;z-index:21;right:16px;top:calc(var(--bg-bar,0px) + 64px + env(safe-area-inset-top));width:min(340px,calc(100vw - 32px));display:none;box-sizing:border-box;padding:14px 16px 12px;border-radius:14px;background:rgba(255,255,255,.97);box-shadow:0 18px 44px -18px rgba(16,24,40,.34),0 0 0 .5px rgba(16,24,40,.08);font-family:var(--bg-font,system-ui,sans-serif);color:#1D1B16;max-height:calc(100svh - var(--bg-bar,0px) - 96px);overflow:auto}
 .lv-insp.on{display:block}
