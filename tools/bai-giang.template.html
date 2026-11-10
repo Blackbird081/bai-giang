@@ -24,40 +24,35 @@ __STYLE__
 </header>
 <main class="wrap">
   <section class="hero" aria-labelledby="h1">
-    <h1 id="h1">Bài giảng <em>3D</em></h1>
-    <div class="hl">
-      <p class="lede">Dành cho trường phổ thông. Mở bằng trình duyệt, không cần tài khoản, miễn phí.</p>
-      <p class="links"><a class="tl" href="#bai-hoc">Xem các bài giảng</a><a class="tl" href="#cho-giao-vien">Tôi là giáo viên</a></p>
-    </div>
+    <h1 id="h1" class="bg-display">Bài giảng <em>3D</em></h1>
+    <p class="links"><a class="bg-tl" href="#bai-hoc">Bài giảng</a><a class="bg-tl" href="#thi-nghiem">Thí nghiệm</a><a class="bg-tl" href="#cho-giao-vien">Cho giáo viên</a></p>
   </section>
 
   __HERO__
 
   <section id="bai-hoc" aria-labelledby="h-bai">
-    <div class="sh2"><h2 id="h-bai" class="h2">Bài giảng</h2><p class="lede">Mỗi bài là một vật thể dựng công phu, có chế độ học theo bước và chế độ lên lớp. Bấm vật trong cảnh để xem số đo và nguồn.</p></div>
+    <div class="sh2"><h2 id="h-bai" class="h2">Bài giảng</h2></div>
     <div class="list collapsed" id="lessons">
       __FEATURED__
     </div>
     <div class="showall"><button class="bg-btn ghost" id="showall" aria-controls="lessons" aria-expanded="false">Xem cả __N3D__ bài</button></div>
   </section>
 
+  <section id="thi-nghiem" aria-labelledby="h-tv">
+    <div class="sh2"><h2 id="h-tv" class="h2">__NLIB__ thí nghiệm theo bước</h2>
+      <div class="chips" role="group" aria-label="Lọc theo môn"><button class="chip" data-s="" aria-pressed="true">Tất cả</button>__CHIPS__</div></div>
+    <div class="tns collapsed" id="labs">
+      __LABS__
+    </div>
+    <div class="showall"><button class="bg-btn ghost" id="showlabs" aria-controls="labs" aria-expanded="false">Xem cả __NLIB__ thí nghiệm</button><a class="bg-tl" href="__L_LIBPAGE__" style="margin-left:24px">Tìm theo yêu cầu cần đạt</a></div>
+  </section>
+
   <section id="lo-trinh" aria-labelledby="h-lt">
-    <div class="sh2"><h2 id="h-lt" class="h2">Lộ trình theo chương trình</h2><p class="lede">Các bài xếp theo thứ tự của chương trình GDPT 2018, kèm yêu cầu cần đạt trích nguyên văn.</p></div>
+    <div class="sh2"><h2 id="h-lt" class="h2">Lộ trình theo chương trình</h2></div>
     <div class="cols">
       <a class="col" href="__L_CHUDE__"><span class="k">Sinh học · lớp 10 · 6 bài</span><b>Sinh học tế bào</b><span class="d">Tế bào, vận chuyển qua màng, ty thể, enzyme, nguyên phân.</span></a>
       <a class="col" href="__L_LS10__"><span class="k">Lịch sử · lớp 10 · ba bộ sách</span><b>Lịch sử 10</b><span class="d">Văn minh Văn Lang – Âu Lạc qua Thành Cổ Loa.</span></a>
       <a class="col" href="__L_ROBO__"><span class="k">Đại học · kỹ sư · 6 mô phỏng</span><b>Robotics</b><span class="d">Cánh tay, robot chân, drone, xe tự hành, theo tài liệu của hãng.</span></a>
-    </div>
-  </section>
-
-  <section aria-labelledby="h-tin">
-    <div class="tin">
-      <h2 id="h-tin" class="h2">Ba điều chúng tôi giữ khi làm một bài.</h2>
-      <div>
-        <div class="it"><h3>Đúng trước, đẹp sau.</h3><p>Mỗi con số có nguồn. Chỗ nào là giả định thì ghi là giả định, ngay trên màn hình.</p></div>
-        <div class="it"><h3>Học sinh là người cầm.</h3><p>Không có video để ngồi xem. Vật thể nằm trong tay: xoay, tháo, phóng to tới đâu cũng được.</p></div>
-        <div class="it"><h3>Trường nào cũng mở được.</h3><p>Chạy trên trình duyệt của máy tính và điện thoại, có mức nhẹ cho máy yếu, lưu được về máy để dạy khi mất mạng. Không quảng cáo, không theo dõi.</p></div>
-      </div>
     </div>
   </section>
 
@@ -81,13 +76,6 @@ __STYLE__
     </div>
   </section>
 
-  <section id="thu-vien" aria-labelledby="h-tv">
-    <div class="sh2"><h2 id="h-tv" class="h2">Thư viện __NLIB__ bài thí nghiệm</h2><p class="lede">Vật lí, Hoá học, Sinh học, Địa lí. Mỗi bài đối chiếu với yêu cầu cần đạt của chương trình. <a class="tl" href="__L_LIBPAGE__">Mở thư viện</a></p></div>
-    <div class="cols">
-      __SUBJECTS__
-    </div>
-  </section>
-
   <footer class="foot">
     <div class="fl"><span>© 2026 Sáng Ăn Khoai</span><span><a href="https://github.com/nclamvn/bai-giang" target="_blank" rel="noopener">Mã nguồn</a> · <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">Góp ý</a></span></div>
     <details>
@@ -103,11 +91,18 @@ __STYLE__
 </main>
 <script>
 // địa chỉ cũ: thư viện từng nằm ở /#thu-vien (kèm ?mon=…), nay là trang riêng
-if (location.hash === '#thu-vien') location.replace('__L_LIBPAGE__' + location.search);
-// bài giảng: các bài đầu hiện sẵn, các bài còn lại mở bằng nút
-{ const g = document.getElementById('lessons'), b = document.getElementById('showall');
-  b.addEventListener('click', () => { const open = g.classList.toggle('collapsed') === false; b.setAttribute('aria-expanded', String(open)); b.textContent = open ? 'Thu gọn' : b.dataset.t; });
-  b.dataset.t = b.textContent; }
+if (location.hash === '#thu-vien' && location.search) location.replace('__L_LIBPAGE__' + location.search);
+else if (location.hash === '#thu-vien') location.hash = '#thi-nghiem';
+// bài giảng và thí nghiệm: các ô đầu hiện sẵn, phần còn lại mở bằng nút; chọn một môn thì hiện mọi thí nghiệm của môn đó
+function moRong(g, b) { b.dataset.t = b.textContent;
+  b.addEventListener('click', () => { const open = g.classList.toggle('collapsed') === false; b.setAttribute('aria-expanded', String(open)); b.textContent = open ? 'Thu gọn' : b.dataset.t; }); }
+moRong(document.getElementById('lessons'), document.getElementById('showall'));
+{ const g = document.getElementById('labs'), b = document.getElementById('showlabs'), chips = [...document.querySelectorAll('#thi-nghiem .chip')];
+  moRong(g, b);
+  chips.forEach((c) => c.addEventListener('click', () => { const s = c.dataset.s;
+    chips.forEach((x) => x.setAttribute('aria-pressed', String(x === c)));
+    g.querySelectorAll('.tn').forEach((t) => { t.hidden = !!s && t.dataset.s !== s; });
+    g.classList.toggle('collapsed', !s); b.hidden = !!s; b.setAttribute('aria-expanded', 'false'); b.textContent = b.dataset.t; })); }
 </script>
 </body>
 </html>

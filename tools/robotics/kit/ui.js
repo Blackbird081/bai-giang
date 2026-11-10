@@ -1,29 +1,29 @@
 // Bảng điều khiển 1600 × 900 dùng chung: tiêu đề, khung số, thanh đo, biểu đồ chạy theo thời gian, nút, thanh trượt,
 // nhãn có đường dẫn vào chi tiết, con trỏ của chuyến tham quan và khung lời giảng. Phong cách theo teardown (MIT).
 // Giao diện nhà Sáng Ăn Khoai: nền trắng, khung trắng bo 14 px, Be Vietnam Pro, cam chỉ dành cho dữ liệu và bộ phận đang làm việc.
-export const C = {ink: '#15171C', mute: '#626773', faint: '#d5d8de', line: '#e7e9ed', panel: '#ffffff', chart: '#f7f8fa', track: '#e9ebef', track2: '#e3e6ea', sub: '#626773', dot: '#15171C',
+export const C = {ink: '#1D1B16', mute: '#626773', faint: '#d5d8de', line: '#e7e9ed', panel: '#ffffff', chart: '#f7f8fa', track: '#e9ebef', track2: '#e3e6ea', sub: '#626773', dot: '#1D1B16',
   or: '#e3562a', green: '#2fa36b', blue: '#3c79a8', violet: '#7a5ab8', gold: '#c99a2e'};
 const HOUSE_CSS = `
 #app,#app .ph,#app .sm,#app .bt,#app .call b,#app .cap,#app .cap .k{font-family:'Be Vietnam Pro',system-ui,sans-serif!important}
 #app .cp{background:#fff;border:0;border-radius:14px;box-shadow:0 0 0 .5px rgba(16,24,40,.07),0 8px 24px -14px rgba(16,24,40,.22)}
-#app .ph{font-weight:600;font-size:13px;color:#15171C}
-#app .ph i{width:6px;height:6px;border-radius:50%;background:#15171C}
+#app .ph{font-weight:600;font-size:13px;color:#1D1B16}
+#app .ph i{width:6px;height:6px;border-radius:50%;background:#1D1B16}
 #app .pn{color:#9aa0aa}
 #app .sm{color:#626773}
-#app .bt{box-sizing:border-box;height:24px;padding:0 10px;border:1px solid #e3e6ea;border-radius:999px;background:#fff;color:#15171C;font-weight:600}
-#app .bt.on{background:#15171C;border-color:#15171C;color:#fff}
+#app .bt{box-sizing:border-box;height:24px;padding:0 10px;border:1px solid #e3e6ea;border-radius:999px;background:#fff;color:#1D1B16;font-weight:600}
+#app .bt.on{background:#1D1B16;border-color:#1D1B16;color:#fff}
 #app .call{background:rgba(255,255,255,.94);border-radius:8px;padding:3px 8px 4px;box-shadow:0 1px 3px rgba(16,24,40,.08),0 0 0 .5px rgba(16,24,40,.08)}
 #app .call b{background:none;padding:0;box-shadow:none}
 #app .call span{color:#626773;padding-left:11px}
-#app .call b i{width:5px;height:5px;border-radius:50%;background:#15171C}
+#app .call b i{width:5px;height:5px;border-radius:50%;background:#1D1B16}
 #app .cap .b{font-size:12px;line-height:1.45}
 #app .cap .t{margin:2px 0 4px}
 #app .cap .k{color:#5B6472;font-weight:600}
 #app .cap .b{color:#454A55}
 #app .cap .e{background:#f3f4f6;border-radius:6px;position:absolute;top:-3px;right:62px;margin:0;font-size:11px}
 #app .cap .k{font-size:12.5px}
-#app .cap .k:before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:#15171C;margin:0 8px 1px 0;vertical-align:middle}
-#app .tourchip{border:0;border-radius:999px;background:rgba(255,255,255,.95);box-shadow:0 0 0 .5px rgba(16,24,40,.1),0 6px 16px -8px rgba(16,24,40,.3);color:#15171C;font-family:'Be Vietnam Pro',system-ui,sans-serif}
+#app .cap .k:before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:#1D1B16;margin:0 8px 1px 0;vertical-align:middle}
+#app .tourchip{border:0;border-radius:999px;background:rgba(255,255,255,.95);box-shadow:0 0 0 .5px rgba(16,24,40,.1),0 6px 16px -8px rgba(16,24,40,.3);color:#1D1B16;font-family:'Be Vietnam Pro',system-ui,sans-serif}
 #app .alert{border-radius:999px;padding:4px 10px}
 `;
 const CSS = () => `
@@ -38,7 +38,7 @@ const CSS = () => `
 .v{font:600 12px 'JetBrains Mono',monospace;white-space:nowrap}
 .bt{position:absolute;height:22px;padding:0 9px;display:flex;align-items:center;justify-content:center;border:1px solid ${C.faint};border-radius:4px;background:#fff;font:600 11px var(--bg-font,system-ui,sans-serif);letter-spacing:0;color:${C.ink};white-space:nowrap;transition:background .15s,color .15s}
 .bt.on{background:${C.ink};color:#fff;border-color:${C.ink}}
-.bt.acc{background:#1E2A44;color:#fff;border-color:#1E2A44}
+.bt.acc{background:#1D1B16;color:#fff;border-color:#1D1B16}
 .call{position:absolute;white-space:nowrap;transition:opacity .25s}
 .call b{display:flex;align-items:center;gap:6px;font:600 11px var(--bg-font,system-ui,sans-serif);letter-spacing:0;color:${C.ink};background:rgba(255,255,255,.9);padding:1px 4px;border-radius:2px}
 .call b i{display:block;width:6px;height:6px;background:${C.or}}
@@ -76,15 +76,15 @@ export function createUI(app) {
   ui.header = ({code, kicker, title, sub, right = [], hub}) => {
     ui.hub = hub;
     const bw = Math.max(44, Math.round(sc(code).length * 9 + 20)), tx = 28 + bw + 14;
-    add(`<div style="position:absolute;left:28px;top:14px;width:${bw}px;height:44px;border-radius:13px;background:#f1f2f5;box-shadow:inset 0 0 0 .5px rgba(16,24,40,.08);display:flex;align-items:center;justify-content:center;font:700 14px 'Be Vietnam Pro',system-ui,sans-serif;color:#15171C;letter-spacing:-.2px">${sc(code)}</div>`);
+    add(`<div style="position:absolute;left:28px;top:14px;width:${bw}px;height:44px;border-radius:13px;background:#f1f2f5;box-shadow:inset 0 0 0 .5px rgba(16,24,40,.08);display:flex;align-items:center;justify-content:center;font:700 14px 'Be Vietnam Pro',system-ui,sans-serif;color:#1D1B16;letter-spacing:-.2px">${sc(code)}</div>`);
     add(`<div class="sm" style="position:absolute;left:${tx}px;top:13px;font-size:12px">${sc(kicker)}</div>`);
-    add(`<div style="position:absolute;left:${tx - 1}px;top:30px;display:flex;align-items:baseline;gap:14px;white-space:nowrap"><span style="font:600 24px/1.15 'Be Vietnam Pro',system-ui,sans-serif;letter-spacing:-.4px;color:#15171C">${title}</span><span class="sm" style="position:static;font-size:13px">${sc(sub)}</span></div>`);
+    add(`<div style="position:absolute;left:${tx - 1}px;top:30px;display:flex;align-items:baseline;gap:14px;white-space:nowrap"><span style="font:600 24px/1.15 'Be Vietnam Pro',system-ui,sans-serif;letter-spacing:-.4px;color:#1D1B16">${title}</span><span class="sm" style="position:static;font-size:13px">${sc(sub)}</span></div>`);
     let x = 1572;
     [...right].reverse().forEach(([v, n], i) => {
       const w = Math.max(84, v.length * 12 + 18, Math.round(sc(n).length * 6.5 + 8));
       x -= w;
       if (i) add(`<div style="position:absolute;left:${x + w + 9}px;top:20px;width:1px;height:32px;background:#e7e9ed"></div>`);
-      add(`<div style="position:absolute;left:${x}px;top:14px;width:${w}px;text-align:right;font:600 20px/1.2 'Be Vietnam Pro',system-ui,sans-serif;color:#15171C;letter-spacing:-.3px;font-variant-numeric:tabular-nums">${v}</div>`);
+      add(`<div style="position:absolute;left:${x}px;top:14px;width:${w}px;text-align:right;font:600 20px/1.2 'Be Vietnam Pro',system-ui,sans-serif;color:#1D1B16;letter-spacing:-.3px;font-variant-numeric:tabular-nums">${v}</div>`);
       add(`<div class="sm" style="position:absolute;left:${x}px;top:42px;width:${w}px;text-align:right">${sc(n)}</div>`);
       x -= 20;
     });

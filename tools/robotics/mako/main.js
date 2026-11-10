@@ -35,7 +35,7 @@ ui.header({code: 'MAKO', kicker: 'VẬT LÍ 10 · LỰC CẢN VÀ LỰC NÂNG ·
   right: [['0,90 m/s', 'TUẦN TRA (ĐO)'], ['5,02 m/s', 'BỨT TỐC (ĐO)'], ['1,97 m', 'CHIỀU DÀI CÁ']]});
 // 01 tốc độ
 ui.panel(28, 112, 300, 262, 'TỐC ĐỘ BƠI · MỘT ĐẦU VÀO', '01');
-const bigU = ui.text(42, 142, '', 'mo', 'position:absolute;font-size:34px;font-weight:700;letter-spacing:-1px;color:#15171C');
+const bigU = ui.text(42, 142, '', 'mo', 'position:absolute;font-size:34px;font-weight:700;letter-spacing:-1px;color:#1D1B16');
 const kmh = ui.text(200, 156, '', 'v', 'width:114px;text-align:right;font-size:13px;color:#626773');
 const R1 = ['Tần số vẫy đuôi f', 'Quãng đi mỗi nhịp U/f', 'Tốc độ sóng thân c = λ·f', 'Tỉ số U / c', 'Số nhịp đã vẫy', 'Quãng đường đã bơi'].map((t, i) => { ui.text(42, 196 + i * 18, t, 'sm', 'font-size:10.5px'); return ui.text(150, 196 + i * 18, '', 'v', 'width:164px;text-align:right;font-size:11px'); });
 ui.buttons([['cruise', 'TUẦN TRA · 0,90 m/s'], ['burst', 'BỨT TỐC · 5,02 m/s']], 42, 310, 272);
@@ -103,8 +103,8 @@ const drawChart = (U, f) => {
   g += `<text x="${CH.w - 8}" y="${CH.h - 18}" text-anchor="end" font-size="8.5" fill="#626773" font-family="Be Vietnam Pro,sans-serif">U (m/s)</text><text x="26" y="13" font-size="8.5" fill="#626773" font-family="Be Vietnam Pro,sans-serif">f (Hz)</text>`;
   g += `<line x1="${cx(REG.b)}" y1="${cy(0)}" x2="${cx(CH.u)}" y2="${cy(fOf(CH.u))}" stroke="${C.ink}" stroke-width="1.3"/>`;
   // số đo: tuần tra (thanh lệch chuẩn), bứt tốc
-  g += `<line x1="${cx(CRUISE.U)}" x2="${cx(CRUISE.U)}" y1="${cy(CRUISE.f - CRUISE.fsd)}" y2="${cy(CRUISE.f + CRUISE.fsd)}" stroke="#15171C" stroke-width="1"/>`;
-  for (const [p, t, dx] of [[CRUISE, 'tuần tra 0,51 Hz', 8], [BURST, 'bứt tốc 3,65 Hz', -8]]) g += `<circle cx="${cx(p.U)}" cy="${cy(p.f)}" r="3.6" fill="#15171C"/><text x="${cx(p.U) + dx}" y="${cy(p.f) + (dx > 0 ? 12 : 13)}" text-anchor="${dx > 0 ? 'start' : 'end'}" font-size="8.5" fill="#15171C" font-family="Be Vietnam Pro,sans-serif">${t}</text>`;
+  g += `<line x1="${cx(CRUISE.U)}" x2="${cx(CRUISE.U)}" y1="${cy(CRUISE.f - CRUISE.fsd)}" y2="${cy(CRUISE.f + CRUISE.fsd)}" stroke="#1D1B16" stroke-width="1"/>`;
+  for (const [p, t, dx] of [[CRUISE, 'tuần tra 0,51 Hz', 8], [BURST, 'bứt tốc 3,65 Hz', -8]]) g += `<circle cx="${cx(p.U)}" cy="${cy(p.f)}" r="3.6" fill="#1D1B16"/><text x="${cx(p.U) + dx}" y="${cy(p.f) + (dx > 0 ? 12 : 13)}" text-anchor="${dx > 0 ? 'start' : 'end'}" font-size="8.5" fill="#1D1B16" font-family="Be Vietnam Pro,sans-serif">${t}</text>`;
   g += `<circle cx="${cx(U)}" cy="${cy(f)}" r="5" fill="${C.or}" stroke="#fff" stroke-width="1.6"/>`;
   chart.innerHTML = g;
 };
@@ -124,7 +124,7 @@ const drawTop = (phi, A, lam) => {
   for (const s of [0.4, 0.475, 0.55, 0.625, 0.7, 0.775, 0.85, 0.925]) g += `<circle cx="${tvx(s).toFixed(1)}" cy="${tvy(lat(s, phi, A, lam)).toFixed(1)}" r="2.4" fill="${C.or}"/>`;
   // thước bước sóng và biên độ
   const lx = Math.min(lam, 1);
-  g += `<line x1="${tvx(0)}" x2="${tvx(lx)}" y1="${TV.h - 12}" y2="${TV.h - 12}" stroke="#15171C" stroke-width=".9"/><text x="${(tvx(0) + tvx(lx)) / 2}" y="${TV.h - 3}" text-anchor="middle" font-size="8.5" fill="#15171C" font-family="Be Vietnam Pro,sans-serif">${lam <= 1 ? 'λ' : 'λ dài hơn thân'}</text>`;
+  g += `<line x1="${tvx(0)}" x2="${tvx(lx)}" y1="${TV.h - 12}" y2="${TV.h - 12}" stroke="#1D1B16" stroke-width=".9"/><text x="${(tvx(0) + tvx(lx)) / 2}" y="${TV.h - 3}" text-anchor="middle" font-size="8.5" fill="#1D1B16" font-family="Be Vietnam Pro,sans-serif">${lam <= 1 ? 'λ' : 'λ dài hơn thân'}</text>`;
   g += `<line x1="9" x2="9" y1="${tvy(A / 2)}" y2="${tvy(-A / 2)}" stroke="${C.or}" stroke-width="1.4"/><text x="14" y="${tvy(A / 2) + 3}" font-size="8.5" fill="${C.or}" font-family="Be Vietnam Pro,sans-serif">A</text>`;
   g += `<text x="${TV.w - 6}" y="12" text-anchor="end" font-size="8.5" fill="#626773" font-family="Be Vietnam Pro,sans-serif">mũi →</text>`;
   topv.innerHTML = g;
@@ -240,7 +240,7 @@ const sim = {
     r4.forEach((t, i) => { R4[i].textContent = t; });
     // 05
     const inBand = d.St >= ST_BAND[0] && d.St <= ST_BAND[1];
-    stBig.textContent = vn(d.St, 2); stBig.style.color = inBand ? '#15171C' : C.or;
+    stBig.textContent = vn(d.St, 2); stBig.style.color = inBand ? '#1D1B16' : C.or;
     stVerd.textContent = inBand ? 'Trong khoảng 0,2–0,4 của cá và cá heo khi bơi tuần tra' : d.St > ST_BAND[1] ? 'Trên 0,4: đuôi quẫy nhiều so với tốc độ, hiệu suất giảm' : 'Dưới 0,2: đuôi quét quá hẹp, hiệu suất giảm';
     drawGauge(d.St);
     sA.set((S.AL - 0.05) / 0.3, `${vn(S.AL, 2)} L`);

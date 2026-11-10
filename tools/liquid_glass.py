@@ -15,7 +15,7 @@ def font_link(root='../'):
 
 # Kính lỏng v14: lấy từ token chung (--bg-*), có giá trị dự phòng khi house.css chưa tải. Tiết chế: nền đặc hơn, bỏ quầng màu.
 TOKENS = """
-  --lg-page:var(--bg-page,#F4F4F6);
+  --lg-page:var(--bg-page,#F3EFE6);
   --lg-wash:linear-gradient(180deg,#FAFAFB 0%,#F2F2F5 100%);
   --lg-fill:rgba(255,255,255,.86);
   --lg-fill-strong:rgba(255,255,255,.95);
@@ -27,7 +27,7 @@ TOKENS = """
   --lg-inner:inset 0 1px 0 rgba(255,255,255,.9);
   --lg-r:var(--bg-r-lg,20px); --lg-r-md:var(--bg-r-md,14px); --lg-r-sm:var(--bg-r-sm,10px);
   --lg-font:var(--bg-font,"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif);
-  --lg-ink:var(--bg-ink,#15171C); --lg-ink2:var(--bg-ink2,#454A55); --lg-muted:var(--bg-ink3,#626773);
+  --lg-ink:var(--bg-ink,#1D1B16); --lg-ink2:var(--bg-ink2,#454A55); --lg-muted:var(--bg-ink3,#626773);
 """
 
 
@@ -55,8 +55,8 @@ def pill_buttons(sel, primary_sel):
             f'border:1px solid var(--lg-stroke)!important;box-shadow:var(--lg-shadow-lo),var(--lg-inner);color:var(--lg-ink);font-family:var(--lg-font);font-weight:600;transition:transform .15s ease,box-shadow .2s ease}}\n'
             f'{_each(sel, ":hover")}{{box-shadow:0 0 0 .5px rgba(15,23,42,.1),0 8px 22px -8px rgba(15,23,42,.25),var(--lg-inner)}}\n'
             f'{_each(sel, ":active")}{{transform:scale(.97)}}\n'
-            f'{primary_sel}{{background:var(--bg-brand,#1E2A44)!important;color:#fff!important;border-color:transparent!important;'
-            'box-shadow:0 6px 16px -10px rgba(30,42,68,.65)!important}\n')
+            f'{primary_sel}{{background:var(--bg-brand,#1D1B16)!important;color:#fff!important;border-color:transparent!important;'
+            'box-shadow:0 6px 16px -10px rgba(29,27,22,.65)!important}\n')
 
 
 BODY = ('body{background:var(--lg-wash)!important;background-attachment:fixed!important;color:var(--lg-ink);font-family:var(--lg-font);'
@@ -77,9 +77,9 @@ def logo(root):
 
 
 SITE_BAR_CSS = """
-.sitebar{position:sticky;top:0;z-index:50;background:rgba(244,244,246,.86);-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);border-bottom:1px solid var(--bg-hair,rgba(16,24,40,.1));font-family:var(--bg-font)}
+.sitebar{position:sticky;top:0;z-index:50;background:rgba(243,239,230,.86);-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);border-bottom:1px solid var(--bg-hair,rgba(16,24,40,.1));font-family:var(--bg-font)}
 .sitebar .in{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;height:var(--bg-bar,56px)}
-.sitebar .brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;color:var(--bg-ink,#15171C);text-decoration:none;min-height:44px;min-width:44px;letter-spacing:-.01em;flex:none}
+.sitebar .brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;color:var(--bg-ink,#1D1B16);text-decoration:none;min-height:44px;min-width:44px;letter-spacing:-.01em;flex:none}
 .sitebar .brand img{width:32px;height:32px;display:block}
 .sitebar .crumbs{display:flex;align-items:center;gap:8px;min-width:0;color:var(--bg-ink3,#626773);font-size:15px}
 .sitebar .crumbs a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}.sitebar .crumbs a:hover{color:var(--bg-ink)}

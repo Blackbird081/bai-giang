@@ -23,15 +23,15 @@ const OPEN = 1.0, CLOSE = 0.5; // giây: mở, đóng (quy tắc nhịp của cu
 const ALL = {out: 1.6, turn: 5.4, back: 4.2, home: 1.0, deg: 330};
 
 const CSS = `
-.cut-lab{position:absolute;left:0;top:0;pointer-events:none;z-index:6;display:none;padding:6px 10px 7px;border-radius:10px;background:rgba(255,255,255,.96);box-shadow:0 10px 26px -16px rgba(16,24,40,.45),0 0 0 .5px rgba(16,24,40,.1);font:600 12px/1.25 var(--bg-font,'Be Vietnam Pro',var(--bg-font,system-ui,sans-serif));color:#15171C;white-space:nowrap}
+.cut-lab{position:absolute;left:0;top:0;pointer-events:none;z-index:6;display:none;padding:6px 10px 7px;border-radius:10px;background:rgba(255,255,255,.96);box-shadow:0 10px 26px -16px rgba(16,24,40,.45),0 0 0 .5px rgba(16,24,40,.1);font:600 12px/1.25 var(--bg-font,'Be Vietnam Pro',var(--bg-font,system-ui,sans-serif));color:#1D1B16;white-space:nowrap}
 .cut-lab small{display:block;font:500 11px/1.3 var(--bg-mono,'JetBrains Mono',monospace);color:#626773;margin-top:2px}
 .cut-svg{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:5}
 .cutbar{position:fixed;z-index:21;left:16px;top:calc(var(--bg-bar,0px) + 64px + env(safe-area-inset-top));max-width:calc(100vw - 404px);display:none;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px}
 .cutbar::-webkit-scrollbar{display:none}
 body.cmp .cutbar{display:flex}
-.cutbar button{flex:none;height:36px;padding:0 13px;border:0;border-radius:999px;background:rgba(255,255,255,.96);box-shadow:0 8px 22px -16px rgba(16,24,40,.5),0 0 0 .5px rgba(16,24,40,.12);font:600 13px var(--bg-font,system-ui,sans-serif);color:#15171C;cursor:pointer;white-space:nowrap}
-.cutbar button.on{background:#15171C;color:#fff}
-.cutbar button.acc{background:#1E2A44;color:#fff}
+.cutbar button{flex:none;height:36px;padding:0 13px;border:0;border-radius:999px;background:rgba(255,255,255,.96);box-shadow:0 8px 22px -16px rgba(16,24,40,.5),0 0 0 .5px rgba(16,24,40,.12);font:600 13px var(--bg-font,system-ui,sans-serif);color:#1D1B16;cursor:pointer;white-space:nowrap}
+.cutbar button.on{background:#1D1B16;color:#fff}
+.cutbar button.acc{background:#1D1B16;color:#fff}
 .cutbar .lb{flex:none;align-self:center;padding:0 4px 0 2px;font:600 13px var(--bg-font,system-ui,sans-serif);color:#626773}
 @media (pointer:coarse){.cutbar button{height:44px}}
 @media (max-width:700px){.cutbar{left:8px;right:8px;max-width:none;top:calc(var(--bg-bar,48px) + 58px + env(safe-area-inset-top))}body.cut-on .lv-insp{top:calc(var(--bg-bar,48px) + 108px + env(safe-area-inset-top))}}

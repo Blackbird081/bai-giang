@@ -19,19 +19,19 @@
 <link rel="preload" href="design/fonts/noto-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="design/house.css">
 <style>
-/* Trang chính và Thư viện Sáng Ăn Khoai · bản 15. Token và khung trang mục ở design/house.css (tools/design.py).
-   Nhịp dọc: mục cách nhau 72 px (máy tính) / 40 px (điện thoại); thẻ cách nhau 24 px. Một mẫu thẻ cho mọi bài. */
+/* Trang chính và Thư viện Sáng Ăn Khoai · bản 16 (ngôn ngữ "Trang giấy", docs/he-thiet-ke.md). Token và khung trang mục ở design/house.css.
+   Nền giấy, kẻ mảnh, không hộp trắng đổ bóng: ô bài là ảnh bo góc với chữ đặt thẳng trên nền giấy. */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--bg-bar) + 16px)}
-html,body{margin:0;background:var(--bg-page,#F4F4F6)}
+html,body{margin:0;background:var(--bg-page)}
 body{font-family:var(--bg-font);color:var(--bg-ink);font-size:var(--bg-fs-sm);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 img{display:block;max-width:100%}
 .i{width:20px;height:20px;flex:none;display:block}
 /* thanh trên */
-.top{position:sticky;top:0;z-index:50;background:rgba(244,244,246,.86);-webkit-backdrop-filter:var(--bg-blur);backdrop-filter:var(--bg-blur);border-bottom:1px solid var(--bg-hair)}
+.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg-page) 88%,transparent);-webkit-backdrop-filter:var(--bg-blur);backdrop-filter:var(--bg-blur)}
 .top .wrap{display:flex;align-items:center;gap:16px;height:var(--bg-bar)}
-.brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;text-decoration:none;letter-spacing:-.01em;flex:none;min-height:44px;min-width:44px}
+.brand{display:flex;align-items:center;justify-content:center;gap:10px;font:600 19px/1 var(--bg-serif);text-decoration:none;letter-spacing:-.01em;flex:none;min-height:44px;min-width:44px}
 .brand img{width:32px;height:32px;display:block}
 .crumbs{display:flex;align-items:center;gap:8px;min-width:0;color:var(--bg-ink3);font-size:15px}
 .crumbs a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}.crumbs a:hover{color:var(--bg-ink)}
@@ -39,26 +39,26 @@ img{display:block;max-width:100%}
 .nav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
 .nav::-webkit-scrollbar{display:none}
 .nav .sm{display:none}
-.nav a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:var(--bg-r-sm);text-decoration:none;font-weight:600;color:var(--bg-ink2);white-space:nowrap}
+.nav a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:var(--bg-r-sm);text-decoration:none;font-weight:500;color:var(--bg-ink2);white-space:nowrap}
 .nav a:hover{background:var(--bg-hair);color:var(--bg-ink)}
 .nav a[aria-current="page"]{color:var(--bg-ink);background:var(--bg-hair)}
 /* mục */
 section{padding:56px 0 16px}
 .sh{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:0 0 24px}
 .sh p{margin:8px 0 0;color:var(--bg-ink2);max-width:60ch}
-.more{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;text-decoration:none;color:var(--bg-ink2);white-space:nowrap}
+.more{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:500;text-decoration:none;color:var(--bg-ink2);white-space:nowrap}
 .more:hover{color:var(--bg-ink)}
 /* một mẫu thẻ cho mọi bài: ảnh, môn và lớp, tên, một ý */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:24px}
-.card{position:relative;display:flex;flex-direction:column;background:var(--bg-surface);border-radius:var(--bg-r-md);overflow:hidden;box-shadow:var(--bg-sh-1);transition:transform var(--bg-t-mid) var(--bg-ease),box-shadow var(--bg-t-mid) var(--bg-ease)}
-.card:hover,.card:focus-within{transform:translateY(-2px);box-shadow:var(--bg-sh-2)}
-.card .cv{aspect-ratio:3/2;background:#e8eaee;overflow:hidden}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:40px 28px}
+.card{position:relative;display:flex;flex-direction:column}
+.card .cv{aspect-ratio:3/2;background:#E4DCCB;overflow:hidden;border-radius:var(--bg-r-md)}
 .card .cv img{width:100%;height:100%;object-fit:cover;transition:transform var(--bg-t-slow) var(--bg-ease)}
 .card:hover .cv img{transform:scale(1.025)}
-.card .bd{display:grid;gap:6px;padding:16px 18px 20px;flex:1;align-content:start}
-.card .mt{display:flex;align-items:center;gap:8px;font-size:var(--bg-fs-xs);color:var(--bg-ink3);font-weight:500}
+.card .bd{display:grid;gap:6px;padding:14px 2px 0;flex:1;align-content:start}
+.card .mt{display:flex;align-items:center;gap:8px;font-size:var(--bg-fs-xs);color:var(--bg-ink3);font-weight:400}
 .card .mt i{width:7px;height:7px;border-radius:50%;flex:none}
-.card h3{margin:0;font-size:var(--bg-fs-md);line-height:1.3;letter-spacing:-.01em;font-weight:700}
+.card h3{margin:0;font:400 21px/1.25 var(--bg-serif);letter-spacing:-.012em}
+.card:hover h3 a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 .card h3 a{text-decoration:none}
 .card h3 a::after{content:"";position:absolute;inset:0;z-index:0}
 .card p{margin:0;color:var(--bg-ink2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -71,21 +71,22 @@ section{padding:56px 0 16px}
 .card details ul{margin:6px 0 0;padding-left:18px;display:grid;gap:6px;color:var(--bg-ink2)}
 .card details .mu{color:var(--bg-ink3);margin-top:8px;font-weight:600}
 /* bộ lọc thư viện */
-.libhead{padding:48px 0 8px}
-.libhead h1{margin:8px 0 12px}
+.libhead{padding:clamp(48px,7vw,96px) 0 16px}
+.libhead h1{margin:12px 0 16px}
 .filters{display:grid;gap:12px;margin:0 0 28px}
-.search{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 16px;border-radius:var(--bg-r-sm);background:var(--bg-surface);box-shadow:var(--bg-sh-1)}
+.search{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 16px;border-radius:var(--bg-r-sm);background:var(--bg-surface);border:1px solid var(--bg-hair2)}
 .search input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:var(--bg-fs-sm);color:var(--bg-ink);outline:none;min-height:44px}
-.search:focus-within{box-shadow:0 0 0 2px var(--bg-focus)}
+.search:focus-within{border-color:var(--bg-ink);box-shadow:0 0 0 1px var(--bg-ink)}
 .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .row .lb{font-size:var(--bg-fs-xs);font-weight:600;color:var(--bg-ink3);min-width:44px}
-.chip{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--bg-hair2);background:var(--bg-surface);font:600 var(--bg-fs-xs) var(--bg-font);color:var(--bg-ink2);cursor:pointer}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--bg-hair2);background:transparent;font:500 var(--bg-fs-xs) var(--bg-font);color:var(--bg-ink2);cursor:pointer}
+.chip:hover{border-color:var(--bg-ink3);color:var(--bg-ink)}
 .chip i{width:7px;height:7px;border-radius:50%}
 .chip[aria-pressed="true"]{background:var(--bg-ink);color:var(--bg-page);border-color:transparent}
 .count{margin-left:auto;font-size:var(--bg-fs-xs);color:var(--bg-ink3)}
 .empty{grid-column:1/-1;padding:48px;text-align:center;color:var(--bg-ink3)}
 /* chân trang */
-.foot{margin-top:64px;padding:20px 0 36px;border-top:1px solid var(--bg-hair);color:var(--bg-ink3);font-size:13px;line-height:1.6}
+.foot{margin-top:clamp(72px,10vw,136px);padding:20px 0 36px;border-top:1px solid var(--bg-hair);color:var(--bg-ink3);font-size:13px;line-height:1.6}
 .foot .fl{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;margin-bottom:4px}
 .foot a{color:inherit;text-decoration:none;border-bottom:1px solid var(--bg-hair2);white-space:nowrap}
 .foot a:hover{color:var(--bg-ink2);border-color:currentColor}
@@ -95,35 +96,23 @@ body.bg-hub .foot details>summary{display:inline-flex;min-height:28px;font:inher
   .top .wrap{gap:4px}.brand span,.nav .lt,.nav .xl,.crumbs{display:none}.nav .sm{display:inline}.nav a{padding:0 10px}
   section{padding:36px 0 8px}.sh{flex-direction:column;align-items:start;gap:4px;margin-bottom:16px}
   .row{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:2px 16px}.row::-webkit-scrollbar{display:none}.chip{flex:none}.count{display:none}
-  .grid{grid-template-columns:1fr;gap:16px}
+  .grid{grid-template-columns:1fr;gap:32px}
 }
 html[data-chieu]{--bg-ink2:#141414;--bg-ink3:#262626}
-@font-face{font-family:'Noto Serif';font-style:normal;font-weight:400;font-display:swap;src:url(design/fonts/noto-serif-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Noto Serif';font-style:normal;font-weight:400;font-display:swap;src:url(design/fonts/noto-serif-vietnamese-400-normal.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
-/* Trang chủ Sáng Ăn Khoai · bản "Trang giấy". Nối sau tools/trang-chinh.css, chỉ áp cho body.bg-home.
-   Nguyên tắc: nền giấy ấm, mực đen ấm, một màu nhấn dùng một lần (chữ 3D); chữ serif mảnh cho tiêu đề; kẻ mảnh thay cho thẻ;
-   chỉ một hình lớn ở màn đầu. Nhịp dọc: mục cách nhau 96–152 px. */
-html:has(body.bg-home){background:#F3EFE6}
-body.bg-home{--bg-page:#F3EFE6;--bg-ink:#1D1B16;--bg-ink2:#4B473D;--bg-ink3:#5A5548;--bg-hair:rgba(29,27,22,.16);--bg-hair2:rgba(29,27,22,.30);--bg-brand:#1D1B16;--bg-brand-ink:#F3EFE6;--tc-nhan:#A8481C;--tc-serif:400 1em/1.1 var(--bg-serif);background:var(--bg-page)}
-body.bg-home .wrap{max-width:1240px}
-body.bg-home .top{background:rgba(243,239,230,.88);border-bottom-color:transparent}
-body.bg-home .brand{font:600 19px/1 var(--bg-serif);letter-spacing:-.01em}
-body.bg-home .nav a{font-weight:500}
-body.bg-home .bg-btn{border-radius:var(--bg-r-sm);height:48px;padding:0 22px;font-weight:500}
+/* Trang chủ Sáng Ăn Khoai · ngôn ngữ "Trang giấy" (docs/he-thiet-ke.md). Nối sau tools/trang-chinh.css, chỉ trang chủ dùng.
+   Màu, chữ, nút lấy từ token chung; ở đây chỉ có bố cục của trang chủ: một hình lớn, mục lục bài 3D, lưới thí nghiệm, cột chữ. */
+body.bg-home{--tc-serif:400 1em/1.1 var(--bg-serif)}
 body.bg-home section{padding:clamp(72px,10vw,152px) 0 0}
 body.bg-home .h2{margin:0;font:var(--tc-serif);font-size:clamp(28px,3.4vw,44px);letter-spacing:-.02em;text-wrap:balance}
 body.bg-home .lede{margin:0;font-size:var(--bg-fs-md);line-height:1.65;color:var(--bg-ink2);max-width:52ch}
 body.bg-home .sh2{display:flex;flex-wrap:wrap;align-items:baseline;gap:16px 64px;padding-bottom:40px}
-body.bg-home .sh2>*{flex:1 1 360px;min-width:0}
-body.bg-home .tl{display:inline-flex;align-items:center;min-height:44px;font-weight:500;color:var(--bg-ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
-body.bg-home .tl:hover{text-decoration-thickness:2px}
+body.bg-home .sh2>.h2{flex:1 1 360px;min-width:0}
+body.bg-home .sh2 .chips{display:flex;flex-wrap:wrap;gap:8px}
 /* màn đầu: một dòng tiêu đề, một câu, hai liên kết */
-body.bg-home .hero{display:block;padding:clamp(64px,10vw,136px) 0 clamp(48px,7vw,96px)}
-body.bg-home .hero h1{margin:0;max-width:none;font:var(--tc-serif);font-size:clamp(44px,7vw,96px);line-height:1.04;letter-spacing:-.03em}
-body.bg-home .hero h1 em{font-style:normal;color:var(--tc-nhan)}
-body.bg-home .hero .hl{display:flex;flex-wrap:wrap;align-items:flex-end;gap:20px 72px;margin-top:32px}
-body.bg-home .hero .lede{flex:1 1 360px;font-size:var(--bg-fs-lg)}
-body.bg-home .hero .links{display:flex;flex-wrap:wrap;gap:0 32px;margin:0;font-size:var(--bg-fs-md)}
+body.bg-home .hero{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 48px;padding:clamp(56px,9vw,128px) 0 clamp(32px,4vw,56px)}
+body.bg-home .hero h1{margin:0}
+body.bg-home .hero h1 em{font-style:normal;color:var(--bg-nhan)}
+body.bg-home .hero .links{display:flex;flex-wrap:wrap;gap:0 32px;margin:0 0 6px;font-size:var(--bg-fs-md)}
 /* hình lớn duy nhất: một bài, ảnh tràn khung bo góc, chú thích bên dưới */
 .feat{display:block;text-decoration:none}
 .feat .im{border-radius:28px;overflow:hidden;background:#0A0E22;aspect-ratio:2/1}
@@ -143,7 +132,16 @@ body.bg-home .hero .links{display:flex;flex-wrap:wrap;gap:0 32px;margin:0;font-s
 .bai .k{color:var(--bg-ink3);font-size:var(--bg-fs-xs)}
 .list.collapsed>.x{display:none}
 .showall{display:flex;justify-content:flex-start;margin-top:28px}
-/* lộ trình, công cụ, môn: cột chữ có kẻ mảnh phía trên */
+/* thí nghiệm: lưới ảnh bo góc, chữ đặt trên nền giấy */
+.tns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px 24px}
+.tn{display:grid;gap:4px;align-content:start;text-decoration:none}
+.tn img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:var(--bg-r-md);background:#E4DCCB;margin-bottom:8px}
+.tn b{font:400 19px/1.3 var(--bg-serif);letter-spacing:-.01em}
+.tn:hover b{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.tn .k{color:var(--bg-ink3);font-size:var(--bg-fs-xs)}
+.tns.collapsed>.x{display:none}
+.tn[hidden]{display:none}
+/* lộ trình, công cụ: cột chữ có kẻ mảnh phía trên */
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 40px}
 .col{display:grid;gap:6px;align-content:start;padding:20px 0 28px;border-top:1px solid var(--bg-hair);text-decoration:none}
 .col .k{color:var(--bg-ink3);font-size:var(--bg-fs-xs)}
@@ -152,14 +150,6 @@ body.bg-home .hero .links{display:flex;flex-wrap:wrap;gap:0 32px;margin:0;font-s
 .col .d{color:var(--bg-ink2);line-height:1.6}
 a.col:hover b{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
 .col kbd{font:600 12px var(--bg-mono);background:rgba(255,255,255,.6);border:1px solid var(--bg-hair);border-radius:6px;padding:0 5px}
-/* ba điều giữ khi làm một bài */
-.tin{display:flex;flex-wrap:wrap;gap:40px 64px}
-.tin>.h2{flex:1 1 360px;min-width:0}
-.tin>div{flex:1.4 1 480px;min-width:0}
-.tin .it{padding:28px 0;border-bottom:1px solid var(--bg-hair)}
-.tin .it:first-child{padding-top:0}.tin .it:last-child{border-bottom:0;padding-bottom:0}
-.tin h3{margin:0 0 8px;font:600 var(--bg-fs-lg)/1.3 var(--bg-font)}
-.tin p{margin:0;max-width:56ch;font-size:var(--bg-fs-md);line-height:1.65;color:var(--bg-ink2)}
 /* cho giáo viên: khối mực */
 .gv{background:#1D1B16;color:#F3EFE6;border-radius:28px;padding:clamp(28px,5.5vw,72px)}
 .gv .gh{display:flex;flex-wrap:wrap;align-items:flex-end;gap:32px 64px}
@@ -173,8 +163,9 @@ body.bg-home .gv .bg-btn{background:#F3EFE6;border-color:#F3EFE6;color:#1D1B16}
 .gv .pk b{font:var(--tc-serif);font-size:21px;line-height:1.3}
 .gv .pk:hover b{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
 .gv+.cols{margin-top:48px}
-body.bg-home .foot{margin-top:clamp(72px,10vw,136px)}
+@media (max-width:1100px){.tns{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:820px){
+  .tns{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 14px}.tn b{font-size:17px}
   .bai{grid-template-columns:72px minmax(0,1fr);gap:2px 16px;padding:14px 0}
   .bai img{width:72px;height:54px;grid-row:span 2}
   .bai .d{display:none}
@@ -182,7 +173,6 @@ body.bg-home .foot{margin-top:clamp(72px,10vw,136px)}
 }
 @media (max-width:640px){
   body.bg-home .sh2{padding-bottom:24px}
-  body.bg-home .hero .links{flex-direction:column}
 }
 @media (prefers-reduced-motion:reduce){.feat img{transition:none}}
 
@@ -200,18 +190,15 @@ body.bg-home .foot{margin-top:clamp(72px,10vw,136px)}
 </header>
 <main class="wrap">
   <section class="hero" aria-labelledby="h1">
-    <h1 id="h1">Bài giảng <em>3D</em></h1>
-    <div class="hl">
-      <p class="lede">Dành cho trường phổ thông. Mở bằng trình duyệt, không cần tài khoản, miễn phí.</p>
-      <p class="links"><a class="tl" href="#bai-hoc">Xem các bài giảng</a><a class="tl" href="#cho-giao-vien">Tôi là giáo viên</a></p>
-    </div>
+    <h1 id="h1" class="bg-display">Bài giảng <em>3D</em></h1>
+    <p class="links"><a class="bg-tl" href="#bai-hoc">Bài giảng</a><a class="bg-tl" href="#thi-nghiem">Thí nghiệm</a><a class="bg-tl" href="#cho-giao-vien">Cho giáo viên</a></p>
   </section>
 
   <a class="feat" href="than-kinh/" aria-label="Neuron và xung thần kinh, vào bài"><div class="im"><img src="thu-vien/covers/than-kinh.webp" alt="Neuron phát sáng với bao myelin chia đốt và chuỳ synapse trên nền tối" fetchpriority="high"></div>
     <div class="fc"><b>Neuron và xung thần kinh</b><span class="d">Xung nhảy cóc qua eo Ranvier, điện thế màng theo từng pha, synapse giải phóng chất dẫn truyền; phong cách điện ảnh.</span><span class="k">Sinh học · Lớp 11</span></div></a>
 
   <section id="bai-hoc" aria-labelledby="h-bai">
-    <div class="sh2"><h2 id="h-bai" class="h2">Bài giảng</h2><p class="lede">Mỗi bài là một vật thể dựng công phu, có chế độ học theo bước và chế độ lên lớp. Bấm vật trong cảnh để xem số đo và nguồn.</p></div>
+    <div class="sh2"><h2 id="h-bai" class="h2">Bài giảng</h2></div>
     <div class="list collapsed" id="lessons">
       <a class="bai" href="te-bao/"><img src="thu-vien/covers/te-bao.webp" alt="" loading="lazy" width="88" height="66"><b>Hành Trình Vào Tế Bào</b><span class="d">Tế bào nhân thực đang hoạt động; phóng liền mạch xuống 222.336 nguyên tử của ribosome thật.</span><span class="k">Sinh học · Lớp 10</span></a>
       <a class="bai" href="co-the-nguoi/"><img src="thu-vien/covers/co-the-nguoi.webp" alt="" loading="lazy" width="88" height="66"><b>Cơ thể người 3D</b><span class="d">2.900 cấu trúc giải phẫu thật, 140 chuyển động sinh lí, 6 chủ đề hiển vi: tim đập, phổi thở, thận lọc máu.</span><span class="k">Khoa học tự nhiên · Lớp 8</span></a>
@@ -234,23 +221,74 @@ body.bg-home .foot{margin-top:clamp(72px,10vw,136px)}
     <div class="showall"><button class="bg-btn ghost" id="showall" aria-controls="lessons" aria-expanded="false">Xem cả 17 bài</button></div>
   </section>
 
+  <section id="thi-nghiem" aria-labelledby="h-tv">
+    <div class="sh2"><h2 id="h-tv" class="h2">54 thí nghiệm theo bước</h2>
+      <div class="chips" role="group" aria-label="Lọc theo môn"><button class="chip" data-s="" aria-pressed="true">Tất cả</button><button class="chip" data-s="phys" aria-pressed="false">Vật lí 10</button><button class="chip" data-s="chem" aria-pressed="false">Hoá học 25</button><button class="chip" data-s="bio" aria-pressed="false">Sinh học 5</button><button class="chip" data-s="geo" aria-pressed="false">Địa lí 14</button></div></div>
+    <div class="tns collapsed" id="labs">
+      <a class="tn" data-s="phys" href="thu-vien/brownian-step.html"><img src="thu-vien/covers/brownian-step.webp" alt="" loading="lazy" width="480" height="320"><b>Chuyển động Brown và sự khuếch tán</b><span class="k">Vật lí · 9 bước</span></a>
+      <a class="tn" data-s="chem" href="thu-vien/titration-step.html"><img src="thu-vien/covers/titration-step.webp" alt="" loading="lazy" width="480" height="320"><b>Chuẩn độ acid mạnh – base mạnh</b><span class="k">Hoá học · 9 bước</span></a>
+      <a class="tn" data-s="bio" href="thu-vien/enzyme-step.html"><img src="thu-vien/covers/enzyme-step.webp" alt="" loading="lazy" width="480" height="320"><b>Các điều kiện ảnh hưởng đến hoạt tính enzyme</b><span class="k">Sinh học · 8 bước</span></a>
+      <a class="tn" data-s="geo" href="thu-vien/carbon-step.html"><img src="thu-vien/covers/carbon-step.webp" alt="" loading="lazy" width="480" height="320"><b>Biến đổi khí hậu toàn cầu và an ninh quốc gia</b><span class="k">Địa lí · 8 bước</span></a>
+      <a class="tn" data-s="phys" href="thu-vien/photoelectric-step.html"><img src="thu-vien/covers/photoelectric-step.webp" alt="" loading="lazy" width="480" height="320"><b>Hiện tượng quang điện</b><span class="k">Vật lí · 9 bước</span></a>
+      <a class="tn" data-s="chem" href="thu-vien/rate-step.html"><img src="thu-vien/covers/rate-step.webp" alt="" loading="lazy" width="480" height="320"><b>Các yếu tố ảnh hưởng đến tốc độ phản ứng hoá học</b><span class="k">Hoá học · 8 bước</span></a>
+      <a class="tn" data-s="bio" href="thu-vien/mitosis-step.html"><img src="thu-vien/covers/mitosis-step.webp" alt="" loading="lazy" width="480" height="320"><b>Quan sát nguyên phân ở tế bào vùng mô phân sinh đầu rễ</b><span class="k">Sinh học · 9 bước</span></a>
+      <a class="tn" data-s="geo" href="thu-vien/insolation-step.html"><img src="thu-vien/covers/insolation-step.webp" alt="" loading="lazy" width="480" height="320"><b>Chuyển động biểu kiến của Mặt Trời, các mùa và năm đới</b><span class="k">Địa lí · 9 bước</span></a>
+      <a class="tn" data-s="phys" href="thu-vien/capacitor-step.html"><img src="thu-vien/covers/capacitor-step.webp" alt="" loading="lazy" width="480" height="320"><b>Quan sát sự tích điện và phóng điện của tụ điện</b><span class="k">Vật lí · 9 bước</span></a>
+      <a class="tn" data-s="chem" href="thu-vien/chlor-alkali-step.html"><img src="thu-vien/covers/chlor-alkali-step.webp" alt="" loading="lazy" width="480" height="320"><b>Công nghiệp chlor–kiềm</b><span class="k">Hoá học · 8 bước</span></a>
+      <a class="tn" data-s="bio" href="thu-vien/impulse-step.html"><img src="thu-vien/covers/impulse-step.webp" alt="" loading="lazy" width="480" height="320"><b>Sự hình thành và dẫn truyền xung thần kinh</b><span class="k">Sinh học · 9 bước</span></a>
+      <a class="tn" data-s="geo" href="thu-vien/wind-step.html"><img src="thu-vien/covers/wind-step.webp" alt="" loading="lazy" width="480" height="320"><b>Chuyển động ngang của khí quyển: gió</b><span class="k">Địa lí · 8 bước</span></a>
+      <a class="tn" data-s="phys" href="thu-vien/accel-force-step.html"><img src="thu-vien/covers/accel-force-step.webp" alt="" loading="lazy" width="480" height="320"><b>Thí nghiệm: Tìm hiểu mối liên hệ giữa gia tốc với lực và khối lượng</b><span class="k">Vật lí · 8 bước</span></a>
+      <a class="tn" data-s="chem" href="thu-vien/haber-step.html"><img src="thu-vien/covers/haber-step.webp" alt="" loading="lazy" width="480" height="320"><b>Công nghiệp tổng hợp ammonia</b><span class="k">Hoá học · 7 bước</span></a>
+      <a class="tn" data-s="bio" href="thu-vien/plasmolysis-step.html"><img src="thu-vien/covers/plasmolysis-step.webp" alt="" loading="lazy" width="480" height="320"><b>Sự hút nước và mất nước của tế bào thực vật</b><span class="k">Sinh học · 8 bước</span></a>
+      <a class="tn" data-s="geo" href="thu-vien/soil-step.html"><img src="thu-vien/covers/soil-step.webp" alt="" loading="lazy" width="480" height="320"><b>Các nhân tố hình thành đất chủ yếu và quan sát phẫu diện đất</b><span class="k">Địa lí · 8 bước</span></a>
+      <a class="tn x" data-s="phys" href="thu-vien/projectile-step.html"><img src="thu-vien/covers/projectile-step.webp" alt="" loading="lazy" width="480" height="320"><b>Thí nghiệm: Tìm hiểu đặc điểm của chuyển động ném ngang</b><span class="k">Vật lí · 9 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/bromine-step.html"><img src="thu-vien/covers/bromine-step.webp" alt="" loading="lazy" width="480" height="320"><b>Khai thác bromine từ nước biển: phương pháp thổi khí</b><span class="k">Hoá học · 7 bước</span></a>
+      <a class="tn x" data-s="bio" href="thu-vien/transport-step.html"><img src="thu-vien/covers/transport-step.webp" alt="" loading="lazy" width="480" height="320"><b>Vận chuyển các chất qua màng</b><span class="k">Sinh học · 8 bước</span></a>
+      <a class="tn x" data-s="geo" href="thu-vien/thermal-step.html"><img src="thu-vien/covers/thermal-step.webp" alt="" loading="lazy" width="480" height="320"><b>Hoàn lưu nhiệt của khí quyển</b><span class="k">Địa lí · 9 bước</span></a>
+      <a class="tn x" data-s="phys" href="thu-vien/energy-step.html"><img src="thu-vien/covers/energy-step.webp" alt="" loading="lazy" width="480" height="320"><b>Thí nghiệm: kiểm chứng định luật bảo toàn cơ năng</b><span class="k">Vật lí · 8 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/blast-furnace-step.html"><img src="thu-vien/covers/blast-furnace-step.webp" alt="" loading="lazy" width="480" height="320"><b>Luyện gang trong lò cao</b><span class="k">Hoá học · 8 bước</span></a>
+      <a class="tn x" data-s="geo" href="thu-vien/earth-motion-step.html"><img src="thu-vien/covers/earth-motion-step.webp" alt="" loading="lazy" width="480" height="320"><b>Hệ quả địa lí của chuyển động Trái Đất</b><span class="k">Địa lí · 9 bước</span></a>
+      <a class="tn x" data-s="phys" href="thu-vien/centripetal-step.html"><img src="thu-vien/covers/centripetal-step.webp" alt="" loading="lazy" width="480" height="320"><b>Tìm hiểu mối liên hệ giữa độ lớn lực hướng tâm với bán kính, tốc độ góc và khối lượng</b><span class="k">Vật lí · 8 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/smelting-step.html"><img src="thu-vien/covers/smelting-step.webp" alt="" loading="lazy" width="480" height="320"><b>Luyện kim: điện phân muối nóng chảy + nhiệt nhôm</b><span class="k">Hoá học · 8 bước</span></a>
+      <a class="tn x" data-s="geo" href="thu-vien/currents-step.html"><img src="thu-vien/covers/currents-step.webp" alt="" loading="lazy" width="480" height="320"><b>Quy luật phân bố và ảnh hưởng của dòng biển trên thế giới</b><span class="k">Địa lí · 9 bước</span></a>
+      <a class="tn x" data-s="phys" href="thu-vien/current-field-step.html"><img src="thu-vien/covers/current-field-step.webp" alt="" loading="lazy" width="480" height="320"><b>Từ trường của dòng điện</b><span class="k">Vật lí · 9 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/ball-stick-step.html"><img src="thu-vien/covers/ball-stick-step.webp" alt="" loading="lazy" width="480" height="320"><b>Lắp mô hình quả cầu – que để tìm hiểu cấu trúc phân tử hợp chất hữu cơ</b><span class="k">Hoá học · 9 bước</span></a>
+      <a class="tn x" data-s="geo" href="thu-vien/heating-step.html"><img src="thu-vien/covers/heating-step.webp" alt="" loading="lazy" width="480" height="320"><b>Quá trình khí quyển nhận nhiệt</b><span class="k">Địa lí · 9 bước</span></a>
+      <a class="tn x" data-s="phys" href="thu-vien/self-induction-step.html"><img src="thu-vien/covers/self-induction-step.webp" alt="" loading="lazy" width="480" height="320"><b>Tự cảm và dòng điện Foucault</b><span class="k">Vật lí · 9 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/electrolysis-step.html"><img src="thu-vien/covers/electrolysis-step.webp" alt="" loading="lazy" width="480" height="320"><b>Nguyên lí điện phân: điện phân dung dịch đồng(II) chloride và nước muối bão hoà</b><span class="k">Hoá học · 9 bước</span></a>
+      <a class="tn x" data-s="geo" href="thu-vien/water-cycle-step.html"><img src="thu-vien/covers/water-cycle-step.webp" alt="" loading="lazy" width="480" height="320"><b>Quá trình và ý nghĩa địa lí của vòng tuần hoàn nước</b><span class="k">Địa lí · 9 bước</span></a>
+      <a class="tn x" data-s="phys" href="thu-vien/emf-step.html"><img src="thu-vien/covers/emf-step.webp" alt="" loading="lazy" width="480" height="320"><b>Đo suất điện động và điện trở trong của nguồn điện</b><span class="k">Vật lí · 9 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/hou-soda-step.html"><img src="thu-vien/covers/hou-soda-step.webp" alt="" loading="lazy" width="480" height="320"><b>Phương pháp Hầu sản xuất soda</b><span class="k">Hoá học · 8 bước</span></a>
+      <a class="tn x" data-s="geo" href="thu-vien/karst-step.html"><img src="thu-vien/covers/karst-step.webp" alt="" loading="lazy" width="480" height="320"><b>Sự hình thành và nhận biết địa hình karst</b><span class="k">Địa lí · 7 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/galvanic-step.html"><img src="thu-vien/covers/galvanic-step.webp" alt="" loading="lazy" width="480" height="320"><b>Pin điện hoá: từ một dung dịch đến hai dung dịch</b><span class="k">Hoá học · 9 bước</span></a>
+      <a class="tn x" data-s="geo" href="thu-vien/tectonic-step.html"><img src="thu-vien/covers/tectonic-step.webp" alt="" loading="lazy" width="480" height="320"><b>Sự hình thành địa hình kiến tạo</b><span class="k">Địa lí · 6 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/sulfuric-step.html"><img src="thu-vien/covers/sulfuric-step.webp" alt="" loading="lazy" width="480" height="320"><b>Sản xuất sulfuric acid bằng phương pháp tiếp xúc</b><span class="k">Hoá học · 7 bước</span></a>
+      <a class="tn x" data-s="geo" href="thu-vien/river-step.html"><img src="thu-vien/covers/river-step.webp" alt="" loading="lazy" width="480" height="320"><b>Sự phát triển của địa hình do sông tạo thành</b><span class="k">Địa lí · 8 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/cement-step.html"><img src="thu-vien/covers/cement-step.webp" alt="" loading="lazy" width="480" height="320"><b>Sản xuất xi măng</b><span class="k">Hoá học · 8 bước</span></a>
+      <a class="tn x" data-s="geo" href="thu-vien/enso-step.html"><img src="thu-vien/covers/enso-step.webp" alt="" loading="lazy" width="480" height="320"><b>Tương tác biển – khí quyển, El Niño và La Niña</b><span class="k">Địa lí · 7 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/iron-step.html"><img src="thu-vien/covers/iron-step.webp" alt="" loading="lazy" width="480" height="320"><b>Sắt và hợp chất: chuyển hoá số oxi hoá của sắt</b><span class="k">Hoá học · 9 bước</span></a>
+      <a class="tn x" data-s="geo" href="thu-vien/circulation-step.html"><img src="thu-vien/covers/circulation-step.webp" alt="" loading="lazy" width="480" height="320"><b>Đai khí áp, đới gió và hoàn lưu ba vòng</b><span class="k">Địa lí · 7 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/coal-gas-step.html"><img src="thu-vien/covers/coal-gas-step.webp" alt="" loading="lazy" width="480" height="320"><b>Sử dụng tổng hợp than: lấy khí hoá than làm mạch chính</b><span class="k">Hoá học · 8 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/hydrolysis-step.html"><img src="thu-vien/covers/hydrolysis-step.webp" alt="" loading="lazy" width="480" height="320"><b>Sự thuỷ phân của muối và ứng dụng</b><span class="k">Hoá học · 9 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/conductivity-step.html"><img src="thu-vien/covers/conductivity-step.webp" alt="" loading="lazy" width="480" height="320"><b>Sự điện li của chất điện li, tính dẫn điện của dung dịch và bản chất phản ứng ion</b><span class="k">Hoá học · 9 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/flame-step.html"><img src="thu-vien/covers/flame-step.webp" alt="" loading="lazy" width="480" height="320"><b>Thử màu ngọn lửa và quang phổ nguyên tử</b><span class="k">Hoá học · 8 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/equilibrium-step.html"><img src="thu-vien/covers/equilibrium-step.webp" alt="" loading="lazy" width="480" height="320"><b>Tìm hiểu các yếu tố ảnh hưởng đến chuyển dịch cân bằng hoá học</b><span class="k">Hoá học · 9 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/nitric-lab-step.html"><img src="thu-vien/covers/nitric-lab-step.webp" alt="" loading="lazy" width="480" height="320"><b>Tính chất của nitric acid đặc, loãng và sự chuyển hoá các oxide của nitrogen</b><span class="k">Hoá học · 9 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/sodium-step.html"><img src="thu-vien/covers/sodium-step.webp" alt="" loading="lazy" width="480" height="320"><b>Tính chất của sodium kim loại (kèm chữa cháy sodium)</b><span class="k">Hoá học · 9 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/sulfur-step.html"><img src="thu-vien/covers/sulfur-step.webp" alt="" loading="lazy" width="480" height="320"><b>Tính chất của sulfur, sulfur dioxide, sulfuric acid đặc và chuyển hoá giữa các chất chứa sulfur có số oxi hoá khác nhau</b><span class="k">Hoá học · 9 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/corrosion-step.html"><img src="thu-vien/covers/corrosion-step.webp" alt="" loading="lazy" width="480" height="320"><b>Ăn mòn hấp thụ oxygen và thiết kế miếng dán nhiệt</b><span class="k">Hoá học · 9 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/ammonia-step.html"><img src="thu-vien/covers/ammonia-step.webp" alt="" loading="lazy" width="480" height="320"><b>Điều chế và tính chất của ammonia (kèm thí nghiệm vòi phun)</b><span class="k">Hoá học · 9 bước</span></a>
+      <a class="tn x" data-s="chem" href="thu-vien/chlorine-step.html"><img src="thu-vien/covers/chlorine-step.webp" alt="" loading="lazy" width="480" height="320"><b>Điều chế và tính chất của chlorine</b><span class="k">Hoá học · 9 bước</span></a>
+    </div>
+    <div class="showall"><button class="bg-btn ghost" id="showlabs" aria-controls="labs" aria-expanded="false">Xem cả 54 thí nghiệm</button><a class="bg-tl" href="thu-vien/" style="margin-left:24px">Tìm theo yêu cầu cần đạt</a></div>
+  </section>
+
   <section id="lo-trinh" aria-labelledby="h-lt">
-    <div class="sh2"><h2 id="h-lt" class="h2">Lộ trình theo chương trình</h2><p class="lede">Các bài xếp theo thứ tự của chương trình GDPT 2018, kèm yêu cầu cần đạt trích nguyên văn.</p></div>
+    <div class="sh2"><h2 id="h-lt" class="h2">Lộ trình theo chương trình</h2></div>
     <div class="cols">
       <a class="col" href="chu-de/sinh-hoc-te-bao/"><span class="k">Sinh học · lớp 10 · 6 bài</span><b>Sinh học tế bào</b><span class="d">Tế bào, vận chuyển qua màng, ty thể, enzyme, nguyên phân.</span></a>
       <a class="col" href="lich-su-10/"><span class="k">Lịch sử · lớp 10 · ba bộ sách</span><b>Lịch sử 10</b><span class="d">Văn minh Văn Lang – Âu Lạc qua Thành Cổ Loa.</span></a>
       <a class="col" href="robotics/"><span class="k">Đại học · kỹ sư · 6 mô phỏng</span><b>Robotics</b><span class="d">Cánh tay, robot chân, drone, xe tự hành, theo tài liệu của hãng.</span></a>
-    </div>
-  </section>
-
-  <section aria-labelledby="h-tin">
-    <div class="tin">
-      <h2 id="h-tin" class="h2">Ba điều chúng tôi giữ khi làm một bài.</h2>
-      <div>
-        <div class="it"><h3>Đúng trước, đẹp sau.</h3><p>Mỗi con số có nguồn. Chỗ nào là giả định thì ghi là giả định, ngay trên màn hình.</p></div>
-        <div class="it"><h3>Học sinh là người cầm.</h3><p>Không có video để ngồi xem. Vật thể nằm trong tay: xoay, tháo, phóng to tới đâu cũng được.</p></div>
-        <div class="it"><h3>Trường nào cũng mở được.</h3><p>Chạy trên trình duyệt của máy tính và điện thoại, có mức nhẹ cho máy yếu, lưu được về máy để dạy khi mất mạng. Không quảng cáo, không theo dõi.</p></div>
-      </div>
     </div>
   </section>
 
@@ -274,16 +312,6 @@ body.bg-home .foot{margin-top:clamp(72px,10vw,136px)}
     </div>
   </section>
 
-  <section id="thu-vien" aria-labelledby="h-tv">
-    <div class="sh2"><h2 id="h-tv" class="h2">Thư viện 54 bài thí nghiệm</h2><p class="lede">Vật lí, Hoá học, Sinh học, Địa lí. Mỗi bài đối chiếu với yêu cầu cần đạt của chương trình. <a class="tl" href="thu-vien/">Mở thư viện</a></p></div>
-    <div class="cols">
-      <a class="col" href="thu-vien/?mon=phys"><span class="k">10 bài</span><b>Vật lí</b></a>
-      <a class="col" href="thu-vien/?mon=chem"><span class="k">25 bài</span><b>Hoá học</b></a>
-      <a class="col" href="thu-vien/?mon=bio"><span class="k">5 bài</span><b>Sinh học</b></a>
-      <a class="col" href="thu-vien/?mon=geo"><span class="k">14 bài</span><b>Địa lí</b></a>
-    </div>
-  </section>
-
   <footer class="foot">
     <div class="fl"><span>© 2026 Sáng Ăn Khoai</span><span><a href="https://github.com/nclamvn/bai-giang" target="_blank" rel="noopener">Mã nguồn</a> · <a href="https://github.com/nclamvn/bai-giang/issues" target="_blank" rel="noopener">Góp ý</a></span></div>
     <details>
@@ -299,11 +327,18 @@ body.bg-home .foot{margin-top:clamp(72px,10vw,136px)}
 </main>
 <script>
 // địa chỉ cũ: thư viện từng nằm ở /#thu-vien (kèm ?mon=…), nay là trang riêng
-if (location.hash === '#thu-vien') location.replace('thu-vien/' + location.search);
-// bài giảng: các bài đầu hiện sẵn, các bài còn lại mở bằng nút
-{ const g = document.getElementById('lessons'), b = document.getElementById('showall');
-  b.addEventListener('click', () => { const open = g.classList.toggle('collapsed') === false; b.setAttribute('aria-expanded', String(open)); b.textContent = open ? 'Thu gọn' : b.dataset.t; });
-  b.dataset.t = b.textContent; }
+if (location.hash === '#thu-vien' && location.search) location.replace('thu-vien/' + location.search);
+else if (location.hash === '#thu-vien') location.hash = '#thi-nghiem';
+// bài giảng và thí nghiệm: các ô đầu hiện sẵn, phần còn lại mở bằng nút; chọn một môn thì hiện mọi thí nghiệm của môn đó
+function moRong(g, b) { b.dataset.t = b.textContent;
+  b.addEventListener('click', () => { const open = g.classList.toggle('collapsed') === false; b.setAttribute('aria-expanded', String(open)); b.textContent = open ? 'Thu gọn' : b.dataset.t; }); }
+moRong(document.getElementById('lessons'), document.getElementById('showall'));
+{ const g = document.getElementById('labs'), b = document.getElementById('showlabs'), chips = [...document.querySelectorAll('#thi-nghiem .chip')];
+  moRong(g, b);
+  chips.forEach((c) => c.addEventListener('click', () => { const s = c.dataset.s;
+    chips.forEach((x) => x.setAttribute('aria-pressed', String(x === c)));
+    g.querySelectorAll('.tn').forEach((t) => { t.hidden = !!s && t.dataset.s !== s; });
+    g.classList.toggle('collapsed', !s); b.hidden = !!s; b.setAttribute('aria-expanded', 'false'); b.textContent = b.dataset.t; })); }
 </script>
 </body>
 </html>

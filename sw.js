@@ -85,7 +85,7 @@ async function handle(e, req, k, nav) {
     const any = await c.match(SCOPE + k, { ignoreSearch: true });   // mất mạng: bản đã lưu gần nhất
     if (any) return any;
     if (nav) return new Response('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chưa có mạng</title>'
-      + '<body style="font:16px/1.6 system-ui,sans-serif;max-width:560px;margin:15vh auto;padding:0 20px;color:#15171C"><h1 style="font-size:22px">Chưa có mạng</h1>'
+      + '<body style="font:16px/1.6 system-ui,sans-serif;max-width:560px;margin:15vh auto;padding:0 20px;color:#1D1B16"><h1 style="font-size:22px">Chưa có mạng</h1>'
       + '<p>Trang này chưa được lưu trên máy. Các bài đã mở trước đây vẫn mở được khi không có mạng.</p><p><a href="' + SCOPE + '">Về trang chính</a></p>',
       { status: 503, headers: { 'content-type': 'text/html; charset=utf-8' } });
     throw err;

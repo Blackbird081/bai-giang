@@ -239,7 +239,7 @@ def phieu_html(g):
 
 
 def page(g):
-    acc = ACCENT.get(g['s'], '#1E2A44')
+    acc = ACCENT.get(g['s'], '#1D1B16')
     nb = len(g['buoc'])
     tl = ''.join(f'<a href="#hd-{k}" style="flex:{h["den"] - h["tu"]};background:color-mix(in srgb,{acc} {14 + k * 7}%,#fff)"><b>{E(h["ten"])}</b><span>{mins(h["tu"], h["den"])}</span></a>' for k, h in enumerate(g['hoat_dong']))
     acts = []

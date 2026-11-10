@@ -70,9 +70,9 @@ def loader(seq, root):
     return ('<!--BG-LOAD:start--><div id="bgs-load" role="progressbar" aria-label="Đang tải bài" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8" style="position:fixed;inset:0;z-index:2147483600;'
             f'background:#E9EAEE url(\'{cover}\') center/cover no-repeat;display:flex;align-items:flex-end;justify-content:center;padding:0 16px max(10vh,72px);transition:opacity .6s cubic-bezier(.2,.8,.2,1)">'
             '<div style="width:min(360px,100%);padding:14px 18px 16px;border-radius:16px;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);'
-            'box-shadow:0 18px 44px -18px rgba(16,24,40,.4);font:600 17px/1.35 \'Be Vietnam Pro\',system-ui,sans-serif;color:#15171C">'
+            'box-shadow:0 18px 44px -18px rgba(16,24,40,.4);font:600 17px/1.35 \'Be Vietnam Pro\',system-ui,sans-serif;color:#1D1B16">'
             f'<div id="bgs-load-k" style="font-size:13px;font-weight:500;color:#626773">Đang tải bài</div><div>{t}</div>'
-            '<div style="height:4px;border-radius:2px;background:rgba(16,24,40,.1);margin-top:12px;overflow:hidden"><i style="display:block;height:100%;width:8%;border-radius:2px;background:#1E2A44;transition:width .5s cubic-bezier(.2,.8,.2,1)"></i></div></div>'
+            '<div style="height:4px;border-radius:2px;background:rgba(16,24,40,.1);margin-top:12px;overflow:hidden"><i style="display:block;height:100%;width:8%;border-radius:2px;background:#1D1B16;transition:width .5s cubic-bezier(.2,.8,.2,1)"></i></div></div>'
             '<style>#bgs-load.out{opacity:0;pointer-events:none}@media (prefers-reduced-motion:reduce){#bgs-load i{transition:none}}</style>'
             # tiến độ theo sự kiện thật: mỗi tệp tải xong, trang đã đọc xong, canvas có khung đầu; vỏ đặt 100% khi gỡ màn tải
             '<script>(function(){var L=document.getElementById("bgs-load"),b=L.querySelector("i"),k=document.getElementById("bgs-load-k"),p=.08,n=0;'

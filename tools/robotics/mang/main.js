@@ -110,7 +110,7 @@ const modeTxt = ui.add(`<div style="position:absolute;left:42px;top:142px;font:7
 const ramSvg = ui.svg(42, 172, 272, 96);
 const rRows = ['TỐC ĐỘ BƠI', 'PHẦN ÉP DÒNG', 'NHỊP ĐUÔI (BAINBRIDGE)', 'KIỂU CỦA LOÀI'].map((n, k) => [ui.text(42, 282 + k * 20, n), ui.text(150, 280 + k * 20, '', 'v', 'width:164px;text-align:right')]);
 ui.panel(28, 386, 300, 206, 'ĐIỀU KHIỂN', '02');
-const pick = ui.add(`<select aria-label="Chọn loài cá" style="position:absolute;left:42px;top:416px;width:272px;height:28px;pointer-events:auto;box-sizing:border-box;padding:0 8px;border:1px solid #e3e6ea;border-radius:8px;background:#fff;color:#15171C;font:600 12px 'Be Vietnam Pro',system-ui,sans-serif">
+const pick = ui.add(`<select aria-label="Chọn loài cá" style="position:absolute;left:42px;top:416px;width:272px;height:28px;pointer-events:auto;box-sizing:border-box;padding:0 8px;border:1px solid #e3e6ea;border-radius:8px;background:#fff;color:#1D1B16;font:600 12px 'Be Vietnam Pro',system-ui,sans-serif">
   <optgroup label="Có số đo mang">${FISHES.map((f) => `<option value="${f.id}">${f.vi} · ${f.sci}</option>`).join('')}</optgroup>
   <optgroup label="Bộ sưu tập Fish Kit">${ALL.filter((f) => !CORE.has(f.id)).map((f) => `<option value="${f.id}">${f.vi} · ${f.sci}</option>`).join('')}</optgroup></select>`);
 pick.addEventListener('pointerdown', (e) => e.stopPropagation());

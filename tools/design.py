@@ -102,10 +102,10 @@ def std_css(scope):
         f'{S} .btn{{font-weight:600;letter-spacing:0;text-transform:none}}\n'
         # nút chính: một màu thương hiệu, phẳng, không chuyển sắc theo môn
         f'{S} {PRI}{{background:var(--bg-brand)!important;background-image:none!important;border-color:var(--bg-brand)!important;color:var(--bg-brand-ink)!important;'
-        'box-shadow:0 6px 16px -10px rgba(30,42,68,.65)!important;text-shadow:none!important}\n'
+        'box-shadow:none!important;text-shadow:none!important}\n'
         f'{S} {PRI}:hover:not(:disabled){{filter:brightness(1.18)}}\n'
         # đang bật, đang chọn: mực đậm
-        f'{S} {ON}{{background:var(--bg-ink)!important;background-image:none!important;border-color:var(--bg-ink)!important;color:#fff!important}}\n'
+        f'{S} {ON}{{background:var(--bg-ink)!important;background-image:none!important;border-color:var(--bg-ink)!important;color:var(--bg-page)!important}}\n'
         f'{S} :is(input[type=range],input[type=checkbox],input[type=radio]){{accent-color:var(--bg-brand)}}\n'
         f'{S} :is(a,button,input,select,textarea,summary,[tabindex]):focus-visible{{outline:2px solid var(--bg-focus)!important;outline-offset:2px}}\n'
     )
@@ -118,7 +118,7 @@ body{font-family:var(--bg-font);color:var(--bg-ink);font-size:var(--bg-fs-sm);li
 .bg-ico{width:20px;height:20px;flex:none;vertical-align:middle}
 :focus-visible{outline:2px solid var(--bg-focus);outline-offset:2px;border-radius:6px}
 .bg-num{font-family:var(--bg-mono);font-variant-numeric:tabular-nums}
-.bg-serif{font-family:var(--bg-serif);font-weight:600;letter-spacing:-.01em}
+.bg-serif{font-family:var(--bg-serif);font-weight:400;letter-spacing:-.015em}
 h1,h2,h3{text-wrap:balance}
 p,li{text-wrap:pretty}
 /* màn cảm ứng (máy tính bảng, điện thoại): vùng chạm từ 44 px cho nút chữ và dòng mở rộng */
@@ -129,19 +129,22 @@ p,li{text-wrap:pretty}
    Mép trái nội dung trùng mép logo trên thanh trên (1240 px, lề 24 px). Trang mục chỉ dùng các lớp dưới đây cho các vai này. */
 :root{--bg-page-w:1240px;--bg-gutter:24px}
 @media (max-width:640px){:root{--bg-gutter:16px}}
-body.bg-hub{background:var(--bg-page);margin:0}
+/* trang mục không dùng hộp đổ bóng: bóng của thẻ đổi thành một đường kẻ mảnh */
+body.bg-hub{background:var(--bg-page);margin:0;--bg-sh-1:0 0 0 1px var(--bg-hair);--bg-sh-2:0 0 0 1px var(--bg-hair2)}
 body.bg-hub :is(.wrap,.sitebar .in,.bg-frame){max-width:var(--bg-page-w);margin-inline:auto;padding-inline:var(--bg-gutter);box-sizing:border-box}
-body.bg-hub h1{font:600 clamp(34px,4vw,48px)/1.12 var(--bg-serif);letter-spacing:-.02em;color:var(--bg-ink);text-wrap:balance}
+body.bg-hub h1{font:400 clamp(38px,5.2vw,68px)/1.06 var(--bg-serif);letter-spacing:-.028em;color:var(--bg-ink);text-wrap:balance}
 body.bg-hub h1 em{font-style:normal;color:inherit}
-body.bg-hub h1.bg-display{font-size:clamp(38px,4.6vw,56px);line-height:1.08}
-body.bg-hub .bg-eyebrow{display:block;font:600 13px/1.4 var(--bg-font);letter-spacing:.01em;color:var(--bg-ink3);text-transform:none}
+body.bg-hub h1.bg-display{font-size:clamp(44px,7vw,96px);line-height:1.04;letter-spacing:-.03em}
+body.bg-hub .bg-eyebrow{display:block;font:400 13px/1.4 var(--bg-font);letter-spacing:.01em;color:var(--bg-ink3);text-transform:none}
 body.bg-hub .bg-lead{font-size:var(--bg-fs-md);line-height:1.6;color:var(--bg-ink2);max-width:62ch}
-body.bg-hub .bg-h2{font:700 var(--bg-fs-xl)/1.2 var(--bg-font);letter-spacing:-.015em;color:var(--bg-ink);margin:0}
-body.bg-hub .bg-h3{font:700 var(--bg-fs-lg)/1.25 var(--bg-font);letter-spacing:-.01em;color:var(--bg-ink);margin:0}
-.bg-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:var(--bg-r-pill);border:1px solid var(--bg-brand);background:var(--bg-brand);color:var(--bg-brand-ink);font:600 15px/1 var(--bg-font);letter-spacing:0;text-decoration:none;white-space:nowrap;cursor:pointer;box-shadow:none;transition:filter var(--bg-t-fast) var(--bg-ease),background-color var(--bg-t-fast) var(--bg-ease)}
+body.bg-hub .bg-h2{font:400 clamp(26px,3.2vw,40px)/1.12 var(--bg-serif);letter-spacing:-.02em;color:var(--bg-ink);margin:0}
+body.bg-hub .bg-h3{font:400 var(--bg-fs-xl)/1.2 var(--bg-serif);letter-spacing:-.012em;color:var(--bg-ink);margin:0}
+.bg-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;border-radius:var(--bg-r-sm);border:1px solid var(--bg-brand);background:var(--bg-brand);color:var(--bg-brand-ink);font:500 15px/1 var(--bg-font);letter-spacing:0;text-decoration:none;white-space:nowrap;cursor:pointer;box-shadow:none;transition:filter var(--bg-t-fast) var(--bg-ease),background-color var(--bg-t-fast) var(--bg-ease)}
 .bg-btn:hover:not(:disabled){filter:brightness(1.18)}
-.bg-btn.ghost{background:var(--bg-surface);color:var(--bg-ink);border-color:var(--bg-hair2)}
-.bg-btn.ghost:hover:not(:disabled){filter:none;background:#fff;border-color:var(--bg-ink3)}
+.bg-btn.ghost{background:transparent;color:var(--bg-ink);border-color:var(--bg-hair2)}
+.bg-btn.ghost:hover:not(:disabled){filter:none;background:var(--bg-surface);border-color:var(--bg-ink3)}
+.bg-tl{display:inline-flex;align-items:center;min-height:44px;font-weight:500;color:var(--bg-ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+.bg-tl:hover{text-decoration-thickness:2px}
 .bg-btn.sm{height:36px;padding:0 16px;font-size:14px}
 .bg-btn:disabled{background:var(--bg-hair);border-color:transparent;color:var(--bg-ink3);cursor:not-allowed}
 .bg-btn .bg-ico{width:18px;height:18px}

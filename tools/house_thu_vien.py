@@ -20,7 +20,7 @@ HOUSE = r"""<style id="bg-house">
 /* Giao diện nhà Sáng Ăn Khoai cho bài thư viện. Sinh bởi tools/house_thu_vien.py; không sửa tay. */
 html:root,html:root[data-theme]{--font:var(--bg-font)!important;--sci:var(--bg-accent,#2F6BFF);--sci-d:color-mix(in srgb,var(--bg-accent,#2F6BFF) 78%,#000);--sci-30:color-mix(in srgb,var(--bg-accent,#2F6BFF) 30%,transparent);--sci-28:color-mix(in srgb,var(--bg-accent,#2F6BFF) 28%,transparent);--sci-26:color-mix(in srgb,var(--bg-accent,#2F6BFF) 26%,transparent);--sci-22:color-mix(in srgb,var(--bg-accent,#2F6BFF) 22%,transparent);--sci-12:color-mix(in srgb,var(--bg-accent,#2F6BFF) 12%,transparent);--sci-8:color-mix(in srgb,var(--bg-accent,#2F6BFF) 8%,transparent);--sci-4:color-mix(in srgb,var(--bg-accent,#2F6BFF) 4%,transparent);--sci-0:color-mix(in srgb,var(--bg-accent,#2F6BFF) 0%,transparent);--num:var(--bg-font);--fs-xs:13px;--fs-b:14px;--fs-t:14px;--lg-font:var(--bg-font);
   --grad:linear-gradient(100deg,var(--bg-accent,#2F6BFF) 0%,color-mix(in srgb,var(--bg-accent,#2F6BFF) 72%,#000) 100%);--grad-soft:color-mix(in srgb,var(--bg-accent,#2F6BFF) 10%,transparent);
-  --ink:var(--bg-ink,#15171C);--ink2:var(--bg-ink2,#454A55);--ink3:var(--bg-ink3,#626773);--glass:rgba(255,255,255,.9);--glass-2:rgba(255,255,255,.88);--glass-bar:rgba(255,255,255,.9);--glass-blur:blur(20px) saturate(170%)}
+  --ink:var(--bg-ink,#1D1B16);--ink2:var(--bg-ink2,#454A55);--ink3:var(--bg-ink3,#626773);--glass:rgba(255,255,255,.9);--glass-2:rgba(255,255,255,.88);--glass-bar:rgba(255,255,255,.9);--glass-blur:blur(20px) saturate(170%)}
 body{font-family:var(--bg-font)}
 .phead h2,.sb,.ct,.bk,.lbl,.k{letter-spacing:.01em!important;text-transform:none!important}
 /* thanh đầu bài chung của vỏ thay header#top và nav#steps của bản gốc */
@@ -46,7 +46,7 @@ body.bgs-on footer#foot .cur{font:600 14px var(--bg-mono);color:var(--bg-ink2)}
   body.bgs-nav-on.m-3d #mtabs{bottom:calc(84px + env(safe-area-inset-bottom))!important}
   #mtabs button{min-height:40px;padding:0 14px!important;font:600 14px var(--bg-font)!important}
   /* thanh ba nút đè lên nhãn 3D: nền đặc để nhãn phía sau không lộ qua */
-  #mtabs{background:rgba(244,244,246,.98)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:0 6px 18px -8px rgba(16,24,40,.28),0 0 0 .5px rgba(16,24,40,.08)!important}
+  #mtabs{background:rgba(243,239,230,.98)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:0 6px 18px -8px rgba(16,24,40,.28),0 0 0 .5px rgba(16,24,40,.08)!important}
 }
 @media (max-width:700px),(orientation:portrait) and (max-width:1100px){body.bgs-on #eqb{transform:translateX(-50%)!important;width:min(380px,calc(100vw - 24px))!important}}
 /* điện thoại: chữ nhỏ nhất 14 px (minfont viết các cỡ ngưỡng thành var(--bg-fs-min)) */

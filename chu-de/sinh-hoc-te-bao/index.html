@@ -64,7 +64,7 @@ td:first-child{width:24%;color:var(--ink2);font-size:13px} td:last-child{width:2
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--panel);border-color:var(--ink)}
 footer{font-size:13px;line-height:1.55;color:var(--lg-muted);border-top:1px solid var(--lg-hair);margin-top:24px;padding:20px 4px 8px;display:grid;gap:6px} footer a{color:inherit;text-decoration:underline;text-decoration-color:rgba(110,110,115,.35);text-underline-offset:2px} footer b{font-weight:600;color:var(--lg-ink2)}
 :root,:root[data-theme]{
-  --lg-page:var(--bg-page,#F4F4F6);
+  --lg-page:var(--bg-page,#F3EFE6);
   --lg-wash:linear-gradient(180deg,#FAFAFB 0%,#F2F2F5 100%);
   --lg-fill:rgba(255,255,255,.86);
   --lg-fill-strong:rgba(255,255,255,.95);
@@ -76,13 +76,13 @@ footer{font-size:13px;line-height:1.55;color:var(--lg-muted);border-top:1px soli
   --lg-inner:inset 0 1px 0 rgba(255,255,255,.9);
   --lg-r:var(--bg-r-lg,20px); --lg-r-md:var(--bg-r-md,14px); --lg-r-sm:var(--bg-r-sm,10px);
   --lg-font:var(--bg-font,"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif);
-  --lg-ink:var(--bg-ink,#15171C); --lg-ink2:var(--bg-ink2,#454A55); --lg-muted:var(--bg-ink3,#626773);
+  --lg-ink:var(--bg-ink,#1D1B16); --lg-ink2:var(--bg-ink2,#454A55); --lg-muted:var(--bg-ink3,#626773);
 
   --paper:var(--bg-page); --panel:#FFFFFF; --ink:var(--bg-ink); --ink2:var(--bg-ink2); --muted:var(--bg-ink3); --line:rgba(15,23,42,.08); --f-body:var(--lg-font); --f-mono:var(--lg-font); --r:22px;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]),:root[data-theme]{
-  --lg-page:var(--bg-page,#F4F4F6);
+  --lg-page:var(--bg-page,#F3EFE6);
   --lg-wash:linear-gradient(180deg,#FAFAFB 0%,#F2F2F5 100%);
   --lg-fill:rgba(255,255,255,.86);
   --lg-fill-strong:rgba(255,255,255,.95);
@@ -94,7 +94,7 @@ footer{font-size:13px;line-height:1.55;color:var(--lg-muted);border-top:1px soli
   --lg-inner:inset 0 1px 0 rgba(255,255,255,.9);
   --lg-r:var(--bg-r-lg,20px); --lg-r-md:var(--bg-r-md,14px); --lg-r-sm:var(--bg-r-sm,10px);
   --lg-font:var(--bg-font,"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif);
-  --lg-ink:var(--bg-ink,#15171C); --lg-ink2:var(--bg-ink2,#454A55); --lg-muted:var(--bg-ink3,#626773);
+  --lg-ink:var(--bg-ink,#1D1B16); --lg-ink2:var(--bg-ink2,#454A55); --lg-muted:var(--bg-ink3,#626773);
 
   --paper:var(--bg-page); --panel:#FFFFFF; --ink:var(--bg-ink); --ink2:var(--bg-ink2); --muted:var(--bg-ink3); --line:rgba(15,23,42,.08); --f-body:var(--lg-font); --f-mono:var(--lg-font); --r:22px;
   color-scheme:light;
@@ -106,7 +106,7 @@ table{background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-
 .btn,.chip{border-radius:999px!important;background:var(--lg-fill);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);border:1px solid var(--lg-stroke)!important;box-shadow:var(--lg-shadow-lo),var(--lg-inner);color:var(--lg-ink);font-family:var(--lg-font);font-weight:600;transition:transform .15s ease,box-shadow .2s ease}
 .btn:hover,.chip:hover{box-shadow:0 0 0 .5px rgba(15,23,42,.1),0 8px 22px -8px rgba(15,23,42,.25),var(--lg-inner)}
 .btn:active,.chip:active{transform:scale(.97)}
-.btn.pri{background:var(--bg-brand,#1E2A44)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 6px 16px -10px rgba(30,42,68,.65)!important}
+.btn.pri{background:var(--bg-brand,#1D1B16)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 6px 16px -10px rgba(29,27,22,.65)!important}
 .chip[aria-pressed="true"]{background:var(--bg-ink)!important;color:#fff!important}.ask{border-left:0;border-radius:12px;background:var(--bg-page)} th{background:rgba(255,255,255,.5)} .step .vis img{border-radius:16px}
 
 
@@ -114,9 +114,9 @@ html{background:var(--lg-wash),var(--lg-page);background-attachment:fixed}
 body{background:transparent!important}
 
 
-.sitebar{position:sticky;top:0;z-index:50;background:rgba(244,244,246,.86);-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);border-bottom:1px solid var(--bg-hair,rgba(16,24,40,.1));font-family:var(--bg-font)}
+.sitebar{position:sticky;top:0;z-index:50;background:rgba(243,239,230,.86);-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);border-bottom:1px solid var(--bg-hair,rgba(16,24,40,.1));font-family:var(--bg-font)}
 .sitebar .in{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;height:var(--bg-bar,56px)}
-.sitebar .brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;color:var(--bg-ink,#15171C);text-decoration:none;min-height:44px;min-width:44px;letter-spacing:-.01em;flex:none}
+.sitebar .brand{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;color:var(--bg-ink,#1D1B16);text-decoration:none;min-height:44px;min-width:44px;letter-spacing:-.01em;flex:none}
 .sitebar .brand img{width:32px;height:32px;display:block}
 .sitebar .crumbs{display:flex;align-items:center;gap:8px;min-width:0;color:var(--bg-ink3,#626773);font-size:15px}
 .sitebar .crumbs a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}.sitebar .crumbs a:hover{color:var(--bg-ink)}

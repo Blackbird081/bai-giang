@@ -61,9 +61,8 @@ LIB_TPL = (ROOT / 'tools/thu-vien.template.html').read_text(encoding='utf-8')
 N_SHOWN = 8  # số bài hiện sẵn trong mục lục; các bài sau mở bằng nút "Xem cả … bài"
 HERO = 'than-kinh'  # bìa của bài đứng làm hình lớn duy nhất ở màn đầu
 HERO_ALT = 'Neuron phát sáng với bao myelin chia đốt và chuỳ synapse trên nền tối'
-# trang chủ dùng Noto Serif 400 cho tiêu đề; các trang khác chỉ cần 600 (design/house.css) nên khai báo riêng ở đây
-U = json.loads((ROOT / 'design/tokens.json').read_text(encoding='utf-8'))['unicode']
-HOME_CSS = '\n'.join(f"@font-face{{font-family:'Noto Serif';font-style:normal;font-weight:400;font-display:swap;src:url(__L_ROOT__design/fonts/noto-serif-{u}-400-normal.woff2) format('woff2');unicode-range:{U[u]}}}" for u in ('latin', 'vietnamese')) + '\n' + (ROOT / 'tools/trang-chu.css').read_text(encoding='utf-8')
+HOME_CSS = (ROOT / 'tools/trang-chu.css').read_text(encoding='utf-8')
+N_LABS = 16  # số thí nghiệm hiện sẵn trên trang chính khi chưa chọn môn
 
 
 def hero():
@@ -84,9 +83,17 @@ def featured():
 SUBJ_TILES = [('phys', 'Vật lí'), ('chem', 'Hoá học'), ('bio', 'Sinh học'), ('geo', 'Địa lí')]
 
 
-def subjects(libpage):
-    """Bốn môn của thư viện trên trang chính: tên môn, số bài, dẫn vào thư viện đã lọc theo môn."""
-    return '\n      '.join(f'<a class="col" href="{libpage}?mon={sub}"><span class="k">{sum(c["subject"] == sub for c in CAT)} bài</span><b>{name}</b></a>' for sub, name in SUBJ_TILES)
+def labs():
+    """54 thí nghiệm của thư viện trên trang chính: ảnh, tên, môn · số bước. Xếp xen kẽ bốn môn để hàng đầu có đủ môn;
+    từ ô thứ N_LABS + 1 ẩn tới khi bấm nút hoặc chọn một môn."""
+    by = {sub: [c for c in CAT if c['subject'] == sub] for sub, _ in SUBJ_TILES}
+    order = [by[sub][k] for k in range(max(map(len, by.values()))) for sub, _ in SUBJ_TILES if k < len(by[sub])]
+    assert len(order) == len(CAT), 'có bài thư viện ngoài bốn môn'
+    return '\n      '.join(f'''<a class="tn{' x' if k >= N_LABS else ''}" data-s="{c['subject']}" href="__L_BASE__{c['file']}"><img src="__L_BASE__{c['cover']}" alt="" loading="lazy" width="480" height="320"><b>{E(c['title'])}</b><span class="k">{E(c['mon'])} · {len(c['steps'])} bước</span></a>''' for k, c in enumerate(order))
+
+
+def lab_chips():
+    return ''.join(f'<button class="chip" data-s="{sub}" aria-pressed="false">{name} {sum(c["subject"] == sub for c in CAT)}</button>' for sub, name in SUBJ_TILES)
 
 
 def catalog_json():
@@ -104,7 +111,7 @@ def fill(s):
 def library(links):
     """Trang chính (tên hàm giữ từ khi thư viện còn nằm trong trang chính)."""
     s = TPL.replace('__STYLE__', CSS + HOME_CSS).replace('__SOURCES__', sources_html()).replace('__FEATURED__', featured()).replace('__HERO__', hero())
-    s = s.replace('__N3D__', str(len(FEATURED))).replace('__NLIB__', str(len(CAT))).replace('__SUBJECTS__', subjects(links['__L_LIBPAGE__']))
+    s = s.replace('__N3D__', str(len(FEATURED))).replace('__NLIB__', str(len(CAT))).replace('__LABS__', labs()).replace('__CHIPS__', lab_chips())
     for k, v in links.items(): s = s.replace(k, v)
     return fill(s)
 
