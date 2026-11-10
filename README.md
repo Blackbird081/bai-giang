@@ -195,7 +195,7 @@ Mọi trang dùng chung một chuẩn trong [`tools/liquid_glass.py`](tools/liqu
 | `thu-vien/` | 54 bài tiếng Việt (CC BY-NC 4.0), ảnh bìa, `catalog.vi.json`, đối chiếu chương trình `gdpt2018.json`, công cụ Việt hoá `_viet-hoa/`; `thu-vien/anh/` là ảnh nhúng base64 lớn được `tools/house_thu_vien.py` tách ra (ảnh Trái Đất dùng chung cho 4 bài) |
 | `src/head.part`, `src/body.part`, `src/script.part` | CSS, HTML, JS của trang Tế Bào |
 | `tools/liquid_glass.py` | Chuẩn giao diện chung: nền trắng, kính lỏng |
-| `tools/build_pages.py` | Dựng trang chính (`bai-giang.template.html`), trang Thư viện (`thu-vien.template.html`), trang chủ đề và các trang chuyển hướng; CSS chung của hai trang ở `trang-chinh.css`; khung trang mục ở `design/house.css` |
+| `tools/build_pages.py` | Dựng trang chính (`bai-giang.template.html`), trang Thư viện (`thu-vien.template.html`), trang chủ đề và các trang chuyển hướng; CSS chung của hai trang ở `trang-chinh.css`, kiểu riêng của trang chính (nền giấy, mục lục bài giảng) ở `trang-chu.css`; khung trang mục ở `design/house.css` |
 | `tools/khung_bia.py` | Đóng khung lại bìa bài 3D nền sáng: cùng tỉ lệ 3:2, cùng cỡ vật, chạy lại không đổi (mã băm ở `thu-vien/covers/khung.json`) |
 | `tools/build_ribosome.py`, `tools/build_atp.py`, `tools/build_glb.py` | Xử lý trước dữ liệu PDB, có cổng kiểm sai số |
 | `tools/sw.py` | Bộ nhớ đệm theo mã băm: `sw-manifest.json`, `sw.js`, khối đăng ký ở mọi trang |

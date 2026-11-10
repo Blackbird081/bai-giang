@@ -33,7 +33,7 @@ def sources_html():
     return 'Văn bản chương trình: ' + ' · '.join(out) + '.'
 
 
-# mười hai bài 3D riêng nổi bật (lưới 4 cột chẵn hàng): một mẫu thẻ chung với thư viện (kế hoạch nâng cấp UI 1.8).
+# các bài 3D riêng trong mục lục của trang chính, theo thứ tự hiện; bài mang bìa HERO đứng làm hình lớn ở màn đầu.
 # Xe tự hành, robot sáu chân và drone Crazyflie vẫn có ở mục Robotics.
 FEATURED = [
     ('__L_CELL__', 'te-bao', 'sinh', 'Sinh học', 'Lớp 10', 'Hành Trình Vào Tế Bào', 'Tế bào nhân thực đang hoạt động; phóng liền mạch xuống 222.336 nguyên tử của ribosome thật.'),
