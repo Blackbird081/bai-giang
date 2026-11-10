@@ -34,7 +34,7 @@ body.cmp .cutbar{display:flex}
 .cutbar button.acc{background:#1D1B16;color:#fff}
 .cutbar .lb{flex:none;align-self:center;padding:0 4px 0 2px;font:600 13px var(--bg-font,system-ui,sans-serif);color:#626773}
 @media (pointer:coarse){.cutbar button{height:44px}}
-@media (orientation:landscape) and (max-height:520px){.cutbar{left:max(8px,env(safe-area-inset-left));top:calc(var(--bg-bar,48px) + 72px + env(safe-area-inset-top));max-width:calc(50vw - 24px)}}
+@media (orientation:landscape) and (max-height:520px){.cutbar{left:max(8px,env(safe-area-inset-left));top:calc(var(--bg-bar,48px) + 72px + env(safe-area-inset-top));max-width:calc(50vw - 28px)}}
 @media (max-width:700px){.cutbar{left:8px;right:8px;max-width:none;top:calc(var(--bg-bar,48px) + 72px + env(safe-area-inset-top))}body.cut-on .lv-insp{top:calc(var(--bg-bar,48px) + 128px + env(safe-area-inset-top))}}
 html[data-chieu] .cut-lab{font-size:16px}html[data-chieu] .cut-lab small{font-size:14px}
 `;
